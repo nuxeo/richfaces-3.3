@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template 
+	xmlns:f="http://jsf.exadel.com/template"
+   	xmlns:u="http://jsf.exadel.com/template/util" 
+   	xmlns="http://www.w3.org/1999/xhtml">	
+
+
+	<u:selector name=".dr-rich-tool-tip">
+		<u:style name="background-color" skin="tipBackgroundColor"/> 
+		<u:style name="padding" value="7px"/>
+		<u:style name="border" value="1px solid"/>
+		<u:style name="border-color" skin="tipBorderColor"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+		<u:style name="color" skin="generalFontColor"/>
+		<u:style name="float" value="left"/>
+		<u:style name="position" value="absolute"/>
+		<u:style name="display" value="none"/>
+	</u:selector>
+	
+</f:template>

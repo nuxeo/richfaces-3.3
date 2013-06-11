@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="seleniumTestDDNo">
+  <test name="IEFunctionalTests">
+    <parameter name="browser" value="*iexplore"/>
+     <parameter name="loadStyleStrategy" value="DEFAULT"/>
+   <parameter name="loadScriptStrategy" value="DEFAULT"/>
+   <parameter name="filterPrefix" value="/faces/NONE/"/>
+    <packages>
+      <package name="org.richfaces.testng" />
+    </packages>
+  </test>
+  <test name="FireFoxFunctionalTestsDDNo">
+   <parameter name="loadStyleStrategy" value="DEFAULT"/>
+   <parameter name="loadScriptStrategy" value="DEFAULT"/>
+   <parameter name="filterPrefix" value="/faces/NONE/"/>
+    <parameter name="browser" value="*firefox"/>
+    <packages>
+      <package name="org.richfaces.testng" />
+    </packages>
+  </test>
+</suite>

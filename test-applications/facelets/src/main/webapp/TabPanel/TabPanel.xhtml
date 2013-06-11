@@ -1,0 +1,38 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" id="tabPanelSubviewID">
+		<rich:tabPanel id="tabPanelId" headerAlignment="#{tabPanel.headerAlignment}" width="#{tabPanel.width}"
+			contentStyle="#{style.contentStyle}" headerClass="#{style.headerClass}" style="#{style.style}" styleClass="#{style.styleClass}" tabClass="#{style.tabClass}"
+			height="#{tabPanel.height}" rendered="#{tabPanel.rendered}" title="#{tabPanel.title}" switchType="#{tabPanel.switchType}"
+			headerSpacing="#{tabPanel.headerSpacing}" selectedTab="#{tabPanel.selectedTab}" activeTabClass="#{tabPanel.activeTabStyle}"
+			disabledTabClass="#{tabPanel.disabledTabStyle}" inactiveTabClass="#{tabPanel.inactiveTabStyle}"
+			contentClass="#{tabPanel.contentStyle}" onclick="#{event.onclick}" ondblclick="#{event.ondblclick}" 
+			onkeydown="#{event.onkeydown}" onkeypress="#{event.onkeypress}" onkeyup="#{event.onkeyup}" onmousedown="#{event.onmousedown}" 
+			onmousemove="#{event.onmousemove}" onmouseout="#{event.onmouseout}" onmouseover="#{event.onmouseover}" 
+			onmouseup="#{event.onmouseup}" binding="#{tabPanel.htmlTabPanel}">
+
+			<rich:tab id="tabOne" labelWidth="#{tabPanel.labelWidth}" label="#{tabPanel.label}"
+				onclick="#{event.onclick}" oncomplete="#{event.oncomplete}" ondblclick="#{event.ondblclick}" onkeydown="#{event.onkeydown}" onkeypress="#{event.onkeypress}" onkeyup="#{event.onkeyup}" onmousemove="#{event.onmousemove}" onmouseout="#{event.onmouseout}" onmouseover="#{event.onmouseover}" onmouseup="#{event.onmouseup}" ontabenter="#{event.ontabenter}" ontableave="#{event.ontableave}">
+				<h:outputText value="This is tab panel test example" styleClass="text1"></h:outputText>
+				<h:outputLink value="http://www.jboss.com/"><f:verbatim>Link</f:verbatim></h:outputLink>
+			</rich:tab>
+			<rich:tab id="tabTwo" label="Tab with image" disabled="#{tabPanel.disabledTab}"
+				onclick="#{event.onclick}" oncomplete="#{event.oncomplete}" ondblclick="#{event.ondblclick}" onkeydown="#{event.onkeydown}" onkeypress="#{event.onkeypress}" onkeyup="#{event.onkeyup}" onmousemove="#{event.onmousemove}" onmouseout="#{event.onmouseout}" onmouseover="#{event.onmouseover}" onmouseup="#{event.onmouseup}" ontabenter="#{event.ontabenter}" ontableave="#{event.ontableave}">
+				<f:facet name="header">
+					<h:outputText value="client switchType from facet" />
+				</f:facet>
+				<h:graphicImage value="/pics/masshtaby_01.jpg" width="560" height="383"></h:graphicImage>
+			</rich:tab>
+			<rich:tab id="tabThree" label="Tab with some text" disabled="#{tabPanel.disabledTab}"
+				onclick="#{event.onclick}" oncomplete="#{event.oncomplete}" ondblclick="#{event.ondblclick}" onkeydown="#{event.onkeydown}" onkeypress="#{event.onkeypress}" onkeyup="#{event.onkeyup}" onmousemove="#{event.onmousemove}" onmouseout="#{event.onmouseout}" onmouseover="#{event.onmouseover}" onmouseup="#{event.onmouseup}" ontabenter="#{event.ontabenter}" ontableave="#{event.ontableave}">
+				<h:outputText
+					value="   Some text... Some text...  Some text... Some text... Some text... Some text... Some text... Some text...
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text... 
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text..." />
+			</rich:tab>
+		</rich:tabPanel>
+
+		<rich:spacer height="20px"></rich:spacer>
+</f:subview>

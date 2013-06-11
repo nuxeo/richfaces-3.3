@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.DataList</name>
+		<family>org.richfaces.DataList</family>
+		<classname>org.richfaces.component.html.HtmlDataList</classname>
+		<superclass>org.richfaces.component.UIDataList</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlDataListComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:dataList> component for unordered lists rendering that allows choosing data from a model and obtains built-in support of Ajax updates.]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.DataListRenderer</name>
+			<template>org/richfaces/htmlDataList.jspx</template>
+		</renderer>
+		<tag>
+			<name>dataList</name>
+			<classname>org.richfaces.taglib.DataListTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<taghandler generate="false">
+			<classname>org.richfaces.taglib.RowKeyConverterComponentHandler</classname>
+		</taghandler>
+
+		&ui_component_attributes;
+		&ui_data_attributes;
+		&html_universal_attributes;
+		&spec_table_attributes;
+		<property>
+			<name>type</name>
+			<classname>java.lang.String</classname>
+			<description>Corresponds to the HTML DL type attribute
+			</description>
+		</property>
+		<property>
+			<name>ajaxKeys</name>
+			<classname>java.util.Set</classname>
+			<description>This attribute defines row keys that are updated after an AJAX request</description>
+		</property>
+		
+		
+		<property>
+			<name>rowKeyConverter</name>
+			<classname>javax.faces.convert.Converter</classname>
+			<description>Converter for a row key object</description>
+		</property>
+		
+		<property>
+			<name>rowKey</name>
+			<classname>java.lang.Object</classname>
+			<description>RowKey is a representation of an identifier for a specific data row</description>
+		</property>
+
+		<property>
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+			<description>The current value for this component</description>
+		</property>
+		<property el="false">
+			<name>stateVar</name>
+			<classname>java.lang.String</classname>
+			<description>
+				The attribute  provides access to a component state on the client side
+			</description>
+		</property>	
+		<property el="false">
+			<name>rowKeyVar</name>
+			<classname>java.lang.String</classname>
+			<description>The attribute provides access to a row key in a Request scope</description>
+		</property>		
+		<property>
+			<name>componentState</name>
+			<classname>org.ajax4jsf.model.DataComponentState</classname>
+			<description>It defines EL-binding  for a component state for saving or redefinition</description>
+		</property>
+
+		<property hidden="true">
+			<name>footerClass</name>
+	        <classname>java.lang.String</classname>
+		</property>
+		
+		<property hidden="true">
+			<name>headerClass</name>
+	        <classname>java.lang.String</classname>
+		</property>
+
+		<property hidden="true">
+			<name>columnClasses</name>
+	        <classname>java.lang.String</classname>
+		</property>
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+	</component>
+	<component>
+		<name>org.richfaces.DataOrderedList</name>
+		<family>org.richfaces.DataOrderedList</family>
+		<classname>org.richfaces.component.html.HtmlDataOrderedList</classname>
+		<superclass>org.richfaces.component.UIDataList</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlDataOrderedListComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:dataOrderedList> component for ordered lists rendering that allows choosing data from a model and obtains built-in support of Ajax updates.]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.DataOrderedListRenderer</name>
+			<template>org/richfaces/htmlDataOrderedList.jspx</template>
+		</renderer>
+		<tag>
+			<name>dataOrderedList</name>
+			<classname>org.richfaces.taglib.DataOrderedListTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<taghandler generate="false">
+			<classname>org.richfaces.taglib.RowKeyConverterComponentHandler</classname>
+		</taghandler>
+
+		&ui_component_attributes;
+		&ui_data_attributes;
+		&html_universal_attributes;
+		&spec_table_attributes;
+		
+		<property>
+			<name>rowKeyConverter</name>
+			<classname>javax.faces.convert.Converter</classname>
+			<description>Converter for a RowKey object.
+			</description>
+		</property>
+		
+		<property>
+			<name>rowKey</name>
+			<classname>java.lang.Object</classname>
+			<description>RowKey is a representation of an identifier for a specific data row</description>
+		</property>
+		<property el="false">
+			<name>rowKeyVar</name>
+			<classname>java.lang.String</classname>
+			<description>The attribute provides access to a row key in a Request scope</description>
+		</property>		
+		
+		<property>
+			<name>type</name>
+			<classname>java.lang.String</classname>
+			<description>Corresponds to the HTML OL type attribute
+			</description>
+		</property>
+		<property>
+			<name>ajaxKeys</name>
+			<classname>java.util.Set</classname>
+			<description>This attribute defines row keys that are updated after an AJAX request</description>
+		</property>
+		<property>
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+			<description>The current value for this component</description>
+		</property>
+		<property el="false" hidden="true">
+			<name>stateVar</name>
+			<classname>java.lang.String</classname>
+			<description>
+				The attribute  provides access to a component state on the client side
+			</description>
+		</property>		
+		<property hidden="true">
+			<name>componentState</name>
+			<classname>org.ajax4jsf.model.DataComponentState</classname>
+			<description>It defines EL-binding  for a component state for saving or redefinition</description>
+		</property>		
+		
+		<property hidden="true">
+			<name>columnClasses</name>
+	        <classname>java.lang.String</classname>
+		</property>
+		
+		<property hidden="true">
+			<name>footerClass</name>
+	        <classname>java.lang.String</classname>
+		</property>
+		
+		<property hidden="true">
+			<name>headerClass</name>
+	        <classname>java.lang.String</classname>
+		</property>
+		
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+	</component>
+	<component>
+		<name>org.richfaces.DataDefinitionList</name>
+		<family>org.richfaces.DataDefinitionList</family>
+		<classname>org.richfaces.component.html.HtmlDataDefinitionList</classname>
+		<superclass>org.richfaces.component.UIDataDefinitionList</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlDataDefinitionListComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:dataDefinitionList> component for definition lists rendering that allows choosing data from a model and obtains built-in support of Ajax updates.]]>
+		</description>
+		<facet>
+		   <name>term</name>
+		   <description>Facet rendered as definition term</description>
+		</facet>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.DataDefinitionListRenderer</name>
+			<template>org/richfaces/htmlDataDefinitionList.jspx</template>
+		</renderer>
+		<tag>
+			<name>dataDefinitionList</name>
+			<classname>org.richfaces.taglib.DataDefinitionListTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<taghandler generate="false">
+			<classname>org.richfaces.taglib.RowKeyConverterComponentHandler</classname>
+		</taghandler>
+
+		&ui_component_attributes;
+		&ui_data_attributes;
+		&html_universal_attributes;
+		&spec_table_attributes;
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+		<property>
+			<name>ajaxKeys</name>
+			<classname>java.util.Set</classname>
+			<description>This attribute defines row keys that are updated after an AJAX request</description>
+		</property>
+		
+		<property>
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+			<description>The current value for this component</description>
+		</property>
+		<property el="false" hidden="true" exist="false" existintag="false" >
+			<name>stateVar</name>
+			<classname>java.lang.String</classname>
+			<description>The attribute provides access to a component state on the client side</description>
+		</property>
+		<property>
+			<name>componentState</name>
+			<classname>org.ajax4jsf.model.DataComponentState</classname>
+			<description>It defines EL-binding  for a component state for saving or redefinition</description>
+		</property>
+		<property hidden="true">
+			<name>footerClass</name>
+			<classname>java.lang.String</classname>			
+		</property>
+		
+		<property hidden="true">
+			<name>headerClass</name>
+			<classname>java.lang.String</classname>			
+		</property>
+		<property>
+			<name>rowKeyConverter</name>
+			<classname>javax.faces.convert.Converter</classname>
+			<description>Converter for a RowKey object.
+			</description>
+		</property>		
+		<property>
+			<name>rowKey</name>
+			<classname>java.lang.Object</classname>
+			<description>RowKey is a representation of an identifier for a specific data row</description>
+		</property>
+		<property el="false">
+			<name>rowKeyVar</name>
+			<classname>java.lang.String</classname>
+			<description>The attribute provides access to a row key in a Request scope</description>
+		</property>		
+		
+	</component>
+</components>

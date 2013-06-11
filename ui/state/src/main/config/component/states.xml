@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+<components>
+	<component>
+		<name>org.richfaces.ui.States</name>
+		<family>org.richfaces.ui.States</family>
+		<classname>org.richfaces.ui.component.html.HtmlStates</classname>
+		<superclass>org.richfaces.ui.component.UIStates</superclass>
+		<description>
+			<![CDATA[
+    ]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.ui.StatesRenderer</name>
+			<template>org/richfaces/ui/htmlStates.jspx</template>
+		</renderer>
+		<tag>
+			<name>states</name>
+			<classname>org.richfaces.ui.taglib.StatesTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+		</tag>
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+		&ui_component_attributes;
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+	</component>
+</components>

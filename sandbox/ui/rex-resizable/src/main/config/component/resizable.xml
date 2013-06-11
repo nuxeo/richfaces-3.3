@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+<components>
+	<component>
+		<name>org.richfaces.Resizable</name>
+		<family>org.richfaces.Resizable</family>
+		<classname>org.richfaces.component.html.HtmlResizable</classname>
+		<superclass>org.richfaces.component.UIResizable</superclass>
+		<description>
+			<![CDATA[
+			It presents the google map in JSF applications
+            ]]>
+		</description>
+		<test />
+		<renderer generate="true" override="true">
+			<name>org.richfaces.ResizableRenderer</name>
+			<template>resizable.jspx</template>
+		</renderer>
+		<tag>
+			<name>resizable</name>
+			<classname>org.richfaces.taglib.ResizableTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+		</tag>
+
+		&ui_component_attributes;
+      	&html_events;
+        &html_style_attributes;
+
+		<property>
+			<name>name</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    Name of the javascript variable that will be used to
+			    access to the Ext.Resizable object. Might be otiopal if
+			    the direct access is not required.
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>adjustments</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    String "auto" or an array [width, height]
+			     with values to be added to the resize operation's new size
+			     (defaults to [0,0])
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>animate</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    True to animate the resize
+			    (not compatible with dynamic sizing, defaults to false)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>disableTrackOver</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    True to disable mouse tracking.
+			    This is only applied at config time. (defaults to false)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>draggable</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    Convenience to initialize drag drop (defaults to false)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>duration</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    Animation duration if animate = true (defaults to .35)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>dynamic</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    True to resize the element while dragging instead of using a proxy (defaults to false)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>easing</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    Animation easing if animate = true (defaults to 'easingOutStrong')
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>enabled</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    False to disable resizing (defaults to true)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>handles</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    String consisting of the resize handles to display (defaults to undefined)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>height</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    The height of the element in pixels (defaults to 50)
+			</description>
+			<defaultvalue>"50"</defaultvalue>
+		</property>
+		<property>
+			<name>heightIncrement</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    The increment to snap the height resize in pixels 
+			    (dynamic must be true, defaults to 0)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>maxHeight</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    The maximum height for the element (defaults to 10000)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>maxWidth</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    The maximum width for the element (defaults to 10000)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>minHeight</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    The minimum height for the element (defaults to 5)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>minWidth</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    The minimum width for the element (defaults to 5)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>minX</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    The minimum allowed page X for the element
+			    (only used for west resizing, defaults to 0)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>minY</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    The minimum allowed page Y for the element 
+			    (only used for north resizing, defaults to 0)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>multiDirectional</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    Deprecated. The old style of adding multi-direction
+			    resize handles, deprecated in favor of the handles
+			    config option (defaults to false)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>pinned</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    True to ensure that the resize handles are always visible,
+			    false to display them only when the user mouses over the
+			    resizable borders. This is only applied at config time.
+			    (defaults to false)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>preserveRatio</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    True to preserve the original ratio between height and width 
+			    during resize (defaults to false)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>resizeChild</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    True to resize the first child, or id/element to resize
+			    (defaults to false)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>transparent</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    True for transparent handles. This is only applied at
+			    config time. (defaults to false)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>width</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    The width of the element in pixels (defaults to 100)
+			</description>
+			<defaultvalue>"100"</defaultvalue>
+		</property>
+		<property>
+			<name>widthIncrement</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    The increment to snap the width resize in pixels
+			    (dynamic must be true, defaults to 0)
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>wrap</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    Apply to the child element directly. Important for some element, such
+			    as image of textarea
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+	</component>
+</components>

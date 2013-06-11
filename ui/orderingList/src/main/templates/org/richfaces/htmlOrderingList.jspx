@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	baseclass="org.richfaces.renderkit.OrderingListRendererBase"
+	class="org.richfaces.renderkit.html.OrderingListRenderer"
+	component="org.richfaces.component.UIOrderingList"
+	>
+	
+	<jsp:directive.page import="org.richfaces.component.util.HtmlUtil" />
+
+	<h:styles>css/orderingList.xcss</h:styles>  
+	
+   	<h:scripts>
+			new org.ajax4jsf.javascript.PrototypeScript(),
+			/org/richfaces/renderkit/html/scripts/utils.js,
+			scripts/ShuttleUtils.js,
+			scripts/SelectItem.js,
+			scripts/LayoutManager.js
+			scripts/Control.js,
+			scripts/ListBase.js,
+			scripts/OrderingList.js
+	</h:scripts>
+	
+	<f:clientId var="clientId"/>
+	
+    <div id="#{clientId}" class="rich-ordering-list-ds #{component.attributes['styleClass']}" x:passThruWithExclusions="id,class,styleClass">
+    	<input id="#{clientId}focusKeeper" type="button" value="" style="width: 1px; position: absolute; left: -32767px;" />
+		
+		<table id="#{clientId}table" cellpadding="0" cellspacing="0" class="rich-ordering-list-body">
+			<tbody>
+				<tr style="#{this:getCaptionDisplay(context, component)}" >
+					<jsp:scriptlet><![CDATA[
+			        	if ("left".equals(component.getAttributes().get("controlsHorizontalAlign"))) {
+                	]]></jsp:scriptlet>
+						<td></td>
+					<jsp:scriptlet><![CDATA[
+						}
+                	]]></jsp:scriptlet>
+					<td colspan="2" class="rich-ordering-list-caption">
+						<f:call name="encodeCaption"/>
+					</td>
+					<jsp:scriptlet><![CDATA[
+			        	if (!"left".equals(component.getAttributes().get("controlsHorizontalAlign"))) {
+                	]]></jsp:scriptlet>
+						<td></td>
+					<jsp:scriptlet><![CDATA[
+						}
+                	]]></jsp:scriptlet>
+				</tr>
+				<tr>
+					<jsp:scriptlet><![CDATA[
+			        	if ("left".equals(component.getAttributes().get("controlsHorizontalAlign"))) {
+                	]]></jsp:scriptlet>
+	                	<td class="rich-ordering-list-button-valign"  style="vertical-align: #{component.attributes['controlsVerticalAlign']}" >
+							<div class="rich-ordering-list-button-layout">
+								<f:call name="encodeControlsFacets" />
+							</div>
+						</td>
+                	<jsp:scriptlet><![CDATA[
+						}
+                	]]></jsp:scriptlet>
+					<td>
+						<div id="#{clientId}headerBox" class="rich-ordering-list-output">
+							<jsp:scriptlet><![CDATA[
+			                	String contentContainerStyle = "";
+			                	
+			                	String listWidthValue = (String) component.getAttributes().get("listWidth");
+			                	if (listWidthValue != null) {
+			                		contentContainerStyle = contentContainerStyle.concat("width:").concat(HtmlUtil.qualifySize(listWidthValue)).concat(";");
+			                		variables.setVariable("contentContainerStyle", contentContainerStyle);
+		                		}
+			                	if (isHeaderExists(context, component)) {
+                			]]></jsp:scriptlet>
+							<div class="rich-ordering-list-header" style="#{contentContainerStyle}">
+								<table id="#{clientId}internal_header_tab" class="rich-ordering-list-items-header" cellpadding="0" cellspacing="0">
+									<f:call name="encodeHeader"/>
+								</table>
+							</div>
+							<jsp:scriptlet><![CDATA[
+			                	}
+								String listHeightValue = (String) component.getAttributes().get("listHeight");
+			                	if (listHeightValue != null) {
+			                		contentContainerStyle = contentContainerStyle.concat("height:").concat(HtmlUtil.qualifySize(listHeightValue)).concat(";");
+			                		variables.setVariable("contentContainerStyle", contentContainerStyle);
+			                	}
+                			]]></jsp:scriptlet>
+							<div id="#{clientId}contentBox" class="rich-ordering-list-content" style="#{contentContainerStyle}">
+								<table id="#{clientId}internal_tab" class="rich-ordering-list-items" cellpadding="0" cellspacing="0">
+									<tbody id="#{clientId}tbody">
+										<vcp:body>
+											<f:call name="encodeRows" />
+										</vcp:body>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</td>
+					<jsp:scriptlet><![CDATA[
+			        	if (!"left".equals(component.getAttributes().get("controlsHorizontalAlign"))) {
+                	]]></jsp:scriptlet>
+	                	<td class="rich-ordering-list-button-valign" style="vertical-align: #{component.attributes['controlsVerticalAlign']}" >
+							<div class="rich-ordering-list-button-layout">
+								<f:call name="encodeControlsFacets" />
+							</div>
+						</td>
+                	<jsp:scriptlet><![CDATA[
+						}
+                	]]></jsp:scriptlet>
+				</tr>
+			</tbody>
+		</table>
+		
+	<f:clientId var="cId"/>		
+	<script type="text/javascript">
+			var clientId = '#{cId}';
+			new Richfaces.OrderingList('#{cId}', '#{cId}internal_tab', 
+													 '#{cId}internal_header_tab', '#{cId}focusKeeper', 
+													 [['up', 'disup'], ['down', 'disdown'], ['last', 'dislast'], ['first','disfirst']],
+													 '#{cId}sortLabel', 
+													 {onorderchanged:#{this:getAsEventHandler(context, component, "onorderchanged")},
+													  onorderchange:#{this:getAsEventHandler(context, component, "onorderchange")},
+													  ontopclick:#{this:getAsEventHandler(context, component, "ontopclick")},
+													  onbottomclick:#{this:getAsEventHandler(context, component, "onbottomclick")},
+													  onupclick:#{this:getAsEventHandler(context, component, "onupclick")},
+													  ondownclick:#{this:getAsEventHandler(context, component, "ondownclick")}}, 
+													 Richfaces.OrderingListSelectItem, 
+													 #{this:getColumnClassesAsJSArray(context, component)}, 
+													 #{this:getRowClassesAsJSArray(context, component)});
+	</script>
+	</div> 
+</f:root>

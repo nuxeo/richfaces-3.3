@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template
+    xmlns:f="http://jsf.exadel.com/template"
+    xmlns:u="http://jsf.exadel.com/template/util"
+    xmlns="http://www.w3.org/1999/xhtml">
+
+<f:verbatim>
+
+.dr-sb-common-container {
+    position: absolute;
+    text-align: left;
+    background-color: inherit;
+}
+
+.dr-sb-ext-decor-1 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
+
+.dr-sb-ext-decor-2 {
+    border: 1px solid;
+    height: 100%;
+    width: 100%;
+}
+
+.dr-sb-ext-decor-3 {
+    height: 100%;
+    width: 100%;
+}
+
+.dr-sb-overflow {
+	overflow : auto;
+}
+
+.dr-sb-int-decor-table {
+    width: 100%;
+}
+
+.dr-sb-shadow {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border : 1px solid;
+    z-index: 1;
+}
+
+.dr-sb-int-sel {
+    cursor: default;
+    background-position: left top;
+    background-repeat: repeat-x;
+}
+
+.dr-sb-cell-padding {
+    padding: 1px 3px 1px 5px;
+}
+
+.dr-sb-int {
+	cursor : pointer;
+}
+
+</f:verbatim>
+
+<u:selector name=".dr-sb-ext-decor-2">
+    <u:style name="border-color" skin="panelBorderColor" />
+    <u:style name="background-color" skin="additionalBackgroundColor" />
+</u:selector>
+
+<u:selector name=".dr-sb-shadow">
+    <u:style name="background-color" skin="shadowBackgroundColor" />
+    <u:style name="border-color" skin="shadowBackgroundColor" />
+    <u:style name="opacity" skin="shadowOpacity" />
+</u:selector>
+
+<u:selector name=".dr-sb-int">
+    <u:style name="font-size" skin="generalSizeFont" />
+    <u:style name="font-family" skin="generalFamilyFont" />
+    <u:style name="color" skin="generalTextColor" />
+</u:selector>
+
+<u:selector name=".dr-sb-int-sel">
+    <u:style name="background-color" skin="headerBackgroundColor" />
+    <u:style name="font-size" skin="generalSizeFont" />
+    <u:style name="font-family" skin="generalFamilyFont" />
+    <u:style name="color" skin="headerTextColor" />
+    <u:style name="background-image" >
+        <f:resource f:key="org.richfaces.renderkit.html.GradientA"/>
+    </u:style>
+</u:selector>
+
+</f:template>

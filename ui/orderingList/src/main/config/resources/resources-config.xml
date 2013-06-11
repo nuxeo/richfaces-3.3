@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+    <resource class="org.richfaces.renderkit.html.images.OrderingListIconBottom">
+        <name>org.richfaces.renderkit.html.images.OrderingListIconBottom</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.images.OrderingListIconBottomDisabled">
+        <name>org.richfaces.renderkit.html.images.OrderingListIconBottomDisabled</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.images.OrderingListIconDownDisabled">
+        <name>org.richfaces.renderkit.html.images.OrderingListIconDownDisabled</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.images.OrderingListIconTop">
+        <name>org.richfaces.renderkit.html.images.OrderingListIconTop</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.images.OrderingListIconTopDisabled">
+        <name>org.richfaces.renderkit.html.images.OrderingListIconTopDisabled</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.images.OrderingListIconUpDisabled">
+        <name>org.richfaces.renderkit.html.images.OrderingListIconUpDisabled</name>
+    </resource>
+</resource-config>

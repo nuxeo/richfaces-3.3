@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:sg="http://labs.jboss.com/jbossrichfaces/ui/scrollableDataTable"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:dt="http://labs.jboss.com/jbossrichfaces/ui/dataTable">
+	<ui:composition>
+		<style>
+		<!--
+		.rich-sdt-header-cell {
+			background-color: red;
+		}
+		-->
+		</style>
+      	<h:inputText id="inputText" value="#{modelBuilder.size}">
+      		<a4j:support event="onchange" reRender="inputText" oncomplete="window.Richfaces_ScrollableGrid_j_id2_table.reloadData();"/>
+      	</h:inputText>
+      	<!-- input id="input" type="text" onchange="window.Richfaces_ScrollableGrid_j_id2_table.updateRowCount(this.value);window.Richfaces_ScrollableGrid_j_id2_table.reloadData();" /--> 
+		<sg:scrollableDataTable id="table" value="#{modelBuilder.model1}" var="issues"
+			frozenColCount="1" first="0" rows="40" width="100%" height="500px">
+			<dt:column width="200px">
+				<f:facet name="header">
+					<h:outputText value="issue"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{issues.cell2}"></h:outputText>
+				<f:facet name="footer">
+					<h:outputText value="footer"></h:outputText>
+				</f:facet>
+			</dt:column>
+			<dt:column width="200px">
+				<f:facet name="header">
+					<h:outputText value="data"></h:outputText>
+				</f:facet>
+				<f:facet name="footer">
+					<h:outputText value="footer"></h:outputText>
+				</f:facet>
+				<h:outputText value="data"></h:outputText>
+			</dt:column>
+		</sg:scrollableDataTable>
+		<a4j:commandButton value="reRender" reRender="table"/>
+		<img src="q.jpg"/>
+   		<script type="text/javascript">
+<!--
+document.observe("grid:initialized", function(event) {
+	console.log("Element with ID (" + event.target.id +
+	") fire event with name " + event.eventName + ".");
+});
+document.observe("grid:onresizecolumn", function(event) {
+	console.log("Element with ID (" + event.target.id +
+	") fire event with name " + event.eventName + ".");
+});
+//-->
+</script>
+	</ui:composition>
+</jsp:root>

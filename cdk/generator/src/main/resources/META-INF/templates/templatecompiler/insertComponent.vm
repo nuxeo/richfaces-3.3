@@ -1,0 +1,1 @@
+renderChild(context, (UIComponent)$value );

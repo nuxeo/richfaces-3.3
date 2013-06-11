@@ -1,0 +1,100 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" id="scrollableDataTableSubviewID">
+	<h:panelGrid columns="6" border="1" style="font-size:12px">
+		<h:outputText value="#1"></h:outputText>
+		<h:outputText value="#2"></h:outputText>
+		<h:outputText value="#3"></h:outputText>
+		<h:outputText value="#4"></h:outputText>
+		<h:outputText value="#5"></h:outputText>
+		<h:outputText value="#6"></h:outputText>
+		
+		<h:panelGrid columns="1" title="1">
+			<h:outputText value="sortExpression"/>
+			<h:outputText value="sortable='true'"/>
+		</h:panelGrid>
+		<h:panelGrid columns="1" title="2">
+			<h:outputText value="sortExpression"/>
+			<h:outputText value="sortable='false'"/>
+		</h:panelGrid>
+		<h:panelGrid columns="1" title="3">
+			<h:outputText value="sortExpression"/>
+		</h:panelGrid>
+		<h:panelGrid columns="1" title="4">
+			<h:outputText value="sortExpression"/>
+		</h:panelGrid>
+		<h:panelGrid columns="1" title="5">
+			<h:outputText value="sortExpression"/>
+		</h:panelGrid>
+		<h:panelGrid columns="1" title="6">
+			<h:outputText value=""/>
+		</h:panelGrid>
+	</h:panelGrid>
+	<rich:scrollableDataTable id="sdt" var="sdt" rowKeyVar="key" onRowDblClick="alert('row:#{key}')"
+		ajaxSingle="#{scrollableDT.ajaxSingle}" 
+		binding="#{scrollableDT.htmlScrollableDataTable}"
+		value="#{scrollableDT.data}" rows="#{scrollableDT.rows}"
+		width="#{scrollableDT.width}" height="#{scrollableDT.height}"
+		hideWhenScrolling="#{scrollableDT.hideWhenScrolling}"
+		reRender="inputID" frozenColCount="#{scrollableDT.frozenColCount}"
+		first="#{scrollableDT.first}" ignoreDupResponses="#{scrollableDT.ignoreDupResponses}"
+		bypassUpdates="#{scrollableDT.bypassUpdates}" rendered="#{scrollableDT.rendered}" 
+		limitToList="#{scrollableDT.limitToList}"
+		
+		timeout="#{scrollableDT.timeout}" sortMode="#{scrollableDT.sortMode}"
+		selection="#{scrollableDT.selection}" eventsQueue="myEventsQueue"
+		captionClass="#{style.captionClass}" columnClasses="#{style.columnClasses}" footerClass="#{style.footerClass}" headerClass="#{style.headerClass}" rowClasses="#{style.rowClasses}" activeClass="#{style.activeClass}" styleClass="#{style.styleClass}" style="#{style.style}" selectedClass="#{style.selectedClass}" 
+		onbeforedomupdate="#{event.onbeforedomupdate}" oncomplete="#{event.oncomplete}" onRowClick="#{event.onRowClick}" onRowMouseDown="#{event.onRowMouseDown}" onRowMouseUp="#{event.onRowMouseUp}" onselectionchange="#{event.onselectionchange}">
+		<f:facet name="header">
+			<h:outputText value="facet header"></h:outputText>	
+		</f:facet>
+		<rich:column sortExpression="#{sdt.int0}" sortable="true">
+			<f:facet name="header"><h:outputText value="#"/></f:facet>
+			<h:outputText value="#{sdt.int0}"></h:outputText>
+			<f:facet name="footer"><h:outputText value="#"/></f:facet>
+		</rich:column>
+
+		<rich:column sortExpression="#{sdt.str0}" sortable="false">
+			<f:facet name="header"><h:outputText value="Text"></h:outputText> </f:facet>
+			<h:outputText value="#{sdt.str0}"></h:outputText>
+			<f:facet name="footer"><h:outputText value="Text"></h:outputText> </f:facet>
+		</rich:column>
+
+		<rich:column sortExpression="#{sdt.str1}">
+			<f:facet name="header"><h:outputText value="Link"></h:outputText> </f:facet>
+			<a4j:commandLink value="#{sdt.str1}" reRender="sdt"></a4j:commandLink>
+			<f:facet name="footer"><h:outputText value="Link"></h:outputText> </f:facet>
+		</rich:column>
+
+		<rich:column sortExpression="#{sdt.str2}">
+			<f:facet name="header"><h:outputText value="Select"></h:outputText> </f:facet>
+			<h:selectOneMenu value="#{sdt.str2}">
+				<f:selectItem itemLabel="select0" itemValue="select0" />
+				<f:selectItem itemLabel="select1" itemValue="select1" />
+				<f:selectItem itemLabel="select2" itemValue="select2" />
+				<f:selectItem itemLabel="select3" itemValue="select3" />
+				<f:selectItem itemLabel="select4" itemValue="select4" />
+			</h:selectOneMenu>
+			<f:facet name="footer"><h:outputText value="Select"></h:outputText> </f:facet>
+		</rich:column>
+
+		<rich:column sortExpression="#{sdt.str3}">
+			<f:facet name="header"><h:outputText value="Select"></h:outputText> </f:facet>
+			<h:graphicImage value="#{sdt.str3}"></h:graphicImage>
+			<f:facet name="footer"><h:outputText value="Select"></h:outputText> </f:facet>
+		</rich:column>
+		
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="Link"></h:outputText>
+			</f:facet>
+			<h:outputLink value="http://www.jboss.com/"><f:verbatim>Link</f:verbatim></h:outputLink>
+			<f:facet name="footer">
+				<h:outputText value="Link"></h:outputText>
+			</f:facet>
+		</rich:column>		
+		
+		<f:facet name="footer">
+			<h:outputText value="facet footer"></h:outputText>
+		</f:facet>
+	</rich:scrollableDataTable>
+</f:subview>

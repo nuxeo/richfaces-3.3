@@ -1,0 +1,18 @@
+<component-set>
+	<components>
+		<component>
+			<role>org.ajax4jsf.templatecompiler.elements.ElementsFactory</role>
+      		<role-hint>a4j</role-hint>
+			<implementation>
+				org.ajax4jsf.templatecompiler.elements.A4JRendererElementsFactory
+			</implementation>
+		</component>
+		<component>
+			<role>org.ajax4jsf.templatecompiler.elements.ElementsFactory</role>
+      		<role-hint>jstl</role-hint>
+			<implementation>
+				org.ajax4jsf.templatecompiler.elements.JSTLElementsFactory
+			</implementation>
+		</component>
+	</components>
+</component-set>

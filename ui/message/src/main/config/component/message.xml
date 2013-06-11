@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.component.RichMessage</name>
+		<family>org.richfaces.component.RichMessage</family>
+	    <classname>
+            org.richfaces.component.html.HtmlRichMessage
+        </classname>
+        <superclass>org.richfaces.component.UIRichMessage</superclass>
+ 
+        <test>
+			<classname>org.richfaces.component.html.HtmlRichMessageTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+
+   		<description>
+   			<![CDATA[ The <rich:message> component is used for rendering a single message for a specific component. ]]>
+   		</description>
+		<facet>
+		   <name>errorMarker</name>
+		   <description>Redefines the content for the marker if there is message with a severity class of "ERROR"</description>
+		</facet>
+		<facet>
+		   <name>fatalMarker</name>
+		   <description>Redefines the content for the marker if there is message with a severity class of "FATAL"</description>
+		</facet>
+		<facet>
+		   <name>infoMarker</name>
+		   <description>Redefines the content for the marker if there is message with a severity class of "INFO"</description>
+		</facet>
+		<facet>
+		   <name>warnMarker</name>
+		   <description>Redefines the content for the marker if there is message with a severity class of "WARN"</description>
+		</facet>
+		<renderer generate="false" override="true">
+			<name>org.richfaces.RichMessageRenderer</name>
+			<classname>org.richfaces.renderkit.html.HtmlRichMessageRenderer</classname>
+			<superclass>org.richfaces.renderkit.RichMessageBaseRenderer</superclass> 
+		</renderer>
+		<tag>
+			<name>message</name>
+			<classname>org.richfaces.taglib.RichMessageTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			 
+			<test>
+				<classname>org.richfaces.taglib.RichMessageTagTest</classname>
+				<superclassname>org.ajax4jsf.tests.AbstractJspTestCase</superclassname>
+			</test>
+			
+		</tag>
+		<property>
+			<name>level</name>
+			<classname>java.lang.String</classname>
+			<description>
+				A comma-separated list of messages categories which should be displayed. Default value is &quot;ALL&quot;.
+			</description>
+			<defaultvalue>"ALL"</defaultvalue>
+			
+		</property>
+		
+		<property attachedstate="true" hidden="true">
+			<name>passedLabel</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Attribute should define the label to be displayed when no message appears
+			</description>
+		</property>		
+		
+		<property>
+			<name>for</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Client identifier of the component for which to display messages
+			</description>
+			
+		</property>	
+		
+		<property>
+			<name>showDetail</name>
+			<classname>boolean</classname>
+			<defaultvalue>true</defaultvalue>
+			<description>
+				Flag indicating whether detailed information of a displayed messages should be included.  Default value is &quot;true&quot;.
+			</description>
+		</property>	
+		
+		<property>
+			<name>showSummary</name>
+			<classname>boolean</classname>
+			<defaultvalue>false</defaultvalue>
+			<description>
+				Flag indicating whether the summary portion of displayed messages should be included.  Default value is &quot;false&quot;.
+			</description>
+		</property>	
+			
+		<property>
+			<name>title</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Advisory title information about markup elements generated for this component
+			</description>
+		</property>		
+		
+		<property>
+			<name>tooltip</name>
+			<classname>boolean</classname>
+			<defaultvalue>false</defaultvalue>
+			<description>
+				Flag indicating whether the detail portion of the message should be displayed as a tooltip.  Default value is &quot;false&quot;.
+			</description>
+		</property>	
+			
+		<property>
+			<name>errorClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message with a severity class of "ERROR"
+			</description>
+		</property>		
+		
+		<property>
+			<name>fatalClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message with a severity class of "FATAL"
+			</description>
+		</property>	
+			
+		<property>
+			<name>infoClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message with a severity class of "INFO"
+			</description>
+		</property>		
+		
+		<property>
+			<name>styleClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Space-separated list of CSS style class(es) to be applied when this element is rendered.  This value must be passed through as the "class" attribute on generated markup
+			</description>
+		</property>	
+		
+		<property>
+			<name>style</name>
+			<classname>java.lang.String</classname>
+			<description>
+				The CSS style for message
+			</description>
+		</property>	
+		<property>
+			<name>warnClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message with a severity class of "WARN"
+			</description>
+		</property>		
+		
+		<property>
+			<name>errorMarkerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message marker with a severity class of "ERROR"
+			</description>
+		</property>
+		
+		<property>
+			<name>warnClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message with a severity class of "WARN"
+			</description>
+		</property>		
+		
+		<!--property>
+			<name>errorMarkerClass</name>
+			<classname>java.lang.String</classname>
+		</property-->			
+		
+		<property>
+			<name>fatalMarkerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message marker with a severity class of "FATAL"
+			</description>
+		</property>			
+		
+		<property>
+			<name>infoMarkerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message marker with a severity class of "INFO"
+			</description>
+		</property>			
+		
+		<property>
+			<name>warnMarkerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply any message marker with a severity class of "WARN"
+			</description>
+		</property>			
+		
+		<property>
+			<name>markerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to marker
+			</description>
+		</property>		
+		
+		<property>
+			<name>markerStyle</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style(s) is/are to be applied to marker when this component is rendered
+			</description>
+		</property>	
+		
+		<property>
+			<name>errorLabelClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message label with a severity class of "ERROR"
+			</description>
+		</property>
+		
+		<property>
+			<name>fatalLabelClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message label with a severity class of "FATAL"
+			</description>
+		</property>
+		
+		<property>
+			<name>infoLabelClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message label with a severity class of "INFO"
+			</description>
+		</property>
+		
+		<property>
+			<name>warnLabelClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message label with a severity class of "WARN"
+			</description>
+		</property>
+		
+		<property>
+			<name>labelClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to label
+			</description>
+		</property>
+		
+		<property attachedstate="true" hidden="true">
+			<name>binding</name>
+			<classname>javax.faces.component.UIComponent</classname>
+			<description>
+				The attribute takes a value-binding expression for a component property of a backing bean
+			</description>
+		</property>
+			
+		&ui_component_attributes;
+		&ajax_output_attributes;
+		<property hidden="true">
+			<name>keepTransient</name>
+			<classname>boolean</classname>
+		</property>
+	</component>
+	
+	<component>
+		<name>org.richfaces.component.RichMessages</name>
+		<family>org.richfaces.component.RichMessages</family>
+	    <classname>
+            org.richfaces.component.html.HtmlRichMessages
+        </classname>
+        <superclass>org.richfaces.component.UIRichMessages</superclass>
+ 
+        <test>
+			<classname>org.richfaces.component.html.HtmlRichMessagesTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+
+   		<description>
+   			<![CDATA[The <rich:messages> component is similar to <rich:message> component but used for rendering all messages for the components.]]>
+   		</description>
+		<facet>
+		   <name>errorMarker</name>
+		   <description>Redefines the content for the marker if there is message with a severity class of "ERROR"</description>
+		</facet>
+		<facet>
+		   <name>fatalMarker</name>
+		   <description>Redefines the content for the marker if there is message with a severity class of "FATAL"</description>
+		</facet>
+		<facet>
+		   <name>infoMarker</name>
+		   <description>Redefines the content for the marker if there is message with a severity class of "INFO"</description>
+		</facet>
+		<facet>
+		   <name>warnMarker</name>
+		   <description>Redefines the content for the marker if there is message with a severity class of "WARN"</description>
+		</facet>
+   		
+   		<renderer generate="false" override="true">
+			<name>org.richfaces.RichMessagesRenderer</name>
+			<classname>org.richfaces.renderkit.html.HtmlRichMessagesRenderer</classname>
+			<superclass>org.richfaces.renderkit.RichMessageBaseRenderer</superclass> 
+		</renderer>
+		
+		<tag>
+			<name>messages</name>
+			<classname>org.richfaces.taglib.RichMessagesTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			 
+			<test>
+				<classname>org.richfaces.taglib.RichMessagesTagTest</classname>
+				<superclassname>org.ajax4jsf.tests.AbstractJspTestCase</superclassname>
+			</test>
+		</tag>
+		
+		<property attachedstate="true" hidden="true">
+			<name>passedLabel</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Attribute should define the label to be displayed when no message appears
+			</description>
+		</property>
+		<property>
+			<name>level</name>
+			<classname>java.lang.String</classname>
+			<description>
+				A comma-separated list of messages categories which should be displayed.  Default value is &quot;ALL&quot;.
+			</description>
+			<defaultvalue>"ALL"</defaultvalue>
+		
+		</property>
+		<property>
+			<name>for</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Client identifier of the component for which to display messages
+			</description>
+			
+		</property>	
+		<property>
+			<name>layout</name>
+			<classname>java.lang.String</classname>
+			<defaultvalue>"list"</defaultvalue>
+			<description>
+				The type of layout markup to use when rendering error messages.  Possible values are "table" (an HTML table), "list" (an HTML list) and iterator. If not specified, the default value is &quot;list&quot;.
+			</description>
+		</property>
+		
+		<property>
+			<name>globalOnly</name>
+			<classname>boolean</classname>
+			<defaultvalue>false</defaultvalue>
+			<description>
+				Flag indicating that only global messages (that is, messages not associated with any client identifier) are to be displayed. Default value is "false"
+			</description>
+		</property>
+		
+		<property>
+			<name>showDetail</name>
+			<classname>boolean</classname>
+			<defaultvalue>false</defaultvalue>
+			<description>
+				Flag indicating whether the detailed information of displayed messages should be included.  Default value is "false"
+			</description>
+		</property>	
+		
+		<property>
+			<name>showSummary</name>
+			<classname>boolean</classname>
+			<defaultvalue>true</defaultvalue>
+			<description> Flag indicating whether the summary portion of displayed
+			messages should be included. Default value is "true" </description>
+		</property>
+		<property>
+			<name>title</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Advisory title information about markup elements generated for this component
+			</description>
+		</property>		
+		
+		<property>
+			<name>tooltip</name>
+			<classname>boolean</classname>
+			<defaultvalue>false</defaultvalue>
+			<description>
+				Flag indicating whether the detail portion of the message should be displayed as a tooltip. Default value is &quot;false&quot;.
+			</description>
+		</property>	
+		
+		<property>
+			<name>errorClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message with a severity class of "ERROR"
+			</description>
+		</property>		
+		
+		<property>
+			<name>fatalClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message with a severity class of "FATAL"
+			</description>
+		</property>	
+			
+		<property>
+			<name>infoClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message with a severity class of "INFO"
+			</description>
+		</property>		
+		
+		<property>
+			<name>styleClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Space-separated list of CSS style class(es) to be applied when this element is rendered.  This value must be passed through as the "class" attribute on generated markup
+			</description>
+		</property>	
+		
+		<property>
+			<name>style</name>
+			<classname>java.lang.String</classname>
+			<description>
+				The CSS style for message
+			</description>
+		</property>	
+		<property>
+			<name>warnClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message with a severity class of "WARN"
+			</description>
+		</property>		
+		
+		<property>
+			<name>errorMarkerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message marker with a severity class of "ERROR"
+			</description>
+		</property>
+		
+		<property>
+			<name>warnClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message with a severity class of "WARN"
+			</description>
+		</property>		
+		
+		<!--property>
+			<name>errorMarkerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message marker with a severity class of "ERROR"
+			</description>
+		</property-->			
+		
+		<property>
+			<name>fatalMarkerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message marker with a severity class of "FATAL"
+			</description>
+		</property>			
+		
+		<property>
+			<name>infoMarkerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message marker with a severity class of "INFO"
+			</description>
+		</property>			
+		
+		<property>
+			<name>warnMarkerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply any message marker with a severity class of "WARN"
+			</description>
+		</property>			
+		
+		<property>
+			<name>markerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to marker
+			</description>
+		</property>			
+		
+		<property>
+			<name>markerStyle</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style(s) is/are to be applied to marker when this component is rendered
+			</description>
+		</property>
+		
+		<property>
+			<name>errorLabelClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message label with a severity class of "ERROR"
+			</description>
+		</property>
+		
+		<property>
+			<name>fatalLabelClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message label with a severity class of "FATAL"
+			</description>
+		</property>
+		
+		<property>
+			<name>infoLabelClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message label with a severity class of "INFO"
+			</description>
+		</property>
+		
+		<property>
+			<name>warnLabelClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to any message label with a severity class of "WARN"
+			</description>
+		</property>
+		
+		<property>
+			<name>labelClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style class to apply to label
+			</description>
+		</property>
+		
+		<property attachedstate="true" hidden="true">
+			<name>binding</name>
+			<classname>javax.faces.component.UIComponent</classname>
+			<description>
+				The attribute takes a value-binding expression for a component property of a backing bean
+			</description>
+		</property>
+   		&ui_component_attributes;
+		&ajax_output_attributes;
+		<property hidden="true">
+			<name>keepTransient</name>
+			<classname>boolean</classname>
+		</property>   		
+		
+   	</component>	
+
+</components>

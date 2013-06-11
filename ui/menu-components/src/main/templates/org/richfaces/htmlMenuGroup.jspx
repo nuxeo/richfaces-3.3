@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+		xmlns:f="http://ajax4jsf.org/cdk/template" 
+		xmlns:c=" http://java.sun.com/jsf/core" 
+		xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+		xmlns:u=" http://ajax4jsf.org/cdk/u"
+		xmlns:x=" http://ajax4jsf.org/cdk/x"
+		xmlns:vcp=" http://jsf.exadel.com/vcp"
+		baseclass="org.richfaces.renderkit.html.MenuGroupRendererBase"
+		class="org.richfaces.renderkit.html.MenuGroupRenderer"
+		component="org.richfaces.component.UIMenuGroup" >
+		
+	<h:styles>css/menucomponents.xcss</h:styles>  
+	
+   	<h:scripts>
+			new org.ajax4jsf.javascript.PrototypeScript(),
+			new org.ajax4jsf.javascript.AjaxScript()
+	</h:scripts>
+
+	<f:clientid var="clientId"/>
+	<f:call name="initializeResources" />
+	<f:call name="initializeStyleClasses" />
+	<f:resource name="/org/richfaces/renderkit/html/images/spacer.gif" var="spacer" />
+	
+		
+	<div id="#{clientId}" 
+		class="#{menuGroupClass}" 
+		style="#{menuItemStyle}"
+		onmousemove="#{menuItemMouseMove}"
+		onmouseout="RichFaces.Menu.groupMouseOut(event, this, '#{menuGroupCustomClass}', '#{onmouseoutInlineStyles}');"
+		onmouseover="RichFaces.Menu.groupMouseOver(event, this, '#{menuGroupHoverClass}', '#{onmouseoverInlineStyles}');">
+		
+		<span id="#{clientId}:icon" 
+			class="dr-menu-icon #{menuGroupItemIconClass} #{component.attributes['iconClass']}">
+		<jsp:scriptlet>
+			<![CDATA[
+					boolean disabled = ((Boolean) component.getAttributes().get("disabled")).booleanValue();
+					String iconName = disabled ? "iconDisabled" : "icon";
+			        UIComponent iconFacet = component.getFacet(iconName);
+			        if (iconFacet !=null && iconFacet.isRendered()) {
+						renderChild(context, iconFacet);
+					} else if (component.getAttributes().get(iconName)!=null) {]]> 
+		</jsp:scriptlet>
+			<img width="16" height="16" alt=""
+				style="#{component.attributes['iconStyle']}"
+				src="#{actualIcon}"/>
+		<jsp:scriptlet>	
+			<![CDATA[} else {]]> 
+		</jsp:scriptlet>
+			<img  width="16" height="16" alt=""
+				style="#{component.attributes['iconStyle']}"
+				src="#{spacer}"/>
+		<jsp:scriptlet><![CDATA[}]]></jsp:scriptlet>
+		</span>
+
+		<span id="#{clientId}:anchor" class="#{menuGroupItemLabelClass}">
+			#{component.attributes['value']}
+		</span>
+
+		<jsp:scriptlet>
+			<![CDATA[
+			        String iconFolder = disabled ? "iconFolderDisabled" : "iconFolder";
+			        UIComponent iconFolderFacet = component.getFacet(iconFolder);
+			        if (iconFolderFacet != null && iconFolderFacet.isRendered()) {
+			]]>
+		</jsp:scriptlet>
+			<div id="#{clientId}:folder" class="dr-menu-node #{menuGroupItemFolderClass}">
+		<jsp:scriptlet>
+			<![CDATA[
+						renderChild(context, iconFolderFacet);
+			]]>
+		</jsp:scriptlet>
+	           <u:insertFacet name="#{iconFolder}" />
+	        </div>
+		<jsp:scriptlet>	
+		<![CDATA[} else if (component.getAttributes().get(iconFolder)!=null) {]]>
+		</jsp:scriptlet>
+			<div id="#{clientId}:folder" class="dr-menu-node #{menuGroupItemFolderClass} #{component.attributes['iconClass']}">
+				<img width="16" height="16" alt=""
+					style="#{component.attributes['iconStyle']}"
+					src="#{actualIconFolder}"/>
+			</div>
+		<jsp:scriptlet>	
+		<![CDATA[} else {]]>
+		</jsp:scriptlet>
+			<div id="#{clientId}:folder" class="dr-menu-node dr-menu-node-icon #{menuGroupItemFolderClass}">
+			<jsp:scriptlet><![CDATA[
+			writer.write("&#160;");
+			]]></jsp:scriptlet>
+			</div>
+		<jsp:scriptlet>	
+		<![CDATA[}]]>
+		</jsp:scriptlet>
+	</div>
+
+</f:root>

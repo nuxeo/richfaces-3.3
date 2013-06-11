@@ -1,0 +1,5 @@
+#macro( quietnull $a)
+#if($a)$a#end
+#end
+
+

@@ -1,0 +1,284 @@
+/*simple toggle panel (icon position)*/
+.dr-stglpanel-marker {
+	float: right;
+}
+
+/**  Editor  */
+.EditorStyleClass {
+	
+}
+
+/* Suggestion Box */
+.entryClass {
+	color: red;
+	background-color: yellow;
+}
+
+.popupClass {
+	background-color: white;
+}
+
+/* Message and messages */
+.rich-message-label {
+	padding: 0px 10px;
+}
+
+.rich-messages-label {
+	padding: 0px 10px;
+}
+
+.rich-message-marker {
+	
+}
+
+.rich-message {
+	
+}
+
+.errorLabel {
+	color: #FF0000;
+}
+
+.warnLabel {
+	color: #0000FF;
+}
+
+.infoLabel {
+	color: #00FF00;
+	width: inherit;
+}
+
+.fatalLabel {
+	color: #FF1493;
+}
+
+.maintext {
+	font-size: 30px !important;
+}
+
+.text1 {
+	font-size: 14px !important;
+}
+
+.style {
+	background: red;
+	border: solid 3px red;
+	font: bold 14px tahoma;
+}
+
+/* inputNumderSlider Styles */
+.barStyle {
+	background-color: purple !important;
+	border: red 3px solid;
+}
+
+.inputStyle {
+	background-color: lime !important;
+	border: red 3px solid;
+	font-family: monospace;
+}
+
+.tipStyle {
+	border: green 3px solid;
+	background-color: yellow;
+	font: bold 14px italic;
+}
+
+.handleStyle {
+	border: green 3px solid;
+	background-color: yellow;
+}
+
+/* TabPanel Styles */
+.activeTabStyle {
+	background: lime;
+	border: solid 3px black;
+	font: italic 14px normal;
+}
+
+.inactiveTabStyle {
+	background: gray;
+	border: solid 3px blue;
+	font: bold 14px normal;
+}
+
+.disabledTabStyle {
+	background: silver;
+	border: dotted 3px blue;
+	font: small-caps 14px san-serif;
+}
+
+.contentStyle {
+	background: silver;
+	border: 1px red;
+	font: normal 20px san-serif;
+}
+
+/* inputNumerSpinner Styles*/
+.inputStyle {
+	background: aqua;
+	border: thin red;
+	font: normal 15px fantasy;
+}
+
+/* ToolBar Styles*/
+.separatorClass {
+	border: 3px solid red;
+	background: lime;
+}
+
+.contentClass {
+	background: silver;
+	border: 1px red;
+	font: normal 20px tahoma;
+}
+
+.toolBarClass {
+	border: 3px double yellow;
+	background: lime;
+}
+
+/*Calendar*/
+.smallText {
+	font-size: xx-small;
+}
+
+.largeText {
+	font-size: xx-large;
+}
+
+.Selecteddayclass {
+	background-color: #0087FF;
+}
+
+/*Data FilterSlider*/
+.column {
+	width: 75px;
+	font: normal 11px tahoma, sans-serif;
+	text-align: center;
+}
+
+.column-index {
+	width: 75px;
+	font: normal 11px tahoma, sans-serif;
+	text-align: left;
+}
+
+.list-row3 {
+	background-color: #ececec;
+}
+
+.list-row1 {
+	background-color: #f1f6fd;
+}
+
+.list-row2 {
+	background-color: #fff;
+}
+
+.list-header {
+	font: bold 11px tahoma, sans-serif;
+	text-align: center;
+}
+
+.list-table1 {
+	border: 1px solid #bed6f8;
+}
+
+.list-table2 {
+	border: 1px solid #bed6f8;
+}
+
+/*Drag and drop*/
+.dropzoneDecoration {
+	width: 70px;
+	height: 70px;
+	border: 2px dotted navy;
+}
+
+.accept {
+	border: 3px dotted green;
+	padding: 10px;
+}
+
+.reject {
+	border: 3px dashed red;
+	padding: 10px;
+}
+
+.mousemove {
+	border: 3px dotted green;
+	padding: 5px;
+}
+
+/*Panel2*/
+.panel {
+	vertical-align: top;
+}
+
+.rich-panel-header {
+	
+}
+
+.top {
+	width: 200px !important;
+	height: 100px !important;
+}
+
+.hea {
+	color: #FCC !important;
+}
+
+.bo {
+	color: #F00 !important;
+}
+
+.top2 {
+	width: 200px !important;
+	height: 100px !important;
+	border: 2px solid #4C9600 !important;
+	background-color: #E4FFC8 !important;
+}
+
+.hea2 {
+	background-image: url() !important;
+	background-color: #4C9600 !important;
+	height: 18px !important;
+	text-align: center !important;
+	vertical-align: middle !important;
+	color: #CFF !important;
+	padding: 4px 0 !important;
+}
+
+.bo2 {
+	color: #4C9600;
+}
+
+.bo3 {
+	height: 100px;
+	overflow: auto;
+}
+
+/*TabPanel*/
+.text {
+	font-size: 20px
+}
+
+.bgc {
+	border: thick;
+	background-color: green
+}
+
+/*SimpleTogglePanel*/
+.head {
+	background-color: aqua;
+}
+
+.body {
+	background-color: #FFFFFF;
+}
+
+.test {
+	color: green;
+	background-image:url(/*/image.gif)
+}

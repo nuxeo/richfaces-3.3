@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd" version="1.2">
+  <component>
+    <description><![CDATA[<p>Represents an HTML <code>input</code> element
+      of type <code>text</code>.</p>]]></description>
+    <display-name>Input Text</display-name>
+    <component-type>javax.faces.HtmlInputText</component-type>
+    <component-class>org.richfaces.component.html.HtmlInputText</component-class>
+  </component>
+  <component>
+    <description><![CDATA[<p>Represents an HTML <code>textarea</code> element.</p>]]></description>
+    <display-name>Input Textarea</display-name>
+    <component-type>javax.faces.HtmlInputTextarea</component-type>
+    <component-class>org.richfaces.component.html.HtmlInputTextarea</component-class>
+    
+  </component>  
+</faces-config>

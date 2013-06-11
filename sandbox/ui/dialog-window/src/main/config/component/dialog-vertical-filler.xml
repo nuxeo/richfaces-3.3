@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components 
+        PUBLIC "-//AJAX4JSF//CDK Generator config/EN"
+        "http://labs.jboss.com/jbossrichfaces/component-config.dtd" [
+<!ENTITY universal_html_attributes   SYSTEM "html_universal_attributes.xml">	
+]>
+<components>
+  <component>
+    <name>org.richfaces.DialogVerticalFiller</name>
+    <family>javax.faces.filler</family>
+    <description>Dialog Vertical Filler</description>
+    <superclass>org.richfaces.component.UIDialogVerticalFiller</superclass>
+    <classname>org.richfaces.component.html.DialogVerticalFiller</classname>
+    
+    <renderer generate="true">
+        <name>org.richfaces.DialogVerticalFiller</name>
+        <template>dialog-vertical-filler.xhtml</template>
+    </renderer>
+    <tag>
+        <name>dialogVerticalFiller</name>
+        <classname>org.richfaces.taglib.DialogVerticalFillerTag</classname>
+        <superclass>org.ajax4jsf.webapp.taglib.UIComponentTagBase</superclass>
+    </tag>
+    <taghandler>
+        <classname>org.ajax4jsf.webapp.taglib.AjaxComponentHandler</classname>
+    </taghandler>
+
+    <property>
+    	<name>style</name>
+    	<classname>java.lang.String</classname>
+    	<description>CSS style(s) to be applied when this component is rendered.</description>
+    </property>
+    <property>
+    	<name>styleClass</name>
+    	<classname>java.lang.String</classname>
+    	<description>Space-separated list of CSS style class(es) to be applied when this element is rendered. This value must be passed through as the "class" attribute on generated markup.</description>
+    </property>
+
+  </component>
+</components>

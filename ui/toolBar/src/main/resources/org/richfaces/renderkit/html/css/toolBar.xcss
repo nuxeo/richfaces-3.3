@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util' 
+   xmlns="http://www.w3.org/1999/xhtml" >
+   
+<u:selector name=".dr-toolbar-ext">
+	<u:style name="border" value="1px solid" />
+	<u:style name="border-color" skin="panelBorderColor" />
+	<u:style name="padding" value="0px" />
+	<u:style name="background-color" skin="headerBackgroundColor" />	
+	<u:style name="background-position" value="top left" />
+	<u:style name="background-repeat" value="repeat-x" />
+	<u:style name="background-image" > 	                       
+    	<f:resource f:key="org.richfaces.renderkit.html.GradientA"/>
+    </u:style>		
+</u:selector>
+
+<u:selector name=".dr-toolbar-int">
+	<u:style name="font-size" skin="headerSizeFont" />
+	<u:style name="color" skin="headerTextColor" />
+	<u:style name="font-weight" skin="headerWeightFont" />
+	<u:style name="font-family" skin="headerFamilyFont" />
+	<u:style name="padding" value="2px 10px 2px 10px" />
+	<u:style name="white-space" value="nowrap" />
+</u:selector>
+
+</f:template>

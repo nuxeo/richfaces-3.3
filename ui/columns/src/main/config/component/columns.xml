@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd"
+[
+<!ENTITY attributes SYSTEM "../../../../../dataTable/src/main/config/component/columnAttributes.ent">
+]
+>
+<components>
+	<component generate="false">
+		<name>org.richfaces.Column</name>
+		<family>org.richfaces.Column</family>
+		<classname>org.richfaces.component.html.HtmlColumn</classname>
+		<description>
+			The &lt;rich:columns&gt; is a component that allows to create a dynamic set of columns from your model.
+		</description>
+		<tag generate="false">
+			<name>columns</name>
+			<classname>
+				org.richfaces.taglib.ColumnsTag
+			</classname>
+			<test/>
+		</tag>
+		<taghandler generate="false">
+			<classname>org.richfaces.taglib.ColumnsHandler</classname>
+		</taghandler>
+		&ui_data_attributes;
+		&attributes;
+		<property>
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				The current value for this component
+			</description>
+		</property>
+		<property>
+			<name>index</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				The current counter
+			</description>
+		</property>
+		<property>
+			<name>var</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				The current variable
+			</description>
+		</property>
+		<property>
+			<name>columns</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				Number of columns to be rendered
+			</description>
+		</property>
+		<property>
+			<name>begin</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				The first iteration item 
+			</description>
+		</property>
+		<property>
+			<name>end</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				The last iteration item 
+			</description>
+		</property>
+		<property hidden="true">
+			<name>rows</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property hidden="true">
+			<name>first</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property hidden="true" exist="false">
+			<name>binding</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				Binding attribute
+			</description>
+		</property>
+		<property>
+			<name>rendered</name>
+			<classname>boolean</classname>
+			<description>
+				Attribute defines if component should be rendered. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+	</component>
+</components>

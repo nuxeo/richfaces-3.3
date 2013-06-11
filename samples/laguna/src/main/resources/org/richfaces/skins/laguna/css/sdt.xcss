@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template 
+	xmlns:f="http://jsf.exadel.com/template"
+   	xmlns:u="http://jsf.exadel.com/template/util" 
+   	xmlns="http://www.w3.org/1999/xhtml" >	
+
+	<u:selector name=".rich-sdt" >
+	</u:selector>
+	
+	<u:selector name=".rich-std-footer-row" >
+	</u:selector>
+	
+	<u:selector name=".rich-sdt-footer-cell" >
+	</u:selector>
+	
+	<u:selector name=".rich-sdt-column-cell" >
+	</u:selector>
+	
+	<u:selector name=".rich-sdt-row" >
+	</u:selector>
+	
+	<u:selector name=".rich-sdt-row-selected" >
+	</u:selector>
+	
+	<u:selector name=".rich-sdt-row-active" >
+	</u:selector>
+	
+	<u:selector name=".rich-std-header-row" >
+	</u:selector>
+	
+	<u:selector name=".rich-sdt-header-cell" >
+	</u:selector>
+	
+	<u:selector name=".rich-sdt-header-sort-up" >
+	</u:selector>
+	
+	<u:selector name=".rich-sdt-header-sort-down" >
+	</u:selector>
+	
+	<u:selector name=".rich-sdt-footer-sort-up" >
+	</u:selector>
+	
+	<u:selector name=".rich-sdt-footer-sort-down" >
+	</u:selector>
+	
+	<u:selector name=".rich-sdt-column-sort-up" >
+	</u:selector>
+	
+	<u:selector name=".rich-sdt-column-sort-down" >
+	</u:selector>
+	
+	<u:selector name=".rich-sdt-fake-r" >
+	</u:selector>
+</f:template>

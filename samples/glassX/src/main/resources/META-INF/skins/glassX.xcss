@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+    xmlns:u='http:/jsf.exadel.com/template/util'
+    xmlns="http://www.w3.org/1999/xhtml" >
+
+	    <f:importResource src="org/richfaces/skins/glassx/css/calendar.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/columns.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/combobox.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/component-control.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/context-menu.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/data-filter-slider.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/data-table.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/datascroller.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/drag-drop.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/dropdown-menu.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/effect.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/file-upload.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/functions.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/gmap.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/inplace-input.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/inplace-select.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/inputnumber-slider.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/inputnumber-spinner.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/insert.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/j-query.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/list-shuttle.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/menu-components.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/message.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/modal-panel.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/ordering-list.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/paint2d.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/panel.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/panelbar.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/panelmenu.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/pick-list.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/progress-bar.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/scrollable-data-table.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/separator.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/simple-toggle-panel.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/spacer.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/suggestionbox.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/tab-panel.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/toggle-panel.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/tool-bar.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/tooltip.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/tree-model.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/tree-table.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/tree.xcss" />
+        <f:importResource src="org/richfaces/skins/glassx/css/virtual-earth.xcss" />
+        
+</f:template>

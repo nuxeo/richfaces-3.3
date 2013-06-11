@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+   <f:verbatim>
+   <![CDATA[
+.rich-color-picker-wrapper{
+	display:none;
+	overflow:hidden;
+	position:absolute;
+	width:350px;
+	z-index: 3;
+}
+.rich-color-picker-ext{
+	border: 1px solid;
+	position: relative;
+	height: 170px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.rich-color-picker-rainbow div{
+	background: transparent no-repeat scroll left top;
+}
+.rich-color-picker-color {
+	background:#FF0000 none repeat scroll 0 0;
+	cursor:crosshair;
+	left:7px;
+	top:7px;
+	position:absolute;
+	overflow:hidden;
+	height:150px;
+	width:150px;
+	border: 1px solid;
+}
+
+.rich-color-picker-color div {
+	left:0;
+	position:absolute;
+	top:0;
+	height:150px;
+	width:150px;
+}
+
+.rich-color-picker-color div div {
+	left:0;
+	top:0;
+	position:absolute;
+    margin:-6px 0 0 -6px;
+	overflow:hidden;
+	width:11px;
+	height:11px;
+}
+
+.rich-color-picker-rainbow{
+	cursor:n-resize;
+	height:150px;
+	left:160px;
+	position:absolute;
+	top:7px;
+	width:35px;
+	text-align: center;
+}
+.rich-color-picker-rainbow div{
+	height:9px;
+	left:1px;
+	margin:-4px 0 0;
+	overflow:hidden;
+	position:absolute;
+	width:35px;
+}
+
+.rich-color-picker-new-color, .rich-color-picker-current-color{
+	position:absolute;
+	top:7px;
+	width: 60px;
+	height: 30px;
+	border: 1px solid;
+}
+
+.rich-color-picker-current-color{
+	right:7px;
+	top:7px;
+}
+
+.rich-color-picker-new-color{
+    left:198px;
+}
+.rich-color-picker-hex-wrapper {
+	height:22px;
+	right:72px;
+	position:absolute;
+	top:119px;
+}
+
+.rich-color-picker-rgb-wrapper{
+	right:97px;
+	position:absolute;
+	padding: 0px;
+	text-align: right;
+	margin-bottom: 2px
+}
+
+.rich-color-picker-hsb-wrapper{
+	right:16px;
+	position:absolute;
+	padding: 0px;
+	text-align: right;
+	margin-bottom: 2px
+}
+.rich-color-picker-hsb-h, .rich-color-picker-rgb-r{
+	top:45px;
+}
+.rich-color-picker-hsb-s, .rich-color-picker-rgb-g{
+	top:70px;
+}
+.rich-color-picker-hsb-b, .rich-color-picker-rgb-b{
+	top:95px;
+}
+
+
+.rich-color-picker-rgb-wrapper  label {
+	padding-top: 2px;
+	font-size: 16px;
+}
+
+.rich-color-picker-colors-input{
+	width: 35px;	
+	border: 1px solid;
+}
+
+.rich-color-picker-hex-wrapper input{
+	width:60px;
+	font-size: 13px;
+}
+
+.rich-color-picker-submit, .rich-color-picker-cancel{
+	position:absolute;
+	right:75px;
+	top:144px;
+}
+.rich-color-picker-cancel{
+	right:7px;
+}
+.rich-color-picker-span input{
+	border: 1px solid;
+	width:130px;
+	vertical-align:middle;
+}
+.rich-color-picker-icon {
+	display:inline;
+	cursor:pointer;
+	height:16px;
+	width:16px;
+	vertical-align:middle;	
+	border: 1px solid;
+}
+.rich-color-picker-icon-disabled{
+	background-color: #cccccc;
+	height:16px;
+	width:16px;
+}
+   ]]>
+    </f:verbatim>
+   
+    <u:selector name=".rich-color-picker-ext">
+		<u:style name="border-color" skin="panelBorderColor"/>
+		<u:style name="background-color" skin="generalBackgroundColor"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+	</u:selector>
+	<u:selector name=".rich-color-picker-span input">
+		<u:style name="background-repeat" value="repeat-x" />
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.InputBackgroundImage" />
+		</u:style>
+		<u:style name="border-color" skin="panelBorderColor"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+	</u:selector>
+	<u:selector name=".rich-color-picker-ext input">
+		<u:style name="color" skin="controlTextColor"/>
+		<u:style name="background-color" skin="controlBackgroundColor"/>
+	</u:selector>
+	<u:selector name=".rich-color-picker-ext label">
+		<u:style name="color" skin="generalSizeFont"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+	</u:selector>
+    <u:selector name=".rich-color-picker-icon">
+		<u:style name="border-color" skin="panelBorderColor"/>
+	</u:selector>
+	<u:selector name=".rich-color-picker-color">
+		<u:style name="border-color" skin="panelBorderColor"/>
+	</u:selector>
+	<u:selector name=".rich-color-picker-new-color">
+		<u:style name="border-color" skin="panelBorderColor"/>
+	</u:selector>
+	<u:selector name=".rich-color-picker-current-color">
+		<u:style name="border-color" skin="panelBorderColor"/>
+	</u:selector>
+	<u:selector name=".rich-color-picker-cancel">
+		<u:style name="font-size" skin="buttonFontSize"/>
+		<u:style name="font-family" skin="buttonFamilyFont"/>
+		<u:style name="color" skin="headerTextColor"/>
+		<u:style name="border-color" skin="headerBackgroundColor"/>
+	</u:selector>
+	<u:selector name=".rich-color-picker-submit">
+		<u:style name="font-size" skin="buttonFontSize"/>
+		<u:style name="font-family" skin="buttonFamilyFont"/>
+		<u:style name="color" skin="headerTextColor"/>
+		<u:style name="border-color" skin="headerBackgroundColor"/>
+	</u:selector>
+	<u:selector name=".rich-color-picker-color div">
+		<u:style name="background-image">
+			<f:resource f:key="/org/richfaces/renderkit/html/images/colorpicker_overlay.png" />
+		</u:style>
+	</u:selector>
+	<u:selector name=".rich-color-picker-colors-input">
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+		<u:style name="color" skin="generalTextColor"/>
+		<u:style name="border-color" skin="panelBorderColor"/>
+		<u:style name="background-color" skin="controlBackgroundColor"/>
+	</u:selector>
+	
+	<u:selector name=".rich-color-picker-color div div">
+		<u:style name="background-image">
+			<f:resource f:key="/org/richfaces/renderkit/html/images/colorpicker_select.gif" />
+		</u:style>
+	</u:selector>
+	<u:selector name=".rich-color-picker-rainbow div">
+		<u:style name="background-image">
+			<f:resource f:key="/org/richfaces/renderkit/html/images/rangearrows.gif" />
+		</u:style>
+	</u:selector>
+	<u:selector name=".rich-color-picker-submit, .rich-color-picker-cancel">
+		<u:style name="color" skin="headerTextColor" />
+		<u:style name="border-color" skin="panelBorderColor" />
+		<u:style name="font-size" skin="generalSizeFont" />
+		<u:style name="font-family" skin="generalFamilyFont" />
+		<u:style name="background-color" skin="headerBackgroundColor" />
+
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.ButtonBackgroundImage"/>
+		</u:style>
+		
+		<u:style name="border-width" value="1px" />
+		<u:style name="background-repeat" value="repeat-x" />
+		<u:style name="background-position" value="top left" />
+	</u:selector>
+</f:template>

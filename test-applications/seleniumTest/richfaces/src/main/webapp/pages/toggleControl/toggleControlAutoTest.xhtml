@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition template="#{templateBean.autoTestTemplate}">
+		<ui:define name="component">
+			<h:outputText id="test2" value="#{autoTestBean.text}" />
+		
+			<rich:togglePanel id="ajax_panel_one" 
+	                          switchType="ajax" 
+	                          stateOrder="first,second" initialState="first" label="Ajax">
+    			<f:facet name="first">
+    			 	<h:outputText id="ajax_state_one" value="First State" />
+    			</f:facet>
+    			<f:facet name="second">
+    				<h:outputText id="ajax_state_two" value="Second State" />
+    			</f:facet>
+			</rich:togglePanel>
+			
+			<rich:toggleControl id="componentId" 
+								for="ajax_panel_one" 
+								immediate="#{autoTestBean.immediate}"
+								rendered="#{autoTestBean.rendered}"
+								ajaxSingle="#{autoTestBean.ajaxSingle}"
+								actionListener="#{autoTestBean.actionListener}"
+							   	process="#{autoTestBean.process}"
+								reRender="#{autoTestBean.reRender}, autoTestForm:test2"
+								limitToList="#{autoTestBean.limitToList}"
+							   	bypassUpdates="#{autoTestBean.bypassUpdate}"
+							   	style="width: 200px; background-color: blue; color: yellow;"
+								styleClass="className"
+								oncomplete="#{autoTestBean.oncomplete}"
+							   	onbeforedomupdate="EventQueue.fire('onbeforedomupdate')"	
+								onblur="EventQueue.fire('onblur')"
+								onclick="EventQueue.fire('onclick')"	
+								ondblclick="EventQueue.fire('ondblclick')"
+								onfocus="EventQueue.fire('onfocus')"	
+								onkeydown="EventQueue.fire('onkeydown')"	
+								onkeypress="EventQueue.fire('onkeypress')"	
+								onkeyup="EventQueue.fire('onkeyup')"	
+								onmousedown="EventQueue.fire('onmousedown')"	
+								onmousemove="EventQueue.fire('onmousemove')"	
+								onmouseout="EventQueue.fire('onmouseout')"	
+								onmouseover="EventQueue.fire('onmouseover')"	
+								onmouseup="EventQueue.fire('onmouseup')"
+								>
+				<f:param name="parameter1" value="value1" />
+				<f:param name="parameter2" value="value2" />
+				<f:param name="parameter3" value="value3" />
+				<f:actionListener type="org.ajax4jsf.autotest.bean.AutoTestListener" />				
+				
+				<h:outputText value="Ajax next" />
+				<h:panelGroup id="content">
+					<h:inputText id="child" value="#{panelBean.content}" required="true" />
+			    </h:panelGroup>
+			</rich:toggleControl>
+			<br/>
+			<rich:toggleControl id="ajax_first_one" for="ajax_panel_one"  switchToState="first" action="#{panelBean.increment}">
+				<h:outputText value="Ajax first" />
+			</rich:toggleControl>
+			<br/>
+			<rich:toggleControl id="ajax_second_one" for="ajax_panel_one"  switchToState="second" action="#{panelBean.increment}">
+				<h:outputText value="Ajax second" />
+			</rich:toggleControl>
+		</ui:define>
+	</ui:composition>
+</html>	

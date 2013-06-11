@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:h=" http://ajax4jsf.org/cdk/h"
+	class="org.richfaces.renderkit.html.ColorPickerRenderer"
+	baseclass="org.richfaces.renderkit.ColorPickerRendererBase"
+	component="org.richfaces.component.UIColorPicker" 
+	>
+	
+	<jsp:directive.page import="org.richfaces.component.UIColorPicker" />
+	
+	<f:clientid var="clientId"/>
+	<h:scripts>/org/richfaces/renderkit/html/scripts/jquery/jquery.js, /org/richfaces/renderkit/html/scripts/jquery.utils.js, /org/richfaces/renderkit/html/scripts/pngFix.js, /org/richfaces/renderkit/html/scripts/ui.core.js, /org/richfaces/renderkit/html/scripts/ui.colorpicker.js</h:scripts>
+	<h:styles>/org/richfaces/renderkit/html/css/colorPicker.xcss</h:styles>		
+	<f:resource	name="/org/richfaces/renderkit/html/images/arrow.gif" var="arrow" />
+	<f:resource	name="/org/richfaces/renderkit/html/images/rainbow.png" var="rainbow" />
+	
+	<c:object var="showEvent" type="java.lang.String" />
+	<c:object var="clientIdJquery" type="java.lang.String" />
+	<c:object var="colorMode" type="java.lang.String" />
+	<c:object var="isRGBColorMode" type="boolean" />
+	<c:object var="value" type="java.lang.String" value="#{this:getInputValue(context, component)}" />
+	
+	<f:call name="addPopupToAjaxRendered" />
+	
+	<span id="#{clientId}" class="rich-color-picker-span"	x:passThruWithExclusions="value,name,type,id,styleClass,class,style">
+		<input readonly="readonly" type="text" name="#{clientId}" value="#{value}"/>
+		<jsp:scriptlet><![CDATA[
+            if(component.getFacet("icon")!=null && component.getFacet("icon").isRendered()) {
+        ]]></jsp:scriptlet>        
+				<u:insertFacet name="icon" />
+		<jsp:scriptlet><![CDATA[
+			}else{
+		]]></jsp:scriptlet>
+                <img src="#{arrow}" class="rich-color-picker-icon #{component.attributes['iconClass']}" style="#{component.attributes['iconStyle']}" vertical-align="middle"/>
+        <jsp:scriptlet><![CDATA[
+			}
+		]]></jsp:scriptlet>
+	</span>
+	
+<div id="#{clientId}-colorPicker-popup" class="rich-color-picker-wrapper">
+	<div class="rich-color-picker-ext">
+		<div class="rich-color-picker-color">
+			<div>
+				<div></div>
+			</div>
+		</div>
+		<div class="rich-color-picker-rainbow">
+			<img src="#{rainbow}" alt="rainbow" />
+		<jsp:scriptlet>
+			<![CDATA[if(component.getFacet("arrows")!=null && component.getFacet("arrows").isRendered()) {]]>
+		</jsp:scriptlet>        
+				<u:insertFacet name="arrows" />
+		<jsp:scriptlet>
+			<![CDATA[
+			}else{
+			]]>
+		</jsp:scriptlet>
+			<div></div>
+		<jsp:scriptlet>
+			<![CDATA[
+			}
+			]]>
+		</jsp:scriptlet>
+	
+
+		</div>
+		<div class="rich-color-picker-new-color"></div>
+		<div class="rich-color-picker-current-color"></div>
+		<div class="rich-color-picker-hex-wrapper">
+			<label for="rich-color-picker-hex-wrapper" title="hex">#:</label>
+			<input id="#{clientId}-colorPicker-hex" class="rich-color-picker-colors-input" type="text" maxlength="6" size="6" />
+		</div>
+		<div class="rich-color-picker-rgb-wrapper rich-color-picker-rgb-r">
+				<label for="rgb">R:</label>
+				<input id="#{clientId}-colorPicker-rgb-r" class="rich-color-picker-colors-input" type="text" maxlength="3" size="2" />
+        </div>
+		<div class="rich-color-picker-rgb-wrapper rich-color-picker-rgb-g">
+				<label for="rgb-g">G:</label>
+				<input id="#{clientId}-colorPicker-rgb-g" class="rich-color-picker-colors-input" type="text" maxlength="3" size="2" />
+		</div>
+		<div class="rich-color-picker-rgb-wrapper rich-color-picker-rgb-b">
+				<label for="rgb-b">B:</label>
+				<input id="#{clientId}-colorPicker-rgb-b" class="rich-color-picker-colors-input" type="text" maxlength="3" size="2" />
+		</div>
+		<div class="rich-color-picker-hsb-h rich-color-picker-hsb-wrapper">
+				<label for="hsb-h">H:</label>
+				<input id="#{clientId}-colorPicker-hsb-h" class="rich-color-picker-colors-input" type="text" maxlength="3" size="2" />
+		</div>
+		<div class="rich-color-picker-hsb-s rich-color-picker-hsb-wrapper">
+				<label for="hsb-s">S:</label>
+				<input id="#{clientId}-colorPicker-hsb-s" class="rich-color-picker-colors-input" type="text" maxlength="3" size="2" />
+		</div>		
+		<div class="rich-color-picker-hsb-b rich-color-picker-hsb-wrapper">		
+				<label for="hsb-b">B:</label>
+				<input id="#{clientId}-colorPicker-hsb-b" class="rich-color-picker-colors-input" type="text" maxlength="3" size="2" />
+		</div>
+		<button type="button" class="rich-color-picker-submit" name="submit">Apply</button>
+		<button type="button" class="rich-color-picker-cancel" name="cancel">Cancel</button>
+	</div>
+</div>
+	<div style="display: none;" id="#{clientId}-colorPicker-script">
+	<script type="text/javascript">
+		jQuery('.rich-color-picker-color').pngFix();
+		<jsp:scriptlet><![CDATA[
+		Boolean flat = (Boolean) component.getAttributes().get("flat");
+		colorMode = (String) component.getAttributes().get("colorMode");
+		showEvent = (String) component.getAttributes().get("showEvent");
+
+		isRGBColorMode = UIColorPicker.COLOR_MODE_RGB.equals(colorMode);
+		
+		if (value == null || value.length() == 0){
+			if (isRGBColorMode) {
+				value = "rgb(255, 255, 255)";
+			} else {
+				value = "#ffffff";
+			}
+		} else {
+			validateColorString(context, component, value);
+		}
+		
+		if(showEvent.startsWith("on")){
+			showEvent = showEvent.substring(2);	
+		}
+		clientIdJquery = convertToString(clientId);
+		clientIdJquery = clientIdJquery.replace(":", "\\\\:");
+
+		colorMode = colorMode.toLowerCase();
+		java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("\\s+");
+		colorMode = pattern.matcher(colorMode).replaceAll("");
+
+		boolean disabled = getUtils().isBooleanAttribute(component, "disabled");
+		variables.setVariable("disabled",new Boolean(disabled));
+	]]></jsp:scriptlet>
+			
+			jQuery('\##{clientIdJquery}').colorPicker({ 
+				flat: #{component.attributes['flat']},
+				color: "#{value}",
+				showEvent: "#{showEvent}",
+				rgbColorMode: #{isRGBColorMode} 
+			})#{this:encodeEvents(context, component)};
+	
+	</script>
+	</div>
+
+</f:root>

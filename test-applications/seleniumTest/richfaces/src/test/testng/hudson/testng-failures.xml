@@ -1,0 +1,67 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="seleniumTestAANe-failures">
+	<test name="all_all_none">
+		<parameter name="browser" value="*firefox" />
+		<parameter name="loadStyleStrategy" value="ALL" />
+		<parameter name="loadScriptStrategy" value="ALL" />
+		<parameter name="filterPrefix" value="/faces/NONE/" />
+
+		<groups>
+			<run>
+				<include name="failures" />
+			</run>
+		</groups>
+
+		<packages>
+			<package name="org.richfaces.testng" />
+		</packages>
+	</test>
+	<test name="default_default_neko">
+		<parameter name="browser" value="*firefox" />
+		<parameter name="loadStyleStrategy" value="DEFAULT" />
+		<parameter name="loadScriptStrategy" value="DEFAULT" />
+		<parameter name="filterPrefix" value="/faces/NEKO/" />
+
+		<groups>
+			<run>
+				<include name="failures" />
+			</run>
+		</groups>
+
+		<packages>
+			<package name="org.richfaces.testng" />
+		</packages>
+	</test>
+	<test name="default_default_none">
+		<parameter name="browser" value="*firefox" />
+		<parameter name="loadStyleStrategy" value="DEFAULT" />
+		<parameter name="loadScriptStrategy" value="DEFAULT" />
+		<parameter name="filterPrefix" value="/faces/NONE/" />
+
+		<groups>
+			<run>
+				<include name="failures" />
+			</run>
+		</groups>
+
+		<packages>
+			<package name="org.richfaces.testng" />
+		</packages>
+	</test>
+	<test name="default_default_tidy">
+		<parameter name="loadStyleStrategy" value="DEFAULT" />
+		<parameter name="loadScriptStrategy" value="DEFAULT" />
+		<parameter name="filterPrefix" value="/faces/TIDY/" />
+		<parameter name="browser" value="*firefox" />
+
+		<groups>
+			<run>
+				<include name="failures" />
+			</run>
+		</groups>
+
+		<packages>
+			<package name="org.richfaces.testng" />
+		</packages>
+	</test>
+</suite>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+	<resource class="org.ajax4jsf.javascript.AjaxScript">
+		<name>org.ajax4jsf.javascript.AjaxScript</name>
+	</resource>
+	<resource class="org.ajax4jsf.javascript.SmartPositionScript">
+		<name>org.ajax4jsf.javascript.SmartPositionScript</name>
+	</resource>
+	<resource class="org.ajax4jsf.javascript.AjaxScript">
+		<name>ajax.js</name>
+	</resource>
+	<resource class="org.ajax4jsf.javascript.PrototypeScript">
+		<name>prototype.js</name>
+	</resource>
+	<resource class="org.ajax4jsf.javascript.DnDScript">
+		<name>dnd.js</name>
+	</resource>
+	<resource >
+		<name>form.js</name>
+		<path>/org/ajax4jsf/javascript/scripts/form.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource >
+		<name>/org/ajax4jsf/framework.pack.js</name>
+		<path>org/ajax4jsf/framework.pack.js</path>
+		<renderer class="org.ajax4jsf.resource.CompressedScriptRenderer"/>
+	</resource>
+	<resource >
+		<name>org/ajax4jsf/renderers/ajax/scripts/form.js</name>
+		<path>/org/ajax4jsf/javascript/scripts/form.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.GradientA">
+		<name>org.richfaces.renderkit.html.GradientA</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.CustomizeableGradient">
+		<name>org.richfaces.renderkit.html.CustomizeableGradient</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.SliderArrowImage">
+		<name>org.richfaces.renderkit.html.images.SliderArrowImage</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.BaseGradient">
+		<name>org.richfaces.renderkit.html.BaseGradient</name>
+	</resource>
+
+	<resource>
+		<name>jquery.js</name>
+		<path>org/richfaces/renderkit/html/scripts/jquery/jquery.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>scriptaculous.js</name>
+		<path>org/richfaces/renderkit/html/scripts/scriptaculous/scriptaculous.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>scriptaculous/builder.js</name>
+		<path>org/richfaces/renderkit/html/scripts/scriptaculous/builder.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>scriptaculous/effects.js</name>
+		<path>org/richfaces/renderkit/html/scripts/scriptaculous/effects.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>scriptaculous/dragdrop.js</name>
+		<path>org/richfaces/renderkit/html/scripts/scriptaculous/dragdrop.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>scriptaculous/controls.js</name>
+		<path>org/richfaces/renderkit/html/scripts/scriptaculous/controls.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>scriptaculous/slider.js</name>
+		<path>org/richfaces/renderkit/html/scripts/scriptaculous/slider.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>scriptaculous/sound.js</name>
+		<path>org/richfaces/renderkit/html/scripts/scriptaculous/sound.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	
+	<resource>
+		<name>scriptaculous/unittest.js</name>
+		<path>org/richfaces/renderkit/html/scripts/scriptaculous/unittest.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+
+	<resource>
+		<name>org/richfaces/renderkit/html/scripts/jquery.jcarousel.js</name>
+		<path>org/richfaces/renderkit/html/scripts/jquery.jcarousel.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+
+	<resource>
+		<name>org/richfaces/renderkit/html/scripts/jquery.utils.js</name>
+		<path>org/richfaces/renderkit/html/scripts/jquery.utils.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+
+	<resource>
+		<name>org/ajax4jsf/javascript/scripts/AJAX.js</name>
+		<path>org/ajax4jsf/javascript/scripts/AJAX.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>org/ajax4jsf/javascript/scripts/command.js</name>
+		<path>org/ajax4jsf/javascript/scripts/command.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>org/ajax4jsf/javascript/scripts/dnd.js</name>
+		<path>org/ajax4jsf/javascript/scripts/dnd.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>org/ajax4jsf/javascript/scripts/imagecache.js</name>
+		<path>org/ajax4jsf/javascript/scripts/imagecache.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>org/ajax4jsf/javascript/scripts/prototype.js</name>
+		<path>org/ajax4jsf/javascript/scripts/prototype.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>org/ajax4jsf/javascript/scripts/smartposition.js</name>
+		<path>org/ajax4jsf/javascript/scripts/smartposition.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>org/richfaces/renderkit/html/scripts/skinning.js</name>
+		<path>org/richfaces/renderkit/html/scripts/skinning.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+</resource-config>

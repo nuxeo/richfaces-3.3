@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://jsf.exadel.com/template"
+        xmlns:vcp=" http://jsf.exadel.com/vcp"
+        xmlns:ui=" http://jsf.exadel.com/ui"
+        xmlns:x=" http://jsf.exadel.com/vcp"
+        xmlns:u="http://jsf.exadel.com/util"
+        xmlns:h="http://jsf.exadel.com/header"
+        baseclass="org.richfaces.renderkit.html.SimpleTogglePanel2Renderer"
+        class="org.richfaces.renderkit.html.SimpleTogglePanel2Template"
+        >
+
+    <f:clientid var="clientId"/>
+    <h:styles>css/simpleTogglePanel2.xcss</h:styles>
+<h:scripts>
+new org.ajax4jsf.javascript.PrototypeScript(),
+new org.ajax4jsf.javascript.AjaxScript(),
+new org.ajax4jsf.javascript.ImageCacheScript(),
+/org/ajax4jsf/javascript/scripts/form.js,
+/org/richfaces/renderkit/html/scripts/browser_info.js,
+scripts/simpleTogglePanel2.js
+</h:scripts>
+
+    <div id="#{clientId}" x:passThruWithExclusions="id,value,style"
+         style="width: #{component.attributes['width']};">
+      <div class="dr-stglpnl rich-stglpanel #{component.attributes['styleClass']}"
+          style="#{component.attributes['style']};">        
+        <script type="text/javascript">
+            SimpleTogglePanelManager.add(new SimpleTogglePanel("#{clientId}", "#{component.attributes['opened']}"
+                <jsp:scriptlet><![CDATA[
+                if(component.getFacet("openMarker")!=null && component.getFacet("openMarker").isRendered()) {
+                ]]></jsp:scriptlet>
+                    , "<u:insertFacet name='openMarker'/>"
+                <jsp:scriptlet><![CDATA[
+                } else {
+                ]]></jsp:scriptlet>
+                    , null
+                <jsp:scriptlet><![CDATA[
+                }
+                ]]></jsp:scriptlet>
+                <jsp:scriptlet><![CDATA[
+                if(component.getFacet("closeMarker")!=null && component.getFacet("closeMarker").isRendered()) {
+                ]]></jsp:scriptlet>
+                    , "<u:insertFacet name='closeMarker'/>"
+                <jsp:scriptlet><![CDATA[
+                } else {
+                ]]></jsp:scriptlet>
+                    , null
+                <jsp:scriptlet><![CDATA[
+                }
+                ]]></jsp:scriptlet>
+            ));
+        </script>
+
+        <f:call name="utils.encodeBeginFormIfNessesary"/>
+        <div id="#{clientId}_header"
+             class="dr-stglpnl-h rich-stglpanel-header #{component.attributes['headerClass']}"
+             style="position : relative;"
+             onclick="#{this:getOnClick(context,component)}">
+
+            #{component.attributes['label']} <jsp:scriptlet><![CDATA[writer.write("&nbsp;");]]></jsp:scriptlet>
+            <div id="#{clientId}_switch"
+                 style="position : absolute; top: 0px; right: 5px;">
+                <jsp:scriptlet><![CDATA[
+                if(component.isOpened()){
+                    if(component.getFacet("closeMarker")!=null && component.getFacet("closeMarker").isRendered()) {
+                ]]></jsp:scriptlet>
+                    <u:insertFacet name="closeMarker" />
+                <jsp:scriptlet><![CDATA[
+                    } else {
+                   	  writer.write("&#171;");                      	                                           
+                    }
+                } else {
+                    if(component.getFacet("openMarker")!=null && component.getFacet("openMarker").isRendered()) {
+                ]]></jsp:scriptlet>
+	                <u:insertFacet name="openMarker" />
+                <jsp:scriptlet><![CDATA[
+                    } else {
+                   	   writer.write("&#187;");                
+                    }
+                }
+                ]]></jsp:scriptlet>
+            </div>
+        </div>
+        <jsp:scriptlet>
+            <![CDATA[if((component.getSwitchType()!=null) && (component.getSwitchType().equals(component.CLIENT_SWITCH_TYPE)==true)){]]>
+        </jsp:scriptlet>
+
+        <div style="display: none;">
+            <input type="hidden" id="#{clientId}_input" name="#{clientId}"
+                   value="#{component.attributes['opened']}"/>
+        </div>
+        <jsp:scriptlet>
+            <![CDATA[}]]>
+        </jsp:scriptlet>
+        <f:call name="utils.encodeEndFormIfNessesary"/>
+
+        <div id="#{clientId}_body"
+             style="display : #{this:getdivdisplay(context, component)};
+             overflow: auto; height: #{component.attributes['height']};"
+             class="dr-stglpnl-b rich-stglpanel-body #{component.attributes['bodyClass']}">           
+            <vcp:body>
+		         <f:call name="renderChildren" />
+            </vcp:body>
+       </div>
+    </div>
+    </div>
+</f:root>

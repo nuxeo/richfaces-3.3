@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	template="../../template/caseTemplate.xhtml">
+	<ui:define name="caseName">testImmediateAttribute</ui:define>
+	<ui:define name="caseBody">
+		<h:panelGroup id="group_tia">
+			<h:form id="_form">
+				<table cellpadding="5" >
+					<tr>
+						<td></td>
+						<td>
+							<h:inputText value="" required="true" ></h:inputText>
+							<rich:inplaceSelect id="ii_tia" value="#{inplaceSelectBean.isValue}" validator="#{inplaceSelectBean.validator}" immediate="true">
+								<f:selectItems value="#{inplaceSelectBean.treeItems}"/>
+							</rich:inplaceSelect>
+							<a4j:commandButton id="bn_tia"  reRender="group_tia" value="Submit"/>
+						</td>
+						<td><span id="text_tia"><h:messages /></span></td>
+					</tr>
+				</table>
+			</h:form>
+		</h:panelGroup>
+	</ui:define>
+</ui:composition>

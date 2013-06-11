@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">	
+	<ui:define name="component">
+		
+		<h:form id="_controls">
+			<h:commandButton action="#{effectBean.testRendered}" value="testRendered" id="testRendered"></h:commandButton>			
+		</h:form>
+		
+		<input type="button" id="button1" value="Button1"/>
+		<h:commandButton id="button2" value="Button2"></h:commandButton>
+		<h:commandButton id="button3" value="Button3">
+			<rich:effect event="onclick" type="Fade" params="duration: 0"></rich:effect>
+			<rich:effect event="onclick" for="button3" type="Appear" params="delay: 1"></rich:effect>
+		</h:commandButton>
+		
+		<br/>
+		
+		<a href="#" id="hideLink1">Hide Button</a><br/>
+		<a href="#" id="showLink2">Show Command Button</a><br/>
+		<a href="#" id="hideLink2">Hide Command Button</a><br/>
+		<a href="#" id="testLink" onclick="myEffect({duration:2, from:1.0, to:0.1})">Test named effect</a>
+		
+		<rich:effect for="hideLink1" event="onclick" type="Fade" 
+			params="targetId: 'button1', duration: 3.0, from: 1.0, to: 0.0"></rich:effect>
+
+		<rich:effect rendered="#{effectBean.rendered}" for="hideLink2" event="onclick" type="Fade" 
+			params="targetId: getParentId() + 'button2', duration: 0, from: 1.0, to: 0.0"></rich:effect>
+			
+		<rich:effect for="showLink2" event="onclick" type="Appear" 
+			params="targetId:  getParentId() + 'button2', duration: 0"></rich:effect>
+			
+		<rich:effect name="myEffect" type="Opacity"
+					targetId="testLink">
+		</rich:effect>
+									
+		
+		<a href='#' onclick="pause(3000, 'crack');">Test</a>
+	</ui:define>
+	
+</ui:composition>
+</html>

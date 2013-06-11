@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+    <resource class="org.richfaces.renderkit.html.gradientimages.PanelMenuItemGradient">
+        <name>org.richfaces.renderkit.html.gradientimages.PanelMenuItemGradient</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.iconimages.PanelMenuIconChevron">
+        <name>org.richfaces.renderkit.html.iconimages.PanelMenuIconChevron</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.iconimages.PanelMenuIconChevronDown">
+        <name>org.richfaces.renderkit.html.iconimages.PanelMenuIconChevronDown</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.iconimages.PanelMenuIconChevronLeft">
+        <name>org.richfaces.renderkit.html.iconimages.PanelMenuIconChevronLeft</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.iconimages.PanelMenuIconChevronUp">
+        <name>org.richfaces.renderkit.html.iconimages.PanelMenuIconChevronUp</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.iconimages.PanelMenuIconDisc">
+        <name>org.richfaces.renderkit.html.iconimages.PanelMenuIconDisc</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.iconimages.PanelMenuIconGrid">
+        <name>org.richfaces.renderkit.html.iconimages.PanelMenuIconGrid</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.iconimages.PanelMenuIconSpacer">
+        <name>org.richfaces.renderkit.html.iconimages.PanelMenuIconSpacer</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.iconimages.PanelMenuIconTriangle">
+        <name>org.richfaces.renderkit.html.iconimages.PanelMenuIconTriangle</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.iconimages.PanelMenuIconTriangleDown">
+        <name>org.richfaces.renderkit.html.iconimages.PanelMenuIconTriangleDown</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.iconimages.PanelMenuIconTriangleLeft">
+        <name>org.richfaces.renderkit.html.iconimages.PanelMenuIconTriangleLeft</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.iconimages.PanelMenuIconTriangleUp">
+        <name>org.richfaces.renderkit.html.iconimages.PanelMenuIconTriangleUp</name>
+    </resource>
+</resource-config>

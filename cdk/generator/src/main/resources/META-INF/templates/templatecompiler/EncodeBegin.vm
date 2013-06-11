@@ -1,0 +1,10 @@
+	
+	public void doEncodeBegin(ResponseWriter writer, FacesContext context, UIComponent component ) throws IOException {
+		ComponentVariables variables = ComponentsVariableResolver.getVariables(this, component);
+		doEncodeBegin(writer, context, (${component.componentClass})component, variables );
+	}		
+
+	public void doEncodeBegin(ResponseWriter writer, FacesContext context, ${component.componentClass} component, ComponentVariables variables ) throws IOException {
+	    $body
+	}		
+	

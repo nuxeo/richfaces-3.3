@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+		<h:form>
+			<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputText value="Page Attributes"/>
+			</f:facet>
+				<h:outputLabel for="theme" value="Page Theme" />
+				<h:selectOneMenu id="theme" style="width:75px"
+					value="#{layoutBean.theme}">
+					<f:selectItem itemValue="" itemLabel="Default" />
+					<f:selectItem itemValue="simple" itemLabel="Simple" />
+					<f:selectItem itemValue="violetRays" itemLabel="Violet Rays" />
+					<f:selectItem itemValue="theme1" itemLabel="Theme One" />
+					<f:selectItem itemValue="theme2" itemLabel="Theme Two" />
+				</h:selectOneMenu>
+				<h:outputLabel for="width" value="Page Width" />
+				<h:inputText id="width" value="#{layoutBean.width}" style="width:75px"/>
+				<h:outputLabel for="sidebarwidth" value="Sidebar Width" />
+				<h:inputText id="sidebarwidth" value="#{layoutBean.sidebarWidth}" style="width:75px"/>
+				<h:outputLabel for="position" value="Side bar position" />
+				<h:selectOneMenu value="#{layoutBean.position}" id="position" style="width:75px">
+					<f:selectItem itemValue="left" />
+					<f:selectItem itemValue="right" />
+				</h:selectOneMenu>
+				<h:outputLabel for="skin" value="Current skin" />
+				<h:selectOneMenu value="#{skinBean.skin}" id="skin" style="width:75px">
+					<f:selectItem itemValue="blueSky" itemLabel="blueSky" />
+					<f:selectItem itemValue="ruby" itemLabel="ruby" />
+					<f:selectItem itemValue="emeraldTown" itemLabel="emeraldTown" />
+				</h:selectOneMenu>
+				<h:commandButton value="Change"></h:commandButton>
+			</h:panelGrid>
+		</h:form>
+</ui:composition>

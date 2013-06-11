@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	
+	<ui:define name="component">
+		<h:form id="_form">
+		<rich:modalPanel id="panel" />
+			
+			<h:panelGroup layout="block" id="comp">
+			</h:panelGroup>
+			<script>
+				TestComponent = Class.create();
+				Object.extend(TestComponent.prototype, {
+    			initialize: function(id) {
+    				this.id = id;
+					$(id).component = this;
+				},
+				operation: function(event, params) {
+					$(this.id).innerHTML = params.parameterName;
+				}
+				}
+				)
+				new TestComponent('#{rich:clientId('comp')}');
+				
+				function clearDiv(){	
+					#{rich:element('comp')}.innerHTML = '';
+				} 
+			</script>
+			<br/>
+			<h:inputText value="Test f:param passing" style="cursor:pointer" id="link1" />
+			<rich:componentControl attachTo="link1" event="onclick" for="comp" operation="operation">
+					<f:param value="1" name="parameterName"/>
+			</rich:componentControl>
+			<br/>
+			<h:inputText value="Test params attribute" style="cursor:pointer" id="link2" />
+			<rich:componentControl attachTo="link2" event="onclick" for="comp" operation="operation" params="parameterName:2">
+			</rich:componentControl>
+			<br/>
+			<h:inputText value="Clear" style="cursor:pointer" id="link3" onclick="clearDiv()"/>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

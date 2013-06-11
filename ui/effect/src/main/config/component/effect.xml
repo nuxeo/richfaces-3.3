@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.Effect</name>
+		<family>org.richfaces.Effect</family>
+		<classname>org.richfaces.component.html.HtmlEffect</classname>
+		<superclass>org.richfaces.component.UIEffect</superclass>
+		<description>
+			<![CDATA[The <rich:effect> utilizes a set of effects provided by the scriptaculous JavaScript library. It allows to attach effects to JSF components and html tags. ]]>
+		</description>
+		<test />
+		<renderer generate="true" override="true">
+			<name>org.richfaces.EffectRenderer</name>
+			<template>effect.jspx</template>
+		</renderer>
+		<tag>
+			<name>effect</name>
+			<classname>org.richfaces.taglib.EffectTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		&ui_component_attributes;
+		<property>
+			<name>name</name>
+			<classname>java.lang.String</classname>
+			<description>
+			  Generated JavaScript name.
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>for</name>
+			<classname>java.lang.String</classname>
+			<description>
+			  Id of the target component.
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>params</name>
+			<classname>java.lang.String</classname>
+			<description>
+			  Parameters passed to the effect function.
+			  Example params="{duration:0.2,from:1.0,to:0.1}"
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>targetId</name>
+			<classname>java.lang.String</classname>
+			<description>
+			  The id of the element the effect apply to. Might be component id
+			  or client id of jsf component or html tag. If targetId is not defined
+			  the value of the attribute 'for' or the 'targetId' option effect
+			  play its role 
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		
+		<property hidden="true">
+			<name>parentProperties</name>
+			<classname>javax.faces.component.UIComponent</classname>
+		</property>
+		
+		<property>
+			<name>type</name>
+			<classname>java.lang.String</classname>
+			<description>
+			 Defines the type of effect. Possible values: "Fade", "Blind", "Opacity".
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>disableDefault</name>
+			<classname>boolean</classname>
+			<description>
+				<![CDATA[Disable default action for target event ( append "return false;" to JavaScript ). Default value is "false". ]]>
+			</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		
+		<property el="false">
+			<name>event</name>
+			<classname>java.lang.String</classname>
+			<description>
+			  Event on the component or html tag the effect is attached to
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property hidden="true">
+	    	<name>onsubmit</name>
+	    	<classname>java.lang.String</classname>
+	    </property>
+	</component>
+</components>

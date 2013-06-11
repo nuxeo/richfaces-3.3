@@ -1,0 +1,93 @@
+<f:subview id="simpleTogglePanelSubviewID"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<h:form>
+		<rich:simpleTogglePanel id="sTP" bodyClass="body" headerClass="head"
+			label="simpleTogglePanel with some text"
+			width="#{simpleTogglePanel.width}"
+			height="#{simpleTogglePanel.height}"
+			switchType="#{simpleTogglePanel.switchType}" opened="false">
+			<f:facet name="closeMarker">
+				<h:outputText value="Close It" />
+			</f:facet>
+			<f:facet name="openMarker">
+				<h:outputText value="Open It" />
+			</f:facet>
+			<f:verbatim>
+		   	 Some text... Some text...  Some text... Some text... Some text... Some text... Some text... Some text...
+		     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text... 
+		     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+		     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+		     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+		     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+	     	</f:verbatim>
+		</rich:simpleTogglePanel>
+
+		<rich:simpleTogglePanel id="sTP1" headerClass="head"
+			label="simpleTogglePanel wiht image"
+			width="#{simpleTogglePanel.width}"
+			height="#{simpleTogglePanel.height}"
+			rendered="#{simpleTogglePanel.rendered}"
+			switchType="#{simpleTogglePanel.switchType}" opened="false">
+			<h:graphicImage value="/pics/podb109_61.jpg" width="500" height="300"></h:graphicImage>
+		</rich:simpleTogglePanel>
+
+		<rich:simpleTogglePanel id="sTP2" label="Focus simpleTogglePanle"
+			width="#{simpleTogglePanel.width}" ignoreDupResponses="true"
+			focus="#{simpleTogglePanel.focus}">
+			<f:facet name="closeMarker">
+				<h:graphicImage value="/pics/ajax_stoped.gif"></h:graphicImage>
+			</f:facet>
+			<f:facet name="openMarker">
+				<h:graphicImage value="/pics/ajax_process.gif"></h:graphicImage>
+			</f:facet>
+			<rich:simpleTogglePanel id="INsTP">
+				<h:panelGrid columns="2">
+					<h:graphicImage value="/pics/podb109_61.jpg" width="250px" height="200px"></h:graphicImage>
+					<f:verbatim>
+	    		   	 Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text... 
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+				     </f:verbatim>
+				</h:panelGrid>
+			</rich:simpleTogglePanel>
+		</rich:simpleTogglePanel>
+
+		<rich:spacer height="20px"></rich:spacer>
+
+		<h:panelGrid columns="2" border="1">
+			<h:outputText value="Width:">
+			</h:outputText>
+			<h:inputText value="#{simpleTogglePanel.width}">
+				<a4j:support event="onchange" reRender="sTP, sTP1"></a4j:support>
+			</h:inputText>
+
+			<h:outputText value="Height:">
+			</h:outputText>
+			<h:inputText value="#{simpleTogglePanel.height}">
+				<a4j:support event="onchange" reRender="sTP, sTP1"></a4j:support>
+			</h:inputText>
+
+			<h:outputText value="Switch Type:"></h:outputText>
+			<h:selectOneRadio value="#{simpleTogglePanel.switchType}">
+				<f:selectItem itemLabel="client" itemValue="client" />
+				<f:selectItem itemLabel="server" itemValue="server" />
+				<f:selectItem itemLabel="ajax" itemValue="ajax" />
+				<a4j:support event="onclick" reRender="sTP, sTP1, sTP2"></a4j:support>
+			</h:selectOneRadio>
+
+			<h:outputText value="Rendered:"></h:outputText>
+			<h:selectBooleanCheckbox value="#{simpleTogglePanel.rendered}"
+				onclick="submit()">
+			</h:selectBooleanCheckbox>
+
+		</h:panelGrid>
+
+	</h:form>
+</f:subview>

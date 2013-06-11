@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd"
+[
+<!ENTITY listeners SYSTEM "commonDataFilterSliderListeners.ent">
+]
+>
+<components>
+    <component>
+        <name>org.richfaces.DataFilterSlider</name>
+        <family>org.richfaces.DataFilterSlider</family>
+        <classname>org.richfaces.component.html.HtmlDataFilterSlider</classname>
+        <superclass>org.richfaces.component.UIDataFltrSlider</superclass>
+        <test>
+			<classname>org.richfaces.component.html.HtmlDataFilterSliderComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+        <description>
+            <![CDATA[A slider-based action component used for filtering table data.
+    ]]>
+        </description>
+        <renderer generate="true" override="true">
+            <name>org.richfaces.DataFilterSliderRenderer</name>
+            <template>dataFilterSlider.jspx</template>
+        </renderer>
+        <tag>
+            <name>dataFilterSlider</name>
+            <classname>org.richfaces.taglib.DataFilterSliderTag</classname>
+            <superclass>org.richfaces.taglib.DataFilterSliderTagBase</superclass>
+            <test/>
+        </tag>
+        <taghandler generate="true">
+            <classname>org.richfaces.taglib.DataFilterSliderTagHandler</classname>
+            <superclass>com.sun.facelets.tag.jsf.ComponentHandler</superclass>
+            <!--test/-->
+        </taghandler>
+
+        &ui_component_attributes;
+        &html_events;
+        &html_style_attributes;
+
+        &ui_command_attributes;
+        &ajax_component_attributes;
+        &html_event_handler_attributes;
+
+		&ui_component_attributes;
+
+        <property>
+            <name>handleValue</name>
+            <classname>java.lang.Integer</classname>
+            <description>
+                Current handle value
+            </description>
+        </property>
+        <property>
+            <name>width</name>
+            <classname>java.lang.String</classname>
+            <description>Width of the slider control. Default value is &quot;200px&quot;.</description>
+            <defaultvalue><![CDATA["200px"]]></defaultvalue>
+        </property>
+        <property>
+            <name>increment</name>
+            <classname>java.lang.Integer</classname>
+            <description>
+                Amount to which a handle on each slide/move should be incremented
+            </description>
+        </property>
+        <property>
+            <name>endRange</name>
+            <classname>java.lang.Integer</classname>
+            <description>
+                A slider end point
+            </description>
+        </property>
+        <property>
+            <name>startRange</name>
+            <classname>java.lang.Integer</classname>
+            <description>
+                A slider begin point
+            </description>
+        </property>
+        <property>
+            <name>styleClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+               The styleClass for the container div surrounding the component
+            </description>
+        </property>
+        <property>
+            <name>fieldStyleClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                The styleClass for input that displays the value : manualInput must
+                be "true"
+            </description>
+        </property>
+        <property>
+            <name>handleStyleClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                The handleStyleClass for a handle
+            </description>
+        </property>
+        <property>
+            <name>trailerStyleClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                The trailerStyleClass for a div following a handle
+            </description>
+        </property>
+        <property>
+            <name>trackStyleClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                The trackStyleClass for a background div
+            </description>
+        </property>
+        <property>
+            <name>rangeStyleClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                The rangeStyleClass for the background div showing a full range
+            </description>
+        </property>
+        <property>
+            <name>trailer</name>
+            <classname>boolean</classname>
+            <description>
+                It shows or hides a trailer following a handle
+            </description>
+        </property>
+       <property>
+            <name>manualInput</name>
+            <classname>boolean</classname>
+            <description>
+                False value for this attribute makes text field "read-only" and "hidden".
+                Hence, the value can be changed only from a handle.
+                Default value is &quot;true&quot;
+            </description>
+            <defaultvalue>true</defaultvalue>
+        </property>
+        <property>
+            <name>for</name>
+            <classname>java.lang.String</classname>
+            <description>
+                The component using UIData (datatable id)
+            </description>
+        </property>
+        <property>
+            <name>forValRef</name>
+            <classname>java.lang.String</classname>
+            <description>
+                This is a string which is used in a value attribute of the datatable. It is used for resetting
+                the datatable back to the original list provided by a backing bean
+                <!--TODO - get this programmatically - not using manual-->
+            </description>
+        </property>
+        <property>
+            <name>filterBy</name>
+            <classname>java.lang.String</classname>
+            <description>
+                A getter of an object member required to compare a slider value to. This is a
+                value that is used in results filtering
+            </description>
+        </property>
+        <property>
+            <name>sliderListener</name>
+            <classname>javax.faces.el.MethodBinding</classname>
+            <description>
+                MethodBinding representing an action listener method that will be notified after changing of slider control position 
+            </description>
+        </property>        
+        
+        <property>
+            <name>onslide</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; a handler is moved on sliding
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        
+        <property>
+        	<name>onerror</name>
+        	<classname>java.lang.String</classname>
+        	<description>
+        		HTML: a script expression; event fires whenever an
+        		JavaScript error occurs
+        	</description>
+        	<defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+        	<name>oninputkeydown</name>
+        	<classname>java.lang.String</classname>
+        	<description>
+        		HTML: a script expression; a key is pressed down
+        	</description>
+        </property>
+
+        <property>
+        	<name>oninputkeypress</name>
+        	<classname>java.lang.String</classname>
+        	<description>
+        		HTML: a script expression; a key is pressed and released
+        	</description>
+        </property>
+
+        <property>
+        	<name>oninputkeyup</name>
+        	<classname>java.lang.String</classname>
+        	<description>
+        		HTML: a script expression; a key is released
+        	</description>
+        </property>
+
+        <property>
+            <name>clientErrorMessage</name>
+            <classname>java.lang.String</classname>
+            <description>
+                An error message to use in client side validation events
+            </description>
+        </property> 
+        
+        <property>
+            <name>onchange</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; a handler&apos;s position is changed on sliding
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        
+        <property>
+        	<name>onSlideSubmit</name>
+        	<classname>boolean</classname>
+        	<description>DEPRECATED (use submitOnSlide). If the slider value changes must submit a form. Default value is &quot;true&quot;.</description>
+        	<defaultvalue>true</defaultvalue>	
+        </property>
+        
+        <property>
+        	<name>submitOnSlide</name>
+        	<classname>boolean</classname>
+            <description>If the slider value changes must submit a form. Default value is &quot;true&quot;.</description>
+        	<defaultvalue>true</defaultvalue>	
+        </property>
+        	
+        <property>
+            <name>storeResults</name>
+            <classname>boolean</classname>
+            <description>
+                Specifies if the component will store a UIData object (your table rows) in session
+            </description>
+        </property>
+        <property hidden="true">
+        	<name>active</name>
+        </property>
+    </component>
+    &listeners;
+</components>

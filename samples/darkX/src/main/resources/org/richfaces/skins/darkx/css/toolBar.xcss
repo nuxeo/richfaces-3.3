@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template 
+	xmlns:f="http://jsf.exadel.com/template"
+   	xmlns:u="http://jsf.exadel.com/template/util" 
+   	xmlns="http://www.w3.org/1999/xhtml">
+   	
+   	<u:selector name=".rich-toolbar">
+		<u:style name="padding" value="0px 5px 0px 5px" />
+        <u:style name="border-color" skin="newBorder" />
+        <u:style name="background-position" value="0% 50%" />
+
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+                <f:attribute name="gradientColor" skin="headerGradientColor" />
+            </f:resource>
+        </u:style>
+   	</u:selector>
+   	
+   	<u:selector name=".rich-toolbar-item">
+		<u:style name="padding" value="5px 5px 5px 5px" />
+   	</u:selector>
+</f:template>

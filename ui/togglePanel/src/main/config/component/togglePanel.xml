@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+
+<components>
+	<component>
+		<name>org.richfaces.TogglePanel</name>
+		<family>org.richfaces.TogglePanel</family>
+		<description>Toggle Panel</description>
+		<superclass>org.richfaces.component.UITogglePanel</superclass>
+		<classname>
+			org.richfaces.component.html.HtmlTogglePanel
+		</classname>
+		<test>
+			<classname>org.richfaces.component.html.HtmlTogglePanelComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[A collapsible panel, which content is shown/hidden after activating a header control.
+    ]]>
+		</description>
+
+		<renderer  generate="true" override="true">
+			<name>org.richfaces.TogglePanelRenderer</name>
+			<template>togglePanel.jspx</template>
+		</renderer>
+		<tag>
+			<name>togglePanel</name>
+			<classname>org.richfaces.taglib.TogglePanelTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+			<description>
+				<![CDATA[A wrapper component with named facets. Every facet is shown after activation corresponding toggleControl(the other is hidden).
+        	]]>
+			</description>
+		</tag>
+		<property required="false">
+			<name>switchType</name>
+			<classname>java.lang.String</classname>
+			<description>
+				<![CDATA[Facets switch mode: "client", "server"(default), "ajax".]]>
+			</description>
+			<defaultvalue>DEFAULT_METHOD</defaultvalue>
+		</property>
+		
+		&ui_input_attributes;
+		
+		<property required="false" el="true" elonly="true">
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				The initial value to set when rendered for the first time.
+				It contains information about an active facet
+			</description>
+		</property>
+		<property required="false" el="true" elonly="false">
+			<name>initialState</name>
+			<classname>java.lang.String</classname>
+			<description>
+				It contains a name of the first active facet
+			</description>
+		</property>
+		<property required="false" el="true" elonly="false">
+			<name>stateOrder</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Names of the facets in the switching order. If
+				ToggleControl doesn't contain information about a next facet to
+				be shown it is switched corresponding to this
+				attribute
+			</description>
+		</property>
+		<property hidden="true">
+			<name>localValueSet</name>
+			<classname>boolean</classname>
+		</property>
+		
+		<property hidden="true">
+			<name>valid</name>
+			<classname>boolean</classname>
+		</property>
+		<property>
+			<name>label</name>
+			<classname>java.lang.String</classname>
+			<description>A localized user presentable name for this component.</description>
+		</property>
+		
+
+		<!--
+			<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+			</taghandler>
+		-->
+		&ui_component_attributes;
+		&html_style_attributes;
+		&html_events;
+		<!--
+			<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+			</property>
+		-->
+		
+		<property hidden="true">
+			<name>required</name>
+		</property>
+		
+		<property hidden="true">
+			<name>requiredMessage</name>
+		</property>
+		
+	</component>
+	<component>
+		<name>org.richfaces.ToggleControl</name>
+		<family>javax.faces.command</family>
+		<description>Toggle Control</description>
+		<classname>
+			org.richfaces.component.html.HtmlToggleControl
+		</classname>
+		<superclass>
+			org.richfaces.component.UIToggleControl
+		</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlToggleControlComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+
+		<renderer  generate="true" override="true">
+			<name>org.richfaces.ToggleControlRenderer</name>
+			<template>toggleControl.jspx</template>
+		</renderer>
+		
+		<tag>
+			<name>toggleControl</name>
+			<classname>
+				org.richfaces.taglib.ToggleControlTag
+			</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.UIComponentTagBase
+			</superclass>
+			<test/>
+			<description>
+				<![CDATA[A link type control for switching betwen togglePanel's facets. The Target Panel is specified with the "for" attribute. It can be located even inside or outside the togglePanel.
+        	As the result of switching between facets, the previous facet is hidden and the next is shown. 
+        	]]>
+			</description>
+		</tag>
+    	&html_style_attributes;
+		&ui_component_attributes;
+		&ui_command_attributes;
+		&ajax_component_attributes;
+		&html_event_handler_attributes;	
+  	    &html_events;
+
+
+		<property required="false">
+			<name>for</name>
+			<classname>java.lang.String</classname>
+			<description>
+				<![CDATA[String, which contains id (in the format of a UIComponent.findComponent() call) of the target Toggle Panel.]]>
+			</description>
+		</property>
+
+		<property required="false" el="true" elonly="true">
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				Initial value to set when rendered for the first time
+			</description>
+		</property>
+
+		<property required="false" el="true" elonly="false">
+			<name>switchToState</name>
+			<classname>java.lang.String</classname>
+			<description>Contains one of the facets names where target togglePanel is switched to
+
+			</description>
+		</property>
+
+
+		<property required="false" el="true" elonly="true">
+			<name>panelId</name>
+			<classname>java.lang.String</classname>
+			<description>Attribute defines Id for corresponding panel
+			</description>
+		</property>
+
+		<property hidden="true">
+			<name>actionExpression</name>
+		</property>	
+
+		<property>
+			<name>dir</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Direction indication for text that does not inherit
+				directionality. Possible values are &quot;LTR&quot; (left-to-right)
+				and &quot;RTL&quot; (right-to-left).
+			</description>
+		</property>
+		<property>
+			<name>lang</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Code describing the language used in the generated
+				markup for this component
+			</description>
+		</property>
+		<property>
+			<name>title</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Advisory title information about markup elements
+				generated for this component
+			</description>
+		</property>
+		<property>
+			<name>style</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style(s) to be applied when this component is
+				rendered
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>styleClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Space-separated list of CSS style class(es) to be
+				applied when this element is rendered. This value must
+				be passed through as the "class" attribute on generated
+				markup
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+
+		<property>
+			<name>onblur</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code executed when this element loses focus
+			</description>
+		</property>
+		<property>
+			<name>onclick</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code executed when a pointer button is
+				clicked over this element
+			</description>
+		</property>
+		<property>
+			<name>ondblclick</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code executed when a pointer button is double
+				clicked over this element
+			</description>
+		</property>
+		<property>
+			<name>onfocus</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code executed when this element receives
+				focus
+			</description>
+		</property>
+		<property>
+			<name>onmousedown</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code executed when a pointer button is
+				pressed down over this element
+			</description>
+		</property>
+		<property>
+			<name>onmouseup</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code executed when a pointer button is
+				released over this element
+			</description>
+		</property>
+		<property>
+			<name>onmouseover</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code executed when a pointer button is moved
+				onto this element
+			</description>
+		</property>
+		<property>
+			<name>onmousemove</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code executed when a pointer button is moved
+				within this element
+			</description>
+		</property>
+		<property>
+			<name>onmouseout</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code executed when a pointer button is moved
+				away from this element
+			</description>
+		</property>
+		<property>
+			<name>onkeypress</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code executed when a key is pressed and
+				released over this element
+			</description>
+		</property>
+		<property>
+			<name>onkeydown</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code executed when a key is pressed down over
+				this element
+			</description>
+		</property>
+		<property>
+			<name>onkeyup</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code executed when a key is released over
+				this element
+			</description>
+		</property>
+
+		<property>
+			<name>accesskey</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Access key that, when pressed, transfers focus to this
+				element
+			</description>
+		</property>
+		<property>
+			<name>tabindex</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Position of this element in the tabbing order for the
+				current document. This value must be an integer between
+				0 and 32767
+			</description>
+		</property>
+		
+		<!--  
+			AJAX component attributes
+			
+			ajaxSingle
+			bypassUpdates
+			limitToList
+			status
+			eventsQueue
+			requestDelay
+			oncomplete   
+		-->
+
+		<!-- &ajax_component_attributes; -->
+
+		<property>
+			<name>ajaxSingle</name>
+			<classname>boolean</classname>
+			<description>
+				Boolean attribute which provides possibility to limit JSF tree processing(decoding, conversion/validation, value applying) to the component which send the request only.
+			</description>
+		</property>
+
+		<property>
+			<name>bypassUpdates</name>
+			<classname>boolean</classname>
+			<description>
+				If "true", after process validations phase skip updates
+				of model beans an force render response. Can be used for
+				validate components input
+			</description>
+		</property>
+
+		<property>
+			<name>limitToList</name>
+			<classname>boolean</classname>
+			<description>
+				If "true", updates on client side ONLY elements from this
+				'reRender' property. if "false" (default) updates all
+				rendered by ajax region components
+			</description>
+		</property>
+
+		<property>
+			<name>reRender</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				Id[&apos;s] (in format of call UIComponent.findComponent()) of components, rendered in case of AjaxRequest caused by this component. 
+				Can be single id, comma-separated list of Id&apos;s, or EL Expression with array or Collection
+			</description>
+		</property>
+		<property>
+			<name>status</name>
+			<classname>java.lang.String</classname>
+			<description>
+				ID (in format of call UIComponent.findComponent()) of
+				Request status component
+			</description>
+		</property>
+
+		<property>
+			<name>eventsQueue</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Name of requests queue to avoid send next request before
+				complete other from same event. Can be used to reduce
+				number of requests of frequently events (key press,
+				mouse move, etc.)
+			</description>
+		</property>
+
+		<property>
+			<name>requestDelay</name>
+			<classname>int</classname>
+			<description>
+Attribute defines the time (in ms.) that the request will be wait in the queue before it is ready to send.
+When the delay time is over, the request will be sent to the server or removed if the newest 'similar' request is in a queue already
+			</description>
+		</property>
+
+		<property>
+			<name>oncomplete</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code for call after request completed on
+				client side
+			</description>
+		</property>
+
+	</component>
+
+</components>

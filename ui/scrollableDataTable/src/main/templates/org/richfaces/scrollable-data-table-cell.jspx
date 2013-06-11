@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:h=" http://ajax4jsf.org/cdk/headers"
+	xmlns:vcp="http://ajax4jsf.org/cdk/vcp"	
+	class="org.richfaces.renderkit.html.ScrollableDataTableCellRenderer"
+	component="javax.faces.component.UIComponent" 
+	>
+	
+	<td class="dr-sdt-bc rich-sdt-column-cell #{columnClass} #{columnSortClass} #{component.attributes['styleClass']}" id="#{client_id}:c_#{cell_id}">
+		<div id="#{client_id}:bc_#{cell_id}" class="dr-sdt-cbody dr-sdt-c-#{cell_index} #{component.attributes['cellClass']}" style="#{component.attributes['cellStyle']}">
+			<vcp:body/>
+		</div>
+	</td>
+
+</f:root>

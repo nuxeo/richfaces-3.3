@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+
+<components>
+	<component>
+		<name>org.richfaces.Page</name>
+		<family>org.richfaces.Page</family>
+		<classname>org.richfaces.component.html.HtmlPage</classname>
+		<superclass>org.richfaces.component.UIPage</superclass>
+		<description>
+			<![CDATA[
+    ]]>
+		</description>
+		<facet>
+		   <name>pageHeader</name>
+		   <description><![CDATA[ ]]></description>
+		</facet>
+		<facet>
+		   <name>header</name>
+		   <description><![CDATA[ ]]></description>
+		</facet>
+		<facet>
+		   <name>footer</name>
+		   <description><![CDATA[ ]]></description>
+		</facet>
+		<facet>
+		   <name>sidebar</name>
+		   <description><![CDATA[ ]]></description>
+		</facet>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.PageRenderer</name>
+			<template>org/richfaces/htmlPage.jspx</template>
+		</renderer>
+		<tag>
+			<name>page</name>
+			<classname>org.richfaces.taglib.PageTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+		</tag>
+		<taghandler>
+			<classname>org.richfaces.taglib.PageTagHandler</classname>
+		</taghandler>
+		&ui_component_attributes;
+		&html_universal_attributes;
+		<property>
+			<name>pageTitle</name>
+			<classname>java.lang.String</classname>
+			<description>
+				String for output as a page title.
+			</description>
+		</property>
+		<property>
+			<name>onload</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code to execute on a page load.
+			</description>
+		</property>
+		<property>
+			<name>onunload</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code to execute on a page unload.
+			</description>
+		</property>
+		<property>
+			<name>markupType</name>
+			<classname>java.lang.String</classname>
+			<description>
+				<![CDATA[Page layout format ( html, xhtml, html-transitional, html-3.2 ) for encoding DOCTYPE, namespace and Content-Type definitions]]>
+			</description>
+		</property>
+		<property>
+		   <name>theme</name>
+		   <classname>java.lang.String</classname>
+		   <description><![CDATA[ Specifies the way of the component rendering ]]></description>
+		</property>
+		<property>
+			<name>contentType</name>
+			<classname>java.lang.String</classname>
+			<description>
+				<![CDATA[Set custom mime content type to response]]>
+			</description>
+		</property>
+		<property>
+			<name>namespace</name>
+			<classname>java.lang.String</classname>
+			<description>
+				<![CDATA[Set html element default namespace]]>
+			</description>
+		</property>
+			<property>
+			<name>width</name>
+			<classname>int</classname>
+			<description>
+				Sets the width of the page
+			</description>
+		</property>
+		<property>
+			<name>sidebarWidth</name>
+			<classname>int</classname>
+			<description>
+				Defines width for the side panel. Default value is &quot;160&quot;.
+			</description>
+			<defaultvalue>160</defaultvalue>
+		</property>
+		<property>
+			<name>sidebarPosition</name>
+			<classname>java.lang.String</classname>
+			<description>
+			Defines the position of the side panel. Possible values are &quot;left&quot;, &quot;right&quot;. Default value is &quot;left&quot;.
+			</description>
+		</property>
+		
+		<property>
+			<name>headerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+			A name of CSS class for the header
+			</description>
+		</property>
+		<property>
+			<name>footerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+			A name of CSS class for the footer
+			</description>
+		</property>
+		<property>
+			<name>bodyClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+			A name of CSS class for the body part of the page
+			</description>
+		</property>
+		<property>
+			<name>sidebarClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+			A name of CSS class for the side panel
+			</description>
+		</property>
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+	</component>
+</components>

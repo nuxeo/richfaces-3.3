@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.autoTestTemplate}">
+	<ui:define name="component">
+		<rich:inputNumberSlider id="componentId" minValue="0" maxValue="100"
+			value="#{sliderBean.value}" disabled="#{autoTestBean.disabled}"
+			showArrows="true" barClass="bar-class" barStyle="font-size: 13px"
+			decreaseClass="decrease-class"
+			decreaseSelectedClass="decrease-selected-class"
+			decreaseStyle="font-size: 14px" handleClass="handle-class"
+			handleSelectedClass="handle-selected-class"
+			increaseClass="increase-class"
+			increaseSelectedClass="increase-selected-class"
+			increaseStyle="font-size: 15px" inputClass="input-class"
+			inputStyle="font-size: 16px" styleClass="noclass"
+			style="font-size: 17px" tipClass="tip-class"
+			tipStyle="font-size: 18px"
+			onclick="EventQueue.fire('onclick')"
+			ondblclick="EventQueue.fire('ondblclick')"
+			onkeydown="EventQueue.fire('onkeydown')"
+			onkeypress="EventQueue.fire('onkeypress')"
+			onmousedown="EventQueue.fire('onmousedown')"
+			onkeyup="EventQueue.fire('onkeyup')"
+			onmousemove="EventQueue.fire('onmousemove')"
+			onmouseout="EventQueue.fire('onmouseout')"
+			onmouseover="EventQueue.fire('onmouseover')"
+			onmouseup="EventQueue.fire('onmouseup')"
+			oninputkeydown="EventQueue.fire('onkeydown')"
+			oninputkeypress="EventQueue.fire('onkeypress')"
+			oninputkeyup="EventQueue.fire('onkeyup')" />
+	</ui:define>
+</ui:composition>
+</html>

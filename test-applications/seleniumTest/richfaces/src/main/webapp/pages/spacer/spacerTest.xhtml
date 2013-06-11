@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<style>
+		.sp {
+			color: red;
+		}
+		</style>
+		<rich:spacer id="sp" styleClass="sp" style="color: yellow;" width="1" height="5" title="Here is a spacer..."/>
+	</ui:define>
+</ui:composition>
+</html>

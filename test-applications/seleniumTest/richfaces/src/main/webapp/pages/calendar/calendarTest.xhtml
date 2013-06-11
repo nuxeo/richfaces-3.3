@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">	
+	<ui:define name="component">
+		<h:form id="_controls">
+			<h:panelGrid columns="2">
+				<h:outputText value="Selected date:"/>
+				<h:inputText id="selectedDate" value="#{calendarBean.selectedDate}">
+					<f:convertDateTime pattern="#{calendarBean.datePattern}" timeZone="#{calendarBean.timeZone}" locale="#{calendarBean.locale}"/>
+				</h:inputText>
+				<h:outputText value="Current date:"/>
+				<h:inputText id="currentDate" value="#{calendarBean.currentDate}">
+					<f:convertDateTime pattern="#{calendarBean.datePattern}" timeZone="#{calendarBean.timeZone}" locale="#{calendarBean.locale}"/>
+				</h:inputText>
+				<h:outputText value="Is popup:"/>
+				<h:selectBooleanCheckbox id="isPopup" value="#{calendarBean.popup}"/>
+				<h:outputText value="Date pattern:"/>
+				<h:inputText id="datePattern" value="#{calendarBean.datePattern}"/>
+				<h:outputText value="Time zone:"/>
+				<h:outputText id="timeZone" value="#{calendarBean.timeZone.displayName}"/>
+				<h:outputText value="Locale:"/>
+				<h:outputText id="locale" value="#{calendarBean.locale.language}"/>
+			</h:panelGrid>
+			<h:commandButton id="setup" value="Setup"/>
+			<a4j:commandButton id="ajaxSetup" value="Ajax Setup" reRender="calendar" />
+			<h:commandButton id="testClientMode" action="#{calendarBean.testClientMode}" value="testClientMode"></h:commandButton>
+			<h:commandButton id="testLocale" action="#{calendarBean.testLocale}" value="testLocale"></h:commandButton>
+			<h:commandButton id="testNullModel" action="#{calendarBean.testNullModel}" value="testNullModel"></h:commandButton>
+			<h:commandButton id="resetAction" action="#{calendarBean.resetAction}" value="resetAction"></h:commandButton>
+			<h:commandButton id="resetAction2" action="#{calendarBean.resetAction2}" value="resetAction2"></h:commandButton>
+		</h:form>
+		<h:form id="_form">
+			<h:outputText id="status" style="display: none;" value="#{calendarBean.status}"></h:outputText>
+			<a4j:outputPanel id="outputPanel">
+				<rich:calendar
+					id="calendar"
+					mode="#{calendarBean.mode}"
+					preloadDateRangeBegin="#{calendarBean.preloadDateRangeStart}"
+					preloadDateRangeEnd="#{calendarBean.preloadDateRangeEnd}"
+					enableManualInput="#{calendarBean.enableManualInput}"
+					dataModel="#{calendarBean.model}"
+					popup="#{calendarBean.popup}"
+					value="#{calendarBean.selectedDate}"
+					datePattern="#{calendarBean.datePattern}"
+					currentDate="#{calendarBean.currentDate}"
+					currentDateChangeListener="#{calendarBean.currectDateChangeListener}"
+					valueChangeListener="#{calendarBean.valueChangeListener}"
+					timeZone="#{calendarBean.timeZone}"
+					required="#{calendarBean.required}"
+					requiredMessage="#{calendarBean.requiredMessage}"
+					locale="#{calendarBean.locale}"
+					label="Calendar">
+				</rich:calendar>
+				<rich:message id="calendarMsg" for="calendar"/>
+			</a4j:outputPanel>
+			<a4j:commandButton id="ajaxSubmit" reRender="status" value="Ajax Submit" />
+			<h:commandButton id="serverSubmit" value="Server Submit" />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

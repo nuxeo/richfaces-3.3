@@ -1,0 +1,7 @@
+<archetype>
+  <id>maven-archetype-plug-n-skin</id>
+  <resources>
+    <resource>src/main/resources/META-INF/skins/README.txt</resource>
+    <resource>src/main/config/resources/resource-config.xml</resource>
+   </resources>
+</archetype>

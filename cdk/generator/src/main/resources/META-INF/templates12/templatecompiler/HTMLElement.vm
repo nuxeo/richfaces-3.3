@@ -1,0 +1,32 @@
+writer.startElement("$htmlTag", component);
+#if($htmlAttributes)
+#foreach( $key in $htmlAttributes.keySet() )
+	#set ( $attr = $htmlAttributes.get($key) )
+	#if ( $attr.code  ) 
+	$attr.code
+	#else
+		#if ( $attr.value )
+getUtils().writeAttribute(writer, "$attr.name", $attr.value );
+		#end
+	#end
+#end
+#end
+#if($passThruAttributes)
+//
+// pass thru attributes
+//
+#set( $passThruLength = ${passThruAttributes.size()})
+getUtils().encodeAttributesFromArray(context,component,new String[] {
+#foreach( $attribute in $passThruAttributes )
+    "$attribute" #if( $velocityCount < $passThruLength ),
+	#end
+#end
+});
+//
+//
+//
+#end
+#if($htmlText)
+writer.write( convertToString($htmlText) );
+writer.flush();
+#end

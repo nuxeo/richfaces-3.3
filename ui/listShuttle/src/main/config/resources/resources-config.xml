@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+    <resource class="org.richfaces.renderkit.html.images.ListShuttleIconCopy">
+        <name>org.richfaces.renderkit.html.images.ListShuttleIconCopy</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.images.ListShuttleIconCopyAll">
+        <name>org.richfaces.renderkit.html.images.ListShuttleIconCopyAll</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.images.ListShuttleIconCopyAllDisabled">
+        <name>org.richfaces.renderkit.html.images.ListShuttleIconCopyAllDisabled</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.images.ListShuttleIconCopyDisabled">
+        <name>org.richfaces.renderkit.html.images.ListShuttleIconCopyDisabled</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.images.ListShuttleIconRemove">
+        <name>org.richfaces.renderkit.html.images.ListShuttleIconRemove</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.images.ListShuttleIconRemoveAll">
+        <name>org.richfaces.renderkit.html.images.ListShuttleIconRemoveAll</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.images.ListShuttleIconRemoveAllDisabled">
+        <name>org.richfaces.renderkit.html.images.ListShuttleIconRemoveAllDisabled</name>
+    </resource>
+    <resource class="org.richfaces.renderkit.html.images.ListShuttleIconRemoveDisabled">
+        <name>org.richfaces.renderkit.html.images.ListShuttleIconRemoveDisabled</name>
+    </resource>
+</resource-config>

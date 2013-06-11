@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+                        "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+ <tlib-version>${taglib.tlibversion}</tlib-version>
+ <jsp-version>${taglib.jspversion}</jsp-version>
+#if(${taglib.shortname})
+ <short-name>${taglib.shortname}</short-name>
+#end
+ <uri>${taglib.uri}</uri>
+#if(${taglib.description})
+ <description>${taglib.description}</description>
+#end
+${taglib.includeContent}
+
+#foreach( $component in ${components})
+	#if($component.tag)
+ <tag>
+  <name>${component.tag.name}</name>
+  <tag-class>${component.tag.classname}</tag-class>
+  <body-content>${component.tag.bodyContent}</body-content>
+  #if(${component.tag.displayname})  
+	<display-name>${component.tag.xmlEncodedDisplayname}</display-name>
+  #elseif(${component.displayname})
+	<display-name>${component.xmlEncodedDisplayname}</display-name>
+  #end
+  #if(${component.tag.description})
+  <description>${component.tag.xmlEncodedDescription}</description>
+  #else
+  <description>${component.xmlEncodedDescription}</description>
+  #end
+  #foreach( $prop in ${component.properties} )
+	#if( !${prop.hidden} && !${prop.disabled} )
+  <attribute>
+   <name>${prop.name}</name>
+   #if(${prop.required})
+	<required>true</required>
+   #end
+   <rtexprvalue>false</rtexprvalue>
+   <description>${prop.xmlEncodedDescription}</description>
+  </attribute>
+	#if( $prop.alias )
+  <attribute>
+   <name>${prop.alias}</name>
+   <rtexprvalue>false</rtexprvalue>
+   <description>Alias for ${prop.name} : ${prop.xmlEncodedDescription}</description>
+  </attribute>
+	#end
+	#end
+  #end
+</tag>
+#end
+#end
+
+#foreach( $validator in ${validators})
+	#if($validator.tag)
+ <tag>
+  <name>${validator.tag.name}</name>
+  <tag-class>${validator.tag.classname}</tag-class>
+  <body-content>${validator.tag.bodyContent}</body-content>
+  #if(${validator.tag.displayname})  
+	<display-name>${validator.tag.xmlEncodedDisplayname}</display-name>
+  #elseif(${validator.displayname})
+	<display-name>${validator.xmlEncodedDisplayname}</display-name>
+  #end
+  #if(${validator.tag.description})
+  <description>${validator.tag.xmlEncodedDescription}</description>
+  #elseif(${validator.xmlEncodedDescription})
+  <description>${validator.xmlEncodedDescription}</description>
+  #end
+  #foreach( $prop in ${validator.properties} )
+	#if( !${prop.hidden} && !${prop.disabled} )
+  <attribute>
+   <name>${prop.name}</name>
+   #if(${prop.required})
+	<required>true</required>
+   #end
+   <rtexprvalue>false</rtexprvalue>
+   <description>${prop.xmlEncodedDescription}</description>
+  </attribute>
+	#if( $prop.alias )
+  <attribute>
+   <name>${prop.alias}</name>
+   <rtexprvalue>false</rtexprvalue>
+   <description>Alias for ${prop.name} : ${prop.xmlEncodedDescription}</description>
+  </attribute>
+	#end
+	#end
+  #end
+</tag>
+#end
+#end
+
+#foreach( $converter in ${converters})
+	#if($converter.tag)
+ <tag>
+  <name>${converter.tag.name}</name>
+  <tag-class>${converter.tag.classname}</tag-class>
+  <body-content>${converter.tag.bodyContent}</body-content>
+  #if(${converter.tag.displayname})  
+	<display-name>${converter.tag.xmlEncodedDisplayname}</display-name>
+  #elseif(${converter.displayname})
+	<display-name>${converter.xmlEncodedDisplayname}</display-name>
+  #end
+  #if(${converter.tag.description})
+  <description>${converter.tag.xmlEncodedDescription}</description>
+  #elseif(${converter.xmlEncodedDescription})
+  <description>${converter.xmlEncodedDescription}</description>
+  #end
+  #foreach( $prop in ${converter.properties} )
+	#if( !${prop.hidden} && !${prop.disabled} )
+  <attribute>
+   <name>${prop.name}</name>
+   #if(${prop.required})
+	<required>true</required>
+   #end
+   <rtexprvalue>false</rtexprvalue>
+   <description>${prop.xmlEncodedDescription}</description>
+  </attribute>
+	#if( $prop.alias )
+  <attribute>
+   <name>${prop.alias}</name>
+   <rtexprvalue>false</rtexprvalue>
+   <description>Alias for ${prop.name} : ${prop.xmlEncodedDescription}</description>
+  </attribute>
+	#end
+	#end
+  #end
+</tag>
+#end
+#end
+
+#foreach( $listener in ${listeners})
+	#if($listener.tag)
+ <tag>
+  #if($listener.tag.name)
+  <name>${listener.tag.name}</name>
+  #else
+  <name>${listener.name}</name>
+  #end
+  <tag-class>${listener.tag.classname}</tag-class>
+  <body-content>${listener.tag.bodyContent}</body-content>
+  #if(${listener.tag.displayname})  
+	<display-name>${listener.tag.xmlEncodedDisplayname}</display-name>
+  #elseif(${listener.displayname})
+	<display-name>${listener.xmlEncodedDisplayname}</display-name>
+  #end
+  #if(${listener.tag.description})
+  <description>${listener.tag.xmlEncodedDescription}</description>
+  #elseif(${listener.xmlEncodedDescription})
+  <description>${listener.xmlEncodedDescription}</description>
+  #end
+
+  <attribute>
+   <name>type</name>
+   <rtexprvalue>false</rtexprvalue>
+   <description>
+   Attribute defines the fully qualified Java class name for listener
+   </description>
+  </attribute>
+  
+  <attribute>
+   <name>binding</name>
+   <rtexprvalue>false</rtexprvalue>
+   <description>
+   The attribute takes a value-binding expression for a component property of a backing bean
+   </description>
+  </attribute>
+
+
+  #foreach( $prop in ${listener.properties} )
+	#if( !${prop.hidden} && !${prop.disabled} )
+  <attribute>
+   <name>${prop.name}</name>
+   #if(${prop.required})
+	<required>true</required>
+   #end
+   <rtexprvalue>false</rtexprvalue>
+   <description>${prop.xmlEncodedDescription}</description>
+  </attribute>
+	#if( $prop.alias )
+  <attribute>
+   <name>${prop.alias}</name>
+   <rtexprvalue>false</rtexprvalue>
+   <description>Alias for ${prop.name} : ${prop.xmlEncodedDescription}</description>
+  </attribute>
+	#end
+	#end
+  #end
+</tag>
+#end
+#end
+
+
+</taglib>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+    xmlns:h="http://jsf.exadel.com/header"
+    xmlns:vcp="http://ajax4jsf.org/cdk/vcp"
+ 	class="org.richfaces.renderkit.html.CssZendRenderer"
+	baseclass="org.richfaces.renderkit.AbstractPageRenderer"
+	component="org.richfaces.component.UIPage" 
+	>
+	<c:set var="namespace" value="#{this:prolog(context,component)}"/>
+	<html x:xmlns="#{namespace}" x:lang="#{context.viewRoot.locale}"
+		>
+		<head>
+		   <title>#{component.attributes['pageTitle']}</title>
+		   <f:call name="themeStyle"/>
+		   <f:call name="themeScript"/>
+		   <u:insertFacet name="pageHeader"/>
+		</head>
+		<body id="css-zen-garden" x:passThruWithExclusions="value,name,type,id">
+		  <div id="container" class="rich-page #{component.attributes['pageClass']}"
+		   x:style="#{component.attributes['pageStyle']}">
+		   <div id="intro">
+		   <c:if test="#{this:hasFacet(component,'header')}">
+	        <div id="pageHeader" class="rich-page-header #{component.attributes['headerClass']}">
+		         <u:insertFacet name="header"/>
+		    </div>
+		   </c:if>
+		   <c:if test="#{this:hasFacet(component,'summary')}">
+	        <div id="quickSummary" class="rich-page-summary #{component.attributes['summaryClass']}">
+		         <u:insertFacet name="summary"/>
+		    </div>
+		   </c:if>
+		   <c:if test="#{this:hasFacet(component,'preamble')}">
+	        <div id="preamble" class="rich-page-preamble #{component.attributes['preambleClass']}">
+		         <u:insertFacet name="preamble"/>
+		    </div>
+		   </c:if>
+		   </div>
+		   	<div id="supportingText" class="rich-page-content #{component.attributes['contentClass']}">
+	           <vcp:body>
+	            <div class="rich-page-body #{component.attributes['bodyClass']}">
+	                  <f:call name="renderChildren" />
+	            </div>
+	            </vcp:body>
+	       <c:if test="#{this:hasFacet(component,'footer')}">
+	        <div id="footer" class="rich-page-footer #{component.attributes['footerClass']}">
+		   <u:insertFacet name="footer"/>
+		    </div>
+		   </c:if>
+		   </div>
+		       <c:if test="#{this:hasFacet(component,'sidebar')}">
+	              <div id="linkList" class="rich-page-sidebar #{component.attributes['styleClass']}">
+	              <div id="linkList2">
+		            <u:insertFacet name="sidebar"/>
+		          </div>
+	              </div>
+	           </c:if>
+		</div>
+		<!-- These extra divs/spans may be used as catch-alls to add extra imagery. -->
+<div id="extraDiv1">
+<span/>
+</div>
+<div id="extraDiv2">
+</div>
+<div id="extraDiv3">
+</div>
+<div id="extraDiv4">
+</div>
+<div id="extraDiv5">
+</div>
+<div id="extraDiv6">
+</div>
+		</body>
+	</html>
+</f:root>

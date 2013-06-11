@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_controls">
+			<h:panelGrid columns="2">
+				<h:outputText value="Selected date:"/>
+				<h:inputText id="selectedDate" value="#{calendarBean.selectedDate}">
+					<f:convertDateTime pattern="#{calendarBean.datePattern}" timeZone="#{calendarBean.timeZone}" locale="#{calendarBean.locale}"/>
+				</h:inputText>
+				<h:outputText value="Default time:"/>
+				<h:inputText id="defaultTime" value="#{calendarBean.defaultTime}">
+					<f:convertDateTime pattern="#{calendarBean.datePattern}" timeZone="#{calendarBean.timeZone}" locale="#{calendarBean.locale}"/>
+				</h:inputText>
+				<h:outputText value="Is popup:"/>
+				<h:selectBooleanCheckbox id="isPopup" value="#{calendarBean.popup}"/>
+				<h:outputText value="Reset time on date selection:"/>
+				<h:selectBooleanCheckbox id="resetTimeOnDateSelect" value="#{calendarBean.resetTimeOnDateSelect}"/>
+			</h:panelGrid>
+			<a4j:commandButton id="ajaxSetup" value="Ajax Setup" reRender="calendar" />
+		</h:form>
+		<h:form id="_form">
+			<rich:calendar
+					id="calendar"
+					mode="client"
+					popup="#{calendarBean.popup}"
+					value="#{calendarBean.selectedDate}"
+					datePattern="#{calendarBean.datePattern}"
+					timeZone="#{calendarBean.timeZone}"
+					locale="#{calendarBean.locale}"
+					defaultTime="#{calendarBean.defaultTime}"
+					resetTimeOnDateSelect="#{calendarBean.resetTimeOnDateSelect}">
+			</rich:calendar>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

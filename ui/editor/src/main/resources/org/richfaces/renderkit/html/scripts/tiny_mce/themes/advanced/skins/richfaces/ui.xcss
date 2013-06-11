@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim><![CDATA[
+/* Reset */
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin table, .richfacesSkin tbody, .richfacesSkin a, .richfacesSkin img, .richfacesSkin tr, .richfacesSkin div, .richfacesSkin td, .richfacesSkin iframe, .richfacesSkin span, .richfacesSkin *, .richfacesSkin .mceText">
+	<u:style name="color" skin="generalTextColor"/>
+	<u:style name="border" value="0"/>
+	<u:style name="margin" value="0"/>
+	<u:style name="padding" value="0"/>
+	<u:style name="background" value="transparent"/>
+	<u:style name="white-space" value="nowrap"/>
+	<u:style name="text-decoration" value="none"/>
+	<u:style name="font-weight" value="normal"/>
+	<u:style name="cursor" value="default"/>
+	<u:style name="vertical-align" value="baseline"/>
+	<u:style name="width" value="auto"/>
+	<u:style name="border-collapse" value="separate"/>
+	<u:style name="text-align" value="left"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin a:hover, .richfacesSkin a:link, .richfacesSkin a:visited, .richfacesSkin a:active">
+	<u:style name="color" skin="generalTextColor"/>
+	<u:style name="text-decoration" value="none"/>
+	<u:style name="font-weight" value="normal"/>
+	<u:style name="cursor" value="default"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin table td {vertical-align:middle}
+
+/* Containers */
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin table">
+	<u:style name="background" skin="additionalBackgroundColor"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin iframe">
+	<u:style name="display" value="block"/>
+	<u:style name="background" skin="tableBackgroundColor"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceToolbar {height:26px}
+
+/* External */
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceExternalToolbar">
+	<u:style name="border-width" value="1px"/>
+	<u:style name="border-style" value="solid"/>
+	<u:style name="border-color" skin="panelBorderColor"/>
+	<u:style name="border-bottom" value="0"/>
+	<u:style name="position" value="absolute"/>
+	<u:style name="display" value="none"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceExternalToolbar td.mceToolbar {padding-right:13px;}
+.richfacesSkin .mceExternalClose {position:absolute; top:3px; right:3px; width:7px; height:7px; }
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceExternalClose">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/themes/advanced/img/icons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-820px 0"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+/* Layout */
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin table.mceLayout">
+	<u:style name="border" value="0"/>
+	<u:style name="border-left-width" value="1px"/>
+	<u:style name="border-left-style" value="solid"/>
+	<u:style name="border-left-color" skin="panelBorderColor"/>
+	<u:style name="border-right-width" value="1px"/>
+	<u:style name="border-right-style" value="solid"/>
+	<u:style name="border-right-color" skin="panelBorderColor"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin table.mceLayout tr.mceFirst td">
+	<u:style name="border-top-width" value="1px"/>
+	<u:style name="border-top-style" value="solid"/>
+	<u:style name="border-top-color" skin="panelBorderColor"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin table.mceLayout tr.mceLast td">
+	<u:style name="border-bottom-width" value="1px"/>
+	<u:style name="border-bottom-style" value="solid"/>
+	<u:style name="border-bottom-color" skin="panelBorderColor"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin table.mceToolbar, .richfacesSkin tr.mceFirst .mceToolbar tr td, .richfacesSkin tr.mceLast .mceToolbar tr td">
+	<u:style name="border" value="0"/>
+	<u:style name="margin" value="0"/>
+	<u:style name="padding" skin="0"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin .mceIframeContainer">
+	<u:style name="border-top-width" value="1px"/>
+	<u:style name="border-top-style" value="solid"/>
+	<u:style name="border-top-color" skin="panelBorderColor"/>
+	<u:style name="border-bottom-width" value="1px"/>
+	<u:style name="border-bottom-style" value="solid"/>
+	<u:style name="border-bottom-color" skin="panelBorderColor"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceStatusbar {display:block; font-size:9pt; line-height:16px; overflow:visible; height:20px}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceStatusbar">
+	<u:style name="font-family" skin="generalFamilyFont"/>
+	<u:style name="color" skin="generalTextColor"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceStatusbar div {float:left; padding:2px}
+.richfacesSkin .mceStatusbar a.mceResize {display:block; float:right;  width:20px; height:20px; cursor:se-resize}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceStatusbar a.mceResize">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/themes/advanced/img/icons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-800px 0"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceStatusbar a:hover {text-decoration:underline}
+.richfacesSkin table.mceToolbar {margin-left:3px}
+.richfacesSkin .mceToolbar .mceToolbarStart span {display:block;  width:1px; height:22px; margin-left:3px;}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceToolbar .mceToolbarStart span">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.EditorAdvancedThemeIcons"/>
+	</u:style>
+	<u:style name="background-position" value="-22px 0"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceToolbar td.mceFirst span {margin:0}
+.richfacesSkin .mceToolbar .mceToolbarEnd span {display:block;  width:1px; height:22px}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceToolbar .mceToolbarEnd span">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.EditorAdvancedThemeIcons"/>
+	</u:style>
+	<u:style name="background-position" value="-22px 0"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceToolbar .mceToolbarEndListBox span, .richfacesSkin .mceToolbar .mceToolbarStartListBox span {display:none}
+.richfacesSkin span.mceIcon, .richfacesSkin img.mceIcon {display:block; width:20px; height:20px}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceIcon">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/themes/advanced/img/icons.gif"/>
+	</u:style>
+	<u:style name="background-repeat" value="no-repeat"/>
+	<u:style name="background-position" value="20px 20px"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin td.mceCenter {text-align:center;}
+.richfacesSkin td.mceCenter table {margin:0 auto; text-align:left;}
+.richfacesSkin td.mceRight table {margin:0 0 0 auto;}
+
+/* Button */
+.richfacesSkin .mceButton {display:block;  width:22px; height:22px}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceButton">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.EditorAdvancedThemeIcons"/>
+	</u:style>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin a.mceButton span, .richfacesSkin a.mceButton img {margin-left:1px}
+.richfacesSkin .mceOldBoxModel a.mceButton span, .richfacesSkin .mceOldBoxModel a.mceButton img {margin:0 0 0 1px}
+.richfacesSkin a.mceButtonEnabled:hover {background-position:0 -22px}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin a.mceButtonEnabled:hover">
+	<u:style name="background-color" skin="headerBackgroundColor"/>			
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin a.mceButtonActive, .richfacesSkin a.mceButtonSelected {background-position:0 -44px}
+.richfacesSkin .mceButtonDisabled .mceIcon {opacity:0.3; filter:alpha(opacity=30)}
+.richfacesSkin .mceButtonLabeled {width:auto}
+.richfacesSkin .mceButtonLabeled span.mceIcon {float:left}
+.richfacesSkin span.mceButtonLabel {display:block; font-size:10px; padding:4px 6px 0 22px}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin span.mceButtonLabel">
+	<u:style name="font-family" skin="generalFamilyFont"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin .mceButtonDisabled .mceButtonLabel">
+	<u:style name="color" value="#FF0000"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+/* Separator */
+.richfacesSkin .mceSeparator {display:block;  width:5px; height:22px}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceSeparator">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.EditorAdvancedThemeIcons"/>
+	</u:style>
+	<u:style name="background-position" value="-22px 0"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+/* ListBox */
+.richfacesSkin .mceListBox {margin-left:3px}
+.richfacesSkin .mceListBox, .richfacesSkin .mceListBox a {display:block}
+.richfacesSkin .mceListBox .mceText {padding-left:4px; text-align:left; width:70px; font-size:11px; height:20px; line-height:20px; overflow:hidden}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceListBox .mceText">
+	<u:style name="background" skin="tableBackgroundColor"/>
+	<u:style name="border-width" value="1px"/>
+	<u:style name="border-style" value="solid"/>
+	<u:style name="border-color" skin="panelBorderColor"/>
+	<u:style name="border-right" value="0"/>
+	<u:style name="font-family" skin="generalFamilyFont"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceListBox .mceOpen {width:14px; height:22px; }
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceListBox .mceOpen">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.EditorAdvancedThemeIcons"/>
+	</u:style>
+	<u:style name="background-position" value="-66px 0"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin table.mceListBoxEnabled:hover .mceText, .richfacesSkin .mceListBoxHover .mceText, .richfacesSkin .mceListBoxSelected .mceText">
+	<u:style name="background" skin="tableBackgroundColor"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin table.mceListBoxEnabled:hover .mceOpen, .richfacesSkin .mceListBoxHover .mceOpen, .richfacesSkin .mceListBoxSelected .mceOpen {background-position:-66px -22px}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceListBoxDisabled .mceText">
+	<u:style name="color" value="gray"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceListBoxMenu {overflow:auto; overflow-x:hidden}
+.richfacesSkin .mceOldBoxModel .mceListBox .mceText {height:22px}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin select.mceListBox">
+	<u:style name="background" skin="tableBackgroundColor"/>
+	<u:style name="border-width" value="1px"/>
+	<u:style name="border-style" value="solid"/>
+	<u:style name="border-color" skin="panelBorderColor"/>
+	<u:style name="font-family" skin="generalFamilyFont"/>
+	<u:style name="font-size" value="12px"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+/* SplitButton */
+.richfacesSkin .mceSplitButton, .richfacesSkin .mceSplitButton a, .richfacesSkin .mceSplitButton span {display:block; height:22px}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceSplitButton">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.EditorAdvancedThemeIcons"/>
+	</u:style>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceSplitButton a.mceAction {width:22px}
+.richfacesSkin .mceSplitButton span.mceAction {width:22px; }
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceSplitButton span.mceAction">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/themes/advanced/img/icons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="20px 20px"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceSplitButton a.mceOpen {width:10px}
+.richfacesSkin .mceSplitButton span.mceOpen {width:10px; }
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceSplitButton span.mceOpen">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.EditorAdvancedThemeIcons"/>
+	</u:style>
+	<u:style name="background-position" value="-44px 0"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin table.mceSplitButtonEnabled:hover a.mceAction, .richfacesSkin .mceSplitButtonHover a.mceAction, .richfacesSkin .mceSplitButtonSelected">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.EditorAdvancedThemeIcons"/>
+	</u:style>
+	<u:style name="background-position" value="0 -22px"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin table.mceSplitButtonEnabled:hover span.mceOpen, .richfacesSkin .mceSplitButtonHover span.mceOpen, .richfacesSkin .mceSplitButtonSelected span.mceOpen {background-position:-44px -44px}
+.richfacesSkin .mceSplitButtonDisabled .mceAction {opacity:0.3; filter:alpha(opacity=30)}
+.richfacesSkin .mceSplitButtonActive {background-position:0 -44px}
+
+/* ColorSplitButton */
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin div.mceColorSplitMenu table">
+	<u:style name="background" skin="tableBackgroundColor"/>
+	<u:style name="border-width" value="1px"/>
+	<u:style name="border-style" value="solid"/>
+	<u:style name="border-color" skin="panelBorderColor"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceColorSplitMenu td {padding:2px}
+.richfacesSkin .mceColorSplitMenu a {display:block; width:9px; height:9px; overflow:hidden}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceColorSplitMenu a">
+	<u:style name="border-width" value="1px"/>
+	<u:style name="border-style" value="solid"/>
+	<u:style name="border-color" skin="panelBorderColor"/>
+</u:selector> 
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceColorSplitMenu td.mceMoreColors {padding:1px 3px 1px 1px}
+.richfacesSkin .mceColorSplitMenu a.mceMoreColors {width:100%; height:auto; text-align:center; font-size:11px; line-height:20px}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceColorSplitMenu a.mceMoreColors">
+	<u:style name="border-width" value="1px"/>
+	<u:style name="border-style" value="solid"/>
+	<u:style name="border-color" skin="panelBorderColor"/> 
+	<u:style name="font-family" skin="generalFamilyFont"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin .mceColorSplitMenu a.mceMoreColors:hover">
+	<u:style name="border-width" value="1px"/>
+	<u:style name="border-style" value="solid"/>
+	<u:style name="border-color" skin="panelBorderColor"/>
+	<u:style name="background-color" skin="additionalBackgroundColor"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin a.mceMoreColors:hover">
+	<u:style name="border-width" value="1px"/>
+	<u:style name="border-style" value="solid"/>
+	<u:style name="border-color" skin="headerBackgroundColor"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceColorPreview {margin-left:2px; width:16px; height:4px; overflow:hidden; overflow:hidden}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceColorPreview">
+	<u:style name="background" skin="tableBorderColor"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mce_forecolor span.mceAction, .richfacesSkin .mce_backcolor span.mceAction {height:15px;overflow:hidden}
+
+/* Menu */
+.richfacesSkin .mceMenu {position:absolute; left:0; top:0; z-index:1000}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceMenu">
+	<u:style name="border-width" value="1px"/>
+	<u:style name="border-style" value="solid"/>
+	<u:style name="border-color" skin="panelBorderColor"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceNoIcons span.mceIcon {width:0;}
+.richfacesSkin .mceNoIcons a .mceText {padding-left:10px}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceMenu table">
+	<u:style name="background" skin="tableBackgroundColor"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceMenu a, .richfacesSkin .mceMenu span, .richfacesSkin .mceMenu {display:block}
+.richfacesSkin .mceMenu td {height:20px}
+.richfacesSkin .mceMenu a {position:relative;padding:3px 0 4px 0}
+.richfacesSkin .mceMenu .mceText {position:relative; display:block; cursor:default; margin:0; padding:0 25px 0 25px; display:block}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceMenu .mceText">
+	<u:style name="font-family"  skin="generalFamilyFont"/>
+	<u:style name="color" skin="generalTextColor"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceMenu span.mceText, .richfacesSkin .mceMenu .mcePreview {font-size:11px}
+.richfacesSkin .mceMenu pre.mceText {font-family:Monospace}
+.richfacesSkin .mceMenu .mceIcon {position:absolute; top:0; left:0; width:22px;}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceMenu .mceMenuItemEnabled a:hover, .richfacesSkin .mceMenu .mceMenuItemActive">
+	<u:style name="background-color" skin="additionalBackgroundColor"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin td.mceMenuItemSeparator">
+	<u:style name="background" skin="panelBorderColor"/>
+	<u:style name="height" value="1px"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin .mceMenuItemTitle a">
+	<u:style name="border" value="0"/>
+	<u:style name="background" skin="additionalBackgroundColor"/>
+	<u:style name="border-bottom-width" value="1px"/>
+	<u:style name="border-bottom-style" value="solid"/>
+	<u:style name="border-bottom-color" skin="panelBorderColor"/>			
+</u:selector>
+
+<u:selector name=".richfacesSkin .mceMenuItemTitle span.mceText">
+	<u:style name="color" skin="generalTextColor"/>
+	<u:style name="font-weight" value="bold"/>
+	<u:style name="padding-left" value="4px"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin .mceMenuItemDisabled .mceText">
+	<u:style name="color" skin="tabDisabledTextColor"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin .mceMenuItemSelected .mceIcon">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/themes/advanced/skins/default/img/menu_check.gif"/>
+	</u:style>
+</u:selector>
+
+<u:selector name=".richfacesSkin .mceNoIcons .mceMenuItemSelected a">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/themes/advanced/skins/default/img/menu_arrow.gif"/>
+	</u:style>
+	<u:style name="background-repeat" value="no-repeat"/>
+	<u:style name="background-position" value="-6px center"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceMenu span.mceMenuLine {display:none}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceMenuItemSub a">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/themes/advanced/skins/default/img/menu_arrow.gif"/>
+	</u:style>
+	<u:style name="background-repeat" value="no-repeat"/>
+	<u:style name="background-position" value="top right"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+/* Progress,Resize */
+.richfacesSkin .mceBlocker {position:absolute; left:0; top:0; z-index:1000; opacity:0.5; filter:alpha(opacity=50)}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceBlocker">
+	<u:style name="background" skin="tableBackgroundColor"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSkin .mceProgress {position:absolute; left:0; top:0; z-index:1001;  width:32px; height:32px; margin:-16px 0 0 -16px}
+]]></f:verbatim>
+
+<u:selector name=".richfacesSkin .mceProgress">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/themes/advanced/skins/default/img/progress.gif"/>
+	</u:style>
+	<u:style name="background-repeat" value="no-repeat"/>
+</u:selector>
+
+<u:selector name=".richfacesSkin .mcePlaceHolder">
+	<u:style name="border-width" value="1px"/>
+	<u:style name="border-style" value="dotted"/>
+	<u:style name="border-color" skin="tableBorderColor"/>			
+</u:selector>
+
+<f:verbatim><![CDATA[
+/* Formats */
+.richfacesSkin .mce_formatPreview a {font-size:10px}
+.richfacesSkin .mce_p span.mceText {}
+.richfacesSkin .mce_address span.mceText {font-style:italic}
+.richfacesSkin .mce_pre span.mceText {font-family:monospace}
+.richfacesSkin .mce_h1 span.mceText {font-weight:bolder; font-size: 2em}
+.richfacesSkin .mce_h2 span.mceText {font-weight:bolder; font-size: 1.5em}
+.richfacesSkin .mce_h3 span.mceText {font-weight:bolder; font-size: 1.17em}
+.richfacesSkin .mce_h4 span.mceText {font-weight:bolder; font-size: 1em}
+.richfacesSkin .mce_h5 span.mceText {font-weight:bolder; font-size: .83em}
+.richfacesSkin .mce_h6 span.mceText {font-weight:bolder; font-size: .75em}
+
+/* Theme */
+.richfacesSkin span.mce_bold {background-position:0 0}
+.richfacesSkin span.mce_italic {background-position:-60px 0}
+.richfacesSkin span.mce_underline {background-position:-140px 0}
+.richfacesSkin span.mce_strikethrough {background-position:-120px 0}
+.richfacesSkin span.mce_undo {background-position:-160px 0}
+.richfacesSkin span.mce_redo {background-position:-100px 0}
+.richfacesSkin span.mce_cleanup {background-position:-40px 0}
+.richfacesSkin span.mce_bullist {background-position:-20px 0}
+.richfacesSkin span.mce_numlist {background-position:-80px 0}
+.richfacesSkin span.mce_justifyleft {background-position:-460px 0}
+.richfacesSkin span.mce_justifyright {background-position:-480px 0}
+.richfacesSkin span.mce_justifycenter {background-position:-420px 0}
+.richfacesSkin span.mce_justifyfull {background-position:-440px 0}
+.richfacesSkin span.mce_anchor {background-position:-200px 0}
+.richfacesSkin span.mce_indent {background-position:-400px 0}
+.richfacesSkin span.mce_outdent {background-position:-540px 0}
+.richfacesSkin span.mce_link {background-position:-500px 0}
+.richfacesSkin span.mce_unlink {background-position:-640px 0}
+.richfacesSkin span.mce_sub {background-position:-600px 0}
+.richfacesSkin span.mce_sup {background-position:-620px 0}
+.richfacesSkin span.mce_removeformat {background-position:-580px 0}
+.richfacesSkin span.mce_newdocument {background-position:-520px 0}
+.richfacesSkin span.mce_image {background-position:-380px 0}
+.richfacesSkin span.mce_help {background-position:-340px 0}
+.richfacesSkin span.mce_code {background-position:-260px 0}
+.richfacesSkin span.mce_hr {background-position:-360px 0}
+.richfacesSkin span.mce_visualaid {background-position:-660px 0}
+.richfacesSkin span.mce_charmap {background-position:-240px 0}
+.richfacesSkin span.mce_paste {background-position:-560px 0}
+.richfacesSkin span.mce_copy {background-position:-700px 0}
+.richfacesSkin span.mce_cut {background-position:-680px 0}
+.richfacesSkin span.mce_blockquote {background-position:-220px 0}
+.richfacesSkin .mce_forecolor span.mceAction {background-position:-720px 0}
+.richfacesSkin .mce_backcolor span.mceAction {background-position:-760px 0}
+.richfacesSkin span.mce_forecolorpicker {background-position:-720px 0}
+.richfacesSkin span.mce_backcolorpicker {background-position:-760px 0}
+
+/* Plugins */
+.richfacesSkin span.mce_advhr {background-position:-0px -20px}
+.richfacesSkin span.mce_ltr {background-position:-20px -20px}
+.richfacesSkin span.mce_rtl {background-position:-40px -20px}
+.richfacesSkin span.mce_emotions {background-position:-60px -20px}
+.richfacesSkin span.mce_fullpage {background-position:-80px -20px}
+.richfacesSkin span.mce_fullscreen {background-position:-100px -20px}
+.richfacesSkin span.mce_iespell {background-position:-120px -20px}
+.richfacesSkin span.mce_insertdate {background-position:-140px -20px}
+.richfacesSkin span.mce_inserttime {background-position:-160px -20px}
+.richfacesSkin span.mce_absolute {background-position:-180px -20px}
+.richfacesSkin span.mce_backward {background-position:-200px -20px}
+.richfacesSkin span.mce_forward {background-position:-220px -20px}
+.richfacesSkin span.mce_insert_layer {background-position:-240px -20px}
+.richfacesSkin span.mce_insertlayer {background-position:-260px -20px}
+.richfacesSkin span.mce_movebackward {background-position:-280px -20px}
+.richfacesSkin span.mce_moveforward {background-position:-300px -20px}
+.richfacesSkin span.mce_media {background-position:-320px -20px}
+.richfacesSkin span.mce_nonbreaking {background-position:-340px -20px}
+.richfacesSkin span.mce_pastetext {background-position:-360px -20px}
+.richfacesSkin span.mce_pasteword {background-position:-380px -20px}
+.richfacesSkin span.mce_selectall {background-position:-400px -20px}
+.richfacesSkin span.mce_preview {background-position:-420px -20px}
+.richfacesSkin span.mce_print {background-position:-440px -20px}
+.richfacesSkin span.mce_cancel {background-position:-460px -20px}
+.richfacesSkin span.mce_save {background-position:-480px -20px}
+.richfacesSkin span.mce_replace {background-position:-500px -20px}
+.richfacesSkin span.mce_search {background-position:-520px -20px}
+.richfacesSkin span.mce_styleprops {background-position:-560px -20px}
+.richfacesSkin span.mce_table {background-position:-580px -20px}
+.richfacesSkin span.mce_cell_props {background-position:-600px -20px}
+.richfacesSkin span.mce_delete_table {background-position:-620px -20px}
+.richfacesSkin span.mce_delete_col {background-position:-640px -20px}
+.richfacesSkin span.mce_delete_row {background-position:-660px -20px}
+.richfacesSkin span.mce_col_after {background-position:-680px -20px}
+.richfacesSkin span.mce_col_before {background-position:-700px -20px}
+.richfacesSkin span.mce_row_after {background-position:-720px -20px}
+.richfacesSkin span.mce_row_before {background-position:-740px -20px}
+.richfacesSkin span.mce_merge_cells {background-position:-760px -20px}
+.richfacesSkin span.mce_table_props {background-position:-980px -20px}
+.richfacesSkin span.mce_row_props {background-position:-780px -20px}
+.richfacesSkin span.mce_split_cells {background-position:-800px -20px}
+.richfacesSkin span.mce_template {background-position:-820px -20px}
+.richfacesSkin span.mce_visualchars {background-position:-840px -20px}
+.richfacesSkin span.mce_abbr {background-position:-860px -20px}
+.richfacesSkin span.mce_acronym {background-position:-880px -20px}
+.richfacesSkin span.mce_attribs {background-position:-900px -20px}
+.richfacesSkin span.mce_cite {background-position:-920px -20px}
+.richfacesSkin span.mce_del {background-position:-940px -20px}
+.richfacesSkin span.mce_ins {background-position:-960px -20px}
+.richfacesSkin span.mce_pagebreak {background-position:0 -40px}
+.richfacesSkin .mce_spellchecker span.mceAction {background-position:-540px -20px}
+]]>
+</f:verbatim>
+
+</f:template>

@@ -1,0 +1,15 @@
+                        ----------------------------------------------
+                          Java Server Faces component project template
+                        ----------------------------------------------
+                        ----------------------------------------------
+                        ----------------------------------------------
+
+ For create new jsf component project, run maven command :
+ 
++-----------------------------------------------------------------------------------------------------------+
+ mvn archetype:create -DarchetypeGroupId=org.ajax4jsf.cdk -DarchetypeArtifactId=maven-archetype-jsf-component \ 
+  -DarchetypeVersion=1.1-SNAPSHOT -DgroupId=\<my.groupid\> -DartifactId=\<my-artifactId\>
++-----------------------------------------------------------------------------------------------------------+
+ 
+ This command will create project for generate component library, with one empty component "comp"
+ 

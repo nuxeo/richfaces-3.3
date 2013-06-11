@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+		.yes {
+			font-weight: bold;
+		} 
+		
+		.no {
+			color: gray;
+		}
+		.link {
+			color: blue;
+			text-decoration: none;
+			margin: 2px;
+		}
+		
+		.passed {
+			background-color: #ACE6B3;
+		}
+		
+		.failed {
+			background-color: #CECCCC;
+		}
+	</ui:define>
+	<ui:define name="component">
+		<script type="text/javascript">
+		<!--
+			function setValidInput(valid) {
+				var elem = document.getElementById(getParentId() + '_form:_value');
+				if (elem) {
+					if (valid) {
+						elem.value = 'text';
+					}else {
+						elem.value = '';
+					}
+				}
+			}
+			 -->
+		</script>
+
+		<h:form id="_form">
+			<table border="1px" cellspacing="0" cellpadding="3">
+				<thead style="font-size: 13px; color: green; font-style: italic;">
+					<tr>
+						<th>link</th><th>Immediate</th><th>Validation Failed</th>
+    					<th>Action</th><th>ActionListener</th><th>Value Submit</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a4j:htmlCommandLink value="Link [id=l1]"
+											   id="l1"
+											   action="#{a4jHtmlCommandLinkBean.action}"
+											   actionListener="#{a4jHtmlCommandLinkBean.actionListener}"
+											   onclick="setValidInput(true);"
+											   styleClass="link"
+											   >
+								<f:param name="param1" value="value1"/>
+                				<f:param name="param2" value="value2"/>
+                				<f:param name="param3" value="value3"/>
+							</a4j:htmlCommandLink>
+						</td>
+						<td class="no">No</td>
+						<td class="no">No</td>
+						<td class="passed"> </td>
+						<td class="passed"> </td>
+						<td class="passed"> </td>
+					</tr>
+					<tr>
+						<td>
+							<a4j:htmlCommandLink value="Link [id=l2]"
+											   id="l2"
+											   action="#{a4jHtmlCommandLinkBean.action}"
+											   actionListener="#{a4jHtmlCommandLinkBean.actionListener}"
+											   onclick="setValidInput(false)"
+											   styleClass="link"
+											   >
+								<f:param name="param1" value="value1"/>
+                				<f:param name="param2" value="value2"/>
+                				<f:param name="param3" value="value3"/>
+							</a4j:htmlCommandLink>
+						</td>
+						<td class="no">No</td>
+						<td class="yes">Yes</td>
+						<td class="failed"> </td>
+						<td class="failed"> </td>
+						<td class="failed"> </td>
+					</tr>
+					<tr>
+						<td>
+							<a4j:htmlCommandLink value="Link [id=l3]"
+											   id="l3"
+											   action="#{a4jHtmlCommandLinkBean.action}"
+											   actionListener="#{a4jHtmlCommandLinkBean.actionListener}"
+											   onclick="setValidInput(true)"
+											   styleClass="link"
+											   immediate="true"
+											   >
+								<f:param name="param1" value="value1"/>
+                				<f:param name="param2" value="value2"/>
+                				<f:param name="param3" value="value3"/>
+							</a4j:htmlCommandLink>
+						</td>
+						<td class="yes">Yes</td>
+						<td class="no">No</td>
+						<td class="passed"> </td>
+						<td class="passed"> </td>
+						<td class="failed"> </td>
+					</tr>
+					<tr>
+						<td>
+							<a4j:htmlCommandLink value="Link [id=l4]"
+											   id="l4"
+											   action="#{a4jHtmlCommandLinkBean.action}"
+											   actionListener="#{a4jHtmlCommandLinkBean.actionListener}"
+											   onclick="setValidInput(false)"
+											   styleClass="link"
+											   immediate="true"
+											   >
+								<f:param name="param1" value="value1"/>
+                				<f:param name="param2" value="value2"/>
+                				<f:param name="param3" value="value3"/>
+							</a4j:htmlCommandLink>
+						</td>
+						<td class="yes">Yes</td>
+						<td class="yes">Yes</td>
+						<td class="passed"> </td>
+						<td class="passed"> </td>
+						<td class="failed"> </td>
+					</tr>
+				</tbody>
+			</table>
+			<h:inputHidden id="_value" required="true" value="#{a4jHtmlCommandLinkBean.value}" />
+			<h:outputLabel value="Submitted value: " for="_submittedValue" /><h:outputText id="_submittedValue" value="#{a4jHtmlCommandLinkBean.value}" />
+			<br/>
+			<h:outputLabel value="Is action invoked: " for="_action" /><h:outputText id="_action" value="#{a4jHtmlCommandLinkBean.actionInvoked}" />
+			<br/>
+			<h:outputLabel value="Is listener invoked: " for="_listener" /><h:outputText id="_listener" value="#{a4jHtmlCommandLinkBean.listenerInvoked}" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

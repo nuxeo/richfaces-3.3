@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+	<resource class="org.richfaces.renderkit.html.images.TreeLineCollapsedImage">
+		<name>org.richfaces.renderkit.html.images.TreeLineCollapsedImage</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.TreeLineExpandedImage">
+		<name>org.richfaces.renderkit.html.images.TreeLineExpandedImage</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.TreeLineImage">
+		<name>org.richfaces.renderkit.html.images.TreeLineImage</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.TreeLineLastImage">
+		<name>org.richfaces.renderkit.html.images.TreeLineLastImage</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.TreeLineNodeImage">
+		<name>org.richfaces.renderkit.html.images.TreeLineNodeImage</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.TreeMinusImage">
+		<name>org.richfaces.renderkit.html.images.TreeMinusImage</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.TreePlusImage">
+		<name>org.richfaces.renderkit.html.images.TreePlusImage</name>
+	</resource>
+</resource-config>

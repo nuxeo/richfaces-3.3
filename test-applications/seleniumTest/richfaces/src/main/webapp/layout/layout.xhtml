@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view contentType="text/html">
+<head>
+	<!--  
+	<a4j:loadScript src="resource:///org/ajax4jsf/javascript/scripts/AJAX.js"></a4j:loadScript>
+	<a4j:loadScript src="resource:///org/ajax4jsf/javascript/scripts/form.js"></a4j:loadScript>
+	<a4j:loadScript src="resource:///org/ajax4jsf/javascript/scripts/prototype.js"></a4j:loadScript>
+-->
+	<script>
+	<!--
+		var errorMessage = null;
+		var pauseHolder = {};
+		var pauseTimeOutId;
+		
+		window.onerror = function (message, url, code) {
+								errorMessage = message;
+								return true;
+							};
+							 
+		function checkError () {
+			return errorMessage;
+		}
+		
+		function pause (miliseconds, id) {
+			if (pauseTimeOutId) {
+				clearTimeout(pauseTimeOutId);
+				pauseTimeOutId = null;
+			}
+			pauseHolder[id] = false;
+			pauseTimeOutId = window.setTimeout(function () { pauseHolder[id] = true; }, miliseconds);
+		}
+		
+		function submitForm () {
+			document.getElementById('_form').submit();
+		}
+		
+		function reRenderAll (methodName) {
+			/*if (methodName) {
+				document.getElementById('_Selenium_Test_ReRender_Form:_r_method_name').value = methodName;
+			}else {
+				document.getElementById('_Selenium_Test_ReRender_Form:_r_method_name').value = '';
+			}*/
+			document.getElementById('_Selenium_Test_ReRender_Form:_reRender').onclick();
+			return;
+		}
+		
+		function loadTemplate (name, resetMethodName) {
+			document.getElementById('_Selenium_Test_Template_Form:_Selenium_Test_Template_id').value = name;
+			document.getElementById('_Selenium_Test_Template_Form:_r_method_name').value = resetMethodName;
+			document.getElementById('_Selenium_Test_Template_Form:_Selenium_Test_loadTemplate').onclick();
+			return;
+		}
+		
+		function getParentId () {
+			return '#{templateBean.parentId}';
+		}
+		
+		function writeStatus (mess, failed) {
+			document.getElementById('_Selenium_Test_Status_Message').value = mess;
+			if (failed) {
+				var o = document.getElementById('_Selenium_Test_Status_Message');
+				o.style.backgroundColor= '#F7A784';
+				o.style.fontWeight = 'bold';
+			}else {
+				var o = document.getElementById('_Selenium_Test_Status_Message');
+				o.style.backgroundColor= '';
+				o.style.fontWeight = '';
+			}
+		}
+
+		//Marks ${element.id}_${resultElemIdPostfix} result element as passed test
+		//if resultElemIdPostfix is not specified ${element.id}_result will be used instead
+		function testEvent(element, resultElemIdPostfix) {
+			resultElemIdPostfix = resultElemIdPostfix || 'result';
+			element = document.getElementById(element.id + "_" + resultElemIdPostfix);
+			element.style.cssText = 'background-color: green';
+			element.innerHTML = 'Passed';
+		}
+
+		function resetEventTestResult(id) {
+			element = document.getElementById(id);
+			element.style.cssText = 'background-color: white';
+			element.innerHTML = 'No';
+		}
+		
+		function fireMouseEvent(id,eventName, x, y, ctrl) {
+			var e = document.getElementById(id);
+			var evt;
+			if (document.createEvent) {
+				evt = document.createEvent("MouseEvents");
+				evt.initMouseEvent(eventName, true, true, window,0, x, y, x, y, ctrl, false, false, false, 0, null);
+				evt.srcElement = e;
+				e.dispatchEvent(evt);
+			}else {
+				var evt = document.createEventObject()
+		        evt.type = eventName;
+				evt.keyCode = 13;
+				evt.returnValue = true;
+				evt.cancelBubble = false;
+				evt.ctrlKey = ctrl;
+		        e.fireEvent("on" + eventName, evt);
+			}
+		}
+
+		function createMouseEvent(id,eventName, x, y, ctrl) {
+			var e = document.getElementById(id);
+			var evt;
+			if (document.createEvent) {
+				evt = document.createEvent("MouseEvents");
+				evt.initMouseEvent(eventName, true, true, window,0, x, y, x, y, ctrl, false, false, false, 0, null);
+				evt.srcElement = e;
+			}else {
+				var evt = document.createEventObject()
+		        evt.type = eventName;
+				evt.keyCode = 13;
+				evt.returnValue = true;
+				evt.cancelBubble = false;
+				evt.ctrlKey = ctrl;
+			}
+			return evt;
+		}
+
+		var EventQueue = {
+    		queue: [],
+    		fire: function(eventName) {
+        		this.queue.push(eventName);
+    		},
+    		clear: function() {
+        		this.queue = [];
+    		},
+    		assert: function(eventsExpected) {
+        		var errorMessage = "";
+        		if(this.queue.length == eventsExpected.length) {
+            		for (i = 0; i < this.queue.length; i++) {
+                		if(this.queue[i] != eventsExpected[i]) {
+                    		errorMessage = "expected:<" + eventsExpected + "> but was:<" + this.queue + ">";
+                    		break;
+                		}
+            		}
+        		} else {
+            		errorMessage = "expected:<" + eventsExpected + "> but was:<" + this.queue + ">";
+        		}
+				this.clear();
+        		return errorMessage;
+    		},
+    		assertEvent: function (eventExpected) {
+    			var f = false;
+    			for (var i = 0; i < this.queue.length; i++) {
+    				if (this.queue[i] == eventExpected) {
+    					f = true;
+    					break;
+    				}
+    			}
+    			if (!f) {
+    				return "Expected event [" + eventExpected + "] was not triggered"; 
+    			}
+    			return '';
+    		}
+		};
+		
+		function getStyle(elementId, style) {
+			 element = document.getElementById(elementId);
+   			 style = style == 'float' ? 'cssFloat' : camelize(style);
+    		 var value = element.style[style];
+    		if (!value) {
+      			var css = document.defaultView.getComputedStyle(element, null);
+      			value = css ? css[style] : null;
+    		}
+    		if (style == 'opacity') return value ? parseFloat(value) : 1.0;
+    		return value == 'auto' ? null : value;
+		}
+		
+		function camelize (str) {
+    		var parts = str.split('-'), len = parts.length;
+    		if (len == 1) return parts[0];
+
+    		var camelized = str.charAt(0) == '-'
+      			? parts[0].charAt(0).toUpperCase() + parts[0].substring(1)
+      			: parts[0];
+
+    		for (var i = 1; i < len; i++)
+      			camelized += parts[i].charAt(0).toUpperCase() + parts[i].substring(1);
+
+    		return camelized;
+  		}
+
+		
+	-->
+	</script>
+	<style type="text/css">
+		<ui:insert name="style"/>
+	</style>
+</head>
+<body>
+<div style="padding: 10px; font-size: 24px;">Rich faces component testing by Selenium</div><br/>
+
+<div id="_Selenium_Test_ControlPoint1" style="display: none;">Control1</div>
+<h:panelGrid id="_Selenium_Test_Common_Grid">
+	<div>
+		<b>Status: </b> <input style="border: 0px; color: black; width: 700px" readonly="true" id="_Selenium_Test_Status_Message" />
+	</div>
+		<br/>
+	<div>
+		<ui:insert name="template"/>
+	</div>
+</h:panelGrid>
+
+<div id="_Selenium_Test_ControlPoint2" style="display: none;">Control2</div>
+
+<ui:insert name="control" />
+
+<script type="text/javascript">
+	<!--
+	window.done=false; 
+	window.loaded = true;
+	if (A4J && A4J.AJAX) {
+		A4J.AJAX.AddListener(new A4J.AJAX.Listener(function(req){window.requestParamsMap=req._query._query; window.done=true;}));
+	}
+	-->
+</script>
+<ui:insert name="footer" />
+</body>
+</f:view>
+</html>

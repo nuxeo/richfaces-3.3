@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+		<h:inputHidden id="_auto_input" value="#{autoTestBean.input}" required="true"></h:inputHidden>
+		<h:outputText id="_auto_request_params" style="display: none;" value="#{requestBean.paramString}" />
+		<h:inputHidden id="_auto_process_input" value="#{autoTestBean.processInput}" valueChangeListener="#{autoTestBean.processInputChangeListener}"></h:inputHidden>
+		<a4j:outputPanel ajaxRendered="true">
+			<h:outputText id="_auto_status" style="display: none;" value="#{autoTestBean.status}"></h:outputText>
+		</a4j:outputPanel>
+		<h:outputText  id="_auto_time" style="display: none;" value="#{autoTestBean.text}"></h:outputText>
+		<h:outputText  id="_auto_value" style="display: none;" value="#{autoTestBean.value}"></h:outputText>
+		<h:commandButton id="_auto_simple_submit" value="Simple submit" immediate="#{autoTestBean.immediate}" style="display: none;" />
+		<a4j:commandButton id="_auto_ajax_submit" value="Ajax submit" reRender="componentId" immediate="#{autoTestBean.immediate}" style="display: none;" />
+</html>

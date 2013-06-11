@@ -1,0 +1,79 @@
+Index: src/main/flash/src/FileUploadComponent.as
+===================================================================
+--- src/main/flash/src/FileUploadComponent.as	(revision 13448)
++++ src/main/flash/src/FileUploadComponent.as	(working copy)
+@@ -22,6 +22,7 @@
+ 		private var uploadIndex: Number;
+ 		private var parent:MovieClip;
+ 		private var disabled:Boolean;
++		private var isIE:Boolean;
+ 	
+ 		public function FileUploadComponent(parent:MovieClip) {
+ 			this.parent = parent;
+@@ -33,13 +34,18 @@
+ 			this.fileTypes = null;
+ 			this.uploadIndex = -1;
+ 			this.disabled = true;
+-
++			this.isIE = false;
++			
++			this.addCallbacks();
++		}
++		
++		private function addCallbacks() {
+ 			//ExternalInterface.addCallback("browse", this, browse);
+ 			ExternalInterface.addCallback("setProperties", this, setProperties);
+ 			ExternalInterface.addCallback("removeFile", this, removeFile);
+ 			ExternalInterface.addCallback("uploadFile", this, uploadFile);
+ 			ExternalInterface.addCallback("cancelUploadFile", this, cancelUploadFile);
+-			ExternalInterface.addCallback("disableAdd", this, disableAdd);
++			ExternalInterface.addCallback("disableAdd", this, disableAdd);			
+ 		}
+ 		
+ 		public function setProperties(properties:Object)
+@@ -47,6 +53,7 @@
+ 			this.acceptedTypes = properties.acceptedTypes;
+ 			this.noDuplicate = properties.noDuplicate;
+ 			this.maxFiles = properties.maxFiles;
++			this.isIE = properties.isIE;
+ 			if (!this.acceptedTypes['*'])
+ 			{
+ 				var types:String = "";
+@@ -138,6 +145,9 @@
+ 		}
+ 		
+ 		public function browse() {
++			if (this.isIE) {
++				this.addCallbacks();
++			}
+ 			var fileRef:FileReferenceList = new FileReferenceList();
+ 			fileRef.addListener(this);
+ 			//[{description: "Image files", extension: "*.jpg;*.gif;*.png", macType: "JPEG;jp2_;GIFf;PNGf"}, {description: "Flash Movies", extension: "*.swf", macType: "SWFL"}]	
+Index: src/main/resources/org/richfaces/renderkit/html/js/FileUpload.js
+===================================================================
+--- src/main/resources/org/richfaces/renderkit/html/js/FileUpload.js	(revision 13448)
++++ src/main/resources/org/richfaces/renderkit/html/js/FileUpload.js	(working copy)
+@@ -1149,7 +1149,7 @@
+ 			var div = document.createElement('div');
+ 			div.innerHTML = '<a href="http'+httpsSuffix+'://www.adobe.com/go/getflashplayer"><img style="border:0px; margin:2px" src="http'+httpsSuffix+'://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>';
+ 			var oid = this.id+":flashContainer";
+-			var object = document.getElementById(oid);
++			//var object = document.getElementById(oid);
+ 			this.isFlash = swfobject.hasFlashPlayerVersion("9.0.28");
+ 			if (this.isFlash)
+ 			{
+@@ -1181,11 +1181,12 @@
+ 	
+ 	_flashSetComponent: function() {
+ 		var flashId = this.id+":flashContainer";
+-		this.flashComponent = (document[flashId]) ? document[flashId] : (window[flashId] ? window[flashId] : $(flashId));
++		this.flashComponent = document[flashId] ? document[flashId] : (window[flashId] ? window[flashId]: $(flashId));
+ 		this.flashComponent.setProperties({
+ 											acceptedTypes: this.acceptedTypes,
+ 			 								noDuplicate: this.options.noDuplicate,
+-			 								maxFiles: this.maxFileBatchSize });
++			 								maxFiles: this.maxFileBatchSizeá,
++			 								isIE: Richfaces.browser.isIE});
+ 		if (Richfaces.browser.isIE) 
+ 		{
+ 			this.flashComponent.style.width = this.currentInput.parentNode.style.width;

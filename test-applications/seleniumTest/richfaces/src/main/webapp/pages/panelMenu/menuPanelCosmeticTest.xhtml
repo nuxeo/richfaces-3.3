@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+		.link {margin: 0px 5px}
+		
+		.component_div {
+			border: 1px solid blue;
+			margin: 2px;
+		}
+
+		.rich-pmenu-selected-element {
+			color: red;
+		}
+	</ui:define>
+	<ui:define name="component">
+	<h:form id="_form3" >
+		<h:panelGroup layout="block" styleClass="component_div" >
+			<b>Selected</b>
+			<rich:panelMenu id="pMenu_selected"  
+							rendered="#{panelBean.rendered}"
+							iconItem="chevron"
+							iconCollapsedGroup="triangle"
+							style="font-size: 13px"
+							styleClass="noclass"
+							topGroupStyle="font-size: 14px"
+							topGroupClass="topGroupClass"
+							groupStyle="font-size: 15px"
+							groupClass="groupClass"
+							itemStyle="font-size: 16px"
+							itemClass="itemClass"
+							value="#{panelBean.selectedChild}"
+							selectedChild="Group2">
+				<rich:panelMenuGroup id="pGroup1_selected" label="Group1" name="Group1">
+					<rich:panelMenuItem id="pItem1_selected" label="Item 1" />
+						<rich:panelMenuGroup id="pGroup11_selected" label="Group1.1">
+							<rich:panelMenuItem id="pItem11_selected" label="Item 1.1"/>
+						</rich:panelMenuGroup>
+					</rich:panelMenuGroup>
+				<rich:panelMenuGroup id="pGroup2_selected" label="Group2" name="Group2">
+					<rich:panelMenuItem id="pItem2_selected" label="Item 2" />
+				</rich:panelMenuGroup>
+				<rich:panelMenuGroup id="pGroup3_selected" label="Group3" name="Group3">
+					<rich:panelMenuItem id="pItem3_selected" label="Item 3" />
+				</rich:panelMenuGroup>
+			</rich:panelMenu>
+		</h:panelGroup>
+		&#160;<h:commandLink id="_hide" action="#{panelBean.hide}" value="Hide"/>
+	</h:form>
+	</ui:define>
+</ui:composition>
+</html>

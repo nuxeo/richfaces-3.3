@@ -1,0 +1,68 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" id="FileUploadSubviewID">
+	<rich:fileUpload allowFlash="#{fileUpload.allowFlash}" id="fileUploadID" disabled="#{fileUpload.disabled}"
+		autoclear="#{fileUpload.autoclear}" required="#{fileUpload.required}"
+		requiredMessage="#{fileUpload.requiredMessage}"
+		rendered="#{fileUpload.rendered}"
+		listHeight="#{fileUpload.listHeight}"
+		listWidth="#{fileUpload.listHeight}" uploadData="#{fileUpload.data}"
+		maxFilesQuantity="#{fileUpload.maxFilesQuantity}"
+		fileUploadListener="#{fileUpload.fileUploadListener}">
+		<f:facet name="label">
+			<h:outputText value="{_KB}KB from {KB}KB uploaded :[ {mm}:{ss} ]"></h:outputText>
+		</f:facet>
+	</rich:fileUpload>
+	<h:commandButton action="#{fileUpload.add}" value="add test" />
+	<h:panelGrid columns="2">
+		<h:outputText value="acceptedTypes"></h:outputText>
+		<h:inputText value="#{fileUpload.acceptedTypes}" onchange="submit();"></h:inputText>
+
+		<h:outputText value="listHeight"></h:outputText>
+		<h:inputText value="#{fileUpload.listHeight}" onchange="submit();"></h:inputText>
+
+		<h:outputText value="listWidth"></h:outputText>
+		<h:inputText value="#{fileUpload.listWidth}" onchange="submit();"></h:inputText>
+
+		<h:outputText value="maxFilesQuantity"></h:outputText>
+		<h:inputText value="#{fileUpload.maxFilesQuantity}"
+			onchange="submit();"></h:inputText>
+
+		<h:outputText value="autoclear"></h:outputText>
+		<h:selectBooleanCheckbox value="#{fileUpload.autoclear}"
+			onchange="submit();"></h:selectBooleanCheckbox>
+
+		<h:outputText value="disabled"></h:outputText>
+		<h:selectBooleanCheckbox value="#{fileUpload.disabled}"
+			onchange="submit();"></h:selectBooleanCheckbox>
+
+		<h:outputText value="rendered"></h:outputText>
+		<h:selectBooleanCheckbox value="#{fileUpload.rendered}"
+			onchange="submit();"></h:selectBooleanCheckbox>
+
+		<h:outputText value="required"></h:outputText>
+		<h:selectBooleanCheckbox value="#{fileUpload.required}"
+			onchange="submit();"></h:selectBooleanCheckbox>
+		
+		<h:outputText value="allowFlash" />
+		<h:selectOneRadio value="#{fileUpload.allowFlash}">
+			<f:selectItem itemValue="true" itemLabel="true" />
+			<f:selectItem itemValue="false" itemLabel="false" />
+			<f:selectItem itemValue="auto" itemLabel="auto" />
+			<a4j:support event="onchange" reRender="fileUploadID"></a4j:support>
+		</h:selectOneRadio>
+		
+		<h:outputText value="requiredMessage"></h:outputText>
+		<h:inputText value="#{fileUpload.requiredMessage}"
+			onchange="submit();"></h:inputText>
+
+		<h:panelGrid columns="2">
+			<h:outputText value="File name:"></h:outputText>
+			<h:outputText value="#{fileUpload.upload.file.name}"></h:outputText>
+		</h:panelGrid>
+
+	</h:panelGrid>	
+</f:subview>

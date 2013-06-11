@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim><![CDATA[
+
+
+.rich-menu-list-border { 
+	border : 1px solid;
+	float : left; 
+	position : absolute;
+}
+.rich-menu-list-bg {
+	border-top-style : solid;
+	border-left-style : solid;
+	border-right-style : solid;
+
+	border-top-width : 1px;
+	border-left-width : 1px;
+	border-right-width : 1px;
+
+	background : repeat-y left;
+}
+.dr-menu-label {
+	left: 0px;
+	top: 0px;
+	padding : 2px 5px 2px 5px; 
+	white-space : nowrap; 
+	width : auto; 
+	height : auto;
+}
+.dr-menu-label-unselect {
+	border : 0px solid transparent;
+	padding : 3px 6px; 
+}
+.dr-menu-label-select {
+	border : 1px solid;
+	cursor : pointer; 
+}
+
+.rich-menu-list-strut {
+	font-size : 0px; 
+	border: 0px; 
+	margin : 0px;
+	position: relative;
+}
+
+.underneath_iframe{
+	position: absolute;
+	z-index: 90;
+	visibility:hidden;
+	left:0px;
+	top:0px;
+	height:1px;
+	width:1px;
+}
+
+]]>
+
+</f:verbatim>
+
+<u:selector name=".dr-label-text-decor">
+	<u:style name="font-weight" skin="headerWeightFont" />
+</u:selector>
+
+<u:selector name=".rich-menu-list-border">
+	<u:style name="border-color" skin="panelBorderColor" />
+	<u:style name="background-color" skin="additionalBackgroundColor" />
+</u:selector>
+
+<u:selector name=".rich-menu-list-bg">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.background.MenuListBackground"/>
+	</u:style>
+	<u:style name="border-top-color" skin="additionalBackgroundColor" />
+	<u:style name="border-left-color" skin="additionalBackgroundColor" />
+	<u:style name="border-right-color" skin="additionalBackgroundColor" />
+</u:selector>
+
+<u:selector name=".dr-menu-label">
+	<u:style name="font-family" skin="generalFamilyFont" />
+	<u:style name="font-size" skin="generalSizeFont" />
+</u:selector>
+
+<u:selector name=".dr-menu-label-select">
+	<u:style name="border-color" skin="panelBorderColor" />
+	<u:style name="background-color" skin="controlBackgroundColor" />
+	<u:style name="color" skin="generalTextColor" />
+</u:selector>
+
+<u:selector name=".dr-ddmenu-label-disabled" >
+	<u:style name="color" skin="tabDisabledTextColor"/>
+</u:selector>
+
+</f:template>

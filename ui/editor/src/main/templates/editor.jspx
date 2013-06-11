@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:jsp=" http://ajax4jsf.org/cdk/jsp"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	baseclass="org.richfaces.renderkit.EditorRendererBase"
+	class="org.richfaces.renderkit.html.EditorRenderer"
+	component="org.richfaces.component.UIEditor">
+
+	<f:clientid var="clientId"/>
+    <h:styles>css/editor.xcss</h:styles>
+    <h:scripts>new org.ajax4jsf.javascript.AjaxScript(), new org.ajax4jsf.javascript.PrototypeScript(), scripts/tiny_mce/tiny_mce_src.js, scripts/editor.js</h:scripts>
+    <jsp:scriptlet>
+		<![CDATA[
+		    if(shouldRenderTinyMCE(component)) {
+    	]]>
+	</jsp:scriptlet>
+    <div id="#{clientId}" x:passThruWithExclusions="id,value,styleClass,class" 
+    		class="rich-editor #{component.attributes['styleClass']}">		
+			
+		<textarea id="#{clientId}TextArea" name="#{clientId}TextArea"
+			style="visibility: hidden">
+			#{this:getFormattedComponentStringValue(context, component)}
+		</textarea>
+        <script type="text/javascript">
+				
+			<f:call name="writeEditorCustomPluginsParameters" />
+			<f:call name="writeEditorConfigurationParameters" />
+			<f:call name="writeEditorConfigurationAttributes" />
+			<f:call name="writeEditorParameters" />
+     		
+       		var richParams = {extScriptSuffix : '#{this:getSriptMappingSuffix(context)}', extCssSuffix : '#{this:getCssMappingSuffix(context)}', useSeamText : #{component.attributes['useSeamText']}};
+       		
+        	new RichEditor('#{clientId}', richParams, tinyMceParams);
+		</script>		
+	</div> 
+	<jsp:scriptlet>
+		<![CDATA[
+		    } else {
+    	]]>
+	</jsp:scriptlet>
+	<div id="#{clientId}" x:passThruWithExclusions="id,value,styleClass,class" 
+    		class="rich-editor #{component.attributes['styleClass']}" style="#{component.attributes['style']}">		
+		<textarea id="#{clientId}TextArea" name="#{clientId}TextArea"  
+					style="#{this:getTextAreaStyle(component)}"
+					tabindex="#{component.attributes['tabindex']}">
+				#{this:getFormattedComponentStringValue(context, component)}
+		</textarea>
+	</div>
+	<jsp:scriptlet>
+		<![CDATA[
+		    }
+    	]]>
+	</jsp:scriptlet>
+</f:root>

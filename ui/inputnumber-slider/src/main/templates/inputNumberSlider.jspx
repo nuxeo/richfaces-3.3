@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root
+	xmlns:f="http://ajax4jsf.org/cdk/template"
+	xmlns:c=" http://java.sun.com/jsf/core"
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:h="http://jsf.exadel.com/header"
+	class="org.richfaces.renderkit.html.InputNumberSliderRenderer"
+	baseclass="org.richfaces.renderkit.InputNumberSliderRendererBase"
+	component="org.richfaces.component.UIInputNumberSlider"
+	>
+	<jsp:directive.page import="org.richfaces.component.util.HtmlUtil" />
+	
+    <h:styles>css/slider.xcss</h:styles>
+    <h:scripts>new org.ajax4jsf.javascript.PrototypeScript(),script/SliderScript.js,/org/richfaces/renderkit/html/scripts/browser_info.js,/org/richfaces/renderkit/html/scripts/events.js</h:scripts>
+	<f:clientid var="clientId"/>
+	
+	<f:call name="prepareVariables" />
+
+	<f:resource name="/org/richfaces/renderkit/html/images/spacer.gif" var="spacer" />
+	<f:resource name="org.richfaces.renderkit.html.images.SliderArrowImage" var="arrow" />
+	<f:resource name="org.richfaces.renderkit.html.images.SliderArrowSelectedImage" var="arrowSelected" />
+
+	<jsp:scriptlet>
+		<![CDATA[
+            String width = (String) component.getAttributes().get("width");
+            if (width == null || width.length() == 0) {
+                if ("vertical".equalsIgnoreCase((String)variables.getVariable("orientation"))) {
+                    width = "20px";                    
+                } else {
+                    width = "200px";
+                }
+            } else {
+                width = HtmlUtil.qualifySize(width);
+            }
+            variables.setVariable("width", width);
+            String height = (String) component.getAttributes().get("height");
+            if (height == null || height.length() == 0) {
+                if ("vertical".equalsIgnoreCase((String)variables.getVariable("orientation"))) {
+                    height = "200px";
+                } else {
+                    height = "20px";
+                }
+            } else {
+                height = HtmlUtil.qualifySize(height);
+            }
+            variables.setVariable("height", height);
+        ]]>
+	</jsp:scriptlet>
+	
+	<jsp:scriptlet>
+        <![CDATA[
+    if ("vertical".equalsIgnoreCase((String)variables.getVariable("orientation"))) {
+        
+        ]]>
+    </jsp:scriptlet>
+    
+   <table id="#{clientId}" border="0" cellpadding="0" cellspacing="0" class="dr-insldr-vertical rich-slider #{component.attributes['styleClass']}"
+           style="height: #{height};#{style}" x:passThruWithExclusions="id,boundClass,tipClass,class,width,height,style,border">
+        <tbody>
+            <tr>
+                <jsp:scriptlet><![CDATA[
+                    if ("right".equalsIgnoreCase((String)variables.getVariable("inputPosition"))) {
+                ]]></jsp:scriptlet>
+                <td style="text-align: left; vertical-align: bottom">
+                    <jsp:scriptlet><![CDATA[
+                    if (((Boolean)variables.getVariable("showInput")).booleanValue()) {
+                    ]]></jsp:scriptlet>
+                                <input  id="#{clientId}Input"
+                                        name="#{clientId}"
+                                        value="#{this:getInputValue(context,component)}"
+                                        type="text"
+                                        class="dr-insldr-field dr-insldr-field-top rich-inslider-field #{component.attributes['inputClass']}"
+                                        style="#{component.attributes['inputStyle']}; #{color}"
+                                        readonly="#{inputReadOnly}"
+                                        disabled="#{inputDisabled}"
+                                        onselect="#{component.attributes['onselect']}"
+                                        onfocus="#{component.attributes['onfocus']}"
+                                        onblur="#{component.attributes['onblur']}"
+                                        accesskey="#{component.attributes['accesskey']}"
+                                        size="#{inputSize}"
+                                        maxlength="#{component.attributes['maxlength']}"
+                                        
+                                        onclick='#{component.attributes["oninputclick"]}'
+                                        ondblclick='#{component.attributes["oninputdblclick"]}'
+                                        onkeydown='#{component.attributes["oninputkeydown"]}'
+                                        onkeypress='#{component.attributes["oninputkeypress"]}'
+                                        onkeyup='#{component.attributes["oninputkeyup"]}'
+                                        onmousedown='#{component.attributes["oninputmousedown"]}'
+                                        onmousemove='#{component.attributes["oninputmousemove"]}'
+                                        onmouseout='#{component.attributes["oninputmouseout"]}'
+                                        onmouseover='#{component.attributes["oninputmouseover"]}'
+                                        onmouseup='#{component.attributes["oninputmouseup"]}'
+                                />
+                            <jsp:scriptlet><![CDATA[
+                            } else {
+                                ]]></jsp:scriptlet>
+                                <input  id="#{clientId}Input"
+                                        name="#{clientId}"
+                                        value="#{this:getInputValue(context,component)}"
+                                        type="hidden"
+                                />
+                                <jsp:scriptlet><![CDATA[
+                    } 
+                    ]]></jsp:scriptlet>
+                </td>
+            <jsp:scriptlet><![CDATA[
+                }
+            ]]></jsp:scriptlet>
+            </tr>
+            <jsp:scriptlet><![CDATA[
+	             if (((Boolean)variables.getVariable("showArrows")).booleanValue()) {
+	        ]]></jsp:scriptlet>
+            <tr>
+                <td class="dr-insldr-td-arrow">
+	                <div style="position : relative">
+	                    <div id="#{clientId}TipArrowInc" class="dr-insldr-tip rich-inslider-tip #{component.attributes['tipClass']}" style="display: none; #{component.attributes['tipStyle']}">
+	                         <jsp:scriptlet><![CDATA[
+	                           writer.write("&#160;");
+	                         ]]></jsp:scriptlet>
+	                     </div>
+	                                <div  id="#{clientId}ArrowInc"
+	                                        class="dr-insldr-inc-vertical dr-insldr-arrow #{component.attributes['increaseClass']}"
+	                                        style="#{component.attributes['increaseStyle']}"
+	                                />   
+	                </div>
+                </td>
+            </tr>
+            <jsp:scriptlet><![CDATA[
+	             } 
+	        ]]></jsp:scriptlet>
+            <tr>                  
+                <td style="height: 100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" style="height: 100%;">
+	                    <tbody>
+		                    <tr>
+                               <td rowspan="2" id="#{clientId}Track" class="dr-insldr-size-height">     
+                                   <div class="dr-insldr-track-vertical rich-inslider-track #{component.attributes['barClass']}" 
+                                       style="#{component.attributes['barStyle']}">
+                                       <table class="dr-insldr-track-decor-1 rich-inslider-track-border" cellpadding="0" cellspacing="0" >
+                                           <tbody>
+                                               <tr style="height: 98%">
+                                                   <td class="dr-insldr-track-decor-2">
+                                                       <img src="#{spacer}" style="display: block;" />
+                                                   </td>
+                                               </tr>
+                                           </tbody>
+                                       </table>
+                                   </div>
+                                   <div style="position : relative">
+                                       <div id="#{clientId}Tip" class="dr-insldr-tip rich-inslider-tip #{component.attributes['tipClass']}" style="display: none;left: 9px; #{component.attributes['tipStyle']}">
+                                           <jsp:scriptlet><![CDATA[
+                                             writer.write("&#160;");
+                                           ]]></jsp:scriptlet>
+                                       </div>
+                                       <div class="dr-insldr-handler-vertical #{component.attributes['handleClass']}" id="#{clientId}Handle" style="visibility:visible; top: -7px; left:1px;">
+                                           <jsp:scriptlet><![CDATA[
+                                             writer.write("&#160;");
+                                           ]]></jsp:scriptlet>
+                                       </div>
+                                   </div>
+			                    </td>
+                                    <jsp:scriptlet><![CDATA[
+                                        if (attributeToBoolean(component, "showBoundaryValues")){
+                                    ]]></jsp:scriptlet>
+                                    <td class="dr-insldr-top-num #{component.attributes['boundClass']}">
+                                        #{component.attributes['maxValue']}
+                                    </td>
+                                    <jsp:scriptlet><![CDATA[
+		                                } else{
+		                            ]]></jsp:scriptlet>
+		                              <td></td>
+		                            <jsp:scriptlet><![CDATA[
+                                        }
+                                    ]]></jsp:scriptlet>
+                            </tr>
+                            <tr>
+                                <jsp:scriptlet><![CDATA[
+                                    if (attributeToBoolean(component, "showBoundaryValues")){
+                                ]]></jsp:scriptlet>
+                                    <td class="dr-insldr-bottom-num #{component.attributes['boundClass']}">
+                                    #{component.attributes['minValue']}
+                                    </td>
+                                    <jsp:scriptlet><![CDATA[
+		                                } else {
+		                            ]]></jsp:scriptlet>
+		                              <td></td>
+		                            <jsp:scriptlet><![CDATA[
+                                        } 
+                                    ]]></jsp:scriptlet>
+                            </tr>
+               
+                        </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <jsp:scriptlet><![CDATA[
+		             if (((Boolean)variables.getVariable("showArrows")).booleanValue()) {
+		        ]]></jsp:scriptlet>
+                <tr>
+	                <td class="dr-insldr-td-arrow">
+		                <div style="position : relative">
+	                    	<div id="#{clientId}TipArrowDec" class="dr-insldr-tip rich-inslider-tip #{component.attributes['tipClass']}" style="display: none; #{component.attributes['tipStyle']}">
+                             <jsp:scriptlet><![CDATA[
+                               writer.write("&#160;");
+                             ]]></jsp:scriptlet>
+                           </div>
+		                                <div  id="#{clientId}ArrowDec"
+		                                        class="dr-insldr-dec-vertical dr-insldr-arrow #{component.attributes['decreaseClass']}"
+		                                        style="#{component.attributes['decreaseStyle']}"
+		                                />
+		                </div>
+	                </td>
+                </tr>  
+                <jsp:scriptlet><![CDATA[
+		             } 
+		        ]]></jsp:scriptlet>            
+                <tr>
+                <jsp:scriptlet><![CDATA[
+                    if ("left".equalsIgnoreCase((String)variables.getVariable("inputPosition"))) {
+                ]]></jsp:scriptlet>
+                <td style="text-align: left; vertical-align: bottom">
+                    <jsp:scriptlet><![CDATA[
+                    if (((Boolean)variables.getVariable("showInput")).booleanValue()) {
+                    ]]></jsp:scriptlet>
+                                <input  id="#{clientId}Input"
+                                        name="#{clientId}"
+                                        value="#{this:getInputValue(context,component)}"
+                                        type="text"
+                                        class="dr-insldr-field dr-insldr-field-bottom rich-inslider-field #{component.attributes['inputClass']}"
+                                        style="#{component.attributes['inputStyle']}; #{color}"
+                                        readonly="#{inputReadOnly}"
+                                        disabled="#{inputDisabled}"
+                                        onselect="#{component.attributes['onselect']}"
+                                        onfocus="#{component.attributes['onfocus']}"
+                                        onblur="#{component.attributes['onblur']}"
+                                        accesskey="#{component.attributes['accesskey']}"
+                                        size="#{inputSize}"
+                                        maxlength="#{component.attributes['maxlength']}"
+                                        
+                                        onclick='#{component.attributes["oninputclick"]}'
+                                        ondblclick='#{component.attributes["oninputdblclick"]}'
+                                        onkeydown='#{component.attributes["oninputkeydown"]}'
+                                        onkeypress='#{component.attributes["oninputkeypress"]}'
+                                        onkeyup='#{component.attributes["oninputkeyup"]}'
+                                        onmousedown='#{component.attributes["oninputmousedown"]}'
+                                        onmousemove='#{component.attributes["oninputmousemove"]}'
+                                        onmouseout='#{component.attributes["oninputmouseout"]}'
+                                        onmouseover='#{component.attributes["oninputmouseover"]}'
+                                        onmouseup='#{component.attributes["oninputmouseup"]}'
+                                />
+                            <jsp:scriptlet><![CDATA[
+                            } else {
+                                ]]></jsp:scriptlet>
+                                <input  id="#{clientId}Input"
+                                        name="#{clientId}"
+                                        value="#{this:getInputValue(context,component)}"
+                                        type="hidden"
+                                />
+                                <jsp:scriptlet><![CDATA[
+                    }
+                    ]]></jsp:scriptlet>
+                </td>
+                <jsp:scriptlet><![CDATA[
+                    }
+                ]]></jsp:scriptlet>
+            </tr>
+            <tr><td>
+            <script type="text/javascript">
+                                        new Richfaces.Slider(
+                                                            "#{clientId}Handle",
+                                                            "#{clientId}Track",
+                                                            "#{clientId}Tip",
+                                                            "#{clientId}",
+                                                            "#{component.attributes['handleSelectedClass']}",
+                                                            "#{component.attributes['decreaseSelectedClass']}",
+                                                            "#{component.attributes['increaseSelectedClass']}",
+                                                            {
+                                                                range           : $R(#{component.attributes['minValue']},#{component.attributes['maxValue']}),
+                                                                step            : "#{component.attributes['step']}",
+                                                                sliderValue     : "#{this:getInputValue(context,component)}",
+                                                                disabled        : #{component.attributes['disabled']},
+                                                                currValue       : #{component.attributes['showToolTip']},
+                                                                inputId         : "#{clientId}Input",
+                                                                arrowInc         : "#{clientId}ArrowInc",
+                                                                arrowDec         : "#{clientId}ArrowDec",
+                                                                tipArrowInc      : "#{clientId}TipArrowInc",
+                                                                tipArrowDec      : "#{clientId}TipArrowDec",
+                                                                arrowSelected   : "#{arrowSelected}",
+                                                                onerr           : "#{component.attributes['onerror']}",
+                                                                clientErrorMsg : "#{component.attributes['clientErrorMessage']}",
+                                                                <f:call name="writeEventHandlerFunction"><f:parameter value="onslide" /></f:call>,
+                                                                onchange        : "#{component.attributes['onchange']}",
+                                                                required        : #{component.attributes['required']},
+                                                                height          : "#{height}",
+                                                                width           : "#{width}",
+                                                                orientation     : "vertical",
+                                                                showArrows		: #{component.attributes['showArrows']},
+                                                                delay           : "#{component.attributes['delay']}"
+                                                            })
+                                    </script>
+            </td></tr>
+        </tbody>
+    </table>
+           
+    <jsp:scriptlet>
+        <![CDATA[  
+    } else { 
+        ]]>
+    </jsp:scriptlet>
+    
+   <table id="#{clientId}" border="0" cellpadding="0" cellspacing="0" class="dr-insldr rich-slider #{component.attributes['styleClass']}"
+           style="width: #{width};#{style}" x:passThruWithExclusions="id,boundClass,tipClass,class,width,height,style,border">
+		<tbody>
+			<tr>
+                <jsp:scriptlet><![CDATA[
+                    if ("left".equalsIgnoreCase((String)variables.getVariable("inputPosition"))) {
+                ]]></jsp:scriptlet>
+                <td rowspan="2" style="text-align: right; vertical-align: bottom">
+                    <jsp:scriptlet><![CDATA[
+                    if (((Boolean)variables.getVariable("showInput")).booleanValue()) {
+                    ]]></jsp:scriptlet>
+                                <input	id="#{clientId}Input"
+                                        name="#{clientId}"
+                                        value="#{this:getInputValue(context,component)}"
+                                        type="text"
+                                        class="dr-insldr-field dr-insldr-field-left rich-inslider-field #{component.attributes['inputClass']}"
+                                        style="#{component.attributes['inputStyle']}; #{color}"
+                                        readonly="#{inputReadOnly}"
+                                        disabled="#{inputDisabled}"
+                                        onselect="#{component.attributes['onselect']}"
+                                        onfocus="#{component.attributes['onfocus']}"
+                                        onblur="#{component.attributes['onblur']}"
+                                        accesskey="#{component.attributes['accesskey']}"
+                                        size="#{inputSize}"
+                                        maxlength="#{component.attributes['maxlength']}"
+                                        
+										onclick='#{component.attributes["oninputclick"]}'
+										ondblclick='#{component.attributes["oninputdblclick"]}'
+										onkeydown='#{component.attributes["oninputkeydown"]}'
+										onkeypress='#{component.attributes["oninputkeypress"]}'
+										onkeyup='#{component.attributes["oninputkeyup"]}'
+										onmousedown='#{component.attributes["oninputmousedown"]}'
+										onmousemove='#{component.attributes["oninputmousemove"]}'
+										onmouseout='#{component.attributes["oninputmouseout"]}'
+										onmouseover='#{component.attributes["oninputmouseover"]}'
+										onmouseup='#{component.attributes["oninputmouseup"]}'
+                                />
+                            <jsp:scriptlet><![CDATA[
+                            } else {
+                                ]]></jsp:scriptlet>
+                                <input	id="#{clientId}Input"
+                                        name="#{clientId}"
+                                        value="#{this:getInputValue(context,component)}"
+                                        type="hidden"
+                                />
+                                <jsp:scriptlet><![CDATA[
+                    }
+                    ]]></jsp:scriptlet>
+                </td>
+                <jsp:scriptlet><![CDATA[
+                    }
+                ]]></jsp:scriptlet>
+
+				<jsp:scriptlet><![CDATA[
+	                 if (((Boolean)variables.getVariable("showArrows")).booleanValue()) {
+	            ]]></jsp:scriptlet>
+				<td rowspan="2" class="dr-insldr-td-arrow">
+	                <div style="position : relative">
+	                    <div id="#{clientId}TipArrowDec" class="dr-insldr-tip rich-inslider-tip #{component.attributes['tipClass']}" style="display: none; #{component.attributes['tipStyle']}">
+	                         <jsp:scriptlet><![CDATA[
+	                           writer.write("&#160;");
+	                         ]]></jsp:scriptlet>
+	                     </div>
+	                                <div  id="#{clientId}ArrowDec"
+	                                        class="dr-insldr-dec-horizontal dr-insldr-arrow #{component.attributes['decreaseClass']}"
+	                                        style="#{component.attributes['decreaseStyle']}"
+	                                />     
+	                </div>
+                </td>
+                <jsp:scriptlet><![CDATA[
+	                 }
+	            ]]></jsp:scriptlet>
+	            
+                <td class="dr-insldr-left-num rich-inslider-left-num #{component.attributes['boundClass']}">
+				<jsp:scriptlet><![CDATA[
+				    if (attributeToBoolean(component, "showBoundaryValues")){
+                ]]></jsp:scriptlet>
+					#{component.attributes['minValue']}
+				<jsp:scriptlet><![CDATA[
+				    }
+                ]]></jsp:scriptlet>
+				</td>
+				<td class="dr-insldr-right-num rich-inslider-right-num #{component.attributes['boundClass']}">
+				<jsp:scriptlet><![CDATA[
+				    if (attributeToBoolean(component, "showBoundaryValues")){
+                ]]></jsp:scriptlet>
+					#{component.attributes['maxValue']}
+				<jsp:scriptlet><![CDATA[
+				    }
+                ]]></jsp:scriptlet>
+				</td>
+				
+				<jsp:scriptlet><![CDATA[
+	                 if (((Boolean)variables.getVariable("showArrows")).booleanValue()) {
+	           	]]></jsp:scriptlet>
+				<td rowspan="2" class="dr-insldr-td-arrow">
+	                <div style="position : relative">
+	                     <div id="#{clientId}TipArrowInc" class="dr-insldr-tip rich-inslider-tip #{component.attributes['tipClass']}" style="display: none; #{component.attributes['tipStyle']}">
+	                         <jsp:scriptlet><![CDATA[
+	                           writer.write("&#160;");
+	                         ]]></jsp:scriptlet>
+	                     </div>
+	                                <div  id="#{clientId}ArrowInc"
+	                                        class="dr-insldr-inc-horizontal dr-insldr-arrow #{component.attributes['increaseClass']}"
+	                                        style="#{component.attributes['increaseStyle']}"
+	                                />
+	                </div>   
+                </td>
+                <jsp:scriptlet><![CDATA[
+	                 } 
+	            ]]></jsp:scriptlet>	            
+
+                <jsp:scriptlet><![CDATA[
+                    if ("right".equalsIgnoreCase((String)variables.getVariable("inputPosition"))) {
+                ]]></jsp:scriptlet>
+                <td rowspan="2" style="text-align: left; vertical-align: bottom">
+					<jsp:scriptlet><![CDATA[
+					if (((Boolean)variables.getVariable("showInput")).booleanValue()) {
+					]]></jsp:scriptlet>
+								<input	id="#{clientId}Input"
+										name="#{clientId}"
+										value="#{this:getInputValue(context,component)}"
+										type="text"
+										class="dr-insldr-field dr-insldr-field-right rich-inslider-field #{component.attributes['inputClass']}"
+										style="#{component.attributes['inputStyle']}; #{color}"
+										readonly="#{inputReadOnly}"
+										disabled="#{inputDisabled}"
+										onselect="#{component.attributes['onselect']}"
+										onfocus="#{component.attributes['onfocus']}"
+										onblur="#{component.attributes['onblur']}"
+										accesskey="#{component.attributes['accesskey']}"
+										size="#{inputSize}"
+										maxlength="#{component.attributes['maxlength']}"
+										
+										onclick='#{component.attributes["oninputclick"]}'
+										ondblclick='#{component.attributes["oninputdblclick"]}'
+										onkeydown='#{component.attributes["oninputkeydown"]}'
+										onkeypress='#{component.attributes["oninputkeypress"]}'
+										onkeyup='#{component.attributes["oninputkeyup"]}'
+										onmousedown='#{component.attributes["oninputmousedown"]}'
+										onmousemove='#{component.attributes["oninputmousemove"]}'
+										onmouseout='#{component.attributes["oninputmouseout"]}'
+										onmouseover='#{component.attributes["oninputmouseover"]}'
+										onmouseup='#{component.attributes["oninputmouseup"]}'
+								/>
+							<jsp:scriptlet><![CDATA[
+							} else {
+								]]></jsp:scriptlet>
+								<input	id="#{clientId}Input"
+										name="#{clientId}"
+										value="#{this:getInputValue(context,component)}"
+										type="hidden"
+								/>
+								<jsp:scriptlet><![CDATA[
+					}
+					]]></jsp:scriptlet>
+				</td>
+                <jsp:scriptlet><![CDATA[
+                    }
+                ]]></jsp:scriptlet>
+            </tr>
+			<tr>
+				<td colspan="2" class="dr-insldr-size dr-insldr-vert-spacer">
+					<table border="0" cellpadding="0" cellspacing="0" class="dr-insldr-size">
+						<tbody>
+							<tr>
+								<td id="#{clientId}Track">
+									<div style="position : relative">
+										<div id="#{clientId}Tip" class="dr-insldr-tip rich-inslider-tip #{component.attributes['tipClass']}" style="display: none;#{component.attributes['tipStyle']}">
+                                            <jsp:scriptlet><![CDATA[
+                                              writer.write("&#160;");
+                                            ]]></jsp:scriptlet>
+                                        </div>
+										<div class="dr-insldr-handler rich-inslider-handler #{component.attributes['handleClass']}" id="#{clientId}Handle" style="visibility:hidden;">
+                                            <jsp:scriptlet><![CDATA[
+                                              writer.write("&#160;");
+                                            ]]></jsp:scriptlet>
+                                        </div>
+									</div>
+									<div class="dr-insldr-track rich-inslider-track #{component.attributes['barClass']}" style="#{component.attributes['barStyle']}">
+										<table class="dr-insldr-track-decor-1" cellpadding="0" cellspacing="0">
+											<tbody>
+												<tr>
+													<td class="dr-insldr-track-decor-2">
+														<img src="#{spacer}" alt="" style="display: block;" />
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<script type="text/javascript">
+										new Richfaces.Slider(
+															"#{clientId}Handle",
+															"#{clientId}Track",
+															"#{clientId}Tip",
+															"#{clientId}",
+															"#{component.attributes['handleSelectedClass']}",
+                                                            "#{component.attributes['increaseSelectedClass']}",
+                                                            "#{component.attributes['decreaseSelectedClass']}",
+															{
+																range			: $R(#{component.attributes['minValue']},#{component.attributes['maxValue']}),
+																step			: "#{component.attributes['step']}",
+																sliderValue		: "#{this:getInputValue(context,component)}",
+																disabled		: #{component.attributes['disabled']},
+																currValue		: #{component.attributes['showToolTip']},
+																inputId			: "#{clientId}Input",
+																arrowInc         : "#{clientId}ArrowInc",
+                                                                arrowDec         : "#{clientId}ArrowDec",
+                                                                tipArrowInc      : "#{clientId}TipArrowInc",
+                                                                tipArrowDec      : "#{clientId}TipArrowDec",
+                                                                arrowSelected   : "#{arrowSelected}",
+																onerr			: "#{component.attributes['onerror']}",
+																clientErrorMsg : "#{component.attributes['clientErrorMessage']}",
+																<f:call name="writeEventHandlerFunction"><f:parameter value="onslide" /></f:call>,
+																onchange		: "#{component.attributes['onchange']}",
+																required		: #{component.attributes['required']},
+																width           : "#{width}",
+                                                                height          : "#{height}",
+                                                                orientation     : "horizontal",
+                                                                showArrows		: #{component.attributes['showArrows']},
+                                                                delay           : "#{component.attributes['delay']}"
+															})
+									</script>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<jsp:scriptlet>
+        <![CDATA[
+    }
+    ]]>
+    </jsp:scriptlet>
+    
+</f:root>

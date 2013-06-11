@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:vcp=" http://ajax4jsf.org/cdk/vcp"
+	class="org.richfaces.renderkit.html.HtmlPanelMenuItemRenderer"
+	baseclass="org.richfaces.renderkit.html.PanelMenuItemRenderer"
+	component="org.richfaces.component.UIPanelMenuItem" 
+	>
+	
+	<f:clientid var="clientId"/>
+	
+	<div id="#{clientId}" style="#{this:getHideStyle(context, component)}" >
+		<table 	cellspacing="0" cellpadding="0" border="0" 
+				id="tablehide#{clientId}"
+				class="dr-pmenu-item rich-pmenu-item #{this:getFullStyleClass( context, component )} " 
+				style="#{this:getFullStyle( context, component )}" 
+				x:passThruWithExclusions="cellspacing,cellpadding,border,id,class,styleClass,style">
+			<tbody>
+				<tr id="row_#{clientId}"
+						class="#{this:getSelectedClass( context, component )}" >
+					<td class="dr-pmenu-nowrap #{this:getIconClass( context, component,'left')}">
+						<f:call name="insertSpacerImages" />
+						<f:call name="insertImage">
+							<f:parameter value="left" />
+						</f:call>
+					</td>
+					<td style="width:100%" id="icon#{clientId}" class="dr-pmenu-group-self-label #{this:getLabelClass( context, component )}" >
+							<input type="hidden" name="panelMenuAction#{clientId}" value=""/>
+							<f:call name="insertLabel"/>
+							<vcp:body>
+									<f:call name="renderChildren" />
+							</vcp:body>
+					</td>
+					<td class="#{this:getIconClass( context, component,'right')}">
+						<f:call name="insertImage">
+							<f:parameter value="right" />
+						</f:call>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+</f:root>

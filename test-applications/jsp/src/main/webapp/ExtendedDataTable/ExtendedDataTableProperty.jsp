@@ -1,0 +1,155 @@
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
+<%@ taglib uri="http://richfaces.org/a4j" prefix="a4j"%>
+<%@ taglib uri="http://richfaces.org/rich" prefix="rich"%>
+
+<f:subview id="extendedDataTablePropertySubviewID">
+
+	<h:panelGrid columns="2">
+		<h:outputLabel value="Width" for="tableWidthInput" />
+		<h:inputText id="tableWidthInput"
+			value="#{extendedDataTableControlBean.width}">
+			<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+		</h:inputText>
+
+		<h:outputLabel value="Height" for="tableHeightInput" />
+		<h:inputText id="tableHeightInput"
+			value="#{extendedDataTableControlBean.height}">
+			<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+		</h:inputText>
+
+		<h:outputLabel value="Number of patients"
+			for="tablePatientsNumberInput" />
+		<h:inputText id="tablePatientsNumberInput"
+			value="#{extendedDataTableBean.patientsNumber}">
+			<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+		</h:inputText>
+
+		<h:outputLabel value="Sort mode" for="tableSortModeSelect" />
+		<h:selectOneMenu id="tableSortModeSelect"
+			value="#{extendedDataTableControlBean.sortMode}">
+			<f:selectItems
+				value="#{extendedDataTableControlBean.sortModeSelectItems}" />
+			<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+		</h:selectOneMenu>
+
+		<h:outputLabel value="Selection mode" for="tableSelectionModeSelect" />
+		<h:selectOneMenu id="tableSelectionModeSelect"
+			value="#{extendedDataTableControlBean.selectionMode}">
+			<f:selectItems
+				value="#{extendedDataTableControlBean.selectionModeSelectItems}" />
+			<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+		</h:selectOneMenu>
+
+		<h:outputText value="paginated" />
+		<h:selectBooleanCheckbox id="paginatedCheckbox"
+			value="#{extendedDataTableControlBean.paginated}" onclick="submit()" />
+
+		<h:outputLabel value="Number of rows" for="tableRowsNumberInput" />
+		<h:inputText id="tableRowsNumberInput"
+			value="#{extendedDataTableControlBean.rowsNumber}">
+			<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+		</h:inputText>
+
+		<h:commandButton value="binding"
+			actionListener="#{extendedDataTableControlBean.checkBinding}" />
+		<h:outputText value="#{extendedDataTableControlBean.bindLabel}"
+			id="bindLabel" />
+
+		<h:outputText value="border" />
+		<h:inputText value="#{extendedDataTableControlBean.border}">
+			<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="cellpadding" />
+		<h:inputText value="#{extendedDataTableControlBean.cellpadding}">
+			<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="cellspacing" />
+		<h:inputText value="#{extendedDataTableControlBean.cellspacing}">
+			<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="dir" />
+		<h:selectOneRadio value="#{extendedDataTableControlBean.dir}">
+			<f:selectItem itemLabel="RTL" itemValue="RTL" />
+			<f:selectItem itemLabel="LTR" itemValue="LTR" />
+			<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+		</h:selectOneRadio>
+
+		<h:outputText value="first" />
+		<h:inputText value="#{extendedDataTableControlBean.first}">
+			<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="frame" />
+		<h:panelGroup>
+			<h:inputText value="#{extendedDataTableControlBean.frame}"
+				id="inputFrame">
+				<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+			</h:inputText>
+			<h:outputLabel value="\"
+				void\", \"above\", \"below\", \"hsides\", \"lhs\", \"rhs\", \"vsides\", \"box\" and \"border\"" for="inputFrame" />
+		</h:panelGroup>
+
+		<h:outputText value="groupingColumn" />
+		<h:inputText value="#{extendedDataTableControlBean.groupingColumn}">
+			<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="rendered" />
+		<h:selectBooleanCheckbox
+			value="#{extendedDataTableControlBean.rendered}" onclick="submit()" />
+
+		<h:outputText value="sortPriority" />
+		<h:inputText value="#{extendedDataTableControlBean.sortPriority}">
+			<a4j:support event="onchange" reRender="demoTable"></a4j:support>
+		</h:inputText>
+
+	</h:panelGrid>
+	<br />
+	<h:commandButton value="add test"
+		action="#{extendedDataTableControlBean.addExtDTable}"></h:commandButton>
+	<a4j:commandButton value="Update values" reRender="mainPanel">
+	</a4j:commandButton>
+	<br />
+
+	<rich:spacer height="5px" width="100%">
+	</rich:spacer>
+	<h:outputText value="Render selection: " />
+	<h:selectBooleanCheckbox value="#{extendedDataTableBean.a4jRendered}"
+		onclick="submit()" />
+	<rich:dataTable id="selectedPatients"
+		rendered="#{extendedDataTableBean.a4jRendered}"
+		value="#{extendedDataTableBean.selectedItems}" var="selectedPatient">
+		<f:facet name="header">
+			<h:outputText value="Selected patient" />
+		</f:facet>
+		<rich:column id="selectedID" headerClass="dataTableHeader"
+			label="id">
+			<f:facet name="header">
+				<h:outputText value="id" />
+			</f:facet>
+			<h:outputText value="#{selectedPatient.id}" />
+		</rich:column>
+		<%--
+		<rich:column id="selectedFirstName" headerClass="dataTableHeader"
+			label="First name">
+			<f:facet name="header">
+				<h:outputText value="First name" />
+			</f:facet>
+			<h:outputText value="#{selectedPatient.firstName}" />
+		</rich:column>
+		<rich:column id="selectedLastName" headerClass="dataTableHeader"
+			label="Last name">
+			<f:facet name="header">
+				<h:outputText value="Last name" />
+			</f:facet>
+			<h:outputText value="#{selectedPatient.lastName}" />
+		</rich:column>
+		--%>
+	</rich:dataTable>
+	<rich:messages>
+	</rich:messages>
+</f:subview>

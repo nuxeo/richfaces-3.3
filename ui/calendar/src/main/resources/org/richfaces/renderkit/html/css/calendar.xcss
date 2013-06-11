@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+   <f:verbatim><![CDATA[
+
+.rich-calendar-exterior{
+	border : 1px solid;
+}
+.rich-calendar-btn{
+	cursor : pointer;
+}
+.rich-calendar-header-optional{
+	border-bottom : 1px solid;
+	padding : 7px;
+	height : 22px;
+	font-weight: bold;
+}
+
+.rich-calendar-header{
+	border-right : 0px solid;
+	border-bottom : 1px solid;
+}
+
+.rich-calendar-cell-size{
+	width : 25px;
+	height : 22px;
+}
+
+.rich-calendar-cell-div{
+	overflow: hidden;
+}
+
+.rich-calendar-cell{
+	border-bottom : 1px solid;
+	border-right : 1px solid;
+	padding : 0px;
+	vertical-align : middle;
+	text-align : center;
+}
+
+.rich-calendar-tool{
+	vertical-align : middle;
+	text-align : center;
+	width : 20px;
+	height : 22px;
+}
+
+.rich-calendar-month{
+	vertical-align : middle;
+	text-align : center;
+	height : 22px;	
+}
+
+.rich-calendar-days{
+	border-bottom : 1px solid;
+	border-right : 0px solid;
+	vertical-align : middle;
+	text-align : center;
+	height : 22px;
+}
+
+.rich-calendar-week{
+	border-bottom : 1px solid;
+	border-right : 1px solid;
+	vertical-align : middle;
+	text-align : center;
+	width : 25px;
+}
+
+.rich-right-cell{
+	border-right : 0px;
+}
+
+.rich-bottom-cell{
+	border-bottom : 0px;
+}
+
+.rich-calendar-toolfooter{
+	height : 22px;
+	padding : 1px 2px 1px 1px;
+}
+
+.rich-calendar-footer-optional{
+	border-top : 1px solid;
+	border-right : 0px solid;
+	padding : 7px;
+	height : 22px;
+	font-weight: bold;
+}
+.rich-calendar-footer{
+	border-top : 1px solid;
+	border-right : 0px solid;
+}
+
+.rich-calendar-spinner-input {
+	border: 0px;
+	padding: 0px 0px 0px 3px;
+	background: none transparent scroll repeat 0% 0%;
+}
+
+.rich-calendar-spinner-input-container {
+	background-position: left top;
+	background-repeat: repeat-x;
+	border: 1px solid;
+}
+
+.rich-calendar-spinner-buttons {
+	border-width: 1px;
+	border-style: solid;
+	background-position: left top;
+	background-repeat: repeat-x;
+	font-size: 0px;
+}
+
+]]>
+   </f:verbatim>
+   
+   <u:selector name=".rich-calendar-exterior">
+		<u:style name="border-color" skin="panelBorderColor"/>
+	</u:selector>
+	
+	 <u:selector name=".rich-calendar-header-optional">
+		<u:style name="border-bottom-color" skin="panelBorderColor"/>
+		<u:style name="background-color" skin="additionalBackgroundColor"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-spec">
+		<u:style name="background-color" skin="calendarSpecBackgroundColo"/>
+	</u:selector>
+	
+	 <u:selector name=".rich-calendar-header">
+		<u:style name="border-bottom-color" skin="panelBorderColor"/>
+		<u:style name="background-color" skin="additionalBackgroundColor"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-cell">
+		<u:style name="border-bottom-color" skin="panelBorderColor"/>
+		<u:style name="border-right-color" skin="panelBorderColor"/>
+		<u:style name="background-color" skin="tableBackgroundColor"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-tool">
+		<u:style name="background-color" skin="headerBackgroundColor"/>
+		<u:style name="font-size" skin="headerSizeFont"/>
+		<u:style name="font-family" skin="headerFamilyFont"/>
+		<u:style name="font-weight" skin="headerWeightFont"/>
+		<u:style name="color" skin="headerTextColor"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-month">
+		<u:style name="background-color" skin="headerBackgroundColor"/>
+		<u:style name="font-size" skin="headerSizeFont"/>
+		<u:style name="font-family" skin="headerFamilyFont"/>
+		<u:style name="font-weight" skin="headerWeightFont"/>
+		<u:style name="color" skin="headerTextColor"/>
+		<u:style name="white-space" value="nowrap"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-days">
+		<u:style name="border-bottom-color" skin="panelBorderColor"/>
+		<u:style name="border-right-color" skin="panelBorderColor"/>
+		<u:style name="background" skin="additionalBackgroundColor"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-weekends">
+		<u:style name="color" value="red"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-week">
+		<u:style name="background" skin="additionalBackgroundColor"/>
+		<u:style name="border-bottom-color" skin="panelBorderColor"/>
+		<u:style name="background-color" skin="calendarWeekBackgroundColor"/>
+		<u:style name="border-right-color" skin="panelBorderColor"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+	</u:selector>
+
+
+	<u:selector name=".rich-calendar-holly">
+		<u:style name="background-color" skin="calendarHolidaysBackgroundColor"/>
+		<u:style name="color" skin="calendarHolidaysTextColor"/> 
+	</u:selector>
+
+	<u:selector name=".rich-calendar-boundary-dates">
+		<u:style name="color" value="#a0a0a0"/> /*unknown parameter - need to add*/
+	</u:selector>
+
+	<u:selector name=".rich-calendar-today">
+		<u:style name="background-color" skin="calendarCurrentBackgroundColor"/>
+		<u:style name="color" skin="calendarCurrentTextColor"/>
+		<u:style name="font-weight" value="bold"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-select">
+		<u:style name="background-color" skin="headerBackgroundColor"/>
+		<u:style name="color" skin="headerTextColor"/>
+		<u:style name="font-weight" skin="headerWeightFont"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-hover">
+		<u:style name="background-color" skin="calendarSpecBackgroundColor"/>
+		<u:style name="color" skin="calendarSpecTextColor"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-toolfooter">
+		<u:style name="background" skin="additionalBackgroundColor"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.iconimages.CalendarSeparator" />
+		</u:style>
+		<u:style name="background-repeat" value="no-repeat" />
+		<u:style name="background-position" value="right center" />
+	</u:selector>
+
+	<u:selector name=".rich-calendar-tool-btn">
+		<u:style name="cursor" value="pointer"/>
+		<u:style name="padding" value="2px 3px 2px 3px"/>
+		<u:style name="white-space" value="nowrap"/>
+	</u:selector>	
+
+	<u:selector name=".rich-calendar-tool-btn-disabled">
+		<u:style name="padding" value="2px 3px 2px 3px"/>
+		<u:style name="white-space" value="nowrap"/>
+	</u:selector>	
+
+	<u:selector name=".rich-calendar-tool-btn-hover">
+		<u:style name="background-color" skin="calendarWeekBackgroundColor"/>
+		<u:style name="color" skin="generalTextColor"/>
+		<u:style name="border" value="1px solid"/>
+		<u:style name="border-color" skin="tableBackgroundColor"/>
+		<u:style name="border-right-color" skin="panelBorderColor"/>
+		<u:style name="border-bottom-color" skin="panelBorderColor"/>
+		<u:style name="padding" value="1px 2px 1px 2px"/>
+	</u:selector>	
+	
+	<u:selector name=".rich-calendar-tool-btn-press">
+		<u:style name="border-color" skin="panelBorderColor"/>
+		<u:style name="border-right-color" skin="tableBackgroundColor"/>
+		<u:style name="border-bottom-color" skin="tableBackgroundColor"/>
+	</u:selector>	
+
+	<u:selector name=".rich-calendar-footer-optional">
+		<u:style name="border-top-color" skin="panelBorderColor"/>
+		<u:style name="border-right-color" skin="panelBorderColor"/>
+		<u:style name="background" skin="additionalBackgroundColor"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-footer">
+		<u:style name="border-top-color" skin="panelBorderColor"/>
+		<u:style name="border-right-color" skin="panelBorderColor"/>
+		<u:style name="background" skin="additionalBackgroundColor"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-tool-close">
+		<u:style name="padding" value="2px 2px 2px 4px"/>
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.iconimages.CalendarSeparator" />
+		</u:style>
+		<u:style name="background-repeat" value="no-repeat" />
+		<u:style name="background-position" value="left center" />
+	</u:selector>
+
+	<u:selector name=".rich-calendar-button">
+		<u:style name="cursor" value="pointer"/>
+		<u:style name="vertical-align" value="middle"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-editor-shadow">
+		<u:style name="background" skin="tableBackgroundColor"/>
+		<u:style name="opacity" value="0.5"/>
+		<u:style name="filter" value="alpha(opacity=50)"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-time-layout">
+		<u:style name="background" skin="additionalBackgroundColor"/>
+		<u:style name="border" value="1px solid"/>
+		<u:style name="border-color" skin="panelBorderColor"/>
+		<u:style name="position" value="relative"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-date-layout">
+		<u:style name="background" skin="tableBackgroundColor"/>
+		<u:style name="border" value="1px solid"/>
+		<u:style name="border-color" skin="panelBorderColor"/>
+		<u:style name="position" value="relative"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-editor-container">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-time-layout, .rich-calendar-date-layout, .rich-calendar-time-layout input">
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-time-layout-fields">
+		<u:style name="padding" value="7px 7px 5px 7px"/>
+		<u:style name="white-space" value="nowrap"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-time-layout-cancel">
+		<u:style name="padding" value="0px 7px 7px 1px"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-time-layout-ok">
+		<u:style name="padding" value="0px 1px 7px 7px"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-date-layout-cancel">
+		<u:style name="background" skin="additionalBackgroundColor"/>
+		<u:style name="border-top" value="1px solid"/>
+		<u:style name="border-top-color" skin="panelBorderColor"/>
+		<u:style name="padding" value="5px 5px 5px 1px"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-date-layout-ok">
+		<u:style name="background" skin="additionalBackgroundColor"/>
+		<u:style name="border-top" value="1px solid"/>
+		<u:style name="border-top-color" skin="panelBorderColor"/>
+		<u:style name="padding" value="5px 1px 5px 5px"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-date-layout-split">
+		<u:style name="border-right" value="1px solid"/>
+		<u:style name="border-right-color" skin="panelBorderColor"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-time-btn">
+		<u:style name="width" value="45px"/>
+		<u:style name="border" value="1px solid"/>
+		<u:style name="border-color" skin="tableBackgroundColor"/>
+		<u:style name="border-right-color" skin="panelBorderColor"/>
+		<u:style name="border-bottom-color" skin="panelBorderColor"/>
+		<u:style name="background" skin="additionalBackgroundColor"/>
+		<u:style name="text-align" value="center"/>
+		<u:style name="padding" value="2px"/>
+		<u:style name="white-space" value="nowrap"/>
+		<u:style name="text-align" value="center"/>
+		<u:style name="cursor" value="pointer"/>
+	</u:selector>	
+
+	<u:selector name=".rich-calendar-time-btn-press">
+		<u:style name="border" value="1px solid"/>
+		<u:style name="border-color" skin="panelBorderColor"/>
+		<u:style name="border-right-color" skin="tableBackgroundColor"/>
+		<u:style name="border-bottom-color" skin="tableBackgroundColor"/>
+		<u:style name="background-color" skin="calendarWeekBackgroundColor"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-time-input">
+		<u:style name="width" value="22px"/>
+		<u:style name="margin" value="0px 2px"/>
+	</u:selector>	
+
+	<u:selector name=".rich-calendar-spinner-up">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.SpinnerButtonUp" />
+		</u:style>
+		
+		<u:style name="height" value="7px" />
+		<u:style name="width" value="14px" />
+		<u:style name="margin" value="0px 1px 1px 0px" />
+	</u:selector>
+
+	<u:selector name=".rich-calendar-spinner-down">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.SpinnerButtonDown" />
+		</u:style>
+		
+		<u:style name="height" value="7px"/>
+		<u:style name="width" value="14px"/>
+		<u:style name="margin" value="0px 1px 1px 0px" />
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-spinner-pressed">
+		<u:style name="margin" value="1px 0px 0px 1px" />
+	</u:selector>
+
+	<u:selector name=".rich-calendar-spinner-buttons">
+		<u:style name="background-color" skin="headerBackgroundColor" />
+		<u:style name="border-color" skin="headerBackgroundColor" />
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.SpinnerButtonGradient" />
+		</u:style>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-spinner-input">
+		<u:style name="font-size" skin="buttonSizeFont"/>
+		<u:style name="font-family" skin="buttonFamilyFont"/>
+
+		<u:style name="width" value="18px"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-spinner-input-container">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.SpinnerFieldGradient" />
+		</u:style>
+		<u:style name="background-color" skin="controlBackgroundColor" />
+		<u:style name="border-color" skin="panelBorderColor" />
+	    <u:style name="border-bottom-color" skin="subBorderColor" />
+    	<u:style name="border-right-color" skin="subBorderColor" />
+	</u:selector>
+
+	<u:selector name=".rich-calendar-editor-layout-shadow">
+	    <u:style name="background-color" skin="shadowBackgroundColor" />
+    	<u:style name="opacity" value="0.3" />
+		<u:style name="filter" value="alpha(opacity=30)"/>    	
+		<u:style name="position" value="absolute"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-editor-btn">
+	    <u:style name="width" value="36px" />
+    	<u:style name="padding" value="2px" />
+    	<u:style name="margin" value="2px" />
+		<u:style name="text-align" value="center"/>    	
+		<u:style name="cursor" value="pointer"/>    	
+	</u:selector>	
+
+	<u:selector name=".rich-calendar-editor-btn-over">
+    	<u:style name="padding" value="1px" />
+		<u:style name="border" value="1px solid"/>    	
+		<u:style name="border-color" skin="panelBorderColor"/>
+		<u:style name="background" skin="calendarSpecBackgroundColor"/>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-editor-btn-selected">
+	    <u:style name="background-color" skin="calendarCurrentBackgroundColor" />
+    	<u:style name="padding" value="2px" />
+    	<u:style name="border" value="0px" />
+    	<u:style name="color" skin="calendarCurrentTextColor" />
+		<u:style name="font-weight" value="bold"/>
+		<u:style name="cursor" value="default"/>    	
+	</u:selector>
+
+	<u:selector name=".rich-calendar-editor-tool-over">
+    	<u:style name="padding" value="1px" />
+    	<u:style name="border" value="1px solid"/>
+		<u:style name="background" skin="additionalBackgroundColor"/>
+		<u:style name="border-color" skin="tableBackgroundColor"/>
+		<u:style name="border-right-color" skin="panelBorderColor"/>
+		<u:style name="border-bottom-color" skin="panelBorderColor"/>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-editor-tool-press">
+    	<u:style name="padding" value="1px" />
+    	<u:style name="border" value="1px solid"/>
+		<u:style name="background" skin="additionalBackgroundColor"/>
+		<u:style name="border-color" skin="panelBorderColor"/>
+		<u:style name="border-right-color" skin="tableBackgroundColor"/>
+		<u:style name="border-bottom-color" skin="tableBackgroundColor"/>
+	</u:selector>
+
+</f:template>

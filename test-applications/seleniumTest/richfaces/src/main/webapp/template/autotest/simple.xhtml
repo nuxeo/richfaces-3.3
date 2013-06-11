@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="../simple.xhtml">
+	<ui:define name="template">
+		<ui:include src="../../layout/autotest/autoTestControls.xhtml" />
+		<h:form id="autoTestForm">
+			<ui:include src="../../layout/autotest/autoTestHiddens.xhtml" />
+			<ui:insert name="component" />
+			<br/>
+			<h:message id="_auto_messageId" for="componentId"></h:message>
+		</h:form>
+		<ui:insert name="outOfFormComponent" />
+	</ui:define>
+</ui:composition>
+</html>

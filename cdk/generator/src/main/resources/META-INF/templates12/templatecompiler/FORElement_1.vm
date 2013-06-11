@@ -1,0 +1,3 @@
+Collection com_$index = (Collection)$items;
+for (Iterator iter =  com_$index .iterator(); iter.hasNext();) {
+	variables.setVariable("$item", iter.next());

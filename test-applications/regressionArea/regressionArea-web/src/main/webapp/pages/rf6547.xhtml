@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+      
+<ui:composition template="/layout/layout.xhtml">
+	<ui:define name="template">
+		<h:form id="form">
+			<rich:dataTable value="#{facesContext}" var="fc" id="table">
+				<rich:column filterExpression="#{true}" id="column">
+					<f:facet name="header">
+						<rich:calendar popup="true" id="calendar" />
+					</f:facet>
+				
+					#{fc}
+				</rich:column>
+			</rich:dataTable>
+			
+			<a4j:commandLink value="ReRender" id="link" reRender="table" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,30 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ii="http://labs.jboss.com/jbossrichfaces/ui/inplaceInput"
+      xmlns:cc="http://labs.jboss.com/jbossrichfaces/ui/componentControl"
+      xmlns:a4j="http://richfaces.org/a4j"
+      >
+      <head>
+      </head>
+      <body>
+		<a4j:status startText="in Progress" stopText="Finished"></a4j:status>
+		
+		<h:form id="form">
+			<h:panelGroup id="group" rendered="false">
+				<a4j:commandButton ajaxSingle="false" id="button" value="Ajax Request" action="#{bean.action}"/>
+			</h:panelGroup>
+			3
+			<script>
+				function abc() {
+					A4J.AJAX.Submit('_viewRoot','form',null,{'parameters':{'form:button': 'form:button'}, 'actionUrl':'/inplaceInput-sample/pages/test.jsf'} )
+				}
+			
+			</script>
+			<div onclick="abc()">abc</div>
+		</h:form>  
+      
+      </body>
+</html>

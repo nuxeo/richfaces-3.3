@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://ajax4jsf.org/cdk/template"
+	xmlns:vcp=" http://jsf.exadel.com/vcp"
+	xmlns:c=" http://java.sun.com/jsf/core"
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	class="org.richfaces.renderkit.html.PanelBarItemRenderer"
+	baseclass="org.richfaces.renderkit.html.PanelBarItemRendererBase"
+	component="org.richfaces.component.UIPanelBarItem">
+
+	<f:clientid var="clientId" />
+
+	<c:object var="panel" value="#{component.panel}" type="javax.faces.component.UIComponent" />
+
+	<div id="#{clientId}" class="dr-pnlbar rich-panelbar dr-pnlbar-int rich-panelbar-interior #{panel.attributes['styleClass']}" style="#{panel.attributes['style']}">
+	<div class="dr-pnlbar-h rich-panelbar-header #{panel.attributes['headerClass']} #{component.attributes['headerClass']}"
+		style="#{panel.attributes['headerStyle']};#{component.attributes['headerStyle']}">
+        <jsp:scriptlet><![CDATA[
+            if(component.getFacet("label")!=null && component.getFacet("label").isRendered()) {
+        ]]></jsp:scriptlet>
+                <u:insertFacet name="label" />
+        <jsp:scriptlet><![CDATA[
+            } else {
+        ]]></jsp:scriptlet>
+                #{component.attributes['label']}
+        <jsp:scriptlet><![CDATA[
+            }
+        ]]></jsp:scriptlet>
+	</div>
+	<div class="dr-pnlbar-h-act rich-panelbar-header-act #{panel.attributes['headerClass']} #{component.attributes['headerClass']} #{panel.attributes['headerClassActive']} #{component.attributes['headerClassActive']}"
+		style="#{panel.attributes['headerStyle']};#{component.attributes['headerStyle']};#{panel.attributes['headerStyleActive']};#{component.attributes['headerStyleActive']};display: none;">
+
+        <jsp:scriptlet><![CDATA[
+            if(component.getFacet("label")!=null && component.getFacet("label").isRendered()) {
+        ]]></jsp:scriptlet>
+                <u:insertFacet name="label" />
+        <jsp:scriptlet><![CDATA[
+            } else {
+        ]]></jsp:scriptlet>
+                #{component.attributes['label']}
+        <jsp:scriptlet><![CDATA[
+            }
+        ]]></jsp:scriptlet>
+	</div>
+
+	<div style="display: none; width: 100%;" class="rich-panelbar-content-exterior">
+	<table cellpadding="0" cellspacing="0" width="100%" style="height: 100%;"><tbody><tr><td class="dr-pnlbar-c rich-panelbar-content #{panel.attributes['contentClass']} #{component.attributes['contentClass']}"
+		style="#{panel.attributes['contentStyle']};#{component.attributes['contentStyle']}">
+		<vcp:body>
+			<f:call name="renderChildren" />
+		</vcp:body>
+	</td></tr></tbody></table>
+	</div>
+	</div>
+</f:root>

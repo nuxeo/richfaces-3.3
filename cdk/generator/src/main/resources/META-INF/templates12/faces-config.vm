@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+  version="1.2">	
+${facesConfig.includeContent}
+
+#foreach( $validator in ${validators})
+  <validator>
+	#if(${validator.description})
+	<description>${validator.description}</description>
+	#end
+	#if(${validator.displayname})
+	<display-name>${validator.displayname}</display-name>
+	#end
+	#if(${validator.icon})
+	<icon>${validator.icon}</icon>
+	#end
+	<validator-id>${validator.id}</validator-id>
+	<validator-class>${validator.classname}</validator-class>
+  </validator>
+#end
+
+#foreach( $converter in ${converters})
+  <converter>
+	#if(${converter.description})
+	<description>${converter.description}</description>
+	#end
+	#if(${converter.displayname})
+	<display-name>${converter.displayname}</display-name>
+	#end
+	#if(${converter.icon})
+	<icon>${converter.icon}</icon>
+	#end
+	#if(${converter.id})
+	<converter-id>${converter.id}</converter-id>
+	#end
+	#if(${converter.forclass})
+	<converter-for-class>${converter.forclass}</converter-for-class>
+	#end
+
+	<converter-class>${converter.classname}</converter-class>
+
+  </converter>
+#end
+
+
+
+#foreach( $component in ${components})
+#if( $component.generate )
+  <component>
+  #if(${component.description})  
+	<description>${component.xmlEncodedDescription}</description>
+  #end
+  #if(${component.displayname})  
+	<display-name>${component.xmlEncodedDisplayname}</display-name>
+  #end
+    <component-type>${component.name}</component-type>
+    <component-class>${component.classname}</component-class>
+    
+#foreach( $facet in $component.facets)
+	<facet>
+  #if(${facet.description})  
+	<description>${facet.xmlEncodedDescription}</description>
+  #end
+  #if(${facet.displayname})  
+	<display-name>${facet.xmlEncodedDisplayname}</display-name>
+  #end
+      <facet-name>${facet.name}</facet-name>
+    </facet>
+#end
+	#if(${component.renderer})
+    <component-extension>
+      <component-family>${component.family}</component-family>
+      <renderer-type>${component.renderer.name}</renderer-type>
+    </component-extension>
+    #end
+  </component>
+#end
+#end
+
+#foreach( $renderkit in $facesConfig.renderKits)
+  <render-kit>
+		#if(${renderkit.renderkitid})
+		<render-kit-id>${renderkit.renderkitid}</render-kit-id>
+		#if(${renderkit.renderkitclass})
+		<render-kit-class>${renderkit.renderkitclass}</render-kit-class>
+		#end
+		#end
+#foreach( $component in $components)
+	#if($component.renderer)
+		#set($rendererClass = $renderkit.rendererClass($component.renderer.classname) )
+		#if( $component.renderer.generate || $facesConfig.rendererExists("${rendererClass}"))
+  		<renderer>
+			<component-family>${component.family}</component-family>
+			<renderer-type>
+				${component.renderer.name}
+			</renderer-type>
+			<renderer-class>
+				${rendererClass}
+			</renderer-class>
+		</renderer>
+		#end
+	#end
+#end
+
+#foreach($renderer in $renderers)
+	#set($rendererClass = $renderkit.rendererClass($renderer.classname) )
+	#if( $renderer.generate || $facesConfig.rendererExists("${rendererClass}"))
+	<renderer>
+		<component-family>${renderer.family}</component-family>
+		<renderer-type>
+			${renderer.name}
+		</renderer-type>
+		<renderer-class>
+			${rendererClass}
+		</renderer-class>
+	</renderer>
+	#end
+#end
+
+  </render-kit>
+#end
+
+
+</faces-config>

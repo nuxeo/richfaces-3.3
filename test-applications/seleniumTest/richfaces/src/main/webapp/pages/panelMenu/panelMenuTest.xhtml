@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+		.link {margin: 0px 5px}
+		
+		.component_div {
+			border: 1px solid blue;
+			margin: 2px;
+		}
+	</ui:define>
+	<ui:define name="component">
+	<h:form id="_form1" >
+		<h:panelGroup layout="block" styleClass="component_div" >
+			<b>Multiple</b>
+			<rich:panelMenu id="pMenu" mode="ajax">
+				<rich:panelMenuGroup id="pGroup1" expandMode="ajax"
+						label="Ajax group" 
+						action="#{panelBean.increment}"
+						actionListener="#{panelBean.actionListener}"
+						reRender="_value,_value2"
+						value="#{panelBean.panelValue2}" >
+					<rich:panelMenuItem id="pItem1"
+						label="Item 1" 
+						action="#{panelBean.itemActionServer}"
+						actionListener="#{panelBean.actionListener}" 
+						mode="server" />
+				</rich:panelMenuGroup>
+				<rich:panelMenuGroup id="pGroup2" expandMode="server"
+						label="Server group" 
+						action="#{panelBean.increment}"
+						actionListener="#{panelBean.actionListener}"
+						value="#{panelBean.panelValue}" >
+					<rich:panelMenuItem id="pItem2"
+						label="Item 2"
+						reRender="_itemAction"
+						action="#{panelBean.itemActionAjax}" /> 
+				</rich:panelMenuGroup>
+				<rich:panelMenuGroup id="pGroup3"
+						label="Client group">
+					<rich:panelMenuItem id="pItem3"
+						label="Item 3"
+						mode="none"
+						action="#{panelBean.itemActionNone}" />
+				</rich:panelMenuGroup>
+				<rich:panelMenuGroup id="pGroup4" disabled="true"
+						label="Disabled group" >
+					<rich:panelMenuItem id="pItem4"
+						label="Item 4" />
+				</rich:panelMenuGroup>
+			</rich:panelMenu>
+		</h:panelGroup>
+	</h:form>
+	<h:form id="_form2" >
+		<h:panelGroup layout="block" styleClass="component_div" >
+			<b>Single</b>
+			<rich:panelMenu id="pMenu_single" expandSingle="true" >
+				<rich:panelMenuGroup id="pGroup1_single" expandMode="ajax"
+						label="Ajax group" 
+						action="#{panelBean.increment}"
+						actionListener="#{panelBean.actionListener}"
+						reRender="_value,_value2"
+						value="#{panelBean.panelValue2}" >
+					<rich:panelMenuItem id="pItem1_single"
+						label="Item 1" 
+						action="#{panelBean.itemActionServer}"
+						actionListener="#{panelBean.actionListener}" />
+				</rich:panelMenuGroup>
+				<rich:panelMenuGroup id="pGroup2_single" expandMode="server"
+						label="Server group" 
+						action="#{panelBean.increment}"
+						actionListener="#{panelBean.actionListener}"
+						value="#{panelBean.panelValue}" >
+					<rich:panelMenuItem id="pItem2_single"
+						label="Item 2" 
+						mode="ajax"
+						reRender="_itemAction"
+						action="#{panelBean.itemActionAjax}" /> 
+				</rich:panelMenuGroup>
+				<rich:panelMenuGroup id="pGroup3_single"
+						label="Client group">
+					<rich:panelMenuItem id="pItem3_single"
+						label="Item 3" 
+						mode="none"
+						action="#{panelBean.itemActionNone}" />
+				</rich:panelMenuGroup>
+				<rich:panelMenuGroup id="pGroup4_single" disabled="true"
+						label="Disabled group" >
+					<rich:panelMenuItem id="pItem4_single"
+						label="Item 4" />
+				</rich:panelMenuGroup>
+			</rich:panelMenu>
+		</h:panelGroup>
+	</h:form>
+		<br/>
+		<h:outputText value="#{panelBean.value}" id="_value" />
+		<h:outputText value="#{panelBean.value2}" id="_value2" />
+		<h:outputText value="#{panelBean.itemAction}" id="_itemAction" />
+		<br/>
+	</ui:define>
+</ui:composition>
+</html>

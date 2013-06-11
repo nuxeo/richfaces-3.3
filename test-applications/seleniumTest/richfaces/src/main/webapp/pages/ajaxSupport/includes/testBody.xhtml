@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:form id="_form">
+	<h:inputText id="validManager" required="true" value="1" requiredMessage="field is required"/>&#160;
+	<table cellpadding="5" >
+		<tr>
+			<td>1.1</td>
+			<td>
+				<h:outputLink id="link_#{test_prefix}" style="text-decoration: none; color: blue;" value="#">
+					attribute actionListener
+					<a4j:support id="support1_#{test_prefix}" event="onclick" reRender="data1_#{test_prefix}" actionListener="#{ajaxSupport.linkListener}" immediate="#{immediate}" ajaxSingle="#{ajaxSingle}" disabled="#{disabled}" rendered="#{rendered}"></a4j:support>
+				</h:outputLink>
+			</td>
+			<td><div><h:outputText style="font-weight: bold; border: 1px solid green" value="#{ajaxSupport.data}" id="data1_#{test_prefix}"></h:outputText></div></td>
+		</tr>
+		<tr>
+			<td>1.2</td>
+			<td>
+				<h:outputLink id="linkAL_#{test_prefix}" style="text-decoration: none; color: blue;" value="#">
+					tag actionListener
+					<a4j:support id="support1AL_#{test_prefix}" event="onclick" reRender="data1AL_#{test_prefix}" immediate="#{immediate}" ajaxSingle="#{ajaxSingle}" disabled="#{disabled}" rendered="#{rendered}">
+						<f:actionListener type="org.ajax4jsf.listener.AjaxSupportActionListener" />
+					</a4j:support>
+				</h:outputLink>
+			</td>
+			<td><h:outputText style="font-weight: bold; border: 1px solid green" value="#{ajaxSupport.data}" id="data1AL_#{test_prefix}"></h:outputText></td>
+		</tr>
+		<tr>
+			<td>2.1</td>
+			<td>
+				<h:selectBooleanCheckbox id="checkbox_#{test_prefix}">
+					<a4j:support id="support2_#{test_prefix}" event="onchange" reRender="data2_#{test_prefix}" actionListener="#{ajaxSupport.checkBoxListener}" immediate="#{immediate}" ajaxSingle="#{ajaxSingle}" disabled="#{disabled}" rendered="#{rendered}"></a4j:support>
+				</h:selectBooleanCheckbox>
+				attribute actionListener
+			</td>
+			<td><h:outputText style="font-weight: bold; border: 1px solid green" value="#{ajaxSupport.data}" id="data2_#{test_prefix}"></h:outputText></td>
+		</tr>
+		<tr>
+			<td>2.2</td>
+			<td>
+				<h:selectBooleanCheckbox id="checkboxAL_#{test_prefix}">
+					<a4j:support id="support2AL_#{test_prefix}" event="onchange" reRender="data2AL_#{test_prefix}" immediate="#{immediate}" ajaxSingle="#{ajaxSingle}" disabled="#{disabled}" rendered="#{rendered}">
+						<f:actionListener type="org.ajax4jsf.listener.AjaxSupportActionListener" />
+					</a4j:support>
+				</h:selectBooleanCheckbox>
+				tag actionListener
+			</td>
+			<td><h:outputText style="font-weight: bold; border: 1px solid green" value="#{ajaxSupport.data}" id="data2AL_#{test_prefix}"></h:outputText></td>
+		</tr>
+	</table>
+	</h:form>
+</ui:composition>

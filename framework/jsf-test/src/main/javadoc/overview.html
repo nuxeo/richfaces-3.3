@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Java web application testing framework</h1>
+<p>This is a testing framework desibned ( but not limited to ) for test JSF components and applications</p>
+<p>Though best strategy for alow-level black box testing is to use a Mock objects,
+ writing integration tests required a more real environment.
+ On the other hand, running tests on the real web, or, even more, full JEE server takes a lot of the resoures and has a own limitations.
+</p>
+<p>This framework designed as an intermediate solution. It contains <a href="org/richfaces/test/staging/StagingServer.html">staging Java Web server</a>, where is real
+ JSF framework running. This is at most Servlet 2.5 / JSP 2.1 compatible container, wich allows to run at most all JSF applications. But, in difference with real web container,
+ it is "in process" only server. That does not have network connector, session management, does not process any configuration files etc. Its advantage for a unit testing:
+ <ul>
+ <li>It has a minimal startup time, because no configuration files processed and no resource pools or other heavy objects created.</li>
+ <li>It is extremally flexible. It uses a 'virtual' web application content, that can be builded from any objects:
+  files, java resource, even dynamic classes those generate content 'on the fly'. Every test is able to use individual application content.</li>
+  <li>Not only content, but any other configuration aspects, like servlets, filters, configuration parameters can be changed from the test code.</li>
+  <li>Tests runs as a web server clients in the same JVM and thread as a server-side code does. It allows to inspect any objects on the both sides from the same code. No thread syncronisation is necessary in the test code.</li>
+  <li>It is possible to make test runs "inside" web request. For example, only one JSF lifecycle phase can be tested.
+ </ul>
+ <p>Other important part of the framework is <a href="org/richfaces/test/LocalWebClient.html">LocalWebClient</a>, subclass of the HtmlUnit <a href="http://htmlunit.sourceforge.net/apidocs/com/gargoylesoftware/htmlunit/WebClient.html">WebClient</a>.
+ In difference with the original client it always making local call to the staging server instead of real network protocol use. This client allows to use all HtmlUnit HTML and JavaScript testing features, even client side JavaScript test runs.</p>
+ <p>To make tests are easest, we provide <a href="org/richfaces/test/AbstractFacesTest.html">the base abstract class</a> for a Junit test with set of the template method for a fine virtual server tuning.</p>
+</body>
+</html>

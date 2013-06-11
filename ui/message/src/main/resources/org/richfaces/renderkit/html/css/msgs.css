@@ -1,0 +1,19 @@
+.rich-messages-marker{
+}
+
+.rich-messages{
+}
+
+.rich-messages-label{
+}
+
+.rich-messages-header{
+}
+
+SPAN.rich-messages-marker, SPAN.rich-messages-marker * {
+	vertical-align: text-bottom;
+}
+
+span.rich-messages-marker,  span.rich-messages-marker * {
+	vertical-align: text-bottom;
+}

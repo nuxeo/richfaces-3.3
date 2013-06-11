@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+<components>
+    <component>
+        <name>org.richfaces.SimpleTogglePanel2</name>
+        <family>org.richfaces.SimpleTogglePanel2</family>
+        <classname>org.richfaces.component.html.HtmlSimpleTogglePanel2</classname>
+        <superclass>org.richfaces.component.UISimpleTogglePanel2</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlSimpleTogglePanel2ComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+        <description>
+            <![CDATA[Wrapper component with named facets. Every facet will be shown after activation
+            corresponding toggleControl(the other will be hidden).
+             ]]>
+        </description>
+        <renderer generate="true" override="true">
+            <name>org.richfaces.SimpleTogglePanel2Renderer</name>
+            <template>simpleTogglePanel2.jspx</template>
+        </renderer>
+        <tag>
+            <name>simpleTogglePanel2</name>
+            <classname>org.richfaces.taglib.SimpleTogglePanel2Tag</classname>
+            <superclass>
+                org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+            </superclass>
+        </tag>
+
+        &ui_component_attributes;
+        &html_events;
+        &html_style_attributes;
+
+        &ui_command_attributes;
+        &ajax_component_attributes;
+        &html_event_handler_attributes;
+        
+        <property>
+	    	<name>width</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Width of a simple toggle panel might be defined as pixels or in percents.
+	    	By default width is not defined
+	    	</description>	
+	    	<defaultvalue><![CDATA["100%"]]></defaultvalue>    	
+	    </property>
+
+    	<property>
+	    	<name>height</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>
+	    		Height of a simple toggle panel content area might be defined as pixels or in percents.
+	    		By default height is not defined
+	    	</description>	    	
+	    </property>
+
+        <property>
+            <name>headerClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Class that defines the style for panel header
+            </description>
+        </property>
+
+        <property>
+            <name>bodyClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                A class that defines a style for a panel header
+            </description>
+        </property>
+
+        <property required="false">
+            <name>switchType</name>
+            <classname>java.lang.String</classname>
+            <description>
+                <![CDATA[Facets switch algorithm: "client", "server"(default), "ajax".]]>
+            </description>
+        </property>
+        <property required="false" el="true" elonly="true">
+            <name>label</name>
+            <classname>java.lang.String</classname>
+            <description>Marker to be rendered on a panel header
+
+            </description>
+        </property>
+
+		<property required="false">
+			<name>opened</name>			
+			<classname>boolean</classname>
+			<description>
+				A false value for this attribute makes a panel closed as default
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+
+
+    </component>
+</components>

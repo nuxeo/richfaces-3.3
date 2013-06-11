@@ -1,0 +1,30 @@
+<h:form id="forvDivOpthID" xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+	<rich:toolBar itemSeparator="none" >
+		<rich:toolBarGroup location="right">
+			<h:panelGrid columns="1">
+				<h:outputText value="Select skin: " />
+				<h:selectOneMenu binding="#{skinBean.component}"  onblur="submit();">
+					<a4j:support action="#{skinBean.change}" event="onchange"/>
+				</h:selectOneMenu> 
+			</h:panelGrid>
+		</rich:toolBarGroup>
+
+		<rich:toolBarGroup location="right">
+			<h:panelGrid columns="1">
+				<h:outputText value="Select component:" />
+				<h:selectOneMenu value="#{richPanelsBean.src}" onchange="submit();">
+					<f:selectItem itemValue="Blank" itemLabel="Blank" />
+					<f:selectItem itemValue="ModalPanel" itemLabel="Modal Panel" />
+					<f:selectItem itemValue="Panel" itemLabel="Panel" />
+					<f:selectItem itemValue="PanelBar" itemLabel="Panel Bar" />
+					<f:selectItem itemValue="SimpleTogglePanel" itemLabel="Simple Toggle Panel" />
+					<f:selectItem itemValue="TabPanel" itemLabel="Tab Panel" />
+					<f:selectItem itemValue="TogglePanel" itemLabel="Toggle Panel" />
+					</h:selectOneMenu>
+			</h:panelGrid>
+		</rich:toolBarGroup>
+	</rich:toolBar>
+	<h:commandLink value="Back" action="main"></h:commandLink>
+</h:form>
+

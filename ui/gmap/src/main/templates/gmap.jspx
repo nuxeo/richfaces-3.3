@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root
+	xmlns:f="http://ajax4jsf.org/cdk/template"
+	xmlns:c=" http://java.sun.com/jsf/core"
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	class="org.richfaces.renderkit.html.GmapRenderer"
+	baseclass="org.ajax4jsf.renderkit.HeaderResourcesRendererBase"
+	component="org.richfaces.component.UIGmap">
+	<f:clientid var="clientId"/>
+
+	<c:set var="locale" value="#{component.attributes['locale']}"/>
+	<c:set var="key" value="#{component.attributes['gmapKey']}"/>
+	<c:set var="zoom" value="#{component.attributes['zoom']}"/>
+	<c:set var="map" value="#{component.attributes['gmapVar']}"/>
+	<c:set var="lat" value="#{component.attributes['lat']}"/>
+	<c:set var="lng" value="#{component.attributes['lng']}"/>
+	<c:set var="mapType" value="#{component.attributes['mapType']}"/>
+	<c:set var="oninit" value="#{component.attributes['oninit']}"/>
+	<c:set var="warningMessage" value="#{component.attributes['warningMessage']}"/>
+	<c:set var="isGScale" value="#{component.attributes['showGScaleControl']}"/>
+	<c:set var="isGMapType" value="#{component.attributes['showGMapTypeControl']}"/>
+	<c:set var="isGLarge" value="#{component.attributes['showGLargeMapControl']}"/>
+	<c:set var="enableDragging" value="#{component.attributes['enableDragging']}"/>
+	<c:set var="enableInfoWindow" value="#{component.attributes['enableInfoWindow']}"/>
+	<c:set var="enableDoubleClickZoom" value="#{component.attributes['enableDoubleClickZoom']}"/>
+	<c:set var="enableContinuousZoom" value="#{component.attributes['enableContinuousZoom']}"/>
+    <h:styles>css/gmap.xcss</h:styles>
+	<h:scripts>new org.ajax4jsf.javascript.PrototypeScript(),script/gmap.js</h:scripts>
+
+<div	id="#{clientId}" class="dr-gmap rich-gmap #{component.attributes['styleClass']}" x:passThruWithExclusions="id,class,styleClass">
+			
+<script type="text/javascript"  src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=#{key}&amp;hl=#{locale}" />
+<script type="text/javascript">
+ //<![CDATA[
+
+function __initGMap() { __initGmapdiv("#{map}","#{clientId}", "#{warningMessage}");
+ __applyGmapparam("#{map}",#{lat}, #{lng},#{zoom},#{mapType},#{enableDragging},#{enableInfoWindow},#{enableDoubleClickZoom},#{enableContinuousZoom},#{isGMapType},#{isGScale},#{isGLarge});
+ var userfunc = function(event) { #{oninit} }; userfunc();};__addLoadEvent(__initGMap);__addUnLoadEvent(GUnload); 
+//]]>
+</script>
+</div>
+</f:root>

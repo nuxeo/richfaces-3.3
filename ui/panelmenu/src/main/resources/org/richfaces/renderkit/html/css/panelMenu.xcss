@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template 
+	xmlns:f="http://jsf.exadel.com/template"
+   	xmlns:u="http://jsf.exadel.com/template/util" 
+   	xmlns="http://www.w3.org/1999/xhtml">	
+
+	<f:verbatim>
+		.rich-pmenu {
+			overflow: hidden;
+			padding-right: 4px;
+		}
+		
+		.dr-pmenu-top-group {
+			height: 20px;
+			
+			background-repeat: repeat-x;
+			background-position: left top;
+			padding: 2px 1px 2px 2px;
+			cursor: pointer;
+		}
+		
+		.dr-pmenu-group {
+			padding: 2px 1px 1px;
+			margin-top:1px;
+			cursor:pointer;
+			border-top: 1px solid;
+		}
+		
+		.dr-pmenu-item {
+			border-top: 1px solid;
+			cursor: pointer;
+			padding: 2px 1px 1px;
+			margin-top: 1px;
+			
+		}
+		
+		.dr-pmenu-top-group-div {
+			border: 1px solid;
+			margin-bottom: 3px;
+			padding: 1px;
+			overflow: hidden;
+			width: 100%;
+		}
+		
+		.dr-pmenu-group-self-label {
+			padding-left: 5px;
+			width: 100%;			
+		}
+		
+		.dr-pmenu-nowrap {
+			white-space: nowrap;
+		}
+		
+	</f:verbatim>
+	
+	<u:selector name=".dr-pmenu-top-group">
+		<u:style name="font-weight" skin="headerWeightFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+		<u:style name="font-size" skin="headerSizeFont"/>
+		<u:style name="color" skin="headerTextColor"/>
+		<u:style name="background-color" skin="headerBackgroundColor"/>
+		<u:style name="background-image" >
+			<f:resource f:key="org.richfaces.renderkit.html.gradientimages.PanelMenuGroupGradient" />
+		</u:style>
+	</u:selector>
+	
+	<u:selector name=".dr-pmenu-group">
+		<u:style name="font-weight" skin="headerWeightFont"/>
+		<u:style name="font-family" skin="headerFamilyFont"/>
+		<u:style name="font-size" skin="headerSizeFont"/>
+		<u:style name="color" skin="generalTextColor"/>
+		<u:style name="border-top-color" skin="tableBorderColor"/>
+	</u:selector>
+	
+	<u:selector name=".dr-pmenu-item">
+		<u:style name="font-family" skin="generalFamilyFont"/>
+		<u:style name="font-weight" skin="generalWeightFont"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="color" skin="generalTextColor"/>
+		<u:style name="border-top-color" skin="tableBorderColor"/>
+	</u:selector>
+
+	<u:selector name=".dr-pmenu-top-group-div" >
+		<u:style name="border-color" skin="panelBorderColor"/>
+	</u:selector>
+	
+	<u:selector name=".dr-pmenu-disabled-element" >
+		<u:style name="color" skin="tabDisabledTextColor"/>
+	</u:selector>
+	
+	<u:selector name=".dr-pmenu-hovered-element" >
+		<u:style name="background-color" skin="additionalBackgroundColor"/>
+	</u:selector>
+	
+	<f:verbatim>
+		.dr-pmenu-disabled-element {
+			cursor: default;
+		}
+		.dr-pmenu-selected-item {
+			font-style : italic;
+		}
+	</f:verbatim>
+	
+</f:template>

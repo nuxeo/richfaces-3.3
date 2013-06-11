@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<project>
+	<parent>
+		<artifactId>extensions</artifactId>
+		<groupId>org.richfaces</groupId>
+		<version>3.3.1.GA</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.richfaces</groupId>
+	<artifactId>gwtjsf</artifactId>
+	<name>Google web toolkit and JSF integration library</name>
+	<url>https://ajax4jsf.dev.java.net</url>
+	<properties>
+		<jsfVersion>1.2</jsfVersion>
+	</properties>
+
+
+<!-- valiant, but failed, attempt to make GWTShell run under Maven.
+see http://groups.google.com/group/gwt-maven/browse_thread/thread/09885f643c7b4d67/# for painful details. 
+- RobJ 20070619 -->
+
+<!--
+    <profiles>
+        <profile>
+            <id>darwin</id>
+            <activation>
+            <os>
+                <family>mac</family>
+            </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.google.gwt</groupId>
+                    <artifactId>gwt-dev-mac</artifactId>
+                    <version>1.4.10</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>linux</id>
+            <activation>
+            <os>
+                <family>unix</family>
+            </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.google.gwt</groupId>
+                    <artifactId>gwt-dev-linux</artifactId>
+                    <version>1.4.10</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>windows</id>
+            <activation>
+            <os>
+                <family>windows</family>
+            </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.google.gwt</groupId>
+                    <artifactId>gwt-dev-linux</artifactId>
+                    <version>1.4.10</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles> 
+    
+-->	
+	
+    <build>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-source</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		
+	</build>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.richfaces.framework</groupId>
+			<artifactId>richfaces-impl</artifactId>
+			<version>3.3.1.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.facelets</groupId>
+			<artifactId>jsf-facelets</artifactId>
+			<version>1.1.11</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>1.2_12</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>1.2_12</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>el-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<!-- updated to 1.4.10 - RobJ 20070615 -->
+			<version>1.5.0-rc1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<!-- set to scope=provided to prevent including in WAR, 
+				 as per http://gwt-maven.googlecode.com/svn/docs/maven-googlewebtoolkit2-plugin/index.html 
+			     - RobJ 20070615 -->
+			<scope>provided</scope>
+			<!-- updated to 1.4.10 - RobJ 20070615 -->
+			<version>1.5.0-rc1</version>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<!-- add gwt-maven repository - RobJ 20070618 -->
+		<repository>
+			<id>gwt-maven</id>
+			<url>http://gwt-maven.googlecode.com/svn/trunk/mavenrepo/</url>
+		</repository>
+	</repositories>
+	
+</project>

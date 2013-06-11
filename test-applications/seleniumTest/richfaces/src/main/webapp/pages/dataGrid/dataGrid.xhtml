@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="attrForm">
+			<h:outputText value="elements" />
+			<h:inputText id="elements" value="#{dataGrid.elements}">
+				<a4j:support event="onchange" reRender="panelGroup"/>
+			</h:inputText>		
+			<h:outputText value="rendered" />
+			<h:selectBooleanCheckbox id="rendered" value="#{dataGrid.rendered}">
+				<a4j:support event="onchange" reRender="panelGroup"/>
+			</h:selectBooleanCheckbox>		
+		</h:form>
+		<h:form id="mainForm">
+			<h:panelGroup id="panelGroup">
+				<rich:dataGrid id="dataGrid" value="#{dataGrid.model}" var="element"
+					elements="#{dataGrid.elements}" ajaxKeys="#{dataGrid.ajaxKeys}"
+					stateVar="stateVar" rowKeyVar="rowKeyVar"
+					componentState="#{componentState}"
+					rendered="#{dataGrid.rendered}"
+					rowKeyConverter="#{dataGrid.rowKeyConverter}">
+					<h:panelGroup>
+						<h:outputText id="rowKeyVar" value="#{rowKeyVar} "></h:outputText>
+						<h:outputText id="first" value="#{stateVar.range.firstRow} "></h:outputText>
+						<h:outputText id="rows" value="#{stateVar.range.rows} "></h:outputText>
+						<h:outputText id="firstState" value="#{componentState.range.firstRow} "></h:outputText>
+						<h:outputText id="rowsState" value="#{componentState.range.rows} "></h:outputText>
+						<h:outputText value="#{element.cell1}"></h:outputText>
+						<h:inputText id="inputText" value="#{element.cell2}" validator="#{dataGrid.validate}"></h:inputText>
+						<h:outputText value="#{element.cell3}"></h:outputText>
+						<h:commandButton id="submit" value="submit" actionListener="#{dataGrid.submit}"></h:commandButton>
+						<a4j:commandButton id="ajaxSubmit" value="ajaxSubmit" actionListener="#{dataGrid.submit}"></a4j:commandButton>
+						<a4j:commandButton id="ajaxSingleSubmit" value="ajaxSingleSubmit" actionListener="#{dataGrid.submit}" ajaxSingle="true"></a4j:commandButton>
+					</h:panelGroup>
+				</rich:dataGrid>
+				<a4j:commandButton id="reRender" value="reRender"  reRender="inputText" actionListener="#{dataGrid.reRender}"></a4j:commandButton>
+			</h:panelGroup>
+		</h:form>
+		<a4j:outputPanel ajaxRendered="true">
+			<h:outputText id="outputText" value="#{dataGrid.trace}"></h:outputText>
+			<h:dataTable id="dataTable" value="#{dataGrid.model}" var="row" rows="#{dataGrid.elements}">
+				<h:column>
+					<h:outputText value="#{row.cell2}"></h:outputText>
+				</h:column>
+			</h:dataTable>
+		</a4j:outputPanel>
+		<rich:messages></rich:messages>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
+
+	<ui:define name="body">
+		<h:messages globalOnly="true" styleClass="message" />
+		<rich:panel>
+			<f:facet name="header">rich:tree</f:facet>
+			<h4>Case 1. rich:tree is built from a simple org.richfaces.model.TreeNode
+			model</h4>
+			<h:form>
+				<rich:tree value="#{tree.stationNodes}" var="station">
+					<rich:treeNode>
+						<h:outputText value="#{station}" />
+					</rich:treeNode>
+				</rich:tree>
+			</h:form>
+
+			<h4>Case 2. A simple rich:tree from a local XML file</h4>
+			<h:form>
+				<rich:tree id="treeXML" value="#{tree.data}" var="vardata">
+					<rich:treeNode>
+						<h:outputText value="#{vardata.attributes['name']}" />
+						<h:outputText value="#{vardata.attributes['date']}" />
+						<h:outputText value="#{vardata.attributes['time']}" />
+						<h:outputText value=" #{vardata.text}" />
+					</rich:treeNode>
+					
+				</rich:tree>
+			</h:form>
+		 	
+			<br></br>
+			<h4>Case 3. Tree built with treeNodesAdaptors</h4>
+			<p>Using the &lt;rich:treeNodesAdaptor&gt; means that the typical tree hierarchy should be built directly in the component tree.<br></br>
+			</p>
+			<h:form>
+				<rich:tree id="adaptor_based" >
+					<rich:treeNodesAdaptor id="adaptor" 
+										   nodes="#{shelf.albSet}"
+										   var="album">
+						<rich:treeNode>
+							<h:outputText value="#{album}" />
+						</rich:treeNode>
+						
+						<rich:treeNodesAdaptor id="adaptor2" 
+											   nodes="#{shelf.imgSet}"
+											   var="image">
+							<rich:treeNode>
+								<h:outputText value="#{image}" />
+							</rich:treeNode>
+						</rich:treeNodesAdaptor>
+					</rich:treeNodesAdaptor>
+				</rich:tree>
+			</h:form>
+			
+			<br></br>
+			<h4>Case 4. Tree built from XML (simple example)</h4>
+			<p>The <code>org.richfaces.model.TreeNode</code> interface, which is used in following case, accepts data worked with <code>org.richfaces.component.xml.XmlTreeDataBuilder</code> class and renders it as tree nodes.</p>
+			<h:form>
+				<rich:tree id="tree" 
+						   value="#{hujatiorns.data}" 
+						   var="vardata" >
+					<rich:treeNode>
+						<h:outputText value="#{vardata.text}" />
+					</rich:treeNode>
+				</rich:tree>
+			</h:form> 
+			
+			<br></br>
+			<h4>Case 5. The tree with <code>org.richfaces.TreeRowKeyConverter</code> usage</h4>
+			
+			<h:form>
+				<rich:tree value="#{treeBean.data}" var="node" switchType="ajax" rowKeyConverter="org.richfaces.TreeRowKeyConverter">
+						<rich:treeNode ajaxSingle="true">
+							<h:outputText value="#{node}"/>
+						</rich:treeNode>
+				</rich:tree>
+			</h:form> 
+			
+		</rich:panel>
+	</ui:define>
+</ui:composition>

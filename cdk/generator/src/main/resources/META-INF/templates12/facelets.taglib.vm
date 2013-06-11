@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE facelet-taglib PUBLIC
+  "-//Sun Microsystems, Inc.//DTD Facelet Taglib 1.0//EN"
+  "http://java.sun.com/dtd/facelet-taglib_1_0.dtd">
+<facelet-taglib xmlns="http://java.sun.com/JSF/Facelet">
+  <namespace>${taglib.uri}</namespace>
+
+${taglib.includeContent}
+
+#foreach( $component in ${components} )
+  #if($component.tag)
+  <tag>
+    <tag-name>${component.tag.name}</tag-name>
+    <component>
+	  <component-type>${component.name}</component-type>
+    #if(${component.renderer})
+	  <renderer-type>${component.renderer.name}</renderer-type>
+    #end
+    #if(${component.taghandler})
+      <handler-class>${component.taghandler.classname}</handler-class>
+    #end
+    </component>
+  </tag>
+  #end
+#end
+
+#foreach( $validator in ${validators})
+#if($validator.tag)
+  <tag>
+    <tag-name>${validator.tag.name}</tag-name>
+    <validator>
+      <validator-id>${validator.id}</validator-id>
+#if(${validator.taghandler})
+      <handler-class>${validator.taghandler.classname}</handler-class>
+#end
+    </validator>
+  </tag>
+#end
+#end
+
+#foreach( $converter in ${converters} )
+#if($converter.tag)
+  <tag>
+    <tag-name>${converter.tag.name}</tag-name>
+    <converter>
+      <converter-id>${converter.id}</converter-id>
+#if(${converter.taghandler})
+      <handler-class>${converter.taghandler.classname}</handler-class>
+#end
+    </converter>
+  </tag>
+#end
+#end
+
+
+#foreach( $listener in ${listeners})
+ <tag>
+  <tag-name>${listener.name}</tag-name>
+#if(${listener.taghandler})
+		    <handler-class>
+				${listener.taghandler.classname}
+			</handler-class>
+#end
+	
+ </tag>
+#end
+
+  #foreach( $function in ${functions} )
+	<function>
+		<function-name>${function.name}</function-name>
+		<function-class>${function.methodClassname}</function-class>
+		<function-signature>${function.methodSignature}</function-signature>
+	</function>
+  #end
+</facelet-taglib>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="mainForm">
+			<h:panelGroup id="panel">
+				<h:inputText id="inputText" value="#{messageBean.string}" validator="#{messageBean.validate}"></h:inputText>
+				<h:inputText id="inputText2" value="#{messageBean.secondInputString}" required="true" requiredMessage="Required message 1"></h:inputText>
+				<h:inputText id="inputText3" value="#{messageBean.thirdInputString}" required="true" requiredMessage="Required message 2"></h:inputText>
+				<ui:insert name="message" />
+			</h:panelGroup>
+			<a4j:commandButton id="submit" value="Submit" reRender="panel"></a4j:commandButton>
+			<a4j:commandButton id="submitWithoutReRender" value="submitWithoutReRender"></a4j:commandButton>
+		</h:form>
+	</ui:define>
+	<ui:define name="facets">
+		<f:facet name="fatalMarker">
+			<h:outputText id="fatalMarker" value="fatalMarker"></h:outputText>
+		</f:facet> 
+		<f:facet name="errorMarker">
+			<h:outputText id="errorMarker" value="errorMarker"></h:outputText>
+		</f:facet> 
+		<f:facet name="warnMarker">
+			<h:outputText id="warnMarker" value="warnMarker"></h:outputText>
+		</f:facet> 
+		<f:facet name="infoMarker">
+			<h:outputText id="infoMarker" value="infoMarker"></h:outputText>
+		</f:facet> 
+		<f:facet name="passedMarker">
+			<h:outputText id="passedMarker" value="passedMarker"></h:outputText>
+		</f:facet> 
+	</ui:define>	
+</ui:composition>
+</html>

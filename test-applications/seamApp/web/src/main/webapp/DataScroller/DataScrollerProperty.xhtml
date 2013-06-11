@@ -1,0 +1,66 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	id="datascrollerPropertySubviewID">
+
+	<h:commandButton action="#{dataScroller.CutArray}" value="CutArray" />
+	<h:commandButton action="#{dataScroller.RestoreArray}" value="RestoreArray" />
+	<h:commandButton action="#{dataScroller.add}" value="add test" />
+	<h:panelGrid columns="2">
+		<h:outputText value="maxPages" />
+		<h:inputText value="#{dataScroller.maxPages}">
+			<a4j:support event="onchange" reRender="dataScrollerID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="Rendered:" />
+		<h:selectBooleanCheckbox value="#{dataScroller.render}"
+			onclick="submit();" />
+
+		<h:outputText value="renderIfSinglePage:" />
+		<h:selectBooleanCheckbox value="#{dataScroller.renderIfSinglePage}"
+			onclick="submit();" />
+
+		<h:outputText value="limitToList:" />
+		<h:selectBooleanCheckbox value="#{dataScroller.limitToList}"
+			onclick="submit();" />
+
+		<h:outputText value="fastControls" />
+		<h:selectOneRadio value="#{dataScroller.fastControls}">
+			<f:selectItem itemLabel="auto" itemValue="auto" />
+			<f:selectItem itemLabel="show" itemValue="show" />
+			<f:selectItem itemLabel="hide" itemValue="hide" />
+			<a4j:support event="onclick" reRender="dataTableId"></a4j:support>
+		</h:selectOneRadio>
+
+		<h:outputText value="align" />
+		<h:selectOneRadio value="#{dataScroller.align}">
+			<f:selectItem itemLabel="left" itemValue="left" />
+			<f:selectItem itemLabel="right" itemValue="right" />
+			<f:selectItem itemLabel="center" itemValue="center" />
+			<a4j:support event="onclick" reRender="dataTableId"></a4j:support>
+		</h:selectOneRadio>
+
+		<h:outputText value="sortMode"></h:outputText>
+		<h:selectOneRadio value="#{dataScroller.sortMode}">
+			<f:selectItem itemLabel="single" itemValue="single" />
+			<f:selectItem itemLabel="multi" itemValue="multi" />
+			<a4j:support event="onchange" reRender="dataTableId,dsID"></a4j:support>
+		</h:selectOneRadio>
+
+		<h:outputText value="sortOrder"></h:outputText>
+		<h:selectOneRadio value="#{dataScroller.currentSortOrder}">
+			<f:selectItem itemLabel="ASCENDING" itemValue="ASCENDING" />
+			<f:selectItem itemLabel="DESCENDING" itemValue="DESCENDING" />
+			<f:selectItem itemLabel="UNSORTED" itemValue="UNSORTED" />
+			<a4j:support event="onchange" reRender="dataTableId,dsID"></a4j:support>
+		</h:selectOneRadio>
+
+		<h:outputText value="selfSorted(1st)"></h:outputText>
+		<h:selectBooleanCheckbox value="#{dataScroller.selfSorted}">
+			<a4j:support event="onchange" reRender="dataTableId,dsID"></a4j:support>
+		</h:selectBooleanCheckbox>
+	</h:panelGrid>	
+</f:subview>

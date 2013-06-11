@@ -1,0 +1,173 @@
+/**
+ * GENERATED FILE - DO NOT EDIT
+ *
+ */
+package ${tag.packageName};
+
+#foreach($import in $imports)
+import $import ;
+#end
+import javax.faces.component.UIComponent;
+import javax.faces.webapp.UIComponentTag;
+import ${component.classname};
+import javax.faces.application.Application;
+import javax.faces.el.ValueBinding;
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequestWrapper;
+import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
+import javax.servlet.jsp.el.ExpressionEvaluator;
+import javax.servlet.jsp.el.VariableResolver;
+import javax.servlet.jsp.tagext.Tag;
+import java.io.IOException;
+import java.util.Enumeration;
+
+
+
+/**
+ * @author shura (latest modification by $Author: alexsmirnov $)
+ * @version $Revision: 1.1.2.2 $ $Date: 2007/01/03 21:05:14 $
+ *
+ */
+public class $tag.test.simpleClassName extends $tag.test.superclassname {
+
+
+	private $tag.simpleClassName tag;
+
+  /**
+   *  Constructor to init default renderers 
+   */ 
+  public ${tag.test.simpleClassName} (String name){
+  	super(name);
+  }
+
+
+	public void setUp() throws Exception {
+		super.setUp();
+		tag = new ${tag.simpleClassName}();
+		tag.setParent(new UIComponentTag(){
+
+			public String getComponentType() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			public String getRendererType() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			public int doStartTag() throws JspException {
+				// TODO Auto-generated method stub
+				return Tag.EVAL_BODY_INCLUDE;
+			}
+			
+			public int doEndTag() throws JspException {
+				// TODO Auto-generated method stub
+				return Tag.EVAL_BODY_INCLUDE;
+			}
+			
+		});
+		
+	}
+
+	public void tearDown() throws Exception {
+		super.tearDown();
+		tag = null;
+	}
+	
+	
+	public void testSetPropertiesUIComponent() {
+		${component.simpleClassName} component = new ${component.simpleClassName}();
+	// create binding		
+		Application application = null;
+		ValueBinding binding = null;
+
+	#foreach( $prop in $tag.properties )
+		#if($prop.el)
+			 application = facesContext.getApplication();
+		     binding = application.createValueBinding(component.getOnclick());
+    		 component.setValueBinding("${prop.name}", binding);
+				#if($prop.classname == "java.lang.String")
+				component.${prop.setterName}( " __$prop.name" );	
+				#elseif($prop.classname == "java.lang.Boolean")
+				component.${prop.setterName}( new Boolean(true) );
+				#end
+		#end
+		//tag.${prop.setterName}("__${prop.name}");
+	#end
+
+		tag.setProperties(component);
+
+/*
+	#foreach( $prop in $component.properties )
+	 #if( !$prop.existintag )
+		 #if(!$prop.el)
+			if(isValueReference(this._${prop.name})){
+				throw new IllegalArgumentException("Component ${component.name} with Id " + component.getClientId(getFacesContext() +" not allowed EL expression for property ${prop.name}")
+			}
+		 #end	
+		 #if($prop.name == "action")
+		 	
+			setActionProperty(component, tag._${prop.name});
+		 #elseif($prop.name == "actionListener")
+			setActionListenerProperty(component, this._${prop.name});
+		 #elseif($prop.name == "converter")
+			setConverterProperty(component, this._${prop.name});
+		 #elseif($prop.name == "validator")
+			setValidatorProperty(component, this._${prop.name});
+		 #elseif($prop.name == "valueChangeListener")
+			setValueChangedListenerProperty(component, this._${prop.name});
+		 #elseif($prop.name == "value")
+			setValueProperty(component, this._${prop.name});
+		 #elseif($prop.elonly || $prop.isInstanceof("javax.faces.el.ValueBinding") )
+			setValueBinding(component, "${prop.name}",this._${prop.name});
+		 #elseif(${prop.simpleType})
+			// Simple type - ${prop.simpleClassName}
+			set${prop.boxingClass}Property(component, "${prop.name}",this._${prop.name}); 
+		 #elseif($prop.classname == "java.lang.Boolean" || $prop.classname == "java.lang.Integer" || $prop.classname == "java.lang.Long")
+			set${prop.simpleClassName}Property(component, "${prop.name}",this._${prop.name}); 
+		 #elseif( $prop.classname == "java.lang.String")
+			setStringProperty(component, "${prop.name}",this._${prop.name});
+		 #elseif( $prop.classname == "java.lang.Object")
+			// TODO - handle object
+			setStringProperty(component, "${prop.name}",this._${prop.name});
+		 #elseif( $prop.isInstanceof("javax.faces.el.MethodBinding") )
+			if(null != this._${prop.name}){
+             if (isValueReference(this._${prop.name}))
+             {
+                MethodBinding mb = getFacesContext().getApplication().createMethodBinding(this._${prop.name},
+                                                                                new Class[]{${prop.methodArgsClasses}});
+                ((${component.simpleClassName})component).${prop.setterName}(mb);
+             }
+             else
+             {
+                getFacesContext().getExternalContext().log("Component " + component.getClientId(getFacesContext()) + " has invalid ${prop.name} value: " + this._${prop.name});
+             }
+			}
+		 #else
+			// TODO - setup properties for other cases.
+			// name ${prop.name} with type $prop.classname
+		 #end	
+	 #end	 
+	#end
+*/	
+	}
+	
+	public void testGetRendererType(){
+		assertNotNull(tag.getRendererType());
+	}
+	
+	public void testGetComponentType(){
+		assertNotNull(tag.getComponentType());
+	}
+	
+	
+}

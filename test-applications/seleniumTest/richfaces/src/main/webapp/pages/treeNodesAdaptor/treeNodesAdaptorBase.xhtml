@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="attrForm">
+			<h:outputText value="ajaxSingle" />
+			<h:selectBooleanCheckbox id="ajaxSingle" value="#{treeNodesAdaptor.ajaxSingle}">
+				<a4j:support event="onchange" reRender="tree"/>
+			</h:selectBooleanCheckbox>		
+			<h:outputText value="includedNode" />
+			<h:selectBooleanCheckbox id="includedNode" value="#{treeNodesAdaptor.includedNode}">
+				<a4j:support event="onchange" reRender="tree"/>
+			</h:selectBooleanCheckbox>		
+			<h:outputText value="includedRoot" />
+			<h:selectBooleanCheckbox id="includedRoot" value="#{treeNodesAdaptor.includedRoot}">
+				<a4j:support event="onchange" reRender="tree"/>
+			</h:selectBooleanCheckbox>		
+		</h:form>
+		<h:form id="mainForm">
+			<rich:tree id="tree">
+				<ui:insert name="treeNodesAdaptor" />
+			</rich:tree>
+		</h:form>
+		<a4j:outputPanel ajaxRendered="true">
+			<h:outputText id="outputText" value="#{treeNodesAdaptor.trace}"></h:outputText>
+			<h:dataTable id="dataTable" value="#{treeNodesAdaptor.nodes[1].children}" var="child">
+				<h:column>
+					<h:outputText value="#{child.id}"></h:outputText>
+				</h:column>
+			</h:dataTable>
+		</a4j:outputPanel>
+	</ui:define>
+</ui:composition>
+</html>

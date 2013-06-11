@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	baseclass="org.richfaces.renderkit.InputRendererBase"
+	class="org.richfaces.renderkit.html.InputNumberSpinnerRenderer"
+	component="org.richfaces.component.UIInputNumberSpinner" 
+	>
+	<f:clientid var="clientId"/>
+    
+    <f:resource name="org.richfaces.renderkit.html.images.SpinnerButtonUp"
+		var="up_arrow" />
+    
+    <f:resource	name="org.richfaces.renderkit.html.images.SpinnerButtonDown"
+		var="down_arrow" />
+    
+	<h:scripts>new org.ajax4jsf.javascript.PrototypeScript(),script/SpinnerScript.js,/org/richfaces/renderkit/html/scripts/browser_info.js</h:scripts>
+    <h:styles>css/spinner.xcss</h:styles>
+
+<table width="2%" class="dr-spnr-c rich-spinner-c #{component.attributes['styleClass']}" id="#{clientId}" cellspacing="0" cellpadding="0" border="0" style="#{component.attributes['style']}" onclick="#{component.attributes['onclick']}"
+					ondblclick="#{component.attributes['ondblclick']}"
+					onmousedown="#{component.attributes['onmousedown']}"
+					onmousemove="#{component.attributes['onmousemove']}"
+					onmouseout="#{component.attributes['onmouseout']}"
+					onmouseover="#{component.attributes['onmouseover']}"
+					onmouseup="#{component.attributes['onmouseup']}">
+	<tbody>
+	  	<tr>
+			<td style="width:1%" class="dr-spnr-e  rich-spinner-input-container" id="#{clientId}Edit">
+			<jsp:scriptlet><![CDATA[
+			    String autocomplete = "";
+               	boolean disableBrowserAutoComplete = getUtils().isBooleanAttribute(component, "disableBrowserAutoComplete");
+			    if (disableBrowserAutoComplete)
+			    {
+			    	autocomplete = "off";
+			    }
+			    variables.setVariable("autocomplete", autocomplete);
+			]]></jsp:scriptlet>
+			
+				<input 
+					class="dr-spnr-i rich-spinner-input #{component.attributes['inputClass']}" 
+				    onchange="#{component.attributes['onchange']}" 
+					onselect="#{component.attributes['onselect']}" 
+					onfocus="#{component.attributes['onfocus']}"
+					onblur="#{component.attributes['onblur']}"
+					type="text" 
+					size="#{component.attributes['inputSize']}" 
+					name="#{clientId}" 
+					value="#{this:getInputValue(context, component)}" 
+					style="#{component.inputStyle}"
+					accesskey="#{component.attributes['accesskey']}" 
+					tabindex="#{component.attributes['tabindex']}"
+					
+					onclick='#{component.attributes["oninputclick"]}'
+					ondblclick='#{component.attributes["oninputdblclick"]}'
+					onkeydown='#{component.attributes["oninputkeydown"]}'
+					onkeypress='#{component.attributes["oninputkeypress"]}'
+					onkeyup='#{component.attributes["oninputkeyup"]}'
+					onmousedown='#{component.attributes["oninputmousedown"]}'
+					onmousemove='#{component.attributes["oninputmousemove"]}'
+					onmouseout='#{component.attributes["oninputmouseout"]}'
+					onmouseover='#{component.attributes["oninputmouseover"]}'
+					onmouseup='#{component.attributes["oninputmouseup"]}'
+					autocomplete='#{autocomplete}'
+					/>
+			</td>	
+			<td id="#{clientId}For" class="dr-spnr-b rich-spinner-buttons" style="width:1%">
+				<table id="#{clientId}Buttons" border="0" cellspacing="0" cellpadding="0">
+					<tbody>
+						<tr>
+							<td>								
+								<jsp:scriptlet><![CDATA[
+				                	boolean disabled = ((Boolean) component.getAttributes().get("disabled")).booleanValue();
+				                	if (! disabled) {
+                				]]></jsp:scriptlet>
+                					<input 
+                						type="image" 
+                						src="#{up_arrow}" 
+                						class="dr-spnr-bn rich-spinner-button" 
+                						style="border:0" 
+                						onclick="return false"
+										onmousedown="this.className='dr-spnr-bp rich-spinner-button'" 
+										onmouseup="this.className='dr-spnr-bn rich-spinner-button'" 
+										onmouseout="this.className='dr-spnr-bn rich-spinner-button'" 
+										tabindex="#{component.attributes['tabindex']}" />
+								<jsp:scriptlet><![CDATA[
+				                	} else {
+                				]]></jsp:scriptlet>
+                					<input 
+                						type="image" 
+                						src="#{up_arrow}" 
+                						class="dr-spnr-bn rich-spinner-button" 
+                						style="border:0" 
+                						onclick="return false" 
+                						tabindex="#{component.attributes['tabindex']}" /> 
+                				<jsp:scriptlet><![CDATA[
+				                	}
+                				]]></jsp:scriptlet>
+							</td>
+						</tr>
+						<tr>
+							<td>								
+								<jsp:scriptlet><![CDATA[				                	
+				                	if (! disabled) {
+                				]]></jsp:scriptlet>
+                					<input type="image" src="#{down_arrow}" class="dr-spnr-bn rich-spinner-button" style="border:0"  onclick="return false"
+									onmousedown="this.className='dr-spnr-bp rich-spinner-button'" onmouseup="this.className='dr-spnr-bn rich-spinner-button'" onmouseout="this.className='dr-spnr-bn rich-spinner-button'" />
+								<jsp:scriptlet><![CDATA[
+				                	} else {
+                				]]></jsp:scriptlet>
+                					<input type="image" src="#{down_arrow}" class="dr-spnr-bn rich-spinner-button" style="border:0"  onclick="return false" />
+                				<jsp:scriptlet><![CDATA[
+				                	}
+                				]]></jsp:scriptlet>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<script type="text/javascript">
+					new Richfaces.Spinner(
+					{
+						edit:"#{clientId}Edit",
+						buttons:"#{clientId}Buttons",
+						forIE:"#{clientId}For"
+					},
+					{
+						cycled:#{component.attributes['cycled']},
+						edited:#{component.attributes['enableManualInput']},
+						disabled:#{component.attributes['disabled']},
+						chameleon:false,
+						required:	#{component.attributes['required']},
+						clientErrorMsg: "#{component.attributes['clientErrorMessage']}"
+					},				
+					{
+						min:#{component.attributes['minValue']},
+						max:#{component.attributes['maxValue']},
+						delta:#{component.attributes['step']}
+					},
+					{
+						onup:"#{component.attributes['onupclick']}",
+						ondown:"#{component.attributes['ondownclick']}",
+						onerr:"#{component.attributes['onerror']}"
+					},
+					{
+						up:"#{upButton}",
+						down:"#{downButton}",
+						upP:"#{upButtonPressed}",
+						downP:"#{downButtonPressed}",
+						upH:"#{upButtonHovered}",
+						downH:"#{downButtonHovered}"
+					}
+					);
+				</script>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</f:root>

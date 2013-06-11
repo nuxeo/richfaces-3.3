@@ -1,0 +1,17 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" id="dataOrderedListSubviewID">
+		<rich:dataOrderedList id="doListID" value="#{dataOrderedList.arr}" var="arr" first="#{dataOrderedList.first}" 
+			rendered="#{dataOrderedList.rendered}" title="#{dataOrderedList.title}" type="#{dataOrderedList.type}" dir="#{dataOrderedList.dir}"
+			rows="#{dataOrderedList.rows}"
+			columnClasses="#{style.columnClasses}" footerClass="style" headerClass="test" rowClasses="#{style.rowClasses}" style="#{style.style}" styleClass="#{style.styleClass}" 
+			binding="#{dataOrderedList.myOrderedList}" >
+			<f:facet name="header">
+				<h:outputText value="HEADER" style="TEXT-DECORATION: underline;"/>
+			</f:facet>
+			<h:outputText value="#{arr.str0} " />
+			<h:outputLink value="http://www.jboss.com/"><f:verbatim>Link</f:verbatim></h:outputLink>
+			<f:facet name="footer">
+				<h:outputText value="FOOTER" style="TEXT-DECORATION: underline;"/>
+			</f:facet>
+		</rich:dataOrderedList>
+</f:subview>

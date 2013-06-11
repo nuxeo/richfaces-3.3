@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+
+<components>
+	<converter generate="false">
+		<classname>org.richfaces.convert.selection.ClientSelectionConverter</classname>
+		<forclass>org.richfaces.model.selection.ClientSelection</forclass>
+	</converter>
+</components>		

@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+	<head>
+	<title></title>
+	</head>
+	<body>
+	<h:form id="richTestID">
+		<ui:include src="/rich/menu.xhtml" />
+		<h:panelGrid columns="2">
+			<rich:panel>
+				<f:facet name="header">
+					<h:outputText value="panel" />
+				</f:facet>
+				<rich:tabPanel switchType="ajax" height="200px" width="300px">
+					<rich:tab label="Tab 1">
+						<f:facet name="header">
+							<h:outputText value="tab1" />
+						</f:facet>
+						<h:outputText value="Text" />
+						<f:verbatim>
+							<br />
+						</f:verbatim>
+						<h:outputText value="Text" />
+						<f:verbatim>
+							<br />
+						</f:verbatim>
+						<h:outputText value="Text" />
+						<f:verbatim>
+							<br />
+						</f:verbatim>
+						<h:outputText value="Text" />
+					</rich:tab>
+
+					<rich:tab label="Tab 2">
+						<h:outputText value="Image" />
+						<h:graphicImage value="/pics/masshtaby_01.jpg" height="150px"
+							width="200px" />
+					</rich:tab>
+
+					<rich:tab label="Tab 3">
+						<f:facet name="header">
+							<h:outputText value="tab1" />
+						</f:facet>
+						<f:verbatim>
+							<a
+								href="javascript:Richfaces.showModalPanel('mp',{width:450, top:200})">Show
+							this panel</a>
+						</f:verbatim>
+						<rich:modalPanel id="mp" minHeight="200" minWidth="450"
+							height="200" width="500" zindex="2000">
+							<f:facet name="header">
+								<h:outputText value="Modal Panel Title" />
+							</f:facet>
+							<f:facet name="controls">
+								<h:graphicImage value="/pics/error.gif" style="cursor:pointer"
+									onclick="Richfaces.hideModalPanel('mp')" />
+							</f:facet>
+							<f:verbatim>
+					  					RichFaces Modal Panel is a container that blocks an operation on the base page when the modal panel is shown.
+					  					<a href="javascript:Richfaces.hideModalPanel('mp')">Hide
+								this panel</a>
+							</f:verbatim>
+						</rich:modalPanel>
+					</rich:tab>
+
+					<rich:tab label="Tab 4">
+						<f:facet name="header">
+							<h:outputText value="tab1" />
+						</f:facet>
+						<h:inputTextarea value="text" cols="30" rows="8"></h:inputTextarea>
+					</rich:tab>
+
+					<rich:tab label="Tab 5">
+						<f:facet name="header">
+							<h:outputText value="tab1" />
+						</f:facet>
+						<rich:panel>
+							<f:facet name="header">
+								<h:outputText value="Panel" />
+							</f:facet>
+							<rich:tabPanel switchType="ajax">
+								<rich:tab label="tab 1">
+									<h:outputText value="text1" />
+								</rich:tab>
+
+								<rich:tab label="tab 2">
+									<h:outputText value="text2" />
+								</rich:tab>
+							</rich:tabPanel>
+						</rich:panel>
+					</rich:tab>
+
+					<rich:tab label="Tab 6">
+						<rich:dataGrid columns="3" elements="12"
+							value="#{dataTable.mounths}" var="dt">
+							<rich:panel>
+								<f:facet name="header">
+									<h:outputText value="mmm"></h:outputText>
+								</f:facet>
+								<h:panelGrid columns="2">
+									<h:outputText value="Mounth:" styleClass="label"></h:outputText>
+									<h:outputText value="#{dt.mounth}" />
+									<h:outputText value="Town:" styleClass="label"></h:outputText>
+									<h:outputText value="#{dt.town}" />
+									<h:outputText value="Day:" styleClass="label"></h:outputText>
+									<h:outputText value="#{dt.day}" />
+									<h:outputText value="Number:" styleClass="label"></h:outputText>
+									<h:outputText value="#{dt.total}" />
+								</h:panelGrid>
+							</rich:panel>
+						</rich:dataGrid>
+					</rich:tab>
+				</rich:tabPanel>
+			</rich:panel>
+		</h:panelGrid>
+		<rich:separator></rich:separator>
+	</h:form>
+	</body>
+</f:view>
+</html>

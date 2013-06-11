@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+	  xmlns:rich="http://richfaces.org/rich">
+      
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8"/>
+<title>
+	Local Value demo
+</title>
+<style type="text/css">
+.input {
+	border-bottom-color: #{a4jSkin.panelBorderColor};
+}
+</style>
+</head>
+<body>
+<a4j:loadStyle src="/css/common.css" />
+<span style="display:none">#{a4j.version}</span>
+<h:panelGrid columns="2" columnClasses="samples,legend">
+<h:panelGroup>
+<rich:panel id="bad" styleClass="sample-panel">
+	<f:facet name="header">
+		Example of INCORRECT approach to the problem
+	</f:facet>
+	<h:form>
+	<a4j:outputPanel ajaxRendered="true">
+		<h:message for="bad_input" />
+	</a4j:outputPanel>
+	<h:panelGrid columns="2" styleClass="grid" columnClasses="formLeft,formRight">
+		<h:outputText value="Enter credit card number:"/>
+		<h:inputText id="bad_input" value="#{data.creditCard}" styleClass="input"/>
+		<h:outputText value="Or use your pre-defined credit card:"/>
+		<a4j:commandLink immediate="true" action="#{data.useMyCreditCard_incorrect}" reRender="bad" styleClass="command" value="#{data.myCreditCardName}"/>
+		<h:outputText value="Your entered credit card number:"/>
+		<h:outputText value="#{data.creditCard}" styleClass="output"/>
+	</h:panelGrid>
+	</h:form>
+</rich:panel>
+<rich:panel id="good" styleClass="sample-panel">
+	<f:facet name="header">
+		Example of CORRECT approach to the problem
+	</f:facet>
+	<h:form>
+	<a4j:outputPanel ajaxRendered="true">
+		<h:message for="good_input" />
+	</a4j:outputPanel>
+	<h:panelGrid columns="2" columnClasses="formLeft,formRight">
+		<h:outputText value="Enter credit card number:"/>
+		<h:inputText id="good_input" value="#{data.creditCard}" binding="#{data.component}" styleClass="input"/>
+		<h:outputText value="Or use your pre-defined credit card:"/>
+		<a4j:commandLink immediate="true" action="#{data.useMyCreditCard_correct}" reRender="good" styleClass="command" value="#{data.myCreditCardName}"/>
+		<h:outputText value="Your entered credit card number:"/>
+		<h:outputText value="#{data.creditCard}" styleClass="output"/>
+	</h:panelGrid>
+	</h:form>
+</rich:panel>
+<rich:panel id="good_ii" styleClass="sample-panel">
+	<f:facet name="header">
+		Example of ALTERNATIVE approach to the problem
+	</f:facet>
+	<h:form>
+	<a4j:outputPanel ajaxRendered="true">
+		<h:message for="good_input_ii" />
+	</a4j:outputPanel>
+	<h:panelGrid columns="2" styleClass="grid" columnClasses="formLeft,formRight">
+		<h:outputText value="Enter credit card number:"/>
+		<h:inputText id="good_input_ii" value="#{data.creditCard}" styleClass="input"/>
+		<h:outputText value="Or use your pre-defined credit card:"/>
+		<a4j:region>
+			<a4j:commandLink immediate="true" action="#{data.useMyCreditCard_incorrect}" reRender="good_ii" styleClass="command" value="#{data.myCreditCardName}"/>
+		</a4j:region>
+		<h:outputText value="Your entered credit card number:"/>
+		<h:outputText value="#{data.creditCard}" styleClass="output"/>
+	</h:panelGrid>
+	</h:form>
+</rich:panel>
+</h:panelGroup>
+<h:panelGroup styleClass="legend">
+<h3>Use case</h3>
+<p> 
+I have an input field where I can enter Credit Card Number. At the same time I have some pre-defined CC in a system, which I can choose. When I click on command link with id of pre-defined CC, it value propagated to input.
+</p>
+<h3>Simple solution</h3>
+<p>
+So my first solution is simple. The idea is to have an action behind command link and assign pre-defined value to CC Number.
+</p>
+<h3>Page Sources</h3>
+<p class="source">
+&lt;h:outputText value="Enter credit card number:"/&gt;<br/>
+&lt;h:inputText value="<span>#</span>{data.creditCard}"/&gt;<br/>
+&lt;h:outputText value="Or use your pre-defined credit card:"/&gt;<br/>
+&lt;a4j:commandLink immediate="true" action="<span>#</span>{data.useMyCreditCard}" reRender="..." value="<span>#</span>{data.myCreditCardName}"/&gt;<br/>
+&lt;h:outputText value="Your entered credit card number:"/&gt;<br/>
+&lt;h:outputText value="<span>#</span>{data.creditCard}" styleClass="output"/&gt;<br/>
+</p>
+<h3>Bean Source (getters/setters removed)</h3>
+<p class="source">
+public String useMyCreditCard() {<br/>
+<rich:spacer width="20px"/>setCreditCard(getMyCreadtCard());<br/>
+<rich:spacer width="20px"/>return null;<br/>
+}<br/>
+</p>
+</h:panelGroup>
+</h:panelGrid>
+<h:panelGroup styleClass="legend">
+<h3>Problem</h3>
+<p>
+However, soon I discover that my simple solution does not works. The reason is simple: inputText is a little bit more complicated than you think. In addition to value binding it has two more values inside: submittedValue and localValue. Both are used during a request processing. The goal is simple – whenever feasible inputText display value that was entered by user, not value from model. The most obvious case – when validation error occurs. The general rule is – submitted value is what come from http request. After conversion and validation submittedValue is cleared and localValue assigned. After update model localValue is cleared also. During rendering component looks for submittedValue first, if any exists, than it used for rendering. If no submittedValue present – that localValue will be considered. If no localValue exists – than value binding will be evaluated to obtain value from model.
+</p>
+<p>
+So, valid solution is simple – you need to reset submitted and local value in component. There are many different ways to do so. In my example I'm using the most straightforward approach – use component binding and API to reset values.
+</p>
+<h3>Valid Page Sources</h3>
+<p class="source">
+&lt;h:outputText <b>binding="<span>#</span>{data.component}"</b> value="Enter credit card number:"/&gt;<br/>
+&lt;h:inputText value="<span>#</span>{data.creditCard}"/&gt;<br/>
+&lt;h:outputText value="Or use your pre-defined credit card:"/&gt;<br/>
+&lt;a4j:commandLink immediate="true" action="<span>#</span>{data.useMyCreditCard}" reRender="..." value="<span>#</span>{data.myCreditCardName}"/&gt;<br/>
+&lt;h:outputText value="Your entered credit card number:"/&gt;<br/>
+&lt;h:outputText value="<span>#</span>{data.creditCard}" styleClass="output"/&gt;<br/>
+</p>
+<h3>Valid Bean Source (getters/setters removed)</h3>
+<p class="source">
+public String useMyCreditCard() {<br/>
+<rich:spacer width="20px"/>setCreditCard(getMyCreadtCard());<br/>
+<b>
+<rich:spacer width="20px"/>getComponent().setSubmittedValue(null);<br/>
+<rich:spacer width="20px"/>getComponent().setValue(null); //This is actually the local value!<br/>
+</b>
+<rich:spacer width="20px"/>return null;<br/>
+}<br/>
+</p>
+<h3>Alternative approach</h3>
+<p>
+Alternative approach uses a4j:region component to limit set of processed inputs. As the result submittedValue is not pushed to the input component (because it is outside of the a4j:region). Therefore, component will evaluate value binding and use value from the model for rendering.
+</p>
+<h3>Alternative Page Sources</h3>
+<p class="source">
+&lt;h:outputText value="Enter credit card number:"/&gt;<br/>
+&lt;h:inputText value="<span>#</span>{data.creditCard}"/&gt;<br/>
+&lt;h:outputText value="Or use your pre-defined credit card:"/&gt;<br/>
+<b>&lt;a4j:region&gt;<br/></b>
+<rich:spacer width="20px"/>&lt;a4j:commandLink immediate="true" action="<span>#</span>{data.useMyCreditCard}" reRender="..." value="<span>#</span>{data.myCreditCardName}"/&gt;<br/>
+<b>&lt;/a4j:region&gt;<br/></b>
+&lt;h:outputText value="Your entered credit card number:"/&gt;<br/>
+&lt;h:outputText value="<span>#</span>{data.creditCard}" styleClass="output"/&gt;<br/>
+</p>
+<h3>Alternative Bean Source (getters/setters removed)</h3>
+<p class="source">
+public String useMyCreditCard() {<br/>
+<rich:spacer width="20px"/>setCreditCard(getMyCreadtCard());<br/>
+<rich:spacer width="20px"/>return null;<br/>
+}<br/>
+</p>
+<h3>Success</h3>
+<p>
+Hopefully now my solution works!
+</p>
+<h3>Conclusion</h3>
+<p>
+You need to be careful with input components. In some cases you have to be aware of their complex internal structures.
+</p>
+<p>
+My example is based on <b>JSF 1.2 RI</b> and <b>Facelets</b>. You can download it from <a href="http://anonsvn.jboss.org/repos/richfaces/trunk/samples/local-value-demo/">here</a>. <a href="http://anonsvn.jboss.org/repos/richfaces/trunk/samples/local-value-demo/src/main/webapp/pages/local-value-demo.xhtml">Here is page source</a>. <a href="http://anonsvn.jboss.org/repos/richfaces/trunk/samples/local-value-demo/src/main/java/org/richfaces/demo/localvalue/Data.java">Here is bean source</a>.
+</p>
+</h:panelGroup>
+</body>
+</html>

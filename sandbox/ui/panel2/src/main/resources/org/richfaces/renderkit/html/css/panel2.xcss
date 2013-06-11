@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util' 
+   xmlns="http://www.w3.org/1999/xhtml" >
+   <f:verbatim>
+<![CDATA[
+.dr-pnl{
+   width: 100%;
+}
+
+.dr-pnl1{
+   border-width: 1px;
+   border-style: solid;
+   padding : 1px;
+}
+   
+.dr-pnl-h{
+   padding : 2px;
+   border-width: 1px;
+   border-style: solid;
+   background-position : top left;
+   background-repeat : repeat-x;
+}
+
+.dr-pnl-b{
+   padding : 10px;
+} 
+]]>
+</f:verbatim>
+<u:selector name=".dr-pnl1">
+	<u:style name="background-color" skin="generalBackgroundColor" />
+	<u:style name="border-color" skin="panelBorderColor" />
+</u:selector>
+<u:selector name=".dr-pnl-h">
+	<u:style name="background-color" skin="headerBackgroundColor" />
+	<u:style name="border-color" skin="headerBackgroundColor" />
+	<u:style name="font-size" skin="headerSizeFont" />
+	<u:style name="color" skin="headerTextColor" />
+	<u:style name="font-weight" skin="headerWeightFont" />
+   	<u:style name="font-family" skin="headerFamilyFont" />
+	<u:style name="background-image" >
+    	<f:resource f:key="org.richfaces.renderkit.html.GradientA"/>
+    </u:style>
+
+</u:selector>
+<u:selector name=".dr-pnl-b">
+	<u:style name="font-size" skin="generalSizeFont" />
+	<u:style name="color" skin="generalTextColor" />
+    <u:style name="font-family" skin="generalFamilyFont" />
+</u:selector>
+</f:template>

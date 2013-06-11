@@ -1,0 +1,112 @@
+<f:subview id="tabPanelSubviewID"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:form>
+	<rich:tabPanel id="tabPanelId" 
+		headerAlignment="#{tabPanel.headerAlignment}"
+		width="#{tabPanel.width}" height="#{tabPanel.height}"
+		rendered="#{tabPanel.rendered}" title="#{tabPanel.title}"
+		switchType="#{tabPanel.switchType}"
+		headerSpacing="#{tabPanel.headerSpacing}"
+		selectedTab="#{tabPanel.selectedTab}"
+		activeTabClass="#{tabPanel.activeTabStyle}"
+		disabledTabClass="#{tabPanel.disabledTabStyle}"
+		inactiveTabClass="#{tabPanel.inactiveTabStyle}"
+		contentClass="#{tabPanel.contentStyle}">
+
+		<rich:tab id="tabOne" onmousedown="alert('OnMouseDown');"
+			labelWidth="#{tabPanel.labelWidth}" label="#{tabPanel.label}">
+			<h:outputText value="This is tab panel test example"
+				styleClass="text1"></h:outputText>
+		</rich:tab>
+		<rich:tab id="tabTwo" label="Tab with image" 
+			disabled="#{tabPanel.disabledTab}">
+			<f:facet name="header">
+				<h:outputText value="client switchType from facet" />
+			</f:facet>
+			<h:graphicImage value="/pics/masshtaby_01.jpg" width="560"
+				height="383"></h:graphicImage>
+		</rich:tab>
+		<rich:tab id="tabThree" label="Tab with some text"
+			disabled="#{tabPanel.disabledTab}">
+			<h:outputText
+				value="   Some text... Some text...  Some text... Some text... Some text... Some text... Some text... Some text...
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text... 
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text...
+				     Some text... Some text... Some text... Some text... Some text... Some text... Some text... Some text..." />
+		</rich:tab>
+	</rich:tabPanel>
+
+	<rich:spacer height="20px"></rich:spacer>
+
+	<h:panelGrid columns="2" cellspacing="10px">
+		<h:outputText value="Width (px or %):"></h:outputText>
+		<h:inputText value="#{tabPanel.width}">
+			<a4j:support event="onchange" reRender="tabPanelId"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="Height (px or %):"></h:outputText>
+		<h:inputText value="#{tabPanel.height}">
+			<a4j:support event="onchange" reRender="tabPanelId"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="Title:"></h:outputText>
+		<h:inputText value="#{tabPanel.title}">
+			<a4j:support event="onchange" reRender="tabPanelId"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="LabelWidth:"></h:outputText>
+		<h:inputText value="#{tabPanel.labelWidth}">
+			<a4j:support event="onchange" reRender="tabPanelId"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="SwitchType:"></h:outputText>
+		<h:selectOneRadio value="#{tabPanel.switchType}">
+			<f:selectItem itemLabel="client" itemValue="client" />
+			<f:selectItem itemLabel="server" itemValue="server" />
+			<f:selectItem itemLabel="ajax" itemValue="ajax" />
+			<a4j:support event="onchange" reRender="tabPanelId"></a4j:support>
+		</h:selectOneRadio>
+
+		<h:outputText value="Header Alignment:"></h:outputText>
+		<h:selectOneRadio value="#{tabPanel.headerAlignment}">
+			<f:selectItem itemLabel="left" itemValue="left" />
+			<f:selectItem itemLabel="center" itemValue="center" />
+			<f:selectItem itemLabel="right" itemValue="right" />
+			<a4j:support event="onchange" reRender="tabPanelId"></a4j:support>
+		</h:selectOneRadio>
+
+		<h:outputText value="Header Spacing:"></h:outputText>
+		<h:inputText value="#{tabPanel.headerSpacing}">
+			<a4j:support event="onchange" reRender="tabPanelId"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="Selected Tab:"></h:outputText>
+		<h:selectOneRadio value="#{tabPanel.selectedTab}" onchange="submit();">
+			<f:selectItem itemLabel="1" itemValue="tabOne" />
+			<f:selectItem itemLabel="2" itemValue="tabTwo" />
+			<f:selectItem itemLabel="3" itemValue="tabThr" />
+		</h:selectOneRadio>
+
+		<h:outputText value="Rendered"></h:outputText>
+		<h:selectBooleanCheckbox value="#{tabPanel.rendered}"
+			onclick="submit()">
+		</h:selectBooleanCheckbox>
+
+		<h:outputText value="Disable Tab"></h:outputText>
+		<h:selectBooleanCheckbox value="#{tabPanel.disabledTab}"
+			onclick="submit()">
+		</h:selectBooleanCheckbox>
+		<h:outputText value="Switch Styles:" />
+		<h:commandButton action="#{tabPanel.doStyles}"
+			value="#{tabPanel.btnLabel}" />
+
+
+	</h:panelGrid>
+</h:form>
+</f:subview>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:panel="http://labs.jboss.com/jbossrichfaces/ui/panel"
+	  xmlns:a4j="http://richfaces.org/a4j"
+      >
+<head>      
+<style>
+.my {
+	border: 2px solid yellow;
+}
+</style>
+</head>
+<body>
+
+<h:form>
+<h:selectOneRadio binding="#{skinBean.component}" />
+<h:commandLink action="#{skinBean.change}" value="set skin" />
+</h:form>
+
+	<h:outputLink value="panel2.jsf">Sample 2</h:outputLink>
+	<panel:panel>
+		<a4j:facet name="header">
+			Test
+		</a4j:facet>
+	<panel:panel>
+		<a4j:facet name="header">
+			Test
+		</a4j:facet>
+	<panel:panel>
+		<a4j:facet name="header">
+			Test	
+		</a4j:facet>
+		Body text
+	</panel:panel>
+	</panel:panel>
+	</panel:panel>
+	<br/>
+	<panel:panel>
+		<a4j:facet name="header">
+			Test<br/>
+			Test<br/>
+			Test<br/>
+			Test<br/>
+			Test<br/>
+		</a4j:facet>
+		<h:form>
+			<h:outputText value="inside the form"/>
+		</h:form>
+	</panel:panel>
+</body>
+</html>

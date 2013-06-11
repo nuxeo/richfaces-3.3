@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>samples</artifactId>
+		<groupId>org.richfaces</groupId>
+		<version>3.3.1.GA</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.richfaces.samples</groupId>
+	<artifactId>calendar-sample</artifactId>
+	<packaging>war</packaging>
+	<name>calendar-sample Maven Webapp</name>
+	<dependencies>
+		<dependency>
+			<groupId>org.richfaces.ui</groupId>
+			<artifactId>calendar</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.richfaces.ui</groupId>
+			<artifactId>core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.richfaces.ui</groupId>
+			<artifactId>modal-panel</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.richfaces.samples</groupId>
+			<artifactId>skins</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>calendar-sample</finalName>
+	</build>
+</project>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?><project>
+  <parent>
+    <artifactId>master</artifactId>
+    <groupId>org.richfaces</groupId>
+    <version>1.1.1-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.richfaces</groupId>
+  <artifactId>a4j-seam</artifactId>
+  <name>ajax4jsf and JBOSS Seam compability library</name>
+  <url>https://ajax4jsf.dev.java.net</url>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-source</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+	<dependency>
+		<groupId>org.richfaces</groupId>
+		<artifactId>ajax4jsf</artifactId>
+		<version>3.3.1.GA</version>
+	</dependency>
+	<dependency>
+		<groupId>jboss</groupId>
+		<artifactId>seam</artifactId>
+		<version>1.1</version>
+	</dependency>
+   </dependencies>
+</project>

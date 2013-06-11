@@ -1,0 +1,141 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	id="toolTipStraightforwardSubviewID">
+	<h:commandButton action="#{tooltip.add}" value="add test" />
+	<h:panelGrid columns="2">
+
+		<a4j:commandLink
+			onclick="$('formID:tooltipSubviewID:tooltipID').component.show(event)"
+			value="show"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:tooltipSubviewID:tooltipID').component.hide(event)"
+			value="hide"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:tooltipSubviewID:tooltipID').component.enable(event)"
+			value="enable"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:tooltipSubviewID:tooltipID').component.disable(event)"
+			value="disable"></a4j:commandLink>
+
+		<a href="#" id="showToolTipID">componentControl(show)</a>
+		<rich:componentControl attachTo="showToolTipID" for="tooltipID"
+			event="onclick" operation="show" />
+
+		<a href="#" id="hideToolTipID">componentControl(hide)</a>
+		<rich:componentControl attachTo="hideToolTipID" for="tooltipID"
+			event="onclick" operation="hide" />
+
+		<a href="#" id="enableToolTipID">componentControl(enable)</a>
+		<rich:componentControl attachTo="enableToolTipID" for="tooltipID"
+			event="onclick" operation="enable" />
+
+		<a href="#" id="disableToolTipID">componentControl(disable)</a>
+		<rich:componentControl attachTo="disableToolTipID" for="tooltipID"
+			event="onclick" operation="disable" />
+
+		<h:outputText value="Text:"></h:outputText>
+		<h:inputText value="#{tooltip.value}">
+			<a4j:support event="onchange" reRender="tooltipID" />
+		</h:inputText>
+
+		<h:outputText value="Delay"></h:outputText>
+		<h:inputText value="#{tooltip.delay}">
+			<a4j:support event="onchange" reRender="tooltipID" />
+		</h:inputText>
+
+		<h:outputText value="showDelay"></h:outputText>
+		<h:inputText value="#{tooltip.showDelay}">
+			<a4j:support event="onchange" reRender="tooltipID" />
+		</h:inputText>
+
+		<h:outputText value="hideDelay"></h:outputText>
+		<h:inputText value="#{tooltip.hideDelay}">
+			<a4j:support event="onchange" reRender="tooltipID" />
+		</h:inputText>
+
+		<h:outputText value="event:" />
+		<h:selectOneMenu value="#{tooltip.event}" onchange="submit();">
+			<f:selectItem itemLabel="onmouseover" itemValue="onmouseover" />
+			<f:selectItem itemLabel="onclick" itemValue="onclick" />
+			<f:selectItem itemLabel="onmouseup" itemValue="onmouseup" />
+		</h:selectOneMenu>
+
+		<h:outputText value="Layout:"></h:outputText>
+		<h:selectOneRadio value="#{tooltip.layout}">
+			<f:selectItem itemLabel="inline" itemValue="inline" />
+			<f:selectItem itemLabel="block" itemValue="block" />
+			<a4j:support event="onclick" reRender="tooltipID" />
+		</h:selectOneRadio>
+
+		<h:outputText value="Mode:"></h:outputText>
+		<h:selectOneRadio value="#{tooltip.mode}">
+			<f:selectItem itemLabel="client" itemValue="client" />
+			<f:selectItem itemLabel="ajax" itemValue="ajax" />
+			<a4j:support event="onclick" reRender="tooltipID" />
+		</h:selectOneRadio>
+
+		<h:outputText value="Horizontal offset:"></h:outputText>
+		<h:inputText value="#{tooltip.horizontalOffset}">
+			<a4j:support event="onchange" reRender="tooltipID" />
+		</h:inputText>
+
+		<h:outputText value="Vertical offset:"></h:outputText>
+		<h:inputText value="#{tooltip.verticalOffset}">
+			<a4j:support event="onchange" reRender="tooltipID" />
+		</h:inputText>
+
+		<h:outputText value="Follow mouse:"></h:outputText>
+		<h:selectBooleanCheckbox value="#{tooltip.followMouse}">
+			<a4j:support event="onclick" reRender="tooltipID" />
+		</h:selectBooleanCheckbox>
+
+		<h:outputText value="Direction:" />
+		<h:selectOneRadio value="#{tooltip.direction}">
+			<f:selectItem itemLabel="top-right" itemValue="top-right" />
+			<f:selectItem itemLabel="top-left" itemValue="top-left" />
+			<f:selectItem itemLabel="bottom-right" itemValue="bottom-right" />
+			<f:selectItem itemLabel="bottom-left" itemValue="bottom-left" />
+			<a4j:support event="onclick" reRender="tooltipID" />
+		</h:selectOneRadio>
+
+		<h:outputText value="Style:"></h:outputText>
+		<h:selectOneRadio value="#{tooltip.style}">
+			<f:selectItem itemLabel="none" itemValue="none" />
+			<f:selectItem itemLabel="border:3px; font:bold 14px;"
+				itemValue="border:3px; font:bold 14px;" />
+			<f:selectItem
+				itemLabel="border:green 3px solid; background-color:yellow;"
+				itemValue="border:green 3px solid; background-color:yellow;" />
+			<f:selectItem
+				itemLabel="border:green 2px solid; font-family:monospace;"
+				itemValue="border:green 2px solid; font-family:monospace;" />
+			<a4j:support event="onclick" reRender="tooltipID" />
+		</h:selectOneRadio>
+
+		<h:outputText value="Disambled:"></h:outputText>
+		<h:selectBooleanCheckbox value="#{tooltip.disabled}">
+			<a4j:support event="onclick" reRender="tooltipID" />
+		</h:selectBooleanCheckbox>
+
+		<h:outputText value="Rendered:"></h:outputText>
+		<h:selectBooleanCheckbox value="#{tooltip.rendered}">
+			<a4j:support event="onclick" reRender="tooltipID" />
+		</h:selectBooleanCheckbox>
+
+	</h:panelGrid>
+	<br />
+	<br />
+	<div style="FONT-WEIGHT: bold;">rich:findComponent</div>
+	<h:panelGrid columns="2">
+		<rich:column>
+			<a4j:commandLink value="getValue" reRender="findID"></a4j:commandLink>
+		</rich:column>
+		<rich:column id="findID">
+			<h:outputText value="#{rich:findComponent('tooltipID').value}" />
+		</rich:column>
+	</h:panelGrid>
+</f:subview>

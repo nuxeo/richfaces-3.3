@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:h=" http://ajax4jsf.org/cdk/headers"
+	xmlns:vcp="http://ajax4jsf.org/cdk/vcp"
+	
+	class="org.richfaces.renderkit.html.ScrollableDataTableHeaderCellRenderer"
+	component="javax.faces.component.UIComponent" 
+	>
+
+	<th class="dr-sdt-hc rich-sdt-header-cell #{headerColumnClass} #{headerColumnSortClass}" id="#{client_id}:hc_#{cell_index}" columnid="#{component.attributes['id']}" sortable="#{component.attributes['sortable']}">
+		<jsp:scriptlet>
+			
+			if(org.richfaces.component.util.ColumnUtil.isSortable(component)) {
+				getUtils().writeAttribute(writer, "style", "cursor:pointer" );
+
+			}
+		
+		</jsp:scriptlet>
+
+		<vcp:body/>
+		
+		<jsp:scriptlet>
+			int offset = -3;
+			Object sepOffset = variables.getVariable("sepOffset");
+			if (sepOffset instanceof Integer) {
+				offset += ((Integer)sepOffset).intValue();
+			}
+			
+		</jsp:scriptlet>
+		<span column="#{cell_index}" id="#{client_id}:hsep_#{cell_index}" style="left: #{offset}px;" class="dr-sdt-hsep rich-sdt-hsep" />
+	</th>
+
+</f:root>	

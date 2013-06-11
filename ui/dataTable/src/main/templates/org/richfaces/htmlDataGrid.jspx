@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+    xmlns:h="http://jsf.exadel.com/header"
+	xmlns:vcp="http://ajax4jsf.org/cdk/vcp"	
+	class="org.richfaces.renderkit.html.DataGridRenderer"
+	baseclass="org.richfaces.renderkit.AbstractGridRenderer"
+	component="org.richfaces.component.UIDataGrid" 
+	>
+	<h:styles>css/table.xcss</h:styles>
+	<f:clientid var="clientId"/>
+	<table id="#{clientId}"
+	    class="dr-table rich-table #{component.attributes['styleClass']}"
+	    x:passThruWithExclusions="value,name,type,class,id"
+		>
+		<f:call name="encodeCaption" />
+		<colgroup span="#{component.attributes['columns']}">
+		</colgroup>
+		<f:call name="encodeHeader"/>
+		 <f:call name="encodeFooter"/>
+		<tbody>
+				<vcp:body>
+				   <f:call name="encodeRows"/>
+				</vcp:body>
+		</tbody>
+	</table>
+</f:root>

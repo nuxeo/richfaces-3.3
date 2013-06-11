@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+<components>
+	<component>
+		<name>org.richfaces.ColorPicker</name>
+		<family>org.richfaces.ColorPicker</family>
+		<classname>org.richfaces.component.html.HtmlColorPicker</classname>
+		<superclass>org.richfaces.component.UIColorPicker</superclass>
+		<test />
+		<description>
+			<![CDATA[
+    ]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.ColorPickerRenderer</name>
+			<template>org/richfaces/htmlColorPicker.jspx</template>
+		</renderer>
+		<tag>
+			<name>colorPicker</name>
+			<classname>org.richfaces.taglib.ColorPickerTag</classname>
+			<test />
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+		</tag>
+		<property>
+		    <name>flat</name>
+		    <classname>java.lang.Boolean</classname>
+		    <description>
+		        Defines whether the component will be rendered flat. 
+		    </description>
+		    <defaultvalue>false</defaultvalue>
+		</property>
+		<property>
+		    <name>colorMode</name>
+		    <classname>java.lang.String</classname>
+		    <description>
+		        Defines a color mode for the component input. Possible values are hex, rgb.
+		    </description>
+		    <defaultvalue><![CDATA["hex"]]></defaultvalue>
+		</property>
+		<property>
+		    <name>showEvent</name>
+		    <classname>java.lang.String</classname>
+		    <description>
+		        Defines the event that triggers the colorPicker. 
+		        Default value is "onclick".
+		    </description>
+		    <defaultvalue><![CDATA["onclick"]]></defaultvalue>
+		</property>
+		<property>
+		    <name>value</name>
+		    <classname>java.lang.String</classname>
+		    <description>
+		        The value of the component. You can define value as hex, RGB or HSB.
+		    </description>
+		    <defaultvalue><![CDATA["#ffffff"]]></defaultvalue>
+		</property>
+		
+        &ui_component_attributes;
+		&html_events;
+		&ui_input_attributes;
+
+		<property hidden="true">
+		    <name>valid</name>
+		    <classname>boolean</classname>
+		    <description>
+				valid
+		    </description>
+		</property>
+		<property hidden="true">
+		    <name>localValueSet</name>
+		    <classname>boolean</classname>
+		    <description>localValueSet</description> 
+		</property>
+		
+		<property>
+			<name>onselect</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when the color is selected</description>
+		</property>
+		<property>
+			<name>onchange</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when the element value was changed</description>
+		</property>
+		<property>
+			<name>onbeforeshow</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called before the component widget is opened</description>
+		</property>
+		<property>
+			<name>onshow</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when the component widget is displayed</description>
+		</property>
+		<property>
+			<name>onhide</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called before the component widget is hidden</description>
+		</property>
+		
+	</component>
+	
+	<converter generate="false">
+		<id>org.richfaces.IntegerColor</id>
+		<classname>org.richfaces.convert.IntegerColorConverter</classname>
+	</converter>
+	
+	<converter generate="false">
+		<id>org.richfaces.LongColor</id>
+		<classname>org.richfaces.convert.LongColorConverter</classname>
+	</converter>
+
+	<converter generate="false">
+		<id>org.richfaces.AWTColor</id>
+		<classname>org.richfaces.convert.AWTColorConverter</classname>
+	</converter>
+</components>
+	

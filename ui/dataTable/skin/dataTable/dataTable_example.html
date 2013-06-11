@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Untitled</title>
+<style>
+.dttbl_table{
+	border-top : 1px solid #c0c0c0;  /*panelBorderColor*/
+	border-left : 1px solid #c0c0c0; /*panelBorderColor*/
+	background-color : #ffffff;  /*tableBackgroundColor*/
+}
+
+.dttbl_cell{
+	border-right : 1px solid #c0c0c0;  /*panelBorderColor*/
+	border-bottom : 1px solid #c0c0c0;  /*panelBorderColor*/
+	padding : 4px 4px 4px 4px;
+	font-size : 11px;  /*generalSizeFont*/
+	color : #000000; /*generalTextColor*/
+	font-family : verdana; /*generalFamilyFont*/
+}
+.dttbl_header{
+	color : #FFFFFF; /*headerTextColor*/
+	background-color : #4A75B5; /*headerBackgroundColor*/
+	text-align : center;
+	font-weight : bold;
+	background-image : url(dttbl_header_bg.gif); /*from headerGradientColor to headerBackgroundColor*/
+	background-position : top left;
+	background-repeat : repeat-x;
+}
+.dttbl_subheader{
+	background-color : #EAF0F8; /*additionalBackgroundColor*/
+	text-align : center;
+}
+
+.dttbl_footer{
+	background-color : #cccccc; /*tableFooterBackgroundColor*/
+}
+.dttbl_subfooter{
+	background-color : #f1f1f1; /*tableSubfooterBackgroundColor*/
+}
+
+.dttbl_blockbegin .dttbl_cell{
+	border-top : 2px solid #c0c0c0;
+}
+</style>
+</head>
+
+<body style="margin : 20px">
+
+<TABLE border=0 cellpadding="0" cellspacing="0" class="dttbl_table">
+  <TBODY>
+  <TR class="dttbl_header">
+    <TH class="dttbl_cell" colSpan=3>headerTop1</TH>
+    <TH class="dttbl_cell" colSpan=2>headerTop2</TH></TR>
+  <TR class="dttbl_subheader">
+    <TD class="dttbl_cell">headCol1</TD>
+    <TD class="dttbl_cell">headCol2</TD>
+    <TD class="dttbl_cell">headCol3</TD>
+    <TD class="dttbl_cell">headCol4</TD>
+    <TD class="dttbl_cell">headCol5</TD></TR>
+  <TR class="dttbl_blockbegin">
+    <TD class="dttbl_cell">Col1.1</TD>
+    <TD class="dttbl_cell">Col2.1</TD>
+    <TD class="dttbl_cell">Col3.1</TD>
+    <TD class="dttbl_cell">Col4.1</TD>
+    <TD class="dttbl_cell">Col5.1</TD></TR>
+  <TR class="dttbl_subheader">
+    <TH class="dttbl_cell" colSpan=5>inhead</TH></TR>
+  <TR>
+    <TD class="dttbl_cell" colSpan=2>inrow1.1</TD>
+    <TD class="dttbl_cell">inrow11.2</TD>
+    <TD class="dttbl_cell" colSpan=2>inrow1.3</TD></TR>
+  <TR>
+    <TD class="dttbl_cell" colSpan=2>inrow1.1</TD>
+    <TD class="dttbl_cell">inrow11.2</TD>
+    <TD class="dttbl_cell" colSpan=2>inrow1.3</TD></TR>
+  <TR>
+    <TD class="dttbl_cell" colSpan=2>inrow1.1</TD>
+    <TD class="dttbl_cell">inrow11.2</TD>
+    <TD class="dttbl_cell" colSpan=2>inrow1.3</TD></TR>
+  <TR class="dttbl_subfooter">
+    <TH class="dttbl_cell" colSpan=4>infooter1</TH>
+    <TH class="dttbl_cell">infooter2</TH></TR>
+  <TR class="dttbl_blockbegin">
+    <TD class="dttbl_cell">Col1.3</TD>
+    <TD class="dttbl_cell">Col2.3</TD>
+    <TD class="dttbl_cell">Col3.3</TD>
+    <TD class="dttbl_cell">Col4.3</TD>
+    <TD class="dttbl_cell">Col5.3</TD></TR>
+  <TR class="dttbl_subheader">
+    <TH class="dttbl_cell" colSpan=5>inhead</TH></TR>
+  <TR>
+    <TD class="dttbl_cell" colSpan=2>inrow1.1</TD>
+    <TD class="dttbl_cell">inrow11.2</TD>
+    <TD class="dttbl_cell" colSpan=2>inrow1.3</TD></TR>
+  <TR>
+    <TD class="dttbl_cell" colSpan=2>inrow1.1</TD>
+    <TD class="dttbl_cell">inrow11.2</TD>
+    <TD class="dttbl_cell" colSpan=2>inrow1.3</TD></TR>
+  <TR>
+    <TD class="dttbl_cell" colSpan=2>inrow1.1</TD>
+    <TD class="dttbl_cell">inrow11.2</TD>
+    <TD class="dttbl_cell" colSpan=2>inrow1.3</TD></TR>
+  <TR class="dttbl_subfooter">
+    <TH class="dttbl_cell" colSpan=4>infooter1</TH>
+    <TH class="dttbl_cell">infooter2</TH></TR>
+  <TR class="dttbl_blockbegin">
+    <TD class="dttbl_cell">Col1.6</TD>
+    <TD class="dttbl_cell">Col2.6</TD>
+    <TD class="dttbl_cell">Col3.6</TD>
+    <TD class="dttbl_cell">Col4.6</TD>
+    <TD class="dttbl_cell">Col5.6</TD></TR>
+  <TR class="dttbl_subfooter dttbl_blockbegin">
+    <TD class="dttbl_cell">footCol1</TD>
+    <TD class="dttbl_cell">footCol2</TD>
+    <TD class="dttbl_cell">footCol3</TD>
+    <TD class="dttbl_cell">footCol4</TD>
+    <TD class="dttbl_cell">footCol5</TD></TR> 
+<TR class="dttbl_footer">
+    <TD class="dttbl_cell" colspan="5">footCol1</TD>
+</TR></TBODY></TABLE>
+
+
+
+
+
+</body>
+</html>

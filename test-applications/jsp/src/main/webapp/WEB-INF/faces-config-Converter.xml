@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.0//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_0.dtd">
+<faces-config>
+ <converter>
+  <converter-id>listShuttleConverter</converter-id>
+  <converter-class>listShuttle.ListShuttleConverter</converter-class>
+ </converter>
+ <converter>
+  <converter-id>orderingListConverter</converter-id>
+  <converter-class>orderingList.OrderingListConverter</converter-class>
+ </converter>
+ <!--
+ <converter>
+  <converter-id>pickListConverter</converter-id>
+  <converter-class>pickList.PickListConverter</converter-class>
+ </converter>
+ <converter>
+  <converter-id>comboBoxConverter</converter-id>
+  <converter-class>util.converter.ComboBoxConverter</converter-class>
+ </converter>
+ -->
+ <converter>
+  <converter-id>dataConverter</converter-id>
+  <converter-class>util.converter.DataConverter</converter-class>
+ </converter>
+ <converter>
+  <converter-id>inplaceInputConverter</converter-id>
+  <converter-class>util.converter.InplaceInputConverter</converter-class>
+ </converter>
+ <converter>
+  <converter-id>dateValueConverter</converter-id>
+  <converter-class>util.converter.DateValueConverter</converter-class>
+ </converter> 
+ <converter>
+  <converter-id>colorPickerConverter</converter-id>
+  <converter-class>colorPicker.ColorPickerConverter</converter-class>
+ </converter> 
+</faces-config>

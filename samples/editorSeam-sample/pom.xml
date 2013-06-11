@@ -1,0 +1,116 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<artifactId>samples</artifactId>
+		<groupId>org.richfaces</groupId>
+		<version>3.3.1.GA</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.richfaces.samples</groupId>
+	<artifactId>editorSeam-sample</artifactId>
+	<packaging>war</packaging>
+	<name>Editor with Seam sample Maven Webapp</name>
+	<dependencies>
+		<dependency>
+			<groupId>org.richfaces.ui</groupId>
+			<artifactId>editor</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.richfaces.ui</groupId>
+			<artifactId>core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.seam</groupId>
+			<artifactId>jboss-seam</artifactId>
+			<version>2.1.0.SP1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.richfaces.framework</groupId>
+					<artifactId>richfaces-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.richfaces.framework</groupId>
+					<artifactId>richfaces-impl</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.richfaces.ui</groupId>
+					<artifactId>richfaces-ui</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>servlet-api</artifactId>
+					<groupId>javax.servlet</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+		<dependency>
+    <groupId>javassist</groupId>
+    <artifactId>javassist</artifactId>
+    <version>3.8.0.GA</version>
+</dependency>
+<dependency>
+<groupId>org.apache.geronimo.specs</groupId>
+<artifactId>geronimo-jta_1.0.1B_spec</artifactId>
+<version>1.1</version>
+</dependency>
+<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>3.0.0.ga</version>
+        </dependency>
+<dependency>
+         <groupId>dom4j</groupId>
+         <artifactId>dom4j</artifactId>
+         <version>1.6.1</version>
+</dependency> 
+<dependency>
+         <groupId>org.antlr</groupId>
+         <artifactId>antlr</artifactId>
+         <version>3.0</version>
+      </dependency>
+
+		<dependency>
+			<groupId>org.jboss.seam</groupId>
+			<artifactId>jboss-seam-ui</artifactId>
+			<version>2.1.0.SP1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>jsf-api</artifactId>
+					<groupId>javax.faces</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jsf-impl</artifactId>
+					<groupId>javax.faces</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.seam</groupId>
+			<artifactId>jboss-seam-debug</artifactId>
+			<version>2.1.0.SP1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>jsf-api</artifactId>
+					<groupId>javax.faces</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jsf-impl</artifactId>
+					<groupId>javax.faces</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>editorSeam-sample</finalName>
+
+	</build>
+</project>

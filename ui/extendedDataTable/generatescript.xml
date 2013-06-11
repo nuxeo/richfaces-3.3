@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!-- ====================================================================== 
+     12.11.2005 23:40:43                                                        
+
+     assemblescripts    
+     Assemble all javaScript library files to one extended-data-table.js
+                   
+     maksim         
+                                                     
+     ====================================================================== -->
+
+<project name="assemblescripts" default="merge-scripts">
+	
+	<description>
+            Assemble all javaScript library files to one extended-data-table.js 
+    </description>
+		
+	<target name="merge-scripts-eclipse-3.3">
+				<property name="script-path" value="org/richfaces/renderkit/html/scripts"></property>
+				<property name="gen-script-name" value="extended-data-table.js"></property>	
+				<property name="gen-script-full-name" value="${target-dir}/${script-path}/${gen-script-name}"></property>
+				<concat append="false" binary="false"  destfile="${gen-script-full-name}">
+					<filelist dir="${resources-dir}">
+						<file name="${resources-dir}/ClientUI/controls/datatable/ExtendedDataTable.js"/>
+						<file name="${resources-dir}/ClientUI/controls/datatable/ExtendedDataTableHeader.js"/>
+						<file name="${resources-dir}/ClientUI/controls/datatable/ExtendedDataTableSelection.js"/>
+					</filelist>
+				</concat>
+			</target>
+	
+	
+		<target name="merge-scripts">
+			<property name="script-path" value="org/richfaces/renderkit/html/scripts"></property>
+			<property name="gen-script-name" value="extended-data-table.js"></property>	
+			<property name="gen-script-full-name" value="${target-dir}/${script-path}/${gen-script-name}"></property>
+			<concat append="false" binary="false"  destfile="${gen-script-full-name}">
+				<filelist dir="${resources-dir}">
+					<file name="ClientUI/controls/datatable/ExtendedDataTable.js"/>
+					<file name="ClientUI/controls/datatable/ExtendedDataTableHeader.js"/>
+					<file name="ClientUI/controls/datatable/ExtendedDataTableSelection.js"/>
+				</filelist>
+			</concat>
+		</target>
+</project>
+

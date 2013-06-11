@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS ENTITY="JSFProcess">
+ <PROCESS-ITEM ENTITY="JSFProcessGroup" NAME="rules:" SHAPE="32,17,0,0">
+  <PROCESS-ITEM ENTITY="JSFProcessItem" ID="rules::0" NAME="item">
+   <PROCESS-ITEM-OUTPUT ENTITY="JSFProcessItemOutput"
+    ID="xhtml::#faces#pages#index.xhtml" NAME="output"
+    PATH="/faces/pages/index.xhtml"
+    TARGET="rules:#faces#pages#index.xhtml" TITLE="xhtml"/>
+   <PROCESS-ITEM-OUTPUT ENTITY="JSFProcessItemOutput"
+    ID="jsp::#faces#pages#index.jsp" NAME="output1"
+    PATH="/faces/pages/index.jsp" TARGET="rules:#faces#pages#index.jsp" TITLE="jsp"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="JSFProcessGroup"
+  NAME="rules:#faces#pages#index.jsp" PATH="/faces/pages/index.jsp" SHAPE="256,177,0,0"/>
+ <PROCESS-ITEM ENTITY="JSFProcessGroup"
+  NAME="rules:#faces#pages#index.xhtml" PATH="/faces/pages/index.xhtml" SHAPE="256,33,0,0"/>
+</PROCESS>

@@ -1,0 +1,126 @@
+	<listener>
+		<name>dropListener</name>
+		<property existintag="true" exist="true" el="true" elonly="true">
+			<name>binding</name>
+			
+			<classname>org.richfaces.dropListener</classname>
+			<description>The attribute takes a value-binding expression for a component property of
+				a backing bean</description>
+		</property>
+		<listenerclass>
+			org.richfaces.event.DropListener
+		</listenerclass>
+		<componentclass>
+			org.richfaces.event.DropSource
+		</componentclass>
+		<eventclass>
+			org.richfaces.event.DropEvent
+		</eventclass>
+		<taghandler generate="false">
+			<classname>
+				org.richfaces.taglib.DropListenerHandler
+			</classname>
+		</taghandler>
+		<property existintag="true" exist="true" el="false">
+			<name>type</name>
+			<classname>java.lang.String</classname>
+		</property>
+	</listener>
+
+	<listener>
+		<name>dragListener</name>
+		<property existintag="true" exist="true" el="true" elonly="true">
+			<name>binding</name>
+			<classname>org.richfaces.dragListener</classname>
+			<description>The attribute takes a value-binding expression for a component property of
+				a backing bean</description>
+		</property>
+		<listenerclass>
+			org.richfaces.event.DragListener
+		</listenerclass>
+		<componentclass>
+			org.richfaces.component.Draggable
+		</componentclass>
+		<eventclass>
+			org.richfaces.event.DragEvent
+		</eventclass>
+		<taghandler generate="false">
+			<classname>
+				org.richfaces.taglib.DragListenerHandler
+			</classname>
+		</taghandler>
+		<property existintag="true" exist="true" el="false">
+			<name>type</name>
+			<classname>java.lang.String</classname>
+		</property>
+	</listener>
+
+
+	<listener>
+		<name>changeExpandListener</name>
+		<property existintag="true" exist="true" el="true" elonly="true">
+			<name>binding</name>
+			<classname>org.richfaces.changeExpandListener</classname>
+			<description>The attribute takes a value-binding expression for a component property of
+				a backing bean</description>
+		</property>
+		<listenerclass>
+			org.richfaces.event.NodeExpandedListener
+		</listenerclass>
+		<componentclass>
+			org.richfaces.event.TreeListenerEventsProducer
+		</componentclass>
+		<eventclass>
+			org.richfaces.event.NodeExpandedEvent
+		</eventclass>
+		<taghandler generate="true">
+			<classname>
+				org.richfaces.taglib.ChangeExpandListenerTagHandler
+			</classname>
+		</taghandler>
+		<tag generate="true">
+			<classname>
+				org.richfaces.taglib.ChangeExpandListenerTag
+			</classname>
+		</tag>
+
+		<property existintag="true" exist="true" el="false">
+			<name>type</name>
+			<classname>java.lang.String</classname>
+			<description>The fully qualified Java class name for the listener</description>
+		</property>
+	</listener>
+	<listener>
+		<name>nodeSelectListener</name>
+		<property existintag="true" exist="true" el="true" elonly="true">
+			<name>binding</name>
+			<classname>org.richfaces.nodeSelectListener</classname>
+			<description>The attribute takes a value-binding expression for a component property of
+				a backing bean</description>
+		</property>
+		<listenerclass>
+			org.richfaces.event.NodeSelectedListener
+		</listenerclass>
+		<componentclass>
+			org.richfaces.event.TreeListenerEventsProducer
+		</componentclass>
+		<eventclass>
+			org.richfaces.event.NodeSelectedEvent
+		</eventclass>
+		<taghandler generate="true">
+			<classname>
+				org.richfaces.taglib.NodeSelectListenerTagHandler
+			</classname>
+		</taghandler>
+		<tag generate="true">
+			<classname>
+				org.richfaces.taglib.NodeSelectListenerTag
+			</classname>
+		</tag>
+		
+		<property existintag="true" exist="true" el="false">
+			<name>type</name>
+			<classname>java.lang.String</classname>
+			<description>The fully qualified Java class name for the listener</description>
+		</property>
+	</listener>

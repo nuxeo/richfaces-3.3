@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+	<resource class="org.richfaces.renderkit.html.Paint2DResource">
+		<name>org.richfaces.renderkit.html.Paint2DResource</name>
+	</resource>
+
+	<resource class="org.richfaces.renderkit.html.Paint2DCachedResource">
+		<name>org.richfaces.renderkit.html.Paint2DCachedResource</name>
+	</resource>
+</resource-config>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="attrForm">
+			<h:outputText value="rows" />
+			<h:inputText id="rows" value="#{dataList.rows}">
+				<a4j:support event="onchange" reRender="panelGroup"/>
+			</h:inputText>		
+		</h:form>
+		<h:form id="mainForm">
+			<h:panelGroup id="panelGroup">
+				<rich:dataList id="dataList" value="#{dataList.model}" var="rows"
+					rows="#{dataList.rows}" ajaxKeys="#{dataList.ajaxKeys}"
+					stateVar="stateVar" rowKeyVar="rowKeyVar"
+					componentState="#{componentState}"
+					rowKeyConverter="#{dataList.rowKeyConverter}">
+					<h:outputText id="rowKeyVar" value="#{rowKeyVar} "></h:outputText>
+					<h:outputText id="first" value="#{stateVar.range.firstRow} "></h:outputText>
+					<h:outputText id="rows" value="#{stateVar.range.rows} "></h:outputText>
+					<h:outputText id="firstState" value="#{componentState.range.firstRow} "></h:outputText>
+					<h:outputText id="rowsState" value="#{componentState.range.rows} "></h:outputText>
+					<h:outputText value="#{rows.cell1}"></h:outputText>
+					<h:inputText id="inputText" value="#{rows.cell2}" validator="#{dataList.validate}"></h:inputText>
+					<h:outputText value="#{rows.cell3}"></h:outputText>
+					<h:commandButton id="submit" value="submit" actionListener="#{dataList.submit}"></h:commandButton>
+					<a4j:commandButton id="ajaxSubmit" value="ajaxSubmit" actionListener="#{dataList.submit}"></a4j:commandButton>
+					<a4j:commandButton id="ajaxSingleSubmit" value="ajaxSingleSubmit" actionListener="#{dataList.submit}" ajaxSingle="true"></a4j:commandButton>
+				</rich:dataList>
+				<a4j:commandButton id="reRender" value="reRender"  reRender="inputText" actionListener="#{dataList.reRender}"></a4j:commandButton>
+			</h:panelGroup>
+		</h:form>
+		<a4j:outputPanel ajaxRendered="true">
+			<h:outputText id="outputText" value="#{dataList.trace}"></h:outputText>
+			<h:dataTable id="dataTable" value="#{dataList.model}" var="row" rows="#{dataList.rows}">
+				<h:column>
+					<h:outputText value="#{row.cell2}"></h:outputText>
+				</h:column>
+			</h:dataTable>
+		</a4j:outputPanel>
+		<rich:messages></rich:messages>
+	</ui:define>
+</ui:composition>
+</html>

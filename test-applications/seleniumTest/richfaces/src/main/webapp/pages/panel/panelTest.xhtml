@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">	
+	<ui:define name="component">
+		<h:form id="_controls">
+		</h:form>
+	
+		
+		<h:form id="_form">
+			<rich:panel id="panel" style="color: green; font-weight: bold" styleClass="myClass" 
+					bodyClass="bodyClass" 
+					headerClass="headerClass"
+					>
+				<f:facet name="header">
+					<h:outputText id="header" value="Header"></h:outputText>
+				</f:facet>
+				<h:outputText id="content" value="Panel Content"></h:outputText>
+			</rich:panel>
+		</h:form>
+		
+	</ui:define>
+	
+</ui:composition>
+</html>

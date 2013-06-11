@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<body>
+<h:form>
+Enter node name:<br />
+	<h:inputText value="#{person.name}" size="15" />
+	<br />
+	<br />
+	<br />
+	<br />
+	<h:commandButton type="submit" value="Create Node"
+		action="#{manager.addChild(person)}" />
+	<h:commandButton type="submit" value="Delete all"
+		action="#{manager.deleteAll()}" />
+</h:form>
+<f:subview id="childs" rendered="#{!empty(childs)}">
+	<h:dataTable value="#{childs}" var="child">
+		<h:column>
+			<h:outputText value="Name: #{child.name}" />
+			<br />
+			<h:outputText value="Id: #{child.id}" />
+			<br />
+			<h:outputText value="Type: #{child.type}" />
+			<br />
+			<h:outputText value="Status: #{child.status}" />
+			<br />
+			<h:outputText value="Valid Period: #{child.validPeriod}" />
+			<br />
+			<h:outputText value="Last Updated: #{child.lastUpdated}" />
+			<br />
+			<h:outputText value="Parent: #{child.parentNode.id}" />
+			<br />
+		</h:column>
+	</h:dataTable>
+</f:subview>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich">
+	<head><title>test</title></head>
+	<body>
+  
+	  <rich:modalPanel id="test_panel"
+	  						keepVisualState="true" 							 
+							 showWhenRendered="true" 
+							 moveable="true"
+							 resizeable="true"
+							 >
+			    <f:facet name="header">
+			        <h:outputText id="header" value="header" />
+			    </f:facet>
+			    <h:form>
+			    	<h:commandLink value="Submit"></h:commandLink>
+			    </h:form>
+		</rich:modalPanel>	    
+	
+	</body>
+</html>

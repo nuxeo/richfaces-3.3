@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http://jsf.exadel.com/template'
+	xmlns:u='http://jsf.exadel.com/template/util'
+	xmlns="http://www.w3.org/1999/xhtml">
+
+<f:verbatim>
+<![CDATA[
+.dr-spnr-e {
+
+	padding: 0px;
+	margin: 0px;
+	background-position: left top;
+	background-repeat: repeat-x;
+	border-style: inset;
+	border-width: 1px 0px 1px 1px;
+}
+
+input.dr-spnr-i {
+	border: 0px;
+	padding: 0px 0px 0px 3px;
+	background: none transparent scroll repeat 0% 0%;
+	margin: 0px;
+}
+
+.dr-spnr-b {
+	border-width: 1px;
+	border-style: solid;
+	padding: 0px;
+	margin: 0px;
+	background-position: left top;
+	background-repeat: repeat-x;
+	font-size: 0px;
+}
+
+.dr-spnr-bn{
+	margin: 0px 1px 1px 0px;
+	display: block;
+	border-style: none;
+}
+
+.dr-spnr-bp{
+	margin: 1px 0px 0px 1px;
+	display: block;
+	border-style: none;
+}
+]]>
+
+</f:verbatim>
+	
+	<u:selector name=".dr-spnr-b">
+		<u:style name="background-color" skin="headerBackgroundColor" />
+		<u:style name="border-color" skin="panelBorderColor" />
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.SpinnerButtonGradient" />
+		</u:style>
+	</u:selector>
+	
+	<u:selector name=".dr-spnr-i">
+		<u:style name="font-size" skin="buttonSizeFont"/>
+		<u:style name="font-family" skin="buttonFamilyFont"/>
+	</u:selector>
+
+	<u:selector name=".dr-spnr-e">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.SpinnerFieldGradient" />
+		</u:style>
+		<u:style name="background-color" skin="controlBackgroundColor" />
+		<u:style name="border-color" skin="panelBorderColor" />
+	</u:selector>
+
+</f:template>

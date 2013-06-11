@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config>
+ <managed-bean>
+  <managed-bean-name>bean</managed-bean-name>
+  <managed-bean-class>org.richfaces.example.Bean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+ 	<managed-bean-name>data</managed-bean-name>
+ 	<managed-bean-class>org.richfaces.DataBean</managed-bean-class>
+ 	<managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+ 	<managed-bean-name>lengthBean</managed-bean-name>
+ 	<managed-bean-class>org.richfaces.LengthBean</managed-bean-class>
+ 	<managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+ 	<managed-bean-name>minMaxBean</managed-bean-name>
+ 	<managed-bean-class>org.richfaces.MinMaxBean</managed-bean-class>
+ 	<managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+ 	<managed-bean-name>pages</managed-bean-name>
+ 	<managed-bean-class>org.richfaces.Pages</managed-bean-class>
+ 	<managed-bean-scope>application</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+ 	<managed-bean-name>contentBean</managed-bean-name>
+ 	<managed-bean-class>org.richfaces.ContentBean</managed-bean-class>
+ 	<managed-bean-scope>none</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+ 	<managed-bean-name>tabNavigation</managed-bean-name>
+ 	<managed-bean-class>org.richfaces.TabNavigation</managed-bean-class>
+ 	<managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+ 	<managed-bean-name>graphValidatorBean</managed-bean-name>
+ 	<managed-bean-class>org.richfaces.example.GraphValidatorBean</managed-bean-class>
+ 	<managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+</faces-config>

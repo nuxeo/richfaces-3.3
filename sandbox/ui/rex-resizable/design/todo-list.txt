@@ -1,0 +1,4 @@
+1. name attribute that allow to specify the variable for the Ext.Resizable object
+2. enable wrap: false/true  mode. 'for' attribute to point to the component or dom element to attach (equals to wrap:false)
+3. process right  adjustments and resizeChild attributes that allow variable types
+4. skining for used images

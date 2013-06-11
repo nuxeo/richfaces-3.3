@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim><![CDATA[
+.mceItemFlash, .mceItemShockWave, .mceItemQuickTime, .mceItemWindowsMedia, .mceItemRealMedia {border:1px dotted #cc0000; background-position:center; background-repeat:no-repeat; background-color:#ffffcc;}
+]]>
+</f:verbatim>
+<u:selector name=".mceItemShockWave">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/media/img/shockwave.gif"/>
+	</u:style>
+</u:selector>
+<u:selector name=".mceItemFlash">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/media/img/flash.gif"/>
+	</u:style>
+</u:selector>
+<u:selector name=".mceItemQuickTime">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/media/img/quicktime.gif"/>
+	</u:style>
+</u:selector>
+<u:selector name=".mceItemWindowsMedia">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/media/img/windowsmedia.gif"/>
+	</u:style>
+</u:selector>
+<u:selector name=".mceItemRealMedia">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/media/img/realmedia.gif"/>
+	</u:style>
+</u:selector>
+</f:template>

@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+		<h:inputText id="validManager" required="true" value="1" requiredMessage="field is required"/>&#160;
+		<table cellpadding="5" >
+			<tr>
+				<td>1.1</td>
+				<td>
+					<h:outputLink id="link" style="text-decoration: none; color: blue;" value="#">
+						attribute actionListener
+						<ui:insert name="support1"/>
+					</h:outputLink>
+				</td>
+				<td><div><h:outputText style="font-weight: bold; border: 1px solid green" value="#{ajaxSupport.data}" id="data1"></h:outputText></div></td>
+			</tr>
+			<tr>
+				<td>1.2</td>
+				<td>
+					<h:outputLink id="linkAL" style="text-decoration: none; color: blue;" value="#">
+						tag actionListener
+						<ui:insert name="support2"/>
+					</h:outputLink>
+				</td>
+				<td><h:outputText style="font-weight: bold; border: 1px solid green" value="#{ajaxSupport.data}" id="data1AL"></h:outputText></td>
+			</tr>
+			<tr>
+				<td>2.1</td>
+				<td>
+					<h:selectBooleanCheckbox id="checkbox" value="#{ajaxSupport.checkboxValue1}">
+						<ui:insert name="support3"/>
+					</h:selectBooleanCheckbox>
+					attribute actionListener
+				</td>
+				<td><h:outputText style="font-weight: bold; border: 1px solid green" value="#{ajaxSupport.data}" id="data2"></h:outputText></td>
+				<td><h:outputText value="#{ajaxSupport.checkboxValue1}" id="data2_ch"></h:outputText></td>
+			</tr>
+			<tr>
+				<td>2.2</td>
+				<td>
+					<h:selectBooleanCheckbox id="checkboxAL" value="#{ajaxSupport.checkboxValue2}">
+						<ui:insert name="support4"/>
+					</h:selectBooleanCheckbox>
+					tag actionListener
+				</td>
+				<td><h:outputText style="font-weight: bold; border: 1px solid green" value="#{ajaxSupport.data}" id="data2AL"></h:outputText></td>
+				<td><h:outputText value="#{ajaxSupport.checkboxValue1}" id="data2AL_ch"></h:outputText></td>
+			</tr>
+		</table>
+		<a4j:outputPanel ajaxRendered="true">
+			<h:outputText id="ajax_status"  value="#{ajaxSupport.status}"></h:outputText>
+		</a4j:outputPanel>
+		</h:form>
+		</ui:define>
+	</ui:composition>
+</html>

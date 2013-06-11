@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+<components>
+	<component>
+		<name>org.richfaces.SortControl</name>
+		<family>org.richfaces.SortControl</family>
+		<classname>org.richfaces.component.HtmlSortableControl</classname>
+		<superclass>org.richfaces.component.UISortableControl</superclass>
+		<description>
+			<![CDATA[
+    ]]>
+		</description>
+		<renderer generate="false" override="false">
+			<name>org.richfaces.SortControlRenderer</name>
+			<classname>org.richfaces.renderkit.html.SortControlRenderer</classname>
+		</renderer>
+		<tag>
+			<name>sortControl</name>
+			<classname>org.richfaces.taglib.SortControlTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		&ui_component_attributes;
+	</component>
+</components>

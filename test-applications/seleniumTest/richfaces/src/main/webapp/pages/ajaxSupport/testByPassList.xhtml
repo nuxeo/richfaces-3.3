@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="testTemplate.xhtml">
+
+			<ui:define name="support3">
+				<a4j:support id="support2_" event="onchange" bypassUpdates="true" reRender="data2_, data2_ch" actionListener="#{ajaxSupport.linkListener}" ></a4j:support>
+			</ui:define>
+			<ui:define name="support4">
+				<a4j:support id="support2AL_" event="onchange" bypassUpdates="true" reRender="data2AL_, data2AL_ch" >
+					<f:actionListener type="org.ajax4jsf.listener.AjaxSupportActionListener" />
+				</a4j:support>
+			</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util' 
+   xmlns="http://www.w3.org/1999/xhtml" >
+   
+	<u:selector name=".rich-sort-asc" >
+	</u:selector>
+	
+	<u:selector name=".rich-sort-desc" >
+	</u:selector>
+	
+	<u:selector name=".rich-deflist" >
+	</u:selector>
+	
+	<u:selector name=".rich-table" >
+	</u:selector>
+	
+	<u:selector name=".rich-datalist" >
+	</u:selector>
+	
+	<u:selector name=".rich-list-item" >
+	</u:selector>
+	
+	<u:selector name=".rich-orderedlist" >
+	</u:selector>
+	
+	<u:selector name=".rich-definition-term" >
+	</u:selector>
+	
+	<u:selector name=".rich-definition" >
+	</u:selector>
+	
+	<u:selector name=".rich-table-header" >
+        <u:style name="background-position" value="0% 0%" />
+		<u:style name="padding" value="6px " />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="top" />
+                
+                <f:attribute name="gradientHeight" value="22px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-table-header-continue" >
+        <u:style name="background-position" value="0% 100%" />
+		<u:style name="padding" value="6px " />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="top" />
+                
+                <f:attribute name="gradientHeight" value="22px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-table-headercell" >
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+	
+	<u:selector name=".rich-table-subheader" >
+	</u:selector>
+	
+	<u:selector name=".rich-table-subheadercell" >
+	</u:selector>
+	
+	<u:selector name=".rich-table-footer" >
+	</u:selector>
+	
+	<u:selector name=".rich-table-footer-continue" >
+	</u:selector>
+	
+	<u:selector name=".rich-table-footercell" >
+	</u:selector>
+	
+	<u:selector name=".rich-table-subfooter" >
+	</u:selector>
+	
+	<u:selector name=".rich-sort-desc" >
+	</u:selector>
+	
+	<u:selector name=".rich-sort-desc" >
+	</u:selector>
+	
+	<u:selector name=".rich-sort-desc" >
+	</u:selector>
+	
+	<u:selector name=".rich-sort-desc" >
+	</u:selector>
+	
+	
+	rich-table-subfootercell
+	rich-table-row
+	rich-table-firstrow
+	rich-table-cell
+	rich-table-caption
+	
+	
+</f:template>

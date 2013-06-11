@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://ajax4jsf.org/cdk/template"
+	xmlns:c=" http://java.sun.com/jsf/core"
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:vcp=" http://ajax4jsf.org/cdk/vcp"
+	class="org.richfaces.renderkit.html.CalendarRenderer"
+	baseclass="org.richfaces.renderkit.CalendarRendererBase"
+	component="org.richfaces.component.UICalendar">
+	<f:clientid var="clientId" />
+	<h:scripts>new org.ajax4jsf.javascript.PrototypeScript(),new org.ajax4jsf.javascript.AjaxScript(),/org/richfaces/renderkit/html/scripts/events.js,/org/richfaces/renderkit/html/scripts/utils.js,/org/richfaces/renderkit/html/scripts/json/json-dom.js,/org/richfaces/renderkit/html/scripts/scriptaculous/effects.js,/org/richfaces/renderkit/html/scripts/jquery/jquery.js,/org/richfaces/renderkit/html/scripts/jquery/jquery.js,/org/richfaces/renderkit/html/scripts/JQuerySpinBtn.js,/org/richfaces/renderkit/html/scripts/calendar.js</h:scripts>
+
+	<h:styles>/org/richfaces/renderkit/html/css/calendar.xcss</h:styles>
+	
+	<f:call name="addPopupToAjaxRendered" />
+	
+	<span id="#{clientId}Popup"
+			x:passThruWithExclusions="value,name,type,id,styleClass,class,style"> 
+		<jsp:scriptlet>
+		<![CDATA[
+				boolean popup = getUtils().isBooleanAttribute(component, "popup");
+				if (!popup) {
+					getUtils().writeAttribute(writer, "style", "display: none");
+			
+		]]>
+		</jsp:scriptlet> 
+				<input id="#{clientId}InputDate"
+					style="display:none"	
+					name="#{clientId}InputDate"
+					value="#{this:getInputValue(context,component)}" type="hidden" />
+		<jsp:scriptlet>
+		<![CDATA[
+				} else {
+				boolean disabled = getUtils().isBooleanAttribute(component, "disabled");				
+				boolean showInput = getUtils().isBooleanAttribute(component, "showInput");
+				String onfieldclick =null;
+			    String type="text";
+				if (!showInput){
+					type="hidden";
+				}
+				
+				variables.setVariable("type",type);
+				variables.setVariable("disabled",new Boolean(disabled));
+				]]>
+				
+		</jsp:scriptlet> 
+	<f:resource
+		name="org.richfaces.renderkit.html.iconimages.CalendarIcon" var="icon" />
+	<f:resource
+		name="org.richfaces.renderkit.html.iconimages.DisabledCalendarIcon"
+		var="disabledIcon" /> 
+	
+		<input id="#{clientId}InputDate"
+			name="#{clientId}InputDate"
+			value="#{this:getInputValue(context,component)}" type="#{type}"
+			disabled="#{disabled}"
+			accesskey="#{component.attributes['accesskey']}"
+			maxlength="#{component.attributes['maxlength']}"
+			onchange="#{component.attributes['oninputchange']}"
+			onselect="#{component.attributes['oninputselect']}"
+			onfocus="#{component.attributes['oninputfocus']}"
+			onblur="#{component.attributes['oninputblur']}"
+			onclick="#{component.attributes['oninputclick']}"
+			onkeypress="#{component.attributes['oninputkeypress']}"
+			onkeydown="#{component.attributes['oninputkeydown']}"
+			onkeyup="#{component.attributes['oninputkeyup']}"
+			onmouseover="#{component.attributes['oninputmouseover']}"
+			onmouseout="#{component.attributes['oninputmouseout']}"
+			size="#{component.attributes['inputSize']}"
+			style="vertical-align: middle; #{component.attributes['inputStyle']}"
+			class="rich-calendar-input #{component.attributes['inputClass']}"
+			tabindex="#{component.attributes['tabindex']}">
+			<jsp:scriptlet>
+			<![CDATA[
+				boolean manualInput = getUtils().isBooleanAttribute(component, "enableManualInput");
+				boolean readonly = getUtils().isBooleanAttribute(component, "readonly");
+				if(!manualInput || readonly){
+						getUtils().writeAttribute(writer, "readonly", "readonly");
+					}   
+			     	]]>
+			</jsp:scriptlet>
+		
+		</input> 
+		<jsp:scriptlet>
+		 <![CDATA[
+			String buttonIcon = org.richfaces.component.util.ViewUtil.getResourceURL((String) component.getAttributes().get("buttonIcon"),context);
+			String buttonIconDisabled = org.richfaces.component.util.ViewUtil.getResourceURL((String) component.getAttributes().get("buttonIconDisabled"),context);
+			String buttonLabel = (String) component.getAttributes().get("buttonLabel");
+			variables.setVariable("buttonLabel",buttonLabel);
+			variables.setVariable("buttonIconDisabled",buttonIconDisabled);
+			variables.setVariable("buttonIcon",buttonIcon);
+			if(buttonLabel==null || buttonLabel.length()==0){	
+		]]>
+		 </jsp:scriptlet><img id="#{clientId}PopupButton" alt=""
+		class="rich-calendar-button #{component.attributes['buttonClass']}"
+		accesskey="#{component.attributes['accesskey']}"
+		style="vertical-align: middle"
+		tabindex="#{component.attributes['tabindex']}">
+	<jsp:scriptlet>
+			<![CDATA[
+			    if(!disabled){
+			    	
+			    	//getUtils().writeAttribute(writer, "onclick", "$('"+clientId+"').component.doSwitch();");
+			    	if(buttonIcon==null){
+						getUtils().writeAttribute(writer, "src", variables.getVariable("icon"));
+					}
+					else{
+						getUtils().writeAttribute(writer, "src", buttonIcon);
+					}
+			    }
+			    else{
+			    	
+			    		//getUtils().writeAttribute(writer, "onclick", null);
+			    		if(buttonIconDisabled==null){
+							getUtils().writeAttribute(writer, "src", variables.getVariable("disabledIcon"));
+						}
+						else{
+							getUtils().writeAttribute(writer, "src", buttonIconDisabled);
+							}	
+			    	}			    
+			]]>
+		</jsp:scriptlet> </img> <jsp:scriptlet>
+		<![CDATA[
+				}
+			else{		
+		]]>
+	</jsp:scriptlet>
+	<button type="button" id="#{clientId}PopupButton" name="#{clientId}PopupButton"
+		style="vertical-align: middle"
+		class="rich-calendar-button #{component.attributes['buttonClass']}"
+		tabindex="#{component.attributes['tabindex']}" disabled="#{disabled}">
+	#{buttonLabel}</button>
+	<jsp:scriptlet>
+		<![CDATA[
+				} 
+		]]>
+	</jsp:scriptlet> <jsp:scriptlet>
+		<![CDATA[
+				} 
+		]]>
+	</jsp:scriptlet> 
+		<c:object var="currentDate" type="java.util.Date" value="#{component.currentDateOrDefault}" />
+
+		<input id="#{clientId}InputCurrentDate"
+			style="display:none"	
+			name="#{clientId}InputCurrentDate"
+			value="#{this:getCurrentDateAsString(context,component,currentDate)}" type="hidden" />
+		<f:call name="dayCellClass" />
+	</span>
+	<div style="display: none;" id="#{clientId}IFrame"></div>
+	<div style="display: none;" id="#{clientId}">
+	</div>
+	<div style="display: none;" id="#{clientId}Script">
+	<script type="text/javascript">
+		new Calendar('#{clientId}', {
+		
+			<jsp:scriptlet>/*<![CDATA[*/
+					String mode = (String) component.getAttributes().get("mode");
+					if(org.richfaces.component.UICalendar.AJAX_MODE.equals(mode)){
+			/*]]>*/</jsp:scriptlet>
+			
+			submitFunction: <jsp:scriptlet>/*<![CDATA[*/writeSubmitFunction(context, component);/*]]>*/</jsp:scriptlet>,
+			
+			<jsp:scriptlet>/*<![CDATA[*/
+					}
+			/*]]>*/</jsp:scriptlet>
+		
+			dayListTableId: '#{clientId}Day', 
+			weekNumberBarId: '#{clientId}WeekNum', 
+			weekDayBarId: '#{clientId}WeekDay',
+			currentDate: #{this:getCurrentDate(context, component, currentDate)}, 
+			selectedDate: #{this:getSelectedDate(context, component)}, 
+			datePattern: '#{component.datePattern}',
+			jointPoint: '#{component.jointPoint}',
+			direction: '#{component.direction}',
+			boundaryDatesMode:'#{component.boundaryDatesMode}',
+			popup: #{component.popup},
+			enableManualInput: #{component.attributes['enableManualInput']},
+			showInput: #{component.attributes['showInput']},
+			disabled: #{component.disabled},
+			readonly: #{component.attributes['readonly']},
+			ajaxSingle: #{component.attributes['ajaxSingle']},
+			verticalOffset:#{component.verticalOffset},
+			horizontalOffset: #{component.horizontalOffset},
+			style:'z-index: #{component.attributes["zindex"]}; #{component.attributes["style"]}',
+			firstWeekDay: #{this:getFirstWeekDay(context, component)}, 
+			minDaysInFirstWeek: #{this:getMinDaysInFirstWeek(context, component)},
+			todayControlMode:'#{component.attributes["todayControlMode"]}',
+			showHeader:#{component.attributes['showHeader']},
+			showFooter:#{component.attributes['showFooter']},
+			showWeeksBar:#{component.attributes['showWeeksBar']},
+			showWeekDaysBar:#{component.attributes['showWeekDaysBar']},
+			showApplyButton:#{component.attributes['showApplyButton']},
+			resetTimeOnDateSelect:#{component.attributes['resetTimeOnDateSelect']},
+			defaultTime:#{this:getPreparedDefaultTime(component)}
+
+			<f:call name="writeLabels" />
+			
+			<f:call name="writeClass"/>
+			<f:call name="writeDayCellClass"/>
+			<f:call name="writeDayStyleClass"/>
+			<f:call name="writeIsDayEnabled"/>
+			<f:call name="writeSymbols" />
+
+			<f:call name="writeEventHandlerFunction"><f:parameter value="ondateselected" /></f:call>
+			<f:call name="writeEventHandlerFunction"><f:parameter value="ondateselect" /></f:call>
+			<f:call name="writeEventHandlerFunction"><f:parameter value="ontimeselect" /></f:call>
+			<f:call name="writeEventHandlerFunction"><f:parameter value="ontimeselected" /></f:call>
+			<f:call name="writeEventHandlerFunction"><f:parameter value="onchanged" /></f:call>
+			<f:call name="writeEventHandlerFunction"><f:parameter value="ondatemouseover" /></f:call>
+			<f:call name="writeEventHandlerFunction"><f:parameter value="ondatemouseout" /></f:call>
+			<f:call name="writeEventHandlerFunction"><f:parameter value="onexpand" /></f:call>
+			<f:call name="writeEventHandlerFunction"><f:parameter value="oncollapse" /></f:call>
+			<f:call name="writeEventHandlerFunction"><f:parameter value="oncurrentdateselect" /></f:call>
+			<f:call name="writeEventHandlerFunction"><f:parameter value="oncurrentdateselected" /></f:call>
+						
+			<jsp:scriptlet>/*<![CDATA[*/
+				if (component.getChildCount() != 0) {
+			/*]]>*/</jsp:scriptlet>
+					,\n  dayListMarkup: 
+			<jsp:scriptlet>/*<![CDATA[*/
+					writeMarkupScriptBody(context, component, true);
+				} 
+			/*]]>*/</jsp:scriptlet>
+							
+			<f:call name="writeOptionalFacetMarkupScriptBody"><f:parameter value="optionalHeader" /></f:call>
+			<f:call name="writeOptionalFacetMarkupScriptBody"><f:parameter value="optionalFooter" /></f:call>
+							
+			<f:call name="writeFacetMarkupScriptBody"><f:parameter value="weekDay" /></f:call>
+			<f:call name="writeFacetMarkupScriptBody"><f:parameter value="weekNumber" /></f:call>
+			<f:call name="writeFacetMarkupScriptBody"><f:parameter value="header" /></f:call>
+			<f:call name="writeFacetMarkupScriptBody"><f:parameter value="footer" /></f:call>				
+					
+		}).load(
+			<jsp:scriptlet>/*<![CDATA[*/
+				writePreloadBody(context, component);
+			/*]]>*/</jsp:scriptlet>
+			);
+	</script>
+	</div>
+</f:root>

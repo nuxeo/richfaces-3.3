@@ -1,0 +1,18 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	<h:form id="form">
+			<h:panelGrid columns="3">
+			<h:outputLabel for="text" value="Enter Id" />
+			<h:inputText id="text" value="#{bean.text}" label="Id">
+				<rich:beanValidator summary="Invalid Id"/>
+			</h:inputText>
+			<rich:message for="text" showDetail="true" showSummary="true" />
+			</h:panelGrid>
+					<h:commandButton value="Submit"></h:commandButton>
+			<rich:messages/>
+		</h:form>
+</ui:composition>

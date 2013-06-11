@@ -1,0 +1,70 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+                template="layout/template.xhtml">
+
+	<script>
+         function getRightTop(ref) {
+           var position = new Object();
+           position.top = 0; //ref.offsetTop;
+           position.left =0; // ref.offsetLeft+ref.clientWidth+6;
+           return position;
+         }
+    </script>
+    
+	<ui:define name="body">
+    	<h:messages globalOnly="true" styleClass="message"/>
+    	
+    	<rich:panel>
+    		<f:facet name="header">rich:modalPanel</f:facet>
+    		
+	    	<rich:modalPanel id="panel" width="350" height="100" >
+        		<f:facet name="header">
+            		<h:panelGroup>
+                		<h:outputText value="Modal Panel"></h:outputText>
+            		</h:panelGroup>
+        		</f:facet>
+        		
+        		<f:facet name="controls">
+            		<h:panelGroup>
+                		<h:graphicImage value="/img/close.png" styleClass="hidelink" id="hidelink"/>
+                		<rich:componentControl for="panel" attachTo="hidelink" operation="hide" event="onclick"/>
+            		</h:panelGroup>
+        		</f:facet>
+        		
+        		<h:outputText value="This panel is called using Component Control Component"></h:outputText>
+        		<br/>
+        		<h:outputText value="Closure link (X) works also through Component Control"></h:outputText>
+        		
+        		<a onclick="Richfaces.showModalPanel('pnl');" href="#">Show ModalPanel</a>
+
+				<a4j:form>
+				    <rich:modalPanel id="pnl">
+				        <f:facet name="header">
+				            <h:outputText value="This is a panel header" />
+				        </f:facet> 
+				
+				        <p>The &lt;rich:modalPanel&gt; accepts different types of information: 
+				        from simple text to iterative components such as &lt;rich:dataTable&gt;, etc.
+				        </p>
+				
+				        <a onclick="Richfaces.hideModalPanel('pnl');" href="#">Hide</a>
+						<a onclick="Richfaces.hideTopModalPanel();" href="#">Hide Top Modal Panel</a>
+				    </rich:modalPanel>
+				</a4j:form>
+    		</rich:modalPanel>
+    		
+    		<h:outputLink value="#" id="link">
+        	Show Modal Panel 
+        	<rich:componentControl for="panel" attachTo="link" operation="show" event="onclick"/>
+    		</h:outputLink>
+    	</rich:panel>
+    
+	</ui:define> 
+</ui:composition>

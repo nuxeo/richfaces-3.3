@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.DndParam</name>
+		<family>org.richfaces.DndParam</family>
+		<classname>org.richfaces.component.html.HtmlDndParam</classname>
+		<superclass>org.richfaces.component.UIDndParam</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlDndParamComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[A component is used for parameters transmission in Drag and Drop operations. It's also used for dragIndicator elements definition with transmitting some values for rendering in it. 
+    ]]>
+		</description>
+		<!-- renderer generate="false" override="true">
+		</renderer -->
+		<tag>
+			<name>dndParam</name>
+			<classname>org.richfaces.taglib.DndParamTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+		&ui_component_attributes;
+		<property required="true">
+			<name>name</name>
+			<classname>java.lang.String</classname>
+			<description>A name of this parameter
+			</description>
+		</property>
+		<property>
+			<name>type</name>
+			<classname>java.lang.String</classname>
+			<description>This attribute defines parameter functionality. Possible values are &quot;drag&quot;, &quot;drop&quot; and &quot;default&quot;. Default value is &quot;default&quot;.
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+		<property>
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				The current value for this component				
+			</description>
+		</property>		
+	</component>
+</components>

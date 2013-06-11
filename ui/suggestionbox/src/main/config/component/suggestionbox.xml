@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+    <component>
+        <name>org.richfaces.SuggestionBox</name>
+        <family>org.richfaces.SuggestionBox</family>
+        <classname>
+            org.richfaces.component.html.HtmlSuggestionBox
+        </classname>
+        <superclass>org.richfaces.component.UISuggestionBox</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlSuggestionBoxComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+        <description>
+            <![CDATA[
+        This element adds "on-keypress" suggestions capabilites to any input text component (like <h:inputText>).
+        It creates a pop-up window for a input field component pointed to by the "for" attribute.
+        For an ordinary request, render a hidden HTML <div> element and the necessary JavaScript code.
+        When input to the target field exceeds the "minChars" property (default is 1), perform an AJAX request with
+        the value current entered. If the AJAX request is detected and the request parameters map contains the client ID of this component,
+        call a method defined by suggestionAction, and use it to return a value as data for render table, same as <h:dataTable>.
+        In this case, the component then works the same as an ordinary dataTable. The rendered table is inserted in the pop-up area and is used for suggestion prompts
+        for input element. If a user clicks on such a table row, its text (or value defined by fetchValue) is inserted as the value of the input field.
+        ]]>
+        </description>
+		<facet>
+		   <name>nothingLabel</name>
+		   <description>Redefines the content item if the autocomplete returns empty list. Related attribute is "nothingLabel"</description>
+		</facet>
+		<facet>
+		   <name>popup</name>
+		   <description>Redefines the content for the popup list of the suggestion</description>
+		</facet>
+		<facet>
+		   <name>header</name>
+		   <description>Defines the header content</description>
+		</facet>
+		<facet>
+		   <name>footer</name>
+		   <description>Defines the footer content</description>
+		</facet>
+        <renderer generate="false" override="false">
+            <name>org.richfaces.SuggestionBox</name>
+            <classname>
+                org.richfaces.renderkit.html.SuggestionBoxRenderer
+            </classname>
+        </renderer>
+
+        <tag>
+            <name>suggestionbox</name>
+            <classname>org.richfaces.taglib.SuggestionBoxTag</classname>
+            <superclass>
+                org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+            </superclass>
+            <test/>
+        </tag>
+
+		<taghandler>
+            <classname>
+            	org.richfaces.taglib.SuggestionBoxTagHandler
+            </classname>
+		</taghandler>
+
+         <!--
+              <property>
+              <name>param</name>
+              <classname>java.lang.String</classname>
+              <description>
+              </description>
+              <defaultvalue>"default"</defaultvalue>
+              </property>
+          -->
+
+        &ui_component_attributes;
+        &ui_output_attributes;
+        &ui_data_attributes;
+        &ajax_component_attributes;
+        &ui_for_attribute;
+        &html_universal_attributes;
+        &html_table_attributes;
+        <property elonly="true">
+            <name>suggestionAction</name>
+            <classname>javax.el.MethodExpression</classname>
+            <methodargs>
+                java.lang.Object
+            </methodargs>
+            <returntype>
+                java.lang.Object
+            </returntype>
+            <description>
+                <![CDATA[Method calls an expression to get a collection of suggestion data on request. It must have one parameter with a type of Object with content of input component and must return any type allowed for <h:datatable> ]]>
+            </description>
+        </property>
+        <property>
+            <name>ajaxSingle</name>
+            <classname>boolean</classname>
+            <description>
+                Boolean attribute which provides possibility to limit JSF tree processing(decoding, conversion/validation, value applying) to the component which send the request only.
+                Default value is &quot;true&quot;
+            </description>
+            <defaultvalue>true</defaultvalue>
+        </property>
+        <property>
+            <name>usingSuggestObjects</name>
+            <classname>boolean</classname>
+            <description>
+                if true, a suggested object list will be created and will be updated every time when  an input value is changed. Default value is &quot;false&quot;.
+            </description>
+            <defaultvalue>false</defaultvalue>
+        </property>
+        <property hidden="true">
+            <name>submitted</name>
+            <classname>boolean</classname>
+        </property>
+        <property>
+            <name>selfRendered</name>
+            <classname>boolean</classname>
+            <description>
+                If "true", forces active Ajax region render response
+                directly from stored components tree, bypasses page
+                processing. Can be used for increase performance. Also,
+                must be set to 'true' inside iteration components, such
+                as dataTable.
+            </description>
+        </property>
+        <property>
+            <name>entryClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Name of the CSS class for a suggestion entry element. 
+                (table row)
+            </description>
+            <defaultvalue>""</defaultvalue>
+        </property>
+        <property>
+            <name>rowClasses</name>
+            <classname>java.lang.String</classname>
+            <description>
+                A comma-delimited list of CSS style classes that is applied to popup table rows. A space separated list of classes may also be specified for any individual row. The styles are applied, in turn, to each row in the table. For example, if the list has two elements, the first style class in the list is applied to the first row, the second to the second row, the first to the third row, the second to the fourth row, etc. In other words, we keep iterating through the list until we reach the end, and then we start at the beginning again
+            </description>
+            <defaultvalue>""</defaultvalue>
+        </property>
+
+        <property>
+            <name>immediate</name>
+            <classname>boolean</classname>
+            <description>
+                A flag indicating that this component value must be converted and validated immediately (that is, during Apply Request Values phase), rather than waiting until a Process Validations phase.
+            </description>
+        </property>
+
+        
+        <property>
+            <name>onsubmit</name>
+            <classname>java.lang.String</classname>
+            <description>HTML: script expression; before ajax event is submited</description>
+        </property>
+        
+        <property hidden="true">
+            <name>focus</name>
+            <classname>java.lang.String</classname>
+            <description></description>
+        </property>
+        
+        <property  hidden="true">
+        	<name>converter</name>
+        	<classname>javax.faces.convert.Converter</classname>
+        	<description>          
+        	</description>
+    	</property>
+             
+        <property>
+            <name>selectedClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Name of the CSS class for a selected suggestion entry
+                element (table row)
+            </description>
+        </property>
+        <property>
+            <name>selectValueClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Name of the CSS class for a selected suggestion entry
+                element (table cell)
+            </description>
+            <defaultvalue>""</defaultvalue>
+        </property>
+        <property>
+            <name>param</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Name the HTTP request parameter with the value of input
+                element token. If not set, it be will sent as an input
+                element name. In this case, input will perform
+                validation and update the value. Default value is &quot;inputvalue&quot;.
+            </description>
+            <defaultvalue>"inputvalue"</defaultvalue>
+        </property>
+        <property>
+            <name>onselect</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; after
+                value of target element is updated
+            </description>
+        </property>
+        <property>
+            <name>onobjectchange</name>
+            <classname>java.lang.String</classname>
+            <description>
+                 HTML: script expression; selected objects are changed
+            </description>
+        </property>
+        
+        <!--
+              <property>
+              <name>popup</name>
+              <classname>java.lang.String</classname>
+              <description>Name ("id" attribute) of element for pop-up suggestion content.</description>
+              <defaultvalue>this.getClientId(getFacesContext())+":_popup"</defaultvalue>
+              </property>
+          -->
+        <property>
+            <name>popupClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML CSS class attribute of element for pop-up
+                suggestion content
+            </description>
+            <defaultvalue>""</defaultvalue>
+        </property>
+        <property>
+            <name>popupStyle</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML CSS style attribute of element for pop-up
+                suggestion content
+            </description>
+            <defaultvalue>""</defaultvalue>
+        </property>
+        <property>
+            <name>style</name>
+            <classname>java.lang.String</classname>
+            <description>
+                CSS style(s) is/are to be applied when this component is rendered
+            </description>
+            <defaultvalue>""</defaultvalue>
+        </property>
+        <property>
+            <name>styleClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Corresponds to the HTML class attribute
+            </description>
+            <defaultvalue>""</defaultvalue>
+        </property>
+        <property>
+            <name>frequency</name>
+            <classname>double</classname>
+            <description>
+                Delay (in seconds) before activating the suggestion
+                pop-up. Default value is 400ms
+            </description>
+		</property>
+        <property>
+            <name>minChars</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Minimal number of chars in input to activate suggestion
+                pop-up
+            </description>
+        </property>
+        <property>
+            <name>tokens</name>
+            <classname>java.lang.Object</classname>
+            <description>
+                The list (or single value) of symbols which can be used
+                for division chosen of suggestion pop-up values in a
+                target element. After input of a symbol from the list
+                suggestion pop-up it is caused again
+            </description>
+        </property>
+        <property required="true">
+            <name>width</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Width of the pop-up window in pixels. Default value is &quot;200&quot;.
+            </description>
+            <defaultvalue>"200"</defaultvalue>
+        </property>
+        <property required="true">
+            <name>height</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Height of the pop-up window in pixels. Default value is &quot;200&quot;.
+            </description>
+            <defaultvalue>"200"</defaultvalue>
+        </property>
+        <property>
+            <name>fetchValue</name>
+            <classname>java.lang.Object</classname>
+            <description>
+                A value to set in the target input element on a choice
+                suggestion that isn't shown in the suggestion table. It
+                can be used for descriptive output comments or
+                suggestions. If not set, all text in the suggestion row
+                is set as a value
+            </description>
+        </property>
+        <property hidden="true">
+            <name>value</name>
+            <classname>java.lang.Object</classname>
+            <description>
+                Supported types see JSF Spec 4.1.3
+            </description>
+        </property>
+        <property>
+            <name>cellpadding</name>
+            <classname>java.lang.String</classname>
+            <description>
+                This attribute specifies the amount of space between the
+                border of the cell and its contents. If the value of
+                this attribute is a pixel length, all four margins
+                should be this distance from the contents. If the value
+                of the attribute is percentage length, the top and
+                bottom margins should be equally separated from the
+                content based on percentage of the available vertical
+                space, and the left and right margins should be equally
+                separated from the content based on percentage of the
+                available horizontal space
+
+            </description>
+        </property>
+        <property>
+            <name>cellspacing</name>
+            <classname>java.lang.String</classname>
+            <description>
+                This attribute specifies how much space the user agent
+                should leave between the table and the column on all
+                four sides. The attribute also specifies the amount of
+                space to leave between cells
+            </description>
+        </property>
+
+        <property>
+            <name>shadowOpacity</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Attribute defines shadow opacity for suggestion content
+            </description>
+        </property>
+        <property>
+            <name>shadowDepth</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Pop-up shadow depth for suggestion content
+            </description>
+        </property>
+        <property hidden="true">
+            <name>align</name>
+            <classname>java.lang.String</classname>
+            <description>align</description>
+        </property>
+        <property>
+            <name>zindex</name>
+            <classname>int</classname>
+            <description>
+                Attribute is similar to the standard HTML attribute and can specify window placement relative to the content. Default value is &quot;200&quot;.
+            </description>
+            <defaultvalue>200</defaultvalue>
+        </property>
+        <property hidden="true">
+            <name>submitedValue</name>
+            <classname>java.lang.Object</classname>
+            <description>submitedValue</description>
+        </property>
+        <property hidden="true" disabled="true">
+            <name>upValue</name>
+            <classname>javax.faces.context.FacesContext</classname>
+        </property>
+        <property hidden="true">
+            <name>rows</name>
+        </property>
+        <property>
+            <name>nothingLabel</name>
+            <classname>java.lang.String</classname>
+            <description>
+            	"nothingLabel" is inserted to popup list if the autocomplete returns empty list. 
+				It isn't selectable and list is closed as always after click on it and nothing is put to input.
+			</description>
+        </property>
+        <property hidden="true" existintag="false" exist="false" >
+			<name>data</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property hidden="true" existintag="false" exist="false" >
+			<name>rowNumber</name>
+			<classname>int</classname>
+		</property>
+    </component>
+</components>

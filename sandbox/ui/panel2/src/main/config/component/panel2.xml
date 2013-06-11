@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+<components>
+	<component>
+		<name>org.richfaces.panel2</name>
+		<family>org.richfaces.panel2</family>
+		<classname>org.richfaces.component.html.HtmlPanel2</classname>
+		<superclass>org.richfaces.component.UIPanel2</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlPanel2ComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[A skinnable panel that is rendered as a bordered rectangle. The header is 
+    added using a facet with the attribute, name="header".
+   			 ]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.Panel2Renderer</name>
+			<template>panel2.jspx</template>
+		</renderer>
+		<tag>
+			<name>panel2</name>
+			<classname>org.richfaces.taglib.Panel2Tag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test>
+				<classname>org.richfaces.taglib.HtmlPanel2TagTest</classname>
+				<superclassname>org.ajax4jsf.tests.AbstractJspTestCase</superclassname>
+			</test>
+			
+		</tag>
+		&ui_component_attributes;
+      	&html_events;
+        &html_style_attributes;
+		<property>
+			<name>headerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				A class that defines a style for a panel header
+			</description>
+		</property>
+		<property>
+			<name>bodyClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				A class that defines a style for a panel content
+			</description>
+		</property>
+	</component>
+</components>

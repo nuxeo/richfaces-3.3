@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:vcp="http://ajax4jsf.org/cdk/vcp"	
+	class="org.richfaces.renderkit.html.ColgroupRenderer"
+	baseclass="org.richfaces.renderkit.html.ColgroupRenderer"
+	component="org.richfaces.component.UIColumnGroup" 
+	>
+	<f:clientid var="clientId"/>
+	<tr id="#{clientId}"
+	x:passThruWithExclusions="id" >
+	<vcp:body />
+	</tr>
+</f:root>

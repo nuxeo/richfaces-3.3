@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:sg="http://labs.jboss.com/jbossrichfaces/ui/scrollableDataTable">
+
+	<ui:composition>
+		<sg:scrollableDataTable value="#{modelBuilder.model3}" var="issues"
+			frozenColCount="3" first="0" rows="40" width="100%" height="500px">
+			<ui:include src="columns.xhtml">
+				<ui:param name="issues" value="#{issues}" />
+			</ui:include>
+		</sg:scrollableDataTable>
+	</ui:composition>
+</jsp:root>

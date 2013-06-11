@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://jsf.exadel.com/template"
+	    xmlns:c="http://java.sun.com/jsf/core"
+	    xmlns:ui="http://jsf.exadel.com/ui"
+	    xmlns:vcp="http://jsf.exadel.com/vcp"
+	    xmlns:u="http://jsf.exadel.com/util"
+	    xmlns:x="http://jsf.exadel.com/mock"
+	    baseclass="org.richfaces.renderkit.DialogButtonRenderer"
+	    class="org.richfaces.renderkit.DialogButtonTemplate"
+        component="org.richfaces.component.UIDialogButton">
+ 
+ 		<f:clientId var="clientId" />                       
+                        
+                        <button 	id="#{clientId}"
+                        			dir="#{component.attributes['dir']}"
+                                    lang="#{component.attributes['lang']}"
+                                    title="#{component.attributes['title']}"
+                                    style="#{component.attributes['style']}"
+                                    class="#{component.attributes['styleClass']}"
+                                    onblur="#{component.attributes['onblur']}"
+                                    ondblclick="#{component.attributes['ondblclick']}"
+                                    onfocus="#{component.attributes['onfocus']}"
+                                    onmousedown="#{component.attributes['onmousedown']}"
+                                    onmouseup="#{component.attributes['onmouseup']}"
+                                    onmouseover="#{component.attributes['onmouseover']}"
+                                    onmousemove="#{component.attributes['onmousemove']}"
+                                    onmouseout="#{component.attributes['onmouseout']}"
+                                    onkeypress="#{component.attributes['onkeypress']}"
+                                    onkeydown="#{component.attributes['onkeydown']}"
+                                    onkeyup="#{component.attributes['onkeyup']}"
+                                    accesskey="#{component.attributes['accesskey']}"
+                                    tabindex="#{component.attributes['tabindex']}"
+                                    onclick="#{this:getOnClick(context,component)}"
+                         >#{component.attributes['value']}<vcp:body/></button>
+</f:root>

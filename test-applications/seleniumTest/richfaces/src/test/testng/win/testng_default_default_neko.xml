@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="seleniumTestDDNe">
+	<parameter name="templates" value="SIMPLE,DATA_TABLE,MODAL_PANEL" />
+	<test name="IEFunctionalTests">
+		<parameter name="browser" value="*iexplore" />
+		<parameter name="loadStyleStrategy" value="DEFAULT" />
+		<parameter name="loadScriptStrategy" value="DEFAULT" />
+		<parameter name="filterPrefix" value="/faces/NEKO/" />
+	    <packages>
+    	  <package name="org.richfaces.testng" />
+	    </packages>
+	</test>
+	<test name="FireFoxFunctionalTestsDDNe">
+		<parameter name="browser" value="*firefox" />
+		<parameter name="loadStyleStrategy" value="DEFAULT" />
+		<parameter name="loadScriptStrategy" value="DEFAULT" />
+		<parameter name="filterPrefix" value="/faces/NEKO/" />
+	    <packages>
+    	  <package name="org.richfaces.testng" />
+	    </packages>
+	</test>
+</suite>

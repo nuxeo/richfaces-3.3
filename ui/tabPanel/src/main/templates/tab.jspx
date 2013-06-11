@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:vcp="http://ajax4jsf.org/cdk/vcp"
+	class="org.richfaces.renderkit.html.TabRenderer"
+	baseclass="org.richfaces.renderkit.TabRendererBase"
+	component="org.richfaces.component.UITab" 
+	>
+	
+	<f:clientid var="clientId"/>
+
+	<td id="#{clientId}" style="#{this:getTabDisplay(context, component)};height:100%" 
+		>
+
+		<table border="0" cellpadding="10" cellspacing="0" width="100%" class="dr-tbpnl-cntnt-pstn rich-tabpanel-content-position" style="">
+			<tr>
+				<td class="dr-tbpnl-cntnt rich-tabpanel-content #{component.pane.attributes['contentClass']} #{component.attributes['styleClass']}" 
+					style="#{component.attributes['contentStyle']}; #{component.attributes['style']}"
+					x:passThruWithExclusions="class,style,styleClass,id"
+					>
+					<vcp:body />
+				</td>
+			</tr>
+		</table>
+	</td>
+</f:root>

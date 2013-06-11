@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:s="http://jboss.com/products/seam/taglib">
+
+<body>
+<f:view>
+	<h:form id="form">
+		<s:link value="Begin conversation" propagation="begin" />
+		<br />
+		<s:link value="End conversation" propagation="end" />
+		<br />
+
+		<h:panelGroup id="group">
+			<a4j:jsFunction name="setActiveLayer" ajaxSingle="true"
+				eventsQueue="epigraphQueue" reRender="group">
+				<s:conversationId />
+			</a4j:jsFunction>
+		</h:panelGroup>
+
+		<button onclick="setActiveLayer(); return false;">setActiveLayer</button>
+		<a4j:log popup="false" />
+	</h:form>
+</f:view>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+
+<components>
+	<component>
+		<name>org.richfaces.DragSupport</name>
+		<family>org.richfaces.DragSupport</family>
+		<classname>org.richfaces.component.html.HtmlDragSupport</classname>
+		<superclass>org.richfaces.component.UIDragSupport</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlDragSupportComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[The  <rich:dragSupport> component defines a subtree of the component tree as draggable for drag-and-drop operations. Within such a "drag zone", you can click the mouse button on an item and drag it to any component that supports drop operations (a "drop zone"). It encodes all the necessary JavaScript for supporting drag-and-drop operations.]]>
+		</description>
+		<renderer generate="false" override="true">
+			<name>org.richfaces.DragSupportRenderer</name>
+			<classname>org.richfaces.renderkit.html.DragSupportRenderer</classname>
+		</renderer>
+		<tag>
+			<name>dragSupport</name>
+			<classname>org.richfaces.taglib.DragSupportTag</classname>
+			<superclass>org.ajax4jsf.webapp.taglib.HtmlComponentTagBase</superclass>
+			<test />
+		</tag>
+		<taghandler>
+			<classname>org.richfaces.taglib.DragSupportHandler</classname>
+		</taghandler>
+
+		&draggable_attributes;
+		&ui_command_attributes;
+		&ajax_component_attributes;
+		
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+		-->
+		<property elonly="true" attachedstate="true">
+			<name>dragListener</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description>
+				MethodBinding representing an action listener method that will be notified after drag operation
+			</description>
+			<methodargs>org.richfaces.event.DragEvent</methodargs>
+		</property>
+		<property>
+			<name>disableDefault</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Disable default action for target event (append "return false;" to JavaScript)
+			</description>
+		</property>
+		
+		<property>
+			<name>grabCursors</name>
+			<classname>java.lang.String</classname>
+			<description>
+				List of comma separated cursors that indicates then you can grab and drag an object
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		
+		<property>
+			<name>grabbingCursors</name>
+			<classname>java.lang.String</classname>
+			<description>
+				list of comma separated cursors that indicates then the you has grabbed something
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+
+
+    <property hidden="true" >
+      <name>data</name>
+    </property>
+    <property hidden="true" >
+      <name>actionExpression</name>
+    </property>
+        
+        <property hidden="true">
+        	<name>ajaxSingle</name>
+        	<classname>boolean</classname>
+        </property>
+		
+		<property hidden="true">
+        	<name>process</name>
+        	<classname>java.lang.Object</classname>
+        </property>
+				
+		<property hidden="true">
+			<name>bypassUpdates</name>
+		</property>		
+				
+	</component>
+
+ 
+ 	<listener>
+		<name>dragListener</name>
+ 		<property existintag="true" exist="true" el="true" elonly="true">
+ 			<name>binding</name>
+ 			<classname>javax.faces.component.UIComponent</classname>
+ 			<description>The attribute takes a value-binding expression for a component property of
+ 				a backing bean</description>
+ 		</property>
+		<listenerclass>
+			org.richfaces.event.DragListener
+		</listenerclass>
+		<componentclass>
+			org.richfaces.component.Draggable
+		</componentclass>
+		<eventclass>
+			org.richfaces.event.DragEvent
+		</eventclass>
+		<taghandler generate="true">
+			<classname>
+				org.richfaces.taglib.DragListenerHandler
+			</classname>
+		</taghandler>
+		<tag generate="true">
+			<classname>
+				org.richfaces.taglib.DragListenerTag
+			</classname>
+		</tag>
+		
+		<property existintag="true" exist="true" el="false">
+			<name>type</name>
+			<classname>java.lang.String</classname>
+			<description>The fully qualified Java class name for the listener</description>
+		</property>
+	</listener>
+</components>

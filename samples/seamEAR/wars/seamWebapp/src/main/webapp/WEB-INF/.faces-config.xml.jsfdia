@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS ENTITY="JSFProcess">
+ <PROCESS-ITEM ENTITY="JSFProcessGroup"
+  NAME="rules:#pages#register.xhtml" PATH="/pages/register.xhtml" SHAPE="104,115,0,0">
+  <PROCESS-ITEM ENTITY="JSFProcessItem"
+   ID="rules:#pages#register.xhtml:0" NAME="item" PATH="/pages/register.xhtml">
+   <PROCESS-ITEM-OUTPUT ENTITY="JSFProcessItemOutput"
+    ID="registered::#pages#registered.xhtml" NAME="output"
+    PATH="/pages/registered.xhtml"
+    TARGET="rules:#pages#registered.xhtml" TITLE="registered"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="JSFProcessGroup"
+  NAME="rules:#pages#registered.xhtml" PATH="/pages/registered.xhtml"
+  SHAPE="278,197,0,0" persistent="true"/>
+</PROCESS>

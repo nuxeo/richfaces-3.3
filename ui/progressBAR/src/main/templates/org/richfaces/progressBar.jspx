@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://ajax4jsf.org/cdk/template"
+	xmlns:h=" http://ajax4jsf.org/cdk/headers"
+	class="org.richfaces.renderkit.ProgressBarRenderer"
+	baseclass="org.richfaces.renderkit.AbstractProgressBarRenderer"
+	component="org.richfaces.component.UIProgressBar">
+
+	<h:styles>/org/richfaces/renderkit/html/css/progressBar.xcss</h:styles>
+
+	<h:scripts>
+			new org.ajax4jsf.javascript.PrototypeScript(),
+			new org.ajax4jsf.javascript.AjaxScript(),
+			/org/richfaces/renderkit/html/scripts/utils.js,
+			/org/richfaces/renderkit/html/scripts/json/json-dom.js,
+			/org/richfaces/renderkit/html/js/progressBar.js,
+		
+</h:scripts>
+
+	<f:clientId var="clientId" />
+
+	<jsp:scriptlet>
+<![CDATA[
+    String mode = (String) component.getAttributes().get("mode");
+    boolean isAjax = ("ajax".equalsIgnoreCase(mode));
+    if (!mode.equalsIgnoreCase("client") && !mode.equalsIgnoreCase("ajax")) {
+    	throw new IOException("Mode attribute should have 'client' or 'ajax' value");
+    }
+    Number minValue = getNumber(component.getAttributes().get("minValue"));
+    Number maxValue = getNumber(component.getAttributes().get("maxValue"));
+    Number value = getNumber(component.getAttributes().get("value"));
+    Number percent = calculatePercent(value,minValue, maxValue);
+    variables.setVariable("percent",percent);
+    variables.setVariable("value",value);
+    variables.setVariable("style",(String)component.getAttributes().get("style"));
+    variables.setVariable("styleClass",(String)component.getAttributes().get("styleClass"));
+	String forcedState = getForcedState(context,component);
+    
+ ]]>
+</jsp:scriptlet>
+
+	<jsp:scriptlet>
+<![CDATA[
+if (forcedState != null) {
+    renderForcedState(forcedState,context,component);
+} if (!isAjax) {
+    encodeClientMode(context,component,value,minValue,maxValue);
+} else if (value.doubleValue() <= minValue.doubleValue()) {
+    encodeInitialState(context, component, true);
+} else if (value.doubleValue() > maxValue.doubleValue()) {
+    encodeCompletedState(context, component, true);
+} else  {
+    encodeProgressState(context, component, true);
+}
+ ]]>
+</jsp:scriptlet>
+</f:root>

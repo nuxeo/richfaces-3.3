@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+	</ui:define>
+	<ui:define name="component">
+			 	<rich:modalPanel id="test_panel" 							 
+							 top="101" 
+							 left="102" 
+							 width="103" 
+							 height="104" 
+							 zindex="12"
+							 rendered="#{modalPanelBean.rendered}"
+							 showWhenRendered="#{modalPanelBean.showWhenRendered}" 
+							 moveable="#{modalPanelBean.moveable}"
+							 resizeable="#{modalPanelBean.resizeable}"
+							 autosized="#{modalPanelBean.autosized}"
+							 minWidth="70"
+							 minHeight="70"
+							 styleClass="noclass"
+							 keepVisualState="true">
+			    <f:facet name="header">
+			        <h:outputText id="header" value="header" />
+			    </f:facet>
+			   	<h:form id="_f">
+			    	<h:outputText value="Richfaces modal panel" /><br/><br/>
+			    	<h:inputText id="input" value="#{modalPanelBean.input}" style="width: 20px"></h:inputText><br/>
+			    	<h:commandLink id="hide" onclick="Richfaces.hideModalPanel('test_panel'); return false;" value="Hide panel" /><br/>
+			    	<h:commandLink id="submit" value="Submit"></h:commandLink>
+			    </h:form>
+			</rich:modalPanel>
+			<h:form id="form">
+				<h:commandLink id="show" onclick="Richfaces.showModalPanel('test_panel'); return false;" value="Show panel" /><br/>
+				<h:commandButton id="change_attributes" value="Change panel attributes" action="#{modalPanelBean.changeAttributes}" />
+				<h:commandButton id="change_rendered" value="Change rendered" action="#{modalPanelBean.changeRendered}" /><br/>
+				<h:commandButton id="set_autosized" value="Set autosized" action="#{modalPanelBean.setAutosized}" /><br/>
+				<h:commandButton id="keep_visual" value="Change Keep Visual State" action="#{modalPanelBean.changeKeepVisualState}" /><br/>
+				<h:commandButton id="reset" value="Reset" action="#{modalPanelBean.reset}" />
+			</h:form>
+			
+		
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim><![CDATA[
+
+.rich-menu-separator {
+	font-size : 0px;
+	border-top: 1px solid;
+	margin : 2px 0px 2px 24px;    
+	cursor: default;
+}
+.rich-menu-item, .rich-menu-group {
+	padding : 1px 35px 1px 1px; 
+	white-space : nowrap; 	
+	position : relative;
+}
+.rich-menu-item-enabled, .rich-menu-group-enabled {
+	border : 0px solid transparent;
+	padding : 2px 36px 2px 2px;
+}
+.rich-menu-item-hover, .rich-menu-group-hover {
+	border : 1px solid;
+	cursor : pointer; 
+}
+.rich-menu-item-disabled, .rich-menu-group-disabled {
+	border : 0px solid transparent; 
+	cursor : default;
+}
+.dr-menu-icon {	
+	margin-right : 10px;
+}
+.dr-menu-icon img { 
+	vertical-align: middle;
+}
+.rich-menu-item a, .rich-menu-group a {
+	text-decoration : none;
+}
+
+.dr-menu-node {
+	position : absolute; 
+	width : 16px; 
+	height : 16px; 
+	font-size : 1px;
+	top : 1px; 
+	right : 1px; 
+}
+
+.rich-menu-item-disabled .dr-menu-node, .rich-menu-group-disabled .dr-menu-node {
+	background-position :  bottom;
+}
+
+.rich-menu-list-border { 
+	border : 1px solid;
+	float : left; 
+	position : absolute;
+}
+.rich-menu-list-bg {
+	border-top-style : solid;
+	border-left-style : solid;
+	border-right-style : solid;
+
+	border-top-width : 1px;
+	border-left-width : 1px;
+	border-right-width : 1px;
+
+	background : repeat-y left;
+}
+.dr-menu-label {
+	left: 0px;
+	top: 0px;
+	padding : 2px 5px 2px 5px; 
+	white-space : nowrap; 
+	width : auto; 
+	height : auto;
+}
+.dr-menu-label-unselect {
+	border : 0px solid transparent;
+	padding : 3px 6px; 
+}
+.dr-menu-label-select {
+	border : 1px solid;
+	cursor : pointer; 
+}
+
+.rich-menu-list-strut {
+	font-size : 0px; 
+	border: 0px; 
+	margin : 0px;
+	position: relative;
+}
+
+.underneath_iframe{
+	position: absolute;
+	z-index: 90;
+	visibility:hidden;
+	left:0px;
+	top:0px;
+	height:1px;
+	width:1px;
+}
+]]>
+
+</f:verbatim>
+
+<u:selector name=".rich-menu-separator">
+	<u:style name="border-top-color" skin="panelBorderColor" />
+</u:selector>
+
+<u:selector name=".rich-menu-item, .rich-menu-item a, .rich-menu-item a:hover, .rich-menu-item a:visited, 
+				  .rich-menu-group, .rich-menu-group a, .rich-menu-group a:hover, .rich-menu-group a:visited">
+	<u:style name="color" skin="generalTextColor" />
+	<u:style name="font-family" skin="generalFamilyFont" />
+	<u:style name="font-size" skin="generalSizeFont" />
+</u:selector>
+
+<u:selector name=".rich-menu-item-disabled, .rich-menu-group-disabled">
+	<u:style name="color" skin="tabDisabledTextColor" />
+</u:selector>
+
+<u:selector name=".rich-menu-item-hover, .rich-menu-group-hover">
+	<u:style name="background-position" value="top left"/>
+	<u:style name="background-repeat" value="repeat-x"/>
+	<u:style name="border-color" skin="tipBorderColor" />
+	<u:style name="background-color" skin="tipBackgroundColor" />
+</u:selector>
+
+<u:selector name=".dr-menu-node-icon">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.MenuNodeImage"/>
+	</u:style>
+</u:selector>
+
+<u:selector name=".dr-label-text-decor">
+	<u:style name="font-weight" skin="headerWeightFont" />
+</u:selector>
+
+<u:selector name=".rich-menu-list-border">
+	<u:style name="border-color" skin="panelBorderColor" />
+	<u:style name="background-color" skin="additionalBackgroundColor" />
+</u:selector>
+
+<u:selector name=".rich-menu-list-bg">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.background.MenuListBackground"/>
+	</u:style>
+	<u:style name="border-top-color" skin="additionalBackgroundColor" />
+	<u:style name="border-left-color" skin="additionalBackgroundColor" />
+	<u:style name="border-right-color" skin="additionalBackgroundColor" />
+</u:selector>
+
+<u:selector name=".dr-menu-label">
+	<u:style name="font-family" skin="generalFamilyFont" />
+	<u:style name="font-size" skin="generalSizeFont" />
+</u:selector>
+
+<u:selector name=".dr-menu-label-select">
+	<u:style name="border-color" skin="panelBorderColor" />
+	<u:style name="background-color" skin="controlBackgroundColor" />
+	<u:style name="color" skin="generalTextColor" />
+</u:selector>
+
+</f:template>

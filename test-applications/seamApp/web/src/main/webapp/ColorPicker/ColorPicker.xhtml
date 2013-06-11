@@ -1,0 +1,46 @@
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" id="calendarSubviewID">
+	<rich:colorPicker binding="#{colorPicker.htmlColorPicker}"
+		colorMode="#{colorPicker.colorMode}" converter="colorPickerConverter"
+		converterMessage="#{colorPicker.converterMessage}"
+		flat="#{colorPicker.flat}" id="colorPickerID"
+		immediate="#{colorPicker.immediate}" onclick="#{event.onclick}"
+		ondblclick="#{event.ondblclick}" onkeydown="#{event.onkeydown}"
+		onkeypress="#{event.onkeypress}" onkeyup="#{event.onkeyup}"
+		onmousedown="#{event.onmousedown}" onmousemove="#{event.onmousemove}"
+		onmouseout="#{event.onmouseout}" onmouseover="#{event.onmouseover}"
+		onmouseup="#{event.onmouseup}"
+		rendered="#{colorPicker.rendered and !colorPicker.facets}"
+		showEvent="#{colorPicker.showEvent}"
+		validator="#{colorPicker.validate}"
+		validatorMessage="#{colorPicker.validatorMessage}"
+		value="#{colorPicker.value}"
+		valueChangeListener="#{colorPicker.changeValue}">
+	</rich:colorPicker>
+
+	<rich:colorPicker colorMode="#{colorPicker.colorMode}"
+		flat="#{colorPicker.flat}" id="colorPickerIDFacets"
+		onclick="#{event.onclick}" ondblclick="#{event.ondblclick}"
+		onkeydown="#{event.onkeydown}" onkeypress="#{event.onkeypress}"
+		onkeyup="#{event.onkeyup}" onmousedown="#{event.onmousedown}"
+		onmousemove="#{event.onmousemove}" onmouseout="#{event.onmouseout}"
+		onmouseover="#{event.onmouseover}" onmouseup="#{event.onmouseup}"
+		rendered="#{colorPicker.rendered and colorPicker.facets}"
+		showEvent="#{colorPicker.showEvent}"
+		validator="#{colorPicker.validate}"
+		validatorMessage="#{colorPicker.validatorMessage}"
+		value="#{colorPicker.facetsValue}"
+		valueChangeListener="#{colorPicker.changeValue}">
+		<f:facet name="icon">
+			<h:graphicImage value="/ColorPicker/images/colorPicker_ico.png"
+				width="18px" height="18px"></h:graphicImage>
+		</f:facet>
+		<f:facet name="arrows">
+			<h:graphicImage value="/ColorPicker/images/colorPicker_ico.png"
+				width="30px" height="5px"></h:graphicImage>
+		</f:facet>
+	</rich:colorPicker>
+</f:subview>

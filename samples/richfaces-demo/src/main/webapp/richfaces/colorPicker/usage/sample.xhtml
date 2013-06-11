@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:a4j="http://richfaces.org/a4j"
+	  xmlns:rich="http://richfaces.org/rich">
+
+	<h:form>
+		<h:panelGrid columns="1">
+			<rich:paint2D id="painter" width="300" height="120"
+				data="#{paintData}" format="png" paint="#{paintBean.paint}" >
+			</rich:paint2D>
+			<h:panelGroup> 
+				<h:outputText value="Change text color " />
+				<rich:colorPicker colorMode="hex" value="#{paintData.color}">
+					<a4j:support event="onchange" reRender="painter"/>
+				</rich:colorPicker>
+			</h:panelGroup>
+		</h:panelGrid>
+	</h:form>
+</ui:composition>

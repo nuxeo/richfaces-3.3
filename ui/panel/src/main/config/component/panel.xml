@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.panel</name>
+		<family>org.richfaces.panel</family>
+		<classname>org.richfaces.component.html.HtmlPanel</classname>
+		<superclass>org.richfaces.component.UIPanel</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlPanelComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[A skinnable panel that is rendered as a bordered rectangle. The header is 
+    added using a facet with the attribute, name="header".
+   			 ]]>
+		</description>
+		<facet>
+		   <name>header</name>
+		   <description>Defines the header content</description>
+		</facet>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.PanelRenderer</name>
+			<template>panel.jspx</template>
+		</renderer>
+		<tag>
+			<name>panel</name>
+			<classname>org.richfaces.taglib.PanelTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test>
+				<classname>org.richfaces.taglib.HtmlPanelTagTest</classname>
+				<superclassname>org.ajax4jsf.tests.AbstractJspTestCase</superclassname>
+			</test>
+			
+		</tag>
+		&ui_component_attributes;
+      	&html_events;
+        &html_style_attributes;
+		<property>
+			<name>headerClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				A class that defines a style for a panel header
+			</description>
+		</property>
+		<property>
+			<name>bodyClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				A class that defines a style for a panel content
+			</description>
+		</property>
+		<property>
+			<name>header</name>
+			<classname>java.lang.String</classname>
+		</property>
+		<property>
+			<name>header</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Label text appears on a panel header
+			</description>
+		</property>
+	</component>
+</components>

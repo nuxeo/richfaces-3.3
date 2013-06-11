@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+	<u:selector name=".rich-pmenu">
+	</u:selector>
+
+	<u:selector name=".dr-pmenu-top-group-div">
+		<u:style name="padding" value="0px" />
+		<u:style name="margin-bottom" value="0px" />
+		<u:style name="border-color" skin="generalBackgroundColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-pmenu-group">
+		<u:style name="border-color" skin="generalBackgroundColor" />
+	</u:selector>
+
+
+	<u:selector name=".rich-pmenu-top-group">
+		<u:style name="border-color" skin="newBorder" />
+		<u:style name="padding" value="6px 2px 6px 2px " />
+
+        <u:style name="background-image" value="none" />
+        <u:style name="background-color" skin="tabHeader" />
+	</u:selector>
+
+
+
+	
+	<u:selector name=".rich-pmenu-item">
+		<u:style name="margin" value="0px" />
+		<u:style name="border-color" skin="generalBackgroundColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-pmenu-selected-element">
+        <u:style name="background-color" skin="headerBackgroundColor" />
+		<u:style name="border-color" skin="generalBackgroundColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-pmenu-hovered-element">
+        <u:style name="background-color" skin="headerBackgroundColor" />
+		<u:style name="border-color" skin="generalBackgroundColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-pmenu-group-self-label">
+	</u:selector>
+	
+	<u:selector name=".rich-pmenu-top-group-self-label">
+	</u:selector>
+	
+	<u:selector name=".rich-pmenu-group-self-label">
+	</u:selector>
+	
+	<u:selector name=".rich-pmenu-group-self-icon">
+	</u:selector>
+	
+	<u:selector name=".rich-pmenu-top-group-self-icon">
+	</u:selector>
+	
+	<u:selector name=".rich-pmenu-top-item">
+	</u:selector>
+	
+	<u:selector name=".rich-pmenu-item-label">
+	</u:selector>
+	
+	<u:selector name=".rich-pmenu-top-item-label">
+	</u:selector>
+	
+	<u:selector name=".rich-pmenu-item-icon">
+	</u:selector>
+	
+	<u:selector name=".rich-pmenu-top-item-icon">
+	</u:selector>
+	
+</f:template>

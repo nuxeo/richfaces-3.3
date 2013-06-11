@@ -1,0 +1,149 @@
+/**
+ * GENERATED FILE - DO NOT EDIT
+ *
+ */
+package ${tag.packageName};
+
+#foreach($import in $imports)
+import $import ;
+#end
+import javax.faces.component.UIComponent;
+import ${component.classname};
+
+public class $tag.simpleClassName extends $tag.superclass {
+
+// Fields
+#foreach( $prop in $component.properties )
+ #if( !$prop.existintag )
+	/*
+	 * $prop.name
+	 * ${prop.xmlEncodedDescription}
+	 */
+	 private String  _$prop.name = null;
+
+ #end	 
+#end
+// Setters
+#foreach( $prop in $component.properties )
+ #if( !$prop.existintag )
+	/*
+	 * $prop.name
+	 * ${prop.xmlEncodedDescription}
+	 */
+	/*
+	 * $prop.description
+	 * Setter for $prop.name
+	 * @param $prop.name - new value
+	 */
+	 public void ${prop.setterName}( String  __${prop.name} ){
+		this._${prop.name} = __${prop.name};
+     }
+	 
+ #end
+ #if( $prop.alias)
+	/*
+	 * ${prop.xmlEncodedDescription}
+	 * Setter for alias of $prop.name as $prop.alias
+	 * @param $prop.name - new value
+	 */
+	 public void set${prop.upperFirstChar($prop.alias)}( String  __${prop.alias} ){
+		this.${prop.setterName}(__${prop.alias});
+     }
+ #end
+#end 	 
+// Release
+
+    /* (non-Javadoc)
+     * @see org.ajax4jsf.components.taglib.html.HtmlCommandButtonTagBase#release()
+     */
+    public void release()
+    {
+        // TODO Auto-generated method stub
+        super.release();
+#foreach( $prop in $component.properties )
+ #if( !$prop.existintag )
+	    this._${prop.name} = null;
+ #end	 
+#end
+	}
+	
+    /* (non-Javadoc)
+     * @see org.ajax4jsf.components.taglib.html.HtmlCommandButtonTagBase#setProperties(javax.faces.component.UIComponent)
+     */
+    protected void setProperties(UIComponent component)
+    {
+        // TODO Auto-generated method stub
+        super.setProperties(component);
+	
+#foreach( $prop in $component.properties )
+ #if( !$prop.existintag )
+		 #if(!$prop.el)
+			if(null != this._${prop.name} && isValueReference(this._${prop.name})){
+				throw new IllegalArgumentException("Component ${component.name} with Id " + component.getClientId(getFacesContext()) +" not allowed EL expression for property ${prop.name}");
+			}
+		 #end	
+		 #if($prop.name == "action")
+			setActionProperty(component, this._${prop.name});
+		 #elseif($prop.name == "actionListener")
+			setActionListenerProperty(component, this._${prop.name});
+		 #elseif($prop.name == "converter")
+			setConverterProperty(component, this._${prop.name});
+		 #elseif($prop.name == "validator")
+			setValidatorProperty(component, this._${prop.name});
+		 #elseif($prop.name == "valueChangeListener")
+			setValueChangedListenerProperty(component, this._${prop.name});
+		 #elseif($prop.name == "value")
+			setValueProperty(component, this._${prop.name});
+		 #elseif( $prop.isInstanceof("javax.faces.el.MethodBinding") )
+			if(null != this._${prop.name}){
+             if (isValueReference(this._${prop.name}))
+             {
+                MethodBinding mb = getFacesContext().getApplication().createMethodBinding(this._${prop.name},
+                                                                                new Class[]{${prop.methodArgsClasses}});
+                ((${component.simpleClassName})component).${prop.setterName}(mb);
+             }
+             else
+             {
+                getFacesContext().getExternalContext().log("Component " + component.getClientId(getFacesContext()) + " has invalid ${prop.name} value: " + this._${prop.name});
+             }
+			}
+		 #elseif($prop.elonly || $prop.isInstanceof("javax.faces.el.ValueBinding") )
+			setValueBinding(component, "${prop.name}",this._${prop.name});
+		 #elseif(${prop.simpleType})
+			// Simple type - ${prop.simpleClassName}
+			set${prop.boxingClass}Property(component, "${prop.name}",this._${prop.name}); 
+		 #elseif($prop.classname == "java.lang.Boolean" || $prop.classname == "java.lang.Integer" || $prop.classname == "java.lang.Long")
+			set${prop.simpleClassName}Property(component, "${prop.name}",this._${prop.name}); 
+		 #elseif( $prop.classname == "java.lang.String")
+			setStringProperty(component, "${prop.name}",this._${prop.name});
+		 #elseif( $prop.classname == "java.lang.Object")
+			// TODO - handle object
+			setStringProperty(component, "${prop.name}",this._${prop.name});
+		 #else
+			// TODO - setup properties for other cases.
+			// name ${prop.name} with type $prop.classname
+		 #end	
+ #end	 
+#end
+   }
+	
+	/* (non-Javadoc)
+	 * @see javax.faces.webapp.UIComponentTag#getComponentType()
+	 */
+	public String getComponentType() {
+		// TODO Auto-generated method stub
+		return "${component.name}";
+	}
+
+	/* (non-Javadoc)
+	 * @see javax.faces.webapp.UIComponentTag#getRendererType()
+	 */
+	public String getRendererType() {
+		#if($renderer)
+		return "${renderer.name}";
+		#else
+		return null;
+		#end
+	}
+
+}

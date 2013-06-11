@@ -1,0 +1,13 @@
+#if($areas)
+	{
+		//Auto-generated block.
+		//Add to ajax context list of element ids passed as *areas* param
+		String [] _areas = (${areas}).split(",\" ");
+		AjaxContext _ajaxContext = AjaxContext.getCurrentInstance(context);
+		if (_ajaxContext.isAjaxRequest()) {
+			for (int _i = 0; _i < _areas.length; _i++) {
+				_ajaxContext.addRenderedArea(_areas[_i]);
+			}
+		}
+	}
+#end

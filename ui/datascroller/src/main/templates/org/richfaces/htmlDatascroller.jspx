@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	baseclass="org.richfaces.renderkit.html.DataScrollerRenderer"
+	class="org.richfaces.renderkit.html.DatascrollerTemplate"
+	component="org.richfaces.component.UIDatascroller" 
+	>
+	<h:styles>css/datascroller.xcss</h:styles>  
+	
+   	<h:scripts>
+			new org.ajax4jsf.javascript.PrototypeScript(),
+			new org.ajax4jsf.javascript.AjaxScript(),
+			/org/richfaces/renderkit/html/scripts/datascroller.js
+	</h:scripts>
+	
+	<f:clientid var="clientId"/>
+    <jsp:scriptlet>
+		<![CDATA[org.richfaces.component.util.FormUtil.throwEnclFormReqExceptionIfNeed(context,component);]]>		                                               
+    </jsp:scriptlet>	
+
+	<c:object var="singlePageRenderStyle" type="java.lang.String" />
+
+    <jsp:scriptlet>
+		<![CDATA[
+        int maxPages = component.getMaxPages();
+        if (maxPages <= 1) {
+            maxPages = 1;
+        }
+
+        int pageCount = component.getPageCount();
+        int pageIndex = component.getPage();
+
+        org.richfaces.renderkit.html.ControlsState controlsState = getControlsState(context, component, pageIndex, pageCount);
+        boolean singlePageRender = true;
+		
+		if (pageCount == 1 && !component.isRenderIfSinglePage()) {
+        	singlePageRenderStyle = "; display: none";
+        	singlePageRender = false;
+        } else if (!controlsState.isFirstRendered() && !controlsState.isFastRewindRendered() &&
+        	!controlsState.isPreviousRendered() && !controlsState.isNextRendered() && 
+        	!controlsState.isFastForwardRendered() && !controlsState.isLastRendered() && 
+        	pageCount <= 1 ) {
+            singlePageRenderStyle = "; display: none";
+    		singlePageRender = false;
+        }
+		
+		]]>		                                               
+    </jsp:scriptlet>	
+
+
+	<div id="#{clientId}"
+		x:passThruWithExclusions="value,name,type,id,styleClass,class,style"
+		style="#{component.attributes['style']} #{singlePageRenderStyle}"
+		class="dr-dscr rich-datascr #{component.attributes['styleClass']}">
+		
+	    <jsp:scriptlet>
+			<![CDATA[
+			if (singlePageRender) {
+		        renderPages(context, component, pageIndex, pageCount);
+			]]>		                                               
+	    </jsp:scriptlet>	
+			
+			<table id="#{clientId}_table"  style="text-align:#{component.attributes['align']}" border="0" cellpadding="0" cellspacing="1" class="dr-dscr-t rich-dtascroller-table #{component.attributes['tableStyleClass']}"> 
+			<tbody>
+				    <tr>			    
+	                <jsp:scriptlet><![CDATA[
+	                String facet;                         
+	                
+	                if (controlsState.isFirstRendered()){                       
+	                if (controlsState.isFirstEnabled()){
+	                  variables.setVariable("buttonClass", "");                  
+	                  variables.setVariable("onclick", getOnClick(component.FIRST_FACET_NAME));                        
+	                  variables.setVariable("facet", component.FIRST_FACET_NAME);                  
+	                  facet=component.FIRST_FACET_NAME;
+	                }else{
+	                  variables.setVariable("buttonClass", "dr-dscr-button-dsbld rich-datascr-button-dsbld");  
+	                  variables.setVariable("onclick", "");                                            
+	                  variables.setVariable("facet", component.FIRST_DISABLED_FACET_NAME);                                    
+	                  facet=component.FIRST_DISABLED_FACET_NAME;
+	                };                
+	                if(component.getFacet(facet)!=null ) {
+	                ]]></jsp:scriptlet>
+	                    <td class="#{buttonClass} dr-dscr-button rich-datascr-button" onclick="#{onclick}">
+					       <jsp:scriptlet>
+						     <![CDATA[if(component.FIRST_FACET_NAME.equals(facet)){]]>
+					       </jsp:scriptlet>
+	                            <u:insertFacet name="first"/>
+					       <jsp:scriptlet>
+						     <![CDATA[}else{]]>
+					       </jsp:scriptlet>				       
+	                            <u:insertFacet name="first_disabled"/>
+					       <jsp:scriptlet>
+						     <![CDATA[}]]>
+					       </jsp:scriptlet>                            
+	                    </td>
+	                <jsp:scriptlet><![CDATA[
+	                }else{
+	                ]]></jsp:scriptlet>
+	                    <td class="#{buttonClass} dr-dscr-button rich-datascr-button" onclick="#{onclick}">
+	                    <jsp:scriptlet><![CDATA[                    
+	                      writer.write("&#171;&#171;");                      
+	                    ]]></jsp:scriptlet>    
+	                    </td>                              
+	                <jsp:scriptlet><![CDATA[
+	                } 
+	                if (controlsState.isControlsSeparatorRendered() && 
+	                		(controlsState.isFastRewindRendered() || controlsState.isPreviousRendered())) {
+	                ]]></jsp:scriptlet>
+	                	<td class="dr-dscr-sepctrl rich-datascr-ctrls-separator"><u:insertFacet name="controlsSeparator" /></td>
+	                <jsp:scriptlet><![CDATA[
+	                }
+	                }
+	                ]]></jsp:scriptlet>
+	                <jsp:scriptlet><![CDATA[                
+	                if (controlsState.isFastRewindRendered()){                       
+	                if (controlsState.isFastRewindEnabled()){
+	                  variables.setVariable("buttonClass", "");  
+	                  variables.setVariable("onclick", getOnClick(component.FAST_REWIND_FACET_NAME));                                                                
+	                  variables.setVariable("facet", component.FAST_REWIND_FACET_NAME);                                    
+	                  facet=component.FAST_REWIND_FACET_NAME;                  
+	                }else{
+	                    variables.setVariable("buttonClass", "dr-dscr-button-dsbld rich-datascr-button-dsbld");  
+	                    variables.setVariable("onclick", "");                                                                                    
+	                    variables.setVariable("facet", component.FAST_REWIND_DISABLED_FACET_NAME);                                    
+	                    facet=component.FAST_REWIND_DISABLED_FACET_NAME;                                      
+	                }
+	                if(component.getFacet(facet)!=null ) {
+	                ]]></jsp:scriptlet>
+	                    <td class="#{buttonClass} dr-dscr-button rich-datascr-button" onclick="#{onclick}">
+					       <jsp:scriptlet>
+						     <![CDATA[if(component.FAST_REWIND_FACET_NAME.equals(facet)){]]>
+					       </jsp:scriptlet>
+	                            <u:insertFacet name="fastrewind"/>
+					       <jsp:scriptlet>
+						     <![CDATA[}else{]]>
+					       </jsp:scriptlet>				       
+	                            <u:insertFacet name="fastrewind_disabled"/>
+					       <jsp:scriptlet>
+						     <![CDATA[}]]>
+					       </jsp:scriptlet>                            
+	                    </td>
+	                <jsp:scriptlet><![CDATA[
+	                }else{
+	                ]]></jsp:scriptlet>
+	                    <td class="#{buttonClass} dr-dscr-button rich-datascr-button" onclick="#{onclick}">
+	                    <jsp:scriptlet><![CDATA[                    
+	                      writer.write("&#171;");                      
+	                    ]]></jsp:scriptlet>    
+	                    </td>                              
+	                <jsp:scriptlet><![CDATA[
+	                }
+	                
+	                if (controlsState.isControlsSeparatorRendered() && controlsState.isPreviousRendered()) {
+	                ]]></jsp:scriptlet>
+	                	<td class="dr-dscr-sepctrl rich-datascr-ctrls-separator"><u:insertFacet name="controlsSeparator" /></td>
+	                <jsp:scriptlet><![CDATA[
+	                }
+	                }                
+	                ]]></jsp:scriptlet>
+	                                
+	                <jsp:scriptlet><![CDATA[                                                                                 
+	                if (controlsState.isPreviousRendered()){                       
+	                if (controlsState.isPreviousEnabled()){                     
+	                  variables.setVariable("buttonClass", "");  
+	                  variables.setVariable("onclick", getOnClick(component.PREVIOUS_FACET_NAME));                                                                
+	                  variables.setVariable("facet", component.PREVIOUS_FACET_NAME);                                    
+	                  facet=component.PREVIOUS_FACET_NAME;                                    
+	                }else{
+	                  variables.setVariable("onclick", "");                                                                                    
+	                  variables.setVariable("buttonClass", "dr-dscr-button-dsbld rich-datascr-button-dsbld");  
+	                  variables.setVariable("facet", component.PREVIOUS_DISABLED_FACET_NAME);                                    
+	                  facet=component.PREVIOUS_DISABLED_FACET_NAME;                  
+	                }
+	                if(component.getFacet(facet)!=null ) {
+	                ]]></jsp:scriptlet>
+	                    <td class="#{buttonClass} dr-dscr-button rich-datascr-button" onclick="#{onclick}">
+					       <jsp:scriptlet>
+						     <![CDATA[if(component.PREVIOUS_FACET_NAME.equals(facet)){]]>
+					       </jsp:scriptlet>
+	                            <u:insertFacet name="previous"/>
+					       <jsp:scriptlet>
+						     <![CDATA[}else{]]>
+					       </jsp:scriptlet>				       
+	                            <u:insertFacet name="previous_disabled"/>
+					       <jsp:scriptlet>
+						     <![CDATA[}]]>
+					       </jsp:scriptlet>                            
+	                    </td>
+	                <jsp:scriptlet><![CDATA[
+	                }else{
+	                ]]></jsp:scriptlet>
+	                    <td class="#{buttonClass} dr-dscr-button rich-datascr-button" onclick="#{onclick}">                           
+	                    </td>                              
+	                 <jsp:scriptlet><![CDATA[
+	                 }
+	                 }                
+	                 ]]></jsp:scriptlet>
+	
+					<jsp:scriptlet><![CDATA[
+	   			        UIComponent pagesFacet = component.getFacet("pages");
+	   			        if (pagesFacet !=null && pagesFacet.isRendered()) {
+	                ]]></jsp:scriptlet>
+	                    <td>                           
+					<jsp:scriptlet><![CDATA[
+						renderChild(context, pagesFacet);
+					]]></jsp:scriptlet>
+	                    </td>                              
+					<jsp:scriptlet><![CDATA[
+	   			        } else {
+	   			        	renderPager(context, component, pageIndex, pageCount);
+	   			        }
+	                ]]></jsp:scriptlet>
+	
+	                <jsp:scriptlet><![CDATA[
+	                if (controlsState.isNextRendered()){                       
+	                if (controlsState.isNextEnabled()){                                                                               
+	                  variables.setVariable("onclick", getOnClick(component.NEXT_FACET_NAME));                                        
+	                  variables.setVariable("buttonClass", "");  
+	                  variables.setVariable("facet", component.NEXT_FACET_NAME);                                    
+	                  facet=component.NEXT_FACET_NAME;                                                      
+	                }else{
+	                  variables.setVariable("onclick", "");  
+	                  variables.setVariable("buttonClass", "dr-dscr-button-dsbld rich-datascr-button-dsbld");  
+	                  variables.setVariable("facet", component.NEXT_DISABLED_FACET_NAME);                                    
+	                  facet=component.NEXT_DISABLED_FACET_NAME;                                    
+	                }
+	                if(component.getFacet(facet)!=null ) {
+	                ]]></jsp:scriptlet>
+	                    <td class="#{buttonClass} dr-dscr-button rich-datascr-button" onclick="#{onclick}">
+					       <jsp:scriptlet>
+						     <![CDATA[if(component.NEXT_FACET_NAME.equals(facet)){]]>
+					       </jsp:scriptlet>
+	                            <u:insertFacet name="next"/>
+					       <jsp:scriptlet>
+						     <![CDATA[}else{]]>
+					       </jsp:scriptlet>				       
+	                            <u:insertFacet name="next_disabled"/>
+					       <jsp:scriptlet>
+						     <![CDATA[}]]>
+					       </jsp:scriptlet>                            
+	                    </td>
+	                <jsp:scriptlet><![CDATA[
+	                }else{
+	                ]]></jsp:scriptlet>
+	                    <td class="#{buttonClass} dr-dscr-button rich-datascr-button" onclick="#{onclick}">
+	
+	                    </td>                              
+	                <jsp:scriptlet><![CDATA[
+	                }
+	                
+	                if (controlsState.isControlsSeparatorRendered() && 
+	                		(controlsState.isFastForwardRendered() || controlsState.isLastRendered())) {
+	                ]]></jsp:scriptlet>
+	                	<td class="dr-dscr-sepctrl rich-datascr-ctrls-separator"><u:insertFacet name="controlsSeparator" /></td>
+	                <jsp:scriptlet><![CDATA[
+	                }
+	                }                
+	                ]]></jsp:scriptlet>
+
+	                <jsp:scriptlet><![CDATA[
+	                if (controlsState.isFastForwardRendered()){                       
+	                if (controlsState.isFastForwardEnabled()){                                                                                                                       
+	                  variables.setVariable("onclick", getOnClick(component.FAST_FORWARD_FACET_NAME));
+	                  variables.setVariable("buttonClass", "");  
+	                  variables.setVariable("facet", component.FAST_FORWARD_FACET_NAME);                                    
+	                  facet=component.FAST_FORWARD_FACET_NAME;                                                      
+	                }
+	                else{
+	                  variables.setVariable("onclick", "");  
+	                  variables.setVariable("buttonClass", "dr-dscr-button-dsbld rich-datascr-button-dsbld");  
+	                  variables.setVariable("facet", component.FAST_FORWARD_DISABLED_FACET_NAME);                                    
+	                  facet=component.FAST_FORWARD_DISABLED_FACET_NAME;                                                      
+	                }
+	                if(component.getFacet(facet)!=null ) {
+	                ]]></jsp:scriptlet>
+	                    <td class="#{buttonClass} dr-dscr-button rich-datascr-button" onclick="#{onclick}">
+					       <jsp:scriptlet>
+						     <![CDATA[if(component.FAST_FORWARD_FACET_NAME.equals(facet)){]]>
+					       </jsp:scriptlet>
+	                            <u:insertFacet name="fastforward"/>
+					       <jsp:scriptlet>
+						     <![CDATA[}else{]]>
+					       </jsp:scriptlet>				       
+	                            <u:insertFacet name="fastforward_disabled"/>
+					       <jsp:scriptlet>
+						     <![CDATA[}]]>
+					       </jsp:scriptlet>                            
+	                    </td>
+	                <jsp:scriptlet><![CDATA[
+	                }else{
+	                ]]></jsp:scriptlet>
+	                    <td class="#{buttonClass} dr-dscr-button rich-datascr-button" onclick="#{onclick}">
+	                    <jsp:scriptlet><![CDATA[                    
+	                      writer.write("&#187;");                      
+	                    ]]></jsp:scriptlet>                               
+	                    </td>                              
+	                <jsp:scriptlet><![CDATA[
+	                }
+	                
+	                if (controlsState.isControlsSeparatorRendered() && controlsState.isLastRendered()) {
+	                ]]></jsp:scriptlet>
+	                	<td class="dr-dscr-sepctrl rich-datascr-ctrls-separator"><u:insertFacet name="controlsSeparator" /></td>
+	                <jsp:scriptlet><![CDATA[
+	                }
+	                }                
+	                ]]></jsp:scriptlet>
+
+	                <jsp:scriptlet><![CDATA[
+	                if (controlsState.isLastRendered()){                       
+	                if (controlsState.isLastEnabled()){                                                                                                                                                             
+	                  variables.setVariable("onclick", getOnClick(component.LAST_FACET_NAME));                                        
+	                  variables.setVariable("buttonClass", "");  
+	                  variables.setVariable("facet", component.LAST_FACET_NAME);                                    
+	                  facet=component.LAST_FACET_NAME;                                                                                          
+	                }else{
+	                  variables.setVariable("onclick", "");                                                            
+	                  variables.setVariable("buttonClass", "dr-dscr-button-dsbld rich-datascr-button-dsbld");  
+	                  variables.setVariable("facet", component.LAST_DISABLED_FACET_NAME);                                    
+	                  facet=component.LAST_DISABLED_FACET_NAME;                                                                        
+	                }
+	                if(component.getFacet(facet)!=null ) {
+	                ]]></jsp:scriptlet>
+	                    <td class="#{buttonClass} dr-dscr-button rich-datascr-button" onclick="#{onclick}">
+					       <jsp:scriptlet>
+						     <![CDATA[if(component.LAST_FACET_NAME.equals(facet)){]]>
+					       </jsp:scriptlet>
+	                            <u:insertFacet name="last"/>
+					       <jsp:scriptlet>
+						     <![CDATA[}else{]]>
+					       </jsp:scriptlet>				       
+	                            <u:insertFacet name="last_disabled"/>
+					       <jsp:scriptlet>
+						     <![CDATA[}]]>
+					       </jsp:scriptlet>                            
+	                    </td>
+	                <jsp:scriptlet><![CDATA[
+	                }else{
+	                ]]></jsp:scriptlet>
+	                     <td class="#{buttonClass} dr-dscr-button rich-datascr-button" onclick="#{onclick}">
+	                        <jsp:scriptlet><![CDATA[                    
+	                          writer.write("&#187;&#187;");                      
+	                        ]]></jsp:scriptlet>                               
+	                     </td>                              
+	                     <jsp:scriptlet><![CDATA[
+	                }
+	                }                
+	                ]]></jsp:scriptlet>
+	 		        </tr>
+				</tbody>
+			</table> 			
+	    <jsp:scriptlet>
+			<![CDATA[
+			}
+			]]>		                                               
+	    </jsp:scriptlet>	
+		<script type="text/javascript">
+			new Richfaces.Datascroller('#{clientId}', #{this:getSubmitFunction(context,component)}); 
+		</script>
+	</div>
+</f:root>

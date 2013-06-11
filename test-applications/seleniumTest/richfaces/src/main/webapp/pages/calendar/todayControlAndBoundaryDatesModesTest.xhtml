@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+			<h:panelGrid columns="2">
+				<h:outputText value="Is popup:"/>
+				<h:selectBooleanCheckbox id="showPopup" value="#{calendarBean.popup}">
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectBooleanCheckbox>
+				<h:outputText value="Selected date:"/>
+				<h:inputText id="selectedDate" value="#{calendarBean.selectedDate}">
+					<f:convertDateTime pattern="#{calendarBean.datePattern}" timeZone="#{calendarBean.timeZone}" locale="#{calendarBean.locale}"/>
+					<a4j:support event="onblur" ajaxSingle="true" reRender="calendar" />
+				</h:inputText>
+				<h:outputText value="Current date:"/>
+				<h:inputText id="currentDate" value="#{calendarBean.currentDate}">
+					<f:convertDateTime pattern="#{calendarBean.datePattern}" timeZone="#{calendarBean.timeZone}" locale="#{calendarBean.locale}"/>
+					<a4j:support event="onblur" ajaxSingle="true" reRender="calendar" />
+				</h:inputText>			
+				<h:outputText value="Today control mode:"/>
+				<h:selectOneMenu id="todayControlMode" value="#{calendarBean.todayControlMode}">
+					<f:selectItem itemLabel="select" itemValue="select" />
+					<f:selectItem itemLabel="scroll" itemValue="scroll" />
+					<f:selectItem itemLabel="hidden" itemValue="hidden" />
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectOneMenu>
+				<h:outputText value="Boundary dates mode:"/>
+				<h:selectOneMenu id="boundaryDatesMode" value="#{calendarBean.boundaryDatesMode}">
+					<f:selectItem itemLabel="select" itemValue="select" />
+					<f:selectItem itemLabel="scroll" itemValue="scroll" />
+					<f:selectItem itemLabel="inactive" itemValue="inactive" />
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectOneMenu>
+				<h:outputText value="Date pattern:"/>
+				<h:inputText id="datePattern" value="#{calendarBean.datePattern}"/>
+			</h:panelGrid>
+			<h:outputText id="locale" value="#{calendarBean.locale.language}"/>
+			<br/>
+			<h:commandButton id="setup" value="Setup"/>
+			<br/>
+			<rich:calendar
+					id="calendar"
+					mode="client"
+					popup="#{calendarBean.popup}"
+					value="#{calendarBean.selectedDate}"
+					datePattern="#{calendarBean.datePattern}"
+					timeZone="#{calendarBean.timeZone}"
+					locale="#{calendarBean.locale}"
+					todayControlMode="#{calendarBean.todayControlMode}"
+					boundaryDatesMode="#{calendarBean.boundaryDatesMode}" >
+			</rich:calendar>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
+
+	

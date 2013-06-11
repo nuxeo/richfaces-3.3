@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:jsp=" http://ajax4jsf.org/cdk/jsp"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	baseclass="org.richfaces.renderkit.PickListRenderer"
+	class="org.richfaces.renderkit.html.PickListRendererGen"
+	component="org.richfaces.component.UIPickList">
+	
+	<jsp:directive.page import="org.richfaces.component.util.HtmlUtil" />
+
+	<h:styles>css/picklist.xcss</h:styles>  
+	
+   	<h:scripts>
+			new org.ajax4jsf.javascript.PrototypeScript(),
+			/org/richfaces/renderkit/html/scripts/utils.js,
+			scripts/ShuttleUtils.js
+			scripts/SelectItem.js,
+			scripts/PickListSI.js,
+			scripts/LayoutManager.js
+			scripts/Control.js,
+			scripts/ListBase.js,
+			scripts/OrderingList.js,
+			scripts/ListShuttle.js,
+			scripts/PickList.js
+	</h:scripts>
+	
+	<f:clientId var="clientId"/>
+	
+	<c:object var="componentEnabled" value="#{!component.disabled}" type="boolean" />
+	
+	<c:object var="componentStyle" type="java.lang.String" />
+	<c:object var="componentStyleClass" type="java.lang.String" />
+	
+	<jsp:scriptlet><![CDATA[
+	    if (componentEnabled) {
+			componentStyle = HtmlUtil.concatStyles((String) component.getAttributes().get("style"), 
+					(String) component.getAttributes().get("enabledStyle"));
+			
+			componentStyleClass = HtmlUtil.concatClasses((String) component.getAttributes().get("styleClass"), 
+					(String) component.getAttributes().get("enabledStyleClass"));
+	    } else {
+			componentStyle = HtmlUtil.concatStyles((String) component.getAttributes().get("style"), 
+					(String) component.getAttributes().get("disabledStyle"));
+			
+			componentStyleClass = HtmlUtil.concatClasses((String) component.getAttributes().get("styleClass"), 
+					"rich-list-picklist-disabled", 
+					(String) component.getAttributes().get("disabledStyleClass"));
+	    }
+    ]]></jsp:scriptlet>
+	
+	<table id="#{clientId}" class="rich-list-picklist #{componentStyleClass}" style="#{componentStyle}"
+			cellspacing="0" cellpadding="0"
+			x:passThruWithExclusions="id,style,class,styleClass">
+		<tbody>
+			<vcp:body>
+				<f:clientId var="clientId"/>
+			
+				<jsp:scriptlet>
+					<![CDATA[
+						//SelectionState sourceSelectionState = new SelectionState();     
+					    //variables.setVariable("selectionState", sourceSelectionState);
+					    //String encodedSourceRows = encodeRows(context, component, true);
+		
+					    //SelectionState targetSelectionState = new SelectionState();     
+					    //variables.setVariable("selectionState", targetSelectionState);
+						//String encodedTargetRows = encodeRows(context, component, false);
+						ListStateFlags listStateFlags = new ListStateFlags();
+						
+						Boolean switchByClick = (Boolean) component.getAttributes().get("switchByClick");
+						variables.setVariable("switchByClick", switchByClick);
+						
+						Boolean switchByDblClick = (Boolean) component.getAttributes().get("switchByDblClick");
+						variables.setVariable("switchByDblClick", switchByDblClick);
+					
+						variables.setVariable("baseClientId", component.getBaseClientId(context));
+					]]>
+				</jsp:scriptlet>
+
+				<tr>
+					<td>
+					    <div class="rich-picklist-source-items #{component.listClass}">
+					    	<input id="#{clientId}focusKeeper" type="button" value="" style="width: 1px; position: absolute; left: -32767px;"/>
+							
+							<table id="#{clientId}table" cellpadding="0" cellspacing="0" class="rich-picklist-body">
+								<tbody>
+									<tr>
+										<td style="border:0px;padding : 0px;">
+											<div id="#{clientId}headerBox" class="rich-picklist-list">
+												<jsp:scriptlet>
+													<![CDATA[
+									                	String contentContainerStyle = "";
+									                	String sourceListWidthValue = (String) component.getAttributes().get("sourceListWidth");
+									                	if (sourceListWidthValue != null) {
+									                		contentContainerStyle = contentContainerStyle.concat("width:").concat(HtmlUtil.qualifySize(sourceListWidthValue)).concat(";");
+									                		variables.setVariable("contentContainerStyle", contentContainerStyle);
+								                		}
+													]]>
+		                						</jsp:scriptlet>
+												<jsp:scriptlet>
+													<![CDATA[
+														String listHeightValue = (String) component.getAttributes().get("listsHeight");
+									                	if (listHeightValue != null) {
+									                		contentContainerStyle = contentContainerStyle.concat("height:").concat(HtmlUtil.qualifySize(listHeightValue)).concat(";");
+									                		variables.setVariable("contentContainerStyle", contentContainerStyle);
+									                	}
+	                								]]>
+	                							</jsp:scriptlet>
+												<div id="#{clientId}contentBox" class="rich-picklist-list-content" style="#{contentContainerStyle}">
+													<table id="#{clientId}internal_tab" class="rich-picklist-internal-tab" cellpadding="0" cellspacing="0">
+														<tbody id="#{clientId}tbody">
+															<jsp:scriptlet>
+																<![CDATA[
+																encodeSourceRows(context, component, listStateFlags);
+				                								]]>
+				                							</jsp:scriptlet>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div> 
+					</td>
+					<td style="vertical-align: #{component.moveControlsVerticalAlign};" >
+						<div class="rich-picklist-controls #{component.controlClass}" >
+							<jsp:scriptlet><![CDATA[
+								encodePickListControlsFacets(context, component, listStateFlags);
+							]]></jsp:scriptlet>
+						</div>
+	
+					</td>
+					<td>
+						<div class="rich-picklist-target-items #{component.listClass}">
+							<input type="hidden" value=":" style="display: none;" name="#{baseClientId}" />
+							<f:call name="encodeHiddenField" />
+					    	<input id="#{clientId}tlFocusKeeper" type="button" value="" style="width: 1px; position: absolute; left: -32767px;"/>
+							
+							<table id="#{clientId}tlTable" cellpadding="0" cellspacing="0" class="rich-picklist-body">
+								<tbody>
+									<tr>
+										<td style="border:0px;padding : 0px;">
+											<div id="#{clientId}tlHeaderBox" class="rich-picklist-list">
+												<jsp:scriptlet>
+													<![CDATA[
+									                	String trContentContainerStyle = "";
+									                	String targetListWidthValue = (String) component.getAttributes().get("targetListWidth");
+									                	if (targetListWidthValue != null) {
+									                		trContentContainerStyle = trContentContainerStyle.concat("width:").concat(HtmlUtil.qualifySize(targetListWidthValue)).concat(";");
+									                		variables.setVariable("trContentContainerStyle", trContentContainerStyle);
+								                		}
+													]]>
+			                					</jsp:scriptlet>
+												<jsp:scriptlet>
+													<![CDATA[
+									                	if (listHeightValue != null) {
+									                		trContentContainerStyle = trContentContainerStyle.concat("height:").concat(HtmlUtil.qualifySize(listHeightValue)).concat(";");
+									                		variables.setVariable("trContentContainerStyle", trContentContainerStyle);
+									                	}
+		                							]]>
+		                						</jsp:scriptlet>
+												<div id="#{clientId}tlContentBox" class="rich-picklist-list-content" style="#{trContentContainerStyle}">
+													<table id="#{clientId}tlInternal_tab" class="rich-picklist-internal-tab" cellpadding="0" cellspacing="0">
+														<tbody id="#{clientId}tlTbody">
+															<jsp:scriptlet>
+																<![CDATA[
+																encodeTargetRows(context, component, listStateFlags);
+				                								]]>
+				                							</jsp:scriptlet>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div> 
+					</td>
+				</tr>
+			</vcp:body>
+		</tbody>
+	</table>
+	
+	<f:clientId var="clientId"/>
+	
+	<span id="#{clientId}script">
+		<f:call name="reRenderScript" />
+		
+        <c:if test="#{!component.disabled}">  							
+			<script type="text/javascript">
+				
+					var clientId = '#{clientId}';
+					new Richfaces.PickList(
+						new Richfaces.PickList.Target('#{clientId}', '#{clientId}tlInternal_tab', '#{clientId}tlInternal_header_tab', '#{clientId}tlFocusKeeper', undefined, Richfaces.PickList.Target.SelectItem, #{this:getColumnClassesAsJSArray(context, component)}, #{this:getRowClassesAsJSArray(context, component)}),
+						new Richfaces.PickList.Source('#{clientId}', '#{clientId}internal_tab', '#{clientId}internal_header_tab', '#{clientId}focusKeeper', undefined, Richfaces.PickList.Source.SelectItem, #{this:getColumnClassesAsJSArray(context, component)}, #{this:getRowClassesAsJSArray(context, component)}), 
+						"#{clientId}", 
+						[['copy', 'discopy'], ['copyAll', 'discopyAll'], ['remove', 'disremove'], ['removeAll','disremoveAll']],
+						"#{switchByClick}", 
+						"#{switchByDblClick}", 
+						{onlistchanged: #{this:getAsEventHandler(context, component, "onlistchanged")},
+						 onlistchange: #{this:getAsEventHandler(context, component, "onlistchange")},
+						 onfocus:#{this:getAsEventHandler(context, component, "onfocus")},
+						 onblur:#{this:getAsEventHandler(context, component, "onblur")}
+						},
+						"#{clientId}valueKeeper");
+			</script>
+		</c:if>
+	</span>
+</f:root>

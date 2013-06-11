@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.Paint2D</name>
+		<family>javax.faces.Output</family>
+		<classname>org.richfaces.component.html.HtmlPaint2D</classname>
+		<superclass>org.richfaces.component.UIPaint2D</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlPaint2DComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[
+			Create an image by paint in a managed bean, same as paint (Graphics g) in SWING components.
+		 	It can be used as a cacheable or non-cacheable resource. With a cache support, a key is created in URI
+		 	with a mix of size (width/height), paint method, format and data attributes.
+	 	    ]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.Paint2DRenderer</name>
+			<classname>org.richfaces.renderkit.html.Paint2DRenderer</classname>
+		</renderer>
+		<tag>
+			<name>paint2D</name>
+			<classname>org.richfaces.taglib.Paint2DTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<taghandler generate="true">
+			<classname>org.richfaces.taglib.Paint2DTagHandler</classname>
+			<superclass>
+				org.richfaces.taglib.Image2DTagHandler
+			</superclass>
+		</taghandler>
+		
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+		&ui_component_attributes;
+		&ui_output_attributes;
+		&html_universal_attributes;
+		&html_img_attributes;
+		
+		<property>
+			<name>data</name>
+			<classname>java.lang.Object</classname>
+			<description><![CDATA[
+			Value calculated at render time and stored in Image URI (as part of cache Key), 
+			at paint time passed to a paint method. It can be used for updating cache at change of image generating
+			conditions, and for creating paint beans as "Lightweight" pattern components (request scope).
+			IMPORTANT: Since serialized data stored in URI, avoid using big objects
+			]]></description>
+		</property>
+		<property elonly="true">
+			<name>paint</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description><![CDATA[
+			The method calls expression to paint Image on prepared Buffered image. It must have two parameters with a type of java.awt.Graphics2D (graphics to paint) and Object (restored from URI "data" property).
+			For painting used 32-bit RGBA color model (for 8-bit images used Diffusion filtration before sending)
+			  ]]></description>
+			<methodargs>java.awt.Graphics2D,java.lang.Object</methodargs>
+		</property>
+		<property>
+			<name>width</name>
+			<classname>int</classname>
+			<description><![CDATA[Width in pixels of image (for paint canvas and HTML attribute). Default value is "10".]]></description>
+			<defaultvalue>10</defaultvalue>
+		</property>
+		<property>
+			<name>height</name>
+			<classname>int</classname>
+			<description><![CDATA[Height in pixels of image (for paint canvas and HTML attribute). Default value is "10".]]></description>
+			<defaultvalue>10</defaultvalue>
+		</property>
+		<property>
+			<name>format</name>
+			<classname>java.lang.String</classname>
+			<description><![CDATA[format Name of format for sending a generated image. It currently supports "jpeg" (24 bit, default), "gif" (8 bit with transparency), "png" (32 bit with transparency)]]></description>
+		</property>
+		<property>
+			<name>cacheable</name>
+			<classname>boolean</classname>
+			<description>Supported (or not) client/server caching for generated images.
+			Caching on client supported by properly sending and processing of HTTP headers (Last-Modified, Expires, If-Modified-Since, etc.)
+			Server-side caching is supported by application-scope object cache.
+			For build of cache key use "value" attribute, serialized to URI
+			</description>
+		</property>
+		<property>
+			<name>bgcolor</name>
+			<classname>java.lang.String</classname>
+			<description><![CDATA[
+			Background color of painted image. Default value is 'transparent' which means no background fill. 
+			Hex colors can be used, as well as common color names. 
+			Invalid values are treated as transparent.
+			Note, that JPEG format doesn't support transparency, and transparent background is painted black.
+			Also note, that several browsers (e.g. IE6) do not support PNG transparency. Default value is &quot;transparent&quot;]]></description>
+			<defaultvalue>"transparent"</defaultvalue>
+		</property>
+		<property>
+			<name>alt</name>
+			<classname>java.lang.String</classname>
+			<description><![CDATA[
+			For compability with XHTML 1.1 standart]]></description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property hidden="true">
+	    	        <name>dir</name>
+	    	        <classname>java.lang.String</classname>
+	    	        <description>
+	    	            Direction indication for text that does not inherit
+						directionality. Valid values are "LTR" (left-to-right)
+						and "RTL" (right-to-left)
+	    	        </description>
+	    </property>
+		<property hidden="true">
+   	        <name>converter</name>
+   	        <classname>javax.faces.convert.Converter</classname>
+   	        <description>
+   	           
+   	        </description>
+	    </property>
+
+	</component>
+</components>

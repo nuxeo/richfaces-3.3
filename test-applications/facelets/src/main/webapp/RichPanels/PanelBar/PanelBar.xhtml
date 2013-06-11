@@ -1,0 +1,72 @@
+<f:subview id="panelBarSubviewID"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich">
+	<h:form>
+
+		<h:messages></h:messages>
+
+		<rich:panelBar id="pBId" height="#{panelBar.height}"
+			width="#{panelBar.width}" contentClass="#{panelBar.contentStyle}"
+			styleClass="#{panelBar.style}" selectedPanel="pBiId4">
+			<rich:panelBarItem rendered="#{panelBar.rendered}" id="pBiId1"
+				label="#{panelBar.label[0]}" headerClass="#{panelBar.headerStyle}">
+				<h:outputText value="Some text..."></h:outputText>
+			</rich:panelBarItem>
+
+			<rich:panelBarItem id="pBiId2" label="#{panelBar.label[1]}"
+				headerClass="#{panelBar.headerStyle}">
+				<h:graphicImage value="/pics/masshtaby_01.jpg" width="300"
+					height="200"></h:graphicImage>
+			</rich:panelBarItem>
+
+			<rich:panelBarItem id="pBiId3" label="#{panelBar.label[2]}"
+				headerClass="#{panelBar.headerStyle}">
+				<f:facet name="openMarker">
+					<h:graphicImage value="/pics/ajax_process.gif"></h:graphicImage>
+				</f:facet>
+				<f:facet name="closeMarker">
+					<h:graphicImage value="/pics/ajax_stoped.gif"></h:graphicImage>
+				</f:facet>
+				<h:graphicImage value="/pics/podb109_61.jpg" width="300"
+					height="200"></h:graphicImage>
+			</rich:panelBarItem>
+
+			<rich:panelBarItem id="pBiId4" label="#{panelBar.label[3]}"
+				headerClass="#{panelBar.headerStyle}">
+				<h:outputText value="Select Panel"></h:outputText>
+			</rich:panelBarItem>
+
+		</rich:panelBar>
+
+		<rich:spacer height="20px"></rich:spacer>
+
+		<h:panelGrid columns="2" cellspacing="10px">
+			<h:outputText value="Label: "></h:outputText>
+			<h:inputText valueChangeListener="#{panelBar.makeLabels}">
+				<a4j:support event="onchange" reRender="pBId"></a4j:support>
+			</h:inputText>
+
+			<h:outputText value="Width: "></h:outputText>
+			<h:inputText value="#{panelBar.width}">
+				<a4j:support event="onchange" reRender="pBId"></a4j:support>
+			</h:inputText>
+
+			<h:outputText value="Height: "></h:outputText>
+			<h:inputText value="#{panelBar.height}">
+				<a4j:support event="onchange" reRender="pBId"></a4j:support>
+			</h:inputText>
+
+			<h:outputText value="Rendered"></h:outputText>
+			<h:selectBooleanCheckbox value="#{panelBar.rendered}">
+				<a4j:support event="onchange" reRender="pBId" />
+			</h:selectBooleanCheckbox>
+
+			<h:outputText value="Switch Styles:" />
+			<h:commandButton action="#{panelBar.doStyles}"
+				value="#{panelBar.btnLabel}" />
+
+		</h:panelGrid>
+	</h:form>
+</f:subview>

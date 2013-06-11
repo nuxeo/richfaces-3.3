@@ -1,0 +1,48 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://richfaces.org/rich">
+      
+<head><title>Login panel</title></head>
+
+<body>
+    <h:messages styleClass="message"/>
+    
+    <h:form id="login">
+    
+        <rich:panel>
+            <f:facet name="header">Login</f:facet>
+    
+            <p>Please login here</p>
+        
+            <div class="dialog">
+                <h:panelGrid columns="2" rowClasses="prop" columnClasses="name,value">
+                    <h:outputLabel for="username">Login</h:outputLabel>
+                    <h:inputText id="username" value="#{user.login}"/>
+                    
+                    <h:outputLabel for="password">Password</h:outputLabel>
+                    <h:inputSecret id="password" value="#{user.password}"/>
+                    
+                    <h:outputLabel for="rememberMe">Remember me</h:outputLabel>
+                    <h:selectBooleanCheckbox id="rememberMe" value="#{user.rememberMe}"/>
+                </h:panelGrid>
+            </div>
+            
+        </rich:panel>
+            
+        <div class="actionButtons">
+            <h:commandButton value="Login" action="#{authenticator.authenticate}" />
+        </div>
+        
+        <div id="temp" align="right">
+        	<h:commandButton action="#{authenticator.reloadSession}" value="Reload session" />
+        </div>
+          
+    </h:form>
+
+</body>
+</html>

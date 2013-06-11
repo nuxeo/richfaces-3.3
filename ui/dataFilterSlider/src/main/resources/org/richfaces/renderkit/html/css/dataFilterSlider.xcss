@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+   <f:verbatim><![CDATA[
+
+
+       .slider-container{
+           background-color:transparent;
+           width:100%;
+           position:relative;
+       }
+       
+       .rich-dataFilterSlider-container {
+		   background-color:transparent;
+           width:100%;
+           position:relative;
+       }
+
+       .range{
+           background-color:transparent;
+           height: 10px;
+           overflow:hidden;
+           float:left;
+           border-width: 1px;
+           border-style: solid;
+       }
+       
+        .rich-dataFilterSlider-range{
+           background-color:transparent;
+           height: 10px;
+           overflow:hidden;
+           float:left;
+           border-width: 1px;
+           border-style: solid;
+       }
+
+       .range-decor{
+            height : 100%;
+            width : 100%;
+            border-width: 1px;
+            border-style: solid;
+        }
+        
+        .rich-dataFilterSlider-range-decor{
+            height : 100%;
+            width : 100%;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+       .trailer{
+           background-color:transparent;
+           background-position:top right;
+           background-repeat:repeat-x;
+           height: 10px;
+       }
+       
+       .rich-dataFilterSlider-trailer{
+           background-color:transparent;
+           background-position:top right;
+           background-repeat:repeat-x;
+           height: 10px;
+       }
+
+       .track{
+           background-color:transparent;
+           height: 8px;
+           overflow:hidden;
+           position:absolute;
+       }
+       
+       .rich-dataFilterSlider-track{
+           background-color:transparent;
+           height: 8px;
+           overflow:hidden;
+           position:absolute;
+       }
+
+       .handle{
+           position: absolute;
+           width: 10px;
+           height: 8px;
+           background-color:transparent;
+           line-height: 1px;
+           font-size: 1px;
+       }
+       
+       .rich-dataFilterSlider-handle{
+           position: absolute;
+           width: 10px;
+           height: 8px;
+           background-color:transparent;
+           line-height: 1px;
+           font-size: 1px;
+       }
+
+       .slider-input-field{
+            border: 1px solid;
+            background: left top repeat-x;
+            padding: 0px 0px 0px 3px;
+            width : 40px;
+            margin: 0px 0px 0px 10px;
+            float:left;
+       }
+       
+       .rich-dataFilterSlider-input-field{
+            border: 1px solid;
+            background: left top repeat-x;
+            padding: 0px 0px 0px 3px;
+            width : 40px;
+            margin: 0px 0px 0px 10px;
+            float:left;
+       }
+
+
+]]>
+</f:verbatim>
+
+<u:selector name=".range">
+    <u:style name="background-image">
+        <f:resource f:key="org.richfaces.renderkit.html.images.SliderTrackGradient" />
+    </u:style>
+    <u:style name="border-color" skin="panelBorderColor"/>
+</u:selector>
+
+<u:selector name=".rich-dataFilterSlider-range">
+    <u:style name="background-image">
+        <f:resource f:key="org.richfaces.renderkit.html.images.SliderTrackGradient" />
+    </u:style>
+    <u:style name="border-color" skin="panelBorderColor"/>
+</u:selector>
+
+
+<u:selector name=".range">
+    <u:style name="border-color" skin="subBorderColor"/>
+</u:selector>
+
+<u:selector name=".rich-dataFilterSlider-range">
+    <u:style name="border-color" skin="subBorderColor"/>
+</u:selector>
+
+
+<u:selector name=".trailer">
+    <u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/images/sldr_trailer3_bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".rich-dataFilterSlider-trailer">
+    <u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/images/sldr_trailer3_bg.gif" />
+    </u:style>
+</u:selector>
+
+
+<u:selector name=".slider-input-field">
+    <u:style name="background-image">
+        <f:resource f:key="org.richfaces.renderkit.html.images.SliderFieldGradient" />
+    </u:style>
+    <u:style name="background-color" skin="controlBackgroundColor"/>
+    <u:style name="font-family" skin="generalFamilyFont"/>
+    <u:style name="font-size" skin="generalSizeFont"/>
+    <u:style name="color" skin="controlTextColor"/>
+    <u:style name="border-color" skin="panelBorderColor" />
+    <u:style name="border-bottom-color" skin="subBorderColor" />
+    <u:style name="border-right-color" skin="subBorderColor" />
+</u:selector>
+
+<u:selector name=".rich-dataFilterSlider-input-field">
+    <u:style name="background-image">
+        <f:resource f:key="org.richfaces.renderkit.html.images.SliderFieldGradient" />
+    </u:style>
+    <u:style name="background-color" skin="controlBackgroundColor"/>
+    <u:style name="font-family" skin="generalFamilyFont"/>
+    <u:style name="font-size" skin="generalSizeFont"/>
+    <u:style name="color" skin="controlTextColor"/>
+    <u:style name="border-color" skin="panelBorderColor" />
+    <u:style name="border-bottom-color" skin="subBorderColor" />
+    <u:style name="border-right-color" skin="subBorderColor" />
+</u:selector>
+
+
+</f:template>

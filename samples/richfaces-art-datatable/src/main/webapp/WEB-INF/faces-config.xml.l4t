@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS ENTITY="JSFProcess">
+ <PROCESS-ITEM ENTITY="JSFProcessGroup" NAME="rules:#pages#main.jsp"
+  PATH="/pages/main.jsp" SHAPE="240,33,0,0">
+  <PROCESS-ITEM ENTITY="JSFProcessItem" ID="rules:#pages#main.jsp:0"
+   NAME="item" PATH="/pages/main.jsp">
+   <PROCESS-ITEM-OUTPUT ENTITY="JSFProcessItemOutput"
+    ID="example1::#pages#example1.jsp" NAME="output"
+    PATH="/pages/example1.jsp" TARGET="rules:#pages#example1.jsp" TITLE="example1"/>
+   <PROCESS-ITEM-OUTPUT ENTITY="JSFProcessItemOutput"
+    ID="example2::#pages#example2.jsp" NAME="output1"
+    PATH="/pages/example2.jsp" TARGET="rules:#pages#example2.jsp" TITLE="example2"/>
+   <PROCESS-ITEM-OUTPUT ENTITY="JSFProcessItemOutput"
+    ID="example3::#pages#example3.jsp" NAME="output2"
+    PATH="/pages/example3.jsp" TARGET="rules:#pages#example3.jsp" TITLE="example3"/>
+   <PROCESS-ITEM-OUTPUT ENTITY="JSFProcessItemOutput"
+    ID="example4::#pages#example4.jsp" NAME="output3"
+    PATH="/pages/example4.jsp" TARGET="rules:#pages#example4.jsp" TITLE="example4"/>
+   <PROCESS-ITEM-OUTPUT ENTITY="JSFProcessItemOutput"
+    ID="example10::#pages#example10.jsp" NAME="output4"
+    PATH="/pages/example10.jsp" TARGET="rules:#pages#example10.jsp" TITLE="example10"/>
+   <PROCESS-ITEM-OUTPUT ENTITY="JSFProcessItemOutput"
+    ID="example5::#pages#columnsSorting.jsp" NAME="output5"
+    PATH="/pages/columnsSorting.jsp"
+    TARGET="rules:#pages#columnsSorting.jsp" TITLE="example5"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="JSFProcessGroup" NAME="rules:*" PATH="*" SHAPE="32,17,0,0">
+  <PROCESS-ITEM ENTITY="JSFProcessItem" ID="rules:*:0" NAME="item" PATH="*">
+   <PROCESS-ITEM-OUTPUT ENTITY="JSFProcessItemOutput"
+    ID="main::#pages#main.jsp" NAME="output" PATH="/pages/main.jsp"
+    TARGET="rules:#pages#main.jsp" TITLE="main"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="JSFProcessGroup"
+  NAME="rules:#pages#example10.jsp" PATH="/pages/example10.jsp" SHAPE="512,593,0,0"/>
+ <PROCESS-ITEM ENTITY="JSFProcessGroup" NAME="rules:#pages#example3.jsp"
+  PATH="/pages/example3.jsp" SHAPE="512,369,0,0"/>
+ <PROCESS-ITEM ENTITY="JSFProcessGroup" NAME="rules:#pages#example2.jsp"
+  PATH="/pages/example2.jsp" SHAPE="512,257,0,0"/>
+ <PROCESS-ITEM ENTITY="JSFProcessGroup" NAME="rules:#pages#example4.jsp"
+  PATH="/pages/example4.jsp" SHAPE="512,481,0,0"/>
+ <PROCESS-ITEM ENTITY="JSFProcessGroup" NAME="rules:#pages#example1.jsp"
+  PATH="/pages/example1.jsp" SHAPE="512,17,0,0"/>
+ <PROCESS-ITEM ENTITY="JSFProcessGroup"
+  NAME="rules:#pages#columnsSorting.jsp"
+  PATH="/pages/columnsSorting.jsp" SHAPE="512,289,0,0"/>
+</PROCESS>

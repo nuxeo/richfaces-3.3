@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+
+<components>
+	<component>
+		<name>org.richfaces.component.ToolTip</name>
+		<family>org.richfaces.component.ToolTip</family>
+		<classname>org.richfaces.component.html.HtmlToolTip</classname>
+		<superclass>org.richfaces.component.UIToolTip</superclass>
+		<description><![CDATA[Defines tooltip for parent component.]]></description>
+		<test>
+			<classname>org.richfaces.component.html.HtmlToolTipTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+
+		<!--renderer generate="true" override="true">
+			<name>org.richfaces.renderkit.html.ToolTipRenderer</name>
+			<template>org/richfaces/htmltooltip.jspx</template>
+		</renderer-->
+		<facet>
+		   <name>defaultContent</name>
+		   <description>Defines the default content for toolTip. It is used only if mode = "ajax"</description>
+		</facet>
+		<renderer override="true">
+			<name>org.richfaces.renderkit.html.ToolTipRenderer</name>
+			<classname>org.richfaces.renderkit.html.ToolTipRenderer</classname>
+		</renderer>
+
+		<tag>
+			<name>toolTip</name>
+			<classname>org.richfaces.taglib.ToolTipTag</classname>
+			<superclass>org.richfaces.taglib.ToolTipTagBase</superclass>
+			<test>
+				<classname>org.richfaces.taglib.HtmlToolTipTagTest</classname>
+				<superclassname>org.ajax4jsf.tests.AbstractJspTestCase</superclassname>
+			</test>
+		</tag>
+		<taghandler generate="true">
+			<classname>org.richfaces.taglib.HtmlToolTipTagHandler</classname>
+			<superclass>org.richfaces.taglib.ToolTipTagHandlerBase</superclass>
+		</taghandler>
+
+	    <property>
+	    	<name>layout</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Block/inline mode flag. Possible value are: "inline" or "block".  Default value is &quot;inline&quot;. Tooltip will contain div/span elements respectively</description>
+	    	<defaultvalue><![CDATA["inline"]]></defaultvalue>
+	    </property> 
+	    
+		<property>
+			<name>ajaxSingle</name>
+			<classname>boolean</classname>
+			<description>
+				boolean attribute which provides possibility to limit JSF tree processing(decoding, conversion/validation, value applying) to the component which sends the request only.
+				Default value is &quot;true&quot;
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+	    
+	    <property>
+	    	<name>showDelay</name>
+	    	<classname>int</classname>
+	    	<description>Delay in milliseconds before tooltip will be displayed. Default value is &quot;0&quot;</description>
+	    	<defaultvalue><![CDATA[0]]></defaultvalue>
+	    </property>
+	     <property>
+	    	<name>hideDelay</name>
+	    	<classname>int</classname>
+	     	<description>Delay in milliseconds before tooltip will be hidden. Default value is &quot;0&quot;</description>
+	    	<defaultvalue><![CDATA[0]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name>zorder</name>
+	    	<classname>int</classname>
+	    	<description>The same as CSS z-index for toolTip. Default value is &quot;99&quot;</description>
+	    	<defaultvalue><![CDATA[99]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>oncomplete</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>JavaScript code for call after the tooltip shown</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>onshow</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>
+			JavaScript code for call after the tooltip called (some element overed) but before its requesting
+			</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>onhide</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>JavaScript code for call after the tooltip hidden</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+
+		<property>
+			<name>for</name>
+			<classname>java.lang.String</classname>
+			<description>Id of the target component</description>
+		</property>
+
+<!--     <property>
+	    	<name>value</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Label on the tooltip</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>  -->
+	    
+	    <property>
+	    	<name>mode</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Controls the way of data loading to a tooltip. May have following values: &quot;client&quot; (default) and &quot;ajax&quot;</description>
+	    	<defaultvalue><![CDATA["client"]]></defaultvalue>
+	    </property>
+	    <property>
+			<name>disabled</name>
+	    	<classname>boolean</classname>
+	    	<description>If false the components is rendered on the client but JavaScript for calling disabled. Default value is &quot;false&quot;</description>
+	    	<defaultvalue>false</defaultvalue>
+	    </property>
+	    <property>
+	    	<name>direction</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Defines direction of the popup list to appear. 
+	    		Possible values are &quot;top-right&quot;, &quot;top-left&quot;, &quot;bottom-right&quot;, &quot;bottom-left&quot;, &quot;auto&quot;.
+	    		Default value is &quot;bottom-right&quot;</description>
+	    	<defaultvalue><![CDATA["bottom-right"]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>followMouse</name>
+	    	<classname>boolean</classname>
+	    	<description>If &quot;true&quot; tooltip should follow the mouse while it moves over the parent element. Default value is &quot;false&quot;</description>
+	    	<defaultvalue>false</defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>horizontalOffset</name>
+	    	<classname>int</classname>
+	    	<description>Sets the horizontal offset between pop-up list and mouse pointer. Default value is &quot;10&quot;</description>
+	    	<defaultvalue>10</defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>verticalOffset</name>
+	    	<classname>int</classname>
+	    	<description>Sets the vertical offset between pop-up list and mouse pointer. Default value is &quot;10&quot;</description>
+	    	<defaultvalue>10</defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>style</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>CSS style(s) is/are to be applied when this component is rendered</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>styleClass</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Corresponds to the HTML class attribute</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+
+	    &ui_component_attributes;
+		&html_events; 
+		&ui_command_attributes;
+		
+	    <property>
+	    	<name>onclick</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>HTML: a script expression; a pointer button is clicked</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>ondblclick</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>HTML: a script expression; a pointer button is double-clicked</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>onmouseout</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>HTML: a script expression; a pointer is moved away</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>onmousemove</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>HTML: a script expression; a pointer is moved within</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>onmouseover</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>HTML: a script expression; a pointer is moved onto</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+	    <property exist="true" existintag="true">
+	    	<name>showEvent</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Event that triggers the tooltip.  Default value is &quot;onmouseover&quot;</description>
+	    	<defaultvalue><![CDATA["onmouseover"]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>hideEvent</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>
+	    		Event that triggers the tooltip disappearance.
+	    		Default value is "none" (so, the component does not disappears)   	
+	    	</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>	    	
+	    </property>
+	    <property>
+            <name>attached</name>
+            <classname>boolean</classname>
+            <description>
+            	If the value of the &quot;attached&quot; attribute is &quot;true&quot;, a component is attached to the parent component;
+            	if &quot;false&quot;, component does not listen to activating browser events, but could be activated externally.  Default value is &quot;true&quot; 
+            </description>
+            <defaultvalue>true</defaultvalue>
+        </property>
+
+        <property>
+   			<name>event</name>
+   			<classname>java.lang.String</classname>
+        	<description>DEPRECATED. Use showEvent instead.  Default value is &quot;mouseover&quot;</description>
+	    	<defaultvalue><![CDATA["mouseover"]]></defaultvalue>
+   		</property>
+	</component>
+	<renderer generate="true">
+		<template>org/richfaces/htmltooltipblock.jspx</template>
+	</renderer>
+	<!--renderer generate="true" override="true">
+		<name>org.richfaces.renderkit.html.ToolTipRenderer</name>
+		<template>org/richfaces/htmltooltip.jspx</template>
+	</renderer-->
+	<renderer generate="true">
+		<template>org/richfaces/htmltooltip.jspx</template>
+	</renderer>
+</components>

@@ -1,0 +1,35 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" id="toolBarSubviewID">
+		<h:messages></h:messages>
+
+		<rich:toolBar id="toolBarId" width="#{toolBar.width}"
+			height="#{toolBar.height}" rendered="#{toolBar.rendered}"
+			itemSeparator="#{toolBar.itemSeparator}"
+			contentClass="#{toolBar.contentStyle}"
+			separatorClass="#{toolBar.separatorStyle}"  
+			contentStyle="contentStyle" style="#{style.style}" 
+			styleClass="#{style.styleClass}"
+			binding="#{toolBar.htmlToolBar}">
+			<h:outputText value="ToolBar" style="font-style: italic"></h:outputText>
+
+			<rich:toolBarGroup>
+				<h:outputText value="Width:"></h:outputText>
+				<h:inputText value="#{toolBar.width}">
+					<a4j:support event="onchange" reRender="toolBarId"></a4j:support>
+				</h:inputText>
+			</rich:toolBarGroup>
+
+			<rich:toolBarGroup>
+				<h:outputText value="Height:"></h:outputText>
+				<h:inputText value="#{toolBar.height}">
+					<a4j:support event="onchange" reRender="toolBarId"></a4j:support>
+				</h:inputText>
+			</rich:toolBarGroup>
+
+			<rich:toolBarGroup location="#{toolBar.location}">
+				<h:graphicImage value="/pics/ajax_process.gif"></h:graphicImage>
+			</rich:toolBarGroup>
+
+		</rich:toolBar>
+
+</f:subview>

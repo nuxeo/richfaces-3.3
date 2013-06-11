@@ -1,0 +1,18 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" id="dataDefinitionListSubviewID">
+		<rich:dataDefinitionList id="ddListID" value="#{dataDefinitionList.arr}" var="arr" first="#{dataDefinitionList.first}"
+			rendered="#{dataDefinitionList.rendered}" title="#{dataDefinitionList.title}" dir="#{dataDefinitionList.dir}"
+			rows="#{dataDefinitionList.rows}" style="#{style.style}" styleClass="#{style.styleClass}" columnClasses="#{style.columnClasses}" rowClasses="#{style.rowClasses}"
+			binding="#{dataDefinitionList.myDefinitionList}"
+			rowKeyVar="myVar">
+			<f:facet name="header">
+				<h:outputText value="Africa(header):" />
+			</f:facet>
+			<h:outputText value="#{arr.str0} " />
+			<h:outputLink value="http://www.jboss.com/"><f:verbatim>Link</f:verbatim></h:outputLink>
+			<h:outputText value="#{myVar}"></h:outputText>
+			<f:facet name="footer">
+				<h:outputText value="Africa(footer);" />
+			</f:facet>
+		</rich:dataDefinitionList>
+</f:subview>

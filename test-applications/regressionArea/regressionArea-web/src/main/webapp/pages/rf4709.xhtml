@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+      
+<ui:composition template="/layout/layout.xhtml">
+	<ui:define name="style">
+		
+	</ui:define>
+	<ui:define name="template">
+		<rich:messages id="messages"/>
+		
+		<h:form id="form">
+			<rich:tabPanel switchType="client" id="tabPanel">
+				<rich:tab label="First" id="firstTab">First tab</rich:tab>
+				<rich:tab label="Second" id="secondTab">Second tab</rich:tab>
+
+				<a4j:support event="ontabchange" action="#{actionBean.addMessage('tabPanel')}" />
+			</rich:tabPanel>
+
+			<rich:togglePanel label="Toggle panel" id="togglePanel" initialState="first" stateOrder="first,second" 
+				switchType="client">
+				
+				<f:facet name="first">
+					<h:panelGroup>
+						<rich:toggleControl id="firstControl" switchToState="second" value="To second"/>
+					</h:panelGroup>			
+				</f:facet>
+				<f:facet name="second">
+					<h:panelGroup>
+						<rich:toggleControl id="secondControl" switchToState="first" panelId="togglePanel" value="To first"/>
+					</h:panelGroup>			
+				</f:facet>
+				
+				<a4j:support event="onclick" action="#{actionBean.addMessage('togglePanel')}" />
+			</rich:togglePanel>
+
+			<rich:panelBar id="panelBar">
+				<rich:panelBarItem label="First" id="firstPanelBarItem">First item</rich:panelBarItem>
+				<rich:panelBarItem label="Second" id="secondPanelBarItem">Second item</rich:panelBarItem>
+
+				<a4j:support event="onitemchange" action="#{actionBean.addMessage('panelBar')}" />
+			</rich:panelBar>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

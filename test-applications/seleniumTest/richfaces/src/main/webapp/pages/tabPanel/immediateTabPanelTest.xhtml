@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="controls">
+			<h:commandButton id="reset" actionListener="#{panelBean.reset}" value="Reset"></h:commandButton>	
+		</h:form>
+		<h:form id="_form">
+		<h:inputText id="input" value="" required="true"/>
+		<h:messages id="messages" ></h:messages>
+		<rich:tabPanel id="panel1" 
+				switchType="server"
+				selectedTab="#{panelBean.selectedTab}"								   						   
+				immediate="#{panelBean.immediate}">	   
+				<rich:tab label="tab1" id="tab1" >
+					<h:outputText value="Tab one" />
+					
+				</rich:tab>
+				<rich:tab label="tab2"
+					id="tab2">
+					<h:outputText value="Tab two" />
+				</rich:tab>
+				<rich:tab label="tab3" id="tab3" disabled="true">
+					<h:outputText value="Tab three" />
+				</rich:tab>
+				<rich:tab label="tab4" id="tab4" >
+					<h:outputText value="Tab four" />
+				</rich:tab>
+				
+			</rich:tabPanel>
+		</h:form>		
+	</ui:define>
+</ui:composition>
+</html>

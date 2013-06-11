@@ -1,0 +1,72 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+	<h:form id="tabs_form">
+	<a4j:outputPanel id="tabsWrapper" layout="block">
+	<rich:tabPanel rendered="#{tabsBean.tabsRendered}" id="RemoveAbleTabPanel" switchType="ajax">
+		<rich:tab rendered="#{tabsBean.tabRendered[0]}">
+			<f:facet name="label">
+				<h:panelGroup>
+					<h:outputText value="Ajax with RichFaces" />
+					<h:graphicImage value="/images/modal/close.png" id="hidelink1" styleClass="hidelink" onclick="deleteTab('0');Event.stop(event);"/>
+				</h:panelGroup>
+			</f:facet>
+			<p>
+				The framework is implemented using a component library. 
+				The library set Ajax functionality into existing pages, so 
+				there is no need to write any JavaScript code or to replace 
+				existing components with new Ajax one. Ajax4jsf enables page-wide 
+				Ajax support instead of the traditional component-wide support and 
+				it gives the opportunity to define the event on the page. An event 
+				invokes an Ajax request and areas of the page which are synchronized
+				 with the JSF Component Tree after changing the data on the server 
+				 by Ajax request in accordance with events fired on the client.			
+			</p>
+		</rich:tab>
+		<rich:tab rendered="#{tabsBean.tabRendered[1]}">
+			<f:facet name="label">
+				<h:panelGroup>
+					<h:outputText value="RichFaces CDK" />
+					<h:graphicImage value="/images/modal/close.png" id="hidelink2" styleClass="hidelink" onclick="deleteTab('1');Event.stop(event);"/>
+				</h:panelGroup>
+			</f:facet>
+			<p>
+				 Component Development Kit (CDK) is a design-time extension for 
+				 Ajax4jsf. The CDK includes a code-generation facility and a 
+				 templating facility using a JSP-like syntax. These capabilities 
+				 help to avoid a routine process of a component creation. The 
+				 component factory works like a well-oiled machine allowing the 
+				 creation of first-class rich components with built-in Ajax 
+				 functionality even more easily than the creation of simpler 
+				 components by means of the traditional coding approach.
+			</p>
+		</rich:tab>
+		<rich:tab rendered="#{tabsBean.tabRendered[2]}">
+			<f:facet name="label">
+				<h:panelGroup>
+					<h:outputText value="RichFaces Skinability" />
+					<h:graphicImage value="/images/modal/close.png" id="hidelink3" styleClass="hidelink" onclick="deleteTab('2');Event.stop(event);"/>
+				</h:panelGroup>
+			</f:facet>
+			<p>
+				Ajax4jsf provides a skinnability feature that allows easily define 
+				and manage different color schemes and other parameters of the UI 
+				with the help of named skin parameters. Hence it is possible to 
+				access the skin parameters from JSP code and the Java code (e.g. to 
+				adjust generated on-the-fly images based on the text parts of the 
+				UI). Note: skinnability is not an equivalent of traditional CSS, 
+				but a complement.
+			</p>
+		</rich:tab>
+	</rich:tabPanel>
+	</a4j:outputPanel>
+	<a4j:jsFunction id="deleteFunc" reRender="tabsWrapper" name="deleteTab" actionListener="#{tabsBean.deleteTab}">
+		<f:param name="tabToDelete" />
+	</a4j:jsFunction>
+	<a4j:commandButton action="#{tabsBean.resetTabs}" value="Reset Tabs" reRender="tabsWrapper"/>
+	</h:form>
+	<rich:messages></rich:messages>
+</ui:composition>

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.autoTestTemplate}">
+	<ui:define name="component">
+		<rich:pickList id="componentId"
+			copyAllControlLabel="#{pickListBean.copyAllLabel}"
+			copyControlLabel="#{pickListBean.copyLabel}"
+			removeControlLabel="#{pickListBean.removeLabel}"
+			removeAllControlLabel="#{pickListBean.removeAllLabel}"
+			value="#{pickListBean.result}"
+			disabled="#{autoTestBean.disabled}"
+			showButtonsLabel="false"
+			style="font-size: 13px"
+			styleClass="noclass"
+			controlClass="control-class"
+			listClass="list-class"
+			disabledStyle="font-size: 14px"
+			disabledStyleClass="disabled-style-class"
+			enabledStyle="font-size: 15px"
+			enabledStyleClass="enabled-style-class"
+			onlistchange="EventQueue.fire('onlistchange')"
+			onlistchanged="EventQueue.fire('onlistchanged')"
+			onclick="EventQueue.fire('onclick')"
+			ondblclick="EventQueue.fire('ondblclick')"
+			onmousedown="EventQueue.fire('onmousedown')"
+			onmousemove="EventQueue.fire('onmousemove')"
+			onmouseout="EventQueue.fire('onmouseout')"
+			onmouseover="EventQueue.fire('onmouseover')"
+			onmouseup="EventQueue.fire('onmouseup')"
+			onkeydown="EventQueue.fire('onkeydown')"
+			onkeypress="EventQueue.fire('onkeypress')"
+			onkeyup="EventQueue.fire('onkeyup')">
+           		<f:selectItems value="#{pickListBean.options}"/>
+        </rich:pickList>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<a4j:keepAlive beanName="keepAliveBean"/>
+		<h:form id="form">
+			<h:outputText value=" Augend: "/>
+			<h:inputText value="#{keepAliveBean.augend}" />
+			<h:commandButton id="add" action="#{keepAliveBean.doSum}" value="Add" />
+			<a4j:commandButton id="addAjax" reRender="sum" action="#{keepAliveBean.doSum}" value="Add (ajax)" />
+		</h:form>
+		<h:outputText value=" Sum: " />
+		<h:inputText id="sum" value="#{keepAliveBean.sum}" />
+		<br/>
+		<br/>
+		<a4j:keepAlive beanName="keepAliveAjaxOnlyBean" ajaxOnly="true"/>
+		<h:form id="formAjaxOnly">
+			<h:outputText value=" Augend: "/>
+			<h:inputText value="#{keepAliveAjaxOnlyBean.augend}" />
+			<h:commandButton id="add" action="#{keepAliveAjaxOnlyBean.doSum}" value="Add" />
+			<a4j:commandButton id="addAjax" reRender="sumAjaxOnly" action="#{keepAliveAjaxOnlyBean.doSum}" value="Add (ajax)" />
+		</h:form>
+		<h:outputText value=" Sum: " />
+		<h:inputText id="sumAjaxOnly" value="#{keepAliveAjaxOnlyBean.sum}" />
+	</ui:define>
+</ui:composition>
+</html>

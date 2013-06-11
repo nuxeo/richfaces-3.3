@@ -1,0 +1,221 @@
+package $package;
+
+#foreach($import in $imports)
+import $import ;
+#end
+
+ import javax.faces.context.FacesContext;
+ import javax.faces.el.ValueBinding;
+import javax.faces.component.StateHolder;
+ 
+ /**
+  * Converter-Id ${converter.id}
+  * ${converter.xmlEncodedDescription}
+  */
+ 
+public class $converter.simpleClassName extends $converter.superclass #if(${converter.stateHolderRequired} && !${converter.superclassImplementsStateHolder})implements StateHolder#end
+ {
+ 
+   public static final String CONVERTER_ID = "${converter.id}";
+
+   
+ 
+ // Conveter properties fields
+
+#set( $fieldCounter = 0 )
+ #foreach( $prop in $converter.properties )
+
+#if( !$prop.exist )
+   /**
+    * $prop.name
+    * ${prop.xmlEncodedDescription}
+    */
+
+#if($prop.simpleType)
+   private $prop.simpleClassName  _$prop.name = ${prop.defaultvalue};		
+   /**
+    * Flag indicated that $prop.name is set.
+    */
+   private boolean _${prop.name}Set = false;	
+#set( $fieldCounter = $fieldCounter+2)
+#else
+   private $prop.simpleClassName  _$prop.name = null; /* Default is ${prop.defaultvalue}*/
+#set( $fieldCounter = $fieldCounter+1)
+ #end
+#end	 
+#end
+ 
+ // Getters and setters
+ #foreach( $prop in $converter.properties )
+
+#if( !$prop.exist )
+   /**
+    * ${prop.xmlEncodedDescription}
+    * Setter for $prop.name
+	*/
+   public void ${prop.setterName}( $prop.simpleClassName  __$prop.name )
+   {
+     this._${prop.name} = __$prop.name;
+
+#if($prop.simpleType)
+ 	this._${prop.name}Set = true;
+
+#end
+   }
+ 
+  /**
+   * ${prop.xmlEncodedDescription}
+   * Getter for $prop.name
+   * @return $prop.name value from local variable or value binding
+   */
+   public $prop.simpleClassName ${prop.getterName}()
+   {
+     ValueBinding vb = getValueBinding("${prop.name}");
+
+#if($prop.simpleType)
+     if(this._${prop.name}Set)
+     {
+ 	  return this._${prop.name};
+
+         return (this._${prop.name});
+       }
+     }
+
+#else
+     if (null != this._${prop.name}) 
+     {
+       return this._${prop.name};
+     }
+
+#if( !$prop.isInstanceof("javax.faces.el.MethodBinding") && !$prop.isInstanceof("javax.faces.el.ValueBinding"))
+     else if (null != vb)
+     {
+       return (${prop.simpleClassName})vb.getValue(getFacesContext());
+     }
+
+#end
+     else
+     {
+       return ${prop.defaultvalue};
+     }
+
+#end
+  }
+ 	#if($prop.raw)
+  /**
+   * ${prop.xmlEncodedDescription}
+   * Raw Setter for $prop.name
+   * @param $prop.name - new value
+   */
+
+   {
+     return this._${prop.name};
+   }
+ #end
+#end	 
+#end
+ 
+#if($converter.stateHolderRequired)
+ 
+  // Save state
+  // ----------------------------------------------------- StateHolder Methods
+
+  private boolean _transient;
+
+#if(${converter.superclassImplementsStateHolder})
+#set($currentField=1)
+#set($fieldCounter = $fieldCounter+1)
+#else
+#set($currentField=0)
+#end
+   public Object saveState(FacesContext context) {
+
+#if(${converter.superSaveStateMethodExists})
+    Object values[] = new Object[${fieldCounter}];
+     values[0] = super.saveState(context);
+#else
+    Object values[] = new Object[${fieldCounter}];
+#end
+#foreach( $prop in $converter.properties )
+#if( !$prop.exist )
+#if($prop.simpleType)		
+     values[${currentField}] = new ${prop.boxingClass}(_$prop.name);
+#set( $currentField = $currentField+1)
+    values[${currentField}] = Boolean.valueOf(_${prop.name}Set);	
+#set( $currentField = $currentField+1)
+#else
+#if(!${prop.attachedstate} )
+     values[${currentField}] = _$prop.name;
+#else
+     values[${currentField}] = saveAttachedState(context, _$prop.name );		
+ #end
+
+#set( $currentField = $currentField+1)
+#end	
+#end	 
+#end
+	return values;
+   }
+    
+
+#if(${converter.superclassImplementsStateHolder})
+#set($currentField=1)
+#else
+#set($currentField=0)
+#end
+   public void restoreState(FacesContext context, Object state) {
+#if(${converter.superRestoreStateMethodExists})
+     Object values[] = (Object[]) state;
+     super.restoreState(context, values[0]);
+#else
+    Object values[] = (Object[]) state;
+#end
+#foreach( $prop in $converter.properties )
+#if( !$prop.exist )
+#if($prop.simpleType)		
+     _$prop.name = ((${prop.boxingClass})values[${currentField}]).${prop.classname}Value();
+#set( $currentField = $currentField+1)
+    _${prop.name}Set = ((Boolean)values[${currentField}]).booleanValue();	
+#set( $currentField = $currentField+1)
+#else
+#if( !${prop.attachedstate} )
+     _$prop.name = (${prop.simpleClassName})values[${currentField}] ;
+#else
+     _$prop.name = (${prop.simpleClassName})restoreAttachedState(context,values[${currentField}] );		
+ #end
+#set( $currentField = $currentField+1)
+#end
+ 	
+#end	 
+#end
+  }
+  
+#if(!$converter.superIsTransientMethodExists)
+  public boolean isTransient()
+  {
+    return _transient;
+  }
+#end
+ 
+#if(!$converter.superSetTransientMethodExists)
+  public void setTransient(boolean newTransientValue)
+  {
+    this._transient = newTransientValue;
+  }
+#end
+
+#end
+	  
+  // Utilites
+
+  private FacesContext getFacesContext()
+  {
+    return FacesContext.getCurrentInstance();
+  }
+  
+  private ValueBinding getValueBinding(String name)
+  {
+    return getFacesContext().getApplication().createValueBinding(name);
+  }
+
+ }

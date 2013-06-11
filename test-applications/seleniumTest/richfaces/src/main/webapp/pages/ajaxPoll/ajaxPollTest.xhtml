@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+			<h:selectBooleanCheckbox id="_enabled" value="#{pollBean.enabled}">
+				<a4j:support event="onchange" ajaxSingle="true" reRender="_form"></a4j:support>
+			</h:selectBooleanCheckbox>
+			<a4j:poll interval="700" id="poll" enabled="#{pollBean.enabled}" actionListener="#{pollBean.listener}" reRender="_value, _text"></a4j:poll><br/>
+			<h:inputHidden id="_value" value="#{pollBean.i}"/>
+			<h:outputText id="_text" value="#{pollBean.text}" rendered="#{pollBean.enabled}"/>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

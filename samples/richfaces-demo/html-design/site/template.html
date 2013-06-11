@@ -1,0 +1,344 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>RichFaces Demo Site</title>
+<style>
+body{
+	margin : 0px;
+	background-image : url(images/page_bg.gif);
+	background-position : top left;
+	background-repeat : no-repeat;
+	background-color : White;
+}
+
+.page_brick{
+	position : absolute;
+	top : 0px;
+	width : 998px;
+}
+
+li{
+	list-style : outside url(images/bullet_arrow.gif);
+	margin-top : 5px;
+	margin-bottom : 5px;
+	margin-left : -12px;
+}
+ul{
+	margin-top : 10px;
+	margin-bottom : 10px;
+}
+
+
+.top_navbar{
+	position : absolute;
+	top : 2px;
+	right : 0px;
+	font-family : verdana;
+	font-size : 11px;
+}
+.top_navbar td{
+	padding : 5px 10px 7px 10px;
+	background-image : url(images/top_nav_bg.gif);
+	background-position : left;
+	background-repeat : repeat-y;
+	background-color : transparent;
+}
+.top_navbar td a{
+	color : #000000;
+	text-decoration : none;
+}
+.top_navbar td a:hover{
+	color : #000000;
+	text-decoration : underline;
+}
+
+
+.skin_chooser{
+	position : absolute;
+	top : 77px;
+	left : 294px;
+	font-family : verdana;
+	font-size : 11px;
+	height : 26px;
+}
+.skin_chooser td{
+	padding : 0px 0px 0px 10px;
+	background-color : transparent;
+}
+.skin_chooser td a{
+	color : #7795AF;
+	text-decoration : none;
+}
+.skin_chooser td a:hover{
+	color : #7795AF;
+	text-decoration : underline;
+}
+.skin_chooser .skin_line{
+	font-family : verdana;
+	font-size : 11px;
+}
+.skin_chooser .skin_line a{
+	color : #000000;
+	text-decoration : none;
+}
+.skin_chooser .skin_line a:hover{
+	color : #000000;
+	text-decoration : underline;
+}
+
+
+.left_menu{
+	position : absolute;
+	top : 71px;
+	left : 28px;
+	width : 222px;
+}
+.panel_documents{
+	background-color : transparency;
+	border : 1px solid #FFFFFF;
+	font-family : verdana;
+	font-size : 11px;
+	padding : 10px 10px 10px 20px;
+}
+.panel_documents a{
+	color : #000000;
+	text-decoration : none;
+}
+.panel_documents a:hover{
+	color : #000000;
+	text-decoration : underline;
+}
+
+
+.menu_separator{
+	background-color : #ACBECE;
+	height : 5px;
+	font-size : 1px;
+}
+
+
+.panel_menu{
+	background-color : transparency;
+	border : 1px solid #FFFFFF;
+	border-bottom : 0px;
+	background-image : url(images/menu_bg.gif);
+	background-position : left;
+	background-repeat : repeat-y;
+	background-color : transparent;	
+	padding : 10px 10px 10px 12px;
+}
+.panel_menu table .unactive .ico{
+	border : 1px solid #FFFFFF;
+}
+.panel_menu table .active .ico{
+	border : 1px solid #ACBECE;
+}
+.panel_menu table .active .text{
+	color : #FFFFFF;
+	font-family : verdana;
+	font-size : 11px;
+	background-color : #ACBECE;
+	padding-left : 10px
+}
+.panel_menu table .unactive .text{
+	font-family : verdana;
+	font-size : 11px;
+	padding-left : 10px
+}
+.text, .ico{
+	cursor : pointer;
+}
+
+
+.component_name{
+	position : absolute;
+	top : 124px;
+	left : 290px;
+}
+
+.content_container{
+	position : absolute;
+	top : 176px;
+	left : 0px;
+}
+.content_container_pdddings{
+	padding : 0px 35px 35px 0px;
+}
+.content_container_left_brick{
+	width : 294px;
+}
+
+.footer{
+	border-top : 2px solid #ACBECE;
+	text-align : right;
+	height : 50px;
+	font-family : verdana;
+	font-size : 11px;
+	padding : 0px 15px 0px 0px;
+}
+</style>	
+</head>
+
+<body>
+<div class="page_brick"></div>
+<table class="top_navbar" cellpadding="0" cellspacing="0" border="0">
+<tbody>
+	<tr>
+		<td>
+			<a href="#">Download</a>
+		</td>
+		<td>
+			<a href="#">Support</a>
+		</td>
+		<td>
+			<a href="#">Community</a>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+<table class="skin_chooser" cellpadding="0" cellspacing="0" border="0">
+<tbody>
+	<tr>
+		<td>
+			<strong>Skins:</strong>
+		</td>
+		<td>
+
+			<table class="skin_line" cellpadding="0" cellspacing="0" border="0">
+			<tbody>
+				<tr>
+					<td>
+						<a href="#">SkyBlue</a>
+					</td>
+					<td>
+						<a href="#">Classic</a>
+					</td>
+				</tr>
+			</tbody>
+			</table> 
+
+			<table class="skin_line" cellpadding="0" cellspacing="0" border="0" style="display : none">
+			<tbody>
+				<tr>
+					<td>
+						<a href="#">SkyBlue</a>
+					</td>
+					<td>
+						<a href="#">Classic</a>
+					</td>
+					<td>
+						<a href="#">Ruby</a>
+					</td>
+					<td>
+						<a href="#">Wine</a>
+					</td>
+					<td>
+						<a href="#">DeepMarine</a>
+					</td>
+					<td>
+						<a href="#">EmeraldTown</a>
+					</td>
+					<td>
+						<a href="#">JapanCherry</a>
+					</td>
+					<td>
+						<a href="#">Default</a>
+					</td>
+				</tr>
+			</tbody>
+			</table>
+
+		</td>
+		<td>
+			<a href="#">more &#187;</a>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+
+<table class="left_menu" cellpadding="0" cellspacing="0" border="0">
+<tbody>
+	<tr>
+		<td>
+			<div class="panel_documents">
+				<strong>InputNumberSpinner</strong>
+				<ul>
+					<li><a href="#">Developers Guide</a></li>
+					<li><a href="#">Tld Documentation</a></li>
+					<li><a href="#">Component Class Documentation</a></li>
+				</ul>
+			</div>
+			<div class="menu_separator">
+				&nbsp;
+			</div>
+			<div class="panel_menu">
+				<table border="0" cellpadding="3" cellspacing="1">
+				<tbody>
+					<tr class="unactive" onmouseover="this.className='active'" onmouseout="this.className='unactive'">
+						<td class="ico"><img src="images/ico_panel.gif" width="16" height="16" alt="" border="0"></td>
+						<td class="text" width="100%">
+							Panel
+						</td>
+					</tr>
+					<tr class="unactive" onmouseover="this.className='active'" onmouseout="this.className='unactive'">
+						<td class="ico"><img src="images/ico_spacer.gif" width="16" height="16" alt="" border="0"></td>
+						<td class="text">
+							Spacer
+						</td>
+					</tr>
+					<tr class="unactive" onmouseover="this.className='active'" onmouseout="this.className='unactive'">
+						<td class="ico"><img src="images/ico_separator.gif" width="16" height="16" alt="" border="0"></td>
+						<td class="text">
+							Separator
+						</td>
+					</tr>
+					<tr class="unactive" onmouseover="this.className='active'" onmouseout="this.className='unactive'">
+						<td class="ico"><img src="images/ico_slider.gif" width="16" height="16" alt="" border="0"></td>
+						<td class="text">
+							Input Number Slider
+						</td>
+					</tr>
+					<tr class="active">
+						<td class="ico"><img src="images/ico_spinner.gif" width="16" height="16" alt="" border="0"></td>
+						<td class="text">
+							Input Number Spinner
+						</td>
+					</tr>
+					<tr class="unactive" onmouseover="this.className='active'" onmouseout="this.className='unactive'">
+						<td class="ico"><img src="images/ico_tabpanel.gif" width="16" height="16" alt="" border="0"></td>
+						<td class="text">
+							Tab Panel
+						</td>
+					</tr>
+				</tbody>
+				</table>
+			</div>
+			
+		</td>
+	</tr>
+</tbody>
+</table>
+
+<img src="images/cn_spinner.gif" height="40" alt="" border="0" class="component_name">
+
+<table cellpadding="0" cellspacing="0" border="0" class="content_container" width="100%">
+<tbody>
+	<tr>
+		<td>
+			<div class="content_container_left_brick"></div>
+		</td>
+		<td width="100%" class="content_container_pdddings">
+<!-- tabpanel begin -->
+
+<!-- tabpanel end -->		
+		</td>
+	</tr>
+</tbody>
+</table>
+
+
+</body>
+</html>

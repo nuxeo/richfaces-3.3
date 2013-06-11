@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+	<u:selector name=".rich-ordering-list-button">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-ordering-list-button-disabled">
+        <u:style name="color" skin="panelBorderColor" />
+        <u:style name="color" skin="newBorder" />
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="panelBorderColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-button-light">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-button-press">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-table-header-cell, .rich-ordering-list-table-header-cell-last">
+	</u:selector>
+	
+	<u:selector name=".rich-ordering-list-table-header-cell-last">
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-output">
+	</u:selector>
+	
+	<u:selector name=".rich-ordering-list-cell, .rich-ordering-list-cell *">
+	</u:selector>
+	
+	<u:selector name=".rich-ordering-list-cell-selected, .rich-ordering-list-cell-selected *">
+	</u:selector>
+	
+	<u:selector name=".rich-ordering-list-cell-active *">
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-cell-active">
+	</u:selector>
+	
+	<u:selector name=".rich-ordering-control-disabled">
+        <u:style name="border-width" value="1px" />
+        <u:style name="border-style" value="solid" />
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+	
+	<u:selector name=".rich-ordering-list-button-content">
+	</u:selector>
+	
+	<u:selector name=".rich-ordering-list-button-selection, a:hover.rich-ordering-list-button-selection ">
+        <u:style name="color" skin="headerTextColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-ordering-list-caption">
+	</u:selector>
+	
+	<u:selector name=".rich-ordering-list-row-active">
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-row-selected">
+	</u:selector>
+
+	<u:selector name=".rich-ordering-control-top">
+        <u:style name="border-width" value="1px" />
+        <u:style name="border-style" value="solid" />
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+
+	<u:selector name=".rich-ordering-control-bottom">
+        <u:style name="border-width" value="1px" />
+        <u:style name="border-style" value="solid" />
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+
+	<u:selector name=".rich-ordering-control-up">
+        <u:style name="border-width" value="1px" />
+        <u:style name="border-style" value="solid" />
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+
+	<u:selector name=".rich-ordering-control-down">
+        <u:style name="border-width" value="1px" />
+        <u:style name="border-style" value="solid" />
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-button-valign">
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-body">
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-content">
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-header">
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-items">
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-active">
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-disabled">
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-row-active">
+	</u:selector>
+
+	<u:selector name=".rich-ordering-list-ds">
+	</u:selector>
+
+</f:template>

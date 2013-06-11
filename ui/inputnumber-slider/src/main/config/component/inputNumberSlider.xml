@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+
+<components>
+	<component>
+		<name>org.richfaces.inputNumberSlider</name>
+		<family>org.richfaces.inputNumberSlider</family>
+		<classname>
+			org.richfaces.component.html.HtmlInputNumberSlider
+		</classname>
+		<superclass>
+			org.richfaces.component.UIInputNumberSlider
+		</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlInputNumberSliderComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[A component that lets selecting a number from a numeric region. It is a horizontal
+    		aligned scroll-like control with its own input field (optional) present. The keyboard input in a
+		    field is possible (optional. Also it is possible to see the current value in the tool tip above a
+		    dragged handle control.
+		    ]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.InputNumberSliderRenderer</name>
+			<template>inputNumberSlider.jspx</template>
+		</renderer>
+		<tag>
+			<name>inputNumberSlider</name>
+			<classname>
+				org.richfaces.taglib.InputNumberSliderTag
+			</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<!--
+			<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+			</taghandler>
+		-->
+
+    	<property>
+            <name>orientation</name>
+            <classname>java.lang.String</classname>
+            <description>Attribute can have the values &quot;vertical&quot; and &quot;horizontal&quot; to define in which direction the slider should be moveable.</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>showArrows</name>
+            <classname>boolean</classname>
+            <description>False value for this attribute makes increase/decrease arrows invisible. Default value is &quot;false&quot;.</description>
+            <defaultvalue>false</defaultvalue>
+        </property>
+        <property>
+            <name>delay</name>
+            <classname>int</classname>
+            <description>Delay in pressed increase/decrease arrows in miliseconds. Default value is &quot;200&quot;. </description>
+            <defaultvalue><![CDATA[200]]></defaultvalue>
+        </property>
+		<property>
+            <name>value</name>
+            <classname>java.lang.String</classname>
+            <description>Value to set as a result of working with a slider control</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>minValue</name>
+            <classname>java.lang.String</classname>
+            <description>Attribute to set the &quot;start&quot; value. Default value is &quot;0&quot;. </description>
+            <defaultvalue><![CDATA["0"]]></defaultvalue>
+        </property>
+        <property>
+            <name>maxValue</name>
+            <classname>java.lang.String</classname>
+            <description>Attribute to set an &quot;end&quot; value. Default value is &quot;100&quot; </description>
+            <defaultvalue><![CDATA["100"]]></defaultvalue>
+        </property>
+        <property>
+            <name>step</name>
+            <classname>java.lang.String</classname>
+            <description>Parameter that determines a step between the nearest values while using a handle. Default value is &quot;1&quot;.</description>
+            <defaultvalue><![CDATA["1"]]></defaultvalue>
+        </property>
+        <property>
+            <name>width</name>
+            <classname>java.lang.String</classname>
+            <description>The width of a slider control. Default value is &quot;200px&quot;, for orientation=&quot;vertical&quot; value is &quot;200px&quot;</description>
+            <defaultvalue><![CDATA["200px"]]></defaultvalue>
+        </property>
+        <property >
+            <name>height</name>
+            <classname>java.lang.String</classname>
+            <description>The height of a slider control. Default value is &quot;20px&quot;, for orientation=&quot;vertical&quot; value is &quot;20px&quot;</description>
+            <defaultvalue><![CDATA["20px"]]></defaultvalue>
+        </property>
+    	<property>
+	    	<name> enableManualInput </name>
+	    	<classname>boolean</classname>
+	    	<description>If set to &quot;false&quot; this attribute makes the text field "read-only", so the value can be
+	    	changed only from a handle. Default value is &quot;true&quot;.</description>
+	    	<defaultvalue>true</defaultvalue>
+	    </property>
+    	<property>
+	    	<name> showInput  </name>
+	    	<classname>boolean</classname>
+    		<description>False value for this attribute makes text a field invisible. Default value is &quot;true&quot;.</description>
+	    	<defaultvalue>true</defaultvalue>
+	    </property>
+    	<property>
+	    	<name> showBoundaryValues </name>
+	    	<classname>boolean</classname>
+    		<description>If the min/max values are shown on the right/left borders of a control. Default value is &quot;true&quot;.
+	    	</description>
+	    	<defaultvalue>true</defaultvalue>
+	    </property>
+		<property>
+	    	<name> showToolTip </name>
+	    	<classname>boolean</classname>
+	    	<description>
+	    		
+	    		If &quot;true&quot;the current value is shown in the tooltip when a handle control is in a
+	    		"dragged" state. Default value is &quot;true&quot;.
+	    	 </description>
+	    	<defaultvalue>true</defaultvalue>
+	    </property>
+	    <property>
+	    	<name> inputStyle </name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Style attribute for text field</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name> inputClass </name>
+	    	<classname>java.lang.String</classname>
+	    	<description> Style Class attribute for a text field</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+		<property>
+	    	<name> inputSize </name>
+	    	<classname>int</classname>
+	    	<description> Similar to the "Size" attribute of h:inputText. Default value is &quot;3&quot;. </description>
+	    	<defaultvalue><![CDATA[3]]></defaultvalue>
+	    </property>
+		<property>
+	    	<name> disabled </name>
+	    	<classname>boolean</classname>
+			<description> Makes a text field and controls non-active. Default value is &quot;false&quot;.
+	    	</description>
+	    	<defaultvalue>false</defaultvalue>
+	    </property>
+		<property>
+	    	<name> onerror </name>
+	    	<classname>java.lang.String</classname>
+	    	<description>HTML: script expression; a non-number value or a number value that is out of the range is input
+	    	</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name>clientErrorMessage</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>an error message to use in client side validation events</description>
+	    </property>
+	    <property>
+	    	<name>onslide</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Event occur on slide</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    	
+	    <property>
+	    	<name> onchange </name>
+	    	<classname>java.lang.String</classname>
+	    	<description>a JavaScript handler that is called when handle change position.
+	    	</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+		<property>
+	    	<name> style </name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Styles for main div element of the slider control
+	    	</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+		<property>
+	    	<name> styleClass </name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Name of a CSS class </description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+		<property>
+	    	<name> barStyle </name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Style for a slider control line
+	    	</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name> barClass </name>
+	    	<classname>java.lang.String</classname>
+	    	<description>A name of CSS class  for the bar element</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name> handleClass </name>
+	    	<classname>java.lang.String</classname>
+	    	<description>A name of CSS class for a control handle element</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name> handleSelectedClass </name>
+	    	<classname>java.lang.String</classname>
+	    	<description>A name of CSS class for a selected control handle element</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name> tipStyle </name>
+	    	<classname>java.lang.String</classname>
+	    	<description>A style for the tool tip element
+	    	</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name> tipClass </name>
+	    	<classname>java.lang.String</classname>
+	    	<description>A name of CSS class for the tool tip element</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+            <name>increaseStyle</name>
+            <classname>java.lang.String</classname>
+            <description>A style for the increase arrow element
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>increaseClass</name>
+            <classname>java.lang.String</classname>
+            <description>A name of CSS class for increase arrow element</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>increaseSelectedClass</name>
+            <classname>java.lang.String</classname>
+            <description>A name of CSS class for a selected control increase arrow element</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>decreaseStyle</name>
+            <classname>java.lang.String</classname>
+            <description>A style for the decrease arrow element
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>decreaseClass</name>
+            <classname>java.lang.String</classname>
+            <description>A name of CSS class for the decrease arrow element</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>decreaseSelectedClass</name>
+            <classname>java.lang.String</classname>
+            <description>A name of CSS class for a selected control decrease arrow element</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>inputPosition</name>
+            <classname>java.lang.String</classname>
+            <description>If "right", the InputText Box would be rendered on the right side of the ruler. If "top", the InputText Box would be rendered on the top of the ruler. If "bottom", the InputText Box would be rendered on the bottom of the ruler.</description>
+            <defaultvalue><![CDATA["right"]]></defaultvalue>
+        </property>
+        &ui_component_attributes;
+		&html_input_attributes;
+		&html_input_events;
+		&ui_input_attributes;
+		&html_events;
+		
+		<property>
+        		<name>oninputclick</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer button is clicked</description>
+        	</property>
+    		<property>
+        		<name>oninputdblclick</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer button is double-clicked</description>
+    		</property>
+    		<property>
+        		<name>oninputkeydown</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a key is pressed down</description>
+    		</property>
+    		<property>
+        		<name>oninputkeypress</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a key is pressed and released</description>
+    		</property>
+    		<property>
+        		<name>oninputkeyup</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a key is released</description>
+    		</property>
+    		<property>
+        		<name>oninputmousedown</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: script expression; a pointer button is pressed down</description>
+    		</property>
+    		<property>
+        		<name>oninputmousemove</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer is moved within</description>
+    		</property>
+    		<property>
+        		<name>oninputmouseout</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer is moved away</description>
+    		</property>
+    		<property>
+        		<name>oninputmouseover</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer is moved onto</description>
+    		</property>
+    		<property>
+        		<name>oninputmouseup</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: script expression; a pointer button is released</description>
+    		</property>
+    		
+    		<property elonly="true" hidden="true" existintag="false" exist="false" >
+        		<name>onkeydown</name>
+        		<classname>java.lang.String</classname>
+    		</property>
+    		<property elonly="true" hidden="true" existintag="false" exist="false" >
+        		<name>onkeypress</name>
+        		<classname>java.lang.String</classname>
+    		</property>
+    		<property elonly="true" hidden="true" existintag="false" exist="false" >
+        		<name>onkeyup</name>
+        		<classname>java.lang.String</classname>
+    		</property>
+		
+		<property hidden="true" >
+			<name>size</name>
+	    	<classname>int</classname>
+        </property>
+	<property hidden="true" >
+			<name>align</name>
+			<classname>java.lang.String</classname>
+		</property>
+		<property hidden="true">
+			<name>alt</name>
+			<classname>java.lang.String</classname>
+			<description>For user agents that cannot display images, forms, or applets, this attribute specifies an alternate text. Language of an alternate text is specified by the lang attribute</description>
+		</property>
+		<property hidden="true">
+			<name>localValueSet</name>
+			<classname>boolean</classname>
+		</property>
+		<property hidden="true">
+			<name>valid</name>
+			<classname>boolean</classname>
+		</property>
+		<property>
+			<name>label</name>
+			<classname>java.lang.String</classname>
+			<description>A localized user presentable name for this component.</description>
+		</property>
+	</component>
+</components>

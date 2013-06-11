@@ -1,0 +1,147 @@
+/**
+ * GENERATED FILE - DO NOT EDIT
+ *
+ */
+
+package $package;
+
+#foreach($import in $imports)
+import $import ;
+#end
+
+import com.gargoylesoftware.htmlunit.Page;
+import javax.faces.component.UIForm;
+import javax.faces.component.html.HtmlForm;
+import javax.faces.context.FacesContext;
+import javax.faces.el.ValueBinding;
+import javax.faces.component.UIViewRoot;
+
+import org.ajax4jsf.tests.MockValueBinding;
+
+//import ${component.classname};
+#if(${generator.key})
+
+import java.io.IOException;
+import javax.faces.FacesException;
+import org.ajax4jsf.framework.util.base64.Codec;
+#end
+
+public class $component.test.simpleClassName extends $component.test.superclassname {
+
+//  public static final String COMPONENT_TYPE = "${component.name}";
+
+
+#set( $fiedCounter = 1 )
+#foreach( $prop in $component.properties )
+ #if( !$prop.exist )
+	 #if($prop.simpleType)
+	 private boolean _${prop.name}Set = false;	
+	 #set( $fiedCounter = $fiedCounter+2)
+	 #else
+	 #set( $fiedCounter = $fiedCounter+1)
+	 #end
+#end	 
+#end
+  
+  private $component.simpleClassName component;
+  private UIForm form;
+//  private FacesContext context;
+
+  /**
+   *  Constructor to init default renderers 
+   */ 
+  public $component.test.simpleClassName (String name){
+  	super(name);
+  }
+
+	/*
+	* setup the tets
+	*/
+	public void setUp() throws Exception {
+		super.setUp();
+		component = new ${component.simpleClassName}();
+		form = new HtmlForm();
+		form.setId("form");
+		facesContext.getViewRoot().getChildren().add(form);
+		
+		component.setId("component");
+#foreach( $prop in $component.properties )
+	#if(!$prop.exist && !$prop.elonly && !$prop.classname.startsWith("javax.faces."))
+		component.${prop.setterName}($testDataGenerator.getTestData(${prop}) );
+	 #end
+#end
+		
+		form.getChildren().add(component);
+		
+	}
+
+	/*
+	* setup the tets
+	*/
+	public void tearDown() throws Exception{
+		super.tearDown();
+		component = null;
+		form = null;
+	}
+
+	public void testComponent() throws Exception {
+	  	#if(${component.renderer})
+			assertEquals("${component.renderer.name}", component.getRendererType());
+	  	#end
+
+//    	values[0] = component.saveState(facesContext);
+    	
+	}
+/*
+	public void testDefaultValues(){
+		
+	}
+*/
+	public void testContext(){
+		
+		Object state = component.saveState(facesContext);
+/*		
+    	UIViewRoot root = facesContext.getViewRoot();
+    	root.processDecodes(facesContext);
+    	root.processValidators(facesContext);
+    	root.processUpdates(facesContext);
+    	root.processApplication(facesContext);
+*/
+		testRestoreState(state);
+	}
+
+	public void testGetters() {
+		${component.simpleClassName} component = new ${component.simpleClassName}();
+		
+#foreach( $prop in $component.properties )
+	#if(!$prop.exist && !$prop.elonly && !$prop.classname.startsWith("javax.faces."))
+		component.setValueBinding("${prop.name}", new MockValueBinding($testDataGenerator.getTestVeData(${prop}), ${testDataGenerator.getTestVeClass(${prop})}.class));
+		assertEquals($testDataGenerator.getTestData(${prop}), component.${prop.getterName}());
+		component.${prop.setterName}($testDataGenerator.getTestData1(${prop}) );
+		assertEquals($testDataGenerator.getTestData1(${prop}), component.${prop.getterName}());
+	 #end
+#end
+
+
+	}
+	
+	private void testRestoreState(Object state){
+		${component.simpleClassName} restoredComponent = new ${component.simpleClassName}();
+		restoredComponent.restoreState(facesContext, state);
+		
+#foreach( $prop in $component.properties )
+	#if(!$prop.exist)
+		assertEquals(component.${prop.getterName}(), restoredComponent.${prop.getterName}());
+	 #end
+#end
+
+	}
+	
+	private void assertEquals(double d1, double d2) {
+		assertEquals(d1, d2, 0);
+	}
+	
+	private void assertEquals(float d1, float d2) {
+		assertEquals(d1, d2, 0);
+	}
+}

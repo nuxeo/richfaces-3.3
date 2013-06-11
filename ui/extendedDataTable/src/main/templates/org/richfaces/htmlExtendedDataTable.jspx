@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+    xmlns:h="http://jsf.exadel.com/header"
+	xmlns:vcp="http://ajax4jsf.org/cdk/vcp"	
+	
+	class="org.richfaces.renderkit.html.ExtendedDataTableRenderer"
+	baseclass="org.richfaces.renderkit.AbstractExtendedTableRenderer"
+	component="org.richfaces.component.UIExtendedDataTable" 
+	>
+	<h:styles>
+		css/extendedDataTable.xcss
+	</h:styles>
+	<h:scripts>
+		new org.ajax4jsf.javascript.AjaxScript(),
+		new org.ajax4jsf.javascript.PrototypeScript(),
+		
+		/org/richfaces/renderkit/html/scripts/utils.js,		
+		/org/richfaces/renderkit/html/scripts/browser_info.js,
+		
+		/org/ajax4jsf/javascript/scripts/form.js,
+		/org/richfaces/renderkit/html/scripts/form.js,
+		
+		/org/richfaces/renderkit/html/scripts/jquery/jquery.js,
+		/org/richfaces/renderkit/html/script/controlUtils.js,
+		
+		/org/richfaces/renderkit/html/scripts/common-scrollable-data-table.js,
+		/org/richfaces/renderkit/html/scripts/extended-data-table.js,
+		
+		/org/richfaces/renderkit/html/scripts/drag-indicator.js,
+		/org/richfaces/renderkit/html/scripts/ext-dt-drag-indicator.js,
+		/org/richfaces/renderkit/html/scripts/ext-dt-simple-draggable.js,
+		/org/richfaces/renderkit/html/scripts/ext-dt-simple-dropzone.js
+	</h:scripts>
+	<f:clientid var="clientId"/>
+	
+	<jsp:scriptlet>
+     	<![CDATA[
+			variables.setVariable("columnsCount", getColumnsCount(component)+1);
+		]]>
+    </jsp:scriptlet>
+
+	<div
+		id="#{clientId}"
+		class="extdt-maindiv rich-extdt-maindiv"
+		style="#{component.attributes['style']};width:#{component.attributes['width']};height:#{component.attributes['height']}"
+		onkeypress="#{component.attributes['onkeypress']}"
+		onkeyup="#{component.attributes['onkeyup']}"
+		onkeydown="#{component.attributes['onkeydown']}"
+		>
+
+	<div id="#{clientId}:od" class="extdt-outerdiv"
+		style="width:100%; height:100%;overflow: hidden;"
+		>
+		<div id="#{clientId}:dataTable_indicator" class="drgind_fly drgind_default drag_indicator" style="display: none;" >
+	        <f:call name="encodeNamespace" />
+	        
+	        <script type="text/javascript">
+	            //<![CDATA[
+	            #{this:encodeDragDropChildScripts(context, component)};
+	            //]]>
+	        </script>
+	    </div>
+	    <span id="#{clientId}:dataTable_indicator_span" />
+		<div id="#{clientId}:innerd" class="extdt-innerdiv" style="height:100%;width:100%;">
+		<div id="#{clientId}:cs" class="extdt-hsplit" style="display: none;"/>
+		<table id="#{clientId}:tu"
+	    		class="extdt-table-layout rich-table #{component.attributes['styleClass']}"
+	    		cellpadding="0"
+	    		cellspacing="0"
+	    		width="100%"
+  			>
+  			<colgroup id="#{clientId}:colgroup:header">
+  			   <f:call name="encodeColumns"/>
+  			</colgroup>
+  			    <f:call name="encodeCaption" />
+				<f:call name="encodeHeader"/>
+			<tbody>
+				<tr>
+					<td colspan="#{columnsCount}" style="padding: 0px;">
+						<div id="#{clientId}:sd" class="extdt-content" style="height:50px;width:100%;">
+							<jsp:scriptlet>
+				     		<![CDATA[
+								if (component.getRowCount() <= 0) {
+							]]>	
+							</jsp:scriptlet>
+								<table id="#{clientId}:empty" width="100%"
+					    				class="extdt-table-layout rich-table #{component.attributes['styleClass']}"
+			  					>
+									<f:call name="utils.encodePassThruWithExclusions">
+										<f:parameter value="height,value,name,type,id,class,rows,style,width" />
+									</f:call>
+									<tbody>								
+										<f:call name="encodeNoDataRow"/>
+									</tbody>
+								</table>
+							<jsp:scriptlet>
+				     		<![CDATA[
+								}
+							]]>	
+							</jsp:scriptlet>
+							<table id="#{clientId}:n" width="100%"
+					    				class="extdt-table-layout rich-table #{component.attributes['styleClass']}"
+			  						>
+								<f:call name="utils.encodePassThruWithExclusions">
+									<f:parameter value="height,value,name,type,id,class,rows,style,width" />
+								</f:call>			  						
+					            <colgroup id="#{clientId}:colgroup:body">
+					               <f:call name="encodeColumns"/>
+					            </colgroup>
+								<tbody id="#{clientId}:tb">								
+									<vcp:body>
+										<f:call name="encodeRows"/>
+									</vcp:body>
+								</tbody>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+			<f:call name="encodeFooter"/>
+		</table>
+		<f:call name="contributorsEncodeHere" />
+		</div>
+		<f:clientid var="clientId"/>
+        <div id="#{clientId}:splashscreen" class="extdt-ss-vsbl">
+        </div>
+		<script type="text/javascript">
+		//<![CDATA[
+			delete #{this:getJavaScriptVarName(context, component)};
+			#{this:getJavaScriptVarName(context, component)} = #{this:createClientDataTable(context, component)};
+			#{this:getScriptContributions(context, component)};
+		//]]>
+		</script>
+	</div>
+	<jsp:scriptlet>
+		<![CDATA[
+		         if((Boolean)component.getAttributes().get("enableContextMenu") == true) {
+		        	 encodeTableMenu(context, component);
+		         }
+		]]>
+	</jsp:scriptlet>
+	</div>
+</f:root>

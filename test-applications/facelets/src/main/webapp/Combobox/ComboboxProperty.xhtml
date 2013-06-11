@@ -1,0 +1,76 @@
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" id="comboboxPropertySubviewID">
+	
+	<h:commandButton action="#{combobox.add}" value="add test" />
+	<h:panelGrid columns="2">
+		<h:outputText value="defaultLabel"></h:outputText>
+		<h:inputText value="#{combobox.defaultLabel}" onchange="submit();"></h:inputText>
+
+		<h:outputText value="filterNewValues"></h:outputText>
+		<h:selectBooleanCheckbox value="#{combobox.filterNewValues}" onchange="submit();"></h:selectBooleanCheckbox>
+
+		<h:outputText value="tabindex"></h:outputText>
+		<h:inputText value="#{combobox.tabindex}" onchange="submit();"></h:inputText>
+
+		<h:outputText value="width"></h:outputText>
+		<h:inputText value="#{combobox.width}" onchange="submit();"></h:inputText>
+
+		<h:outputText value="listHeight"></h:outputText>
+		<h:inputText value="#{combobox.listHeight}" onchange="submit();"></h:inputText>
+
+		<h:outputText value="listWidth"></h:outputText>
+		<h:inputText value="#{combobox.listWidth}" onchange="submit();"></h:inputText>
+
+		<h:outputText value="enableManualInput"></h:outputText>
+		<h:selectBooleanCheckbox value="#{combobox.enableManualInput}" onchange="submit();"></h:selectBooleanCheckbox>
+
+		<h:outputText value="selectFirstOnUpdate"></h:outputText>
+		<h:selectBooleanCheckbox value="#{combobox.selectFirstOnUpdate}" onchange="submit();"></h:selectBooleanCheckbox>
+
+		<h:outputText value="directInputSuggestions"></h:outputText>
+		<h:selectBooleanCheckbox value="#{combobox.directInputSuggestions}" onchange="submit();"></h:selectBooleanCheckbox>
+
+		<h:outputText value="disabled"></h:outputText>
+		<h:selectBooleanCheckbox value="#{combobox.disabled}" onchange="submit();"></h:selectBooleanCheckbox>
+
+		<h:outputText value="rendered"></h:outputText>
+		<h:selectBooleanCheckbox value="#{combobox.rendered}" onchange="submit();"></h:selectBooleanCheckbox>
+
+		<h:outputText value="immediate"></h:outputText>
+		<h:selectBooleanCheckbox value="#{combobox.immediate}" onchange="submit();"></h:selectBooleanCheckbox>
+
+		<h:outputText value="required"></h:outputText>
+		<h:selectBooleanCheckbox value="#{combobox.required}" onchange="submit();"></h:selectBooleanCheckbox>
+
+		<h:outputText value="requiredMessage"></h:outputText>
+		<h:inputText value="#{combobox.requiredMessage}" onchange="submit();"></h:inputText>
+
+		<h:commandButton actionListener="#{combobox.checkBinding}" value="Binding"></h:commandButton>
+		<h:outputText value="#{combobox.bindLabel}"></h:outputText>
+
+		<h:outputText value="align"></h:outputText>
+		<h:inputText value="#{combobox.align}" onchange="submit();"></h:inputText>
+	</h:panelGrid>
+
+	<a4j:commandLink onclick="$('formID:comboboxSubviewID:comboboxID').component.showList()" value="showList"></a4j:commandLink>
+	<br />
+	<a4j:commandLink onclick="$('formID:comboboxSubviewID:comboboxID').component.hideList()" value="hideList"></a4j:commandLink>
+	<br />
+	<a4j:commandLink onclick="$('formID:comboboxSubviewID:comboboxID').component.enable()" value="enable"></a4j:commandLink>
+	<br />
+	<a4j:commandLink onclick="$('formID:comboboxSubviewID:comboboxID').component.disable()" value="disable"></a4j:commandLink>
+	<br />
+	<br />
+	<div style="FONT-WEIGHT: bold;">rich:findComponent</div>
+	<h:panelGrid columns="2">
+		<rich:column>
+			<a4j:commandLink value="getValue" reRender="findID"></a4j:commandLink>
+		</rich:column>
+		<rich:column id="findID">
+			<!--<h:outputText value="#{rich:findComponent('comboboxID').value}" />-->
+		</rich:column>
+	</h:panelGrid>
+</f:subview>

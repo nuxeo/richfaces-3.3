@@ -1,0 +1,12 @@
+
+	public void doEncodeEnd(ResponseWriter writer, FacesContext context, ${component.componentClass} component, ComponentVariables variables) throws IOException {
+	  ${body}
+	}		
+	
+	public void doEncodeEnd(ResponseWriter writer, FacesContext context, UIComponent component) throws IOException {
+		ComponentVariables variables = ComponentsVariableResolver.getVariables(this, component);
+		doEncodeEnd(writer, context, (${component.componentClass})component, variables );
+
+		ComponentsVariableResolver.removeVariables(this, component);
+	}		
+	

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://ajax4jsf.org/cdk/template"
+	xmlns:c=" http://java.sun.com/jsf/core"
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:h="http://jsf.exadel.com/header"
+	xmlns:vcp="http://ajax4jsf.org/cdk/vcp"
+	baseclass="org.richfaces.renderkit.TabPanelRendererBase"
+	class="org.richfaces.renderkit.html.TabPanelRenderer"
+	component="org.richfaces.component.UITabPanel">
+
+	<h:styles>css/tabPanel.xcss</h:styles>
+	<h:scripts>
+		new org.ajax4jsf.javascript.PrototypeScript(),
+		new org.ajax4jsf.javascript.AjaxScript(),
+		new org.ajax4jsf.javascript.ImageCacheScript(),
+		/org/richfaces/renderkit/html/scripts/browser_info.js,
+		/org/ajax4jsf/javascript/scripts/form.js,
+		scripts/tabPanel.js
+	</h:scripts>
+
+	<f:clientid var="clientId" />
+
+	<f:resource name="images/spacer.gif" var="spacer" />
+	
+	<f:call name="encodeTabPanelScript"/>
+		
+	<table border="0" cellpadding="0" cellspacing="0" id="#{clientId}"
+		class="rich-tabpanel #{component.attributes['styleClass']}"
+		style="#{this:encodeStyles(context, component)}">
+		<f:call name="utils.encodePassThruWithExclusions">
+			<f:parameter value="width,height,styleClass,class,style,id" />
+		</f:call>
+
+		<tbody>
+			<tr>
+				<td align="#{component.attributes['headerAlignment']}" class="dr-bottom-line rich-tab-bottom-line #{component.attributes['headerClass']}">
+					<f:call	name="utils.encodeBeginFormIfNessesary" />
+					<!--table  border="0" cellpadding="0" cellspacing="0" style="position:relative;top:1px"-->
+					<table  border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							
+									
+											<td>
+												<img src="#{spacer}" height="1" alt=""
+												 style="#{this:encodeHeaderSpacing(context, component)};border:0" />
+											</td>
+										
+										<f:call name="encodeTabs" />
+										
+									</tr>
+									
+								</table>
+							
+							
+					<div style="display: none;">
+						<c:if test="#{clientSide}">
+							<input type="hidden"
+							id="#{clientId}_input" 
+							name="#{clientId}"
+							value="#{this:getValueAsString(context, component)}" /> 
+						</c:if> 
+						<f:call	name="encodeTabsScript" />
+					</div>
+					<f:call name="utils.encodeEndFormIfNessesary" />
+				</td>
+			</tr>
+			<tr>
+				<vcp:body>
+					<f:call name="renderChildren" />
+				</vcp:body>
+			</tr>
+		</tbody>
+	</table>
+</f:root>
+
+

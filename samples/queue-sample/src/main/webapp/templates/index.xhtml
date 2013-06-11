@@ -1,0 +1,107 @@
+<html 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+	<ui:composition>
+		<!-- script src="#{facesContext.externalContext.requestContextPath}/faces/a4j/g/3_3_0-SNAPSHOT/org/ajax4jsf/framework.pack.js"></script -->
+		<h2><ui:insert name="title" /></h2>
+	
+		<ui:insert name="viewQueue" />
+	
+		<h:form id="form">
+			<ui:insert name="formQueue" />
+
+			<a4j:outputPanel ajaxRendered="true" layout="inline">
+				<h:outputText value="#{empty ajaxRequestsCount ? 0 : ajaxRequestsCount} " />
+			</a4j:outputPanel>
+
+			<a4j:commandLink eventsQueue="resetCounterQueue" value="Reset ajax counter" action="#{bean.resetAjaxCounter}" onclick="hideLog()" oncomplete="LOG.clear();showLog();"/>
+			<br /><br />			
+
+			<fieldset>
+
+				<h:outputLabel for="queueRequestDelay" value="Queue request delay " />
+				<h:inputText id="queueRequestDelay" value="#{bean.queueRequestDelay}">
+					<f:convertNumber />
+				</h:inputText>
+				
+				<br />			
+
+				<h:outputLabel for="clientRequestDelay" value="Client request delay " />
+				<h:inputText id="clientRequestDelay" value="#{bean.clientRequestDelay}">
+					<f:convertNumber />
+				</h:inputText>
+				
+				<br />			
+		
+				<h:outputLabel for="processRequestDelay" value="Process request delay " />
+				<h:inputText id="processRequestDelay" value="#{bean.processRequestDelay}">
+					<f:convertNumber />
+				</h:inputText>
+				
+				<br />			
+
+				<h:outputLabel value="Poll enabled" for="pollEnabled" />
+				<h:selectBooleanCheckbox value="#{bean.pollEnabled}" id="pollEnabled" />
+				<br />			
+
+				<h:commandButton value="Apply values" />
+				<br />			
+
+			</fieldset>
+
+			<a4j:region id="region">
+				<a4j:ajaxListener binding="#{bean}" />
+
+				<a4j:commandButton id="commandButtonNoQueue" 
+					actionListener="#{bean.processActionListener}" 
+					action="#{bean.processAction}" 
+					value="no queue" 
+					reRender="outputText" />
+
+				<a4j:commandButton id="commandButtonTransientQueue" 
+					requestDelay="#{bean.clientRequestDelay}" 
+					actionListener="#{bean.processActionListener}" 
+					action="#{bean.processAction}" 
+					value="transient queue" 
+					reRender="outputText" />
+
+				<a4j:commandButton id="commandButton" 
+					requestDelay="#{bean.clientRequestDelay}" 
+					actionListener="#{bean.processActionListener}" 
+					action="#{bean.processAction}" 
+					value="queue" 
+					reRender="outputText" 
+					eventsQueue="queue"/>
+
+				<a4j:commandButton id="commandButtonFormQueue" 
+					requestDelay="#{bean.clientRequestDelay}" 
+					actionListener="#{bean.processActionListener}" 
+					action="#{bean.processAction}" 
+					value="formQueue - ignoreDupResponses" 
+					reRender="outputText" 
+					eventsQueue="formQueue" ignoreDupResponses="true"/>
+
+				<a4j:commandButton id="commandButtonFormQueueIgnoreDupResponses" 
+					requestDelay="#{bean.clientRequestDelay}" 
+					actionListener="#{bean.processActionListener}" 
+					action="#{bean.processAction}" 
+					value="formQueue" 
+					reRender="outputText" 
+					eventsQueue="formQueue" ignoreDupResponses="true"/>
+
+				<a4j:poll id="poll" 
+					interval="5000" 
+					enabled="#{bean.pollEnabled}" 
+					eventsQueue="queue" 
+					actionListener="#{bean.processActionListener}" 
+					action="#{bean.processAction}" 
+					reRender="outputText" />
+
+			</a4j:region>
+		</h:form>
+		<a4j:log popup="false" id="log" />
+	</ui:composition>
+</html>  

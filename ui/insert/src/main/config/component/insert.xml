@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.ui.Insert</name>
+		<family>org.richfaces.ui.Insert</family>
+		<classname>org.richfaces.ui.component.html.HtmlInsert</classname>
+		<superclass>org.richfaces.ui.component.UIInsert</superclass>
+		<test/>
+		<description>
+			The &lt;rich:insert&gt; component is used for highlighting, source code inserting and, optionally, format the file from the application context into the page.
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.ui.InsertRenderer</name>
+			<template>org/richfaces/ui/htmlInsert.jspx</template>
+		</renderer>
+		<tag>
+			<name>insert</name>
+			<classname>org.richfaces.ui.taglib.InsertTag</classname>
+			<superclass>org.richfaces.ui.taglib.InsertTagBase</superclass>
+			<test />
+		</tag>
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+		&ui_component_attributes;
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+		<property>
+			<name>src</name>
+			<classname>java.lang.String</classname>
+			<description>Defines the path to the file with source code</description>
+		</property>
+		<property>
+			<name>content</name>
+			<classname>java.lang.String</classname>
+			<description><![CDATA[
+				Defines the String, inserted with this component. This attribute is alternative to "src" attribute.
+			]]></description>
+		</property>
+		<property>
+			<name>highlight</name>
+			<classname>java.lang.String</classname>
+			<description>Defines a type of code</description>
+		</property>
+		<property>
+			<name>encoding</name>
+			<classname>java.lang.String</classname>
+			<description><![CDATA[
+			Attribute defines encoding for inserted content
+			]]></description>
+		</property>
+		<property>
+			<name>errorContent</name>
+			<classname>java.lang.String</classname>
+			<description><![CDATA[
+			Attribute defines the alternative content that will be shown in case
+component cannot read the resource defined with 'src' attribute. If "errorContent" attribute is not defined,
+the component shown the actual error message in the place where the content is expected
+			]]></description>
+		</property>
+	</component>
+</components>

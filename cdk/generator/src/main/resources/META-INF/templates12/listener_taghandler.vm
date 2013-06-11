@@ -1,0 +1,101 @@
+/**
+ * GENERATED FILE - DO NOT EDIT
+ *
+ */
+
+package ${tag.packageName};
+
+#foreach($import in $imports)
+import $import ;
+#end
+import javax.faces.component.UIComponent;
+import ${listener.componentclass};
+
+import java.io.IOException;
+
+import javax.faces.*;
+import javax.faces.el.*;
+
+import javax.el.*;
+
+import com.sun.facelets.*;
+import com.sun.facelets.el.*;
+import com.sun.facelets.tag.*;
+import com.sun.facelets.tag.jsf.*;
+
+public class $tag.simpleClassName extends TagHandler {
+
+	private Class listenerType;
+
+    private final TagAttribute type;
+
+    private final TagAttribute binding;
+
+	public ${tag.simpleClassName}(TagConfig config) {
+	    super(config);
+		this.binding = this.getAttribute("binding");
+        this.type = this.getAttribute("type");
+        if (type != null) {
+            if (!type.isLiteral()) {
+                throw new TagAttributeException(this.tag, this.type, "Must be literal");
+            }
+            try {
+                this.listenerType = Class.forName(type.getValue());
+            } catch (Exception e) {
+                throw new TagAttributeException(this.tag, this.type, e);
+            }
+        }
+  	}
+
+  	 public void apply(FaceletContext ctx, UIComponent parent)
+            throws IOException, FacesException, FaceletException, ELException {
+        if (parent instanceof $listener.componentclass) {
+            // only process if parent was just created
+            if (parent.getParent() == null) {
+                ${listener.componentclass} src = (${listener.componentclass}) parent;
+                ${listener.listenerclass} listener = null;
+                ValueExpression ve = null;
+                if (this.binding != null) {
+                    ve = this.binding.getValueExpression(ctx,
+                            ${listener.listenerclass}.class);
+                    listener = (${listener.listenerclass}) ve.getValue(ctx);
+                }
+                if (listener == null) {
+                    try {
+                        listener = (${listener.listenerclass}) listenerType.newInstance();
+                    } catch (Exception e) {
+                        throw new TagAttributeException(this.tag, this.type, e.getCause());
+                    }
+                    if (ve != null) {
+                        ve.setValue(ctx, ve);
+                    }
+                }
+				#foreach($prop in $listener.properties)
+				 #if( !$prop.existintag )
+					TagAttribute attribute;
+					#if( $prop.required )
+					attribute = getRequiredAttribute("${prop.name}");
+					#else
+					attribute = getAttribute("${prop.name}");
+					#end
+		            if (attribute != null) {
+						ValueBinding binding;
+		
+						binding = new LegacyValueBinding(
+							attribute.getValueExpression(ctx, 
+							${prop.classname}.class));
+					
+			            listener.${prop.setterName}(binding);
+					}
+				 #end
+				#end
+
+                src.${listener.methodname}(listener);
+            }
+        } else {
+            throw new TagException(this.tag,
+                    "Parent is not of type ${listener.componentclass}, type is: " + parent);
+        }
+    }
+  	
+}

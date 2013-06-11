@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+
+<components>
+	<component>
+		<name>org.richfaces.inputNumberSpinner</name>
+		<family>org.richfaces.inputNumberSpinner</family>
+		<classname>org.richfaces.component.html.HtmlInputNumberSpinner</classname>
+		<superclass>org.richfaces.component.UIInputNumberSpinner</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlInputNumberSpinnerComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+
+		<description>
+			<![CDATA[Spinner component - A single line input field that lets the user select a number using the controls near the
+			text field. User can change value using Up/Down keyboard keys. The keyboard Input in field if it isn't 
+			locked by manualInput attribute is possible. After arrow controls pressed - cursor can be
+			moved in any way without loosing draged state.
+    ]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.InputNumberSpinnerRenderer</name>
+			<template>inputNumberSpinner.jspx</template>
+		</renderer>
+		<tag>
+			<name>inputNumberSpinner</name>
+			<classname>org.richfaces.taglib.InputNumberSpinnerTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test>
+				<classname>org.richfaces.taglib.HtmlInputNumberSpinnerTagTest</classname>
+				<superclassname>org.ajax4jsf.tests.AbstractJspTestCase</superclassname>
+			</test>
+
+		</tag>
+    	<property>
+	    	<name>minValue</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Minimum value. Default value is &quot;0&quot;. </description>
+	    	<defaultvalue><![CDATA["0"]]></defaultvalue>
+	    </property>
+    	<property>
+	    	<name>maxValue</name>
+	    	<classname>java.lang.String</classname>
+    		<description>Maximum value. Default value is &quot;100&quot;. </description>
+	    	<defaultvalue><![CDATA["100"]]></defaultvalue>
+	    </property>
+    	<property>
+	    	<name>step</name>
+	    	<classname>java.lang.String</classname>
+    		<description>Parameter that determines the step between nearest values while using controls. Default value is &quot;1&quot;</description>
+	    	<defaultvalue><![CDATA["1"]]></defaultvalue>
+	    </property>
+    	<property>
+	    	<name>cycled</name>
+	    	<classname>boolean</classname>
+	    	<description>If &quot;true&quot; after the current value reaches the border value it is reversed to another border value
+	    		after next increasing/decreasing. In other case possibilities of next increasing (or decreasing) will be locked. Default value is &quot; true &quot;.
+			</description>
+	    	<defaultvalue>true</defaultvalue>
+	    </property>
+    	<property>
+	    	<name>enableManualInput</name>
+	    	<classname>boolean</classname>
+    		<description>if &quot;false&quot; your&apos;s input to the text field using keyboard will be locked. Default value is &quot;true&quot;</description>
+	    	<defaultvalue>true</defaultvalue>
+	    </property>
+    	<property>
+	    	<name>disabled</name>
+	    	<classname>boolean</classname>
+	    	<description>Determines if the component disabled/enabled. Default value is &quot;false&quot;.</description>
+	    	<defaultvalue>false</defaultvalue>
+	    </property>
+    	<property>
+	    	<name>onupclick</name>
+	    	<classname>java.lang.String</classname>
+    		<description>HTML: a script expression; a button "Up" is clicked</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+    	<property>
+	    	<name>ondownclick</name>
+	    	<classname>java.lang.String</classname>
+    		<description>HTML: a script expression; a button "Down" is clicked</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+    	<property>
+	    	<name>onerror</name>
+	    	<classname>java.lang.String</classname>
+    		<description>HTML: a script expression; event fires whenever an JavaScript error occurs</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name>clientErrorMessage</name>
+	    	<classname>java.lang.String</classname>
+    		<description>An error message to use in client side validation events</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+		<property>
+			<name>maxlength</name>
+			<classname>int</classname>
+			<description>Attribute specifies the maximum number of characters you may enter. This number may exceed the specified size, in which case the user agent should offer a scrolling mechanism. The default value for this attribute is an unlimited number</description>
+		</property>
+		<property>
+			<name>inputSize</name>
+	    	<classname>int</classname>
+			<description>Attribute specifies the initial length of input in characters. Default value is &quot;10&quot;.</description>
+	    	<defaultvalue>10</defaultvalue>
+		</property>
+		<property>
+	    	<name> inputClass </name>
+	    	<classname>java.lang.String</classname>
+	    	<description> Class attribute for text field</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name> inputStyle </name>
+	    	<classname>java.lang.String</classname>
+	    	<description> Style attribute for text field</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+<!-- 
+    	<property>
+	    	<name>controlPosition</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Determines the position of the arrow controls. It may be "inside" or "outside" the Input text field</description>
+	    	<defaultvalue><![CDATA["outside"]]></defaultvalue>
+	    </property>
+		<property>
+	    	<name> style </name>
+	    	<classname>java.lang.String</classname>
+	    	<description> Styles for main table element of the spinner control.
+	    	</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+		<property>
+	    	<name> styleClass </name>
+	    	<classname>java.lang.String</classname>
+	    	<description> Name of CSS class </description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>		
+	    <property>
+	    	<name> inputStyle </name>
+	    	<classname>java.lang.String</classname>
+	    	<description> Style attribute for text field. </description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>    	
+	    <property>
+	    	<name> buttonStyle </name>
+	    	<classname>java.lang.String</classname>
+	    	<description> Style attribute for buttons. </description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>    	
+	    <property>
+	    	<name> buttonStyleClass </name>
+	    	<classname>java.lang.String</classname>
+	    	<description> Style Class attribute for buttons. </description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>	    
+ -->			    
+		&html_control_attributes;
+		&html_input_events;
+		&ui_input_attributes;
+		&html_events;
+		&ui_component_attributes;
+		&html_style_attributes;
+		
+		<property>
+        		<name>oninputclick</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer button is clicked</description>
+        	</property>
+    		<property>
+        		<name>oninputdblclick</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer button is double-clicked</description>
+    		</property>
+    		<property>
+        		<name>oninputkeydown</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a key is pressed down</description>
+    		</property>
+    		<property>
+        		<name>oninputkeypress</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a key is pressed and released</description>
+    		</property>
+    		<property>
+        		<name>oninputkeyup</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a key is released</description>
+    		</property>
+    		<property>
+        		<name>oninputmousedown</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: script expression; a pointer button is pressed down</description>
+    		</property>
+    		<property>
+        		<name>oninputmousemove</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer is moved within</description>
+    		</property>
+    		<property>
+        		<name>oninputmouseout</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer is moved away</description>
+    		</property>
+    		<property>
+        		<name>oninputmouseover</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer is moved onto</description>
+    		</property>
+    		<property>
+        		<name>oninputmouseup</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: script expression; a pointer button is released</description>
+    		</property>
+    		
+    		<property elonly="true" hidden="true" existintag="false" exist="false" >
+        		<name>onkeydown</name>
+        		<classname>java.lang.String</classname>
+    		</property>
+    		<property elonly="true" hidden="true" existintag="false" exist="false" >
+        		<name>onkeypress</name>
+        		<classname>java.lang.String</classname>
+    		</property>
+    		<property elonly="true" hidden="true" existintag="false" exist="false" >
+        		<name>onkeyup</name>
+        		<classname>java.lang.String</classname>
+    		</property>
+		
+		<property hidden="true" >
+			<name>maxlength</name>
+	    	<classname>int</classname>
+		</property>
+		<property hidden="true" >
+			<name>size</name>
+	    	<classname>int</classname>
+		</property>
+		<property hidden="true" >
+			<name>valid</name>
+	    	<classname>boolean</classname>
+		</property>
+		<property hidden="true">
+			<name>alt</name>
+			<classname>java.lang.String</classname>
+			<description>For user agents that cannot display images, forms, or applets, this attribute specifies alternate text. The language of the alternate text is specified by the lang attribute</description>
+		</property>
+		<property hidden="true">
+			<name>localValueSet</name>
+			<classname>boolean</classname>
+		</property>
+		<property hidden="true">
+			<name>valid</name>
+			<classname>boolean</classname>
+		</property>
+		<property>
+			<name>label</name>
+			<classname>java.lang.String</classname>
+			<description>A localized user presentable name for this component.</description>
+		</property>
+		<property>
+			<name>disableBrowserAutoComplete</name>
+			<classname>boolean</classname>
+			<description>Disable browser's auto completion. Default value is &quot;false&quot;</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+	</component>
+</components>

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:e="http://labs.jboss.com/jbossrichfaces/ui/effect"
+      xmlns:a4j="http://richfaces.org/a4j">
+
+  <f:view contentType="text/html" >
+
+  	<body style="opacity:0.4;">
+  
+        <script>
+                 ma = 1.4;
+        </script>
+        <h:outputText value="Non-JSF tags:" />
+	<span onclick="hideIt()">Hide</span>
+	<span onclick="showIt()">Show</span>
+
+	<div id="my:text" style="width:100px;height:100px;background-color:lightgreen">&nbsp;</div>
+
+	<e:effect for="my:text" event="onmouseover" type="Fade" params="duration:ma"/>
+
+	<div id="my" style="width:100px;height:100px;background-color:lightblue">&nbsp;</div>
+
+	<e:effect for="my" name="hideIt" type="Fade"/>
+	<e:effect  for="my" name="showIt" type="Appear"/>
+
+	<br/><br/>
+
+        <h:outputText value="JSF Component:" />
+
+	<span onclick="hideItJ()">Hide</span>
+	<span onclick="showItJ()">Show</span>
+
+	<h:form id="myform">
+	        <h:panelGrid id="mypanel" border="1" style="background-color:#CCC">
+			<f:facet name="header">
+			        <h:outputText value="Panel Header" />
+			</f:facet>
+	
+		        <h:outputText value="Panel Content" />
+		</h:panelGrid>
+	</h:form>
+
+	<e:effect for="mypanel" name="hideItJ" type="Fade" params="duration:ma"/>
+	<e:effect  for="mypanel" name="showItJ" type="Appear"/>
+
+        <h:outputText value="JSF Component with Event:" />
+
+	<h:form id="myform2">
+        <h:panelGrid id="mypanel2" border="1" style="background-color:#CCC">
+	<e:effect event="onclick" type="Opacity" params="duration:0.5,from:0.4,to:1.0"/>
+	<e:effect event="onmouseout"  type="Opacity" params="duration:0.5,from:1.0,to:0.4"/>
+	
+		        <h:outputText value="Panel Content" />
+	</h:panelGrid>
+	</h:form>
+
+
+        <h:outputText value="JSF Component with Event and non-jsf target. Click panel" />
+
+	<h:form id="myform2a">
+        <h:panelGrid id="mypanel2a" border="1" style="background-color:#CCC">
+	<e:effect event="onclick" targetId="my2a" type="Opacity" params="duration:0.5,from:0.4,to:1.0"/>
+	<e:effect event="onmouseout"  type="Opacity" params="targetId:'my2a',duration:0.5,from:1.0,to:0.4"/>
+	
+		        <h:outputText value="Panel Content" />
+	</h:panelGrid>
+	
+	</h:form>
+
+	<div id="my2a" style="width:100px;height:10px;background-color:blue">&nbsp;</div>
+
+        <h:outputText value="JSF Component with Event and jsf target. Click panel" />
+
+	<h:form id="myform2b">
+
+	<h:panelGrid id="my2b" style="width:100px;height:10px;background-color:blue">
+		<h:outputText value="jsf panelGrid"/>
+        </h:panelGrid>
+
+
+        <h:panelGrid id="mypanel2b" border="1" style="background-color:#CCC">
+	<e:effect event="onclick" targetId="my2b" type="Opacity" params="duration:0.5,from:0.4,to:1.0"/>
+	<e:effect event="onmouseout"  targetId="my2b" type="Opacity" params="duration:0.5,from:1.0,to:0.4"/>
+	
+		        <h:outputText value="Panel Content" />
+	</h:panelGrid>
+
+
+
+	
+	</h:form>
+
+
+
+
+        <h:outputText value="JSF Component with Event. Client wiring:" />
+
+	<h:form id="myform3">
+	        <h:panelGrid id="mypanel3" border="1" style="background-color:#CCC">
+	<e:effect event="onclick" for="mypanel3" type="Opacity" params="duration:0.5,from:0.4,to:1.0"/>
+	<e:effect event="onmouseout"  for="mypanel3"  type="Opacity" params="duration:0.5,from:1.0,to:0.4"/>
+			<f:facet name="header">
+			        <h:outputText value="Panel Header" />
+			</f:facet>
+	
+		        <h:outputText value="Panel Content" />
+		</h:panelGrid>
+	</h:form>
+
+
+	<div id="my2" style="width:100px;height:100px;background-color:blue">&nbsp;</div>
+
+	<script>
+	      var ob = document.getElementById("my2");
+	</script>
+
+	<e:effect for="ob" event="onmouseover" type="Opacity" params="duration:0.5,from:1.0,to:0.2" />
+	<e:effect for="ob" event="onmouseout" type="Opacity" params="targetId:ob,duration:0.5,from:0.2,to:1.0" />
+
+
+	<e:effect event="load" for="window"  type="Opacity" params="targetId:document.body,duration:0.8,from:0.4,to:1.0"/>
+
+
+        <h:outputText value="Using function parameters:" />
+
+	<span onclick="Richfaces.hideItP({targetId:'mynewpanel'})">Hide</span>
+	<span onclick="Richfaces.showItP({targetId:'mynewpanel', type:'Appear', duration:2.5})">Show</span>
+
+	<div id="mynewpanel" style="width:100px;height:100px;background-color:lightblue">&nbsp;</div>
+
+	<e:effect name="Richfaces.hideItP" type="Opacity" params="duration:0.8, from:1.0, to:0.2" />
+	<e:effect name="Richfaces.showItP" />
+
+        <h:outputText value="Click box below:" />
+
+
+	<div id="dpanel" style="width:100px;height:100px;background-color:lightgreen">&nbsp;</div>
+
+<script>
+var bb=document.getElementById('dpanel');
+</script>
+	
+
+	<e:effect event="onclick" for="bb" type="Fade" params="targetId:ob,duration:0.8" />
+	<e:effect event="onmouseout" for="bb" targetId="ob" type="BlindDown" params="duration:0.8" />
+<!--
+         <script>
+         	Event.observe(window,'click', mess, false );
+         	function mess() {
+         	 	alert('aaaaa');
+         	}
+         </script>
+-->
+
+	</body>
+</f:view>
+</html>

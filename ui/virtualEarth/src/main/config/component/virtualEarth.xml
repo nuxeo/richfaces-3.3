@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.VirtualEarth</name>
+		<family>org.richfaces.VirtualEarth</family>
+		<classname>org.richfaces.component.html.HtmlVirtualEarth</classname>
+		<superclass>org.richfaces.component.UIVirtualEarth</superclass>
+		<description>
+			<![CDATA[The  <rich:virtualEarth> component presents the Microsoft Virtual Earth map in the JSF applications.]]>
+		</description>
+		<test />
+		<renderer generate="true" override="true">
+			<name>org.richfaces.VirtualEarthRenderer</name>
+			<template>virtualEarth.jspx</template>
+		</renderer>
+		<tag>
+			<name>virtualEarth</name>
+			<classname>org.richfaces.taglib.VirtualEarthTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		&ui_component_attributes;
+   		&html_events;
+        &html_style_attributes;
+
+		<property>
+			<name>onLoadMap</name>
+			<classname>java.lang.String</classname>
+			<description>
+			  HTML: script expression; the Virtual Earth object is initiated.
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>var</name>
+			<classname>java.lang.String</classname>
+			<description>
+			 The JavaScript variable that is used to access the Virtual Earth API. If you have
+			 more than one Virtual Earth components on the same page, use individual
+			 key for each of them. Default value name is &quot;map&quot;. 
+			</description>
+			<defaultvalue>"map"</defaultvalue>
+		</property>
+		<property>
+			<name>lat</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Initial latitude coordinate in degrees, as a number between -90 and +90. Default value is &quot;37.9721046&quot;.
+			</description>
+			<defaultvalue>"37.9721046"</defaultvalue>
+		</property>
+		<property>
+			<name>lng</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Initial longitude coordinate in degrees, as a number between -180 and +180. Default value is &quot;-122.04248428346&quot;.
+			</description>
+			<defaultvalue>"-122.0424842834"</defaultvalue>
+		</property>
+		<property>
+			<name>zoom</name>
+			<classname>java.lang.String</classname>
+			<description>
+			Initial zoom level as a number between 1 and 18. Default value is &quot;17&quot;.
+			</description>
+			<defaultvalue>"17"</defaultvalue>
+		</property>
+		<property>
+			<name>mapStyle</name>
+			<classname>java.lang.String</classname>
+			<description>
+			Navigation control size. Possible values are  &quot;Road&quot;, &quot;Aerial&quot;, &quot;Hybrid&quot;, &quot;Birdseye&quot;. Default value is &quot;Road&quot;
+			</description>
+			<defaultvalue>"Road"</defaultvalue>
+		</property>
+		<property>
+			<name>dashboardSize</name>
+			<classname>java.lang.String</classname>
+			<description>
+			Initial map type. The possible values are "Normal", "Small", "Tiny". Default value is &quot;Normal&quot;.
+			</description>
+			<defaultvalue>"Normal"</defaultvalue>
+		</property>
+		<property>
+			<name>version</name>
+			<classname>java.lang.String</classname>
+			<description>
+			Virtual earth version, Default value is &quot;6.1&quot;.
+			</description>
+			<defaultvalue>"6.1"</defaultvalue>
+		</property>
+	</component>
+</components>

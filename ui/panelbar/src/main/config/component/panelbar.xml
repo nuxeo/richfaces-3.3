@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+
+<components>
+	<component>
+		<name>org.richfaces.PanelBar</name>
+		<family>org.richfaces.PanelBar</family>
+		<classname>org.richfaces.component.html.HtmlPanelBar</classname>
+		<superclass>org.richfaces.component.UIPanelBar</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlPanelBarComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[A component with categories sliding up and down to reveal and hide items under selected
+			categories (as used in Microsoft Outlook).
+    ]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.PanelBarRenderer</name>
+			<template>panelBar.jspx</template>
+		</renderer>
+		<tag>
+			<name>panelBar</name>
+			<classname>org.richfaces.taglib.PanelBarTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+    	<property>
+	    	<name>width</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>The width of the slide panel. Might be defined as pixels or as percentage.
+	    	Default value is &quot;100%&quot;.</description>
+	    	<defaultvalue><![CDATA["100%"]]></defaultvalue>
+	    </property>
+
+    	<property>
+	    	<name>height</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>The height of the slide panel. Might be defined as pixels or as percentage.
+	    		Default value is &quot;100%&quot;.</description>
+	    	<defaultvalue><![CDATA["100%"]]></defaultvalue>
+	    </property>
+    	<property>
+	    	<name>style</name>
+	    	<classname>java.lang.String</classname>
+    		<description>CSS style(s) is/are to be applied when this component is rendered</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+    	<property>
+	    	<name>styleClass</name>
+	    	<classname>java.lang.String</classname>
+    		<description>Corresponds to the HTML class attribute.</description>
+	    </property>
+        <property>
+           <name>headerStyleActive</name>
+           <classname>java.lang.String</classname>
+           <description>The component header style active</description>
+           <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+           <name>headerClassActive</name>
+           <classname>java.lang.String</classname>
+           <description>The component header style class active</description>
+        </property>
+        <property>
+           <name>value</name>
+           <classname>java.lang.String</classname>
+           <description>Id of expanded panelBarItem</description>
+        </property>
+
+		<property hidden="true">
+			<name>localValueSet</name>
+			<classname>boolean</classname>
+		</property>
+		<property hidden="true">
+			<name>switchType</name>
+			<classname>java.lang.String</classname>
+		</property>
+        <property>
+            <name>onclick</name>
+            <classname>java.lang.String</classname>
+            <description>HTML: script expression; before on the header is clicked</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+		<property>
+			<name>selectedPanel</name>
+			<classname>java.lang.Object</classname>
+			<description>Attribure defines name of selected item</description>
+		</property>	
+		<property>
+            <name>onitemchange</name>
+            <classname>java.lang.String</classname>
+            <description>
+            	HTML: script expression; a item is changed
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>onmouseover</name>
+            <classname>java.lang.String</classname>
+            <description>
+            	HTML: script expression; a pointer was moved onto.
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>onmouseout</name>
+            <classname>java.lang.String</classname>
+            <description>
+            	HTML: a script expression; a pointer is moved away
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>onmousemove</name>
+            <classname>java.lang.String</classname>
+            <description>
+            	HTML: a script expression; a pointer is moved within
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+			
+	    
+		&ui_component_attributes;
+	    &header_component_attributes;
+	    &content_component_attributes;
+	    &ui_input_attributes;
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+		
+		<property hidden="true">
+			<name>converter</name>
+		</property> 
+		<property hidden="true">
+			<name>converterMessage</name>
+		</property> 
+
+		<property hidden="true">
+			<name>validator</name>
+		</property> 
+		<property hidden="true">
+			<name>validatorMessage</name>
+		</property> 
+
+		<property hidden="true">
+			<name>required</name>
+		</property> 
+		<property hidden="true">
+			<name>requiredMessage</name>
+		</property> 
+
+		<property hidden="true">
+			<name>valid</name>
+		</property>
+	</component>
+
+	<component>
+		<name>org.richfaces.PanelBarItem</name>
+		<family>org.richfaces.PanelBarItem</family>
+		<description>Slider Panel Item</description>
+		<classname>org.richfaces.component.html.HtmlPanelBarItem</classname>
+		<superclass>org.richfaces.component.UIPanelBarItem</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlPanelBarItemComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<facet>
+		   <name>label</name>
+		   <description>defines the label text on the panel item header</description>
+		</facet>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.PanelBarItemRenderer</name>
+			<template>panelBarItem.jspx</template>
+		</renderer>
+		<tag>
+			<name>panelBarItem</name>
+			<classname>org.richfaces.taglib.PanelBarItemTag</classname>
+			<superclass>org.ajax4jsf.webapp.taglib.HtmlComponentTagBase</superclass>
+			<description>A child component of a slide panel component</description>
+		</tag>
+		
+    	<property>
+	    	<name>label</name>
+	    	<classname>java.lang.String</classname>
+    		<description>Label text appears on a panel item header. Default value is &quot;auto generated label&quot;</description>
+	    	<defaultvalue><![CDATA["auto generated label"]]></defaultvalue>
+	    </property>
+        <property>
+           <name>headerStyleActive</name>
+           <classname>java.lang.String</classname>
+           <description>The component header style active</description>
+           <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+           <name>headerClassActive</name>
+           <classname>java.lang.String</classname>
+           <description>The component header style class active</description>
+        </property>
+	    <property>
+	    	<name>name</name>
+	    	<classname>java.lang.Object</classname>
+	    	<description>Attribute defines item name. Default value is &quot;getId()&quot;.</description>
+	    	<defaultvalue>getId()</defaultvalue>
+	    </property>
+	    
+		&ui_component_attributes;
+	    &header_component_attributes;
+	    &content_component_attributes;
+    	<property hidden="true">
+	    	<name>expanded</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>
+	    		Notifies that an element has to be expanded. Default value is &quot;false&quot;.
+	    	</description>
+	    	<defaultvalue><![CDATA["false"]]></defaultvalue>
+	    </property>
+	    
+	    <property>
+            <name>onenter</name>
+            <classname>java.lang.String</classname>
+            <description>
+            	HTML: a script expression; a item is entered
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        
+        <property>
+            <name>onleave</name>
+            <classname>java.lang.String</classname>
+            <description>
+            	HTML: a script expression; a item is leaved
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+	    
+	</component>
+
+</components>

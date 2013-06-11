@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+<ui:composition>
+<table border="0" cellpadding="0" cellspacing="1">
+	<tbody>
+		<a4j:repeat var="component" value="#{components}">
+			<tr class="#{component.current?'active':'unactive'}" onmouseover="this.className='active'" onmouseout="this.className='#{component.current?'active':'unactive'}'">
+				<td class="ico"><h:graphicImage value="#{component.iconImage}" width="16" height="16" alt="" border="0" /></td>
+				<td class="text" width="100%">
+					<h:outputLink style="display:block;height:20px" value="#{component.contextRelativeDemoLocation}">
+						<span style="display:block;padding-top:3px">
+							#{component.name}
+						</span>
+						<f:param value="#{component.id}" name="c"/>
+					</h:outputLink>
+				</td>
+			</tr>
+		</a4j:repeat>
+	</tbody>
+</table>
+</ui:composition>
+</html>
+

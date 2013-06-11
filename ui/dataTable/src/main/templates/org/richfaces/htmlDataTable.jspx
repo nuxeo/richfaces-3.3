@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+    xmlns:h="http://jsf.exadel.com/header"
+	xmlns:vcp="http://ajax4jsf.org/cdk/vcp"	
+	
+	class="org.richfaces.renderkit.html.DataTableRenderer"
+	baseclass="org.richfaces.renderkit.AbstractTableRenderer"
+	component="org.richfaces.component.UIDataTable" 
+	>
+	<h:styles>css/table.xcss</h:styles>
+	<f:clientid var="clientId"/>
+	<table id="#{clientId}"
+	    class="dr-table rich-table #{component.attributes['styleClass']}" style="#{component.attributes['style']}" >
+
+			<f:call name="utils.encodePassThruWithExclusions">
+				<f:parameter value="value,name,type,id,class,rows,style" />
+			</f:call>
+			
+			<f:call name="encodeTableStructure"/>
+		
+			<vcp:body>
+			   <f:call name="encodeTBody"/>
+			</vcp:body>
+	</table>
+</f:root>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//EXADEL//Generator config/EN"  "http://exadel.com/dtds/component-config.dtd" >
+<components>
+	<component>
+		<name>org.richfaces.PanelBar</name>
+		<family>org.richfaces.PanelBar</family>
+		<classname>org.richfaces.component.html.HtmlPanelBar</classname>
+		<superclass>org.richfaces.component.UIPanelBar</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlPanelBarComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[A component with categories sliding up and down to reveal and hide items under selected
+			categories (as used in Microsoft Outlook).
+    ]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.PanelBarRenderer</name>
+			<template>panelBar.jspx</template>
+		</renderer>
+		<tag>
+			<name>panelBar</name>
+			<classname>org.richfaces.taglib.PanelBarTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+		</tag>
+	    <property>
+	    	<name>converterMessage</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>
+			A ValueExpression enabled attribute that, if present, will be used as the text of the converter message, replacing any message that comes from the converter.
+			</description>
+	    </property>
+	    <property>
+	    	<name>requiredMessage</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>
+			A ValueExpression enabled attribute that, if present, will be used as the text of the validation message for the "required" facility, if the "required" facility is used.
+			</description>
+	    </property>
+	    <property>
+	    	<name>validatorMessage</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>
+			 	A ValueExpression enabled attribute that, if present, will be used as the text of the validator message, replacing any message that comes from the validator.
+			</description>
+	    </property>	
+    	<property>
+	    	<name>width</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>The width of the slide panel. Might be defined as pixels or as percentage.
+	    	The default width is 100%</description>
+	    	<defaultvalue><![CDATA["100%"]]></defaultvalue>
+	    </property>
+
+    	<property>
+	    	<name>height</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>The height of the slide panel. Might be defined as pixels or as percentage.
+	    	The default height is 100%</description>
+	    	<defaultvalue><![CDATA["100%"]]></defaultvalue>
+	    </property>
+    	<property>
+	    	<name>style</name>
+	    	<classname>java.lang.String</classname>
+    		<description>CSS style(s) is/are to be applied when this component is rendered</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+    	<property>
+	    	<name>styleClass</name>
+	    	<classname>java.lang.String</classname>
+    		<description>Corresponds to the HTML class attribute.</description>
+	    </property>
+        <property>
+           <name>headerStyleActive</name>
+           <classname>java.lang.String</classname>
+           <description>The component header style active</description>
+           <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+           <name>headerClassActive</name>
+           <classname>java.lang.String</classname>
+           <description>The component header style class active</description>
+        </property>
+        <property>
+           <name>value</name>
+           <classname>java.lang.String</classname>
+           <description>Id of expanded panelBarItem</description>
+        </property>
+		<property >
+			<name>converter</name>
+			<classname>javax.faces.convert.Converter</classname>
+			<description>
+				Id of Converter to be used or reference to a Converter.
+			</description>
+		</property> 
+		<property hidden="true">
+			<name>localValueSet</name>
+			<classname>boolean</classname>
+		</property>
+		<property hidden="true">
+			<name>switchType</name>
+			<classname>java.lang.String</classname>
+		</property>
+        <property>
+            <name>onclick</name>
+            <classname>java.lang.String</classname>
+            <description>JavaScript code for call before header onclick</description>
+        </property>
+		<property>
+			<name>selectedPanel</name>
+			<classname>java.lang.Object</classname>
+			<description>Attribure defines name of selected item</description>
+		</property>		
+	    
+		&ui_component_attributes;
+	    &header_component_attributes;
+	    &content_component_attributes;
+	    &ui_input_attributes;
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+		
+		<property hidden="true">
+			<name>valid</name>
+			<classname>java.lang.String</classname>
+		</property>
+	</component>
+
+	<component>
+		<name>org.richfaces.PanelBarItem</name>
+		<family>org.richfaces.PanelBarItem</family>
+		<description>Slider Panel Item</description>
+		<classname>org.richfaces.component.html.HtmlPanelBarItem</classname>
+		<superclass>org.richfaces.component.UIPanelBarItem</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlPanelBarItemComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.PanelBarItemRenderer</name>
+			<template>panelBarItem.jspx</template>
+		</renderer>
+		<tag>
+			<name>panelBarItem</name>
+			<classname>org.richfaces.taglib.PanelBarItemTag</classname>
+			<superclass>org.ajax4jsf.webapp.taglib.HtmlComponentTagBase</superclass>
+			<description>A child component of a slide panel component</description>
+		</tag>
+		
+    	<property>
+	    	<name>label</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Label text appears on a panel item header</description>
+	    	<defaultvalue><![CDATA["auto generated label"]]></defaultvalue>
+	    </property>
+        <property>
+           <name>headerStyleActive</name>
+           <classname>java.lang.String</classname>
+           <description>The component header style active</description>
+           <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+           <name>headerClassActive</name>
+           <classname>java.lang.String</classname>
+           <description>The component header style class active</description>
+        </property>
+	    <property>
+	    	<name>name</name>
+	    	<classname>java.lang.Object</classname>
+	    	<description>Attribute defines item name</description>
+	    	<defaultvalue>getId()</defaultvalue>
+	    </property>
+	    
+		&ui_component_attributes;
+	    &header_component_attributes;
+	    &content_component_attributes;
+    	<property hidden="true">
+	    	<name>expanded</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>
+	    	Notifies that an element has to be expanded
+	    	</description>
+	    	<defaultvalue><![CDATA["false"]]></defaultvalue>
+	    </property>
+	</component>
+
+</components>

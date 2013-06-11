@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	version="2.0">
+
+	<ui:composition>
+	<f:verbatim escape="true">&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;</f:verbatim>
+	<f:verbatim escape="true">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</f:verbatim>
+	
+	<html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+		<meta http-equiv="Conent-Type" content="text/html; charset=iso-8859-1" />
+		<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE"/>
+		<META HTTP-EQUIV="EXPIRES" CONTENT="-1"/>
+		<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"/>
+		<script src="#{facesContext.externalContext.requestContextPath}/scripts/StringBuilder.js" type="text/javascript"></script>
+		<script src="#{facesContext.externalContext.requestContextPath}/scripts/tableSorter.js" type="text/javascript"></script>
+		
+		<title>dgdgdfgdfg</title>
+		</head>
+		<body>
+		<style>
+			.header {
+				text-align:left;
+			}
+		</style>
+		<h:form id="form">
+	<h:dataTable id="table" value="#{sorterBean.items}" var="item" headerClass="header">
+		<h:column>
+			<f:facet name="header">
+				<h:commandLink href="#" onclick="sort(0);return false;">Disk Id</h:commandLink>
+			</f:facet>
+			<h:outputText escape="true" value="#{item.diskId}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:commandLink href="#" onclick="sort(1);return false;">Artist</h:commandLink>
+			</f:facet>
+			<h:outputText escape="true" value="#{item.artist}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:commandLink href="#" onclick="sort(2);return false;">Title</h:commandLink>
+			</f:facet>
+			<h:outputText escape="true" value="#{item.title}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:commandLink href="#" onclick="sort(3);return false;">Disk Year</h:commandLink>
+			</f:facet>
+			<h:outputText escape="true" value="#{item.diskYear}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:commandLink href="#" onclick="sort(4);return false;">Genre</h:commandLink>
+			</f:facet>
+			<h:outputText escape="true" value="#{item.genre}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:commandLink href="#" onclick="sort(5);return false;">Description</h:commandLink>
+			</f:facet>
+			<h:outputText escape="true" value="#{item.description}" />
+		</h:column>
+	</h:dataTable>
+	<script>
+	var table = new DataTable("form:table", 0);
+	function sort(index) {
+		table.sortedColumnIndex = index;
+		var tt = new Date();
+		table.singleSorting();
+		table.rebuildTable();
+		var tf = new Date();
+		alert(tf-tt);
+	}
+		</script>
+	
+	</h:form>
+	</body>
+</html>
+</ui:composition>
+</jsp:root>

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+			<rich:toolBar>
+				<rich:dropDownMenu id="file">
+					<f:facet name="label">
+						<h:panelGroup>
+							<h:outputText value="File" />
+						</h:panelGroup>
+					</f:facet>
+					<rich:menuItem id="new" immediate="#{ddmenuBean.immediate}" submitMode="ajax" value="New" action="#{ddmenuBean.doNew}" reRender="monitor"/>
+					<rich:menuItem id="open"  immediate="#{ddmenuBean.immediate}" submitMode="ajax" value="Open" action="#{ddmenuBean.doOpen}" reRender="monitor"/>
+					<rich:menuGroup id="saveAs" value="Save As...">
+						<rich:menuItem id="save"  immediate="#{ddmenuBean.immediate}" submitMode="ajax" value="Save" action="#{ddmenuBean.doSave}" reRender="monitor" />
+						<rich:menuItem id="saveAll"  immediate="#{ddmenuBean.immediate}" submitMode="ajax" value="Save All" action="#{ddmenuBean.doSaveAll}" reRender="monitor"/>
+					</rich:menuGroup>
+					<rich:menuItem id="close"  immediate="#{ddmenuBean.immediate}" submitMode="server" value="Close" action="#{ddmenuBean.doClose}" />
+					<rich:menuSeparator id="menuSeparator11" />
+					<rich:menuItem id="exit"  immediate="#{ddmenuBean.immediate}" submitMode="none" value="Exit" action="#{ddmenuBean.doExit}" />
+				</rich:dropDownMenu>
+			</rich:toolBar>
+
+			<h:panelGrid id="monitor" columns="3" width="400">
+				<h:outputText value="Action name:"/>
+				<h:outputText id="operation" value="#{ddmenuBean.actionName}"/>
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

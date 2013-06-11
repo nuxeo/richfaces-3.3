@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.DataTable</name>
+		<family>org.richfaces.DataTable</family>
+		<classname>org.richfaces.component.html.HtmlDataTable</classname>
+		<superclass>org.richfaces.component.UIDataTable</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlDataTableComponentTest</classname>
+			<superclassname>org.richfaces.component.AbstractDataTableComponentTest</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:dataTable> component for tables rendering that allows choosing data from a model and obtains built-in support of Ajax updates.]]>
+		</description>
+		<facet>
+		   <name>header</name>
+		   <description>Defines the header content</description>
+		</facet>		
+		<facet>
+		   <name>footer</name>
+		   <description>Defines the footer content</description>
+		</facet>		
+		<facet>
+		   <name>caption</name>
+		   <description>Defines the caption content</description>
+		</facet>		
+		<renderer generate="true" override="true">
+			<name>org.richfaces.DataTableRenderer</name>
+			<template>org/richfaces/htmlDataTable.jspx</template>
+		</renderer>
+		<tag>
+			<name>dataTable</name>
+			<classname>org.richfaces.taglib.DataTableTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<taghandler generate="false">
+			<classname>org.richfaces.taglib.RowKeyConverterComponentHandler</classname>
+		</taghandler>
+
+		&ui_component_attributes;
+		&ui_data_attributes;
+		&html_universal_attributes;
+		&html_table_attributes;
+		&html_events;
+		&spec_table_attributes;
+		<property>
+			<name>ajaxKeys</name>
+			<classname>java.util.Set</classname>
+			<description>This attribute defines row keys that are updated after an AJAX request</description>
+		</property>
+		<property>
+			<name>columns</name>
+			<classname>int</classname>
+			<description>Number of columns
+			</description>
+		</property>
+		<property>
+			<name>border</name>
+			<classname>java.lang.String</classname>
+			<description>This attributes specifies the width of the frame around a component. Default value is &quot;0&quot;.</description>
+			<defaultvalue>"0"</defaultvalue>
+		</property>
+		<property>
+			<name>cellpadding</name>
+			<classname>java.lang.String</classname>
+			<description>This attribute specifies the amount of space between the border of the cell and its contents. Default value is &quot;0&quot;.</description>
+			<defaultvalue>"0"</defaultvalue>
+		</property>
+		<property>
+			<name>cellspacing</name>
+			<classname>java.lang.String</classname>
+			<description>This attribute specifies the amount of space between the border of the cell and its contents.  The attribute also specifies the amount of space to leave between cells. Default value is &quot;0&quot;.
+			</description>
+			<defaultvalue>"0"</defaultvalue>
+		</property>
+		<property>
+			<name>columnsWidth</name>
+			<classname>java.lang.String</classname>
+			<description><![CDATA[
+			Comma-separated list of width attribute for every column.
+			Specifies a default width for each column in the table. 
+			In addition to the standard pixel, percentage, and relative values, 
+			this attribute allows the special form "0*" (zero asterisk) which 
+			means that the width of the each column in the group should be the minimum width necessary 
+			to hold the column's contents. This implies that a column's entire contents must be known before its width may be correctly computed. Authors should be aware that specifying "0*" will prevent visual user agents from rendering a table incrementally
+			]]></description>
+		</property>
+		<property>
+			<name>captionClass</name>
+			<classname>java.lang.String</classname>
+			<description>Space-separated list of CSS style class(es) that are be applied to caption for this component</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>captionStyle</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style(s) is/are to be applied to caption when this component is rendered</description>
+		</property>
+		<property>
+			<name>headerClass</name>
+			<classname>java.lang.String</classname>
+			<description>Space-separated list of CSS style class(es) that are be applied to header for this component
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>footerClass</name>
+			<classname>java.lang.String</classname>
+			<description>Space-separated list of CSS style class(es) that are be applied to footer for this component
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+	
+		<property>
+			<name>componentState</name>
+			<classname>org.ajax4jsf.model.DataComponentState</classname>
+			<description>It defines EL-binding  for a component state for saving or redefinition</description>
+		</property>		
+		<property hidden="true" existintag="false" exist="false" >
+			<name>rowKey</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				RowKey is a representation of an identifier for a specific data row
+			</description>
+		</property>
+		<property>
+			<name>rowKeyVar</name>
+			<classname>java.lang.String</classname>
+			<description>The attribute provides access to a row key in a Request scope</description>
+		</property>
+		<property>
+			<name>rowKeyConverter</name>
+			<classname>java.lang.String</classname>
+			<description>Converter for a row key object</description>
+		</property>
+		<property>
+			<name>stateVar</name>
+			<classname>java.lang.String</classname>
+			<description>
+				The attribute  provides access to a component state on the client side
+			</description>
+		</property>	
+		<property>
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				The current value for this component
+			</description>
+		</property>
+		<!-- rows javascript events -->
+		<property>
+			<name>onRowClick</name>
+			<classname>java.lang.String</classname>
+			<description>
+				HTML: a script expression; a pointer button is clicked on row
+			</description>
+		</property>
+		<property>
+			<name>onRowDblClick</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: a script expression; a pointer button is double-clicked on row
+			</description>
+		</property>
+		<property>
+			<name>onRowMouseUp</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: script expression; a pointer button is released on row
+			</description>
+		</property>
+		<property>
+			<name>onRowMouseDown</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: script expression; a pointer button is pressed down on row
+			</description>
+		</property>
+		<property>
+			<name>onRowMouseOver</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: a script expression; a pointer is moved onto of row
+			</description>
+		</property>
+		<property>
+			<name>onRowMouseOut</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: a script expression; a pointer is moved away of row
+			</description>
+		</property>
+		<property>
+			<name>onRowMouseMove</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: a script expression; a pointer is moved within of row
+			</description>
+		</property>
+		<property>
+			<name>onRowContextMenu</name>
+			<classname>java.lang.String</classname>
+			 <description>JavaScript handler to be called on right click.
+		   Returning false prevents default browser context menu from being displayed</description>
+		</property>
+		
+		<property >
+			<name>reRender</name>
+			<classname>java.lang.Object</classname>
+			<description>Id['s] (in format of call  UIComponent.findComponent()) of components, rendered in case of AjaxRequest caused by this component. Can be single id, comma-separated list of Id's, or EL Expression  with array or Collection</description>
+		</property>
+		
+		<property>
+			<name>sortPriority</name>
+			<classname>java.util.Collection</classname>
+			<description>Defines a set of columns ids in the sorting order</description>
+		</property>
+		<property>
+			<name>sortMode</name>
+			<classname>java.lang.String</classname>
+			<description>
+			Defines mode of sorting. Possible values are 'single' for sorting of one column and 'multi' for some.
+			</description>
+		</property>
+		<property hidden="true" existintag="false" exist="false" >
+			<name>summary</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property>
+			<name>rowKeyConverter</name>
+			<classname>javax.faces.convert.Converter</classname>
+			<description>Converter for a RowKey object.
+			</description>
+		</property>
+	</component>
+</components>

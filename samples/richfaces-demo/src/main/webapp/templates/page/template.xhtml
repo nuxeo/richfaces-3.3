@@ -1,0 +1,54 @@
+<rich:page xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j" markupType="xhtml"
+	contentType="text/html" theme="#{layoutBean.theme}"
+	width="#{layoutBean.width}" sidebarWidth="#{layoutBean.sidebarWidth}"
+	sidebarPosition="#{layoutBean.position}">
+	<f:facet name="sidebar">
+		<ui:include src="/richfaces/layouts/page/includes/sidebar.xhtml" />
+	</f:facet>
+	<f:facet name="header">
+		<h:panelGroup>
+			<table width="100%"><tbody><tr>
+				<td><h2>RichFaces Layouts</h2></td>
+				<td align="right">
+					<h:outputLink value="http://labs.jboss.com/portal/jbossrichfaces/downloads">Download</h:outputLink>&#160;
+					<h:outputLink value="http://jboss.com/index.html?module=bb&amp;op=viewforum&amp;f=261">Support</h:outputLink>&#160;
+					<h:outputLink value="http://labs.jboss.com/file-access/default/members/jbossrichfaces/freezone/docs/devguide/en/html/index.html">Developer Guide</h:outputLink>
+				</td>
+			</tr></tbody></table>
+		</h:panelGroup>
+	</f:facet>
+	<f:facet name="footer">
+		<h:outputText
+			value="Copyright (c) 2009 RichFaces. All rights reserved. RichFaces version #{environment.version}" />
+	</f:facet>
+	<rich:tabPanel switchType="client">
+	<rich:tab label="overview">
+	<rich:layout>
+		<rich:layoutPanel position="top" width="100%">
+			<ui:include src="/richfaces/layouts/page/includes/gridtop.xhtml" />
+		</rich:layoutPanel>
+		<rich:layoutPanel position="left" width="50">
+			<ui:include src="/richfaces/layouts/page/includes/gridleft.xhtml" />
+		</rich:layoutPanel>
+		<rich:layoutPanel position="center" width="50">
+			<ui:include src="/richfaces/layouts/page/includes/gridcenter.xhtml" />
+		</rich:layoutPanel>
+		<rich:layoutPanel position="bottom">
+			<ui:include src="/templates/include/sourceview.xhtml">
+				<ui:param name="sourcepath" value="/richfaces/layouts/page/template.xhtml"/>
+				<ui:param name="openlabel" value="View this page template source code"/>
+			</ui:include>
+			<br/>
+		</rich:layoutPanel>
+	</rich:layout>
+	</rich:tab>
+	<rich:tab label="Themes support">
+		<ui:include src="/richfaces/layouts/page/includes/themes.xhtml" />
+	</rich:tab>
+	</rich:tabPanel>
+</rich:page>

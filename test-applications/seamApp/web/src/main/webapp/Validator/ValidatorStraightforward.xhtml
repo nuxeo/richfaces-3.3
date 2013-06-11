@@ -1,0 +1,71 @@
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	id="validatorStraightforwardSubviewID">
+	<a4j:region>
+	<rich:dataTable value="#{dataValidator.data}" var="data" id="SizeValidationID">		
+			showSummary="true" />
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="#1" />
+			</f:facet>
+			<a4j:commandLink value="Select" reRender="SizeValidationID"></a4j:commandLink>
+			<f:facet name="footer">
+				<h:outputText value="#1" />
+			</f:facet>
+		</rich:column>
+
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="#4" />
+			</f:facet>
+			<h:outputText value="#{data.int2}"></h:outputText>
+			<f:facet name="footer">
+				<h:outputText value="#4" />
+			</f:facet>
+		</rich:column>
+
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="#5" />
+			</f:facet>
+			<h:outputText value="#{data.str1}"></h:outputText>
+			<f:facet name="footer">
+				<h:outputText value="#5" />
+			</f:facet>
+		</rich:column>
+
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="#7" />
+			</f:facet>
+			<h:graphicImage value="#{data.str2}"></h:graphicImage>
+			<h:outputText value="#{data.str2}"></h:outputText>
+			<f:facet name="footer">
+				<h:outputText value="#7" />
+			</f:facet>
+		</rich:column>
+
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="#9" />
+			</f:facet>
+			<h:selectBooleanCheckbox value="#{data.bool0}"></h:selectBooleanCheckbox>
+			<f:facet name="footer">
+				<h:outputText value="#9" />
+			</f:facet>
+		</rich:column>
+	</rich:dataTable>
+	</a4j:region>
+	<br />
+	<a4j:region>
+	<h:outputText value="Enter quantity of lines [data]" />
+	<h:panelGroup>
+		<h:inputText value="#{dataValidator.length}"/>
+		<a4j:commandButton action="#{dataValidator.addNewItem}" value="ok"
+			reRender="SizeValidationID"></a4j:commandButton>
+	</h:panelGroup>
+	</a4j:region>
+</f:subview>

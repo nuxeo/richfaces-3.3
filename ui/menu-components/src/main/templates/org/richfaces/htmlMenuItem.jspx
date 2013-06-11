@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	baseclass="org.richfaces.renderkit.html.MenuItemRendererBase"
+	class="org.richfaces.renderkit.html.MenuItemRenderer"
+	component="org.richfaces.component.UIMenuItem" 
+	>
+	<h:styles>css/menucomponents.xcss</h:styles>  
+	
+   	<h:scripts>
+			new org.ajax4jsf.javascript.PrototypeScript(),
+			new org.ajax4jsf.javascript.AjaxScript(),
+			/org/richfaces/renderkit/html/scripts/utils.js,
+			/org/ajax4jsf/javascript/scripts/form.js,
+			/org/richfaces/renderkit/html/scripts/form.js,
+			/org/richfaces/renderkit/html/scripts/menu.js
+	</h:scripts>
+
+    <jsp:scriptlet>
+		<![CDATA[
+		         String mode = resolveSubmitMode(component);
+		         if (mode != null && !mode.equalsIgnoreCase("none")) org.richfaces.component.util.FormUtil.throwEnclFormReqExceptionIfNeed(context,component);
+		]]>		                                               
+    </jsp:scriptlet>	
+	
+	<f:call name="initializeResources" />
+	
+	<f:call name="initializeStyles" />
+	
+	<f:clientid var="clientId"/>
+			
+		
+	<jsp:scriptlet><![CDATA[
+			if (((org.richfaces.component.UIMenuItem) component).isDisabled()) {
+				
+	]]></jsp:scriptlet>	
+			
+	<div id="#{clientId}" 		
+		class="#{menuItemClass}"
+		style="#{menuItemStyle}"
+		onclick="Event.stop(event);">
+		
+	<jsp:scriptlet><![CDATA[
+		} else {
+			/*String onselect = (String) component.getAttributes().get("onselect");
+	    	if(null!=onselect&&onselect.length()>0){
+	    		onselect = onselect+";";	    		  		
+	    	}else{
+	    		onselect="";
+	    	}
+	    	variables.setVariable("onselect",onselect);
+	    	*/
+	]]></jsp:scriptlet>
+	
+	<div id="#{clientId}" 
+		class="#{menuItemClass}"
+		
+		onmouseout="RichFaces.Menu.itemMouseOut(event, this, '#{menuItemCustomClass}', '#{onmouseoutInlineStyles}', '#{component.attributes['iconClass']}');"
+		onmouseover="RichFaces.Menu.itemMouseOver(event, this, '#{menuItemHoverClass}', '#{onmouseoverInlineStyles}', '#{component.attributes['iconClass']}');"
+
+		onmouseup="Event.stop(event); #{component.attributes['onmouseup']}"
+		onmousedown="Event.stop(event); #{component.attributes['onmousedown']}"
+		onclick="#{onclick}"
+	
+		style="#{menuItemStyle}">
+		<f:call name="utils.encodeAttributes">
+			<f:parameter value="onmousemove" />
+		</f:call>
+		
+	<jsp:scriptlet><![CDATA[
+		}
+	]]></jsp:scriptlet>
+		
+		
+		<span id="#{clientId}:icon" 
+			class="dr-menu-icon rich-menu-item-icon #{iconDisabledClasses} #{component.attributes['iconClass']}"
+			style="#{component.attributes['iconStyle']}">
+			
+			<jsp:scriptlet><![CDATA[
+				UIComponent iconFacet = getIconFacet((org.richfaces.component.UIMenuItem) component);			
+				if (null != iconFacet) {
+					renderChild(context, iconFacet);	
+				} else {
+			]]></jsp:scriptlet>
+			
+			<img width="16" alt=""
+				height="16"				
+				src="#{icon}" />
+				
+			<jsp:scriptlet><![CDATA[
+				}
+			]]></jsp:scriptlet>
+			
+		</span>
+		
+		<span id="#{clientId}:anchor"			
+			class="#{menuItemLabelClass}"
+			>
+			#{component.attributes['value']}
+			<f:call name="renderChildren" />
+		</span>
+
+	<jsp:scriptlet><![CDATA[
+		if (((org.richfaces.component.UIMenuItem) component).isDisabled()) {
+	]]></jsp:scriptlet>	
+	</div>
+	<jsp:scriptlet><![CDATA[
+		} else {
+	]]></jsp:scriptlet>
+	</div>
+	<jsp:scriptlet><![CDATA[
+		}
+	]]></jsp:scriptlet>
+</f:root>

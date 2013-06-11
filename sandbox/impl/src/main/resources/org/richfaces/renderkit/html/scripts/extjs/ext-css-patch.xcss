@@ -1,0 +1,1241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+xmlns:u='http:/jsf.exadel.com/template/util'
+xmlns="http://www.w3.org/1999/xhtml" >
+<u:selector name=".ext-el-mask-msg">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/tb-blue.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-mask-loading div">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/loading.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-shadow .xsmc">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shadow-c.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-shadow .xsml">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shadow-lr.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-shadow .xsmr">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shadow-lr.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-shadow .xstl">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shadow.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-shadow .xstc">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shadow.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-shadow .xstr">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shadow.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-shadow .xsbl">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shadow.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-shadow .xsbc">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shadow.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-shadow .xsbr">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shadow.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".loading-indicator">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/loading.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-drag-overlay">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/s.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name="ul.x-tab-strip-top">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tabs/tab-strip-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name="ul.x-tab-strip-bottom">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tabs/tab-strip-btm-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tab-strip-top .x-tab-right">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tabs/tabs-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tab-strip-top .x-tab-left">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tabs/tabs-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tab-strip-top .x-tab-strip-inner">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tabs/tabs-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tab-strip-bottom .x-tab-right">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tabs/tab-btm-inactive-right-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tab-strip-bottom .x-tab-left">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tabs/tab-btm-inactive-left-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tab-strip-bottom .x-tab-strip-active .x-tab-right">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tabs/tab-btm-right-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tab-strip-bottom .x-tab-strip-active .x-tab-left">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tabs/tab-btm-left-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tab-strip .x-tab-strip-closable a.x-tab-strip-close">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tabs/tab-close.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tab-strip .x-tab-strip-closable a.x-tab-strip-close:hover">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tabs/tab-close.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tab-scroller-left">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tabs/scroll-left.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tab-scroller-right">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tabs/scroll-right.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-text,textarea.x-form-field">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/text-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-field-wrap .x-form-trigger">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/trigger.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-field-wrap .x-form-date-trigger">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/date-trigger.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-field-wrap .x-form-clear-trigger">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/clear-trigger.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-field-wrap .x-form-search-trigger">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/search-trigger.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-invalid,textarea.x-form-invalid">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/invalid_line.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-invalid-msg">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shared/warning.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-invalid-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/exclamation.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-btn-left">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/button/btn-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-btn-right">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/button/btn-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-btn-center">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/button/btn-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-btn-menu-arrow-wrap .x-btn-center button">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/button/btn-arrow.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-btn-with-menu .x-btn-center em">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/toolbar/btn-arrow.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-btn-text-icon .x-btn-with-menu .x-btn-center em">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/toolbar/btn-arrow.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-toolbar">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/toolbar/bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".mso .x-toolbar,.x-grid-mso .x-toolbar">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/mso-hd.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-toolbar .x-btn-menu-arrow-wrap .x-btn-center button">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/toolbar/btn-arrow.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-toolbar .x-btn-text-icon .x-btn-menu-arrow-wrap .x-btn-center button">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/toolbar/btn-arrow.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-toolbar .x-btn-over .x-btn-left">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/toolbar/tb-btn-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-toolbar .x-btn-over .x-btn-right">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/toolbar/tb-btn-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-toolbar .x-btn-over .x-btn-center">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/toolbar/tb-btn-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-toolbar .x-btn-click .x-btn-left,.x-toolbar .x-btn-pressed .x-btn-left,.x-toolbar .x-btn-menu-active .x-btn-left">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/toolbar/tb-btn-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-toolbar .x-btn-click .x-btn-right,.x-toolbar .x-btn-pressed .x-btn-right,.x-toolbar .x-btn-menu-active .x-btn-right">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/toolbar/tb-btn-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-toolbar .x-btn-click .x-btn-center,.x-toolbar .x-btn-pressed .x-btn-center,.x-toolbar .x-btn-menu-active .x-btn-center">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/toolbar/tb-btn-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-toolbar .ytb-sep">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/grid-blue-split.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tbar-page-first">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/page-first.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tbar-loading">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/done.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tbar-page-last">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/page-last.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tbar-page-next">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/page-next.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tbar-page-prev">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/page-prev.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-item-disabled .x-tbar-loading">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/loading.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-item-disabled .x-tbar-page-first">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/page-first-disabled.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-item-disabled .x-tbar-page-last">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/page-last-disabled.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-item-disabled .x-tbar-page-next">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/page-next-disabled.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-item-disabled .x-tbar-page-prev">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/page-prev-disabled.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-resizable-over .x-resizable-handle-east,.x-resizable-pinned .x-resizable-handle-east">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/sizer/e-handle.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-resizable-over .x-resizable-handle-west,.x-resizable-pinned .x-resizable-handle-west">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/sizer/e-handle.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-resizable-over .x-resizable-handle-south,.x-resizable-pinned .x-resizable-handle-south">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/sizer/s-handle.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-resizable-over .x-resizable-handle-north,.x-resizable-pinned .x-resizable-handle-north">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/sizer/s-handle.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-resizable-over .x-resizable-handle-southeast,.x-resizable-pinned .x-resizable-handle-southeast">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/sizer/se-handle.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-resizable-over .x-resizable-handle-northwest,.x-resizable-pinned .x-resizable-handle-northwest">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/sizer/nw-handle.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-resizable-over .x-resizable-handle-northeast,.x-resizable-pinned .x-resizable-handle-northeast">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/sizer/ne-handle.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-resizable-over .x-resizable-handle-southwest,.x-resizable-pinned .x-resizable-handle-southwest">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/sizer/sw-handle.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-row-over">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/row-over.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-header">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/grid3-hrow.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-header-pop-inner">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/hd-pop.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name="td.x-grid3-hd-over .x-grid3-hd-inner,td.sort-desc .x-grid3-hd-inner,td.sort-asc .x-grid3-hd-inner,td.x-grid3-hd-menu-open .x-grid3-hd-inner">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/grid3-hrow-over.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".sort-asc .x-grid3-sort-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/sort_asc.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".sort-desc .x-grid3-sort-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/sort_desc.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-split">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/grid-split.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-dd-drag-proxy .x-grid3-hd-inner">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/grid3-hrow-over.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".col-move-top">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/col-move-top.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".col-move-bottom">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/col-move-bottom.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-locked td.x-grid3-row-marker,.x-grid3-locked .x-grid3-row-selected td.x-grid3-row-marker">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/grid-hrow.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-dirty-cell">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/dirty.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-props-grid .x-grid3-td-name .x-grid3-cell-inner">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/grid3-special-col-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".xg-hmenu-sort-asc .x-menu-item-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/hmenu-asc.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".xg-hmenu-sort-desc .x-menu-item-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/hmenu-desc.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".xg-hmenu-lock .x-menu-item-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/hmenu-lock.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".xg-hmenu-unlock .x-menu-item-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/hmenu-unlock.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-hd-btn">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/grid3-hd-btn.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-body .x-grid3-td-expander">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/grid3-special-col-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-row-expander">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/row-expand-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-body .x-grid3-td-checker">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/grid3-special-col-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-row-checker,.x-grid3-hd-checker">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/row-check-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-body .x-grid3-td-numberer">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/grid3-special-col-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-body .x-grid3-row-selected .x-grid3-td-numberer,.x-grid3-body .x-grid3-row-selected .x-grid3-td-checker,.x-grid3-body .x-grid3-row-selected .x-grid3-td-expander">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/grid3-special-col-sel-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-check-col">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/menu/unchecked.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid3-check-col-on">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/menu/checked.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-grid-group-hd div">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/group-expand-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-group-by-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/group-by.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-cols-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/columns.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-show-groups-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/group-by.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-dd-drop-nodrop .x-dd-drop-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/dd/drop-no.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-dd-drop-ok .x-dd-drop-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/dd/drop-yes.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-dd-drop-ok-add .x-dd-drop-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/dd/drop-add.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-node-collapsed .x-tree-node-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/folder.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-node-expanded .x-tree-node-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/folder-open.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-node-leaf .x-tree-node-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/leaf.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-node-loading .x-tree-node-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/loading.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-lines .x-tree-elbow">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/elbow.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-lines .x-tree-elbow-plus">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/elbow-plus.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-lines .x-tree-elbow-minus">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/elbow-minus.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-lines .x-tree-elbow-end">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/elbow-end.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-lines .x-tree-elbow-end-plus">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/elbow-end-plus.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-lines .x-tree-elbow-end-minus">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/elbow-end-minus.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-lines .x-tree-elbow-line">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/elbow-line.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-no-lines .x-tree-elbow-plus">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/elbow-plus-nl.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-no-lines .x-tree-elbow-minus">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/elbow-minus-nl.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-no-lines .x-tree-elbow-end-plus">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/elbow-end-plus-nl.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-no-lines .x-tree-elbow-end-minus">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/elbow-end-minus-nl.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-drop-ok-append .x-dd-drop-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/drop-add.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-drop-ok-above .x-dd-drop-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/drop-over.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-drop-ok-below .x-dd-drop-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/drop-under.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tree-drop-ok-between .x-dd-drop-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/tree/drop-between.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tip .x-tip-close">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/qtip/close.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tip .x-tip-tc">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/qtip/tip-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tip .x-tip-tl">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/qtip/tip-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tip .x-tip-tr">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/qtip/tip-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tip .x-tip-bc">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/qtip/tip-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tip .x-tip-bl">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/qtip/tip-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tip .x-tip-br">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/qtip/tip-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tip .x-tip-ml">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/qtip/tip-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tip .x-tip-mr">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/qtip/tip-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-invalid-tip .x-tip-top">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/error-tip-corners.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-invalid-tip .x-tip-top-left">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/error-tip-corners.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-invalid-tip .x-tip-top-right">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/error-tip-corners.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-invalid-tip .x-tip-ft">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/error-tip-corners.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-invalid-tip .x-tip-ft-left">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/error-tip-corners.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-invalid-tip .x-tip-ft-right">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/error-tip-corners.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-invalid-tip .x-tip-bd-left">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/error-tip-corners.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-invalid-tip .x-tip-bd-right">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/error-tip-corners.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-form-invalid-tip .x-tip-bd .x-tip-bd-inner">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/form/exclamation.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-date-middle,.x-date-left,.x-date-right">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shared/hd-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-date-middle .x-btn-with-menu .x-btn-center em">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/toolbar/btn-arrow-light.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-date-right a">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shared/right-btn.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-date-left a">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shared/left-btn.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-date-inner th">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shared/glass-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-date-inner .x-date-selected a">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shared/glass-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-date-bottom">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shared/glass-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-date-mp-btns">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shared/glass-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name="td.x-date-mp-sel a">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/shared/glass-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-date-mp-ybtn a">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/panel/tool-sprites.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-menu">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/menu/menu.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-menu-item-arrow">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/menu/menu-parent.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-menu-item-active">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/menu/item-over.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-menu-check-item .x-menu-item-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/menu/unchecked.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-menu-item-checked .x-menu-item-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/menu/checked.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-menu-item-checked .x-menu-group-item .x-menu-item-icon">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/menu/group-checked.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-box-tl">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/corners.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-box-tc">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/tb.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-box-tr">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/corners.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-box-ml">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/l.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-box-mc">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/tb.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-box-mr">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/r.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-box-bl">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/corners.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-box-bc">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/tb.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-box-br">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/corners.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-box-blue .x-box-bl,.x-box-blue .x-box-br,.x-box-blue .x-box-tl,.x-box-blue .x-box-tr">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/corners-blue.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-box-blue .x-box-bc,.x-box-blue .x-box-mc,.x-box-blue .x-box-tc">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/tb-blue.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-box-blue .x-box-ml">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/l-blue.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-box-blue .x-box-mr">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/box/r-blue.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-combo-list-hd">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/layout/panel-title-light-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-panel-header">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/panel/white-top-bottom.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-panel-tc">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/panel/top-bottom.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-panel-tl">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/panel/corners-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-panel-tr">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/panel/corners-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-panel-bc">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/panel/top-bottom.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-panel-bl">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/panel/corners-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-panel-br">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/panel/corners-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-panel-ml">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/panel/left-right.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-panel-mr">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/panel/left-right.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-tool">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/panel/tool-sprites.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-window-tc">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/window/top-bottom.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-window-tl">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/window/left-corners.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-window-tr">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/window/right-corners.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-window-bc">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/window/top-bottom.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-window-bl">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/window/left-corners.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-window-br">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/window/right-corners.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-window-ml">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/window/left-right.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-window-mr">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/window/left-right.png" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-html-editor-tb .x-btn-text">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/editor/tb-sprite.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-accordion-hd">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/panel/light-hd.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-layout-split-h">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/s.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-layout-split-v">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/s.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-layout-split-west .x-layout-mini">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/layout/mini-left.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-layout-split-east .x-layout-mini">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/layout/mini-right.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-layout-split-north .x-layout-mini">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/layout/mini-top.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-layout-split-south .x-layout-mini">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/layout/mini-bottom.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-layout-cmini-west .x-layout-mini">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/layout/mini-right.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-layout-cmini-east .x-layout-mini">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/layout/mini-left.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-layout-cmini-north .x-layout-mini">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/layout/mini-bottom.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-layout-cmini-south .x-layout-mini">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/layout/mini-top.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-progress-inner">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/qtip/bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-progress-bar">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/progress/progress-bg.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-window-dlg .x-msg-box-wait">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/grid/loading.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-window-dlg .ext-mb-info">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/window/icon-info.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-window-dlg .ext-mb-warning">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/window/icon-warning.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-window-dlg .ext-mb-question">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/window/icon-question.gif" />
+    </u:style>
+</u:selector>
+
+<u:selector name=".x-window-dlg .ext-mb-error">
+	<u:style name="background-image">
+        <f:resource f:key="/org/richfaces/renderkit/html/scripts/extjs/resources/images/default/window/icon-error.gif" />
+    </u:style>
+</u:selector>
+
+</f:template>

@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="outOfTemplateArea">
+		<rich:dragIndicator id="indicator"></rich:dragIndicator>
+	</ui:define>
+	<ui:define name="component">
+		<h:form id="_controls">
+			<h:commandButton id="testRendered" action="#{dndBean.testRendered}" value="testRendered"></h:commandButton>
+		</h:form>
+		<h:form id="_form">
+			<h:outputText id="status" style="display: none;" value="#{dndBean.status}"></h:outputText>
+			<h:outputText id="dragValue" style="display: none;" value="#{dndBean.dragValue}"></h:outputText>
+			<h:outputText id="dropValue" style="display: none;" value="#{dndBean.dropValue}"></h:outputText>
+			<h:panelGrid columns="4" width="100%">
+				<rich:panel style="width: 133px">
+					<f:facet name="header">
+						<h:outputText value="Source List" />
+					</f:facet>
+					<h:dataTable id="src" columns="1" value="#{dndBean.frameworks}" var="fm">
+						<h:column>
+							<a4j:outputPanel id="item" layout="block">
+								<rich:dragSupport dragIndicator=":indicator"
+									reRender="status, dragValue, dropValue"
+									ondragstart="EventQueue.fire('ondragstart');"
+									ondragend="EventQueue.fire('ondragend');"
+									rendered="#{dndBean.rendered}"
+									dragType="#{fm.family}" dragValue="#{fm}" dragListener="#{dndBean.processDragMethod}">
+									<rich:dndParam name="label" value="#{fm.name}" />
+									<rich:dragListener type="org.ajax4jsf.bean.DnDListener" />
+								</rich:dragSupport>
+								<h:outputText value="#{fm.name}" />
+							</a4j:outputPanel>
+						</h:column>
+						<f:facet name="footer">
+							<a4j:commandButton id="reset" action="#{dndBean.reset}" value="Start Over"
+								reRender="src,phptable,cftable,dnettable, status, dragValue, dropValue" />
+						</f:facet>
+					</h:dataTable>
+				</rich:panel>
+
+				<rich:panel id="PHP">
+					<f:facet name="header">
+						<h:outputText value="PHP Frameworks" />
+					</f:facet>
+					<rich:dropSupport id="php" acceptedTypes="PHP" dropValue="PHP"
+						ondrop="EventQueue.fire('ondrop')"
+						rendered="#{dndBean.rendered}"
+						ondragenter="EventQueue.fire('ondragenter')"
+						ondropend="EventQueue.fire('ondropend')"
+						oncomplete="window._dropData = data;"
+						data="dropData"
+						dropListener="#{dndBean.processDropMethod}" reRender="phptable, src">
+					</rich:dropSupport>
+					<h:dataTable id="phptable" columns="1" value="#{dndBean.containerPHP}" var="fm">
+						<h:column>
+							<h:outputText value="#{fm.name}" />
+						</h:column>
+					</h:dataTable>
+				</rich:panel>
+
+				<rich:panel styleClass="dropTargetPanel" id="DNET">
+					<f:facet name="header">
+						<h:outputText value=".NET Frameworks" />
+					</f:facet>
+					<rich:dropSupport id="dnet" acceptedTypes="DNET" dropValue="DNET"
+						ondrop="EventQueue.fire('ondrop')"
+						rendered="#{dndBean.rendered}"
+						ondragenter="EventQueue.fire('ondragenter')"
+						ondropend="EventQueue.fire('ondropend')"
+						oncomplete="window._dropData = data;"
+						data="dropData"
+						dropListener="#{dndBean.processDropMethod}" reRender="dnettable, src">
+					</rich:dropSupport>
+					<h:dataTable id="dnettable" columns="1" value="#{dndBean.containerDNET}" var="fm">
+						<h:column>
+							<h:outputText value="#{fm.name}" />
+						</h:column>
+					</h:dataTable>
+				</rich:panel>
+
+				<rich:panel styleClass="dropTargetPanel" id="CF">
+					<f:facet name="header">
+						<h:outputText value="ColdFusion Frameworks" />
+					</f:facet>
+					<rich:dropSupport id="cf" acceptedTypes="CF" dropValue="CF"
+						ondrop="EventQueue.fire('ondrop')"
+						rendered="#{dndBean.rendered}"
+						ondragenter="EventQueue.fire('ondragenter')"
+						ondropend="EventQueue.fire('ondropend')"
+						oncomplete="window._dropData = data;"
+						data="dropData"
+						reRender="cftable, src">
+						<rich:dropListener type="org.ajax4jsf.bean.DnDListener" />
+					</rich:dropSupport>
+					<h:dataTable id="cftable" columns="1" value="#{dndBean.containerCF}" var="fm">
+						<h:column>
+							<h:outputText value="#{fm.name}" />
+						</h:column>
+					</h:dataTable>
+				</rich:panel>
+			</h:panelGrid>
+		</h:form>
+		<a4j:outputPanel ajaxRendered="true">
+			<h:messages></h:messages>
+		</a4j:outputPanel>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+			<!--  Nested regions -->
+			<fieldset>
+				<legend>Outer region</legend>
+				<a4j:region ajaxListener="#{regionBean.processOuterAjax}">
+					<a4j:commandLink reRender="internal, external, innerListener, externalLink" value="Link" id="externalLink" />
+					<fieldset>
+						<legend>Inner region</legend>
+						<a4j:region ajaxListener="#{regionBean.processInnerAjax}">
+							<a4j:commandLink reRender="internal, external, innerListener, externalLink" value="Link" id="internalLink" />
+							<h:inputText id="internal" value="#{regionBean.internal}" />
+							&#160;Is ajax listener invoked:&#160;<h:outputText id="innerListener" value="#{regionBean.internalListenerInvoked}" />
+						</a4j:region>
+					</fieldset>
+					<h:inputText id="external" value="#{regionBean.external}" />
+					&#160;Is ajax listener invoked:&#160;<h:outputText id="outerListener" value="#{regionBean.externalListenerInvoked}" />
+				</a4j:region>
+			</fieldset>
+
+			<!--  Self rendered attribute  -->
+			<fieldset>
+				<legend>Self rendered region</legend>
+				<a4j:region selfRendered="true">
+					<a4j:commandLink value="Link" id="selfRenderedLink" reRender="transientContent"/>
+					<h:panelGroup id="transientContent">
+						<h3 id="transientText">This label has to be revoked</h3>
+					</h:panelGroup>
+				</a4j:region>
+			</fieldset>
+
+			<!-- Render region only -->
+			<fieldset>
+				<legend>"RenderOnly" region</legend>
+				<a4j:region renderRegionOnly="true">
+					<a4j:commandLink reRender="render, renderOnly" value="Link" id="renderOnlyLink" />
+					<h:inputText id="renderOnly" value="#{regionBean.value}" />
+				</a4j:region>
+			</fieldset>
+			<fieldset>
+				<legend>"Odinary" region</legend>
+				<a4j:region renderRegionOnly="false">
+					<a4j:commandLink reRender="render, renderOnly" value="Link" id="renderLink" />
+					<h:inputText id="render" value="#{regionBean.value}" />
+				</a4j:region>
+			</fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

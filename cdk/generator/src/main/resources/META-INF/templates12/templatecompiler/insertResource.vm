@@ -1,0 +1,1 @@
+variables.setVariable("$variable", getResource( "$resourceURI" ).getUri(context, component) );

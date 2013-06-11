@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://jsf.exadel.com/template"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:ui="http://jsf.exadel.com/ui"
+	xmlns:vcp="http://jsf.exadel.com/vcp"
+	xmlns:u="http://jsf.exadel.com/util"
+	xmlns:x="http://jsf.exadel.com/mock"
+	xmlns:h="http://jsf.exadel.com/header"
+	baseclass="org.richfaces.renderkit.DragIndicatorRendererBase"
+	class="org.richfaces.renderkit.html.DragIndicatorRenderer"
+	component="org.richfaces.component.UIDragIndicator"
+	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+
+	<h:scripts>
+		new org.ajax4jsf.javascript.PrototypeScript(),
+		new org.ajax4jsf.javascript.AjaxScript(),
+		new org.ajax4jsf.javascript.DnDScript(),
+		/org/richfaces/renderkit/html/scripts/utils.js,
+		/org/richfaces/renderkit/html/scripts/json/json-dom.js,
+		/org/richfaces/renderkit/html/scripts/dnd/dnd-common.js,
+		/org/richfaces/renderkit/html/scripts/browser_info.js,
+		scripts/drag-indicator.js
+	</h:scripts>
+	<h:styles>/org/richfaces/renderkit/html/css/dragIndicator.xcss</h:styles>
+
+	<f:clientId var="clientId" />
+
+<div id="#{clientId}" class="drgind_fly drgind_default drag_indicator #{component.attributes['styleClass']}" style="display: none; #{component.attributes['style']}">
+	<f:call name="encodeNamespace" />
+	<f:call name="encodeDnDParams" />
+	
+	<script type="text/javascript">
+		var elt = $("#{clientId}");
+		elt.markers = {};
+		elt.indicatorTemplates = {};
+		<f:call name="encodeChildScripts" />
+		createDragIndicator(elt, '#{component.attributes["acceptClass"]}', '#{component.attributes["rejectClass"]}');
+	</script>
+	<vcp:body />
+</div>
+</f:root>

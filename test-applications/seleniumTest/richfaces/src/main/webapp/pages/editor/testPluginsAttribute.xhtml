@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">	
+	<ui:define name="component">
+		<script>
+			//<!--
+			function getLoadedPlugins(){
+				tinymce.each(tinyMCE.activeEditor.plugins, function(p, n) {
+					var info;
+					if (!p.getInfo){					
+						return;
+					}
+					info = p.getInfo();
+					var el = $('pluginsId');
+					if(el.innerHTML){
+						el.innerHTML+=',';
+					}
+					el.innerHTML +=  info.longname ;
+				});
+			}
+			//-->
+		</script>
+		<h:form id="formId">
+			<rich:editor id="editorId" 
+					theme="advanced" 
+					plugins = "spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template"
+					/>						  
+			<br/>
+			<span id="pluginsId">
+			</span>
+			<br/>
+			<br/>
+			<h:commandButton id="submitId" onclick ="getLoadedPlugins();return false;" value="Get plugins" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

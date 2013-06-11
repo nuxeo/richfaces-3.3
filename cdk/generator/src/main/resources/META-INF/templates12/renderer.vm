@@ -1,0 +1,25 @@
+/**
+ * GENERATED FILE - DO NOT EDIT
+ *
+ */
+package ${package};
+
+import ${component.classname};
+import ${renderer.superclass};
+
+/**
+ * @author shura (latest modification by $Author: alexsmirnov $)
+ * @version $Revision: 1.1.2.1 $ $Date: 2007/02/26 20:48:49 $
+ *
+ */
+public class ${renderer.simpleClassName} extends ${renderer.superclass} {
+
+   /** 
+	 * @see org.ajax4jsf.renderkit.RendererBase#getComponentClass()
+	 */
+	protected Class getComponentClass() {
+		// Expected component class for rendering
+		return ${component.simpleClassName}.class;
+	}
+
+}

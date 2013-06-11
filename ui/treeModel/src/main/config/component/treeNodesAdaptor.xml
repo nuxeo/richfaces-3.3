@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.TreeNodesAdaptor</name>
+		<family>org.richfaces.TreeNodesAdaptor</family>
+		<classname>org.richfaces.component.html.HtmlTreeNodesAdaptor</classname>
+		<superclass>org.richfaces.component.UITreeNodesAdaptor</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlTreeNodesAdaptorComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:treeNodesAdaptor> provides the possibility to define data models and create representations for them.]]>
+		</description>
+		<tag>
+			<name>treeNodesAdaptor</name>
+			<classname>org.richfaces.taglib.TreeNodesAdaptorTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+		&ui_component_attributes;
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+		<property>
+			<name>var</name>
+			<classname>java.lang.String</classname>
+			<description>
+			A request-scope attribute via which the data object for the current collection element will be used when iterating
+			</description>
+		</property>
+		<property elonly="true">
+			<name>nodes</name>
+			<classname>java.lang.Object</classname>
+			<description>
+			Defines collection to use at the other (non-top) levels of iteration
+			</description>
+		</property>
+		<property>
+			<name>includedNode</name>
+			<classname>boolean</classname>
+			<description>
+				This boolean expression is used to define which elements are processed. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+	</component>
+</components>

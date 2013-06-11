@@ -1,0 +1,63 @@
+<html 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j">
+	<head>
+		<title>Events blocking and status check page</title>
+	</head>
+	<body>
+		<f:view>
+			<ui:include src="/templates/navigation.xhtml" />
+			
+			<a4j:status startText="...link status - request running..." startStyle="color: green" id="linkStatus" forceId="true" />
+			<a4j:status startText="...queue status - request running..." startStyle="color: green" id="queueStatus" forceId="true" />
+			<h:form id="form">
+				<fieldset>
+	
+					<h:outputLabel for="queueRequestDelay" value="Queue request delay " />
+					<h:inputText id="queueRequestDelay" value="#{bean.queueRequestDelay}">
+						<f:convertNumber />
+					</h:inputText>
+					
+					<br />			
+	
+					<h:outputLabel for="clientRequestDelay" value="Client request delay " />
+					<h:inputText id="clientRequestDelay" value="#{bean.clientRequestDelay}">
+						<f:convertNumber />
+					</h:inputText>
+					
+					<br />			
+			
+					<h:outputLabel for="processRequestDelay" value="Process request delay " />
+					<h:inputText id="processRequestDelay" value="#{bean.processRequestDelay}">
+						<f:convertNumber />
+					</h:inputText>
+					
+					<br />			
+	
+					<h:outputLabel value="Poll enabled" for="pollEnabled" />
+					<h:selectBooleanCheckbox value="#{bean.pollEnabled}" id="pollEnabled" />
+					<br />			
+	
+					<h:commandButton value="Apply values" />
+					<br />			
+	
+				</fieldset>
+				<a4j:queue name="queue" status="queueStatus" size="3" 
+				onrequestqueue="if (this.getSize() == this.getMaximumSize()) {document.getElementById('form:group').style.display = 'none'}" 
+				onrequestdequeue="document.getElementById('form:group').style.display = ''" 
+				requestDelay="#{bean.queueRequestDelay}" />
+			
+				<h:panelGroup id="group">
+					<a4j:commandLink actionListener="#{bean.processActionListener}" action="#{bean.processAction}" 
+						value="Trigger link status" status="linkStatus" eventsQueue="queue" /><br />
+					<a4j:commandLink actionListener="#{bean.processActionListener}" action="#{bean.processAction}" 
+						value="Trigger queue status" eventsQueue="queue" /><br />
+					<a4j:commandLink actionListener="#{bean.processActionListener}" action="#{bean.processAction}" 
+						value="Trigger queue status II" eventsQueue="queue" /><br />
+				</h:panelGroup>
+			</h:form>
+		</f:view>
+	</body>	
+</html>  

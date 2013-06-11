@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://labs.jboss.com/jbossrichfaces/ui/message"
+      xmlns:a4j="http://richfaces.org/a4j">
+      <head>
+      	<link rel="stylesheet" type="text/css" href="/rich-message-demo/css/app.css" />
+       </head>
+       
+       <h:form>
+			<h:panelGrid columns="3">
+				
+				<h:outputText value="Name:" />
+				<a4j:region>				
+					<h:inputText label="Name" id="name" required="true" value="#{userBean.name}">
+						<a4j:support event="onblur" ajaxSingle="true" />
+					</h:inputText>
+				</a4j:region>
+				
+				<rich:message for="name">
+					<f:facet name="passedMarker">
+						<h:outputText value="V" />
+					</f:facet>
+					<f:facet name="errorMarker">
+						<h:outputText value="X" />
+					</f:facet>
+				</rich:message>
+			
+				<h:outputText value="Job:" />
+				
+				<a4j:region>
+					<h:inputText label="Job" id="job" required="true" value="#{userBean.job}">
+						<a4j:support event="onblur" ajaxSingle="true"/>
+					</h:inputText>
+				</a4j:region>	
+				
+				<rich:message for="job">
+					<f:facet name="passedMarker">
+						<h:outputText value="V" />
+					</f:facet>
+					<f:facet name="errorMarker">
+						<h:outputText value="X" />
+					</f:facet>
+				</rich:message>
+			
+				<h:outputText value="Address:" />
+				
+				<a4j:region>
+					<h:inputText label="Address" id="address" required="true" value="#{userBean.address}">
+						<a4j:support event="onblur" ajaxSingle="true"/>
+					</h:inputText>
+				</a4j:region>	
+				
+				<rich:message for="address">
+					<f:facet name="passedMarker">
+						<h:outputText value="V" />
+					</f:facet>
+					<f:facet name="errorMarker">
+						<h:outputText value="X" />
+					</f:facet>
+				</rich:message>
+			</h:panelGrid>
+		</h:form> 
+	</html>

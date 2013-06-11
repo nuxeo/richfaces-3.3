@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+<ui:composition>            
+
+<rich:panel styleClass="panel_menu">
+<rich:panelBar selectedPanel="#{componentNavigator.currentComponent.group}" height="550" width="100%">
+	<rich:panelBarItem   id="rexc" label="Rex Components">
+		<ui:include src="/templates/include/components-group.xhtml" >
+ 			<ui:param name="components" value="#{componentNavigator.rexc}" />
+ 		</ui:include>
+	</rich:panelBarItem>
+	<ui:remove>
+	<rich:panelBarItem   id="ajaxSupport" label="Ajax Support">
+		<ui:include src="/templates/include/components-group.xhtml" >
+ 			<ui:param name="components" value="#{componentNavigator.ajaxSupport}" />
+ 		</ui:include>
+	</rich:panelBarItem>
+	<rich:panelBarItem id="richMisc" label="Rich Miscellaneous"> 
+		<ui:include src="/templates/include/components-group.xhtml" >
+ 			<ui:param name="components" value="#{componentNavigator.richMisc}" />
+ 		</ui:include>
+	</rich:panelBarItem>
+	</ui:remove>
+</rich:panelBar>
+</rich:panel>
+</ui:composition>
+</html>
+

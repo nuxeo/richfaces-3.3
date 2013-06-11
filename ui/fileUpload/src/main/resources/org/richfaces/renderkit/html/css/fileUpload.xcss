@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template
+    xmlns:f="http://jsf.exadel.com/template"
+    xmlns:u="http://jsf.exadel.com/template/util"
+    xmlns="http://www.w3.org/1999/xhtml">
+    
+<f:verbatim><![CDATA[
+	
+
+.rich-fileupload-list-overflow{overflow: auto; overflow-y: auto; overflow-x: hidden;}
+.rich-fileupload-name{ width : 100%;  height : 58px; padding : 2px 10px 2px 10px;}
+.rich-fileupload-del{ width : 90px; text-align : center; padding-top : 3; padding-bottom : 3;}
+.rich-fileupload-scroll{ width : 10px; text-align : center;}
+
+input[type="file"][class~="rich-fileupload-hidden"]::-webkit-rich-fileupload-button {
+	font-size: 10em;
+	-webkit-appearance: button;
+}
+
+.rich-fileupload-button-content{
+	padding : 2px 6px 2px 3px; 
+	text-align : left;
+	white-space : nowrap;
+}
+
+.rich-fileupload-name-padding{padding : 2px 0px 2px 0px;}
+
+.rich-fileupload-ico{background-position : 0px 50%; background-repeat : no-repeat; padding-left : 19px;vertical-align: middle;}
+
+input.rich-fileupload-hidden {
+    FILTER: alpha(opacity: 0);
+    POSITION: relative;
+    TEXT-ALIGN: left;
+    opacity: 0;
+    moz-opacity: 0;
+}
+]]>
+</f:verbatim>
+
+<u:selector name=".rich-fileupload-font">
+    <u:style name="font-family" skin="generalFamilyFont" />
+    <u:style name="font-size" skin="generalSizeFont" />
+</u:selector>
+
+<u:selector name=".rich-fileupload-table-td">
+    <u:style name="border-bottom-color" skin="tableBorderColor" />
+    <u:style name="border-bottom" value="1px solid" />
+    <u:style name="white-space" value="nowrap" />
+</u:selector>
+
+<u:selector name=".rich-fileupload-list-decor">
+	<u:style name="border" value="1px solid;" />
+    <u:style name="border-color" skin="tableBorderColor" />
+    <u:style name="background-color" skin="tableBackgroundColor" />
+</u:selector>
+
+<u:selector name=".rich-fileupload-anc">
+    <u:style name="color" skin="generalLinkColor" />
+</u:selector>
+
+<u:selector name=".rich-fileupload-toolbar-decor">
+	<u:style name="border-bottom" value="1px solid" />
+	<u:style name="border-top" value="1px solid" />
+	<u:style name="border-left" value="1px solid" />
+	<u:style name="padding" value="2px" />
+	<u:style name="background-color" skin="additionalBackgroundColor" />
+    <u:style name="border-bottom-color" skin="tableBorderColor" />
+    <u:style name="border-top-color" skin="tableBackgroundColor" />
+    <u:style name="border-left-color" skin="tableBackgroundColor" />
+    <u:style name="width" value="100%" />
+</u:selector>
+
+<u:selector name=".rich-fileupload-button-border">
+	<u:style name="border" value="1px solid" />
+	<u:style name="margin" value="2px" />
+	<u:style name="border-color" skin="tableBorderColor" />
+</u:selector>
+
+
+<u:selector name=".rich-fileupload-button-dis">
+	<u:style name="background-repeat" value="repeat-x" />
+	<u:style name="cursor" value="pointer" />
+	<u:style name="padding" value="2px" />
+</u:selector>
+
+<u:selector name=".rich-fileupload-enrty-dis">
+	<u:style name="background-repeat" value="repeat-x" />
+	<u:style name="background-color" skin="trimColor" />
+	<u:style name="text-color" value="red" />
+	<u:style name="a.color" value="red" />
+	<u:style name="padding" value="2px" />
+</u:selector>
+
+<u:selector name=".rich-fileupload-button-content">
+	<u:style name="color" skin="generalTextColor" />
+	<u:style name="text-decoration" value="none" />
+	<u:style name="display" value="block" />
+</u:selector>
+
+<u:selector name=".rich-fileupload-button">
+	<u:style name="background-repeat" value="repeat-x" />
+	<u:style name="background-position" value="top left" />
+	<u:style name="background-color" skin="trimColor" />
+	<u:style name="padding" value="2px" />
+	<u:style name="cursor" value="pointer" />
+    <u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.UploadButtonBgGradient" />
+	</u:style>
+</u:selector>
+
+
+<u:selector name=".rich-fileupload-button-light">
+	<u:style name="background-repeat" value="repeat" />
+	<u:style name="background-position" value="top left" />
+	<u:style name="background-color" skin="trimColor" />
+	<u:style name="border" value="1px solid" />
+	<u:style name="cursor" value="pointer" />
+	<u:style name="padding" value="1px" />
+    <u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.UploadButtonBgLightGradient" />
+	</u:style>
+	<u:style name="border-color" skin="selectControlColor" />
+</u:selector>
+
+
+<u:selector name=".rich-fileupload-button-press">
+    <u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.UploadButtonPressedBgGradient" />
+	</u:style>
+	<u:style name="border-color" skin="selectControlColor" />
+	<u:style name="border" value="1px solid" />
+	<u:style name="padding" value="2px 0px 0px 2px" />
+	<u:style name="background-repeat" value="repeat-x" />
+	<u:style name="background-position" value="top left" />
+	<u:style name="background-color" skin="additionalBackgroundColor" />
+</u:selector>
+
+<u:selector name=".rich-fileupload-ico-add">
+    <u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/images/ico_add.gif" />
+	</u:style>
+</u:selector>
+
+<u:selector name=".rich-fileupload-ico-add-dis">
+    <u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/images/ico_add_dis.gif" />
+	</u:style>
+	<u:style name="color" skin="tableBorderColor" />
+</u:selector>
+
+<u:selector name=".rich-fileupload-ico-start">
+    <u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/images/ico_start.gif" />
+	</u:style>
+</u:selector>
+
+<u:selector name=".rich-fileupload-ico-start-dis">
+    <u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/images/ico_start_dis.gif" />
+	</u:style>
+	<u:style name="color" skin="tableBorderColor" />
+</u:selector>
+
+<u:selector name=".rich-fileupload-ico-stop">
+    <u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/images/ico_stop.gif" />
+	</u:style>
+</u:selector>
+
+<u:selector name=".rich-fileupload-ico-clear">
+    <u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/images/ico_clear.gif" />
+	</u:style>
+</u:selector>
+
+<u:selector name=".rich-fileupload-ico-clear-dis">
+    <u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/images/ico_clear_dis.gif" />
+	</u:style>
+	<u:style name="color" skin="tableBorderColor" />
+</u:selector>
+	
+</f:template>

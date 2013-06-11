@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" 
+[
+<!ENTITY listeners SYSTEM "listener.ent">
+]
+>
+<components>
+	<component>
+		<name>org.richfaces.component.FileUpload</name>
+		<family>org.richfaces.component.FileUpload</family>
+		<classname>org.richfaces.component.html.HtmlFileUpload</classname>
+		<superclass>org.richfaces.component.UIFileUpload</superclass>
+		<description>
+			<![CDATA[
+Renders a file upload control. 
+    
+The following configuration options for ajax4jsf filter may be configured in web.xml:
+
+* createTempFiles - if this option is set to true, uploaded files are streamed to a temporary file instead of in memory.
+* maxRequestSize - the maximum size of a file upload request, in bytes. 
+
+Here's an example:
+          
+<filter>
+  <display-name>Ajax4jsf Filter</display-name>
+  <filter-name>ajax4jsf</filter-name>
+  <filter-class>org.ajax4jsf.Filter</filter-class>
+  <init-param>
+  <param-name>createTempFiles</param-name>
+  <param-value>false</param-value>
+  </init-param>
+  <init-param>
+  <param-name>maxRequestSize</param-name>
+  <param-value>20000000</param-value>
+  </init-param>
+   </filter>
+]]>
+		</description>
+		<test>
+			<classname>org.richfaces.component.html.HtmlFileUploadComponentTestCase</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<facet>
+		   <name>label</name>
+		   <description>Defines the information regarding the ongoing process</description>
+		</facet>
+		<facet>
+		   <name>progress</name>
+		   <description>Defines the information regarding the uploading process</description>
+		</facet>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.renderkit.html.FileUploadRenderer</name> 
+			<template>org/richfaces/fileUpload.jspx</template>
+		</renderer>
+		<tag>
+			<name>fileUpload</name>
+			<classname>org.richfaces.taglib.FileUploadTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test>
+				<classname>org.richfaces.taglib.HtmlFileUploadTagTestCase</classname>
+				<superclassname>org.ajax4jsf.tests.AbstractJspTestCase</superclassname>
+			</test>
+		</tag>
+		<taghandler generate="true">
+			<classname>org.richfaces.taglib.FileUploadTagHandler</classname>
+			<superclass>
+				com.sun.facelets.tag.jsf.ComponentHandler
+			</superclass>
+		</taghandler>
+		&ui_component_attributes;
+		&ui_input_attributes;
+		&html_style_attributes;
+		&html_input_attributes;
+		&html_events;
+		&html_input_events;
+		<property elonly="true">
+			<name>uploadData</name>
+			<classname>java.lang.Object</classname>
+			<description>Collection of files uploaded</description>
+		</property>
+		<property elonly="true" hidden="true" existintag="false" exist="false" >
+			<name>contentType</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property elonly="true" hidden="true" existintag="false" exist="false" >
+			<name>fileName</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property elonly="true" hidden="true" existintag="false" exist="false" >
+			<name>fileSize</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property hidden="true" existintag="false" exist="false" >
+			<name>progressInfo</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property>
+			<name>maxFilesQuantity</name>
+			<classname>java.lang.Integer</classname>
+			<description>Defines max files count allowed for upload (optional). Default value is &quot;1&quot;.</description>
+			<defaultvalue>1</defaultvalue>
+		</property>
+		<property>
+			<name>addButtonClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style for add button</description>
+		</property>
+		<property>
+			<name>addButtonClassDisabled</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style for add button disabled</description>
+		</property>
+		<property>
+			<name>uploadButtonClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style for upload button</description>
+		</property>
+		<property>
+			<name>uploadButtonClassDisabled</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style for upload button disabled</description>
+		</property>
+		<property>
+			<name>stopButtonClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style for cancel button</description>
+		</property>
+		<property>
+			<name>stopButtonClassDisabled</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style for cancel button disabled</description>
+		</property>
+		<property>
+			<name>cleanButtonClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style for clean button</description>
+		</property>
+		<property>
+			<name>cleanButtonClassDisabled</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style for clean button disabled</description>
+		</property>
+		<property>
+			<name>uploadListClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style for upload list</description>
+		</property>
+		<property>
+			<name>uploadListClassDisabled</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style for upload list disabled</description>
+		</property>
+		<property>
+			<name>fileEntryClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style upload file entry</description>
+		</property>
+		<property>
+			<name>fileEntryClassDisabled</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style upload file entry disabled</description>
+		</property>
+		<property>
+			<name>fileEntryControlClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style for upload enrty control</description>
+		</property>
+		<property>
+			<name>fileEntryControlClassDisabled</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style for upload enrty control disabled</description>
+		</property>
+		<property>
+			<name>fileUploadListener</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description>
+				MethodExpression representing an action listener method
+				that will be notified after file uploaded.
+			</description>
+		</property>
+		<property>
+			<name>listWidth</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Defines width of file list. Default value is &quot;400px&quot;.
+			</description>
+			<defaultvalue>"400px"</defaultvalue>
+		</property>
+		<property>
+			<name>listHeight</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Defines height of file list. Default value is &quot;210px&quot;.
+			</description>
+			<defaultvalue>"210px"</defaultvalue>
+		</property>
+		<property>
+			<name>disabled</name>
+			<classname>boolean</classname>
+			<description>
+				Attribute 'disabled' provides a possibility to make the whole component disabled if its value equals to "true".
+				Default value is &quot;false&quot;.
+			</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		<property>
+			<name>autoclear</name>
+			<classname>boolean</classname>
+			<description>
+				If this attribute is &quot;true&quot; files will be immediately removed from list after upload completed.
+				Default value is &quot;false&quot;.  
+			</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		<property>
+			<name>immediateUpload</name>
+			<classname>boolean</classname>
+			<description>
+				If this attribute is true files will be immediately uploaded after they have been added in list.
+				Default value is &quot;false&quot;.  
+			</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		<property>
+			<name>noDuplicate</name>
+			<classname>boolean</classname>
+			<description>
+				Defines if component should allow to add files that were already in list. Default value is &quot;false&quot;.  
+			
+			</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		<property>
+			<name>acceptedTypes</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Files types allowed to upload 
+			</description>
+		</property>
+		<property>
+			<name>onadd</name>
+		  	<classname>java.lang.String</classname>
+			<description>HTML: script expression; a file is added.</description>
+		</property>
+		<property>
+			<name>onupload</name>
+		  	<classname>java.lang.String</classname>
+			<description>HTML: script expression; the uploading is cancelled at client side</description>
+		</property>
+		<property>
+			<name>onuploadcomplete</name>
+		  	<classname>java.lang.String</classname>
+			<description>HTML: script expression; uploading all files from list is completed</description>
+		</property>
+		<property>
+			<name>onuploadcanceled</name>
+		  	<classname>java.lang.String</classname>
+			<description>HTML: script expression; uploading is cancelled</description>
+		</property>
+		<property>
+			<name>onerror</name>
+		  	<classname>java.lang.String</classname>
+			<description>HTML: script expression; the file uploading is interrupted according to any errors</description>
+		</property>
+		<property>
+			<name>ontyperejected</name>
+		  	<classname>java.lang.String</classname>
+			<description>HTML: script expression; the file type is rejected according to file types allowed</description>
+		</property>
+		<property>
+			<name>onsizerejected</name>
+		  	<classname>java.lang.String</classname>
+			<description>HTML: script expression; the file uploading is rejected by fiel size overflow</description>
+		</property>
+		<property>
+			<name>onclear</name>
+		  	<classname>java.lang.String</classname>
+			<description>HTML: script expression; the file entries are cleared</description>
+		</property>
+		<property>
+			<name>onfileuploadcomplete</name>
+		  	<classname>java.lang.String</classname>
+			<description>HTML: script expression; a file is uploaded to the server</description>
+		</property>		
+		<property>
+			<name>addControlLabel</name>
+		  	<classname>java.lang.String</classname>
+			<description>Defines a label for an add button</description>
+		</property>
+		<property>
+			<name>uploadControlLabel</name>
+		  	<classname>java.lang.String</classname>
+			<description>Defines a label for an upload button</description>
+		</property>
+		<property>
+			<name>stopControlLabel</name>
+		  	<classname>java.lang.String</classname>
+			<description>Defines a label for a stop button</description>
+		</property>
+		<property>
+			<name>cancelEntryControlLabel</name>
+		  	<classname>java.lang.String</classname>
+			<description>Defines a label for a cancel control</description>
+		</property>
+			<property>
+			<name>clearControlLabel</name>
+		  	<classname>java.lang.String</classname>
+				<description>Defines a label for a clear control</description>
+		</property>
+			<property>
+			<name>clearAllControlLabel</name>
+		  	<classname>java.lang.String</classname>
+				<description>Defines a label for a clearAll button</description>
+		</property>
+		<property>
+			<name>stopEntryControlLabel</name>
+		  	<classname>java.lang.String</classname>
+			<description>Defines a label for a stop control</description>
+		</property>
+		<property>
+			<name>doneLabel</name>
+		  	<classname>java.lang.String</classname>
+			<description>Defines a label for a done label</description>
+		</property>
+		<property>
+			<name>transferErrorLabel</name>
+		  	<classname>java.lang.String</classname>
+			<description>Defines a label for a transfer error label</description>
+		</property>
+		<property>
+			<name>sizeErrorLabel</name>
+		  	<classname>java.lang.String</classname>
+			<description>Defines a label for a size error label</description>
+		</property>
+		<property>
+			<name>progressLabel</name>
+		  	<classname>java.lang.String</classname>
+			<description>Defines a label for a progress label</description>
+		</property>
+		<property>
+			<name>locale</name>
+			<classname>java.lang.Object</classname>
+			<description>Used for locale definition</description>
+			
+		</property>
+		
+		<property>
+			<name>ajaxSingle</name>
+			<classname>boolean</classname>
+			<description>
+				Boolean attribute which provides possibility to limit JSF tree processing(decoding, conversion/validation, value applying) to the component which send the request only.
+				Default value is &quot;false&quot;
+			</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		
+		<property>
+			<name>status</name>
+			<classname>java.lang.String</classname>
+			<description>
+				ID (in format of call UIComponent.findComponent()) of Request status component	</description>
+		</property>
+
+		<property>
+			<name>allowFlash</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Attribute which allow the component to use the flash module that provides file upload functionality [false, true, auto]. Default value is &quot;false&quot;
+			</description>
+			<defaultvalue>"false"</defaultvalue>
+		</property>
+		
+		<property elonly="true" hidden="true" existintag="false" exist="false" >
+			<name>size</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property elonly="true" hidden="true" existintag="false" exist="false" >
+			<name>localContentType</name>
+			<classname>java.lang.String</classname>
+		</property>
+		<property elonly="true" hidden="true" existintag="false" exist="false" >
+			<name>localFileName</name>
+			<classname>java.lang.String</classname>
+		</property>
+		<property elonly="true" hidden="true" existintag="false" exist="false" >
+			<name>localFileSize</name>
+			<classname>java.lang.Integer</classname>
+		</property>
+		<property elonly="true" hidden="true" existintag="false" exist="false" >
+			<name>localInputStream</name>
+			<classname>java.io.InputStream</classname>
+		</property>
+		<property elonly="true" hidden="true" existintag="false" exist="false" >
+			<name>localValueSet</name>
+			<classname>boolean</classname>
+		</property>
+		<property elonly="true" hidden="true" existintag="false" exist="false" >
+			<name>maxLength</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property hidden="true" existintag="false" exist="false" >
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property hidden="true" existintag="false" exist="false" >
+			<name>maxlength</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property hidden="true" existintag="false" exist="false" >
+			<name>valid</name>
+			<classname>boolean</classname>
+		</property>
+		<property hidden="true" existintag="false" exist="false" >
+			<name>accessKey</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property hidden="true" existintag="false" exist="false" >
+			<name>align</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property hidden="true" existintag="false" exist="false" >
+			<name>converter</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property hidden="true" existintag="false" exist="false" >
+			<name>valueChangeListener</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property hidden="true" existintag="false" exist="false" >
+			<name>converterMessage</name>
+			<classname>java.lang.Object</classname>
+		</property>
+	</component>
+	&listeners;
+</components>

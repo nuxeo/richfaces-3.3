@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template 
+	xmlns:f="http://jsf.exadel.com/template"
+   	xmlns:u="http://jsf.exadel.com/template/util" 
+   	xmlns="http://www.w3.org/1999/xhtml"
+   	component="org.richfaces.component.UIProgressBar">	
+
+	<f:verbatim>
+
+		.rich-progress-bar-height{height : 13px;}
+		.rich-progress-bar-height-dig{height:}
+		.rich-progress-bar-width{width : 200px}	
+		.rich-progress-bar-block{white-space : nowrap;}		
+		.rich-progress-bar-uploaded{background-repeat : repeat-x;}
+		.rich-progress-bar-uploaded-dig{overflow : hidden; position : absolute; top : 0px; left : 0px;}
+		.rich-progress-bar-shell{margin-bottom : 2px; border : 1px solid;}
+		.rich-progress-bar-shell-dig{position : relative; margin-bottom : 2px; border : 1px solid; overflow: hidden;}
+		.rich-progress-bar-remained{text-align : center; font-weight : bold; position : relative;}
+		.rich-progress-bar-completed{text-align : center; font-weight : bold; background-repeat : repeat-x;}
+		.rich-progress-bar-padding{padding: 0px}
+		
+	</f:verbatim>
+	
+	<u:selector name=".rich-progress-bar-uploaded">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.ProgressBarAnimatedBg" />
+		</u:style>
+		<u:style name="background-color" skin="selectControlColor" />
+ 	</u:selector>
+	
+ 	<u:selector name=".rich-progress-bar-shell">
+		<u:style name="background-color" skin="controlBackgroundColor" />
+		<u:style name="border-color" skin="panelBorderColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-progress-bar-uploaded-dig">
+		<u:style name="border-color" skin="panelBorderColor" />
+ 	</u:selector>
+
+	<u:selector name=".rich-progress-bar-shell-dig">
+		<u:style name="border-color" skin="panelBorderColor" />
+		<u:style name="font-family" skin="generalFamilyFont" />
+		<u:style name="font-size" skin="generalSizeFont" />
+		<u:style name="color" skin="controlTextColor" />
+	</u:selector>
+
+	<u:selector name=".rich-progress-bar-remained">
+		<u:style name="background-color" skin="controlBackgroundColor" />
+		<u:style name="text-color" skin="controlTextColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-progress-bar-completed">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.ProgressBarAnimatedBg" />
+		</u:style>
+		<u:style name="background-color" skin="selectControlColor" />
+		<u:style name="text-color" skin="controlBackgroundColor" />
+ 	</u:selector>
+
+</f:template>

@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rex="http://labs.jboss.com/jbossrichfaces/ui/ui/rex-resizable"
+      xmlns:rich="http://richfaces.org/rich">
+
+<f:view contentType="text/html">
+
+		<button onclick="resizePic(500,427)">100% of Size</button>
+		<button onclick="resizePic(250,212)">50% of Size</button>
+		<script>
+		function resizePic(w,h) {
+			window.pic.resizeTo(w,h);	
+		}
+		</script>
+
+		<rex:resizable wrap="true" name="window.pic" easing="easingInStrong"
+		pinned="false" handles="s se e" preserveRatio = "true" transparent="true"
+		minWidth="50" width="204" height="176" styleClass="res">
+			<h:graphicImage id="gm" width="204" height="176" value="/images/bfly.jpg" />
+		</rex:resizable>	
+
+<rex:resizable  easing="easingInStrong"
+		pinned="true" wrap="true" handles="e" 
+		minWidth="400" width="500" height="260" styleClass="res">
+            <rich:dataTable width="483" id="carList" rows="10" columnClasses="col"
+                value="#{dataTableScrollerBean.allCars}" var="category">
+                <f:facet name="header">
+                    <rich:columnGroup>
+                        <h:column>
+                            <h:outputText styleClass="headerText" value="Make" />
+                        </h:column>
+                        <h:column>
+                            <h:outputText styleClass="headerText" value="Model" />
+                        </h:column>
+                        <h:column>
+                            <h:outputText styleClass="headerText" value="Price" />
+                        </h:column>
+                        <h:column>
+                            <h:outputText styleClass="headerText" value="Mileage" />
+                        </h:column>
+                    </rich:columnGroup>
+                </f:facet>
+
+                <h:column>
+                    <h:outputText value="#{category.make}" />
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{category.model}" />
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{category.price}" />
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{category.mileage}" />
+                </h:column>
+
+            </rich:dataTable>
+			</rex:resizable>
+
+
+</f:view>	
+</ui:composition>

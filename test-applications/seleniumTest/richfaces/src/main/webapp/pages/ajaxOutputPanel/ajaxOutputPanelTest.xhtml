@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="attrForm">
+			<h:outputText value="layout" />
+			<h:inputText id="layout" value="#{a4jOutputPanelBean.layout}">
+				<a4j:support event="onchange" reRender="panelGroup"/>
+			</h:inputText>		
+			<h:outputText value="ajaxRendered" />
+			<h:selectBooleanCheckbox id="ajaxRendered" value="#{a4jOutputPanelBean.ajaxRendered}">
+				<a4j:support event="onchange" reRender="panelGroup"/>
+			</h:selectBooleanCheckbox>		
+			<h:outputText value="keepTransient" />
+			<h:selectBooleanCheckbox id="keepTransient" value="#{a4jOutputPanelBean.keepTransient}">
+				<a4j:support event="onchange" reRender="panelGroup"/>
+			</h:selectBooleanCheckbox>		
+			<a4j:commandButton id="reset" value="reset" action="#{a4jOutputPanelBean.init}" reRender="panelGroup"></a4j:commandButton>
+		</h:form>
+		<h:form id="mainForm">
+			<h:panelGroup id="panelGroup">
+				<a4j:outputPanel id="outputPanel"
+					keepTransient="#{a4jOutputPanelBean.keepTransient}"
+					ajaxRendered="#{a4jOutputPanelBean.ajaxRendered}"
+					layout="#{a4jOutputPanelBean.layout}">
+		  			<h:outputText id="outputText" binding="#{a4jOutputPanelBean.binding}" value="#{a4jOutputPanelBean.outputText}" />
+		  			<h:outputText id="transientState" value="#{a4jOutputPanelBean.transientState}" />
+				</a4j:outputPanel>
+				<a4j:commandButton id="submit" value="submit" action="#{a4jOutputPanelBean.submit}"></a4j:commandButton>
+				<a4j:commandButton id="setTransient" value="setTransient" action="#{a4jOutputPanelBean.setTransient}"></a4j:commandButton>
+			</h:panelGroup>
+        </h:form>
+	</ui:define>
+</ui:composition>
+</html>

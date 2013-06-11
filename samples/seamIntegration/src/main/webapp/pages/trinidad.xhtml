@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:tr="http://myfaces.apache.org/trinidad">
+    <tr:document title="InputText Demo">
+      <tr:form>
+        <tr:panelGroupLayout layout="vertical">
+          <f:facet name="separator">
+            <tr:separator/>
+          </f:facet>
+          <tr:panelGroupLayout layout="horizontal">
+            <tr:commandLink immediate="true" text="Component Guide" action="guide"/>
+            <tr:spacer width="10"/>
+            <tr:goLink destination="http://myfaces.apache.org/trinidad/trinidad-api/tagdoc/tr_inputText.html"
+                       text="Tag Documentation"/>
+            <tr:spacer width="10"/>
+            <tr:goLink destination="http://myfaces.apache.org/trinidad/skin-selectors.html#inputText"
+                       text="Skinning Key Documentation"/>
+          </tr:panelGroupLayout>
+          <tr:outputFormatted styleUsage="instruction" value="&lt;b>inputText&lt;/b>"/>
+          <tr:inputText  label="Label" value="Some text"/>
+          <tr:commandButton text="Submit"/>
+          <tr:outputFormatted styleUsage="instruction"
+                              value="&lt;b>InputText Bound To Date&lt;/b>"/>
+          <tr:inputText label="Label2" value="#{seamBean.date1}" autoSubmit="true">
+            <f:convertDateTime dateStyle="long"/>
+          </tr:inputText>
+          <a4j:commandButton value="RichFaces AJAX Submit" reRender="output"/>
+          <tr:outputText styleClass="AFInstructionText" value="The submitted value was: "/>
+          <tr:outputText id="output" value="#{seamBean.date1}"/>
+          <tr:outputFormatted styleUsage="instruction"
+                              value="&lt;b>InputText with help facet&lt;/b>"/>
+          <tr:inputText label="Label3">
+            <f:facet name="help">
+              <tr:outputText value="Help facet text"/>
+            </f:facet>
+          </tr:inputText>
+        </tr:panelGroupLayout>
+      </tr:form>
+    </tr:document>
+</f:view>

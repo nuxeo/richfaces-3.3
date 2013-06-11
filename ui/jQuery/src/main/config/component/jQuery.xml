@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.JQuery</name>
+		<family>org.richfaces.JQuery</family>
+		<classname>org.richfaces.component.html.HtmlJQuery</classname>
+		<superclass>org.richfaces.component.UIJQuery</superclass>
+		<test/>
+		<description>
+			The &lt;rich:jQuery&gt; allows to apply styles and behaviour to DOM objects.
+		</description>
+		<test />
+		<renderer generate="true" override="true">
+			<name>org.richfaces.JQueryRenderer</name>
+			<template>jQuery.jspx</template>
+		</renderer>
+		<tag>
+			<name>jQuery</name>
+			<classname>org.richfaces.taglib.JQueryTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		&ui_component_attributes;
+
+		<property>
+			<name>name</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    The name of a function that will be generated to execute a query. The "name" attribute is required 
+			    if "timing" attribute equals to "onJScall"
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>selector</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    Selector for query. The "selector" attribute uses defined by w3c
+			    consortium syntax for CSS rule selector with some jQuery extensions.
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property  required="true">
+			<name>query</name>
+			<classname>java.lang.String</classname>
+			<description>
+			  The query string that is executed for a given selector.
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>timing</name>
+			<classname>java.lang.String</classname>
+			<description>
+			 The attribute that defines when to perform the query. The possible values are "immediate","onload" and "onJScall". 
+			 "immediate" performs the query right away. "onload" adds the task to the
+			 time when a document is loaded (the DOM tree is created). "onJScall" allows to invoke the 
+			 query by Javascipt function name defined with "name" attribute. The default value is 
+			 &quot;immediate&quot;.
+			</description>
+			<defaultvalue>"immediate"</defaultvalue>
+		</property>
+	</component>
+</components>

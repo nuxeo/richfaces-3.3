@@ -1,0 +1,100 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<ui:composition>
+	<script type="text/javascript">			
+		function test(eventname) {
+			testEvent(document.getElementById(getParentId() + "toolbar_" + eventname));
+		}
+	</script>
+	<h:panelGrid columns="3" border="1">
+		<f:facet name="header">
+    		<h:outputText align="center" value="Event test panel"/>
+  		</f:facet>
+		<h:outputText value="Toolbar" />
+		<h:outputText value="Event" />
+		<h:outputText value="Event test passed" />
+
+		<rich:toolBar onitemclick="test('click');">
+			<rich:toolBarGroup>
+				<h:outputText id="toolbar_click" value="Group1" />
+			</rich:toolBarGroup>
+			<rich:toolBarGroup>
+				<h:outputText value="Group2" />
+			</rich:toolBarGroup>
+		</rich:toolBar>
+		<h:outputText value="onitemclick event test" />
+		<h:outputText id="toolbar_click_result" value="No" />
+
+		<rich:toolBar onitemdblclick="test('dblclick');">
+			<rich:toolBarGroup>
+				<h:outputText id="toolbar_dblclick" value="Group1" />
+			</rich:toolBarGroup>
+			<rich:toolBarGroup>
+				<h:outputText value="Group2" />
+			</rich:toolBarGroup>
+		</rich:toolBar>
+		<h:outputText value="onitemdblclick event test" />
+		<h:outputText id="toolbar_dblclick_result" value="No" />
+
+		<rich:toolBar onitemmousedown="test('mousedown');">
+			<rich:toolBarGroup>
+				<h:outputText id="toolbar_mousedown" value="Group1" />
+			</rich:toolBarGroup>
+			<rich:toolBarGroup>
+				<h:outputText value="Group2" />
+			</rich:toolBarGroup>
+		</rich:toolBar>
+		<h:outputText value="onitemmousedown event test" />
+		<h:outputText id="toolbar_mousedown_result" value="No" />
+
+		<rich:toolBar onitemmousemove="test('mousemove');">
+			<rich:toolBarGroup>
+				<h:outputText id="toolbar_mousemove" value="Group1" />
+			</rich:toolBarGroup>
+			<rich:toolBarGroup>
+				<h:outputText value="Group2" />
+			</rich:toolBarGroup>
+		</rich:toolBar>
+		<h:outputText value="onitemmousemove event test" />
+		<h:outputText id="toolbar_mousemove_result" value="No" />
+
+		<rich:toolBar onitemmouseout="test('mouseout');">
+			<rich:toolBarGroup>
+				<h:outputText id="toolbar_mouseout" value="Group1" />
+			</rich:toolBarGroup>
+			<rich:toolBarGroup>
+				<h:outputText value="Group2" />
+			</rich:toolBarGroup>
+		</rich:toolBar>
+		<h:outputText value="onitemmouseout event test" />
+		<h:outputText id="toolbar_mouseout_result" value="No" />
+
+		<rich:toolBar onitemmouseover="test('mouseover');">
+			<rich:toolBarGroup>
+				<h:outputText id="toolbar_mouseover" value="Group1" />
+			</rich:toolBarGroup>
+			<rich:toolBarGroup>
+				<h:outputText value="Group2" />
+			</rich:toolBarGroup>
+		</rich:toolBar>
+		<h:outputText value="onitemmouseover event test" />
+		<h:outputText id="toolbar_mouseover_result" value="No" />
+
+		<rich:toolBar onitemmouseup="test('mouseup');">
+			<rich:toolBarGroup>
+				<h:outputText id="toolbar_mouseup" value="Group1" />
+			</rich:toolBarGroup>
+			<rich:toolBarGroup>
+				<h:outputText value="Group2" />
+			</rich:toolBarGroup>
+		</rich:toolBar>
+		<h:outputText value="onitemmouseup event test" />
+		<h:outputText id="toolbar_mouseup_result" value="No" />
+	</h:panelGrid>
+</ui:composition>
+</html>
+

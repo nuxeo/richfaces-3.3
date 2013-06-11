@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="treeNodesAdaptorBase.xhtml">
+	<ui:define name="treeNodesAdaptor">
+		<rich:recursiveTreeNodesAdaptor roots="#{treeNodesAdaptor.nodes}" var="node" nodes="#{node.children}" includedNode="#{treeNodesAdaptor.includedNode}" includedRoot="#{treeNodesAdaptor.includedRoot}">
+			<rich:treeNode ajaxSingle="#{treeNodesAdaptor.ajaxSingle}">
+				<h:inputText value="#{node.id}"></h:inputText>
+				<h:commandButton id="submit" value="submit" actionListener="#{treeNodesAdaptor.submit}"></h:commandButton>
+				<a4j:commandButton id="ajaxSubmit" value="ajaxSubmit" actionListener="#{treeNodesAdaptor.submit}"></a4j:commandButton>
+				<a4j:commandButton id="ajaxSingleSubmit" value="ajaxSingleSubmit" actionListener="#{treeNodesAdaptor.submit}" ajaxSingle="true"></a4j:commandButton>
+			</rich:treeNode>
+		</rich:recursiveTreeNodesAdaptor>
+	</ui:define>
+</ui:composition>
+</html>

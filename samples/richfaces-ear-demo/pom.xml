@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <artifactId>root</artifactId>
+    <groupId>org.richfaces</groupId>
+    <version>3.3.1.GA</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.richfaces.samples</groupId>
+  <artifactId>richfaces-ear-demo</artifactId>
+  <name>JSF 1.2/Jee5 enterprise application demo</name>
+  <packaging>pom</packaging>
+        <build>
+                <pluginManagement>
+                        <plugins>
+                                <plugin>
+                                        <artifactId>maven-compiler-plugin</artifactId>
+                                        <inherited>true</inherited>
+                                        <configuration>
+                                                <source>1.5</source>
+                                                <target>1.5</target>
+                                        </configuration>
+                                </plugin>
+                        </plugins>
+                </pluginManagement>
+        </build>
+  <modules>
+    <module>ejb</module>
+    <module>webapp</module>
+    <module>richfacesEAR</module>
+  </modules>
+</project>

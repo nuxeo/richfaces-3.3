@@ -1,0 +1,47 @@
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" id="pickListSubviewID">
+
+	<rich:pickList id="pickListID" value="#{pickList.value}"
+		showButtonsLabel="#{pickList.showButtonLabels}"
+		valueChangeListener="#{pickList.valueChangeListener}"
+		controlClass="#{style.controlClass}" listClass="#{style.listClass}"
+		style="#{style.style}" styleClass="#{style.styleClass}"
+		copyAllControlLabel="#{pickList.copyAllControlLabel}"
+		copyControlLabel="#{pickList.copyControlLabel}"
+		disabled="#{pickList.disabled}" 
+		immediate="#{pickList.immediate}"
+		listsHeight="#{pickList.listsHeight}"
+		moveControlsVerticalAlign="#{pickList.moveControlsVerticalAlign}"
+		removeAllControlLabel="#{pickList.removeAllControlLabel}"
+		removeControlLabel="#{pickList.removeControlLabel}"
+		rendered="#{pickList.rendered}"
+		sourceListWidth="#{pickList.sourceListWidth}"
+		title="#{pickList.title}" switchByClick="#{pickList.switchByClick}"
+		targetListWidth="#{pickList.targetListWidth}" 
+		required="#{pickList.required}"
+		requiredMessage="#{pickList.requiredMessage}"
+		onclick="#{event.onclick}"		
+		ondblclick="#{event.ondblclick}"
+		onkeydown="#{event.onkeydown}"
+		onkeypress="#{event.onkeypress}" 
+		onkeyup="#{event.onkeyup}"
+		onmousedown="#{event.onmousedown}" 
+		onmousemove="#{event.onmousemove}" onblur="#{event.onblur}"
+		onmouseout="#{event.onmouseout}" onfocus="#{event.onfocus}"
+		onmouseover="#{event.onmouseover}" 
+		onmouseup="#{event.onmouseup}" onlistchanged="#{event.onlistchanged}"
+		binding="#{pickList.myPickList}">
+		<f:selectItem itemValue="selectItem" itemLabel="selectItem" />
+		<f:selectItem itemValue="selectItem 1" itemLabel="selectItem 1" />
+		<f:selectItem itemValue="selectItem 2" itemLabel="selectItem 2" />
+		<f:selectItems value="#{pickList.data}" />
+	</rich:pickList>
+	<h:panelGrid columns="2">
+		<a4j:commandButton value="refresh" reRender="pickListvalueCLID"></a4j:commandButton>
+		<h:outputText id="pickListvalueCLID" value="#{pickList.valueCL}"></h:outputText>
+	</h:panelGrid>
+
+</f:subview>

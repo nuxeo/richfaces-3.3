@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:jsp=" http://ajax4jsf.org/cdk/jsp"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	baseclass="org.richfaces.renderkit.ListShuttleRendererBase"
+	class="org.richfaces.renderkit.html.ListShuttleRenderer"
+	component="org.richfaces.component.UIListShuttle"
+	>
+	
+	<jsp:directive.page import="org.richfaces.renderkit.OrderingComponentRendererBase" />
+	<jsp:directive.page import="org.richfaces.component.util.HtmlUtil" />
+
+	<h:styles>css/listShuttle.xcss</h:styles>  
+	
+   	<h:scripts>
+			new org.ajax4jsf.javascript.PrototypeScript(),
+			/org/richfaces/renderkit/html/scripts/utils.js,
+			scripts/ShuttleUtils.js,
+			scripts/SelectItem.js,
+			scripts/LayoutManager.js
+			scripts/Control.js,
+			scripts/ListBase.js,
+			scripts/OrderingList.js,
+			scripts/ListShuttle.js
+	</h:scripts>
+	
+	<f:clientId var="clientId"/>
+	
+	<table id="#{clientId}" class="rich-list-shuttle #{component.attributes['styleClass']}"
+			cellspacing="0" cellpadding="0"
+			x:passThruWithExclusions="id,class,styleClass">
+		<tbody>
+			<vcp:body>
+				<f:clientId var="clientId"/>
+			
+				<jsp:scriptlet>
+					<![CDATA[
+						SelectionState sourceSelectionState = new SelectionState();     
+					    variables.setVariable(SELECTION_STATE_VAR_NAME, sourceSelectionState);
+					    String encodedSourceRows = encodeRows(context, component, true);
+		
+					    SelectionState targetSelectionState = new SelectionState();     
+					    variables.setVariable(SELECTION_STATE_VAR_NAME, targetSelectionState);
+						String encodedTargetRows = encodeRows(context, component, false);
+						
+						Boolean switchByClick = (Boolean) component.getAttributes().get("switchByClick");
+						variables.setVariable("switchByClick", switchByClick);
+					
+						Boolean switchByDblClick = (Boolean) component.getAttributes().get("switchByDblClick");
+						variables.setVariable("switchByDblClick", switchByDblClick);
+						
+						variables.setVariable("baseClientId", component.getBaseClientId(context));
+					]]>
+				</jsp:scriptlet>
+
+				<tr style="#{this:getCaptionDisplay(context, component)}" >
+					<td class="rich-list-shuttle-caption" colspan="2">
+						<f:call name="encodeSLCaption"/>
+					</td>
+					<td class="rich-list-shuttle-caption" colspan="2">
+						<f:call name="encodeTLCaption"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					    <div class="rich-shuttle-source-items #{component.listClass}">
+					    	<input id="#{clientId}focusKeeper" type="button" value="" style="width: 1px; position: absolute; left: -32767px;"/>
+							
+							<table id="#{clientId}table" cellpadding="0" cellspacing="0" class="rich-shuttle-body">
+								<tbody>
+									<tr>
+										<td style="border:0px;padding : 0px;">
+											<div id="#{clientId}headerBox" class="rich-shuttle-list">
+												<jsp:scriptlet>
+													<![CDATA[
+									                	String contentContainerStyle = "";
+									                	String sourceListWidthValue = (String) component.getAttributes().get("sourceListWidth");
+									                	if (sourceListWidthValue != null) {
+									                		contentContainerStyle = contentContainerStyle.concat("width:").concat(HtmlUtil.qualifySize(sourceListWidthValue)).concat(";");
+									                		variables.setVariable("contentContainerStyle", contentContainerStyle);
+								                		}
+														if (isHeaderExists(context, component)) {
+													]]>
+		                						</jsp:scriptlet>
+												<div class="rich-shuttle-list-header" style="#{contentContainerStyle}">
+													<table id="#{clientId}internal_header_tab" class="rich-shuttle-internal-header-tab" cellpadding="0" cellspacing="0">
+														<f:call name="encodeSLHeader"/>
+													</table>
+												</div>
+												<jsp:scriptlet>
+													<![CDATA[
+														}
+														String listHeightValue = (String) component.getAttributes().get("listsHeight");
+									                	if (listHeightValue != null) {
+									                		contentContainerStyle = contentContainerStyle.concat("height:").concat(HtmlUtil.qualifySize(listHeightValue)).concat(";");
+									                		variables.setVariable("contentContainerStyle", contentContainerStyle);
+									                	}
+	                								]]>
+	                							</jsp:scriptlet>
+												<div id="#{clientId}contentBox" class="rich-shuttle-list-content" style="#{contentContainerStyle}">
+													<table id="#{clientId}internal_tab" class="rich-shuttle-internal-tab" cellpadding="0" cellspacing="0">
+														<tbody id="#{clientId}tbody">
+															<jsp:scriptlet><![CDATA[
+																writer.write(encodedSourceRows);
+																encodedSourceRows = null;															
+															]]></jsp:scriptlet>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div> 
+					</td>
+					<td style="vertical-align: #{component.controlsVerticalAlign};" >
+						<div class="rich-shuttle-controls">
+							<jsp:scriptlet><![CDATA[
+								encodeShuttleControlsFacets(context, component, sourceSelectionState, targetSelectionState);
+							]]></jsp:scriptlet>
+						</div>
+	
+					</td>
+					<td>
+						<div class="rich-shuttle-target-items #{component.listClass}" >
+							<input type="hidden" value=":" style="display: none;" name="#{baseClientId}" />
+	
+					    	<input id="#{clientId}tlFocusKeeper" type="button" value="" style="width: 1px; position: absolute; left: -32767px;"/>
+							
+							<table id="#{clientId}tlTable" cellpadding="0" cellspacing="0" class="rich-shuttle-body">
+								<tbody>
+									<tr>
+										<td style="border:0px;padding : 0px;">
+											<div id="#{clientId}tlHeaderBox" class="rich-shuttle-list">
+												<jsp:scriptlet>
+													<![CDATA[
+									                	String trContentContainerStyle = "";
+									                	String targetListWidthValue = (String) component.getAttributes().get("targetListWidth");
+									                	if (targetListWidthValue != null) {
+									                		trContentContainerStyle = trContentContainerStyle.concat("width:").concat(HtmlUtil.qualifySize(targetListWidthValue)).concat(";");
+									                		variables.setVariable("trContentContainerStyle", trContentContainerStyle);
+								                		}
+														if (isHeaderExists(context, component)) {
+													]]>
+			                					</jsp:scriptlet>
+												<div class="rich-shuttle-list-header" style="#{trContentContainerStyle}">
+													<table id="#{clientId}tlInternal_header_tab" class="rich-shuttle-internal-header-tab" cellpadding="0" cellspacing="0">
+														<f:call name="encodeTLHeader"/>
+													</table>
+												</div>
+												<jsp:scriptlet>
+													<![CDATA[
+														}
+									                	if (listHeightValue != null) {
+									                		trContentContainerStyle = trContentContainerStyle.concat("height:").concat(HtmlUtil.qualifySize(listHeightValue)).concat(";");
+									                		variables.setVariable("trContentContainerStyle", trContentContainerStyle);
+									                	}
+		                							]]>
+		                						</jsp:scriptlet>
+												<div id="#{clientId}tlContentBox" class="rich-shuttle-list-content" style="#{trContentContainerStyle}">
+													<table id="#{clientId}tlInternal_tab" class="rich-shuttle-internal-tab" cellpadding="0" cellspacing="0">
+														<tbody id="#{clientId}tlTbody">
+															<jsp:scriptlet><![CDATA[
+																writer.write(encodedTargetRows);
+																encodedTargetRows = null;															
+															]]></jsp:scriptlet>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div> 
+					</td>
+					<td style="vertical-align: #{component.controlsVerticalAlign};" >
+						<div class="rich-shuttle-controls">
+							<jsp:scriptlet><![CDATA[
+								encodeTLControlsFacets(context, component, targetSelectionState);
+							]]></jsp:scriptlet>
+						</div>
+
+						<script type="text/javascript">
+							var clientId = '#{clientId}';
+									new Richfaces.ListShuttle(
+										new Richfaces.ListShuttle.Target(
+											'#{clientId}', 
+											'#{clientId}tlInternal_tab', 
+											'#{clientId}tlInternal_header_tab', 
+											'#{clientId}tlFocusKeeper',
+											[['up', 'disup'], ['down', 'disdown'], ['last', 'dislast'], ['first','disfirst']],
+											'#{clientId}sortLabel', 
+											{onorderchanged:#{this:getAsEventHandler(context, component, "onorderchanged")},
+											 onorderchange:#{this:getAsEventHandler(context, component, "onorderchange")},
+											 ontopclick:#{this:getAsEventHandler(context, component, "ontopclick")},
+											 onbottomclick:#{this:getAsEventHandler(context, component, "onbottomclick")},
+											 onupclick:#{this:getAsEventHandler(context, component, "onupclick")},
+											 ondownclick:#{this:getAsEventHandler(context, component, "ondownclick")}}, 
+											 Richfaces.ListShuttle.Target.SelectItem, 
+											 #{this:getColumnClassesAsJSArray(context, component)}, 
+											 #{this:getRowClassesAsJSArray(context, component)}
+										), 
+										new Richfaces.ListShuttle.Source(
+											'#{clientId}', 
+											'#{clientId}internal_tab', 
+											'#{clientId}internal_header_tab', 
+											'#{clientId}focusKeeper', 
+											undefined, 
+											Richfaces.ListShuttle.Source.SelectItem, 
+											#{this:getColumnClassesAsJSArray(context, component)}, 
+											#{this:getRowClassesAsJSArray(context, component)}), 
+										"#{clientId}", 
+										[['copy', 'discopy'], ['copyAll', 'discopyAll'], ['remove', 'disremove'], ['removeAll','disremoveAll']],
+										"#{switchByClick}", 
+										"#{switchByDblClick}",
+										{onlistchanged:#{this:getAsEventHandler(context, component, "onlistchanged")},
+										 onlistchange:#{this:getAsEventHandler(context, component, "onlistchange")},
+										 oncopyallclick:#{this:getAsEventHandler(context, component, "oncopyallclick")},
+										 oncopyclick:#{this:getAsEventHandler(context, component, "oncopyclick")},
+										 onremoveallclick:#{this:getAsEventHandler(context, component, "onremoveallclick")},
+										 onremoveclick:#{this:getAsEventHandler(context, component, "onremoveclick")},
+										 onfocus:#{this:getAsEventHandler(context, component, "onfocus")},
+										 onblur:#{this:getAsEventHandler(context, component, "onblur")}
+										}
+								);
+						</script>
+					</td>
+				</tr>
+			</vcp:body>
+		</tbody>
+	</table>
+</f:root>

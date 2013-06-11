@@ -1,0 +1,221 @@
+/**
+ * GENERATED FILE - DO NOT EDIT
+ *
+ * License Agreement.
+ *
+ *  JBoss RichFaces 3.1 - Ajax4jsf Component Library
+ *
+ * Copyright (C) 2007  Exadel, Inc.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License version 2.1 as published by the Free Software Foundation.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+ */
+
+package ${tag.packageName};
+
+#foreach($import in $imports)
+import $import ;
+#end
+import ${listener.componentclass};
+
+import javax.faces.application.Application;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.el.EvaluationException;
+import javax.faces.el.ValueBinding;
+import javax.faces.webapp.UIComponentTag;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.TagSupport;
+
+import org.apache.commons.beanutils.ConvertUtils;
+
+import org.ajax4jsf.Messages;
+
+
+public class $tag.simpleClassName extends TagSupport {
+
+	private static final long serialVersionUID = -274448680242671987L;
+
+	private String type;
+	private String binding;
+
+	public int doStartTag() throws JspException {
+
+		UIComponentTag parentTag = UIComponentTag
+				.getParentUIComponentTag(pageContext);
+
+		if (parentTag == null) {
+			throw new JspException(Messages.getMessage(
+					Messages.NO_UI_COMPONENT_TAG_ANCESTOR_ERROR, this
+							.getClass().getName()));
+		}
+
+		if (type == null && binding == null) {
+			throw new JspException("Either of the following attributes is "
+					+ "required: type binding");
+		}
+
+		// Process only newly created components
+		if (parentTag.getCreated()) {
+
+			FacesContext context = FacesContext.getCurrentInstance();
+			Application application = context.getApplication();
+
+			${listener.listenerclass} listener = null;
+
+			UIComponent component = parentTag.getComponentInstance();
+
+			// First try to access listener binding
+			if (binding != null) {
+				ValueBinding valueBinding = application
+						.createValueBinding(binding);
+
+				try {
+					listener = (${listener.listenerclass}) valueBinding
+							.getValue(context);
+				} catch (EvaluationException e) {
+					throw new JspException(e);
+				}
+			}
+
+			// Then try to instantiate it by type attribute
+			if (listener == null) {
+
+				String className = null;
+
+				if (UIComponentTag.isValueReference(type)) {
+
+					try {
+						className = (String) application.createValueBinding(
+								type).getValue(context);
+					} catch (EvaluationException e) {
+						throw new JspException(e);
+					}
+
+				} else {
+					className = type;
+				}
+
+				if (className == null) {
+					throw new JspException("Type attribute resolved to null.");
+				}
+
+				try {
+					listener = (${listener.listenerclass}) Class.forName(className)
+							.newInstance();
+				} catch (Exception e) {
+					throw new JspException(Messages.getMessage(
+							Messages.INSTANTIATE_LISTENER_ERROR, className,
+							component.getId()), e);
+				}
+
+			}
+
+			#foreach( $prop in $listener.properties )
+			#if( !$prop.existintag )
+			    if (_${prop.name} != null) 
+			    {
+			#if( ${prop.el} )
+			      if (UIComponentTag.isValueReference(_${prop.name})) 
+			      {
+			        ValueBinding vb = application.createValueBinding(_${prop.name});
+			        listener.${prop.setterName}((${prop.simpleClassName}) vb.getValue(facesContext));
+			      }
+			#if (!${prop.elonly})
+			      else
+			      {
+			        listener.${prop.setterName}((${prop.simpleClassName}) ConvertUtils.convert(_${prop.name}, ${prop.simpleClassName}.class));
+			      }
+			#end
+			    }
+			#else
+			    listener.${prop.setterName}((${prop.simpleClassName}) ConvertUtils.convert(_${prop.name}, ${prop.simpleClassName}.class));
+			#end
+			#end
+			#end
+
+			// If listener was found/created, append it to component
+			if (listener != null) {
+				(($listener.componentclass) component)
+						.${listener.methodname}(listener);
+			}
+
+
+		}
+
+		return SKIP_BODY;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getBinding() {
+		return binding;
+	}
+
+	public void setBinding(String binding) {
+		this.binding = binding;
+	}
+
+	public void release() {
+		type = null;
+		binding = null;
+	}
+
+// Fields
+#foreach( $prop in $listener.properties )
+#if( !$prop.existintag )
+  /*
+   * $prop.name
+   * ${prop.xmlEncodedDescription}
+   */
+  private String  _$prop.name = null;
+
+#end	 
+#end
+// Setters
+#foreach( $prop in $listener.properties )
+#if( !$prop.existintag )
+  /*
+   * $prop.description
+   * Setter for $prop.name
+   * @param $prop.name - new value
+   */
+  public void ${prop.setterName}(String  __${prop.name}) 
+  {
+    this._${prop.name} = __${prop.name};
+  }
+	 
+#end
+#if( $prop.alias)
+  /*
+   * ${prop.xmlEncodedDescription}
+   * Setter for alias of $prop.name as $prop.alias
+   * @param $prop.name - new value
+   */
+  public void set${prop.upperFirstChar($prop.alias)}(String  __${prop.alias}) 
+  {
+    this.${prop.setterName}(__${prop.alias});
+  }
+#end
+#end
+
+
+
+
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.DragIndicator</name>
+		<family>org.richfaces.DragIndicator</family>
+		<classname>org.richfaces.component.html.HtmlDragIndicator</classname>
+		<superclass>org.richfaces.component.UIDragIndicator</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlDragIndicatorComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[It's a component appearing under a mouse cursor during Drag'n'Drop operation and containing information on dragged element and elements.
+    ]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.DragIndicatorRenderer</name>
+			<template>org/richfaces/htmlDragIndicator.jspx</template>
+		</renderer>
+		<tag>
+			<name>dragIndicator</name>
+			<classname>org.richfaces.taglib.DragIndicatorTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+               &ui_component_attributes; &html_style_attributes;
+               
+				<property>
+                        <name>styleClass</name>
+                        <classname>java.lang.String</classname>
+                        <description>Corresponds to the HTML class attribute</description>
+                </property>
+                <property>
+                        <name>acceptClass</name>
+                        <classname>java.lang.String</classname>
+                        <description>Corresponds to the HTML class attribute and added to an indicator when a drop is accepted</description>
+                </property>
+                <property>
+                        <name>rejectClass</name>
+                        <classname>java.lang.String</classname>
+                        <description>Corresponds to the HTML class attribute and added to an indicator when a drop is rejected</description>
+                </property>
+	</component>
+</components>

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	<ui:composition template="/templates/component-sample.xhtml">
+		<ui:define name="sample">
+			<p>
+				This is another sample of <b>ExtendedDataModel</b> implementation which additionally shows 
+				how to implement <b>sorting and filtering in your model</b>.
+			</p>
+			<p>
+				Model class should extend <b>ExtendedDataTableModel</b> and additionally implement 
+				<b>Modifiable interface</b>. This interface defines <b>modify</b> method. This 
+				method is called with lists of sort and filter fields as parameters and should perform sorting and 
+				filtering according to the fields. 
+			</p>
+			<p><b>Note</b> that 
+				filtering in this sample uses <i>contains</i> instead of <i>startsWith</i> conditions.
+			</p>			
+			<div class="sample-container" >
+							
+				<ui:include src="/richfaces/dataTable/examples/modifiableModel.xhtml"/>
+				<ui:include src="/templates/include/sourceview.xhtml">
+					<ui:param name="sourcepath" value="/richfaces/dataTable/examples/modifiableModel.xhtml"/>
+					<ui:param name="openlabel" value="View Source" />
+				</ui:include>					
+ 
+				<ui:include src="/templates/include/sourceview.xhtml">
+					<ui:param name="sourcepath" value="/WEB-INF/src/org/richfaces/demo/modifiableModel/HibernateDataModel.java"/>
+					<ui:param name="openlabel" value="View HibernateDataModel.java Source" />
+					<ui:param name="sourcetype" value="java" />
+				</ui:include>					
+			</div>
+		</ui:define>
+	</ui:composition>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:r="http://labs.jboss.com/jbossrichfaces/ui/message"
+      xmlns:a4j="http://richfaces.org/a4j">
+      <head>
+      	<link rel="stylesheet" type="text/css" href="/rich-message-demo/css/app.css" />
+       </head>
+       
+	     
+      <h:form>
+      
+      	<table cellpadding="2" cellspacing="2">
+       			<tr>
+      				<td> <h:outputText value="1."/> </td>
+      				<td>	
+      					<h:selectOneMenu id="select1" value="">
+     						<f:selectItem itemValue="error" itemLabel="error"/>			
+     						<f:selectItem itemValue="fatal" itemLabel="fatal"/>			
+     						<f:selectItem itemValue="warn" itemLabel="warning"/>			
+    						<f:selectItem itemValue="info" itemLabel="info"/>			
+    						<f:selectItem itemValue="passed" itemLabel="passed"/>
+    						<f:validator validatorId="SelectValidator"/>
+    					</h:selectOneMenu>
+      				</td>
+      			</tr>
+      			<tr>
+      				<td> <h:outputText value="2."/> </td>
+      				<td>
+      					<h:selectOneMenu id="select2" value="">
+     						<f:selectItem itemValue="error" itemLabel="error"/>			
+     						<f:selectItem itemValue="fatal" itemLabel="fatal"/>			
+     						<f:selectItem itemValue="warn" itemLabel="warning"/>			
+    						<f:selectItem itemValue="info" itemLabel="info"/>			
+    						<f:selectItem itemValue="passed" itemLabel="passed"/>
+    						<f:validator validatorId="SelectValidator"/>
+    					</h:selectOneMenu>
+      				</td>
+      			</tr>
+      			
+      			<tr>
+      				<td> <h:outputText value="3."/> </td>
+      				<td>
+      					<h:selectOneMenu id="select3" value="">
+     						<f:selectItem itemValue="error" itemLabel="error"/>			
+     						<f:selectItem itemValue="fatal" itemLabel="fatal"/>			
+     						<f:selectItem itemValue="warn" itemLabel="warning"/>			
+    						<f:selectItem itemValue="info" itemLabel="info"/>			
+    						<f:selectItem itemValue="passed" itemLabel="passed"/>
+    						<f:validator validatorId="SelectValidator"/>
+    					</h:selectOneMenu>
+      				</td>
+      			</tr>
+      			     			
+      			<tr>
+      				<td> <h:outputText value="4."/> </td>
+      				<td>
+      					<h:selectOneMenu id="select4" value="">
+     						<f:selectItem itemValue="error" itemLabel="error"/>			
+     						<f:selectItem itemValue="fatal" itemLabel="fatal"/>			
+     						<f:selectItem itemValue="warn" itemLabel="warning"/>			
+    						<f:selectItem itemValue="info" itemLabel="info"/>			
+    						<f:selectItem itemValue="passed" itemLabel="passed"/>
+    						<f:validator validatorId="SelectValidator"/>
+    					</h:selectOneMenu>
+      				</td>
+      			</tr>
+      	</table>
+      	
+      	<table>
+      		<tr>
+      			<td> <h:outputText value="Rich Message Demo"/> </td>
+      		</tr>
+      	    				
+      			<tr> 
+      				<td>
+	      				<r:message for="select1" 
+	      			   			   tooltip="true" 
+	      			   			   showDetail="false" 
+	      			   			   showSummary="true" 
+	      			   			   passedLabel="No Error"
+	      			   			   errorLabelClass="errorLabel"
+	      			   			   fatalLabelClass="warnLabel"
+	      			   			   infoLabelClass="infoLabel"
+	      			   			   warnLabelClass="fatalLabel"
+	      			   			   title="this is tooltip"
+	      			  	>
+	      			   
+	      			   
+	      					<f:facet name="errorMarker">
+	      						<h:graphicImage url="/image/error.gif"/>
+	      					</f:facet>
+	      					
+	      					<f:facet name="fatalMarker">
+	      						<h:graphicImage url="/image/fatal.gif"/>
+	      					</f:facet>
+	      					
+	      					<f:facet name="infoMarker">
+	      						<h:graphicImage url="/image/info.gif"/>
+	      					</f:facet>
+	      					
+	      					<f:facet name="warnMarker">
+	      						<h:graphicImage url="/image/warn.gif"/>
+	      					</f:facet>
+	      		
+	      					<f:facet name="passedMarker">
+	      						<h:graphicImage url="/image/passed.gif"/>
+	      					</f:facet>
+	      				</r:message>
+	      			</td>	
+      			</tr>
+       	</table>
+      
+      	
+       	<table>
+       		<tr>
+	       		<td>  
+	       			<h:outputText value="Rich Messages Demo"/>  
+	       		</td>
+	       	</tr>
+	       	<tr>
+	       		<td>
+	       			<h:selectOneMenu id="layout" value="#{message.layout}">
+     					<f:selectItem itemValue="table" itemLabel="table"/>			
+     					<f:selectItem itemValue="list" itemLabel="list"/>			
+    				</h:selectOneMenu>
+	       		</td>
+	       	</tr>
+	       		
+	       	<tr>
+	       		<td>
+	       			<r:messages layout="#{message.layout}"
+	      							tooltip="true" 
+	      	            			showDetail="false" 
+	      			    			showSummary="true" 
+	      			    			passedLabel="No Error"
+	      			    			errorLabelClass="errorLabel"
+	      			    			fatalLabelClass="warnLabel"
+	      			    			infoLabelClass="infoLabel"
+	      			    			warnLabelClass="fatalLabel"
+	      			    			warnMarkerClass="markerWarn"
+	      			    			infoMarkerClass="markerInfo"
+	      			    			errorMarkerClass="markerError"
+	      			    			fatalMarkerClass="markerFatal"
+	      			    			errorClass="errorClass"
+	      			    			fatalClass="fatalClass"
+	      			    			warnClass="warnClass"
+	      			    			infoClass="infoClass"
+	      			    			labelClass="labelClass"
+	      			    			var="messages"
+	      			    			styleClass="class"
+	      				>
+	      				<f:facet name="errorMarker">
+	      					<h:graphicImage url="/image/error.gif"/>
+	      				</f:facet>
+			      		<f:facet name="fatalMarker">
+			      			<h:graphicImage url="/image/fatal.gif"/>
+			      		</f:facet>
+			      		<f:facet name="infoMarker">
+			      			<h:graphicImage url="/image/info.gif"/>
+			      		</f:facet>
+			      		<f:facet name="warnMarker">
+			      			<h:graphicImage url="/image/warn.gif"/>
+			      		</f:facet>
+			      		<f:facet name="passedMarker">
+			      			<h:graphicImage url="/image/passed.gif"/>
+			      		</f:facet> 
+			      		<h:outputText value="#{messages.summary}"> </h:outputText>
+	      			</r:messages>
+	       		</td>
+	       	</tr>
+       	</table>
+      	 
+      	<div>
+      		<h:commandButton value="submit" />
+      		<a4j:commandButton value="submit ajax" />
+      	</div> 
+      </h:form>	
+      
+ </html>

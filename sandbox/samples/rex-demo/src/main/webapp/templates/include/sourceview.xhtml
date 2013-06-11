@@ -1,0 +1,107 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+<ui:composition>            
+
+
+
+			<rich:spacer height="8" />
+			
+			<script>
+			//<![CDATA[
+				Effect.Transitions.exponential = function(pos) {
+					  return 1-Math.pow(1-pos,2);
+				}
+			//]]>
+			</script>
+			
+			<style>
+			.viewsourcepanel {
+				 padding-bottom:0px;
+				 width:100%;
+				 overflow:auto;
+				 border-width:0;
+				 background-color:#FFFFE7;
+			}
+			.viewsourcebody {
+				padding:0;
+			}
+			.viewsourceheader {
+				background-color:#E6F3F7;
+				background-image:none;
+				border-width:0px;
+				padding:0px;
+				height:6px;
+			}
+			.viewsourcediv {
+				padding:0 10px 10px 10px;
+			}
+			.viewsourcediv pre {
+				margin:0;
+			}
+			
+			.viewsourcelooklink {
+				cursor:pointer;
+				text-decoration:underline;
+				padding-left:5px;
+				color:blue;
+				font-size:11px;
+				font-family:Verdana;
+			}
+			
+			.viewsourcehidelink {
+				text-align:right;
+				cursor:pointer;
+				display:block;
+				background-color:#E6F3F7;
+				text-decoration:none;
+			}
+			
+			</style>
+			<f:subview>
+			<div>
+
+			<a4j:outputPanel id="hide2" styleClass="viewsourcelooklink" style="display:none">
+				<rich:effect for="hide2" event="onclick" type="BlindUp" targetId="source1" params="id:'source1', duration:1.0" />
+				<rich:effect for="hide2" event="onclick" type="Appear" targetId="look" params="delay:1.0, duration:1.0" />
+				<rich:effect for="hide2" event="onclick" type="Fade" targetId="hide2" params="delay:0.9, duration:0.1" />
+				<h:outputText style="padding-right:5px" value="Hide"/>
+			</a4j:outputPanel>
+
+			<a4j:outputPanel styleClass="viewsourcelooklink" id="look">
+				<rich:effect for="look" event="onclick" type="Fade" targetId="source1"  params="duration:0.0" />
+				<rich:effect for="look" event="onclick" type="Fade" params="duration:0.1" />
+				<rich:effect for="look" event="onclick" type="BlindDown" targetId="source1" params="delay:0.1,duration:1.0,from:0.0,to:1.0" />
+				<rich:effect for="look" event="onclick" type="Appear"  targetId="source1"  params="delay:0.1,duration:0.5,from:0.0,to:1.0" />
+				<rich:effect for="look" event="onclick" type="Appear"  targetId="hide2"  params="delay:0.1,duration:0.5,from:0.0,to:1.0" />
+				<h:outputText escape="false" value="#{empty openlabel?'View Source' : openlabel }" />
+			</a4j:outputPanel>
+
+
+			<rich:panel  id="source1" bodyClass="viewsourcebody" headerClass="viewsourceheader" styleClass="viewsourcepanel" style="display:none">
+				<f:facet name="header">
+					<rich:spacer height="3px" />
+				 </f:facet>					
+			<div class="viewsourcediv">
+				<rich:insert  src="#{sourcepath}" highlight="#{empty sourcetype? 'xhtml' : sourcetype }"/>
+			</div>
+
+			<a4j:outputPanel id="hide" styleClass="viewsourcehidelink">
+				<rich:effect for="hide" event="onclick" type="BlindUp" targetId="source1" params="id:'source1', duration:1.0" />
+				<rich:effect for="hide" event="onclick" type="Appear" targetId="look" params="delay:1.0, duration:1.0" />
+				<rich:effect for="hide" event="onclick" type="Fade" targetId="hide2" params="delay:0.9, duration:0.1" />
+				<h:outputText style="padding-right:5px" value="&lt;&lt;Hide Source"/>
+			</a4j:outputPanel>
+
+			</rich:panel>
+			</div>
+			</f:subview>
+
+			
+
+</ui:composition>
+</html>
+

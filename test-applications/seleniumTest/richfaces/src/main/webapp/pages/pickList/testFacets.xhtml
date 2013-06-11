@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+			<rich:pickList id="componentId" value="#{pickListBean.result}">
+            	<f:selectItems value="#{pickListBean.options}"/>
+            	<f:facet name="copyAllControl"><div id="_copyAllControl">CopyAllControl Facet</div></f:facet>
+            	<f:facet name="copyControl"><div id="_copyControl">CopyControl Facet</div></f:facet>
+            	<f:facet name="removeAllControl"><div id="_removeAllControl">RemoveAllControl Facet</div></f:facet>
+            	<f:facet name="removeControl"><div id="_removeControl">RemoveControl Facet</div></f:facet>
+            	<f:facet name="copyAllControlDisabled"><div id="_copyAllControlDisabled">CopyAllControlDisabled Facet</div></f:facet>
+            	<f:facet name="copyControlDisabled"><div id="_copyControlDisabled">CopyControlDisabled Facet</div></f:facet>
+            	<f:facet name="removeAllControlDisabled"><div id="_removeAllControlDisabled">RemoveAllControlDisabled Facet</div></f:facet>
+            	<f:facet name="removeControlDisabled"><div id="_removeControlDisabled">RemoveControlDisabled Facet</div></f:facet>
+            	<f:facet name="caption"><div id="_caption">Caption Facet</div></f:facet>
+        	</rich:pickList>
+        </h:form>
+	</ui:define>
+</ui:composition>
+</html>

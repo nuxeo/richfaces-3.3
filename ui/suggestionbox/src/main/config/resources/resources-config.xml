@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+	<resource>
+		<name>org/richfaces/renderkit/html/scripts/suggestionbox.js</name>
+		<path>org/richfaces/renderkit/html/scripts/suggestionbox.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>scripts/suggestionbox.js</name>
+		<path>org/richfaces/renderkit/html/scripts/suggestionbox.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	
+</resource-config>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	template="../../template/caseTemplate.xhtml">
+	<ui:define name="caseName">testJSApi</ui:define>
+	<ui:define name="caseBody">
+		<h:form id="_form">
+			<h:panelGroup id="group_tpiv">
+			<table cellpadding="5" >
+				<tr>
+					<td></td>
+					<td>
+						<rich:inplaceInput id="ii_tja" value="#{inplaceInputBean.iiValue}" showControls="true">
+						</rich:inplaceInput>
+						
+						<button id="okButton_tja" onclick="#{rich:component('ii_tja')}.save();return false;">ok</button>
+						<button id="cancelButton_tja" onclick="#{rich:component('ii_tja')}.cancel();return false;">cancel</button>
+						
+					</td>
+					<td></td>
+				</tr>
+			</table>
+			</h:panelGroup>
+		</h:form>
+	</ui:define>
+</ui:composition>

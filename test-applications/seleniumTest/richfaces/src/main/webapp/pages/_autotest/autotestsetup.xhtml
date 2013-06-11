@@ -1,0 +1,52 @@
+<html>
+<head>
+	<script type="text/javascript">
+		function setComponent(c) {
+			$('c').value = c;
+		}
+		
+		function addEvent(ev) {
+			var d = $('events');
+			var i = document.createElement('input');
+			i.name = "ev";
+			i.type="hidden";
+			i.value = ev;
+			d.appendChild(i);
+		}
+		
+		function addAttribute(name, value) {
+			var d = $('attrs_name');
+			var i = document.createElement('input');
+			i.name = "at_name";
+			i.type="hidden";
+			i.value = name;
+			d.appendChild(i);
+			
+			d = $('attrs_value');
+			i = document.createElement('input');
+			i.name = "at_value";
+			i.type="hidden";
+			i.value = value;
+			d.appendChild(i);
+		
+		}
+		
+		function $(id) {
+			return document.getElementById(id);
+		}
+		
+		function submitForm() {
+			$('f').submit();
+		}
+	</script>
+</head>
+<body>
+<form id="f" method="post" action="#{facesContext.externalContext.request.contextPath}/autotest/test">
+<input id="c" type="hidden" name="c" value="" />
+<div id="events" />
+<div id="attrs_name" />
+<div id="attrs_value" />
+</form>
+Loading...
+</body> 
+</html>

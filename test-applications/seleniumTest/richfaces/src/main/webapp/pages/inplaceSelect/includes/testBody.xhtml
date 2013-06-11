@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:form id="_form">
+				<rich:inplaceSelect id="ii_#{test_prefix}" value="#{value}" required="#{required}" requiredMessage="#{requiredMessage}" editEvent="#{editEvent}" showControls="#{showControls}">
+					<f:selectItems value="#{inplaceSelectBean.treeItems}"/>
+				</rich:inplaceSelect>
+				&#160;
+					value: <h:outputText value="#{inplaceSelectBean.tree}" id="data1_#{test_prefix}"/>
+				&#160;
+				<span id="text_#{test_prefix}" >
+					text: <h:message for="ii_#{test_prefix}"/><h:outputText value="#{inplaceInputBean.text}"></h:outputText>
+				</span>
+				<br/>
+				<br/>
+				<h:commandButton id="bn_#{test_prefix}" action="#{inplaceSelectBean.action}" value="Submit"></h:commandButton>
+	</h:form>
+</ui:composition>

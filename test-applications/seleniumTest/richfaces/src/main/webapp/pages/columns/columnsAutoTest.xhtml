@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.autoTestTemplate}">
+	<ui:define name="component">
+			<rich:dataTable id="table"  value="#{columnsBean.model}" var="row" width="750">
+            	<rich:columns value="#{columnsBean.columns}" var="column"
+            		onclick="EventQueue.fire('onclick')"
+            		onmouseover="EventQueue.fire('onmouseover')"
+            		onmouseout="EventQueue.fire('onmouseout')"
+            		onmousedown="EventQueue.fire('onmousedown')"
+            		onmousemove="EventQueue.fire('onmousemove')"
+            		onmouseup="EventQueue.fire('onmouseup')"
+            		onkeypress="EventQueue.fire('onkeypress')"
+            		onkeydown="EventQueue.fire('onkeydown')"
+            		onkeyup="EventQueue.fire('onkeyup')"
+            		title="title"
+            		style="color: green"
+            		styleClass="columnClass"
+                	index="index">
+                	<f:facet name="header">
+						<h:outputText value="#{column.header}"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{row[index].value}"></h:outputText>
+            	</rich:columns>
+        	</rich:dataTable>
+	</ui:define>
+</ui:composition>
+</html>

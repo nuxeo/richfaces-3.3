@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!-- ====================================================================== 
+     12.11.2005 23:40:43                                                        
+
+     assemblescripts    
+     Assemble all javaScript library files to one data-grid.js
+                   
+     maksim         
+                                                     
+     ====================================================================== -->
+
+<project name="assemblescripts" default="merge-scripts">
+	
+	<description>
+            Assemble all javaScript library files to one scrollable-grid.js 
+    </description>
+		
+	<target name="merge-scripts-eclipse-3.3">
+				<property name="script-path" value="org/richfaces/renderkit/html/scripts"></property>
+				<property name="gen-script-name" value="scrollable-data-table.js"></property>	
+				<concat append="false" binary="false"  destfile="${target-dir}/${script-path}/common-${gen-script-name}">
+					<filelist dir="${resources-dir}">
+						<file name="${resources-dir}/ClientUILib.js"/>
+						<file name="${resources-dir}/ClientUI/common/utils/Utils.js"/>
+						<file name="${resources-dir}/ClientUI/common/utils/StringBuilder.js"/>
+						<file name="${resources-dir}/ClientUI/common/utils/Validators.js"/>
+						<file name="${resources-dir}/ClientUI/common/box/Box.js"/>
+						<file name="${resources-dir}/ClientUI/common/box/InlineBox.js"/>
+						<file name="${resources-dir}/ClientUI/common/box/ScrollableBox.js"/>
+						<file name="${resources-dir}/ClientUI/common/box/Substrate.js"/>
+					</filelist>
+				</concat>
+				<concat append="false" binary="false"  destfile="${target-dir}/${script-path}/controls-${gen-script-name}">
+					<filelist dir="${resources-dir}">
+						<file name="${resources-dir}/ClientUI/controls/grid/DataModel.js"/>
+						<file name="${resources-dir}/ClientUI/controls/grid/ArrayDataModel.js"/>
+						<file name="${resources-dir}/ClientUI/controls/grid/FakeArrayDataModel.js"/>
+						<file name="${resources-dir}/ClientUI/layouts/LayoutManager.js"/>
+						<file name="${resources-dir}/ClientUI/layouts/VLayoutManager.js"/>
+						<file name="${resources-dir}/ClientUI/layouts/GridLayoutManager.js"/>
+						<file name="${resources-dir}/ClientUI/controls/grid/GridHeader.js"/>
+						<file name="${resources-dir}/ClientUI/controls/grid/DataCash.js"/>
+						<file name="${resources-dir}/ClientUI/controls/grid/GridBody.js"/>
+						<file name="${resources-dir}/ClientUI/controls/grid/GridFooter.js"/>
+						<file name="${resources-dir}/ClientUI/controls/grid/Grid.js"/>
+						<file name="${resources-dir}/ClientUI/controls/grid/Selection.js"/>
+						<file name="${resources-dir}/ClientUI/controls/grid/ScrollableGrid.js"/>
+					</filelist>
+				</concat>
+			</target>
+	
+	
+		<target name="merge-scripts">
+			<property name="script-path" value="org/richfaces/renderkit/html/scripts"></property>
+			<property name="gen-script-name" value="scrollable-data-table.js"></property>	
+			<concat append="false" binary="false"  destfile="${target-dir}/${script-path}/common-${gen-script-name}">
+				<filelist dir="${resources-dir}">
+					<file name="ClientUILib.js"/>
+					<file name="ClientUI/common/utils/Utils.js"/>
+					<file name="ClientUI/common/utils/StringBuilder.js"/>
+					<file name="ClientUI/common/utils/Validators.js"/>
+					<file name="ClientUI/common/box/Box.js"/>
+					<file name="ClientUI/common/box/InlineBox.js"/>
+					<file name="ClientUI/common/box/ScrollableBox.js"/>
+					<file name="ClientUI/common/box/Substrate.js"/>
+				</filelist>
+			</concat>
+			<concat append="false" binary="false"  destfile="${target-dir}/${script-path}/controls-${gen-script-name}">
+				<filelist dir="${resources-dir}">
+					<file name="ClientUI/controls/grid/DataModel.js"/>
+					<file name="ClientUI/controls/grid/ArrayDataModel.js"/>
+					<file name="ClientUI/controls/grid/FakeArrayDataModel.js"/>
+					<file name="ClientUI/layouts/LayoutManager.js"/>
+					<file name="ClientUI/layouts/VLayoutManager.js"/>
+					<file name="ClientUI/layouts/GridLayoutManager.js"/>
+					<file name="ClientUI/controls/grid/GridHeader.js"/>
+					<file name="ClientUI/controls/grid/DataCash.js"/>
+					<file name="ClientUI/controls/grid/GridBody.js"/>
+					<file name="ClientUI/controls/grid/GridFooter.js"/>
+					<file name="ClientUI/controls/grid/Grid.js"/>
+					<file name="ClientUI/controls/grid/Selection.js"/>
+					<file name="ClientUI/controls/grid/ScrollableGrid.js"/>
+				</filelist>
+			</concat>
+		</target>
+</project>
+

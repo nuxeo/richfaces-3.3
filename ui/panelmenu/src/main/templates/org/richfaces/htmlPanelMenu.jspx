@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+		xmlns:f="http:/jsf.exadel.com/template" 
+		xmlns:h=" http://ajax4jsf.org/cdk/headers"
+		xmlns:c=" http://java.sun.com/jsf/core" 
+		xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+		xmlns:u=" http://ajax4jsf.org/cdk/u"
+		xmlns:x=" http://ajax4jsf.org/cdk/x"
+		xmlns:vcp="http://ajax4jsf.org/cdk/vcp"
+		class="org.richfaces.renderkit.html.HtmlPanelMenuRenderer"
+		baseclass="org.richfaces.renderkit.html.PanelMenuRenderer"
+		component="org.richfaces.component.UIPanelMenu" >
+		
+	<h:styles>
+		/org/richfaces/renderkit/html/css/panelMenu.xcss
+	</h:styles>
+	<h:scripts>
+		new org.ajax4jsf.javascript.PrototypeScript(),
+		new org.ajax4jsf.javascript.AjaxScript(),
+		/org/richfaces/renderkit/html/scripts/utils.js,
+		/org/ajax4jsf/javascript/scripts/form.js,
+		/org/richfaces/renderkit/html/scripts/form.js
+		/org/richfaces/renderkit/html/scripts/panelMenu.js,
+	</h:scripts>
+	
+	<f:clientid var="clientId"/>
+	
+	<jsp:scriptlet>
+		<![CDATA[
+		          String style = component.getStyle();
+		           style = (style != null && !style.equals("")) ? style.trim() : "";
+		          if(!style.equals("") && !style.endsWith(";")){
+		        	  style = style + ";"; 
+		          }
+		          variables.setVariable("style", style);
+		 ]]>
+	</jsp:scriptlet>
+	
+	
+	<f:call name="utils.encodeBeginFormIfNessesary"/>
+	<div style="width:#{component.width}; #{style}"  class="rich-pmenu #{component.styleClass}"
+			id="#{clientId}"  
+			x:passThruWithExclusions="style,width,class,styleClass,id">
+		<input type="hidden" id="#{clientId}selectedItemName" name="#{clientId}selectedItemName" value="" />
+		<vcp:body>
+			<f:call name="renderChildren" />
+		</vcp:body>		
+		<div style="display:none">
+			<f:call name="insertScript"/>
+		</div>
+	</div>
+	<f:call name="utils.encodeEndFormIfNessesary"/>
+</f:root>

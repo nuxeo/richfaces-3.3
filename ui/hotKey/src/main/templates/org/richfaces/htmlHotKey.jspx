@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	class="org.richfaces.renderkit.html.HotKeyRenderer"
+	baseclass="org.ajax4jsf.renderkit.AjaxComponentRendererBase"
+	component="org.richfaces.component.UIHotKey" 
+	>
+	<f:clientid var="clientId"/>
+	
+	<c:object var="attributes" type="java.util.Map" value="#{component.attributes}" />
+	<c:object var="options" type="java.lang.StringBuilder" />
+
+	<jsp:directive.page import="org.richfaces.component.util.HtmlUtil" /> 
+
+	<h:scripts>/org/richfaces/renderkit/html/scripts/jquery/jquery.js,/org/richfaces/renderkit/html/scripts/jquery.hotkeys.js,/org/richfaces/renderkit/html/scripts/hotKey.js</h:scripts>
+	<jsp:scriptlet>
+		<![CDATA[
+			options = new StringBuilder("{");
+
+			String timing = (String) attributes.get("timing");
+			
+			if (!"onload".equals(timing) && !"immediate".equals(timing) && 
+					!"onregistercall".equals(timing)) {
+			
+				throw new IllegalArgumentException("The timing attribute of the hotKey component (id='"+clientId+"') has an invalid value:'"+ timing +
+					"'. It may have only the following values: 'immediate', 'onload', 'onregistercall'");
+			}
+			
+			options.append("timing:'");
+			options.append(timing.toString());
+			options.append("'");
+			
+			String type = (String) attributes.get("type");
+			if (type != null && type.length() != 0) {
+				options.append(",type:'");
+				
+				if (type.startsWith("on")) {
+					// 2 is "on".length()
+					type = type.substring(2);
+				} 
+
+				options.append(type);
+				options.append("'");
+			}
+			
+			Boolean propagate = (Boolean) attributes.get("propagate");
+			if (propagate != null) {
+				options.append(",propagate:");
+				options.append(propagate);
+			}
+			
+			Boolean disableInInput = (Boolean) attributes.get("disableInInput");
+			if (disableInInput != null) {
+				options.append(",disableInInput:");
+				options.append(disableInInput);
+			}
+			
+			String disableInInputTypes = (String) attributes.get("disableInInputTypes");
+			if (disableInInputTypes != null && disableInInputTypes.length() > 0) {
+				if (Boolean.TRUE.equals(disableInInput)) {
+					options.append(",disableInInputTypes:");
+					options.append('\'');
+					options.append(getUtils().escapeJavaScript(disableInInputTypes));
+					options.append('\'');
+				} else {
+					context.getExternalContext().log(
+						"Attribute disableInInputTypes='" + disableInInputTypes + 
+						"' will be ignored for component '" + 
+						org.richfaces.component.util.MessageUtil.getLabel(context, component) + 
+						"', because value of disableInInput attribute is not 'true'");
+				}
+			}else if (Boolean.TRUE.equals(disableInInput)) {
+				options.append(",disableInInputTypes:");
+				options.append('\'');
+				options.append(getUtils().escapeJavaScript("all"));
+				options.append('\'');
+			}
+			
+			Boolean checkParent = (Boolean) attributes.get("checkParent");
+			if (checkParent != null) {
+				options.append(",checkParent:");
+				options.append(checkParent);
+			}
+			  
+			options.append("}");
+		 ]]>
+	</jsp:scriptlet>	
+
+	<c:object var="selector" type="java.lang.String" value=""/>
+	<jsp:scriptlet>
+		<![CDATA[
+		selector = (String) attributes.get("selector");         
+		if (selector != null && selector.length() != 0) {
+			selector = getUtils().escapeJavaScript(
+					HtmlUtil.expandIdSelector(selector, component, context));
+		}
+		]]>
+	</jsp:scriptlet>	
+
+	<c:object var="key" type="java.lang.Object" value="#{attributes['key']}"/>
+	<jsp:scriptlet>
+		<![CDATA[
+		key = getUtils().escapeJavaScript(key);
+		]]>
+	</jsp:scriptlet>	
+
+	<span id="#{clientId}" style="display:none">
+		
+		<script type="text/javascript">
+			new Richfaces.hotKey('#{clientId}','#{key}','#{selector}', #{options}, function(event) { #{attributes['handler']} });
+		</script>
+	</span>
+</f:root>

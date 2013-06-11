@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE faces-config PUBLIC
+  "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.0//EN"
+  "http://java.sun.com/dtd/web-facesconfig_1_1.dtd" >
+
+<faces-config>
+ <managed-bean>
+  <managed-bean-name>bean</managed-bean-name>
+  <managed-bean-class>org.ajax4jsf.Bean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>beanB</managed-bean-name>
+  <managed-bean-class>org.ajax4jsf.Bean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>treeBacker</managed-bean-name>
+  <managed-bean-class>org.ajax4jsf.TreeBacker</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>controlResultsController</managed-bean-name>
+  <managed-bean-class>org.ajax4jsf.ControlResultsController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <render-kit>
+      <renderer>
+          <component-family>javax.faces.Form</component-family>
+          <renderer-type>javax.faces.Form</renderer-type>
+          <renderer-class>org.ajax4jsf.renderkit.html.AjaxFormRenderer</renderer-class>
+      </renderer>
+      <renderer>
+          <component-family>javax.faces.Command</component-family>
+          <renderer-type>javax.faces.Link</renderer-type>
+          <renderer-class>org.ajax4jsf.renderkit.html.HtmlCommandLinkRenderer</renderer-class>
+      </renderer>
+ </render-kit>
+</faces-config>

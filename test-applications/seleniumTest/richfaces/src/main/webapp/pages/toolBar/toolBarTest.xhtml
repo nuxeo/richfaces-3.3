@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+			<h:panelGrid columns="3" width="100%" cellpadding="0" cellspacing="0"
+				style="margin-bottom : 4px">
+				<rich:panel>
+					<h:panelGrid columns="8">
+						<h:outputText value="Group Separator:" />
+						<a4j:commandLink id="gs_line" value="Line" reRender="toolBar">
+							<a4j:actionparam name="gs" value="line" assignTo="#{toolBarBean.groupSeparator}" />
+						</a4j:commandLink>
+						<a4j:commandLink id="gs_grid" value="Grid" reRender="toolBar">
+							<a4j:actionparam name="gs" value="grid" assignTo="#{toolBarBean.groupSeparator}" />
+						</a4j:commandLink>
+						<a4j:commandLink id="gs_disc" value="Disc" reRender="toolBar">
+							<a4j:actionparam name="gs" value="disc" assignTo="#{toolBarBean.groupSeparator}" />
+						</a4j:commandLink>
+						<a4j:commandLink id="gs_square" value="Square" reRender="toolBar">
+							<a4j:actionparam name="gs" value="square" assignTo="#{toolBarBean.groupSeparator}" />
+						</a4j:commandLink>
+						<a4j:commandLink id="gs_none" value="None" reRender="toolBar">
+							<a4j:actionparam name="gs" value="none" assignTo="#{toolBarBean.groupSeparator}" />
+						</a4j:commandLink>
+					</h:panelGrid>
+				</rich:panel>
+				<rich:panel>
+					<h:panelGrid columns="8">
+						<h:outputText value="Group Item Separator:" />
+						<a4j:commandLink id="gis_line" value="Line" reRender="toolBar">
+							<a4j:actionparam name="gs" value="line" assignTo="#{toolBarBean.groupItemSeparator}" />
+						</a4j:commandLink>
+						<a4j:commandLink id="gis_grid" value="Grid" reRender="toolBar">
+							<a4j:actionparam name="gs" value="grid" assignTo="#{toolBarBean.groupItemSeparator}" />
+						</a4j:commandLink>
+						<a4j:commandLink id="gis_disc" value="Disc" reRender="toolBar">
+							<a4j:actionparam name="gs" value="disc" assignTo="#{toolBarBean.groupItemSeparator}" />
+						</a4j:commandLink>
+						<a4j:commandLink id="gis_square" value="Square" reRender="toolBar">
+							<a4j:actionparam name="gs" value="square" assignTo="#{toolBarBean.groupItemSeparator}" />
+						</a4j:commandLink>
+						<a4j:commandLink id="gis_none" value="None" reRender="toolBar">
+							<a4j:actionparam name="gs" value="none" assignTo="#{toolBarBean.groupItemSeparator}" />
+						</a4j:commandLink>
+					</h:panelGrid>
+				</rich:panel>
+			</h:panelGrid>
+		
+		<rich:toolBar id="toolBar" height="30" itemSeparator="#{toolBarBean.groupSeparator}">
+			<rich:toolBarGroup itemSeparator="#{toolBarBean.groupItemSeparator}">
+				<h:outputText value="Group1.1"></h:outputText>
+				<h:outputText value="Group1.2"></h:outputText>
+				<h:outputText value="Group1.3"></h:outputText>
+			</rich:toolBarGroup>
+			<rich:toolBarGroup itemSeparator="#{toolBarBean.groupItemSeparator}">
+				<h:outputText value="Group2.1"></h:outputText>
+				<h:outputText value="Group2.2"></h:outputText>
+			</rich:toolBarGroup>
+			<rich:toolBarGroup location="right" itemSeparator="#{toolBarBean.groupItemSeparator}">
+				<h:outputText value="Group3.1"></h:outputText>
+				<h:outputText value="Group3.2"></h:outputText>
+			</rich:toolBarGroup>
+		</rich:toolBar>
+		<ui:include src="eventTest.xhtml" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

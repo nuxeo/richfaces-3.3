@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+    xmlns:u='http:/jsf.exadel.com/template/util'
+    xmlns="http://www.w3.org/1999/xhtml" >
+
+	<f:importResource src="org/richfaces/skins/laguna/css/calendar.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/combobox.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/contextmenu.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/dataFilterSlider.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/datascroller.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/dataTable.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/dragIndicator.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/dropdownmenu.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/fileUpload.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/gmap.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/inplaceinput.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/inplaceselect.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/inputNumberSlider.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/inputNumberSpinner.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/listShuttle.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/menuItem.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/modalPanel.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/msgs.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/orderingList.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/paint2D.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/panel.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/panelBar.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/panelMenu.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/picklist.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/progressBar.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/sdt.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/separator.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/simpleTogglePanel.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/spacer.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/standard.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/suggestionbox.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/tabPanel.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/togglePanel.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/toolBar.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/tooltip.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/tree.xcss" />
+	<f:importResource src="org/richfaces/skins/laguna/css/virtualEarth.xcss" />
+
+
+</f:template>

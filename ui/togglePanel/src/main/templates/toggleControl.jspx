@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://jsf.exadel.com/template"
+	    xmlns:c="http://java.sun.com/jsf/core"
+	    xmlns:ui="http://jsf.exadel.com/ui"
+	    xmlns:vcp="http://jsf.exadel.com/vcp"
+	    xmlns:u="http://jsf.exadel.com/util"
+	    xmlns:x="http://jsf.exadel.com/mock"
+  	    xmlns:h="http://jsf.exadel.com/header"
+	    baseclass="org.richfaces.renderkit.html.ToggleControlRenderer"
+	    class="org.richfaces.renderkit.html.ToggleControlTemplate"
+        component="org.richfaces.component.UIToggleControl">
+        <h:styles>css/toggleControl.xcss</h:styles>
+    	<h:scripts>
+			new org.ajax4jsf.javascript.PrototypeScript(),
+			new org.ajax4jsf.javascript.AjaxScript(),
+			/org/ajax4jsf/javascript/scripts/form.js,
+			scripts/togglePanel.js
+		</h:scripts>	<f:clientid var="clientId"/>
+                        <a id="#{clientId}" href="#" 
+	                    x:passThruWithExclusions="id,href,name,onclick,class"
+				    onclick="#{this:getOnClick(context,component)}; return false;"
+                                    
+				    class="dr-tglctrl rich-tglctrl #{component.attributes['styleClass']}"
+                         >#{component.attributes['value']}            
+                         <vcp:body>
+ 		                    <f:call name="renderChildren" />
+                         </vcp:body>
+</a>
+</f:root>

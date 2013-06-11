@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+	<p>
+	     <b>Themes feature </b>allows to change the page template on the fly. <b>Themes</b> created 
+	     by just using <b>renderer</b> redefinition. So nothing special performed from this 
+	     point. But additionally provided <b>CDK archetype</b> allows to create themes 
+	     based on <b>jspx templates</b> easily 
+	     and pack as separate library together with resources. Then page  
+	     could be switched between the themes by just <b>theme attribute</b> usage.
+	</p>	
+	<p>
+	    <b>Default page renderer</b> provides just the simple page parts such as
+	    header, footer and sidebar. No additional styling applied to default theme.
+	</p>
+	<p>
+		<b>simple</b> theme which is just extension of the default renderer 
+		just adds the RichFaces skinning for the page elements. 
+    	So the end-developer able to use skinning 
+    	parameters or rich-* classes as usually to redefine general look and feel 
+    	for header/footer/sidebar.
+	</p>
+ 	<p>
+ 		There are laso three more themes built using new archetype provided 
+ 		(should be added as separate jar explicitly). 
+ 		<b>VioletRays</b> based on<a href="http://www.freecsstemplates.org/css-templates/" style="color: #0078d0">
+ 		freecsstemplates template</a>. It not uses a skin parameters(just stylesheets provided within a template)
+ 		And two more which uses RichFaces skin for its elements.
+ 	</p>
+ 	<p>
+ 		Just next steps should be performed to create own themes:
+ 	</p>
+ 	<fieldset>
+ 		<legend><b>Themes project creation</b></legend>
+		mvn archetype:create<br/> 
+		-DarchetypeGroupId=org.richfaces.cdk<br/> 
+		-DarchetypeArtifactId=maven-archetype-theme<br/> 
+		-DarchetypeVersion=RF-VERSION <br/>
+		-DartifactId=ARTIFACT-ID <br/>
+		-DgroupId=GROUP-ID<br/>
+		-Dversion=VERSION 
+ 	</fieldset>
+ 	<p>
+ 		creates ARTIFACT-ID directory and generate needed pom.xml inside. Then 
+ 	</p>
+ 	<fieldset>
+ 		<legend><b>Theme creation</b></legend>
+ 		mvn cdk:add-theme -Dname=THEME-NAME
+ 	</fieldset>
+ 	<p>
+ 		creates skeleton of new skin inside the created folder.
+ 	</p> 
+ 	<p>
+ 		So, the developer just need to edit the <b>jspx template</b> and add the <b>needed resources</b>.
+ 		Also pay attrention to <b>META-INF/themes</b> folder. Every <i><b>THEME-NAME.theme.property</b></i> file inside 
+ 		defines renderer and stylesheet used by this theme. And one of the <b>THEME-NAME</b> should
+ 		be used as value for <b>page theme attribute</b> to turn this theme on.  
+ 	</p>
+</ui:composition>

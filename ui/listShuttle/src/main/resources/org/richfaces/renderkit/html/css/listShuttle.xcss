@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim><![CDATA[
+
+.rich-list-shuttle {
+	-moz-user-select: none;
+}
+
+.rich-shuttle-controls {
+	padding : 0px 8px 5px 8px;
+}
+
+.rich-shuttle-list-content {
+	overflow: auto;
+}
+
+.rich-shuttle-list-header {
+	overflow: hidden;
+}
+
+.rich-shuttle-header-tab-cell, .rich-shuttle-header-tab-cell-last {
+	padding : 2px;
+	border-style: solid;
+	font-weight: normal;
+	white-space: nowrap;
+	background-repeat: repeat-x;
+	border-top: 0px;
+	border-left: 0px;
+}
+
+.rich-shuttle-internal-tab {
+	width:100%;
+}
+
+]]>
+</f:verbatim>
+
+<u:selector name=".rich-shuttle-list">
+	<u:style name="background-color" skin="tableBackgroundColor"/>
+	<u:style name="border-width" value="0px" />
+	<u:style name="border-style" value="none" />
+</u:selector>
+
+<u:selector name=".rich-shuttle-source-cell, .rich-shuttle-target-cell, .rich-shuttle-source-cell *, .rich-shuttle-target-cell *">
+	<u:style name="color" skin="generalTextColor"/>
+	<u:style name="font-size" skin="generalSizeFont"/>
+	<u:style name="font-family" skin="generalFamilyFont"/>
+	<u:style name="white-space" value="nowrap"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+
+.rich-shuttle-control-disabled, .rich-shuttle-control-top, .rich-shuttle-control-bottom, 
+.rich-shuttle-control-up, .rich-shuttle-control-down, .rich-shuttle-control-copyall,
+.rich-shuttle-control-copy, .rich-shuttle-control-remove, .rich-shuttle-control-removeall {
+	border : 1px solid;
+	margin-bottom : 3px;
+}
+
+.rich-list-shuttle-button, .rich-list-shuttle-button-disabled {
+	background : top left repeat-x;
+	padding : 2px;
+}
+
+.rich-list-shuttle-button {
+	cursor : pointer;
+}
+
+.rich-list-shuttle-button-disabled {
+	cursor: default;
+}
+
+.rich-list-shuttle-button-light {
+	background : top left repeat-x;
+	border-style: solid;
+	cursor : pointer;
+	padding: 1px;
+}
+
+.rich-list-shuttle-button-press {
+	background : top left repeat-x;
+	border-style: solid;
+	padding : 2px 0px 0px 2px;
+	cursor: pointer;
+}
+
+.rich-list-shuttle-button-valign {
+	vertical-align : middle;
+}
+
+.rich-list-shuttle-button-layout {
+	padding : 15px 8px 15px 0px;
+}
+
+.rich-list-shuttle-button-content {
+	padding : 0px 1px 0px 1px;
+	text-align : left;
+	white-space: nowrap;
+}
+
+.rich-list-shuttle-button-content img {
+	margin-right: 2px;
+	vertical-align: middle;
+}
+
+a.rich-list-shuttle-button-selection:visited,
+a.rich-list-shuttle-button-selection:link {
+	color: inherit;
+}
+
+.rich-list-shuttle-caption {
+	text-align: left;
+	padding : 1px;
+}
+
+.rich-shuttle-source-caption {
+	padding: 3px 3px 3px 8px;
+}
+
+.rich-shuttle-target-caption {
+	padding: 3px 3px 3px 0px;
+}
+
+.rich-shuttle-source-items {
+	margin: 0px 0px 8px 8px;
+}
+
+.rich-shuttle-target-items {
+	margin: 0px 0px 8px 0px;
+}
+
+.rich-shuttle-source-row-active, .rich-shuttle-target-row-active {
+	background : transparent none repeat-x scroll left top;
+}
+
+.rich-shuttle-source-row-selected, .rich-shuttle-target-row-selected {
+	background : transparent none repeat-x scroll left top;
+}
+
+.rich-shuttle-source-cell, .rich-shuttle-target-cell {
+	padding : 2px;
+	white-space: nowrap;
+	border: 0px;
+}
+
+.rich-shuttle-source-cell-selected, .rich-shuttle-target-cell-selected {
+	padding : 2px;
+	white-space: nowrap;
+}
+
+.rich-shuttle-source-cell-active, .rich-shuttle-target-cell-active {
+	padding: 1px 2px;
+	white-space: nowrap;
+	border-top: 1px dotted;
+	border-bottom: 1px dotted;
+} 
+
+]]>
+</f:verbatim>
+
+	<u:selector name=".rich-list-shuttle">
+		<!--u:style name="background-color" skin="additionalBackgroundColor" />
+		<u:style name="border-color" skin="tableBorderColor" />
+		<u:style name="border-width" skin="tableBorderWidth" />
+		<u:style name="border-style" value="solid" /-->
+		<u:style name="-moz-user-select" value="-moz-none" />
+	</u:selector>
+
+	<u:selector name=".rich-shuttle-header-tab-cell, .rich-shuttle-header-tab-cell-last">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.gradientimages.OrderingListHeaderGradient" />
+		</u:style>
+		<u:style name="background-color" skin="tabBackgroundColor" />
+		<u:style name="color" skin="generalTextColor" />
+		<u:style name="font-family" skin="headerFamilyFont" />
+		<u:style name="font-size" skin="headerSizeFont" />
+
+		<u:style name="border-right-width" skin="tableBorderWidth" />
+		<u:style name="border-bottom-width" skin="tableBorderWidth" />
+
+		<u:style name="border-right-color" skin="tableBorderColor" />
+		<u:style name="border-bottom-color" skin="tableBorderColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-header-tab-cell-last">
+		<u:style name="border-right-width" value="0px" />
+	</u:selector>
+
+<u:selector name=".rich-list-shuttle-button">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.gradientimages.OrderingListButtonGradient" />
+	</u:style>
+	<u:style name="background-color" skin="tabBackgroundColor" />
+	<u:style name="color" skin="generalTextColor"/>
+	<u:style name="font-family" skin="headerFamilyFont"/>
+	<u:style name="font-size" skin="headerSizeFont"/>
+</u:selector>
+
+<u:selector name=".rich-list-shuttle-button-disabled">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.gradientimages.OrderingListButtonGradient" />
+	</u:style>
+	<u:style name="background-color" skin="tabBackgroundColor" />
+	<u:style name="color" skin="tabDisabledTextColor"/>
+	<u:style name="font-family" skin="headerFamilyFont"/>
+	<u:style name="font-size" skin="headerSizeFont"/>
+</u:selector>
+
+	<u:selector name=".rich-list-shuttle-button-light">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.gradientimages.OrderingListButtonGradient" />
+		</u:style>
+		<u:style name="background-color" skin="tabBackgroundColor" />
+		<u:style name="border-color" skin="selectControlColor" />
+		<u:style name="border-width" skin="tableBorderWidth" />
+		<u:style name="font-family" skin="headerFamilyFont" />
+		<u:style name="font-size" skin="headerSizeFont" />
+		<u:style name="color" skin="generalTextColor"/>
+	</u:selector>
+
+	<u:selector name=".rich-list-shuttle-button-press">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.gradientimages.OrderingListClickedGradient" />
+		</u:style>
+		<u:style name="background-color" skin="tabBackgroundColor" />
+		<u:style name="border-color" skin="tableBorderColor" />
+		<u:style name="border-width" skin="tableBorderWidth" />
+		<u:style name="font-family" skin="headerFamilyFont" />
+		<u:style name="font-size" skin="headerSizeFont" />
+		<u:style name="color" skin="generalTextColor"/>
+	</u:selector>
+
+	<u:selector name=".rich-shuttle-source-cell-last, .rich-shuttle-target-cell-last">
+		<u:style name="border-right-color" skin="selectControlColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-source-items, .rich-shuttle-target-items">
+		<u:style name="background-color" skin="generalBackgroundColor" />
+		<u:style name="border-color" skin="tableBorderColor" />
+		<u:style name="border-width" skin="tableBorderWidth" />
+		<u:style name="border-style" value="solid" />
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-source-cell-selected, .rich-shuttle-target-cell-selected, .rich-shuttle-source-cell-selected *, .rich-shuttle-target-cell-selected *">
+		<u:style name="color" skin="generalTextColor"/>
+		<u:style name="font-family" skin="generalFamilyFont" />
+		<u:style name="font-size" skin="generalSizeFont" />
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-source-cell-active, .rich-shuttle-target-cell-active, .rich-shuttle-source-cell-active *, .rich-shuttle-target-cell-active *">
+		<u:style name="font-size" skin="generalSizeFont" />
+		<u:style name="font-family" skin="generalFamilyFont" />
+	</u:selector>
+	<u:selector name=".rich-shuttle-source-cell-active, .rich-shuttle-target-cell-active" >
+		<u:style name="border-top-color" skin="generalTextColor" />
+		<u:style name="border-bottom-color" skin="generalTextColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-control-disabled, .rich-shuttle-control-top, .rich-shuttle-control-bottom, .rich-shuttle-control-up, .rich-shuttle-control-down, .rich-shuttle-control-copyall, .rich-shuttle-control-copy, .rich-shuttle-control-remove, .rich-shuttle-control-removeall">
+		<u:style name="border-color" skin="tableBorderColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-list-shuttle-button-content">
+		<u:style name="font-family" skin="headerFamilyFont" />
+		<u:style name="font-size" skin="headerSizeFont" />
+	</u:selector>
+	
+	<u:selector name=".rich-list-shuttle-button-selection, .rich-list-shuttle-button-selection:hover">
+		<u:style name="color" skin="generalTextColor" />
+		<u:style name="text-decoration" value="none" />
+		<u:style name="display" value="block" />
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-source-caption, .rich-shuttle-target-caption">
+		<u:style name="font-family" skin="headerFamilyFont" />
+		<u:style name="font-size" skin="headerSizeFont" />
+		<u:style name="font-weight" skin="headerWeightFont" />
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-source-row-selected, .rich-shuttle-target-row-selected">
+		<u:style name="background-color" skin="additionalBackgroundColor" />
+	</u:selector>
+}
+
+</f:template>

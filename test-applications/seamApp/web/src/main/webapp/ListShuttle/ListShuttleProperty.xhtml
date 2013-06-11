@@ -1,0 +1,194 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	id="listShuttlePropertySubviewID">
+	<h:commandButton action="#{listShuttle.add}" value="add test" />
+	
+	<h:panelGrid columns="3">
+		<h:column></h:column>
+		<h:outputText value="JavaScript API"></h:outputText>
+		<h:column></h:column>
+		<a4j:commandLink
+			onclick="$('formID:listShuttleSubviewID:listShuttleID').component.hide()"
+			value="hide"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:listShuttleSubviewID:listShuttleID').component.show()"
+			value="show"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="alert($('formID:listShuttleSubviewID:listShuttleID').component.isShown())"
+			value="isShown"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:listShuttleSubviewID:listShuttleID').component.enable()"
+			value="enable"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:listShuttleSubviewID:listShuttleID').component.disable()"
+			value="disable"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="alert($('formID:listShuttleSubviewID:listShuttleID').component.isEnabled())"
+			value="isEnabled"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:listShuttleSubviewID:listShuttleID').component.up()"
+			value="up"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:listShuttleSubviewID:listShuttleID').component.down()"
+			value="down"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:listShuttleSubviewID:listShuttleID').component.top()"
+			value="top"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:listShuttleSubviewID:listShuttleID').component.bottom()"
+			value="bottom"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:listShuttleSubviewID:listShuttleID').component.copy()"
+			value="copy"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:listShuttleSubviewID:listShuttleID').component.remove()"
+			value="remove"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:listShuttleSubviewID:listShuttleID').component.copyAll()"
+			value="copyAll"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="$('formID:listShuttleSubviewID:listShuttleID').component.removeAll()"
+			value="removeAll"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="alert($('formID:listShuttleSubviewID:listShuttleID').component.targetList.getSelection())"
+			value="targetList.getSelection"></a4j:commandLink>
+			<a4j:commandLink
+			onclick="alert($('formID:listShuttleSubviewID:listShuttleID').component.sourceList.getSelection())"
+			value="sourceList.getSelection"></a4j:commandLink>
+		<a4j:commandLink
+			onclick="alert($('formID:listShuttleSubviewID:listShuttleID').component.targetList.getItems())"
+			value="targetList.getItems"></a4j:commandLink>
+			<a4j:commandLink
+			onclick="alert($('formID:listShuttleSubviewID:listShuttleID').component.sourceList.getItems())"
+			value="sourceList.getItems"></a4j:commandLink>
+	</h:panelGrid>
+	
+	<h:panelGrid columns="2">
+		<h:column></h:column>
+		<h:panelGroup>
+			<a4j:commandButton value="reRender" reRender="listShuttleID"></a4j:commandButton>
+			<a4j:commandButton immediate="true" reRender="listShuttleID"
+				value="immediate submit(); (a4j)"></a4j:commandButton>
+			<h:commandButton value="submit();" />
+			<h:commandButton immediate="true" value="immediate submit();" />
+		</h:panelGroup>
+
+		<h:outputText value="Enter quantity of lines" />
+		<h:panelGroup>
+			<h:inputText value="#{listShuttle.lenght}" />
+			<a4j:commandButton action="#{listShuttle.addNewItem}"
+				reRender="listShuttleID" value="ok" />
+		</h:panelGroup>
+
+		<h:outputText value="first" />
+		<h:inputText value="#{listShuttle.first}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="showButtonLabels" />
+		<h:selectBooleanCheckbox value="#{listShuttle.showButtonLabels}"
+			onchange="submit();" />
+
+		<h:outputText value="orderControlsVisible" />
+		<h:selectBooleanCheckbox value="#{listShuttle.orderControlsVisible}"
+			onchange="submit();" />
+
+		<h:outputText value="moveControlsVisible" />
+		<h:selectBooleanCheckbox value="#{listShuttle.moveControlsVisible}"
+			onchange="submit();" />
+
+		<h:outputText value="fastOrderControlsVisible" />
+		<h:selectBooleanCheckbox
+			value="#{listShuttle.fastOrderControlsVisible}" onchange="submit();" />
+
+		<h:outputText value="fastMoveControlsVisible" />
+		<h:selectBooleanCheckbox
+			value="#{listShuttle.fastMoveControlsVisible}" onchange="submit();" />
+
+		<h:outputText value="switchByClick" />
+		<h:selectBooleanCheckbox value="#{listShuttle.switchByClick}"
+			onchange="submit();" />
+
+		<h:outputText value="sourceCaptionLabel" />
+		<h:inputText value="#{listShuttle.sourceCaptionLabel}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="targetCaptionLabel" />
+		<h:inputText value="#{listShuttle.targetCaptionLabel}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="sourceListWidth" />
+		<h:inputText value="#{listShuttle.sourceListWidth}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="targetListWidth" />
+		<h:inputText value="#{listShuttle.targetListWidth}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="listsHeight" />
+		<h:inputText value="#{listShuttle.listsHeight}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="copyControlLabel" />
+		<h:inputText value="#{listShuttle.copyControlLabel}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="removeControlLabel" />
+		<h:inputText value="#{listShuttle.removeControlLabel}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="copyAllControlLabel" />
+		<h:inputText value="#{listShuttle.copyAllControlLabel}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="removeAllControlLabel" />
+		<h:inputText value="#{listShuttle.removeAllControlLabel}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="bottomControlLabel" />
+		<h:inputText value="#{listShuttle.bottomControlLabel}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="downControlLabel" />
+		<h:inputText value="#{listShuttle.downControlLabel}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="topControlLabel" />
+		<h:inputText value="#{listShuttle.topControlLabel}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="upControlLabel" />
+		<h:inputText value="#{listShuttle.upControlLabel}">
+			<a4j:support event="onclick" reRender="listShuttleID"></a4j:support>
+		</h:inputText>
+	</h:panelGrid>
+	
+	<br />
+	<br />
+	<!-- <div style="FONT-WEIGHT: bold;">rich:findComponent</div>
+	<h:panelGrid columns="2">
+		<rich:column>
+			<a4j:commandLink value="getActiveItem" reRender="findID"></a4j:commandLink>
+		</rich:column>
+		<rich:column id="findID">
+			<h:outputText
+				value="#{rich:findComponent('listShuttleID').activeItem}" />
+		</rich:column>
+	</h:panelGrid>-->
+</f:subview>

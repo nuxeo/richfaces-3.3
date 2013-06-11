@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://jsf.exadel.com/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://jsf.exadel.com/ui"
+	xmlns:vcp=" http://jsf.exadel.com/vcp"
+	xmlns:u=" http://jsf.exadel.com/vcp"
+	xmlns:x=" http://jsf.exadel.com/vcp"
+	class="org.ajax4jsf.renderkit.html.FunctionRenderer"
+	baseclass="org.ajax4jsf.renderkit.AjaxFunctionRendererBase"
+	component="org.ajax4jsf.component.UIAjaxFunction" 
+	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0" >
+	<jsp:directive.page import="javax.faces.context.FacesContext,javax.faces.component.UIComponent"/>
+	<f:clientid var="clientId"/>	
+	<script
+		id="#{clientId}"
+		type="text/javascript"
+		>
+		<vcp:body />
+		//<![CDATA[
+		#{this:getFunction(context,component)};
+		//]]>
+	</script>
+</f:root>

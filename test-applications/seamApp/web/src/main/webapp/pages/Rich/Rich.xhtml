@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HelloWorld</title>
+</head>
+
+<body>
+
+<h:form id="formID">
+	<div id="divOpthID" align="right" style="z-index: 200"><ui:include
+		src="/pages/RichMenu/RichMenu.xhtml" /></div>
+	<rich:messages id="richMessagesID" ajaxRendered="true"
+		showSummary="true">
+		<f:facet name="errorMarker">
+			<h:graphicImage url="/pics/error.gif" />
+		</f:facet>
+
+		<f:facet name="fatalMarker">
+			<h:graphicImage url="/pics/fatal.gif" />
+		</f:facet>
+
+		<f:facet name="infoMarker">
+			<h:graphicImage url="/pics/info.gif" />
+		</f:facet>
+
+		<f:facet name="warnMarker">
+			<h:graphicImage url="/pics/warn.gif" />
+		</f:facet>
+
+		<f:facet name="passedMarker">
+			<h:graphicImage url="/pics/passed.gif" />
+		</f:facet>
+	</rich:messages>
+	<h:messages showDetail="true" showSummary="true"></h:messages>
+
+	<h:panelGrid id="richGridID" columns="1" width="100%">
+		<h:panelGroup rendered="#{option.reComponent}">
+			<ui:include src="#{richBean.pathComponent}"/>
+		</h:panelGroup>
+
+		<h:panelGroup rendered="#{option.reStraightforward}">
+			<ui:include src="#{richBean.pathStraightforward}" />
+		</h:panelGroup>
+
+		<h:panelGroup rendered="#{option.reProperty}">
+			<ui:include src="#{richBean.pathProperty}" />
+		</h:panelGroup>
+		<a4j:log popup="false" rendered="#{option.log}"></a4j:log>
+	</h:panelGrid>
+
+	<ui:include src="/pages/Info/Info.xhtml" />
+
+</h:form>
+</body>
+</html>

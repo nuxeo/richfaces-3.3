@@ -1,0 +1,15 @@
+		<property>
+			<name>onselected</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: script expression to invoke on node selection</description>
+		</property>
+		<property>
+			<name>onexpand</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: script expression to invoke on node expansion</description>
+		</property>
+		<property>
+			<name>oncollapse</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: script expression to invoke on node collapsing</description>
+		</property>

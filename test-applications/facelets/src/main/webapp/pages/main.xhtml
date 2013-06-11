@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<f:view>
+	<head>
+	</head>
+	<body>
+	<h:form>
+	<rich:panel>
+		<f:verbatim><div align="center"><font size="4" color="#191970">RichFaces Test Application with Facelets)</font></div></f:verbatim>
+		</rich:panel>
+		<rich:spacer></rich:spacer>
+		<rich:panel>
+			<h:panelGrid columns="2" cellpadding="5px" cellspacing="5px">
+				<h:commandLink value="RichFaces" action="RichFaces"></h:commandLink>
+				<h:commandLink value="Div" action="TestDiv"></h:commandLink>
+				<h:commandLink value="Select" action="Map" disabled="true"></h:commandLink>
+				<h:commandLink value="Customize page" action="CustomizePage"></h:commandLink>
+				<h:commandLink value="RichPanels" action="RichPanels"></h:commandLink>
+			</h:panelGrid>
+		</rich:panel>
+		<rich:spacer></rich:spacer>
+		<rich:panel>
+		<div align="right"><font size="3" color="#000000">RichFaces: #{a4j.version}</font></div>
+		</rich:panel>
+	</h:form>
+	</body>
+</f:view>
+</html>

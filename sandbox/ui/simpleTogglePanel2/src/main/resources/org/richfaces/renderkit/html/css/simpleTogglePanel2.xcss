@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim><![CDATA[
+.dr-stglpnl{
+   border : 1px solid #678FC5;
+   background-color : #BFD0E9;   
+   padding : 1px;
+   background-position : top right;
+   background-repeat : no-repeat;
+}
+
+
+.dr-stglpnl-h{
+   border-width: 1px;
+   border-style: solid;
+   background-color : #224986;
+   color : #ffffff;
+   cursor: pointer;
+   padding : 2px;
+   background-image : url(coll_panel_bg.gif);
+   background-position : top left;
+   background-repeat : repeat-x;
+}
+
+
+.dr-stglpnl-b{
+   color : #000000;
+   padding : 10px;
+   text-align : left;
+   vertical-align : top;
+}
+]]>
+
+</f:verbatim>
+
+<u:selector name=".dr-stglpnl">
+    <u:style name="background-color" skin="generalBackgroundColor" />
+    <u:style name="border-color" skin="panelBorderColor" />
+</u:selector>
+<u:selector name=".dr-stglpnl-h">
+    <u:style name="background-color" skin="headerBackgroundColor" />
+    <u:style name="border-color" skin="headerBackgroundColor" />
+    <u:style name="font-size" skin="headerSizeFont" />
+    <u:style name="color" skin="headerTextColor" />
+    <u:style name="font-weight" skin="headerWeightFont" />
+    <u:style name="font-family" skin="headerFamilyFont" />
+    <u:style name="background-image" >
+    	<f:resource f:key="org.richfaces.renderkit.html.GradientA"/>
+    </u:style>
+</u:selector>
+<u:selector name=".dr-stglpnl-b">
+    <u:style name="background-color" skin="generalBackgroundColor" />
+    <u:style name="font-size" skin="generalSizeFont" />
+    <u:style name="color" skin="panelTextColor" />
+    <u:style name="font-family" skin="generalFamilyFont" />
+</u:selector>
+
+</f:template>

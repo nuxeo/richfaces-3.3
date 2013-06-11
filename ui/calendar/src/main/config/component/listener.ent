@@ -1,0 +1,17 @@
+<listener>
+		<name>currentDateChangeListener</name>
+		<listenerclass>
+			org.richfaces.event.CurrentDateChangeListener
+		</listenerclass>
+		<componentclass>
+			org.richfaces.component.UICalendar		
+		</componentclass>
+		<eventclass>
+			org.richfaces.event.CurrentDateChangeEvent
+		</eventclass>
+		<taghandler generate="true">
+			<classname>
+				org.richfaces.taglib.CurrentDateChangeListenerTagHandler
+			</classname>
+		</taghandler>
+</listener>

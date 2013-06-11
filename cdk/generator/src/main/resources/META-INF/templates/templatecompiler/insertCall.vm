@@ -1,0 +1,5 @@
+#if ($variableName)
+variables.setVariable("$variableName", $function);
+#else
+$function;
+#end

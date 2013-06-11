@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config>
+ <navigation-rule>
+  <from-view-id>/pages/main.jsp</from-view-id>
+  <navigation-case>
+   <from-outcome>TestDiv</from-outcome>
+   <to-view-id>/pages/Div/Div.jsp</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>RichFaces</from-outcome>
+   <to-view-id>/pages/Rich/Rich.jsp</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>Map</from-outcome>
+   <to-view-id>/pages/Select/Map.jsp</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>CustomizePage</from-outcome>
+   <to-view-id>/CustomizePage/CustomizePage.jsp</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+ <from-view-id>/CustomizePage/first.jsp</from-view-id>
+ <navigation-case>
+ <from-outcome>next</from-outcome>
+ <to-view-id>/CustomizePage/second.jsp</to-view-id>
+ </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>*</from-view-id>
+  <navigation-case>
+   <from-outcome>main</from-outcome>
+   <to-view-id>/pages/main.jsp</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <application>
+  <locale-config>
+   <default-locale>en</default-locale>
+   <supported-locale>de</supported-locale>
+  </locale-config> 
+  <resource-bundle>
+   <base-name>message_en</base-name>
+   <var>msg</var>
+  </resource-bundle> 
+ </application>
+ <lifecycle>
+  <phase-listener id="phaseTracker">util.phaseTracker.PhaseTracker</phase-listener>
+ </lifecycle>
+</faces-config>

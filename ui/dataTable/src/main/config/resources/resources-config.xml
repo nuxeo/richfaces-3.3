@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+    <resource class="org.richfaces.renderkit.html.iconimages.DataTableIconSortNone">
+        <name>org.richfaces.renderkit.html.iconimages.DataTableIconSortNone</name>
+    </resource>
+
+	<resource class="org.ajax4jsf.javascript.AjaxScript">
+		<name>org.ajax4jsf.javascript.AjaxScript</name>
+	</resource>
+
+	<resource class="org.ajax4jsf.javascript.PrototypeScript">
+		<name>org.ajax4jsf.javascript.PrototypeScript</name>
+	</resource>
+
+</resource-config>

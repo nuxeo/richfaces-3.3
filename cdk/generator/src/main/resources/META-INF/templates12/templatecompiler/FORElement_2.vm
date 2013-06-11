@@ -1,0 +1,5 @@
+for ( 
+	variables.setVariable("$item", $from);
+	Integer.getInteger(variables.getVariable("$item").toString()).intValue() < Integer.getInteger($to).toString()).intValue();
+	variables.addValueToVariable("$item", new Integer(1) )
+	) {

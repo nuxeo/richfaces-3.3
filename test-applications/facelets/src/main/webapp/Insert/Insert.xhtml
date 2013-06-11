@@ -1,0 +1,9 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" id="insertSubviewID">
+		<h:messages />
+		
+		<rich:panel id="panelID" header="Highlight: #{insert.highlight}; File: #{insert.src}">
+			<rich:insert id="insertID" highlight="#{insert.highlight}" 
+				rendered="#{insert.rendered}" src="#{insert.src}" binding="#{insert.htmlInsert}"></rich:insert>
+		</rich:panel>
+</f:subview>

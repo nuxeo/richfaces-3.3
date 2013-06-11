@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd"
+
+[
+<!ENTITY listeners SYSTEM "commonDataScrollerListeners.ent">
+]
+>
+<components>
+	<component>
+		<name>org.richfaces.Datascroller</name>
+		<family>org.richfaces.Datascroller</family>
+		<classname>org.richfaces.component.html.HtmlDatascroller</classname>
+		<superclass>org.richfaces.component.UIDatascroller</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlDatascrollerComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			The &lt;rich:datascroller&gt; component is designed for providing the functionality of tables scrolling using Ajax requests.
+		</description>
+		<facet>
+		   <name>controlSeparator</name>
+		   <description>Redefines optional separators between controls</description>
+		</facet>		
+		<facet>
+		   <name>first</name>
+		   <description>Redefines the "first" button with the content set</description>
+		</facet>		
+		<facet>
+		   <name>first_disabled</name>
+		   <description>Redefines the disabled "first" button with the content set</description>
+		</facet>		
+		<facet>
+		   <name>last</name>
+		   <description>Redefines the "last" button with the content set</description>
+		</facet>		
+		<facet>
+		   <name>last_disabled</name>
+		   <description>Redefines the disabled "last" button with the content set</description>
+		</facet>		
+		<facet>
+		   <name>fastrewind</name>
+		   <description>Redefines the "fastrewind" button with the content set</description>
+		</facet>		
+		<facet>
+		   <name>fastrewind_disabled</name>
+		   <description>Redefines the disabled "fastrewind" button with the content set</description>
+		</facet>		
+		<facet>
+		   <name>previous</name>
+		   <description>Redefines the "previous" button with the content set</description>
+		</facet>		
+		<facet>
+		   <name>previous_disabled</name>
+		   <description>Redefines the disabled "previous" button with the content set</description>
+		</facet>		
+		<facet>
+		   <name>next</name>
+		   <description>Redefines the "next" button with the content set</description>
+		</facet>		
+		<facet>
+		   <name>next_disabled</name>
+		   <description>Redefines the disabled "next" button with the content set</description>
+		</facet>		
+		<facet>
+		   <name>pages</name>
+		   <description>Redefines the pages buttons with the content set</description>
+		</facet>		
+		<renderer  generate="true" override="true">
+			<name>org.richfaces.DataScrollerRenderer</name>
+			<template>org/richfaces/htmlDatascroller.jspx</template>
+		</renderer>
+		
+      
+
+
+		<tag>
+			<name>datascroller</name>
+			<classname>org.richfaces.taglib.DatascrollerTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+
+        <taghandler generate="true">
+            <classname>org.richfaces.taglib.DataScrollerTagHandler</classname>
+        	<superclass>org.richfaces.taglib.DatascrollerTagHandlerBase</superclass>
+        </taghandler>
+
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+
+        &ui_component_attributes;
+        &html_events;
+        &html_style_attributes;
+
+        &ui_command_attributes;
+        &ajax_component_attributes;
+        &html_event_handler_attributes;
+
+	&ui_component_attributes;
+		
+		<property>
+			<name>handleValue</name>
+			<classname>java.lang.String</classname>
+			<description>Current handle value
+			</description>
+		</property>
+
+		<property>
+			<name>scrollerListener</name>
+			<classname>javax.el.MethodExpression</classname>
+			<description>MethodBinding representing an action listener method that will be notified after scrolling
+			</description>
+		</property>
+
+		<property>
+			<name>rendered</name>
+			<classname>boolean</classname>
+			<description>If "false", this component is not rendered</description>
+		</property>
+		<property>
+			<name>for</name>
+			<classname>java.lang.String</classname>
+			<description>ID of the table component whose data is scrollled
+			</description>
+		</property>
+		<property>
+			<name>selectedStyle</name>
+			<classname>java.lang.String</classname>
+			<description>Corresponds to the HTML style attribute for the selected cell on scroller
+			</description>
+		</property>
+		<property>
+			<name>inactiveStyle</name>
+			<classname>java.lang.String</classname>
+			<description>Corresponds to the HTML style attribute for the inactive cell on scroller
+			</description>
+		</property>
+		<property>
+			<name>selectedStyleClass</name>
+			<classname>java.lang.String</classname>
+			<description>Corresponds to the HTML class attribute for the selected cell on scroller
+			</description>			
+		</property>
+		<property>
+			<name>inactiveStyleClass</name>
+			<classname>java.lang.String</classname>
+			<description>Corresponds to the HTML class attribute for the inactive cell on scroller
+			</description>			
+		</property>
+		<property>
+			<name>tableStyleClass</name>
+			<classname>java.lang.String</classname>
+			<description>Space-separated list of CSS style class(es) that are be applied to outside table of this component
+			</description>
+		</property>
+		<property>
+			<name>tableStyle</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style(s) is/are to be applied to outside table when this component is rendered
+			</description>
+		</property>
+
+		<property>
+			<name>styleClass</name>
+			<classname>java.lang.String</classname>
+			<description>Corresponds to the HTML class attribute
+			</description>
+		</property>
+
+		<property>
+			<name>style</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style(s) is/are to be applied when this component is rendered
+			</description>			
+		</property>
+
+		<property>
+			<name>maxPages</name>
+			<classname>int</classname>
+			<description>
+			Maximum quantity of pages. Default value is &quot;10&quot;.
+			</description>
+			<defaultvalue>10</defaultvalue>
+		</property>
+
+		<property>
+			<name>renderIfSinglePage</name>
+			<classname>boolean</classname>
+			<description>
+				If renderIfSinglePage is &quot;true&quot; then datascroller is displayed on condition that the data hold on one page. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>requestDelay</name>
+			<classname>int</classname>
+			<description>
+Attribute defines the time (in ms.) that the request will be wait in the queue before it is ready to send.
+When the delay time is over, the request will be sent to the server or removed if the newest 'similar' request is in a queue already
+			</description>
+		</property>		
+		<property>
+			<name>fastStep</name>
+			<classname>int</classname>
+			<description>
+				The attribute indicates pages quantity to switch onto when fast scrolling is used. Default value is &quot;0&quot;.
+			</description>
+			<defaultvalue>0</defaultvalue>
+		</property>
+		
+		<property>
+			<name>immediate</name>
+			<classname>boolean</classname>
+			<description>A flag indicating that this component value must be converted and validated immediately (that is, during Apply Request Values phase), rather than waiting until a Process Validations phase
+			</description>
+		</property>
+
+
+
+
+		<property>
+			<name>ignoreDupResponses</name>
+			<classname>boolean</classname>
+			<description>
+Attribute allows to ignore an Ajax Response produced by a request if the newest 'similar' request is
+in a queue already. ignoreDupResponses="true" does not cancel the request while it is processed on the server,
+but just allows to avoid unnecessary updates on the client side if the response isn't actual now. Default value is &quot;true&quot;.			
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>eventsQueue</name>
+			<classname>java.lang.String</classname>
+			<description>Name of requests queue to avoid send next request before complete other from same event. Can be used to reduce number of requests of frequently events (key press, mouse move etc.)
+			</description>
+		
+		</property>
+		<property>
+			<name>ajaxSingle</name>
+			<classname>boolean</classname>
+			<description>
+				Boolean attribute which provides possibility to limit JSF tree processing(decoding, conversion/validation, value applying) to the component which send the request only.
+				Default value is &quot;true&quot;
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>align</name>
+			<classname>java.lang.String</classname>
+			<description>
+			This attribute specifies the position of the table with relatively to  the document.
+			Possible values are &quot;left&quot;,&quot;center&quot;,&quot;right &quot;. Default value is &quot;center&quot;.
+			
+			</description>
+			<defaultvalue>"center"</defaultvalue>
+		</property>
+		<property>
+			<name>boundaryControls</name>
+			<classname>java.lang.String</classname>
+			<description>
+				The attribute specifies the visibility of boundaryControls. 
+				Possible values are: &quot;show&quot;  (controls are always visible ). &quot;hide&quot; (controls are hidden. 
+				&quot;auto&quot; (unnecessary controls are hidden). Default value is &quot;show&quot;.
+			</description>
+			<defaultvalue><![CDATA["show"]]></defaultvalue>			
+		</property>
+		<property>
+			<name>fastControls</name>
+			<classname>java.lang.String</classname>
+			<description>
+				The attribute specifies the visibility of fastControls.
+				Possible values are: &quot;show&quot;  (controls are always visible ). &quot;hide&quot; (controls are hidden. 
+				&quot;auto&quot; (unnecessary controls are hidden). Default value is &quot;show&quot;.
+			</description>
+			<defaultvalue><![CDATA["show"]]></defaultvalue>			
+		</property>
+		
+		<property>
+			<name>stepControls</name>
+			<classname>java.lang.String</classname>
+			<description>
+				The attribute specifies the visibility of stepControls.
+				Possible values are: &quot;show&quot;  (controls are always visible ). &quot;hide&quot; (controls are hidden. 
+				&quot;auto&quot; (unnecessary controls are hidden). Default value is &quot;show&quot;.		
+			</description>
+			
+			<defaultvalue><![CDATA["show"]]></defaultvalue>			
+		</property>
+		
+		<property hidden="true">
+			<name>actionExpression</name>
+		</property>	
+		
+		<property>
+			<name>page</name>
+			<classname>int</classname>
+                        <description><![CDATA[If page >= 1 then it's a page number to show]]></description>
+		</property>
+		
+		<property>
+			<name>pageIndexVar</name>
+			<classname>java.lang.String</classname>
+			<description>Name of variable in request scope containing index of active page</description>
+		</property>	
+
+		<property>
+			<name>pagesVar</name>
+			<classname>java.lang.String</classname>
+			<description>Name of variable in request scope containing number of pages</description>
+		</property>	
+
+		<property>
+			<name>onpagechange</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: script expression; a page is changed</description>
+		</property>
+		
+		<property>
+			<name>lastPageMode</name>
+			<classname>java.lang.String</classname>
+			<description>The attribute to control whether last page of datascroller  shows "rows" number of items or just the rest. Possible values are &quot;full&quot; and &quot;short&quot;. Default value is &quot;short&quot;.</description>
+		</property>
+		
+		 <property hidden="true" existintag="false" exist="false" >
+       			<name>firstRow</name>
+       			<classname>int</classname>
+		</property>
+
+	</component>
+    &listeners;	
+</components>

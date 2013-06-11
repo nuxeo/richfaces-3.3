@@ -1,0 +1,36 @@
+<f:subview id="modalPanelSubviewID"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:form id="MPform">
+		<rich:modalPanel id="MP_Calendar" height="500" width="500"
+			moveable="true" resizeable="true" keepVisualState="" visualOptions="">
+
+			<f:facet name="header">
+				<h:outputText value="Calendar" />
+				<h:outputLink
+				action="Richfaces.hideModalPanel('MPform:MP_Calendar');return false;"
+				value="Close">
+				<f:verbatim>Close</f:verbatim>
+			</h:outputLink>
+			</f:facet>
+			<ui:include src="/Calendar/Calendar.xhtml" />
+			<h:outputLink
+				onclick="Richfaces.hideModalPanel('MPform:MP_Calendar');return false;"
+				value="Close">
+				<f:verbatim>Close</f:verbatim>
+			</h:outputLink>
+
+		</rich:modalPanel>
+
+
+		<a onclick="Richfaces.showModalPanel('MPform:MP_Calendar');return false;" href="#">Show
+		Calendar</a>
+		<rich:spacer height="20px"></rich:spacer>
+
+	</h:form>
+</f:subview>

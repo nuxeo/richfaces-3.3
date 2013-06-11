@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+	<h:form id="form">
+		<h:message id="ii_m" for="ii"></h:message>
+		<h:inputText id="ii" value="" required="true"></h:inputText>
+		<rich:dropDownMenu id="componentId" 
+							   value="test">
+  			    <rich:menuItem id="new" 
+  			    			   immediate="#{ddmenuBean.immediate}" 
+  			    			   submitMode="server" 
+  			    			   value="New">
+  			    	<h:inputText value="" required="true" style="display: none;"></h:inputText>
+  			    </rich:menuItem>
+		</rich:dropDownMenu>
+		<br/>
+		<h:commandButton value="submit"></h:commandButton>
+	</h:form>
+	</ui:define>
+</ui:composition>
+</html>

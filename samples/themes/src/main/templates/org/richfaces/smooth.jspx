@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+    xmlns:h="http://jsf.exadel.com/header"
+    xmlns:vcp="http://ajax4jsf.org/cdk/vcp"
+ 	class="org.richfaces.renderkit.html.SmoothThemeRenderer"
+	baseclass="org.richfaces.renderkit.AbstractPageRenderer"
+	component="org.richfaces.component.UIPage" 
+	>
+	<c:set var="namespace" value="#{this:prolog(context,component)}"/>
+	<html x:xmlns="#{namespace}" x:lang="#{context.viewRoot.locale}"
+		>
+<head>
+		   <title>#{component.attributes['pageTitle']}</title>
+		   <f:call name="themeStyle"/>
+		   <f:call name="themeScript"/>
+   		<style type="text/css">   		
+		   <jsp:scriptlet><![CDATA[
+		   		Integer width = (Integer) component.getAttributes().get("width");
+		if (null != width && width.intValue() > 0) {
+			StringBuilder format = new StringBuilder(
+					".rich-page{margin:auto;text-align:left;");
+			format.append("width:").append(width).append("px;");
+			writer.write(format.toString());
+		} else {
+			writer.write(".rich-page{width:100%;}\n");
+		}
+		   ]]></jsp:scriptlet>
+		   </style>
+		   <u:insertFacet name="pageHeader"/>
+
+</head>
+<body  x:passThruWithExclusions="value,name,type,id">
+<table class="rich-page #{component.attributes['pageClass']}" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="common_box">
+
+			<table height="100%"  cellpadding="0" cellspacing="0" class="page_size">
+			  <thead>
+				<tr>
+					<th colspan="3" class="header_bg_left">
+						<div class="header_bg_right">
+							<!-- div class="spacer" style="height : 15px"></div -->
+							<div class="header_content rich-page-header #{component.attributes['headerClass']}">
+		                       <u:insertFacet name="header"/>
+							</div>
+						</div>
+					</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td class="left_col">
+						<div class="left_strut">
+							<br />
+						</div>
+					</td>
+					<td width="100%" height="100%" class="bg_tabbody">
+						<table class="content_body rich-page-content #{component.attributes['contentClass']}" cellpadding="0" cellspacing="0"  width="100%" height="100%">
+						  <tbody>
+							<tr>
+								<td class="menu_col rich-page-sidebar #{component.attributes['sidebarClass']}">
+									<div class="spacer" style="width:#{component.attributes['sidebarWidth']}px"></div>
+		         <u:insertFacet name="sidebar"/>
+								</td>
+								<td class="content_col rich-page-body #{component.attributes['bodyClass']}">
+	           <vcp:body>
+	                  <f:call name="renderChildren" />
+	            </vcp:body>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</td>
+					<td class="right_col">
+						<div class="right_strut">
+							<br />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3" class="footer_bg_left">
+						<div class="footer_bg_right">
+							<div class="footer_bg_content rich-page-footer #{component.attributes['footerClass']}">
+		         <u:insertFacet name="footer"/>
+								
+							</div>
+						</div>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+
+		</td>
+	</tr>
+</table>
+</body>
+</html>
+</f:root>

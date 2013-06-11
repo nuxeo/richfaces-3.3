@@ -1,0 +1,123 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                template="layout/template.xhtml"
+                xmlns:a4j="http://richfaces.org/a4j">
+
+<ui:define name="body">
+
+
+    <h:messages globalOnly="true" styleClass="message"/>
+    
+
+    
+    <rich:panel>
+    <f:facet name="header">Layout Components:  rich:layout and rich:layoutPanel </f:facet>
+  
+<h3>Listing 1: top, left, center, right, bottom</h3>
+
+<rich:layout>
+ 		<rich:layoutPanel position="top">
+                 <p>top</p>
+                 </rich:layoutPanel>
+                 <rich:layoutPanel position="left">
+                   <p>left</p>
+                 </rich:layoutPanel>
+                 <rich:layoutPanel position="center">
+                 <rich:layout>
+                     		<rich:layoutPanel position="top">
+                 <p>top1</p>
+                 </rich:layoutPanel>
+                 <rich:layoutPanel position="left">
+                   <p>left1</p>
+                 </rich:layoutPanel>
+                 <rich:layoutPanel position="center">
+                    <p>center1</p>
+                  </rich:layoutPanel>            
+                 <rich:layoutPanel position="right">
+                <p>right1</p>
+                 </rich:layoutPanel>
+                   <rich:layoutPanel position="bottom">
+               <p>bottom1</p>
+               
+</rich:layoutPanel>
+</rich:layout>
+                  </rich:layoutPanel>            
+                 <rich:layoutPanel position="right">
+                <p>right</p>
+                 </rich:layoutPanel>
+                   <rich:layoutPanel position="bottom">
+               <p>bottom</p>
+</rich:layoutPanel>
+</rich:layout>
+             
+             
+ <h3>Listing 2: center</h3>            
+<rich:layout>
+
+ <rich:layoutPanel position="center">
+        <!--center-->
+</rich:layoutPanel>
+                 
+                  
+</rich:layout>
+            
+            
+  <h3>Listing 3: left + right</h3>              
+<rich:layout>
+
+ <rich:layoutPanel position="left">
+        <p>left</p>
+</rich:layoutPanel>
+    
+            
+<rich:layoutPanel position="right">
+       <p>right</p>
+</rich:layoutPanel>     
+                  
+</rich:layout>
+
+                   
+  
+<table class="tableofattributes" cellpadding="0" cellspacing="0">
+<thead>
+	
+
+		<tr>
+			<td>
+				Attribute
+			</td>
+					<td>
+				Value
+			</td>
+		</tr>
+</thead>
+	<tbody>
+				<tr>
+			<td>
+				Theme
+			</td>
+					<td>
+	
+			</td>
+		</tr>
+		
+		
+	</tbody>
+	
+	
+</table>
+     
+
+
+
+     
+    </rich:panel>
+    
+</ui:define> 
+</ui:composition>

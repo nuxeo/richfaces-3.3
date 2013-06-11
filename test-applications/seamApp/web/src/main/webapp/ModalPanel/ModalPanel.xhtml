@@ -1,0 +1,101 @@
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" id="modalPanelSubviewID">
+
+	<rich:modalPanel id="modalPanelID"
+		binding="#{modalPanel.htmlModalPanel}"
+		visualOptions="#{modalPanel.visualOptions}" left="#{modalPanel.left}"
+		top="#{modalPanel.top}" minHeight="#{modalPanel.minHeight}"
+		minWidth="#{modalPanel.minWidth}" height="#{modalPanel.height}"
+		width="#{modalPanel.width}" moveable="#{modalPanel.moveable}"
+		resizeable="#{modalPanel.resizeable}"
+		keepVisualState="#{modalPanel.keepVisualState}"
+		rendered="#{modalPanel.rendered}" zindex="#{modalPanel.zindex}"
+		autosized="#{modalPanel.autosized}"
+		shadowDepth="#{modalPanel.shadowDepth}"
+		shadowOpacity="#{modalPanel.shadowOpacity}"
+		showWhenRendered="#{modalPanel.showWhenRendered}"
+		controlsClass="#{style.controlsClass}"
+		headerClass="#{style.headerClass}" styleClass="#{style.styleClass}"
+		onhide="#{event.onhide}" onmaskclick="#{event.onmaskclick}"
+		onmaskcontextmenu="#{event.onmaskcontextmenu}"
+		onmaskdblclick="#{event.onmaskdblclick}"
+		onmaskmousedown="#{event.onmaskmousedown}"
+		onmaskmousemove="#{event.onmaskmousemove}"
+		onmaskmouseout="#{event.onmaskmouseout}"
+		onmaskmouseover="#{event.onmaskmouseover}"
+		onmaskmouseup="#{event.onmaskmouseup}" 
+		onmove="#{event.onmove}"
+		onresize="#{event.onresize}" onshow="#{event.onshow}" 
+		onbeforehide="#{event.onbeforehide}"
+		onbeforeshow="#{event.onbeforeshow}" >
+		<f:facet name="header">
+			<h:outputText value="Heder goes here..." />
+		</f:facet>
+		<f:facet name="controls">
+			<h:graphicImage value="/pics/error.gif"	onclick="Richfaces.hideModalPanel('modalPanelID'); return false;" />
+		</f:facet>
+		
+		<h:outputText value="This is Modal Panel example" />
+		<h:selectOneMenu value="#{richBean.srcContainer}" >
+			<f:selectItems value="#{richBean.listContainer}" />
+		</h:selectOneMenu>
+		
+		<h:inputText value="#{modalPanel.inputTextTest}" />
+		<h:selectOneListbox value="#{modalPanel.selectOneListboxTest}">
+			<f:selectItem itemLabel="item 1" itemValue="item 1" />
+			<f:selectItem itemLabel="item 2" itemValue="item 2" />
+			<f:selectItem itemLabel="item 3" itemValue="item 3" />
+		</h:selectOneListbox>
+
+		<f:verbatim><br /><br /></f:verbatim>
+		<rich:spacer width="20" height="20"></rich:spacer>
+
+		<h:outputLink value="http://localhost:8080/facelets"><f:verbatim>http://localhost:8080/facelets/</f:verbatim></h:outputLink>
+		<f:verbatim><br /><br /></f:verbatim>
+		<a4j:commandLink onclick="Richfaces.showModalPanel('modalPanel2ID');return false;" value="show ModalPanel 2"></a4j:commandLink>
+		<f:verbatim><br /><br /></f:verbatim>
+		<h:outputLink onclick="Richfaces.hideModalPanel('modalPanelID');return false;" ><f:verbatim>Close</f:verbatim></h:outputLink>
+	</rich:modalPanel>
+	
+	<rich:modalPanel id="modalPanel2ID" autosized="true" resizeable="false">
+		<br />
+		<h:inputText value="input"></h:inputText>
+		<br />
+		<h:outputLink onclick="Richfaces.hideModalPanel('modalPanel2ID');return false;" ><f:verbatim>Close</f:verbatim></h:outputLink>
+		
+		
+	</rich:modalPanel>
+	
+	<rich:modalPanel id="modalPanel3ID" 
+	minHeight="100" 
+	minWidth="200" 
+	moveable="true" 
+	resizeable="true"
+	keepVisualState="true">
+		<f:facet name="header">
+			<h:outputText value="Events..." />
+		</f:facet>
+		<f:facet name="controls">
+			<h:commandLink value="Close" onclick="Richfaces.hideModalPanel('modalPanel3ID');" />
+		</f:facet>
+
+		<h:outputText value="Eventsaaaaaaaaaaaaaaaa ..." />
+		<rich:calendar popup="true" />
+	</rich:modalPanel>
+	<a onclick="Richfaces.showModalPanel('modalPanelID');" href="#">show ModalPanel 1</a>
+	<br />
+	<a4j:commandLink onclick="Richfaces.showModalPanel('modalPanel2ID');return false;" value="show ModalPanel 2"></a4j:commandLink>
+	<f:verbatim><br /></f:verbatim>
+	<h:outputText value="click on image for open Modal Panel 3" />
+	<h:graphicImage value="/pics/info.gif">
+		<rich:componentControl event="onclick" for="modalPanel3ID" operation="show"></rich:componentControl>
+	</h:graphicImage>
+	<f:verbatim>
+		<br /><br />
+		<div id="idDiv1" align="center" style="position: relative; font-size: 50px; z-index: 2; color: navy" >z-index1</div>
+		<div id="idDiv2" align="center" style="position: relative; font-size: 50px; z-index: 2; color: navy">z-index2</div>
+	</f:verbatim>
+</f:subview>

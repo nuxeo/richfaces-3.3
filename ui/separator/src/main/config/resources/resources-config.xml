@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+	<resource class="org.richfaces.renderkit.html.images.BevelSeparatorImage">
+		<name>org.richfaces.renderkit.html.images.BevelSeparatorImage</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.SimpleSeparatorImage">
+		<name>org.richfaces.renderkit.html.images.SimpleSeparatorImage</name>
+	</resource>
+</resource-config>

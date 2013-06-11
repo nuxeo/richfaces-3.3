@@ -1,0 +1,79 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" id="inputNumberSliderSubviewID">
+	<style>
+.myClass {
+	border: solid;
+	background: #CCCCCC;
+	color: #00CC00;
+}
+</style>
+
+	<h:panelGrid columns="1">
+		<rich:inputNumberSlider 
+			
+			id="SliderId" 
+			barStyle="#{style.barStyle}"
+			accesskey="i"
+			disabled="false"
+			enableManualInput="false"
+			inputClass="inputClass1"
+			inputPosition="#{inputNumberSlider.inputPosition}"
+			orientation="#{inputNumberSlider.orientation}"
+			showArrows="#{inputNumberSlider.showArrows}" 
+			handleSelectedClass="handleSelectedClass1"
+			inputStyle="#{style.inputStyle}" 
+			tipStyle="#{style.tipStyle}"
+			style="#{style.style}" 
+			immediate="#{inputNumberSlider.immediate}"
+			
+			showToolTip="#{inputNumberSlider.showToolTip}"
+			tabindex="#{inputNumberSlider.tabindex}"
+			value="#{inputNumberSlider.value}"
+			valueChangeListener="#{inputNumberSlider.valueChangeListener}"
+			required="#{inputNumberSlider.rendered}"
+			requiredMessage="#{inputNumberSlider.requiredMessage}"
+			inputSize="#{inputNumberSlider.inputSize}"
+			maxValue="#{inputNumberSlider.maxValue}"
+			minValue="#{inputNumberSlider.minValue}"
+			rendered="#{inputNumberSlider.rendered}"
+			showBoundaryValues="#{inputNumberSlider.showBoundaryValues}"
+			step="#{inputNumberSlider.step}"
+			showInput="#{inputNumberSlider.showInput}"
+			width="#{inputNumberSlider.width}"
+			height="#{inputNumberSlider.height}"  
+			barClass=""
+			tipClass="#{style.barClass}" 
+			handleClass="#{style.handleStyle}" 
+			styleClass="#{style.tipStyle}"
+			maxlength="#{inputNumberSlider.maxlength}" 
+			onblur="#{event.onblur}"
+			onchange="#{event.onchange}" 
+			onclick="#{event.onclick}"
+			ondblclick="#{event.ondblclick}" 
+			onerror="#{event.onerror}"
+			onfocus="#{event.onfocus}" 
+			onkeydown="#{event.onkeydown}"
+			onkeypress="#{event.onkeypress}" 
+			onkeyup="#{event.onkeyup}"
+			onmousedown="#{event.onmousedown}" 
+			onmousemove="#{event.onmousemove}"
+			onmouseout="#{event.onmouseout}" 
+			onmouseover="#{event.onmouseover}"
+			onmouseup="#{event.onmouseup}" 
+			onselect="#{event.onselect}"
+			onslide="#{event.onslide}" 
+			binding="#{inputNumberSlider.htmlINS}">
+		</rich:inputNumberSlider>
+		<h:panelGroup>
+			<a4j:commandButton value="valueChangeListener (show)"
+				reRender="valueCLID" />
+			<h:outputText id="valueCLID"
+				value=" #{inputNumberSlider.valueChangeListener}" />
+		</h:panelGroup>
+	</h:panelGrid>
+	<rich:spacer height="20px"></rich:spacer>
+</f:subview>

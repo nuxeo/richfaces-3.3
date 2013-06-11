@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">	
+	<ui:define name="component">
+		<script>
+			//<!--
+			function getParams(){
+				
+				var el = $('parametersId');
+				for(var name in tinyMceParams){
+					if(el.innerHTML){
+						el.innerHTML+=';;';
+					}
+					el.innerHTML +=  name + ':' + tinyMceParams[name];
+				}
+			}
+			//-->
+		</script>
+		<h:form id="formId">
+			<rich:editor id="editorId" 
+					theme="advanced" 
+					configuration="editorFullConfiguration"
+					>
+				<f:param name="paramName" value="paramValue"/>
+			</rich:editor>						  
+			<br/>
+			<span id="parametersId">
+			</span>
+			<br/>
+			<br/>
+			<h:commandButton id="submitId" onclick ="getParams();return false;" value="Get plugins" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">	
+	<ui:define name="component">
+		<h:form id="_form">
+			<rich:calendar
+				id="calendar"
+				popup="false"
+				cellWidth="70px"
+				cellHeight="70px">
+				 <f:facet name="header">
+				 	<h:panelGrid columns="2">
+        				<h:outputText value="Header"/>
+            			<h:outputText value="{todayControl}"/>
+            		</h:panelGrid>
+    			</f:facet>
+    			<f:facet name="optionalHeader">
+    				<h:outputText value="optionalHeader"/>
+    			</f:facet>
+    			<f:facet name="weekDay">
+            		<h:outputText value="WD: {weekDayLabelShort}"/>
+    			</f:facet>
+    			<f:facet name="weekNumber">
+					<h:outputText value="WN: {weekNumber}" style="color:red"/>
+     			</f:facet>
+     			<f:facet name="footer">
+        			<h:panelGrid columns="4">
+        				<h:outputText value="Footer"/>
+            			<h:outputText value="{previousMonthControl}"/>
+            			<h:outputText value="{currentMonthControl}"/>
+            			<h:outputText value="{nextMonthControl}"/>
+        			</h:panelGrid>
+    			</f:facet>
+    			<f:facet name="optionalFooter">
+    				<h:outputText value="optionalFooter"/>
+    			</f:facet>
+    			<h:outputText value="{day}"></h:outputText>
+			</rich:calendar>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

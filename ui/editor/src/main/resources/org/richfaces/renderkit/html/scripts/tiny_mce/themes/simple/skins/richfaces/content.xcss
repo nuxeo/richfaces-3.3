@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim><![CDATA[
+
+]]>
+</f:verbatim>
+
+<u:selector name="body, td, pre">
+	<u:style name="color" skin="generalTextColor"/>
+	<u:style name="font-family" skin="generalFamilyFont"/>
+	<u:style name="font-size" skin="generalSizeFont"/>
+</u:selector>
+
+<u:selector name="body">
+	<u:style name="background" skin="tableBackgroundColor"/>
+</u:selector>
+
+<u:selector name=".mceVisualAid">
+	<u:style name="border-color" value="#BBB"/>
+	<u:style name="border-style" value="dashed"/>
+	<u:style name="border-width" value="1px"/>
+</u:selector>
+
+/* IE */
+
+<u:selector name="* html body">
+	<u:style name="scrollbar-3dlight-color" value="#F0F0EE"/>
+	<u:style name="scrollbar-arrow-color" value="#676662"/>
+	<u:style name="scrollbar-base-color" value="#F0F0EE"/>	
+	<u:style name="scrollbar-darkshadow-color" value="#DDD"/>
+	<u:style name="scrollbar-face-color" value="#E0E0DD"/>
+	<u:style name="scrollbar-highlight-color" value="#F0F0EE"/>
+	<u:style name="scrollbar-shadow-color" value="#F0F0EE"/>	
+	<u:style name="scrollbar-track-color" value="#F5F5F5"/>
+</u:selector>
+
+</f:template>

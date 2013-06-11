@@ -1,0 +1,17 @@
+<listener>
+    <name>sliderListener</name>
+    <listenerclass>
+        org.richfaces.event.DataFilterSliderListener
+    </listenerclass>
+    <componentclass>
+        org.richfaces.event.DataFilterSliderSource
+    </componentclass>
+    <eventclass>
+        org.richfaces.event.DataFilterSliderEvent
+    </eventclass>
+	<taghandler>
+		<classname>
+			org.richfaces.taglib.DataFilterSliderListenerTagHandler
+		</classname>
+	</taghandler>
+</listener>

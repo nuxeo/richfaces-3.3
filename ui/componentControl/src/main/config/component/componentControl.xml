@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+<components>
+	<component>
+		<name>org.richfaces.ComponentControl</name>
+		<family>org.richfaces.ComponentControl</family>
+		<classname>org.richfaces.component.html.HtmlComponentControl</classname>
+		<superclass>org.richfaces.component.UIComponentControl</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlComponentControlTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			The &lt;rich:componentControl&gt; allows to call JavaScript API functions on components after some defined events.
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.ComponentControlRenderer</name>
+			<template>htmlComponentControl.jspx</template>
+		</renderer>
+		<tag>
+			<name>componentControl</name>
+			<classname>org.richfaces.taglib.ComponentControlTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+		&ui_component_attributes;
+		<property >
+			<name>disableDefault</name>
+			<classname>boolean</classname>
+			<description>
+				Disable default action for target event ( append &quot;return false;&quot; to JavaScript )
+			</description>
+			<!-- Has a special dynamic default value -->
+		</property>
+		<property>
+			<name>event</name>
+			<classname>java.lang.String</classname>
+			<description>
+			The Event that is used to trigger the operation on the target component
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>name</name>
+			<classname>java.lang.String</classname>
+			<description>
+			The optional name of the function that might be used to trigger the operation on the target component 
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>for</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Client identifier of the target component.
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>operation</name>
+			<classname>java.lang.String</classname>
+			<description>
+				The function of JavaScript API that will be invoked. The API method
+				is attached to the &apos;component&apos; property of the root DOM element that represents
+				the target component. The function has two parameters - event and params. See: &apos;params&apos;
+				attribute for details.
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>params</name>
+			<classname>java.lang.String</classname>
+			<description>
+				The set of parameters passed to the function of Javascript API that will be invoked. 
+				The JSON syntax is used to define the parameters, but without open and closed curve 
+				bracket.
+				As an alternative, the set of f:param can be used to define the parameters passed to the 
+				API function. If both way are used to define the parameters, both set are concatenated.
+				if names are equals, the f:param has a priority.
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>attachTo</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Client identifier of the component or id of the existing DOM element that is a source
+				for given event. If attachTo is defined, the event is attached on the client according
+				to the attachTiming attribute.
+				If attachTo is not defined, the event is attached on the server to the closest in the
+				component tree parent component.
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>attachTiming</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Defines the page loading phase when componentControl is attached to another component. Default value is &quot;onavailable&quot;
+			</description>
+			<defaultvalue>"onavailable"</defaultvalue>
+		</property>
+		
+		<property hidden="true">
+			<name>parentProperties</name>
+		</property>
+		
+		<property hidden="true">
+	    	<name>onsubmit</name>
+	    	<classname>java.lang.String</classname>
+	    </property>
+	</component>
+</components>

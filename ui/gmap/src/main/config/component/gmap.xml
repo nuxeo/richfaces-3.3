@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.Gmap</name>
+		<family>org.richfaces.Gmap</family>
+		<classname>org.richfaces.component.html.HtmlGmap</classname>
+		<superclass>org.richfaces.component.UIGmap</superclass>
+		<description>
+			<![CDATA[
+			It presents the google map in JSF applications
+            ]]>
+		</description>
+		<test />
+		<renderer generate="true" override="true">
+			<name>org.richfaces.GmapRenderer</name>
+			<template>gmap.jspx</template>
+		</renderer>
+		<tag>
+			<name>gmap</name>
+			<classname>org.richfaces.taglib.GmapTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		&ui_component_attributes;
+   		&html_events;
+        &html_style_attributes;
+
+		<property>
+			<name>gmapKey</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Google Map key. A single Map API key is valid for a single "directory" on your web server. Default value is &quot;internal&quot;.
+			</description>
+			<defaultvalue>"internal"</defaultvalue>
+		</property>
+		<property>
+			<name>oninit</name>
+			<classname>java.lang.String</classname>
+			<description>
+			  HTML: script expression; the Google Map object is initiated.
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>gmapVar</name>
+			<classname>java.lang.String</classname>
+			<description>
+			 The JavaScript variable that is used to access the Google Map API. If you have
+			 more than one Google Map components on the same page, use individual
+			 key for each of them. The default variable name is &quot;map&quot; (without quotes).
+			</description>
+			<defaultvalue>"map"</defaultvalue>
+		</property>
+		<property>
+			<name>lat</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Initial latitude coordinate in degrees, as a number between -90 and +90. Default value is &quot;37.9721046&quot;.
+			</description>
+			<defaultvalue>"37.9721046"</defaultvalue>
+		</property>
+		<property>
+			<name>lng</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Initial longitude coordinate in degrees, as a number between -180 and +180. Default value is &quot;-122.0424842834&quot;.
+			</description>
+			<defaultvalue>"-122.0424842834"</defaultvalue>
+		</property>
+		<property>
+			<name>locale</name>
+			<classname>java.lang.Object</classname>
+			<description>Used for locale definition.   Default value is &quot;getDefaultLocale()&quot;.</description>
+			<defaultvalue>getDefaultLocale()</defaultvalue>
+		</property>
+		<property>
+			<name>zoom</name>
+			<classname>java.lang.String</classname>
+			<description>
+			Initial zoom level as a number between 1 and 18. Default value is &quot;17&quot;.
+			</description>
+			<defaultvalue>"17"</defaultvalue>
+		</property>
+		<property>
+			<name>mapType</name>
+			<classname>java.lang.String</classname>
+			<description>
+			Initial map type. The possible values are  "G_NORMAL_MAP", "G_SATELLITE_MAP",
+                        "G_HYBRID_MAP". Default value is &quot;G_SATELLITE_MAP&quot;.
+			</description>
+			<defaultvalue>"G_SATELLITE_MAP"</defaultvalue>
+		</property>
+		<property>
+			<name>warningMessage</name>
+			<classname>java.lang.String</classname>
+			<description>
+			The warning message that appears if a browser is not compatible with Google Map.
+			Default value is &quot;Your browser does not support Google Maps&quot;.
+			</description>
+			<defaultvalue>"Your browser does not support Google Maps"</defaultvalue>
+		</property>
+		<property>
+			<name>showGMapTypeControl</name>
+			<classname>java.lang.String</classname>
+			<description>
+			  Shows the Type switch control. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>"true"</defaultvalue>
+		</property>
+		<property>
+			<name>showGScaleControl</name>
+			<classname>java.lang.String</classname>
+			<description>
+				It shows the scale control. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>"true"</defaultvalue>
+		</property>
+		<property>
+			<name>showGLargeMapControl</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Shows the GLarge control. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>"true"</defaultvalue>
+		</property>
+		<property>
+			<name>enableDragging</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Enables a map dragging with the mouse. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>"true"</defaultvalue>
+		</property>
+		<property>
+			<name>enableInfoWindow</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Enables Info Window. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>"true"</defaultvalue>
+		</property>
+		<property>
+			<name>enableDoubleClickZoom</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Enables zooming in by a double click. Default value is &quot;false&quot;.
+			</description>
+			<defaultvalue>"false"</defaultvalue>
+		</property>
+		<property>
+			<name>enableContinuousZoom</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Enables continuous smooth zooming for selected browsers. Default value is &quot;false&quot;.
+			</description>
+			<defaultvalue>"false"</defaultvalue>
+		</property>
+	</component>
+</components>

@@ -1,0 +1,42 @@
+<html 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j">
+	<head>
+		<title></title>
+		<script type="text/javascript">
+			function findLog() {
+				return document.getElementById('logConsole');
+			}
+			
+			function hideLog() {
+				findLog().style.display = 'none';
+			}
+			
+			function showLog() {
+				findLog().style.display = '';
+			}
+		</script>
+	</head>
+	<body>
+		<f:view>
+			<ui:include src="/templates/navigation.xhtml" />
+			
+			<a4j:status startText="...running..." startStyle="color: green" for="region" />
+
+			<ui:decorate template="/templates/index.xhtml">
+				<ui:define name="viewQueue">
+					<a4j:queue name="queue" requestDelay="#{bean.queueRequestDelay}" oncomplete="window.status = 'queue handler'"/>
+				</ui:define>
+
+				<ui:define name="formQueue">
+					<a4j:queue name="formQueue" requestDelay="#{bean.queueRequestDelay}" />
+				</ui:define>
+				
+				<ui:define name="title">No global queues</ui:define>
+			</ui:decorate>
+			
+		</f:view>
+	</body>	
+</html>  

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml">
+
+	<u:selector name="body">
+		<u:style name="font-family" skin="generalFamilyFont" />
+		<u:style name="margin" value="0" />
+		<u:style name="padding" value="0" />
+		<u:style name="background-color" value="#FFF"/>
+		<u:style name="background-repeat" value="repeat-x"/>		
+	</u:selector>
+
+	<u:selector name=".rich-page">
+		<u:style name="font-size" skin="generalSizeFont" />
+	</u:selector>
+
+	<f:verbatim>
+		<![CDATA[
+		]]>
+	</f:verbatim>
+
+	<u:selector name=".rich-page-header">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.PageHeaderGradient"/>
+		</u:style>
+		<u:style name="background-repeat" value="repeat-x"/>
+		<u:style name="background-position" value="top left"/>
+		<u:style name="border-bottom" value="1px solid" />
+		<u:style name="border-bottom-color" skin="generalBackgroundColor" />
+		<u:style name="background-color" skin="headerGradientColor"/>
+		<u:style name="min-height" value="40px" />
+		<u:style name="padding" value="0 20px" />
+		<u:style name="color" skin="trimColor" />
+	</u:selector>
+	<u:selector name=".rich-page-subheader">
+		<u:style name="border-bottom" value="1px solid" />
+		<u:style name="border-bottom-color" skin="generalBackgroundColor" />
+		<u:style name="background-color" skin="headerGradientColor"/>
+		<u:style name="padding" value="0 20px" />
+		<u:style name="color" skin="trimColor" />
+	</u:selector>
+
+	<u:selector name=".rich-page-content">
+		<!-- 
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.PageContentGradient"/>
+			<u:style name="min-height" value="200px" />
+		</u:style>
+		<u:style name="background-repeat" value="repeat-x"/>
+		<u:style name="background-position" value="top left"/>
+		-->
+		<u:style name="background-color" skin="generalBackgroundColor"/>
+		<u:style name="border" value="2px solid" />
+		<u:style name="border-color" skin="panelBorderColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-page-main">
+		<u:style name="border-top" value="2px solid" />
+		<u:style name="border-top-color" skin="panelBorderColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-page-body">
+		<u:style name="vertical-align" value="top"/>
+		<u:style name="width" value="100%"/>
+	</u:selector>
+	
+	<u:selector name=".rich-page-footer">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.PageFooterGradient"/>
+		</u:style>
+		<u:style name="border-top" value="1px solid" />
+		<u:style name="border-top-color" skin="generalBackgroundColor" />
+		<u:style name="background-color" skin="panelBorderColor"/>
+		<u:style name="background-repeat" value="repeat-x"/>
+		<u:style name="background-position" value="center left"/>
+		<u:style name="text-align" value="center" />
+		<u:style name="padding" value="20px 0" />
+	</u:selector>
+	
+	<u:selector name=".rich-page-sidebar">
+		<!--u:style name="padding" value="0 20px 0 20px" /-->
+		<u:style name="vertical-align" value="top"/>
+	</u:selector>
+
+	<u:selector name="*.rich-page-sidebar, *.rich-page-body, *.rich-page-footer">
+			<u:style name="font-family" skin="generalFamilyFont" />
+			<u:style name="color" skin="generalTextColor" />
+			<u:style name="font-size" skin="generalSizeFont" />	
+	</u:selector>
+	<u:selector name="*.rich-page-header-content">
+			<u:style name="font-family" skin="headerFamilyFont" />
+			<u:style name="color" skin="headerTextColor" />
+			<u:style name="font-size" skin="headerSizeFont" />	
+	</u:selector>
+
+	<u:selector name="h1,h2,h3">
+		<u:style name="font-family" skin="headerFamilyFont" />
+		<u:style name="margin" value="0" />
+		<u:style name="color" skin="headTextColor" />
+	</u:selector>
+	<u:selector name="h1">
+		<u:style name="font-size" value="333.4%" />
+	</u:selector>
+	<u:selector name="h2">
+		<u:style name="font-size" value="197%" />
+	</u:selector>
+	<u:selector name="p,ul,ol">
+		<u:style name="font-family" skin="generalFamilyFont" />
+		<u:style name="margin-top" value="0" />
+		<u:style name="line-height" value="240%"/>
+		<u:style name="color" skin="controlTextColor" />
+	</u:selector>
+
+	<u:selector name="a:hover">
+		<u:style name="color" skin="hoverLinkColor" />
+	</u:selector>
+	
+	<u:selector name="a:visited">
+		<u:style name="color" skin="visitedLinkColor" />
+	</u:selector>
+</f:template>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.spacer</name>
+		<family>org.richfaces.spacer</family>
+		<classname>org.richfaces.component.html.HtmlSpacer</classname>
+		<superclass>org.richfaces.component.UISpacer</superclass>
+		<description>
+			<![CDATA[A spacer to use in layout. It is rendered as a transparent image. The size is set up 
+			with width and height attributes. By default it is displayed as an inline element (i.e. word spacer). 
+			By using style='display:block' can be used as a line spacer.
+    ]]>
+		</description>
+		<test>
+			<classname>org.richfaces.component.html.HtmlSpacerComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.SpacerRenderer</name>
+			<template>spacer.jspx</template>
+		</renderer>
+		<tag>
+			<name>spacer</name>
+			<classname>org.richfaces.taglib.SpacerTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		
+		&ui_component_attributes;
+      	&html_events;
+        &html_style_attributes;
+		<property>
+			<name>width</name>
+			<classname>java.lang.String</classname>
+			<description>The width of the spacer defined in pixels. Default value is &quot;1px&quot;.</description>
+			<defaultvalue>"1"</defaultvalue>
+		</property>
+		<property>
+			<name>height</name>
+			<classname>java.lang.String</classname>
+			<description>The height of the spacer defined in pixels. Default value is &quot;1px&quot;.</description>
+			<defaultvalue>"1"</defaultvalue>
+		</property>
+		<property>
+			<name>title</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: An advisory title for this element. Often used by the user agent as a tooltip</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+	</component>
+</components>

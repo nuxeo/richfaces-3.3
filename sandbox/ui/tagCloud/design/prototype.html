@@ -1,0 +1,237 @@
+<html>
+<head>
+<title>Rotating 3D Tag Cloud</title>
+<style type="text/css">
+
+address{font-family:Georgia;font-style:normal;text-align:right;}
+#tagcloud, #tagcloud_test{
+	background:#FFF;
+	border:1px solid #000;
+	font:14px Verdana,sans-serif;
+	height:400px;
+	overflow:hidden;
+	position:relative;
+	width:400px;
+}
+#tagcloud ul,#tagcloud li{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+#tagcloud a, #tagcloud_test a{
+
+	background:#FFF;
+	border:1px solid #FFF;
+
+	color:#000;
+	left:50%;
+	line-height:1.2em;
+	margin:-0.6em 0 0 0;
+	padding:0 0.2em;
+	position:absolute;
+	text-align:center;
+	text-decoration:none;
+	top:50%;
+}
+#tagcloud a:hover{
+	background:#FFF;
+	border:1px solid #00F;
+	z-index:1000 !important;
+}
+#tagSphere{
+	font-family:Arial,Helvetica,sans-serif;
+	/*background-color: #333333;*/
+	border: 1px solid #BED6F8;
+}
+#tagSphere li a{
+	font-weight:600;
+	text-decoration:none;
+	color:9ac8f6;
+}
+#tagSphere li a:hover{
+	color: #FF7800;
+}
+</style>
+<script type="text/javascript" src="jquery-1.3.2.js"></script>
+<script type="text/javascript" src="ui.core.js"></script>
+<script type="text/javascript" src="jquerytag.js"></script>
+</head>
+<body>
+
+<h1>Rotating 3D Tag Cloud in JavaScript</h1>
+
+<div id="tagSphere">
+<ul>
+<li><a href="#">ajax</a></li>
+<li><a href="#">bьcher</a></li>
+<li><a href="#">barcamp</a></li>
+<li><a href="#">barrierefrei</a></li>
+<li><a href="#">css</a></li>
+<li><a href="#">design</a></li>
+<li><a href="#">firefox</a></li>
+<li><a href="#">flash</a></li>
+
+<li><a href="#">JavaFX</a></li>
+<li><a href="#">Ajax</a></li>
+<li><a href="#">AIR</a></li>
+<li><a href="#">Seam</a></li>
+<li><a href="#">jQuery</a></li>
+<li><a href="#">RichFaces</a></li>
+<li><a href="#">Hibernate</a></li>
+<li><a href="#">Java Server Faces</a></li>
+<li><a href="#">Firefox</a></li>
+<li><h2><a href="#">Google</a></h2></li>
+
+<li><a href="#">ajax</a></li>
+<li><a href="#">bьcher</a></li>
+<li><a href="#">barcamp</a></li>
+<li><a href="#">barrierefrei</a></li>
+<li><a href="#">css</a></li>
+<li><a href="#">design</a></li>
+<li><a href="#">firefox</a></li>
+<li><a href="#">flash</a></li>
+
+<li><a href="#">JavaFX</a></li>
+<li><a href="#">Ajax</a></li>
+<li><a href="#">AIR</a></li>
+<li><a href="#">Seam</a></li>
+<li><a href="#">jQuery</a></li>
+<li><a href="#">RichFaces</a></li>
+<li><a href="#">Hibernate</a></li>
+<li><a href="#">Java Server Faces</a></li>
+<li><a href="#">Firefox</a></li>
+<li><h2><a href="#">Google</a></h2></li>
+
+<li><a href="#">ajax</a></li>
+<li><a href="#">bьcher</a></li>
+<li><a href="#">barcamp</a></li>
+<li><a href="#">barrierefrei</a></li>
+<li><a href="#">css</a></li>
+<li><a href="#">design</a></li>
+<li><a href="#">firefox</a></li>
+<li><a href="#">flash</a></li>
+
+<li><a href="#">JavaFX</a></li>
+<li><a href="#">Ajax</a></li>
+<li><a href="#">AIR</a></li>
+<li><a href="#">Seam</a></li>
+<li><a href="#">jQuery</a></li>
+<li><a href="#">RichFaces</a></li>
+<li><a href="#">Hibernate</a></li>
+<li><a href="#">Java Server Faces</a></li>
+<li><a href="#">Firefox</a></li>
+<li><h2><a href="#">Google</a></h2></li>
+</ul>
+<div style="background-color:#333333;bottom:0;height:100%;position:absolute;top:0;width:100%; z-index:-102;">&nbsp;</div>
+</div>
+
+<!--div id="tagcloud">
+<a href="#">JavaFX</a>
+<a href="#">Ajax</a>
+<a href="#">AIR</a>
+<a href="#">Seam</a>
+<a href="#">jQuery</a>
+<a href="#">RichFaces</a>
+<a href="#">Hibernate</a>
+<a href="#">Java Server Faces</a>
+<a href="#">Firefox</a>
+<a href="#">Google</a>
+</div-->
+
+<!--div id="tagcloud_test">
+<a href="#">JavaFX</a>
+<a href="#">Ajax</a>
+<a href="#">AIR</a>
+<a href="#">Seam</a>
+<a href="#">jQuery</a>
+<a href="#">RichFaces</a>
+<a href="#">Hibernate</a>
+<a href="#">Java Server Faces</a>
+<a href="#">Firefox</a>
+<a href="#">Google</a>
+</div-->
+<script type="text/javascript">
+$(function() {
+	$('#tagSphere').tagSphere();
+})
+
+/*
+var u; 
+var radius;
+//u = Math.round(Math.random()*360);
+lambda = Math.ceil(Math.random()*90);
+radius = 150;
+var i = 0;
+R = Math.cos(lambda) * radius;
+var container = document.getElementById("tagcloud_test");
+var e = container.getElementsByTagName("a");
+
+for (i = 0; i < e.length; i++)	{
+	u = Math.round(Math.random()*360)
+	e[i].style.left = +"px";
+	e[i].style.top  = Math.cos(lambda) * radius+"px";
+}
+
+
+1. генерим сразу проекцию на плоскость, так проще
+2. координату задаём в такой системе координат - U="угол относительно вертикали" и R="расстояние от центра"
+т.е. луч выходит из центра, задаём его угол и смещение точки по лучу
+3. U сгенерить легко - рандом(360) или рандом(2пи)
+4. осталось сгенерить R
+надо сгенерить случайный угол в диапазоне 0-90 градусов
+взять его косинус - получим случайное число от 0 до 1, но чаще ближе к 1 чем к 0
+и умножить на радиус самой сферы
+*/
+
+/*
+
+
+var a = 0;
+var b = 0;
+var container = document.getElementById("tagcloud");
+var e = container.getElementsByTagName("a");;
+var offA = 0;
+var stepping = 0.01;
+var rotateInterval = 70;
+
+if(document.addEventListener){
+	container.addEventListener("mouseover", calculateStepping, true);
+}else{
+	container.attachEvent("onmouseover", calculateStepping);
+}
+	
+function calculateStepping(event){
+	stepping = (event.clientY - container.offsetTop) / container.offsetHeight * 0.2 - 0.1;
+	return stepping;
+}
+
+for (var i = e.length - 1; i >= 0; i--)	{
+	e[i].tcAngle = i *  2* Math.PI  / e.length;
+}
+
+function rotateCloud(){
+	for (var i = e.length - 1; i >= 0; i--){
+		var angle = e[i].tcAngle - offA;
+
+		x = 50 + Math.cos(angle) * 20;
+		y = 50 + Math.cos(angle) * 40;
+		tcSize = Math.round(20 - Math.sin(angle) * 5);
+		
+		y = (y - 50) * (200 - x * 2) * 0.01 + 50;
+
+		e[i].style.fontSize = tcSize + "px";
+		e[i].style.zIndex = tcSize;
+		e[i].style.left = (container.offsetWidth * x / 100 - e[i].offsetWidth / 2) + "px";
+		e[i].style.top  = y + "%";
+	}		
+	offA += stepping;
+}
+
+setInterval(rotateCloud, rotateInterval);
+*/
+</script>
+
+
+
+</body>
+</html>

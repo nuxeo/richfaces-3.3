@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+   
+	<u:selector name=".rich-picklist-list">
+	</u:selector>
+	
+	<u:selector name=".rich-picklist-source-cell.rich-picklist-target-cell, .rich-picklist-source-cell *, .rich-picklist-target-cell *">
+	</u:selector>
+
+
+	<u:selector name=".rich-list-picklist">
+	</u:selector>
+
+	<u:selector name=".rich-list-picklist-button">
+	</u:selector>
+	
+	<u:selector name=".rich-list-picklist-button-disabled">
+	</u:selector>
+
+	<u:selector name=".rich-list-picklist-button-light">
+	</u:selector>
+
+	<u:selector name=".rich-list-picklist-button-press">
+	</u:selector>
+
+	<u:selector name=".rich-picklist-source-cell-last, .rich-picklist-target-cell-last">
+	</u:selector>
+	
+	<u:selector name=".rich-picklist-source-items, .rich-picklist-target-items">
+	</u:selector>
+	
+	<u:selector name=".rich-picklist-source-cell-selected, .rich-picklist-target-cell-selected, .rich-picklist-source-cell-selected *, .rich-picklist-target-cell-selected *">
+	</u:selector>
+	
+	<u:selector name=".rich-picklist-source-cell-active, .rich-picklist-target-cell-active, .rich-picklist-source-cell-active *, .rich-picklist-target-cell-active *">
+	</u:selector>
+	<u:selector name=".rich-picklist-source-cell-active, .rich-picklist-target-cell-active" >
+	</u:selector>
+	
+	<u:selector name=".rich-picklist-control-disabled, .rich-picklist-control-top, .rich-picklist-control-bottom, .rich-picklist-control-up, .rich-picklist-control-down, .rich-picklist-control-copyall, .rich-picklist-control-copy, .rich-picklist-control-remove, .rich-picklist-control-removeall">
+	</u:selector>
+	
+	<u:selector name=".rich-list-picklist-button-content">
+	</u:selector>
+	
+	<u:selector name=".rich-list-picklist-button-selection">
+	</u:selector>
+	
+	<u:selector name="a.rich-list-picklist-button-a-disabled a">
+	</u:selector>
+	
+	<u:selector name=".rich-picklist-source-row-selected">
+	</u:selector>
+
+	<u:selector name=".rich-picklist-controls">
+	</u:selector>
+
+	<u:selector name=".rich-picklist-list-content">
+	</u:selector>
+
+	<u:selector name=".rich-picklist-internal-tab">
+	</u:selector>
+
+	<u:selector name=".rich-picklist-source-row-active">
+	</u:selector>
+
+	<u:selector name=".rich-picklist-target-row-active">
+	</u:selector>
+
+	<u:selector name=".rich-picklist-source-cell">
+	</u:selector>
+
+	<u:selector name=".rich-picklist-target-cell">
+	</u:selector>
+	
+</f:template>

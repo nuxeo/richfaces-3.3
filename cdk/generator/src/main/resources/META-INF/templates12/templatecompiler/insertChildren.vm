@@ -1,0 +1,12 @@
+#if(${$ELIndex} || ${$ELVar})
+#if(${$ELIndex})
+Integer indexChildren_$indexChildren =  (Integer)ComponentUtils.evaluateExpression(facesContext, "$ELIndex");
+if (null != indexChildren_$indexChildren ) {
+	UIComponent component_$indexChildren =  (UIComponent)component.getChildren().get(indexChildren_$indexChildren .intValue());
+	renderChild(context, component_$indexChildren );
+}
+#else
+	UIComponent component_$indexChildren =  (UIComponent)evaluateExpression( "$ELVar" );
+	renderChild(context, component_$indexChildren );
+#end
+#end

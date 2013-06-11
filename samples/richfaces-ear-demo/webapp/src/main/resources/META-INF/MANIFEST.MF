@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: asmirnov
+Build-Jdk: 1.5.0_11
+Class-Path: lib/richfaces-ui-3.1.1-SNAPSHOT.jar lib/jsf-facelets-1.1.1
+ 2.jar lib/richfaces-api-3.1.1-SNAPSHOT.jar lib/jstl-1.0.jar lib/commo
+ ns-collections-3.2.jar lib/commons-digester-1.8.jar lib/commons-loggi
+ ng-1.0.4.jar lib/richfaces-impl-3.1.1-SNAPSHOT.jar lib/commons-beanut
+ ils-1.7.0.jar
+

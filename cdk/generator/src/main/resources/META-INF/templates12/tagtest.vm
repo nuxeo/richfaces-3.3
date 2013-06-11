@@ -1,0 +1,303 @@
+/**
+ * GENERATED FILE - DO NOT EDIT
+ *
+ */
+package ${tag.packageName};
+
+import static org.easymock.classextension.EasyMock.*;
+import static org.ajax4jsf.tests.JsfMock.*;
+
+#foreach($import in $imports)
+import $import ;
+#end
+
+import javax.faces.convert.Converter ;
+import javax.faces.context.FacesContext ;
+import javax.faces.component.UIComponent;
+import javax.faces.webapp.UIComponentELTag;
+import javax.faces.event.ActionEvent;
+import javax.faces.event.ActionListener;
+import javax.faces.event.ValueChangeEvent;
+import javax.faces.event.ValueChangeListener;
+import javax.faces.validator.Validator;
+import ${component.classname};
+import javax.faces.application.Application;
+import javax.el.ValueExpression;
+import javax.el.MethodExpression;
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequestWrapper;
+import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
+import javax.servlet.jsp.el.ExpressionEvaluator;
+import javax.servlet.jsp.el.VariableResolver;
+import javax.servlet.jsp.tagext.Tag;
+import org.ajax4jsf.tests.MockMethodExpression;
+import java.io.IOException;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.ArrayList;
+import org.ajax4jsf.tests.Condition;
+
+/**
+ * @author Maksim Kaszynski
+ * @since 3.2.0
+ *
+ */
+public class $tag.test.simpleClassName extends $tag.test.superclassname {
+
+	public static final class MyConverter implements Converter {
+	    public Object getAsObject(FacesContext context, UIComponent component,
+    			String value) {
+    		return null;
+    	}
+    	public String getAsString(FacesContext context, UIComponent component,
+    			Object value) {
+    		return null;
+    	}
+	}
+
+	private $tag.simpleClassName tag;
+
+  /**
+   *  Constructor to init default renderers 
+   */ 
+  public ${tag.test.simpleClassName} (String name){
+  	super(name);
+  }
+
+
+	public void setUp() throws Exception {
+		super.setUp();
+		application.addConverter(this.getClass().getName(), MyConverter.class.getName());
+		tag = new ${tag.simpleClassName}();
+		tag.setPageContext(pageContext);
+		
+	}
+
+	public void tearDown() throws Exception {
+		super.tearDown();
+		tag = null;
+	}
+	
+	
+#foreach( $prop in $component.properties )
+ #if( !$prop.existintag && !$prop.hidden)
+  public void ${generator.getSetterTestName($prop)}() {
+		${component.simpleClassName} component = createNiceMock(${component.simpleClassName}.class);
+  #if($prop.name == 'actionListener')
+  		String expression = "#{bean.actionListener}";
+		MockMethodExpression _actionListener = new MockMethodExpression(expression, null, null);
+		tag.setActionListener(_actionListener);
+		component.addActionListener(meActionListener(_actionListener));
+		expectLastCall().once();
+		replay(component);
+		tag.setProperties(component);
+		verify(component);
+          
+  #elseif($prop.name == 'action')
+		String expression = "#{bean.action}";
+		MockMethodExpression action = new MockMethodExpression(expression, null, null);
+		component.setActionExpression(same(action));
+		expectLastCall().once();
+		tag.setAction(action);
+		replay(component);
+		tag.setProperties(component);
+		verify(component);
+		
+  #elseif($prop.name == 'valueChangeListener')
+  		String expression = "#{bean.actionListener}";
+		MockMethodExpression valueChangeListener = new MockMethodExpression(expression, null, null);
+		tag.setValueChangeListener(valueChangeListener);
+		component.addValueChangeListener(meValueChangeListener(valueChangeListener));
+		expectLastCall().once();
+		replay(component);
+		tag.setProperties(component);
+		verify(component);
+		
+  #elseif($prop.name == 'validator')
+		String expression = "#{bean.validate}";
+		MockMethodExpression validator = new MockMethodExpression(expression, null, null);
+		tag.setValidator(validator);
+		component.addValidator(meValidator(validator));
+		expectLastCall().once();
+		replay(component);
+		tag.setProperties(component);
+		verify(component);
+  
+  #elseif($prop.isInstanceof("javax.el.MethodExpression") || $prop.isInstanceof("javax.faces.el.MethodBinding"))
+    #if($prop.isInstanceof("javax.el.MethodExpression"))
+      #set($matcher = 'meEqToMe')
+    #else
+      #set($matcher = 'mbEqToMe')
+    #end		
+		String expression = "#{bean.${prop.name}}";
+		MockMethodExpression _${prop.name} = new MockMethodExpression(expression, null, null);
+		component.${prop.setterName}(${matcher}(_${prop.name}));		
+		replay(component);
+		tag.${prop.setterName}(_${prop.name});
+		tag.setProperties(component);
+		verify(component);
+		
+  #elseif($prop.isInstanceof("javax.el.ValueExpression"))
+		final ValueExpression expression = new org.ajax4jsf.tests.MockValueExpression("#{bean.${prop.name}}");
+		component.${prop.setterName}(same(expression));	
+		expectLastCall().once();
+		replay(component);
+		tag.${prop.setterName}(expression);
+		tag.setProperties(component);
+		verify(component);
+  #elseif($prop.isInstanceof("javax.faces.el.ValueBinding"))
+		final ValueExpression expression = new org.ajax4jsf.tests.MockValueExpression("#{bean.${prop.name}}");
+		component.${prop.setterName}(vbEqToVe(expression));	
+		//Then test literal one
+		expectLastCall().once();
+		
+		replay(component);
+		tag.${prop.setterName}(expression);
+		tag.setProperties(component);
+		verify(component);
+  #elseif($prop.el)
+		//el=true
+		ValueExpression expression = new org.ajax4jsf.tests.MockValueExpression("#{bean.${prop.name}}");
+		component.setValueExpression(eq("${prop.name}"), same(expression));
+		expectLastCall().once();
+		replay(component);
+		tag.${prop.setterName}(expression);
+		tag.setProperties(component);
+		verify(component);
+    #if($prop.name == 'converter' || $prop.name == 'rowKeyConverter')
+		String converterType = this.getClass().getName();
+		expression = new org.ajax4jsf.tests.LiteralValueExpression(converterType);
+		reset(component);
+		component.${prop.setterName}(isA(MyConverter.class));
+		tag.${prop.setterName}(expression);
+		replay(component);
+		tag.setProperties(component);
+		verify(component);
+    #elseif(!$prop.elonly && ${testDataGenerator.isNativelySupported($prop)})		
+		//In case of literal VE
+		${prop.classname} _${prop.name} = ${testDataGenerator.getTestVeData($prop)};
+		reset(component);
+		expression = new org.ajax4jsf.tests.LiteralValueExpression(_${prop.name});
+		component.${prop.setterName}(eq(_${prop.name}));
+		expectLastCall().once();
+
+		tag.${prop.setterName}(expression);
+		replay(component);
+		tag.setProperties(component);
+		verify(component);
+		
+		try {
+			//Now test evaluation of literal
+			expression = new org.ajax4jsf.tests.ConstantlyFailingLiteralValueExpression();
+			tag.${prop.setterName}(expression);
+			tag.setProperties(component);
+			fail("An exception should be thrown");
+		} catch(javax.faces.FacesException e) {
+			//It's ok to throw faces Exception, but its cause should be ELException
+			assertTrue(e.getCause() instanceof javax.el.ELException);
+		}
+    #end
+    		
+  #else
+		${prop.classname} _${prop.name} = ${testDataGenerator.getTestVeData($prop)};
+		reset(component);
+		component.${prop.setterName}(eq(_${prop.name}));
+		expectLastCall().once();
+
+		tag.${prop.setterName}(String.valueOf(_${prop.name}));
+		replay(component);
+		tag.setProperties(component);
+		verify(component);
+
+  #end
+  }
+ #end	
+#end	
+
+
+	public void testRelease() {
+		${component.simpleClassName} component = createMock(${component.simpleClassName}.class);
+		
+		try {
+			java.lang.reflect.Method [] methodsToMock = {
+    #foreach( $prop in $component.properties )
+     #if( !$prop.existintag && !$prop.hidden)
+				${component.simpleClassName}.class.getMethod("${prop.setterName}", ${prop.classname}.class),
+     #end
+    #end		//We mock set rendered to work around easy mock's limitation
+				${component.simpleClassName}.class.getMethod("setValueExpression", String.class, ValueExpression.class)
+				
+			};
+			
+			component = createMock(${component.simpleClassName}.class, methodsToMock);
+		} catch(NoSuchMethodException e) {
+			fail("NoSuchMethod" + e.getMessage());
+		}
+		
+		
+    #foreach( $prop in $component.properties )
+     #if( !$prop.existintag && !$prop.hidden)
+		//First check EL-properties (value and method expressions)
+      #if($prop.isInstanceof("javax.el.MethodExpression") || $prop.isInstanceof("javax.faces.el.MethodBinding"))
+		MethodExpression ${prop.name}Me = new org.ajax4jsf.tests.MockMethodExpression("#{bean.${prop.name}}", null, null);
+		tag.${prop.setterName}(${prop.name}Me);
+      #elseif ($prop.el)
+		ValueExpression ${prop.name}Ve = new org.ajax4jsf.tests.MockValueExpression("#{bean.${prop.name}}");
+		tag.${prop.setterName}(${prop.name}Ve);
+      #end
+     #end
+    #end		
+		tag.release();
+		
+		replay(component);
+		tag.setProperties(component);
+		verify(component);
+		reset(component);
+		
+		//Then check for literal and non-el properties
+
+    #foreach( $prop in $component.properties )
+     #if( !$prop.existintag && !$prop.hidden)
+		//First check EL-properties (value and method expressions)
+      #if($prop.isInstanceof("javax.el.MethodExpression") || $prop.isInstanceof("javax.faces.el.MethodBinding"))
+       #if (!$prop.elonly)
+		tag.${prop.setterName}(new org.ajax4jsf.tests.MockMethodExpression("${prop.name}", null, null));
+       #end
+      #elseif ($prop.el && !$prop.elonly && ${testDataGenerator.isNativelySupported($prop)})
+		tag.${prop.setterName}(new org.ajax4jsf.tests.LiteralValueExpression(String.valueOf(${testDataGenerator.getTestVeData($prop)})));
+      #elseif (!$prop.el && ${testDataGenerator.isNativelySupported($prop)})
+		tag.${prop.setterName}(String.valueOf(${testDataGenerator.getTestVeData($prop)}));
+      #end
+     #end
+    #end		
+		tag.release();
+
+ 		replay(component);
+		
+		tag.setProperties(component);
+		verify(component);
+	}
+	
+		
+	public void testGetRendererType(){
+  #if(${component.renderer.name})
+		assertEquals(tag.getRendererType(), "${component.renderer.name}");
+  #else
+		assertEquals(tag.getRendererType(), null);
+  #end	
+	}
+	
+	public void testGetComponentType(){
+		assertNotNull(tag.getComponentType());
+	}
+	
+	
+}

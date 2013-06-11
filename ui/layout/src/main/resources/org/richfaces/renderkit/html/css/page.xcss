@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml">
+<u:selector name=".rich-page-footer">
+	<u:style name="clear" value="both" />
+</u:selector>
+<u:selector name=".rich-page">
+	<u:style name="margin" value="auto" />
+	<u:style name="text-align" value="left" />
+	<u:style name="min-width" value="750px" />
+</u:selector>
+<u:selector name=".rich-page-sidebar">
+	<u:style name="position" value="relative" />
+</u:selector>
+<u:selector name=".rich-page-sidebar,.rich-page-body">
+	<u:style name="_position" value="static" />
+</u:selector>
+<u:selector name=".rich-page-body">
+	<u:style name="position" value="static" />
+</u:selector>
+<u:selector name=".rich-page-main ">
+	<u:style name="width" value="100%" />
+</u:selector>
+<u:selector name=".rich-page-content:after">
+	<u:style name="content" value="'.'" />
+	<u:style name="display" value="block" />
+	<u:style name="height" value="0" />
+	<u:style name="clear" value="both" />
+	<u:style name="visibility" value="hidden" />
+</u:selector>
+<u:selector name=".rich-page-content">
+	<u:style name="zoom" value="1" />
+</u:selector>
+</f:template>

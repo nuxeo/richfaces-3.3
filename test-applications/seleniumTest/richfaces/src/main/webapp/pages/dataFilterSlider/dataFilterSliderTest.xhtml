@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="autoTestForm">
+			<rich:dataFilterSlider id="componentId" 
+				sliderListener="#{dataFilterSliderBean.doSlide}"
+				action="#{dataFilterSliderBean.action}"
+				for="planetList"
+				forValRef="dataFilterSliderBean.planets" 
+				filterBy="getGravity"
+				manualInput="true" 
+				submitOnSlide="true"  
+				trailer="true"
+				storeResults="#{dataFilterSliderBean.storeResults}"
+				width="200px"
+				startRange="#{dataFilterSliderBean.startRange}"
+				endRange="#{dataFilterSliderBean.endRange}"
+				increment="#{dataFilterSliderBean.increment}"
+				handleValue="#{dataFilterSliderBean.handleValue}"
+				reRender="readout"
+				onclick="EventQueue.fire('onclick')"
+				ondblclick="EventQueue.fire('ondblclick')"
+				onkeydown="EventQueue.fire('onkeydown')"
+				onkeypress="EventQueue.fire('onkeypress')"
+				onmousedown="EventQueue.fire('onmousedown')"
+				onkeyup="EventQueue.fire('onkeyup')"
+				onmousemove="EventQueue.fire('onmousemove')"
+				onmouseout="EventQueue.fire('onmouseout')"
+				onmouseover="EventQueue.fire('onmouseover')"
+				onmouseup="EventQueue.fire('onmouseup')"
+				oninputkeydown="EventQueue.fire('onkeydown')"
+				oninputkeypress="EventQueue.fire('onkeypress')"
+				oninputkeyup="EventQueue.fire('onkeyup')"
+				style="font-size: 16px"
+				styleClass="noclass"
+				handleStyleClass="handle-style-class"
+        		rangeStyleClass="range-style-class"
+        		trackStyleClass="track-style-class"
+        		trailerStyleClass="trailer-style-class"/>
+			<rich:dataTable width="300" id="planetList"
+            value="#{dataFilterSliderBean.planets}" var="planet">
+            <f:facet name="header">
+                <rich:columnGroup>
+                    <h:column>
+                        <h:outputText styleClass="headerText" value="Planet Name" />
+                    </h:column>
+                    <h:column>
+                        <h:outputText styleClass="headerText" value="Surface Gravity, g" />
+                    </h:column>
+                </rich:columnGroup>
+            </f:facet>
+            <h:column>
+                <h:outputText value="#{planet.name}" />
+            </h:column>
+            <h:column>
+                <h:outputText value="#{planet.gravity}" />
+            </h:column>
+        </rich:dataTable>
+        <h:panelGrid id="readout" columns="2">
+        	<h:outputLabel for="submittedValue" value="Submitted Value: " />
+        	<h:outputText id="submittedValue" value="#{dataFilterSliderBean.handleValue}" />
+			<h:outputLabel for="eventSnapshot" value="Event Snapshot: " />
+        	<h:outputText id="eventSnapshot" value="#{dataFilterSliderBean.eventSnapshot}" />
+        </h:panelGrid>
+        <a4j:commandLink id="reset" value="Reset" action="#{dataFilterSliderBean.reset}" ajaxSingle="true" reRender="readout"/>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+   <f:verbatim><![CDATA[
+
+.dr-tree {
+}
+
+.dr-tree-full-width {
+	width: 100%;
+}
+
+.dr-tree-layout-on {
+	zoom: 1;
+}
+
+.dr-tree-h-input, .dr-tree-h-script {
+	display: none;
+}
+
+.dr-tree-h-ic-div {
+	margin-left : 8px;
+	padding-left : 10px;
+}
+
+.dr-tree-h-ic {
+	width: 16px;
+	padding: 1px;
+}
+
+.dr-tree-h-ic-img{
+	width : 16px;
+	height : 16px;
+}
+
+.dr-tree-h-ic-img-md{
+	margin: 0px;
+	display: block;
+}
+
+.dr-tree-h-ic-facets{
+	overflow: hidden;
+}
+
+.dr-tree-h-ic-line {
+	background-position: left;
+	background-repeat: repeat-y;
+}
+
+.dr-tree-h-ic-line-node, .dr-tree-h-ic-line-last, .dr-tree-h-ic-line-exp, .dr-tree-h-ic-line-clp{
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.dr-tree-h-text {
+	width: 100%;
+	cursor: default;
+	padding : 1px 4px 1px 4px;
+	white-space: nowrap;
+}
+
+.dr-tree-h-text-span {
+	white-space: nowrap;
+}
+
+.dr-tree-i-sel {
+	padding : 0px 3px 0px 3px;
+	border : 1px solid;
+	background-color : transparent;
+	background-position: top left;
+	background-repeat: repeat-x;
+}
+
+.dr-tree-i-hl {
+	text-decoration: underline;
+}
+
+.dr-tree-pointer-cursor {
+	cursor: pointer;
+}
+
+.dr-tree-last-node-marker {
+	display: none;
+}
+
+.rich-tree-node-handle {
+	outline-style: none;
+}
+
+]]>
+</f:verbatim>
+
+<u:selector name=".dr-tree">
+	<u:style name="background-color" skin="overAllBackground" />
+</u:selector>
+
+<u:selector name=".dr-tree-h-text">
+	<u:style name="color" skin="panelTextColor" />
+	<u:style name="font-size" skin="preferableDataSizeFont" />
+    <u:style name="font-family" skin="preferableDataFamilyFont" />
+</u:selector>
+
+<u:selector name=".dr-tree-i-hl">
+	<u:style name="color" skin="selectControlColor" />
+</u:selector>
+
+<u:selector name=".dr-tree-i-sel">
+   	<u:style name="border-color" skin="headerBackgroundColor" />
+	<u:style name="color" skin="panelTextColor" />
+</u:selector>
+
+<u:selector name=".dr-tree-h-ic-line">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.TreeLineImage"/>
+	</u:style>
+</u:selector>
+<u:selector name=".dr-tree-h-ic-line-node">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.TreeLineNodeImage"/>
+	</u:style>
+</u:selector>
+<u:selector name=".dr-tree-h-ic-line-last">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.TreeLineLastImage"/>
+	</u:style>
+</u:selector>
+<u:selector name="p.dr-tree-last-node-marker+* .dr-tree-h-ic-line-node">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.TreeLineLastImage"/>
+	</u:style>
+</u:selector>
+<u:selector name="p.dr-tree-last-node-marker+*+div.dr-tree-h-ic-line">
+	<u:style name="background-image" value="none" />
+</u:selector>
+<u:selector name=".dr-tree-h-ic-line-exp">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.TreeLineExpandedImage"/>
+	</u:style>
+</u:selector>
+<u:selector name=".dr-tree-h-ic-line-clp">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.TreeLineCollapsedImage"/>
+	</u:style>
+</u:selector>
+
+<u:selector name=".dr-tree-i-sel .dr-tree-i-hl">
+	<u:style name="color" skin="selectControlColor" />
+</u:selector>
+
+</f:template>

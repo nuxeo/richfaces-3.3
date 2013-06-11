@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	template="../../template/caseTemplate.xhtml">
+	<ui:define name="caseName">testStandartAttributes</ui:define>
+	<ui:define name="caseBody">
+		<style>
+			.classForInplaceinput {
+				color: red; 
+			}
+		</style>
+		<h:form id="_form">
+			<table cellpadding="5" >
+				<tr>
+					<td></td>
+					<td>
+						<rich:inplaceInput id="ii_tsa" value="test" style="border: 3px"  
+																	styleClass="classForInplaceinput" 
+																	onclick="EventQueue.fire('onclick')"
+																	ondblclick="EventQueue.fire('ondblclick')"
+																	onkeydown="EventQueue.fire('onkeydown')"
+																	onkeypress="EventQueue.fire('onkeypress')"
+																	onkeyup="EventQueue.fire('onkeyup')"
+																	onmousedown="EventQueue.fire('onmousedown')"
+																	onmousemove="EventQueue.fire('onmousemove')"
+																	onmouseout="EventQueue.fire('onmouseout')"
+																	onmouseover="EventQueue.fire('onmouseover')"
+																	onmouseup="EventQueue.fire('onmouseup')">
+						</rich:inplaceInput>
+					</td>
+					<td></td>
+				</tr>
+			</table>
+		</h:form>
+	</ui:define>
+</ui:composition>

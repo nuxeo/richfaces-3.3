@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS ENTITY="JSFProcess">
+ <PROCESS-ITEM ENTITY="JSFProcessGroup" NAME="rules:#panel.xhtml"
+  PATH="/panel.xhtml" SHAPE="98,111,0,0" persistent="true"/>
+ <PROCESS-ITEM ENTITY="JSFProcessGroup" NAME="rules:#gmap.xhtml"
+  PATH="/gmap.xhtml" SHAPE="63,198,0,0" persistent="true"/>
+</PROCESS>

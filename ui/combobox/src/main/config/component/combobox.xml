@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+<components>
+    <component>
+        <name>org.richfaces.ComboBox</name>
+        <family>org.richfaces.ComboBox</family>
+        <classname>
+            org.richfaces.component.html.HtmlComboBox
+        </classname>
+        <superclass>org.richfaces.component.UIComboBox</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlComboBoxComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+        <description>
+            The &lt;rich:comboBox&gt; is a component, that provides editable combo box element on a page.
+        </description>
+		<renderer  generate="true" override="true">
+			<name>org.richfaces.renderkit.ComboBoxRenderer</name>
+			<template>combobox.jspx</template>
+		</renderer>
+       	
+       	<tag>
+       		<name>comboBox</name>
+            <classname>org.richfaces.taglib.ComboBoxTag</classname>
+            <superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+            </superclass>
+       		<test/>
+       	</tag>
+       	<properties>
+       		<property>
+       			<name>suggestionValues</name>
+       			<classname>java.lang.Object</classname>
+       			<description>Defines the suggestion collection</description>
+       		</property>
+       		<property>
+		  		<name>enableManualInput</name>
+		  		<classname>boolean</classname>
+       			<description>Enables  keyboard input, if &quot;false&quot; keyboard input will be locked. Default value is &quot;true&quot;</description>
+		  		<defaultvalue>true</defaultvalue>
+		  	</property>
+       		<property>
+	            <name>filterNewValues</name>
+	            <classname>java.lang.Boolean</classname>
+       			<description>Defines the appearance of values in the list. Default value is &quot;true&quot;.</description>
+	            <defaultvalue>true</defaultvalue>
+	        </property>
+	        <property>
+	            <name>directInputSuggestions</name>
+	            <classname>java.lang.Boolean</classname>
+	        	<description>Defines the first value from the suggested in input field. Default value is &quot;false&quot;.</description>
+	            <defaultvalue>false</defaultvalue>
+	        </property>
+	        <property>
+	            <name>selectFirstOnUpdate</name>
+	            <classname>java.lang.Boolean</classname>
+	        	<description>Defines if the first value from suggested is selected in pop-up list. Default value is &quot;true&quot;.</description>
+	            <defaultvalue>true</defaultvalue>
+	        </property>
+	        <property>
+	            <name>showDelay</name>
+	            <classname>java.lang.Integer</classname>
+	        	<description>Delay between event and pop-up list showing. Default value is &quot;0&quot;.</description>
+	            <defaultvalue><![CDATA[0]]></defaultvalue>
+	        </property>
+	        <property>
+	            <name>hideDelay</name>
+	            <classname>java.lang.Integer</classname>
+	        	<description>Delay between losing focus and pop-up list closing. Default value is &quot;0&quot;.</description>
+	            <defaultvalue><![CDATA[0]]></defaultvalue>
+	        </property>
+	        <property>
+	            <name>width</name>
+	            <classname>java.lang.String</classname>
+	        	<description>Width of the component. Default value is &quot;150&quot;.</description>
+	            <defaultvalue><![CDATA["150"]]></defaultvalue>
+	        </property>
+	      
+	        <property>
+	            <name>tabindex</name>
+	            <classname>java.lang.String</classname>
+	        </property>
+	        <property>
+	            <name>listWidth</name>
+	            <classname>java.lang.String</classname>
+	        	<description>Defines width of file popup list</description>
+	        </property>
+	        <property>
+	            <name>listHeight</name>
+	            <classname>java.lang.String</classname>
+	        	<description>Defines height of file pop-up list. Default value is &quot;200px&quot;. </description>
+	            <defaultvalue>"200px"</defaultvalue>
+	        </property>
+	        <property>
+		    	<name>onchange</name>
+		    	<classname>java.lang.String</classname>
+		        <description></description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>onfocus</name>
+		    	<classname>java.lang.String</classname>
+		        <description></description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+	        <property>
+		    	<name>onlistcall</name>
+		    	<classname>java.lang.String</classname>
+	        	<description>The clientside script method to be called when the list is called</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+	        <property>
+		    	<name>onlistclose</name>
+		    	<classname>java.lang.String</classname>
+	        	<description>The clientside script method to be called when the list is closed</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>onselect</name>
+		    	<classname>java.lang.String</classname>
+		        <description></description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>disabled</name>
+		    	<classname>boolean</classname>
+		    	<description>Makes component disabled. . Default value is &quot;false&quot;.</description>
+		    	<defaultvalue>false</defaultvalue>
+		    </property>
+		    <property>
+		    	<name>buttonIcon</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>Defines icon for the button element</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>buttonIconDisabled</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>Defines disabled icon for the button element</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>buttonIconInactive</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>Defines inactive icon for the button element</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>defaultLabel</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>Defines default label for the input field element</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>listStyle</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>CSS style rules to be applied to popup list</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>listClass</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>Style Class attribute for the popup list</description>
+		    </property>
+		    <property>
+		    	<name>inputStyle</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>CSS style rules to be applied to input field</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>inputClass</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>Style Class attribute for the input field</description>
+		    </property>
+		    <property>
+		    	<name>inputDisabledStyle</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>CSS style rules to be applied to disabled input</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>inputDisabledClass</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>Style Class attribute for the disabled input</description>
+		    </property>
+		    <property>
+		    	<name>inputInactiveStyle</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>CSS style rules to be applied to inactive input</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>inputInactiveClass</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>Style Class attribute for the inactive input</description>
+		    </property>
+		    <property>
+		    	<name>itemClass</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>Style Class attribute for the items</description>
+		    </property>
+		    <property>
+		    	<name>itemSelectedClass</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>Style Class attribute for the selected item</description>
+		    </property>
+		    <property>
+		    	<name>buttonStyle</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>CSS style rules to be applied to button</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>buttonClass</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>Style Class attribute for the button</description>
+		    </property>
+		    <property>
+		    	<name>buttonDisabledStyle</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>CSS style rules to be applied to disabled button</description>
+		    </property>
+		    <property>
+		    	<name>buttonDisabledClass</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>Style Class attribute for the disabled button</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>buttonInactiveStyle</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>CSS style rules to be applied to inactive button</description>
+		    </property>
+		    <property>
+		    	<name>buttonInactiveClass</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>Style Class attribute for the inactive button</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    <property>
+		    	<name>style</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>CSS style(s) is/are to be applied when this component is rendered</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		   <property>
+		    	<name>styleClass</name>
+		    	<classname>java.lang.String</classname>
+		     	<description>Corresponds to the HTML class attribute</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		     </property>
+       		<property>
+       			<name>converterMessage</name>
+       			<classname>java.lang.String</classname>
+       			<description>
+       				A ValueExpression enabled attribute that, if present,
+       				will be used as the text of the converter message,
+       				replacing any message that comes from the converter
+       			</description>
+       		</property>
+       		<property>
+       			<name>requiredMessage</name>
+       			<classname>java.lang.String</classname>
+       			<description>
+       				A ValueExpression enabled attribute that, if present,
+       				will be used as the text of the validation message for
+       				the "required" facility, if the "required" facility is
+       				used
+       			</description>
+       		</property>
+       		<property>
+       			<name>validatorMessage</name>
+       			<classname>java.lang.String</classname>
+       			<description>
+       				A ValueExpression enabled attribute that, if present,
+       				will be used as the text of the validator message,
+       				replacing any message that comes from the validator
+       			</description>
+       		</property>
+			<property>
+				<name>label</name>
+				<classname>java.lang.String</classname>
+				<description>A localized user presentable name for this component.</description>
+			</property>
+       		  		  
+	   
+		  	&html_input_attributes;
+		  	&html_input_events;	    
+		    &html_events;
+		    &ui_input_attributes;
+			
+			<property hidden="true">
+       			<name>align</name>
+       			<classname>java.lang.String</classname>
+			</property>
+				    
+		    <property hidden="true" existintag="false" exist="false">
+       			<name>size</name>
+       			<classname>int</classname>
+	   	   	   	<description></description>		
+			</property>
+			<property hidden="true" existintag="false" exist="false">
+       			<name>alt</name>
+       			<classname>java.lang.String</classname>
+	   	   	   	<description></description>		
+			</property>
+		    <property hidden="true" existintag="false" exist="false" >
+       			<name>localValueSet</name>
+       			<classname>boolean</classname>
+       		</property>
+       		 <property hidden="true" existintag="false" exist="false" >
+       			<name>valid</name>
+       			<classname>boolean</classname>
+       		</property>
+       		<property hidden="true" existintag="false" exist="false" >
+       			<name>maxlength</name>
+       			<classname>int</classname>
+       		</property>
+       		<property  hidden="true" existintag="false" exist="false" >
+	            <name>accesskey</name>
+	            <classname>java.lang.String</classname>
+	        	<description></description>
+	         </property>
+		</properties>    
+    </component>
+</components>

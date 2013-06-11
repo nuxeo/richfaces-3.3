@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="seleniumTest">
+  <parameter name="loadStyleStrategy" value="DEFAULT"/>
+  <parameter name="loadScriptStrategy" value="DEFAULT"/>
+  <parameter name="filterPrefix" value="/faces/NEKO/"/>
+
+  <test name="FireFoxFunctionalTests">
+    <parameter name="browser" value="*firefox"/>
+    <packages>
+      <package name="org.richfaces.testng" />
+    </packages>
+  </test>
+  <test name="OperaFunctionalTests">
+    <parameter name="browser" value="*opera"/>
+    <packages>
+      <package name="org.richfaces.testng" />
+    </packages>
+  </test>
+</suite>
+

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.separator</name>
+		<family>org.richfaces.separator</family>
+		<classname>org.richfaces.component.html.HtmlSeparator</classname>
+		<superclass>org.richfaces.component.UISeparator</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlSeparatorComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+
+		<description>			
+			<![CDATA[A horizontal line to use as a separator in a layout. 
+			The line type can be customized with the lineType parameter. ]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.SeparatorRenderer</name>
+			<template>separator.jspx</template>
+		</renderer>
+		<tag>
+			<name>separator</name>
+			<classname>org.richfaces.taglib.SeparatorTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test>
+				<classname>org.richfaces.taglib.HtmlSeparatorTagTest</classname>
+				<superclassname>org.ajax4jsf.tests.AbstractJspTestCase</superclassname>
+			</test>
+
+		</tag>
+		
+		<property>
+	    	<name>width</name>
+    		<classname>java.lang.String</classname>
+	    	<description>The separator width that can be defined in pixels or in percents. Default value is &quot;100%&quot;.
+	    	</description>
+	    </property>
+	    <property>
+	    	<name>height</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>The separator height. Default value is &quot;6px&quot;.
+	    	</description>
+	    </property>
+	    <property>
+	    	<name>lineType</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>A line type. The possible values are
+	    		&quot;beveled&quot;, &quot;dotted&quot;, &quot;dashed&quot;, &quot;double&quot;, &quot;solid&quot; and &quot;none&quot;.
+	    		Default value is &quot;beveled&quot;
+	    	</description>
+    		<defaultvalue>"beveled"</defaultvalue>
+	    </property>
+	    <property>
+	    	<name>title</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: An advisory title for this element.  Often displayed as a tooltip</description>
+		</property>
+		<property>
+	    	<name>align</name>
+			<classname>java.lang.String</classname>
+			<description>
+				This attribute specifies a position of the separator according to the document. The possible values are  "left", "center" and "right". Default value is "left".
+        	</description>
+        	<defaultvalue>"left"</defaultvalue>
+		</property>
+				
+		&ui_component_attributes;
+      	&html_events;
+        &html_style_attributes;
+
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+	</component>
+</components>

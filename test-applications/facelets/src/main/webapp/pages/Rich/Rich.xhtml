@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view contentType="text/html" >
+	<head>
+	<f:loadBundle basename="message" var="msg" />
+	<title></title>
+
+	<script type="text/javascript">
+		function showEvent(elementID, value) {
+			var oldObject = window.document.getElementById(elementID);
+			if(oldObject == null) return;
+			var newObject = window.document.createElement('input');
+			if(oldObject.type) newObject.type = oldObject.type;
+			if(oldObject.size) newObject.size = oldObject.size;
+			if(oldObject.value) newObject.value = value;
+			if(oldObject.id) newObject.id = oldObject.id;
+			oldObject.parentNode.replaceChild(newObject,oldObject);
+		}
+	</script>
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/styles/styles_.css"
+		type="text/css" />
+	</head>
+	<body>
+	<a4j:queue name="org.richfaces.global_queue" disabled="false"/>
+    <a4j:queue name="namedQueue"/>   
+    <a4j:queue />	
+	<h:form id="formID">
+		<div id="divOpthID" align="right" style="z-index: 200"><ui:include src="/pages/RichMenu/RichMenu.xhtml" /></div>
+		
+		<rich:messages id="richMessagesID" ajaxRendered="true" showSummary="true">
+				<f:facet name="errorMarker">
+					<h:graphicImage url="/pics/error.gif" />
+				</f:facet>
+
+				<f:facet name="fatalMarker">
+					<h:graphicImage url="/pics/fatal.gif" />
+				</f:facet>
+
+				<f:facet name="infoMarker">
+					<h:graphicImage url="/pics/info.gif" />
+				</f:facet>
+
+				<f:facet name="warnMarker">
+					<h:graphicImage url="/pics/warn.gif" />
+				</f:facet>
+
+				<f:facet name="passedMarker">
+					<h:graphicImage url="/pics/passed.gif" />
+				</f:facet>
+		</rich:messages>
+		<h:messages showDetail="true" showSummary="true"></h:messages>
+
+		<h:panelGrid id="richGridID" columns="1" width="100%">
+			<h:panelGroup rendered="#{option.reComponent}">
+				<ui:include src="${richBean.pathComponent}" />
+			</h:panelGroup>
+
+			<h:panelGroup rendered="#{option.reStraightforward}">
+				<ui:include src="${richBean.pathStraightforward}" />
+			</h:panelGroup>
+
+			<h:panelGroup rendered="#{option.reProperty}">
+				<ui:include src="${richBean.pathProperty}" />
+			</h:panelGroup>
+		<a4j:log popup="false" rendered="#{option.log}"></a4j:log>
+		</h:panelGrid>
+		
+			<ui:include  src="/pages/Info/Info.xhtml" />
+
+	</h:form>
+	</body>
+</f:view>
+</html>

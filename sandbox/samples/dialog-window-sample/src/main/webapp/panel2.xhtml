@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:panel="http://richfaces.ajax4jsf.org/panel2"
+      xmlns:a4j="https://ajax4jsf.dev.java.net/ajax">
+<head>
+<style>
+ .panel {
+  vertical-align:top;
+ }
+ .rich-panel-header {
+  color:#F00;
+
+ }
+ .top {
+ width:200px;height:100px;
+ }
+ .hea {
+  color:#FCC;
+ }
+ .bo {
+  color:#F00;
+ }
+
+ .top2 {
+ width:200px;height:100px;
+ border:2px solid #4C9600;
+ background-color:#E4FFC8;
+ }
+
+
+.hea2 {
+  background-image : url();
+  background-color : #4C9600;
+  text-align:center;
+  vertical-align:middle;
+  color:#CFF;
+  padding:4px 0;
+ }
+
+ .bo2 {
+  color:#4C9600;
+ }
+ .bo3 {
+  height:100px;
+  overflow:auto;
+ }
+
+</style>
+</head>
+<body>
+<h:form>
+<h:selectOneRadio binding="#{skinBean.component}" />
+<h:commandLink action="#{skinBean.change}" value="set skin" />
+</h:form>
+<h:outputLink value="panel.jsf">Sample 1</h:outputLink>
+ <h:panelGrid columnClasses="panel" border="0" columns="3">
+    <panel:panel2 styleClass="top">
+    <a4j:facet name="header">
+    <h:panelGroup>
+    dsdsdsdsd<br />sdsd
+    </h:panelGroup>
+
+    </a4j:facet>
+
+    This is <b>default</b> panel. content here
+    </panel:panel2>
+    <panel:panel2 styleClass="top" headerClass="hea" bodyClass="bo">
+    <a4j:facet name="header">
+    <h:outputText value="Header of the Panel" />
+    </a4j:facet>
+     This panel contains custom headerClass and bodyClass
+    </panel:panel2>
+    <panel:panel2 styleClass="top2" headerClass="hea2" bodyClass="bo2">
+    <a4j:facet name="header">
+    <h:outputText
+      value="Header of the Panel" />
+    </a4j:facet>
+     This panel also contains custom headerClass and bodyClass. The background is not a 3D anymore.
+    </panel:panel2>
+
+    <h:panelGroup>
+    <h:form>
+    <panel:panel2
+    onmouseover="document.getElementById(this.id+'_header').style.background='#60BA01';document.getElementById(this.id+'_body').style.background='#F4FFF8'"
+    onmouseout="document.getElementById(this.id+'_header').style.background='#4C9600';document.getElementById(this.id+'_body').style.background='#E4FFC8'"
+     style="width:200px;" headerClass="hea2" bodyClass="bo3">
+    <a4j:facet name="header">
+    <h:outputText
+      value="Header of the Panel" />
+    </a4j:facet>
+     Base on the previous layout, but form element and javascript behaviour are added
+     <br />
+     <h:inputText />
+    </panel:panel2>
+    </h:form>
+    </h:panelGroup>
+
+    <panel:panel2 style="width:200px;" headerClass="hea" bodyClass="bo3">
+    <a4j:facet name="header">
+    <h:outputText
+      value="Scrolling Text Panel" />
+    </a4j:facet>
+     Long Text Long Text Long Text
+     Long Text Long Text Long Text
+     Long Text Long Text Long Text
+     Long Text Long Text Long Text
+     Long Text Long Text Long Text
+     Long Text Long Text Long Text
+     Long Text Long Text Long Text
+     Long Text Long Text Long Text
+     Long Text Long Text Long Text
+     Long Text Long Text Long Text
+     Long Text Long Text Long Text
+     Long Text Long Text Long Text
+     Long Text Long Text Long Text
+
+    </panel:panel2>
+
+    <panel:panel2 styleClass="top">
+     This is a panel without the header
+
+    </panel:panel2>
+ </h:panelGrid>
+ <panel:panel2 style="position: absolute; top: 116px; right: 100px; " styleClass="top">
+    <a4j:facet name="header">
+    <h:outputText value="Header of the Panel" />
+    </a4j:facet>
+
+    This is a panel with absolute position on the screen.<br/>
+    Resize the browser's window for fun.
+ </panel:panel2>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+      
+<ui:composition template="/layout/layout.xhtml">
+	<ui:define name="template">
+		<h:form id="form">
+			<a4j:commandLink value="First Link" id="link1" data="#{'firstLink'}" oncomplete="window.receivedData = data" />	
+	
+			<rich:calendar value="22-10-2008" locale="en_US" id="calendar" popup="false" mode="ajax" dataModel="#{rf4507}">
+				<h:outputText value="{data}" />
+				<f:convertDateTime pattern="dd-MM-yyyy"/>
+			</rich:calendar>
+	
+			<a4j:commandLink value="Second Link" id="link2" data="#{'secondLink'}" oncomplete="window.receivedData = data" />	
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

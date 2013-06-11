@@ -1,0 +1,76 @@
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.text.*;
+import java.awt.event.*;
+import java.awt.*;
+
+JFrame browser( startingUrl ) {
+	invoke( method, args ) {}
+
+    windowClosing(WindowEvent we) {
+		we.getWindow().setVisible(false);
+	}
+
+	setPage( url ) {
+		try {
+		  pane.setPage( url );
+		} catch(Exception e) {
+		  statusBar.setText("Error opening page: "+url);
+		}
+	}
+
+	hyperlinkUpdate( HyperlinkEvent he ) {
+		type = he.getEventType();
+		if (type == HyperlinkEvent.EventType.ENTERED) {
+			pane.setCursor(
+				Cursor.getPredefinedCursor( Cursor.HAND_CURSOR) );
+			statusBar.setText(he.getURL().toString());
+		} else 
+			if (type == HyperlinkEvent.EventType.EXITED) {
+			pane.setCursor( Cursor.getDefaultCursor() );
+			statusBar.setText(" ");
+		} else {
+			setPage( he.getURL() );
+			if (urlField != null)
+				urlField.setText(he.getURL().toString());
+		}
+	}
+
+	frame = new JFrame("Browser");
+    frame.setSize(400,300);
+    frame.addWindowListener( this );
+
+    urlPanel = new JPanel();
+    urlPanel.setLayout(new BorderLayout());
+    urlField = new JTextField(startingUrl);
+    urlPanel.add(new JLabel("Site: "), BorderLayout.WEST);
+    urlPanel.add(urlField, BorderLayout.CENTER);
+
+    statusBar = new JLabel(" ");
+    pane = new JEditorPane();
+    pane.setEditable(false);
+	setPage( startingUrl );
+    jsp = new JScrollPane(pane); 
+
+    frame.getContentPane().add(jsp, BorderLayout.CENTER);
+    frame.getContentPane().add(urlPanel, BorderLayout.SOUTH);
+    frame.getContentPane().add(statusBar, BorderLayout.NORTH);
+
+	// This is the equivalent of an inner class in bsh.
+	urlTextHandler() {
+		actionPerformed(ActionEvent ae) {
+			setPage( ae.getActionCommand() );
+		}
+		return this;
+	}
+
+    urlField.addActionListener( urlTextHandler() );
+    pane.addHyperlinkListener( (HyperlinkListener)this );
+
+	return frame;
+}
+
+browser = browser("http://java.sun.com/");
+browser.show();
+
+

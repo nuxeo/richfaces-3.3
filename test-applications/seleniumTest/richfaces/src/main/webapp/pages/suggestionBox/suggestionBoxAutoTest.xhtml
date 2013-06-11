@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.autoTestTemplate}">
+	<ui:define name="component">
+			<script>
+			<!--
+			function processObjectChange(sb) {
+				var items = sb.getSelectedItems();
+				var html = "";
+				if(items && items.length > 0) {
+					var html = "<ul>";
+		       		for ( var i = 0; i < items.length; i++) {
+		       			html += "<li>" + items[i].capital + "</li>";
+			    	}
+			    	html += "</ul>"
+				}
+				document.getElementById('suggestionObject').innerHTML = html;
+			}
+			-->
+			</script>
+		 	<h:inputText value="#{suggestionBean.countryName}" id="suggestion" />
+			<rich:suggestionbox id="componentId"
+				for="suggestion" tokens=",[]"
+                suggestionAction="#{suggestionBean.autocomplete}"
+                var="country" fetchValue="#{country.name}"
+                minChars="3"
+                nothingLabel="No countries found"
+                rendered="#{autoTestBean.rendered}"
+                limitToList="#{autoTestBean.limitToList}"
+                reRender="#{autoTestBean.reRender}"
+                oncomplete="#{autoTestBean.oncomplete}"
+                bypassUpdates="#{autoTestBean.bypassUpdate}"
+                immediate="#{autoTestBean.immediate}"
+                ajaxSingle="#{autoTestBean.ajaxSingle}"
+                process="#{autoTestBean.process}"
+                usingSuggestObjects="true"
+                onobjectchange="processObjectChange(suggestion)"
+                styleClass="noclass"
+                style="font-size: 13px"
+                entryClass="entry-class"
+        		popupClass="popup-class"
+        		popupStyle="font-size: 14px"
+        		rowClasses="odd-class,even-class"
+        		selectedClass="selected-class"
+        		selectValueClass="select-value-class"
+        		height="250"
+        		width="300">
+                <f:param name="parameter1" value="value1" />
+				<f:param name="parameter2" value="value2" />
+				<f:param name="parameter3" value="value3" />
+                    <h:column>
+                        <h:outputText value="#{country.name}" />
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{country.capital}" />
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{country.area}" />
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{country.population}" />
+                    </h:column>
+        	</rich:suggestionbox>
+        	<p>Selected countries' capitals:</p>
+        	<span id="suggestionObject"/>
+	</ui:define>
+</ui:composition>
+</html>

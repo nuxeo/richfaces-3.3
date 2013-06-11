@@ -1,0 +1,44 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" id="spacerPropertySubviewID">
+	<h:commandButton action="#{spacer.add}" value="add test" />
+	<h:panelGrid columns="2">
+		<h:outputText value="Width (px or %):"></h:outputText>
+		<h:inputText value="#{spacer.width}">
+			<a4j:support event="onchange" reRender="spacerId"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="Height (px or %):"></h:outputText>
+		<h:inputText value="#{spacer.height}">
+			<a4j:support event="onchange" reRender="spacerId"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="title:"></h:outputText>
+		<h:inputText value="#{spacer.title}">
+			<a4j:support event="onchange" reRender="spacerId"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="Rendered:"></h:outputText>
+		<h:selectBooleanCheckbox value="#{spacer.rendered}" onclick="submit()">
+		</h:selectBooleanCheckbox>
+
+		<h:outputText value="Style" />
+		<a4j:commandButton id="btn" action="#{spacer.doStyle}"
+			value="#{spacer.btn}" reRender="spacerId, btn"></a4j:commandButton>
+	</h:panelGrid>
+	<br />
+	<br />
+	<div style="FONT-WEIGHT: bold;">rich:findComponent</div>
+	<h:panelGrid columns="2">
+		<rich:column>
+			<a4j:commandLink value="getRendererType" reRender="findID"></a4j:commandLink>
+		</rich:column>
+		<rich:column>
+			<h:outputText id="findID"
+				value="#{rich:findComponent('spacerId').rendererType}" />
+		</rich:column>
+	</h:panelGrid>
+</f:subview>

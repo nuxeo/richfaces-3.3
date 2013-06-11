@@ -1,0 +1,8 @@
+Object[] states = (Object[]) state;
+super.restoreState(context, states[0]);
+#set($counter = 1)
+#foreach($descriptor in $descriptors) 
+	#set($fragment = "states[${counter}]")
+	${descriptor.field.name} = ${descriptor.restoreStateCode($fragment)};
+	#set($counter = $counter+1)
+#end

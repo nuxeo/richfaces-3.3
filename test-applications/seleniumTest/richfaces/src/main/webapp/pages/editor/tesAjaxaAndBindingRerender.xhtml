@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">	
+	<ui:define name="component">
+		<script>
+		//<!--
+			function getActualValue(){
+				var el = $(getParentId() + 'formId:actualValueId');
+				el.innerHTML = tinyMCE.activeEditor.getContent();
+			}
+		//-->
+		</script>
+		<h:form id="formId">
+			<rich:editor id="editorId" 
+					binding="#{editorBean.editor}"
+					value="#{editorBean.value}"
+					/>						  
+			<br/>
+			<h:message id="editorMessageId" for="editorId" />
+			<br/>
+			<h:outputText escape="false" id="editorValueId" value="#{editorBean.valueFromBinding}" />
+			<br/>
+			<h:outputText escape="false" id="actualValueId" value="" />
+			<br/>
+			<a4j:commandButton id="submitId" action="#{editorBean.changeValue}" reRender="editorId" value="ReRender" oncomplete="getActualValue();"/>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

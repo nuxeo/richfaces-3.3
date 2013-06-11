@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<root id="0">
+	<project name="richfaces" id="1">
+		<directory name="design" id="2">
+			<directory name="funcspec" id="3">
+				<file name="FunctionalSpecification-1.0.doc" id="4"/>
+				<file name="Requirements-1.0.doc" id="5"/>
+			</directory>			
+		</directory>
+		<directory name="src" id="6">
+			<directory name="main" id="7">
+				<directory name="config" id="8">
+					<directory name="org" id="9">
+						<directory name="richfaces" id="10">
+							<directory name="component" id="11">
+								<file name="tree.config.xml" id="12"/>
+								<file name="treeNode.config.xml" id="13"/>
+							</directory>
+						</directory>
+					</directory>
+				</directory>
+				<directory name="templates" id="14"></directory>
+			</directory>
+			<directory name="test" id="15"></directory>
+		</directory>
+		<directory name="target" id="16">
+			<file name="richfaces-3.1.0-snapshot" id="21"/>
+			<file name="richfaces-3.1.0-javadoc" id="30"/>
+			<archive name="richfaces-3.1.0-sources" id="22">
+				<archiveEntry name="org" id="23">
+					<archiveEntry name="richfaces" id="24">
+						<archiveEntry name="component" id="25">
+							<archiveEntry name="UITree" id="26"/>
+							<archiveEntry name="UITreeNode" id="27"/>
+							<archiveEntry name="UICalendar" id="28"/>
+							<archiveEntry name="UIRangedNumberInput" id="29"/>
+						</archiveEntry>
+					</archiveEntry>
+				</archiveEntry>
+			</archive>
+			<directory name="generated-component" id="17" />
+			<directory name="surefire-reports" id="18">
+				<file name="org.richfaces.JSFComponentTest.txt" id="19"/>
+				<file name="TEST-ComponentTest.xml" id="20"/>
+			</directory>
+		</directory>
+	</project>
+</root>

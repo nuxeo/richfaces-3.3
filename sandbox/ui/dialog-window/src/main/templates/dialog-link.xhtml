@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://jsf.exadel.com/template"
+	    xmlns:c="http://java.sun.com/jsf/core"
+	    xmlns:ui="http://jsf.exadel.com/ui"
+	    xmlns:vcp="http://jsf.exadel.com/vcp"
+	    xmlns:u="http://jsf.exadel.com/util"
+	    xmlns:x="http://jsf.exadel.com/mock"
+	    baseclass="org.richfaces.renderkit.DialogLinkRenderer"
+	    class="org.richfaces.renderkit.DialogLinkTemplate"
+        component="org.richfaces.component.UIDialogLink">
+	
+	<f:clientid var="clientId"/>
+	
+	<a href="#" id="#{clientId}" style="#{component.attributes['style']}"
+                class="#{component.attributes['styleClass']}"
+                onclick="#{this:getOnClick(context,component)}"
+    >
+		<f:call name="utils.encodePassThruWithExclusions">
+			<f:parameter value="onclick"/>
+		</f:call>
+		#{component.attributes['value']}<vcp:body/>
+	</a>
+</f:root>

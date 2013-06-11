@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:h=" http://ajax4jsf.org/cdk/h"
+	xmlns:vcp=" http://ajax4jsf.org/cdk/vcp"
+	class="org.richfaces.renderkit.html.TreeRenderer"
+	baseclass="org.richfaces.renderkit.TreeRendererBase"
+	component="org.richfaces.component.UITree" 
+	>
+	<h:styles>css/tree.xcss</h:styles>
+
+	<h:scripts>
+		new org.ajax4jsf.javascript.PrototypeScript(),
+		new org.ajax4jsf.javascript.AjaxScript(),
+		/org/richfaces/renderkit/html/scripts/utils.js,
+		/org/ajax4jsf/javascript/scripts/form.js,
+		/org/richfaces/renderkit/html/scripts/form.js,
+		/org/richfaces/renderkit/html/scripts/events.js,
+		/org/richfaces/renderkit/html/scripts/tree.js,
+		/org/richfaces/renderkit/html/scripts/tree-selection.js,
+		/org/richfaces/renderkit/html/scripts/tree-item.js,
+		/org/richfaces/renderkit/html/scripts/tree-item-dnd.js,
+		/org/richfaces/renderkit/html/scripts/drag-indicator.js,
+		/org/richfaces/renderkit/html/scripts/browser_info.js	
+	</h:scripts>
+
+	<f:clientId var="clientId" />
+	
+	<jsp:scriptlet>
+		<![CDATA[org.richfaces.component.util.FormUtil.throwEnclFormReqExceptionIfNeed(context,component);]]>
+    </jsp:scriptlet>
+
+	<div id="#{clientId}"
+		style="#{component.attributes['style']}" class="dr-tree rich-tree #{component.attributes['styleClass']}" x:passThruWithExclusions="id,style,class,styleClass,rows">
+		
+	<f:call name="encodeAttributeParameters" />
+
+	<f:call name="writeNamespace" />
+	
+	<vcp:body />
+	
+	<f:call name="encodeSelectionStateInput" />
+	<f:clientId var="clientId" />
+	<script type="text/javascript">(function() {
+			var tree = new Tree("#{clientId}", "#{clientId}:input", "#{component.switchType}",
+				{
+					onselect: "#{component.attributes['onselected']}", 
+					onexpand: "#{component.attributes['onexpand']}", 
+					oncollapse: "#{component.attributes['oncollapse']}",
+					oncontextmenu: "#{component.attributes['oncontextmenu']}" 
+				},
+				function(event) {
+					#{this:getAjaxScript(context, component)}
+				},
+				#{this:getOptions(context, component)}
+			);
+			#{this:getScriptContributions("tree", context, component)}
+		}());
+	</script> 
+	
+	<f:call name="writeScriptElement">
+		<f:parameter value=""/>
+	</f:call>
+
+	</div>
+</f:root>

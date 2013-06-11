@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+
+<components>
+	<component>
+		<name>org.richfaces.TabPanel</name>
+		<family>org.richfaces.TabPanel</family>
+		<classname>org.richfaces.component.html.HtmlTabPanel</classname>
+		<superclass>org.richfaces.component.UITabPanel</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlTabPanelComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[A tab panel displaying tabs for grouping content of a panel.
+    ]]>
+		</description>
+		<facet>
+		   <name>label</name>
+		   <description>Defines the text for the actual "tab" in a tab section</description>
+		</facet>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.TabPanelRenderer</name>
+			<template>tabPanel.jspx</template>
+		</renderer>
+		<tag>
+			<name>tabPanel</name>
+			<classname>org.richfaces.taglib.TabPanelTag</classname>
+			<superclass>org.richfaces.taglib.TabPanelTagBase</superclass>
+			<test/>
+		</tag>
+		<taghandler generate="true">
+			<classname>org.richfaces.taglib.TabPanelTagHandler</classname>
+			<superclass>org.richfaces.taglib.TabPanelTagHandlerBase</superclass>
+		</taghandler>
+		<property>
+	    	<name>width</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Width of a tab panel defined in pixels or in percents. 
+	    	The default value is 100%</description>
+	    </property>
+	    <property>
+	    	<name>height</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Height of a tab panel defined in pixels or in percents</description>
+	    </property>
+	    <property>
+	    	<name>switchType</name>
+	    	<classname>java.lang.String</classname>
+	      <description><![CDATA[Tabs switch mode: "client", "server"(default), "ajax"]]></description>
+	    	<defaultvalue>DEFAULT_METHOD</defaultvalue>
+	    </property>
+ 		<property hidden="true" >
+			<name>localValueSet</name>
+		</property>
+		<property hidden="true" >
+			<name>valid</name>
+		</property>
+	    <property>
+	    	<name>tabClass</name>
+	    	<classname>java.lang.String</classname>
+	      	<description>A CSS class to be applied to all tabs</description>
+	    </property>
+		<property exist="true" existintag="true">
+			<name>selectedTab</name>
+			<classname>java.lang.Object</classname>
+			<description>Attribute defines name of selected tab</description>
+		</property>		
+	    <property>
+	    	<name>activeTabClass</name>
+	    	<classname>java.lang.String</classname>
+	      	<description>A CSS class to be applied to an active tab</description>
+	    </property>
+	    <property>
+	    	<name>inactiveTabClass</name>
+	    	<classname>java.lang.String</classname>
+	      	<description>CSS class to be applied to an inactive (but not disabled) tab</description>
+	    </property>
+	    <property>
+	    	<name>disabledTabClass</name>
+	    	<classname>java.lang.String</classname>
+	      	<description>A CSS class to be applied to a disabled tab</description>
+	    </property>
+	    <property>
+	    	<name>contentStyle</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>A CSS style is for the content of a tab panel</description>
+	    </property>
+	    <property>
+	    	<name>contentClass</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>A CSS class for content of a tab panel</description>
+	    </property>
+	    <property>
+	    	<name>headerAlignment</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Sets tab headers alignment. It can be "left" or "right".
+	    		 Default value is &quot;left&quot;.
+	    	</description>
+			<defaultvalue>"left"</defaultvalue>
+	    </property>
+	    <property>
+	    	<name>headerSpacing</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Sets tab headers spacing. It should be a valid size unit expression. Default value is &quot;1px&quot;.
+	    	</description>
+			<defaultvalue>"1px"</defaultvalue>
+	    </property>
+		<property>
+	    	<name>headerClass</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>A CSS style is for the header of a tab panel.
+	    	</description>
+	    </property>
+	    <property hidden="true">
+	    	<name>renderedValue</name>
+	    	<classname>java.lang.Object</classname>
+	    	<description></description>
+	    </property>
+	    
+	    <property>
+            <name>ontabchange</name>
+            <classname>java.lang.String</classname>
+            <description>
+            	HTML: a script expression; a tab has been changed 
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+			<name>label</name>
+			<classname>java.lang.String</classname>
+			<description>A localized user presentable name for this component.</description>
+		</property>
+
+	    &html_attributes;
+	    &html_events;
+		&ui_component_attributes;
+		&ui_input_attributes;
+	</component>
+	
+	<component generate="true">
+		<name>org.richfaces.Tab</name>
+		<family>org.richfaces.Tab</family>
+		<classname>org.richfaces.component.html.HtmlTab</classname>
+		<superclass>org.richfaces.component.UITab</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlTabComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[A tab section within a tab panel]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.TabRenderer</name>
+			<template>tab.jspx</template>
+		</renderer>
+		<tag>
+			<name>tab</name>
+			<classname>org.richfaces.taglib.TabTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+
+    	&html_style_attributes;
+		&ui_component_attributes;
+		&ui_command_attributes;
+		&ajax_component_attributes;
+		&html_event_handler_attributes;	
+	    <property hidden="true">
+	    	<name>value</name>
+	    	<classname>java.lang.Object</classname>
+	    </property>
+		<property hidden="true">
+			<name>actionExpression</name>
+		</property>		
+	    <property>
+	    	<name>name</name>
+	    	<classname>java.lang.Object</classname>
+	    	<description>Attribute defines tab name. Default value is &quot;getId()&quot;.</description>
+	    	<defaultvalue>getId()</defaultvalue>
+	    </property>
+	    <property >
+	    	<name>disabled</name>
+	    	<classname>boolean</classname>
+	    	<description>Disables a tab in a tab panel</description>
+	    </property>
+	    <property>
+	    	<name>label</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Text for the actual "tab" in a tab section</description>
+	    </property>
+		<property>
+			<name>title</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: An advisory title for this element. Often displayed as a tooltip</description>
+		</property>		
+	    <property>
+	    	<name>labelWidth</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Length for the actual "tab" in a tab section defined in pixels. If it is not defined, the
+	    	length is calculated basing on a tab label text length</description>
+	    </property>
+	    <property>
+	    	<name>switchType</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Tabs switch mode. Possible values are  "client", "server", "ajax", "page".</description>
+	    </property>
+	    <property hidden="true">
+	    	<name>active</name>
+	    	<classname>boolean</classname>
+	    </property>
+        <property>
+            <name>ontableave</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Event must occur on the tab which has been left 
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>ontabenter</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Event must occur on the tab which has been entered 
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        
+        <property>
+        	<name>onlabelkeypress</name>
+        	<classname>java.lang.String</classname>
+        	<description>
+        		A JavaScript event handler; a key within label is pressed and released
+        	</description>
+        </property>
+        
+        <property>
+        	<name>onlabeldblclick</name>
+        	<classname>java.lang.String</classname>
+        	<description>
+        		A JavaScript event handler; a pointer within label is double-clicked
+        	</description>
+        </property>
+        
+        <property>
+        	<name>onlabelkeyup</name>
+        	<classname>java.lang.String</classname>
+        	<description>
+        		A JavaScript event handler; a key within label is released
+        	</description>
+        </property>
+        
+        <property>
+        	<name>onlabelclick</name>
+        	<classname>java.lang.String</classname>
+        	<description>
+        		A JavaScript event handler; a label of the tab is clicked
+        	</description>
+        </property>
+        
+        <property>
+        	<name>onlabelkeydown</name>
+        	<classname>java.lang.String</classname>
+        	<description>
+        		A JavaScript event handler; a key within label is pressed down
+        	</description>
+        </property>
+        
+        <property>
+        	<name>onlabelmouseup</name>
+        	<classname>java.lang.String</classname>
+        	<description>
+        		A JavaScript event handler; a pointer within label is released
+        	</description>
+        </property>
+        
+        <property>
+        	<name>onlabelmousedown</name>
+        	<classname>java.lang.String</classname>
+        	<description>
+        		A JavaScript event handler; a pointer within label is pressed down
+        	</description>
+        </property>
+        
+        <property>
+        	<name>onlabelmousemove</name>
+        	<classname>java.lang.String</classname>
+        	<description>
+        		A JavaScript event handler; a pointer is moved within label
+        	</description>
+        </property>
+           
+  	</component>
+  	
+	<renderer generate="true">
+		<template>tabHeader.jspx</template>
+	</renderer>
+</components>

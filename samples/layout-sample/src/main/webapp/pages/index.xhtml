@@ -1,0 +1,222 @@
+<rich:page xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" markupType="html"
+	contentType="#{bean.contentType}" theme="#{bean.theme}" width="#{bean.width}"
+	sidebarWidth="#{bean.sidebarWidth}" sidebarPosition="#{bean.position}"
+	headerClass="p_header" footerClass="p_footer" bodyClass="p_body"
+	sidebarClass="p_sidebar" pageTitle="Simple Page Layout"
+	encoding="#{bean.encoding}" >
+	<f:facet name="pageHeader">
+		<style type="text/css">
+		</style>
+	</f:facet>
+	<f:facet name="header">
+		<h:form>
+		  <h:panelGrid columns="3" style="text-align:left">
+                <rich:menuItem  value="Home">
+                </rich:menuItem>
+           <rich:dropDownMenu>
+                <f:facet name="label"> 
+                    <h:panelGroup>
+                        <h:graphicImage value="/images/icons/copy.gif" styleClass="pic"/>
+                        <h:outputText value="File"/>
+                    </h:panelGroup>
+                </f:facet>
+                <rich:menuItem submitMode="ajax" value="New"
+                     icon="/images/icons/create_doc.gif">
+                </rich:menuItem>
+                <rich:menuItem submitMode="ajax" value="Open"
+                     icon="/images/icons/open.gif" />
+                <rich:menuGroup value="Save As...">
+                    <rich:menuItem submitMode="ajax" value="Save" 
+                         icon="/images/icons/save.gif" />
+                    <rich:menuItem submitMode="ajax" value="Save All"
+                        >
+                        <f:facet name="icon">
+                            <h:graphicImage value="/images/icons/save_all.gif" />
+                        </f:facet>
+                    </rich:menuItem>
+                </rich:menuGroup>
+                <rich:menuItem submitMode="ajax" value="Close"
+                     />
+                <rich:menuSeparator id="menuSeparator11" />
+                <rich:menuItem submitMode="ajax" value="Exit"
+                     />
+            </rich:dropDownMenu>
+            <rich:dropDownMenu>
+
+                <f:facet name="label">
+                    <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
+                        style="vertical-align:middle">
+                        <h:outputText value="Links" />
+                    </h:panelGrid>
+                </f:facet>
+
+                <rich:menuItem submitMode="none"
+                    onclick="document.location.href='http://labs.jboss.com/jbossrichfaces/'">
+                    <h:outputLink value="http://labs.jboss.com/jbossrichfaces/">
+                        <h:outputText value="RichFaces Home Page"></h:outputText>
+                    </h:outputLink>
+                </rich:menuItem>
+
+                <rich:menuItem submitMode="none"
+                    onclick="document.location.href='http://jboss.com/index.html?module=bb&amp;op=viewforum&amp;f=261'">
+                    <h:outputLink
+                        value="http://jboss.com/index.html?module=bb&amp;op=viewforum&amp;f=261">
+                        <h:outputText value="RichFaces Forum"></h:outputText>
+                    </h:outputLink>
+                </rich:menuItem>
+
+            </rich:dropDownMenu>
+            </h:panelGrid>
+		</h:form>
+	</f:facet>
+	<f:facet name="subheader">
+		<h:outputText
+			value="Welcome to RichFaces Themes." />
+	</f:facet>
+	<f:facet name="footer">
+		<h:outputText
+			value="Copyright (c) 2009 RichFaces. All rights reserved." />
+	</f:facet>
+	<f:facet name="sidebar">
+		<h:panelGroup layout="block" style="padding:10px">
+			<h:form>
+				<h2>Page Attributes</h2>
+				<h:panelGrid columns="2">
+					<h:outputLabel for="theme" value="Page Theme" />
+					<h:selectOneMenu id="theme" style="width:100px"
+						value="#{bean.theme}">
+						<f:selectItem itemValue="" itemLabel="Default" />
+						<f:selectItem itemValue="simple" itemLabel="Simple" />
+						<f:selectItem itemValue="violetRays" itemLabel="Violet Rays" />
+						<f:selectItem itemValue="smooth" itemLabel="Smooth" />
+						<f:selectItem itemValue="oldschool" itemLabel="Old School" />
+					</h:selectOneMenu>
+					<h:outputLabel for="width" value="Page Width" />
+					<h:inputText id="width" style="width:60px" value="#{bean.width}" />
+					<h:outputLabel for="sidebarwidth" value="Sidebar Width" />
+					<h:inputText id="sidebarwidth" style="width:60px"
+						value="#{bean.sidebarWidth}" />
+					<h:outputLabel for="position" value="Side bar position" />
+					<h:selectOneMenu id="position" value="#{bean.position}">
+						<f:selectItem itemValue="left" />
+						<f:selectItem itemValue="right" />
+					</h:selectOneMenu>
+					<h:outputLabel for="skin" value="Current skin" />
+					<h:selectOneMenu id="skin" binding="#{skinBean.component}">
+					</h:selectOneMenu>
+					<h:outputLabel for="contentType" value="Response Content Type" />
+					<h:inputText id="contentType" style="width:60px" value="#{bean.contentType}" />
+					<h:outputLabel for="encoding" value="Response encoding" />
+					<h:inputText id="encoding" style="width:60px" value="#{bean.encoding}" />
+				</h:panelGrid>
+				<h:dataTable value="#{bean.layoutValues}" var="layout">
+				   <h:column>
+				    <f:facet name="header">Panel position</f:facet>
+				   	<h:outputText value="#{layout.position}"/>
+				   </h:column>
+				   <h:column>
+				    <f:facet name="header">Rendered</f:facet>
+				   	<h:selectBooleanCheckbox value="#{layout.rendered}" />
+				   </h:column>
+				   <h:column>
+				    <f:facet name="header">Width</f:facet>
+				   	<h:inputText value="#{layout.width}" style="width:60px" />
+				   </h:column>
+				</h:dataTable>
+					<h:commandButton value="Change" action="#{skinBean.change}"></h:commandButton>
+			</h:form>
+		</h:panelGroup>
+	</f:facet>
+
+	<!-- body of the page -->
+	<rich:layout>
+	   <rich:layoutPanel position="center" rendered="#{bean.layouts['center'].rendered}" 
+	   width="#{bean.layouts['center'].width}"><h3>center</h3>
+        <p>center, noun</p>
+	 <ol><li>an area that is approximately central within some larger
+          region; "it is in the center of town"; "they ran forward
+          into the heart of the struggle"; "they were in the eye
+          of the storm" [syn: {centre}, {middle}, {heart}, {eye}]</li>
+          <li>
+     the piece of ground in the outfield directly ahead of the
+        catcher; "he hit the ball to deep center" [syn: {center
+        field}]
+         </li>
+         <li>a building dedicated to a particular activity; "they were
+        raising money to build a new center for research" [syn: {centre}]</li>
+      </ol>
+      </rich:layoutPanel>
+	   <rich:layoutPanel position="left" rendered="#{bean.layouts['left'].rendered}" 
+	   width="#{bean.layouts['left'].width}"><h3>left</h3>
+	   <p>left, noun</p>
+	   <ol>
+     <li> location near or direction toward the left side; i.e. the
+          side to the north when a person or object faces east;
+          "she stood on the left" [ant: {right}]</li>
+     <li>those who support varying degrees of social or political or
+        economic change designed to promote the public welfare
+        [syn: {left wing}]</li>
+     <li>the hand that is on the left side of the body; "jab with
+        your left" [syn: {left hand}]</li>
+     <li>the piece of ground in the outfield on the catcher's left
+        [syn: {left field}]</li>
+     <li>a turn to the left; "take a left at the corner"</li>
+     </ol></rich:layoutPanel>
+	   <rich:layoutPanel position="right" rendered="#{bean.layouts['right'].rendered}" 
+	   width="#{bean.layouts['right'].width}"><h3>right</h3>
+	   <p>right, noun</p>
+	   <ol>
+	   <li>an abstract idea of that which is due to a person or
+          governmental body by law or tradition or nature; "they
+          are endowed by their Creator with certain unalienable
+          Rights"; "Certain rights can never be granted to the
+          government but must be kept in the hands of the people"-
+          Eleanor Roosevelt; "a right is not something that
+          somebody gives you; it is something that nobody can take
+          away"</li>
+          <li>(frequently plural) the interest possessed by law or custom
+        in some intangible thing; "mineral rights"; "film rights"</li>
+        <li>location near or direction toward the right side; i.e. the
+        side to the south when a person or object faces east; "he
+        stood on the right" [ant: {left}]</li>
+        <li>a turn to the right; "take a right at the corner"</li>
+        </ol>
+	   </rich:layoutPanel>
+	   <rich:layoutPanel position="top" rendered="#{bean.layouts['top'].rendered}" 
+	   width="#{bean.layouts['top'].width}"><h3>Top</h3>
+	   <p>top, noun</p>
+	   <ol>
+	   <li>the upper part of anything; "the mower cuts off the tops of
+          the grass"; "the title should be written at the top of
+          the first page"</li>
+       <li>the highest or uppermost side of anything; "put your books
+        on top of the desk"; "only the top side of the box was
+        painted" [syn: {top side}, {upper side}, {upside}]</li>
+        <li>the top point of a mountain or hill; "the view from the peak
+        was magnificent"; "they clambered to the summit of
+        Monadnock" [syn: {peak}, {crown}, {crest}, {tip}, {summit}]</li>
+        </ol></rich:layoutPanel>
+	   <rich:layoutPanel position="bottom" rendered="#{bean.layouts['bottom'].rendered}" 
+	   width="#{bean.layouts['bottom'].width}"><h3>Bottom</h3>
+	   <p>bottom, noun</p>
+	   <ol>
+	   <li>the lower side of anything [syn: {underside}, {undersurface}]</li>
+	   <li>the lowest part of anything; "they started at the bottom of
+        the hill"</li>
+        <li>the fleshy part of the human body that you sit on; "he
+        deserves a good kick in the butt"; "are you going to sit
+        on your fanny and do nothing?" [syn: {buttocks}, {nates},
+        {arse}, {butt}, {backside}, {bum}, {buns}, {can}, {fundament},
+         {hindquarters}, {hind end}, {keister}, {posterior}, {prat},
+         {rear}, {rear end}, {rump}, {stern}, {seat}, {tail}, {tail
+        end}, {tooshie}, {tush}, {behind}, {derriere}, {fanny}, {ass}]</li>
+        </ol></rich:layoutPanel>
+	</rich:layout>
+
+</rich:page>

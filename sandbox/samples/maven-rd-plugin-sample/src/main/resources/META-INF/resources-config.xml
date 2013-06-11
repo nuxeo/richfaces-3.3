@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+	<resource>
+		<name>css/custom-dependencies.xcss</name>
+		<path>css/custom-dependencies.xcss</path>
+	</resource>
+	<resource>
+		<name>scripts/custom-dependencies.js</name>
+		<path>scripts/custom-dependencies.js</path>
+	</resource>
+</resource-config>

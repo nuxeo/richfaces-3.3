@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><project>
+  <parent>
+    <artifactId>samples</artifactId>
+    <groupId>org.richfaces</groupId>
+    <version>3.3.1.GA</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.richfaces</groupId>
+  <artifactId>extendedDataTable-sample</artifactId>
+  <packaging>war</packaging>
+  <name>extendedDataTable-sample Maven Webapp</name>
+  <build>
+    <finalName>extendedDataTable-sample</finalName>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>org.richfaces.samples</groupId>
+      <artifactId>skins</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+	<dependency>
+      <groupId>org.richfaces.ui</groupId>
+      <artifactId>extendedDataTable</artifactId>
+      <version>${project.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.richfaces.ui</groupId>
+      <artifactId>richfaces-ui</artifactId>
+      <version>${project.version}</version>
+      <type>jar</type>
+    </dependency>
+  </dependencies>
+</project>

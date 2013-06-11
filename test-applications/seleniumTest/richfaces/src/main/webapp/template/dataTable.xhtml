@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core">
+<ui:composition template="../layout/layout.xhtml">
+	<ui:define name="template">
+		<ui:insert name="outOfTemplateArea"></ui:insert>
+		<rich:dataTable value="#{templateBean.dataTableModel}" id="Selenium_Test_DataTable" rowKeyVar="row">
+			<rich:column>
+				<f:facet name="header">
+					<h:outputText value="Data Table" />
+				</f:facet>
+				<h:panelGroup columns="1" rendered="#{templateBean.dataTableRowIndex == row}">
+					<ui:insert name="component" />
+				</h:panelGroup>
+				<h:outputText value="#{row}" rendered="#{templateBean.dataTableRowIndex != row}" />
+			</rich:column>
+		</rich:dataTable>
+	
+	</ui:define>
+	<ui:define name="control">
+		<ui:include src="../layout/controlLayout.xhtml" />
+	</ui:define>
+</ui:composition>
+</html>

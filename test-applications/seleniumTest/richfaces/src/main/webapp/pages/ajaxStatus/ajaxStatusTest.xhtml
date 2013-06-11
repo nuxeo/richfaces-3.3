@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+			<table align="center">
+				<tr>
+					<td>
+						<fieldset>
+							<legend>Region1 to track for</legend>
+							<a4j:region id="region1">
+								<a4j:commandButton id="button1" eventsQueue="foo1" value="Ajax Request"
+									actionListener="#{statusBean.actionListener}" />
+							</a4j:region>
+						</fieldset>
+					</td>
+					<td>
+						<fieldset>
+							<legend>Region2 to track for</legend>
+							<a4j:region id="region2">
+								<a4j:commandButton id="button2" eventsQueue="foo2" value="Ajax Request"
+									actionListener="#{statusBean.actionListener}" />
+							</a4j:region>
+						</fieldset>
+					</td>
+					<td>
+						<a4j:region id="region3" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a4j:status for="region1"
+									startText="In progress..."
+									stopText="Complete"
+									startStyleClass="start-class"
+									startStyle="color: red"
+									stopStyleClass="stop-class"
+									stopStyle="color: green"
+									styleClass="noclass"
+									style="font-size: 13px"
+									onstart="EventQueue.fire('onstart')"
+									onstop="EventQueue.fire('onstop')" />
+					</td>
+					<td>
+						<a4j:status for="region2">
+							<f:facet name="start">In progress...</f:facet>
+							<f:facet name="stop">Complete</f:facet>
+						</a4j:status>
+					</td>
+					<td>
+						<a4j:status for="region3" startText="In progress..." stopText="Complete" rendered="false" />
+					</td>
+				</tr>
+			</table>
+		</h:form>
+	</ui:define>
+	<ui:define name="description">
+		<ui:include src="ajaxStatusDescription.xhtml" />
+	</ui:define>
+</ui:composition>
+</html>

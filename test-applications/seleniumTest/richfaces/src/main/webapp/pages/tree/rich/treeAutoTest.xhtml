@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.autoTestTemplate}">
+	<ui:define name="component">
+		<rich:tree id="componentId"
+			switchType="#{treeBean.switchType}"
+			immediate="#{autoTestBean.immediate}"
+			ajaxSingle="#{autoTestBean.ajaxSingle}"
+			reRender="#{autoTestBean.reRender}"
+			limitToList="#{autoTestBean.limitToList}"
+			bypassUpdates="#{autoTestBean.bypassUpdate}"
+			rendered="#{autoTestBean.rendered}"
+			oncomplete="#{autoTestBean.oncomplete}"
+			value="#{treeBean.richTreeNode}"
+			changeExpandListener="#{autoTestBean.processExpansion}"
+			nodeSelectListener="#{autoTestBean.processSelection}"
+			toggleOnClick="#{treeBean.toggleOnClick}"
+			ajaxSubmitSelection="#{treeBean.ajaxSubmitSelection}"
+			var="item"
+			nodeFace="#{item.type}">
+				<rich:changeExpandListener type="org.ajax4jsf.listener.TreeNodeExpandedListener"/>
+				<rich:nodeSelectListener type="org.ajax4jsf.listener.TreeNodeSelectedListener"/>
+				<rich:treeNode id="performer" type="performer">
+					<h:outputText id="performer-name" value="#{item.name}" />
+				</rich:treeNode>
+				<rich:treeNode id="album" type="album">
+					<h:outputText id="album-title" value="#{item.title}" />
+				</rich:treeNode>
+				<rich:treeNode id="song" type="song">
+					<h:inputText id="song-title" required="true" value="#{item.title}" />
+				</rich:treeNode>
+				<f:param name="parameter1" value="value1" />
+				<f:param name="parameter2" value="value2" />
+				<f:param name="parameter3" value="value3" />
+		</rich:tree>
+	</ui:define>
+</ui:composition>
+</html>

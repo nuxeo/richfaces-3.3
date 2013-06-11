@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>Archetype Created Web Application</display-name>
+
+	<!-- Facelets -->
+
+	<context-param>
+		<param-name>facelets.REFRESH_PERIOD</param-name>
+		<param-value>2</param-value>
+	</context-param>
+	<context-param>
+		<param-name>facelets.DEVELOPMENT</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>facelets.VIEW_MAPPINGS</param-name>
+		<param-value>*.xhtml</param-value>
+	</context-param>
+
+	<!-- Richfaces -->
+
+	<context-param>
+		<param-name>org.ajax4jsf.COMPRESS_SCRIPT</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.ajax4jsf.xmlparser.ORDER</param-name>
+		<param-value>NONE,TIDY,NEKO</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.ajax4jsf.xmlparser.TIDY</param-name>
+		<param-value>
+			/faces/TIDY/*
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.ajax4jsf.xmlparser.NEKO</param-name>
+		<param-value>
+			/faces/NEKO/*
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.ajax4jsf.xmlparser.NONE</param-name>
+		<param-value>
+			/faces/NONE/*
+		</param-value>
+	</context-param>
+	<!-- 
+	<context-param>
+		<param-name>org.ajax4jsf.SKIN</param-name>
+		<param-value>#{skinBean.skin}</param-value>
+	</context-param>
+	-->
+	<context-param>
+		<param-name>org.richfaces.LoadStyleStrategy</param-name>
+		<param-value>#{configurator.loadStyleStrategy}</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.richfaces.LoadScriptStrategy</param-name>
+		<param-value>#{configurator.loadScriptStrategy}</param-value>
+	</context-param>
+
+	<!-- Seam -->
+
+    <listener>
+        <listener-class>org.jboss.seam.servlet.SeamListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>Seam Resource Servlet</servlet-name>
+        <servlet-class>org.jboss.seam.servlet.SeamResourceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Seam Resource Servlet</servlet-name>
+        <url-pattern>/seam/resource/*</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>Seam Filter</filter-name>
+        <filter-class>org.jboss.seam.servlet.SeamFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Seam Filter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
+
+	<!-- JSF -->
+
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>/faces/NEKO/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>/faces/TIDY/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>/faces/NONE/*</url-pattern>
+	</servlet-mapping>
+	<context-param>
+		<param-name>com.sun.faces.validateXml</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<context-param>
+		<param-name>com.sun.faces.verifyObjects</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>server</param-value>
+	</context-param>
+
+	<!-- Auto test servlet -->
+
+	<servlet>
+		<servlet-name>Auto Test Servlet</servlet-name>
+		<servlet-class>org.ajax4jsf.autotest.AutoTestServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Auto Test Servlet</servlet-name>
+		<url-pattern>/autotest/*</url-pattern>
+	</servlet-mapping>
+
+	<error-page>
+		<exception-type>javax.servlet.ServletException</exception-type>
+		<location>/faces/error.xhtml</location>
+	</error-page>
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+</web-app>

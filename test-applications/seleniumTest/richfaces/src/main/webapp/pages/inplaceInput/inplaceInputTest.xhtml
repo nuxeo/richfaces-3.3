@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+	<script type="text/javascript">
+		function component(id) {
+		    return $(getParentId() + "_form:" + id).component;
+		}
+	</script>
+		<h:form id="_form">
+			<h:panelGrid columns="3" border="1">
+				<h:outputText value="inplaceInput" />
+				<h:outputText value="viewactivated event test" />
+				<h:outputText value="editactivated event test" />
+				<rich:inplaceInput id="inplaceInput" value="#{inplaceInputBean.text}" 
+					defaultLabel="Click to edit" layout="inline" showControls="false" 
+					editEvent="onclick" 
+					onviewactivated="testEvent(this, 'view');"
+					oneditactivated="testEvent(this, 'edit');"/>
+
+				<h:outputText id="inplaceInput_view" value="No" />
+				<h:outputText id="inplaceInput_edit" value="No" />
+
+				<rich:inplaceInput id="inplaceInputDecorated" value="#{inplaceInputBean.text}" 
+					defaultLabel="Click to edit" layout="block" showControls="true" 
+					editEvent="ondblclick" 
+					onviewactivated="testEvent(this, 'view');"
+					oneditactivated="testEvent(this, 'edit');"/>
+
+				<h:outputText id="inplaceInputDecorated_view" value="No" />
+				<h:outputText id="inplaceInputDecorated_edit" value="No" />
+			</h:panelGrid>
+			<input type="button" value="Edit" onclick="component('inplaceInput').edit();" />
+			<input type="button" value="Save" onclick="component('inplaceInput').save();"/>
+			<input type="button" value="Cancel" onclick="component('inplaceInput').cancel();"/>
+			<input type="button" value="Set Value (11)" onclick="component('inplaceInput').setValue(11);"/>
+			<input type="button" value="Get Value" onclick="if(11 == component('inplaceInput').getValue()) alert(11);"/>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

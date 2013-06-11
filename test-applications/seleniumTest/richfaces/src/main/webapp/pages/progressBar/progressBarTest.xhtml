@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+	<h:form id="_form">
+		<rich:progressBar styleClass="testClass" completeClass="completeClass" initialClass="initialClass" remainClass="remainClass" enabled="#{progressBarBean.enabled}" id="progressBar1" value="#{progressBarBean.value}">
+			<f:facet name="initial">
+				<h:outputText value="Process not started"></h:outputText>
+			</f:facet>
+			<f:facet name="complete">
+				<h:outputText value="Process completed"></h:outputText>
+			</f:facet>
+			<h:outputText value="{value}%"></h:outputText>
+		</rich:progressBar><br/>
+		<br/><br/>
+		<rich:progressBar enabled="#{progressBarBean.enabled}" mode="client" id="progressBar2" value="-5">
+			<f:facet name="initial">
+				<h:outputText value="Process not started"></h:outputText>
+			</f:facet>
+			<f:facet name="complete">
+				<h:outputText value="Process completed"></h:outputText>
+			</f:facet>
+			<h:outputText value="{value}%"></h:outputText>
+		</rich:progressBar> <br/>
+		<a4j:commandButton id="_complete" reRender="progressBar1" actionListener="#{progressBarBean.complete}" value="Complete"></a4j:commandButton>
+		</h:form>
+		<input type="button" value="enable" onclick="$(getParentId() + '_form:progressBar1').component.enable()"/>
+		<input type="button" value="disable" onclick="$(getParentId() + '_form:progressBar1').component.disable()"/>
+	</ui:define>
+	<ui:define name="description">
+		<ui:include src="progressBarDescription.xhtml" />
+	</ui:define>
+</ui:composition>
+</html>

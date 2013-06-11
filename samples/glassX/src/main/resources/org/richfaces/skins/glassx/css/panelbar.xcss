@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+	<u:selector name=".rich-panelbar">
+        <u:style name="border-color" skin="newBorder" />
+		<u:style name="padding" value="0px" />
+	</u:selector>
+	
+	<u:selector name=".rich-panelbar-header">
+		<u:style name="padding" value="6px 6px 6px 14px" />
+        <u:style name="background-image" value="none" />
+		<u:style name="border-top" value="1px solid" />
+		<u:style name="border-bottom" value="1px solid" />
+        <u:style name="border-color" skin="generalBackgroundColor" />
+        <u:style name="background-color" skin="tabHeader" />
+	</u:selector>
+
+	<u:selector name=".rich-panelbar-header-act">
+		<u:style name="padding" value="6px 6px 6px 14px" />
+		<u:style name="border-top" value="1px solid" />
+		<u:style name="border-bottom" value="1px solid" />
+        <u:style name="border-color" skin="generalBackgroundColor" />
+        <u:style name="background-image" value="none" />
+        <u:style name="background-color" skin="tabHeader" />
+</u:selector>
+	
+	<u:selector name=".rich-panelbar-content">
+		<u:style name="padding" value="10px 4px 4px 14px" />
+	</u:selector>
+</f:template>

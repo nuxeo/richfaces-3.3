@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+	
+	<u:selector name=".rich-calendar">
+	</u:selector>
+
+   	<u:selector name=".rich-calendar-exterior">
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+	
+	 <u:selector name=".rich-calendar-header-optional">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-spec">
+	</u:selector>
+	
+	 <u:selector name=".rich-calendar-header">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-cell">
+	        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-tool">
+        <u:style name="background-repeat" value="repeat-x" />
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+                <f:attribute name="gradientColor" skin="headerGradientColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-month">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-days">
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+
+	<u:selector name=".rich-calendar-weekends">
+        <u:style name="color" skin="calendarHolidaysTextColor" />
+	</u:selector>
+
+	<u:selector name=".rich-calendar-week">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="20px" />
+                <f:attribute name="baseColor" skin="calendarWeekBackgroundColor" />
+            </f:resource>
+        </u:style>	
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+
+
+	<u:selector name=".rich-calendar-holly">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="20px" />
+                <f:attribute name="baseColor" skin="calendarHolidaysBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+
+	<u:selector name=".rich-calendar-boundary-dates">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-today">
+        <u:style name="color" skin="generalTextColor" />
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="20px" />
+                <f:attribute name="baseColor" skin="selectControlColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-select">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>	
+	</u:selector>
+
+	<u:selector name=".rich-calendar-hover">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="20px" />
+                <f:attribute name="baseColor" skin="headerGradientColor" />
+            </f:resource>
+        </u:style>	
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-toolfooter">
+        <u:style name="border-color" skin="tableBorderColor" />
+	</u:selector>
+
+	<u:selector name=".rich-calendar-tool-btn">
+	</u:selector>	
+
+	<u:selector name=".rich-calendar-tool-btn-hover">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="headerGradientColor" />
+            </f:resource>
+        </u:style>	
+	</u:selector>	
+	
+	<u:selector name=".rich-calendar-tool-btn-press">
+	</u:selector>	
+
+	<u:selector name=".rich-calendar-footer-optional">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-footer">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-tool-close">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-button">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-editor-shadow">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-time-layout">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-date-layout">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-editor-container">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-time-layout, .rich-calendar-date-layout, .rich-calendar-time-layout input">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-time-layout-fields">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-time-layout-cancel">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-time-layout-ok">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-date-layout-cancel">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-date-layout-ok">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-date-layout-split">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-time-btn">
+	</u:selector>	
+
+	<u:selector name=".rich-calendar-time-btn-press">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-time-input">
+	</u:selector>	
+
+	<u:selector name=".rich-calendar-spinner-up">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-spinner-down">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-spinner-pressed">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-spinner-buttons">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-spinner-input">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-spinner-input-container">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-editor-layout-shadow">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-editor-btn">
+	</u:selector>	
+
+	<u:selector name=".rich-calendar-editor-btn-over">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-editor-btn-selected">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-editor-tool-over">
+	</u:selector>
+
+	<u:selector name=".rich-calendar-editor-tool-press">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-btn">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-cell-size">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-cell-div">
+	</u:selector>
+	
+	<u:selector name=".rich-right-cell">
+	</u:selector>
+	
+	<u:selector name=".rich-bottom-cell">
+	</u:selector>
+	
+	<u:selector name=".rich-calendar-popup">
+	</u:selector>
+
+</f:template>

@@ -1,0 +1,51 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	id="dataDefinitionListPropertySubviewID">
+	<h:commandButton action="#{dataDefinitionList.add}" value="add test" />
+	<h:panelGrid columns="2">
+		<h:outputText value="title" />
+		<h:inputText value="#{dataDefinitionList.title}">
+			<a4j:support event="onchange" reRender="ddListID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="first" />
+		<h:inputText value="#{dataDefinitionList.first}">
+			<a4j:support event="onchange" reRender="ddListID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="rows" />
+		<h:inputText value="#{dataDefinitionList.rows}">
+			<a4j:support event="onchange" reRender="ddListID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="dir" />
+		<h:selectOneRadio value="#{dataDefinitionList.dir}">
+			<f:selectItem itemValue="LTR" itemLabel="LTR" />
+			<f:selectItem itemValue="RTL" itemLabel="RTL" />
+			<a4j:support event="onchange" reRender="ddListID"></a4j:support>
+		</h:selectOneRadio>
+
+		<h:outputText value="rendered" />
+		<h:selectBooleanCheckbox value="#{dataDefinitionList.rendered}"
+			onchange="submit();" />
+
+		<h:commandButton actionListener="#{dataDefinitionList.checkBinding}"
+			value="Binding"></h:commandButton>
+		<h:outputText value="#{dataDefinitionList.bindLabel}"></h:outputText>
+	</h:panelGrid>
+	<br />
+	<br />
+	<div style="FONT-WEIGHT: bold;">rich:findComponent</div>
+	<h:panelGrid columns="2">
+		<rich:column>
+			<a4j:commandLink value="getRowCount" reRender="findID"></a4j:commandLink>
+		</rich:column>
+		<rich:column id="findID">
+			<h:outputText value="#{rich:findComponent('ddListID').rowCount}" />
+		</rich:column>
+	</h:panelGrid>
+</f:subview>

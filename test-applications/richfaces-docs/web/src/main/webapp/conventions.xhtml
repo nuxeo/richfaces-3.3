@@ -1,0 +1,48 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                template="layout/template.xhtml">
+
+<ui:define name="body">
+
+
+    <h:messages globalOnly="true" styleClass="message"/>
+    
+
+    
+    <rich:panel>
+    <f:facet name="header">Coding Conventions</f:facet>
+<div class="simpletext">
+<h3>General</h3>
+
+<ol>
+
+<li>Make sure the code you committed is 100% valid and will not fail the deployment of the application.</li>
+<li>Leave as many comments as possible. 
+Do not assume that the code example is too obvious to be commented.
+ Your comments can help other techwriters (or users) understand how your code functions. </li>
+</ol>
+<h3>Managed Beans and View Pages</h3>
+
+<ol>
+	<li>If you need just a single bean for your code sample you can place it in org.docs package.</li>
+	<li>If your sample requires multiple beans make a separate package for the beans. For example, 
+<i>org.docs.tree</i>  that houses <i>Tree.java</i> and <i>Nodes.java</i>.  This will keep the app clean and facilitate navigation.   
+	
+	</li>
+	<li>Name view pages the same way as the component you are documenting. Example: <i>rich:colorPicker</i> is documented in <i>colorPicker.xhtml</i></li>
+	<li>When a new view page is created do not forget to include it in the main menu.  Location: <i>webapp\layout\mainMenu.xthml</i></li>
+</ol>
+ 
+
+</div>
+    </rich:panel>
+    
+    
+</ui:define> 
+</ui:composition>

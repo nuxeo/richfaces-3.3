@@ -1,0 +1,39 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                template="layout/template.xhtml">
+
+<ui:define name="body">
+
+
+    <h:messages globalOnly="true" styleClass="message"/>
+    
+
+    
+    <rich:panel>
+    <f:facet name="header">RichFaces Documentation Application </f:facet>
+   
+    <p>
+    RichFaces documentation team from now on (3.3.1 version of RichFaces)
+     will be using RDA while documenting RichFaces components. 
+     The main idea of the application is to make sure that all code snippets we provide in the Guide are working in  a real application. Besides, it will help us keep the examples in one place so that any doc team member can continue what the other has started.  
+    </p>
+
+
+<rich:layout>
+<rich:layoutPanel position="center"><p>center</p></rich:layoutPanel>
+<rich:layoutPanel position="left"><p>left</p></rich:layoutPanel>
+</rich:layout>
+
+
+
+  
+    </rich:panel>
+    
+</ui:define> 
+</ui:composition>

@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<ui:composition template="#{templateBean.autoTestTemplate}">
+		<ui:define name="component">
+			<p id="_auto_test_navigation">Navigation successfully</p>
+		</ui:define>
+		<ui:define name="footer">
+			<script>
+				window.done = true;
+			</script>
+		</ui:define>
+	</ui:composition>
+</html>

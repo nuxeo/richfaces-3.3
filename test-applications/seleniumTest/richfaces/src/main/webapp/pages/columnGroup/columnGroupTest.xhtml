@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<rich:dataTable id="table" value="#{columnGroupBean.rows}" var="row">
+		<f:facet name="header">
+			<rich:columnGroup rendered="#{columnGroupBean.rendered}"
+							  columnClasses="columnClass"
+							  rowClasses="rowClass"
+							  style="color: green"
+							  title="title">
+				 <rich:column rowspan="2">
+				 	<h:outputText value="Header"></h:outputText>
+				 </rich:column>
+				 <rich:column >
+				 	<h:outputText value="Header"></h:outputText>
+				 </rich:column>
+				 <rich:column>
+				 	<h:outputText value="Header"></h:outputText>
+				 </rich:column>
+				 <rich:column rowspan="2">
+				 	<h:outputText value="Header"></h:outputText>
+				 </rich:column>
+				   <rich:column colspan="2" breakBefore="true">
+				 	<h:outputText value="Header"></h:outputText>
+				 </rich:column>
+			</rich:columnGroup>
+		</f:facet>
+			<rich:column>
+				<h:outputText value="#{row}"></h:outputText>
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{row}"></h:outputText>
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{row}"></h:outputText>
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{row}"></h:outputText>
+			</rich:column>
+			</rich:dataTable>
+	</ui:define>
+</ui:composition>
+</html>

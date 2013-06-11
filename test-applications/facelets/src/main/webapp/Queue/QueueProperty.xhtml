@@ -1,0 +1,42 @@
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" id="queuePropertySubviewID">
+
+	<h:commandButton value="add test" action="#{queue.addQueue}"></h:commandButton>
+	<a4j:commandButton value="sleep5sec" actionListener="#{queueComponent.sleepThread}"></a4j:commandButton>
+	<h:panelGrid columns="2">
+		<h:outputText value="disabled" />
+		<h:selectBooleanCheckbox value="#{queue.disabled}" onclick="submit()" />
+
+		<h:outputText value="ignoreDupResponses" />
+		<h:selectBooleanCheckbox value="#{queue.ignoreDupResponses}"
+			onclick="submit()" />
+
+		<h:outputText value="requestDelay" />
+		<h:inputText value="#{queue.requestDelay}">
+			<a4j:support event="onchange" reRender="queueID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="size" />
+		<h:inputText value="#{queue.size}">
+			<a4j:support event="onchange" reRender="queueID"></a4j:support>
+		</h:inputText>
+
+		<h:outputText value="sizeExceededBehavior" />		
+		<h:selectOneRadio value="#{queue.sizeExceededBehavior}"
+			onchange="submit();">
+			<f:selectItem itemLabel="dropNext" itemValue="dropNext"/>
+			<f:selectItem itemLabel="dropNew" itemValue="dropNew"/>
+			<f:selectItem itemLabel="fireNext" itemValue="fireNext"/>
+			<f:selectItem itemLabel="fireNew" itemValue="fireNew"/>
+		</h:selectOneRadio>
+		
+		<h:outputText value="timeout" />
+		<h:inputText value="#{queue.timeout}">
+			<a4j:support event="onchange" reRender="queueID"></a4j:support>
+		</h:inputText>
+
+	</h:panelGrid>
+</f:subview>

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.autoTestTemplate}">
+	<ui:define name="component">
+		<rich:datascroller id="componentId" 
+							   for="tbl" 
+							   align="left" 
+							   maxPages="#{dataScrollerBean.maxPages}"
+							   page="#{dataScrollerBean.page}"
+							   actionListener="#{autoTestBean.actionListener}"
+							   immediate="#{autoTestBean.immediate}"
+							   ajaxSingle="#{autoTestBean.ajaxSingle}"
+							   reRender="#{autoTestBean.reRender}"
+							   bypassUpdates="#{autoTestBean.bypassUpdate}"
+							   rendered="#{autoTestBean.rendered}"
+							   oncomplete="#{autoTestBean.oncomplete}"
+							   onpagechange="EventQueue.fire('onpagechange')"
+							   process="#{autoTestBean.process}"
+							   >
+				<f:param name="parameter1" value="value1" />
+				<f:actionListener type="org.ajax4jsf.autotest.bean.AutoTestListener" />
+			</rich:datascroller>
+			<br/>
+			<rich:dataTable id="tbl" value="#{dataScrollerBean.data}" rows="#{dataScrollerBean.tableRows}" var="var">
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="#" />
+					</f:facet>
+					<h:outputText value="#{var[0]}" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Data" />
+					</f:facet>
+					<h:outputText value="#{var[1]}" />
+				</rich:column>
+			</rich:dataTable>
+			
+	</ui:define>
+</ui:composition>
+</html>

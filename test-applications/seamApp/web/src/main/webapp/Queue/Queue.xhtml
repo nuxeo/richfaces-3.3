@@ -1,0 +1,16 @@
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" id="queueSubviewID">
+
+	<a4j:queue binding="#{queue.myQueue}" disabled="#{queue.disabled}"
+		ignoreDupResponses="#{queue.ignoreDupResponses}" name="formQueue"
+		onbeforedomupdate="#{event.onbeforedomupdate}"
+		oncomplete="#{event.oncomplete}" onerror="#{event.onerror}"
+		onsizeexceeded="#{event.onsizeexceeded}" onsubmit="#{event.onsubmit}"
+		requestDelay="#{queue.requestDelay}"
+		size="#{queue.size}"
+		sizeExceededBehavior="#{queue.sizeExceededBehavior}"
+		timeout="#{queue.timeout}" />
+</f:subview>

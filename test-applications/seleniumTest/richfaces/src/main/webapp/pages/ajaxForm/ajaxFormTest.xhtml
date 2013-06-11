@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:panelGroup id="content" style="border: 2px solid black; width:400px;" layout="block">
+			<a4j:form id="a4j_form" ajaxSubmit="true" prependId="false">
+				<h:inputText id="inner_name" value="#{formBean.name}"/>
+				<a4j:outputPanel ajaxRendered="true">
+					<h:outputText id="test_field_name" value="#{formBean.name}" style="border: 1px solid black;"/>
+				</a4j:outputPanel>
+				<!-- 
+				<h:panelGrid columns="2">
+					<h:outputText value="ajaxSubmit: "/>
+					<h:selectBooleanCheckbox id="ajaxSubmit" value="#{formBean.ajaxSubmit}"/>
+					
+					<h:outputText value="ignoreDupResponses: "/>
+					<h:selectBooleanCheckbox id="ignoreDupResponses" value="#{formBean.ignoreDupResponses}"/>
+					
+					<h:outputText value="prependId: "/>
+					<h:selectBooleanCheckbox id="prependId" value="#{formBean.prependId}"/>
+					
+					<h:outputText value="rerender : "/>
+					<h:inputText id="rerender" value="#{formBean.rerender}"/>
+				</h:panelGrid>
+				 -->
+				<a4j:commandButton id= "submit" value="Submit"/>
+			</a4j:form>
+			<h:form id="staticForm">
+				<h:inputText id="outer_name" value="#{formBean.name}"/>
+			</h:form>
+		</h:panelGroup>
+		
+		<h:panelGroup id="content1" style="border: 2px solid black; width:400px;" layout="block">
+			<a4j:form id="a4j_form1" prependId="true">
+				<h:inputText id="inner_name1" value="#{formBean.name}"/>
+				<a4j:commandButton id="submit1" value="Submit"/>
+			</a4j:form>
+			<h:form id="staticForm1">
+				<h:inputText id="outer_name1" value="#{formBean.name}"/>
+			</h:form>
+		</h:panelGroup>
+		
+		<h:panelGroup id="content2" style="border: 2px solid black; width:400px;" layout="block">
+			<a4j:form id="a4j_form2" prependId="false">
+				<h:panelGroup id="group2">
+					<a4j:commandLink id="link2" value="A4J Form" action="#{formBean.changeName}" rendered="#{formBean.rendered}"/>
+				</h:panelGroup>
+				<h:selectBooleanCheckbox id="rendered2" value="#{formBean.rendered}"/>
+				<a4j:outputPanel ajaxRendered="true">
+					<h:outputText id="test_field_name2" value="#{formBean.name}" style="border: 1px solid black;"/>
+				</a4j:outputPanel>
+				<a4j:commandButton id= "submit2" value="Submit" reRender="group2"/>
+			</a4j:form>
+		</h:panelGroup>
+		<h:panelGrid id="mainFeature" style="border: 2px solid black; width:400px;" columns="1">
+			<f:facet name="caption">Main feature</f:facet>
+			<a4j:form id="mainFeatureForm">
+	        	<a4j:commandButton id="update_non_ajax_link" value="Update Non-Ajax Link" reRender="panel" action="#{formBean.reset}"/>
+    	    	<h:panelGrid id="panel">
+        	    	<a4j:htmlCommandLink id="non_ajax_submit" value="Non-Ajax Submit" action="#{formBean.changeName}"/>
+        	    	<h:outputLabel for="result" value="Result: " /><h:outputText id="result" value="#{formBean.name}" />
+	        	</h:panelGrid>
+  			</a4j:form>
+  		</h:panelGrid>
+		<h:form id="_form">
+			<br/>
+			<a4j:commandButton id="reset" action="#{formBean.reset}" value="Reset"/>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

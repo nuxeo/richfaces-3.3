@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template 
+	xmlns:f="http://jsf.exadel.com/template"
+   	xmlns:u="http://jsf.exadel.com/template/util" 
+   	xmlns="http://www.w3.org/1999/xhtml" >	
+
+	<u:selector name=".rich-sb-ext-decor-1" >
+	</u:selector>
+	
+	<u:selector name=".rich-sb-common-container" >
+	</u:selector>
+	
+	<u:selector name=".rich-sb-ext-decor-2" >
+        <u:style name="border-width" value="1px" />
+        <u:style name="border-style" value="solid" />
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+	
+	<u:selector name=".rich-sb-ext-decor-3" >
+        <u:style name="background" skin="generalBackgroundColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-sb-overflow" >
+	</u:selector>
+	
+	<u:selector name=".rich-sb-shadow" >
+	</u:selector>
+	
+	<u:selector name=".rich-sb-int" >
+	</u:selector>
+	
+	<u:selector name=".rich-sb-int-sel" >
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-sb-int-decor-table" >
+	</u:selector>
+	
+	<u:selector name=".rich-sb-cell-padding" >
+	</u:selector>
+</f:template>

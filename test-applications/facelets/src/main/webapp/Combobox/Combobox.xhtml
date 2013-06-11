@@ -1,0 +1,54 @@
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" id="comboboxSubviewID">
+
+	<h:inputText value="For test tabbing tabindex = 3" tabindex="3" size="30"></h:inputText> <br/>
+
+    <rich:comboBox id="comboboxID" disabled="#{combobox.disabled}" defaultLabel="#{combobox.defaultLabel}"
+                   buttonClass="#{style.buttonClass}" 
+                   buttonDisabledClass="#{style.buttonDisabledClass}" 
+                   buttonDisabledStyle="#{style.buttonDisabledStyle}" 
+                   buttonInactiveClass="#{style.buttonInactiveClass}" 
+                   buttonInactiveStyle="#{style.buttonInactiveStyle}" 
+                   buttonStyle="#{style.buttonStyle}" 
+                   inputClass="#{style.inputClass}" 
+                   inputDisabledClass="#{style.inputDisabledClass}" 
+                   inputDisabledStyle="#{style.inputDisabledStyle}" 
+                   inputInactiveClass="#{style.inputInactiveClass}" 
+                   inputInactiveStyle="#{style.inputInactiveStyle}" 
+                   itemClass="#{style.itemClass}" 
+                   inputStyle="#{style.inputStyle}" 
+                   listClass="#{style.listClass}" 
+                   listStyle="#{style.listStyle}"
+                   itemSelectedClass="border:5px solid red"
+                   filterNewValues="#{combobox.filterNewValues}"
+                   rich-combobox-button="style" 
+                   directInputSuggestions="#{combobox.directInputSuggestions}" immediate="#{combobox.immediate}" 
+                   width="#{combobox.width}" valueChangeListener="#{combobox.valueChangeListener}" 
+                   tabindex="#{combobox.tabindex}" suggestionValues="#{combobox.suggestionValues}" 
+                   required="#{combobox.required}" requiredMessage="#{combobox.requiredMessage}"
+                   rendered="#{combobox.rendered}" selectFirstOnUpdate="#{combobox.selectFirstOnUpdate}" 
+                   enableManualInput="#{combobox.enableManualInput}" listHeight="#{combobox.listHeight}" listWidth="#{combobox.listWidth}" style="#{style.style}" styleClass="#{style.styleClass}"
+                   onblur="#{event.onblur}" 
+                   onchange="alert('onchange')" 
+                   onclick="#{event.onclick}" 
+                   ondblclick="#{event.ondblclick}"
+                   onfocus="#{event.onfocus}"
+                   onkeydown="#{event.onkeydown}" 
+                   onkeypress="#{event.onkeypress}"
+                   onkeyup="#{event.onkeyup}" 
+                   onlistcall="#{event.onlistcall}" 
+                   onmousedown="#{event.onmousedown}" 
+                   onmousemove="#{event.onmousemove}"
+                   onmouseout="#{event.onmouseout}" 
+                   onmouseover="#{event.onmouseover}" 
+                   onmouseup="#{event.onmouseup}" 
+                   onselect="#{event.onselect}"
+                   binding="#{combobox.myComboBox}"
+                   align="#{combobox.align}"
+                   buttonIconDisabled="/pics/ajax_process.gif"
+                   accesskey="y">
+       <f:selectItem itemValue="GoshaGoshaGoshaGoshaGosha"/>
+    </rich:comboBox>
+    
+    <a4j:commandButton value="reRender" reRender="comboboxID"></a4j:commandButton>
+    
+</f:subview>

@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <artifactId>ui</artifactId>
+    <groupId>org.richfaces</groupId>
+    <version>3.3.1.GA</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.richfaces.ui</groupId>
+  <artifactId>scrollableDataTable</artifactId>
+  <name>Scrollable Data Table</name>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.richfaces.cdk</groupId>
+        <artifactId>maven-cdk-plugin</artifactId>
+        <version>3.3.1.GA</version>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+          <execution>
+			<id>generate-test-sources</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>generate-tests</goal>
+            </goals>
+          </execution>
+        </executions>
+        
+        <configuration>
+          <library>
+            <prefix>org.richfaces</prefix>
+            <taglib>
+              <shortName>scrollableDataTable</shortName>
+            </taglib>
+          </library>
+        </configuration>
+      </plugin>
+	  <plugin>
+		<artifactId>maven-antrun-plugin</artifactId>
+		<executions>
+			<execution>
+				<phase>generate-resources</phase>
+				<goals>
+					<goal>run</goal>
+				</goals>
+				<configuration>
+					<tasks>
+						<ant antfile="${basedir}/generatescript.xml" inheritRefs="true">
+							<target name="merge-scripts" />
+							<property name="target-dir" value="${project.build.directory}/generated-component/resources">
+							</property>
+							<property name="resources-dir" value="${basedir}/src/main/javascript">
+							</property>
+						</ant>
+					</tasks>
+					<resourceRoot>
+						${project.build.directory}/generated-component/resources
+					</resourceRoot>
+				</configuration>
+			</execution>
+		</executions>
+	  </plugin>
+  </plugins>
+  </build>
+	<dependencies>
+    <dependency>
+      <groupId>org.richfaces.framework</groupId>
+      <artifactId>richfaces-impl</artifactId>
+      <version>3.3.1.GA</version>
+    </dependency>
+    <dependency>
+      <groupId>org.richfaces.ui</groupId>
+      <artifactId>dataTable</artifactId>
+      <version>3.3.1.GA</version>
+    </dependency>
+    <dependency>
+      <groupId>org.richfaces.ui</groupId>
+      <artifactId>core</artifactId>
+      <version>3.3.1.GA</version>
+    </dependency>
+  </dependencies>
+</project>

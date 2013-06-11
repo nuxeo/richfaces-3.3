@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim><![CDATA[
+.mcePageBreak {display:block;border:0;width:100%;height:12px;border-top:1px dotted #ccc;margin-top:15px}
+]]>
+</f:verbatim>
+<u:selector name=".mcePageBreak">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/pagebreak/img/pagebreak.gif"/>
+	</u:style>
+	<u:style name="background-color" value="#fff"/>
+	<u:style name="background-repeat" value="no-repeat"/>
+	<u:style name="background-position" value="center top"/>
+</u:selector>
+</f:template>

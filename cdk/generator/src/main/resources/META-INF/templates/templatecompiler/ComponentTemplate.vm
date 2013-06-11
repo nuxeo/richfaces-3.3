@@ -1,0 +1,129 @@
+/**
+ * License Agreement.
+ *
+ * Ajax4jsf 1.1 - Natural Ajax for Java Server Faces (JSF)
+ *
+ * Copyright (C) 2007 Exadel, Inc.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License version 2.1 as published by the Free Software Foundation.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+ */
+
+#if($component.packageName)
+package $component.packageName;
+#end
+
+#if($component.imports)
+
+// 
+// Imports
+//
+#foreach( $import in $component.imports )
+import $import;
+#end
+//
+//
+//
+
+#else
+import java.util.Iterator;
+import java.util.Collection;
+import java.util.Map;
+import java.io.IOException;
+
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.context.ResponseWriter;
+
+import org.ajax4jsf.renderkit.ComponentsVariableResolver;
+import org.ajax4jsf.renderkit.ComponentVariables;
+#end
+
+#if($component.fullBaseclass)
+import $component.fullBaseclass;
+#else
+import org.ajax4jsf.renderkit.RendererBase;
+#end
+
+#if($component.baseclassName)
+#set( $baseclassname = $component.baseclassName )
+#else
+#set( $baseclassname = "RendererBase" )
+#end
+
+
+/**
+ * Renderer for component class ${component.fullClassName}
+ */
+public class $component.className extends $baseclassname {
+
+	public $component.className () {
+		super();
+	}
+
+#if( $component.declarations )
+	// 
+	// Declarations
+	//
+#foreach( $declaration in $component.declarations )
+	$declaration
+#end
+	// 
+	// 
+	//
+#end
+
+
+	private String convertToString(Object obj ) {
+		return ( obj == null ? "" : obj.toString() );
+	}
+	private String convertToString(boolean b ) {
+		return String.valueOf(b);
+	}
+	private String convertToString(int b ) {
+		return b!=Integer.MIN_VALUE?String.valueOf(b):"";
+	}
+	private String convertToString(long b ) {
+		return b!=Long.MIN_VALUE?String.valueOf(b):"";
+	}
+	
+	private boolean isEmpty(Object o) {
+		if (null == o) {
+			return true;
+		}
+		if (o instanceof String ) {
+			return (0 == ((String)o).length());
+		}
+		if (o instanceof Collection) {
+			return (0 == ((Collection)o).size());
+		}
+		if (o instanceof Map) {
+			return (0 == ((Map)o).size());
+		}
+		if (o.getClass().isArray()) {
+			return (0 == ((Object [])o).length);
+		}
+		return false;
+	}
+	
+	/**
+	 * Get base component class, targetted for this renderer. Used for check arguments in decode/encode.
+	 * @return
+	 */
+	protected Class getComponentClass() {
+#if($component.componentClass)
+		return ${component.componentClass}.class;
+#else
+		return UIComponent.class;
+#end		
+	}

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	<meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8" />
+	<body>
+	<f:view>
+		<rich:modalPanel id="mpID" showWhenRendered="true">
+			<h:form>
+				<f:facet name="header">
+					<h:outputText value="Modal Panel Header" />
+				</f:facet>
+
+				<f:facet name="controls">
+					<h:graphicImage value="/pics/error.gif"
+						onclick="Richfaces.hideModalPanel('mpID'); return false;" />
+				</f:facet>
+
+				<h:inputText value="#{sb.property}" id="text">
+					<f:validateLength minimum="0" maximum="30" />
+				</h:inputText>
+				<rich:suggestionbox id="suggestionBoxId"
+					ajaxSingle="#{sb.ajaxSingle}" bgcolor="#{sb.bgColor}"
+					binding="#{sb.mySuggestionBox}" bypassUpdates="#{sb.bypassUpdates}"
+					cellpadding="#{sb.cellpadding}" cellspacing="#{sb.cellspacing}"
+					dir="#{sb.dir}" entryClass="#{style.entryClass}"
+					eventsQueue="myEventsQueue" fetchValue="#{result.text}"
+					first="#{sb.first}" for="text" frame="#{sb.frame}"
+					frequency="#{sb.frequency}" height="#{sb.height}"
+					ignoreDupResponses="#{sb.ignoreDupResponses}"
+					immediate="#{sb.immediate}" limitToList="false"
+					minChars="#{sb.minchars}" nothingLabel="#{sb.nothingLabel}"
+					onbeforedomupdate="#{event.onbeforedomupdate}"
+					oncomplete="#{event.oncomplete}"
+					onobjectchange="#{event.onobjectchange}"
+					onselect="#{event.onselect}" onsubmit="#{event.onsubmit}"
+					popupStyle="background-color: black;"
+					usingSuggestObjects="#{sb.usingSuggestObjects}" reRender="label"
+					rendered="#{sb.rendered}" requestDelay="#{sb.requestDelay}"
+					selfRendered="#{sb.selfRendered}" var="result"
+					suggestionAction="#{sb.autocomplete}" width="#{sb.width}"
+					border="#{sb.border}" zindex="#{sb.zindex}" rules="#{sb.rules}"
+					tokens="#{sb.tokens}" title="#{result.text}" summary="summary"
+					shadowOpacity="#{sb.shadowOpacity}" shadowDepth="#{sb.shadowDepth}"
+					selectValueClass="mousemove" style="#{style.style}"
+					styleClass="#{style.styleClass}"
+					selectedClass="#{style.selectedClass}"
+					rowClasses="#{style.rowClasses}">
+
+					<h:column>
+						<h:outputText value="#{result.city}" />
+					</h:column>
+					<h:column>
+						<h:outputText value="#{result.contry}" />
+					</h:column>
+					<h:column>
+						<h:outputText value="#{result.flag}" />
+					</h:column>
+					<h:column>
+						<a4j:htmlCommandLink actionListener="#{sb.selectValue}"
+							value="Click me!" />
+					</h:column>
+				</rich:suggestionbox>
+				<br/>
+				<h:outputLink
+					onclick="Richfaces.hideModalPanel('modalPanelID');return false;">
+					<f:verbatim>Close</f:verbatim>
+				</h:outputLink>
+			</h:form>
+		</rich:modalPanel>
+	</f:view>
+	</body>
+</ui:composition>

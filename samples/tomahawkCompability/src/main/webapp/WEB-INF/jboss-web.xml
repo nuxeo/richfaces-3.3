@@ -1,0 +1,10 @@
+<jboss-web>
+	<class-loading java2ClassLoadingCompliance="false">
+		<loader-repository>
+			org.ajax4jsf:loader=tomahawkCompability
+			<loader-repository-config>
+				java2ParentDelegation=false
+			</loader-repository-config>
+		</loader-repository>
+	</class-loading>
+</jboss-web>

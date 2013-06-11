@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root
+    xmlns:f="http://ajax4jsf.org/cdk/template"
+    xmlns:c=" http://java.sun.com/jsf/core"
+    xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+    xmlns:u=" http://ajax4jsf.org/cdk/u"
+    xmlns:x=" http://ajax4jsf.org/cdk/x"
+    xmlns:h=" http://ajax4jsf.org/cdk/h"
+	xmlns:vcp=" http://ajax4jsf.org/cdk/vcp"
+    class="org.richfaces.renderkit.html.DataFilterSliderRenderer"
+    baseclass="org.richfaces.renderkit.DataFilterSliderRendererBase"
+    component="org.richfaces.component.UIDataFltrSlider">
+
+    <h:styles>css/dataFilterSlider.xcss</h:styles>
+    <h:scripts>new org.ajax4jsf.javascript.AjaxScript(),new org.ajax4jsf.javascript.PrototypeScript(),scripts/datafilterslider.js</h:scripts>
+
+    <f:clientid var="clientId"/>
+    <f:resource name="org.richfaces.renderkit.html.images.SliderArrowImage" var="arrow" />
+    
+    <jsp:scriptlet>
+		<![CDATA[org.richfaces.component.util.FormUtil.throwEnclFormReqExceptionIfNeed(context,component);]]>
+    </jsp:scriptlet>
+
+        <div class="slider-container rich-dataFilterSlider-container #{component.styleClass}" style="#{component.attributes['style']}">
+            <div id="#{clientId}slider-range" class="range rich-dataFilterSlider-range #{component.rangeStyleClass}" style="width:#{component.attributes['width']}">
+                <div id="#{clientId}slider-range-decor" class="range-decor rich-dataFilterSlider-range-decor">
+                <jsp:scriptlet>
+                   <![CDATA[
+                        boolean trailer = attributeToBoolean(component, "trailer");
+                        if (trailer) {
+                    ]]>
+                  </jsp:scriptlet>
+                <div id="#{clientId}slider-trailer" class="trailer rich-dataFilterSlider-trailer #{component.trailerStyleClass}">
+                     <jsp:scriptlet>
+                       <![CDATA[
+                            }
+                        ]]>
+                      </jsp:scriptlet>
+                    <div id="#{clientId}slider-track" class="track rich-dataFilterSlider-track #{component.trackStyleClass}" style="width:#{component.attributes['width']}">
+                        <div id="#{clientId}slider-handle" class="handle rich-dataFilterSlider-handle #{component.handleStyleClass}">
+                            <img src="#{arrow}" width="7" height="8" alt="" style="border:0" />
+                        </div>
+                    </div>
+
+                    <jsp:scriptlet>
+                   <![CDATA[
+                        if (trailer) {
+                    ]]>
+                  </jsp:scriptlet>
+                </div>
+                    <jsp:scriptlet>
+                       <![CDATA[
+                            }
+                        ]]>
+                      </jsp:scriptlet>
+
+            </div>
+            </div>
+            <jsp:scriptlet>
+               <![CDATA[
+                    boolean manualInput = attributeToBoolean(component, "manualInput");
+                    if (manualInput) {
+                ]]>
+              </jsp:scriptlet>
+
+              <input type="text" 
+              		 onchange="dataFilterSlider.valueChanged(event,this.value);" 
+              		 class="slider-input-field rich-dataFilterSlider-input-field #{component.fieldStyleClass}" 
+              		 name="#{clientId}slider_val" 
+              		 id="#{clientId}slider_val" 
+              		 onkeydown='#{component.attributes["oninputkeydown"]}'
+			   		 onkeypress='#{component.attributes["oninputkeypress"]}'
+			   		 onkeyup='#{component.attributes["oninputkeyup"]}'
+              		 value="#{component.handleValue}"/>
+
+              <jsp:scriptlet>
+               <![CDATA[
+                    }else{
+                ]]>
+              </jsp:scriptlet>
+
+              <input type="hidden" name="#{clientId}slider_val" id="#{clientId}slider_val" value="#{component.handleValue}"/>
+
+                <jsp:scriptlet>
+               <![CDATA[
+                    }
+                ]]>
+              </jsp:scriptlet>
+
+            <script type="text/javascript">
+
+             #{this:renderSliderJs1(context, component)}
+
+             #{this:renderSliderJs2(context, component)}
+
+            </script>
+            <br style="clear:both"/>
+        </div>
+
+
+
+
+</f:root>

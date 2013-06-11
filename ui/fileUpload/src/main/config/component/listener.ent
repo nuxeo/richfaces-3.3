@@ -1,0 +1,17 @@
+<listener>
+		<name>fileUploadListener</name>
+		<listenerclass>
+			org.richfaces.event.FileUploadListener	
+		</listenerclass>
+		<componentclass>
+			org.richfaces.component.UIFileUpload		
+		</componentclass>
+		<eventclass>
+			org.richfaces.event.UploadEvent
+		</eventclass>
+		<taghandler generate="true">
+			<classname>
+				org.richfaces.taglib.FileUploadListenerTagHandler
+			</classname>
+		</taghandler>
+</listener>

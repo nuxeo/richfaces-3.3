@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://labs.jboss.com/jbossrichfaces/ui/editor"
+      xmlns:a4j="http://richfaces.org/a4j"
+      >
+<head>      
+
+</head>
+<body>
+
+<h:form>
+<h:selectOneRadio binding="#{skinBean.component}" />
+<h:commandLink action="#{skinBean.change}" value="set skin" />
+</h:form>
+<a4j:loadScript src="scripts/tiny_mce/tiny_mce_src.js" type="text/javascript"/>
+
+<h:form>
+	<rich:editor>
+	<f:param name="mode" value="textareas"/>
+	<f:param name="theme_advanced_resizing" value="#{true}"/>
+	<f:param name="template_replace_values" value="{username : 'Some User',staffid : '991234'}"/>
+	<f:param name="template_replace_values1" value="#{editorBean.dataMap}"/>
+	</rich:editor>
+
+
+
+
+</h:form>
+
+
+</body>
+</html>

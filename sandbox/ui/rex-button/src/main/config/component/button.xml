@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+<components>
+	<component>
+		<name>org.richfaces.sandbox.Button</name>
+		<family>org.richfaces.sandbox.Button</family>
+		<classname>org.richfaces.sandbox.component.html.HtmlButton</classname>
+		<superclass>org.richfaces.sandbox.component.UIButton</superclass>
+		<description>
+			<![CDATA[
+    ]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.sandbox.ButtonRenderer</name>
+			<template>htmlButton.jspx</template>
+		</renderer>
+		<tag>
+			<name>button</name>
+			<classname>org.richfaces.sandbox.taglib.ButtonTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+		</tag>
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+		&ui_component_attributes;
+      	&html_events;
+        &html_style_attributes;
+		<property>
+			<name>value</name>
+			<classname>java.lang.String</classname>
+			<description>
+			The text appears on the button
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+	</component>
+</components>

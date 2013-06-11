@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+<components>
+	<component>
+		<name>org.richfaces.Editor</name>
+		<family>org.richfaces.Editor</family>
+		<classname>org.richfaces.component.html.HtmlEditor</classname>
+		<superclass>org.richfaces.component.UIEditor</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlEditorComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>			
+		</description>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.EditorRenderer</name>
+			<template>editor.jspx</template>
+		</renderer>
+		<tag>
+			<name>editor</name>
+			<classname>org.richfaces.taglib.EditorTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test>
+			</test>	
+		</tag>
+		&ui_component_attributes;
+		&ui_input_attributes;
+		&ui_output_attributes;
+		<property>
+	    	<name>style</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>CSS style(s) is/are to be applied when this component is rendered</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		<property>
+	    	<name>styleClass</name>
+	    	<classname>java.lang.String</classname>
+	     	<description>Corresponds to the HTML class attribute</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		<property hidden="true">
+			<name>type</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Sets editor type. Default value is &quot;TinyMCE&quot;
+			</description>
+			<defaultvalue>"TinyMCE"</defaultvalue>
+		</property>
+		<property>
+			<name>width</name>
+			<classname>java.lang.Integer</classname>
+			<description>
+				Attribute defines width of component.
+			</description>
+		</property>
+		<property>
+			<name>height</name>
+			<classname>java.lang.Integer</classname>
+			<description>
+				Attribute defines height of component.
+			</description>
+		</property>
+		<property>
+			<name>theme</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Attribute defines Editor theme
+			</description>
+		</property>
+		<property>
+			<name>useSeamText</name>
+			<classname>boolean</classname>
+			<description>
+				Attribute defines if model value should be converted to Seam Text. Default value is &quot;false&quot;
+			</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		
+		<property>
+			<name>plugins</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Attribute defines Editor plugins
+			</description>
+		</property>
+		<property>
+			<name>readonly</name>
+			<classname>boolean</classname>
+			<description>
+				Attribute defines Editor is readonly
+			</description>
+		</property>
+		<property>
+			<name>language</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Attribute defines Editor language
+			</description>
+		</property>
+		<property>
+			<name>autoResize</name>
+			<classname>boolean</classname>
+			<description>
+				Attribute enables to get the Editor area to resize to the boundaries of the contents.
+			</description>
+		</property>
+		<property>
+			<name>tabindex</name>
+			<classname>java.lang.String</classname>
+			<description>
+				In visual mode the attribute works the same way as "tab_focus" TinyMCE&apos;s property the attribute enables 
+				you to specify an element ID to focus, when the TAB  key  is pressed .
+				You can also use the special ":prev" and ":next"  values that will then place the focus on 
+				an input element placed before/after the TinyMCE instance in the DOM. 
+				While in "source" mode the attribute works like standard HTML tabindex attribute.
+			</description>
+		</property>
+		<property>
+			<name>oninit</name>
+			<classname>java.lang.String</classname>
+			<description>
+				HTML: script expression; initialization of the editor's instances are finished
+			</description>
+		</property>
+		<property>
+			<name>onchange</name>
+			<classname>java.lang.String</classname>
+			<description>
+				HTML: script expression; content is modified by TinyMCE.
+			</description>
+		</property>
+		<property>
+			<name>onsave</name>
+			<classname>java.lang.String</classname>
+			<description>
+				HTML: script expression; the contents is extracted/saved.
+			</description>
+		</property>
+		<property>
+			<name>onsetup</name>
+			<classname>java.lang.String</classname>
+			<description>
+				HTML: script expression; to add events to editor instances before they get rendered. 
+			</description>
+		</property>
+		<property>
+			<name>configuration</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Attribute defines configuration properties file name
+			</description>
+		</property>
+		<property>
+			<name>customPlugins</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Attribute defines property file name witch contains descriptors of custom plugins
+			</description>
+		</property>
+		<property hidden="true">
+			<name>localValueSet</name>
+			<classname>boolean</classname>
+			<description>localValueSet</description>
+		</property>
+		<property hidden="true">
+			<name>valid</name>
+			<classname>boolean</classname>
+			<description>valid</description>
+		</property>
+		<property>
+			<name>skin</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Attribute defines Editor skin
+			</description>
+		</property>
+		<property>
+			<name>viewMode</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Attribute defines if tinyMCE WYSIWYG should be disabled. Default value is &quot;visual&quot;
+			</description>
+			<defaultvalue>"visual"</defaultvalue>
+		</property>
+		<property>
+			<name>dialogType</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Attribute defines how dialogs/popups should be opened. Default value is &quot;modal&quot;
+			</description>
+			<defaultvalue>"modal"</defaultvalue>
+		</property>
+		<property>
+			<name>label</name>
+			<classname>java.lang.String</classname>
+			<description>A localized user presentable name for this component.</description>
+		</property>
+	</component>
+</components>

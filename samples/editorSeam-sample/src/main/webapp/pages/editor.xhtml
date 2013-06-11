@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ed="http://labs.jboss.com/jbossrichfaces/ui/editor"
+      xmlns:a4j="http://richfaces.org/a4j"
+      >
+<head>      
+
+</head>
+<body>
+
+
+<h:form id="formId">
+				
+				<ed:editor id="editorId"
+						   value="#{editorBean.value}" 
+						   width="320" 
+						   height="270"						   
+						   rendered="#{editorBean.rendered}"						   
+						   binding="#{editorBean.editor}"						   
+						   theme="advanced" 
+						   useSeamText="true"
+						   configuration="editorParameters"
+						   />								
+				
+				
+				<h:commandButton value="h:commandButton"/>
+				<a4j:commandButton value="a4j:commandButton" reRender="editorId, seamtext"/>
+				<br/>						
+				<h:commandButton value="change rendered" action="#{editorBean.changeRendered}"/>
+				<h:panelGrid columns="1" id="seamtext">
+					<f:facet name="header">
+						<h:outputText value="Generated Seam Text"/>
+					</f:facet>
+					<h:inputTextarea readonly="true" cols="80" rows="20" value="#{editorBean.value}"/>
+				</h:panelGrid>
+			</h:form>
+
+</body>
+</html>

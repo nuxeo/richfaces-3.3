@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root
+        xmlns:f="http://ajax4jsf.org/cdk/template"
+        xmlns:c=" http://java.sun.com/jsf/core"
+        xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+        xmlns:u=" http://ajax4jsf.org/cdk/u"
+        xmlns:x=" http://ajax4jsf.org/cdk/x"
+        baseclass="org.ajax4jsf.renderkit.HeaderResourcesRendererBase"
+        class="org.richfaces.renderkit.html.MenuSeparatorRenderer"
+        component="org.richfaces.component.UIMenuSeparator"
+        >
+    <h:styles>css/menucomponents.xcss</h:styles>
+
+    <f:clientid var="clientId"/>
+
+    <div id="#{clientId}" class="rich-menu-separator">
+
+    </div>
+</f:root>

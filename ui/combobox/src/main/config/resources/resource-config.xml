@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+	<resource class="org.richfaces.renderkit.html.images.SpinnerButtonGradient">
+		<name>org.richfaces.renderkit.html.images.SpinnerButtonGradient</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.SpinnerFieldGradient">
+		<name>org.richfaces.renderkit.html.images.SpinnerFieldGradient</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.ComboBoxArrowImage">
+		<name>org.richfaces.renderkit.html.images.ComboBoxArrowImage</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.ComboBoxButtonPressGradient">
+		<name>org.richfaces.renderkit.html.images.ComboBoxButtonPressGradient</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.ComboBoxArrowImageDisable">
+		<name>org.richfaces.renderkit.html.images.ComboBoxArrowImageDisable</name>
+	</resource>
+</resource-config>

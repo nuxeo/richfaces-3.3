@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+    xmlns:u='http:/jsf.exadel.com/template/util'
+    xmlns="http://www.w3.org/1999/xhtml" >
+
+	    <f:importResource src="org/richfaces/skins/darkx/css/calendar.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/combobox.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/contextmenu.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/dataFilterSlider.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/datascroller.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/dataTable.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/dragDrop.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/dropdownmenu.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/fileUpload.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/gmap.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/inplaceinput.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/inplaceselect.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/inputNumberSlider.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/inputNumberSpinner.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/listShuttle.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/menuComponents.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/message.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/modalPanel.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/orderingList.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/paint2D.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/panel.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/panelBar.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/panelMenu.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/picklist.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/progressBar.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/sdt.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/separator.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/simpleTogglePanel.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/spacer.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/suggestionbox.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/tabPanel.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/togglePanel.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/toolBar.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/tooltip.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/tree.xcss" />
+	    <f:importResource src="org/richfaces/skins/darkx/css/virtualEarth.xcss" />
+        
+</f:template>

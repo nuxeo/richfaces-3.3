@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<ui:composition template="#{templateBean.autoTestTemplate}">
+		<ui:define name="component">
+			<h:panelGroup id="tooltipArea">
+				<p>Tooltip area</p>
+			</h:panelGroup>
+				<rich:toolTip id="componentId" for="tooltipArea"
+					mode="#{tooltipBean.mode}"
+					showEvent="onclick"
+					actionListener="#{autoTestBean.actionListener}"
+					immediate="#{autoTestBean.immediate}"
+					ajaxSingle="#{autoTestBean.ajaxSingle}"
+					disabled="#{autoTestBean.disabled}"
+					rendered="#{autoTestBean.rendered}"
+					horizontalOffset="0"
+					verticalOffset="0"
+					style="width: 200px; height: 100px; font-size: 13px;"
+					styleClass="noclass" 
+					onclick="EventQueue.fire('onclick')"
+					onkeydown="EventQueue.fire('onkeydown')"
+					onkeypress="EventQueue.fire('onkeypress')"
+					onmousedown="EventQueue.fire('onmousedown')"
+					onkeyup="EventQueue.fire('onkeyup')"
+					onmousemove="EventQueue.fire('onmousemove')"
+					onmouseout="EventQueue.fire('onmouseout')"
+					ondblclick="EventQueue.fire('ondblclick')"
+					onmouseover="EventQueue.fire('onmouseover')"
+					onmouseup="EventQueue.fire('onmouseup')"
+					onshow="EventQueue.fire('onshow')"
+					onhide="EventQueue.fire('onhide')">
+					<f:param name="parameter1" value="value1" />
+					<f:param name="parameter2" value="value2" />
+					<f:param name="parameter3" value="value3" />
+					<f:facet name="defaultContent">
+                		<strong>Wait...</strong>
+            		</f:facet>
+					<span>Tooltip hit count #{tooltipBean.hitCount} </span>
+				</rich:toolTip>
+		</ui:define>
+	</ui:composition>
+</html>

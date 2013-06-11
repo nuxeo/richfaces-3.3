@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:rich="http://labs.jboss.com/jbossrichfaces/ui/jQuery"
+      xmlns:a4j="http://richfaces.org/a4j">
+
+  <f:view contentType="text/html" >
+
+  <body>
+	<h:form id="form">
+	<h:panelGrid id="menu" columns="1">
+   
+	   <h:graphicImage value="http://images.businessweek.com/tc/reviews/icons/game_50x50.gif" />
+	   <h:graphicImage value="http://www.loinhead.net/images/iconmgs.gif"/>
+	   <h:graphicImage value="http://img.dooyoo.co.uk/GB_EN/yoo3/pix/hp/pc-video-games.gif" />
+	   <h:graphicImage value="http://www.archos.com/img/av_700/picto_game.gif" />
+
+	</h:panelGrid>   
+
+   <rich:jQuery name="makeFat" timing="onJScall" query="stop().animate({width:param.ewidth})" />
+   <rich:jQuery name="makeThin" timing="onJScall" query="stop().animate({width:'50px'})" />
+   <rich:jQuery selector="#menu img" timing="onload" query="mouseover(function(){makeFat(this,{ewidth:'120px'});})" />
+   <rich:jQuery selector="#menu img" timing="onload" query="mouseout(function(){makeThin(this);})" />
+   <rich:jQuery selector="document.body" timing="onload" query="append('Dynamic text')" />
+
+ 	</h:form>
+  </body>
+</f:view>
+</html>

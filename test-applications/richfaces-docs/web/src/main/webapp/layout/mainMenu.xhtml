@@ -1,0 +1,96 @@
+<!-- mainMenu  -->
+
+<rich:panelMenu 
+xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+   
+				  mode="client" 
+				  iconExpandedGroup="disc" 
+				  iconCollapsedGroup="disc" 
+				  iconExpandedTopGroup="chevronUp" 
+				  iconGroupTopPosition="right" 
+				  iconCollapsedTopGroup="chevronDown" 
+				  iconCollapsedTopPosition="right"
+				  id="mainMenu">
+	<rich:panelMenuGroup label="Rich Components" id="group1" value="#{menuState.menu['group1']}" >
+		
+		<rich:panelMenuItem  actionListener="#{menuBean.select}" mode="server">
+			<h:outputLink value="calendar.xhtml" >rich:calendar</h:outputLink>
+		</rich:panelMenuItem>
+		
+		<rich:panelMenuItem  actionListener="#{menuBean.select}" mode="server">
+			<h:outputLink value="colorPicker.xhtml" >rich:colorPicker</h:outputLink>
+		</rich:panelMenuItem>
+		
+		<rich:panelMenuItem  actionListener="#{menuBean.select}" mode="server">
+			<h:outputLink value="comboBox.xhtml" >rich:comboBox</h:outputLink>
+		</rich:panelMenuItem>
+		
+		<rich:panelMenuItem  actionListener="#{menuBean.select}" mode="server">
+			<h:outputLink value="contextMenu.xhtml" >rich:contextMenu</h:outputLink>
+		</rich:panelMenuItem>
+		
+		<rich:panelMenuItem  actionListener="#{menuBean.select}" mode="server">
+			<h:outputLink value="fileUpload.xhtml" >rich:fileUpload</h:outputLink>
+		</rich:panelMenuItem>
+		
+		<rich:panelMenuItem  actionListener="#{menuBean.select}" mode="server">
+			<h:outputLink value="inplaceInput.xhtml" >rich:inplaceInput</h:outputLink>
+		</rich:panelMenuItem>
+		
+		<rich:panelMenuItem  actionListener="#{menuBean.select}" mode="server">
+			<h:outputLink value="modalPanel.xhtml" >rich:modalPanel</h:outputLink>
+		</rich:panelMenuItem>
+
+		<rich:panelMenuItem actionListener="#{menuBean.select}" mode="server">
+			<h:outputLink value="layout.xhtml" >rich:layout</h:outputLink>
+		</rich:panelMenuItem>
+		
+		<rich:panelMenuItem actionListener="#{menuBean.select}" mode="server">
+			<h:outputLink value="page.xhtml" >rich:page</h:outputLink>
+		</rich:panelMenuItem>
+		
+		<rich:panelMenuItem actionListener="#{menuBean.select}" mode="server">
+			<h:outputLink value="pickList.xhtml" >rich:pickList</h:outputLink>
+		</rich:panelMenuItem>
+		
+		<rich:panelMenuItem  actionListener="#{menuBean.select}" mode="server">
+			<h:outputLink value="progressBar.xhtml" >rich:progressBar</h:outputLink>
+		</rich:panelMenuItem>
+		
+		<rich:panelMenuItem actionListener="#{menuBean.select}" mode="server">
+			<h:outputLink value="tree.xhtml" >rich:tree</h:outputLink>
+		</rich:panelMenuItem>
+
+	</rich:panelMenuGroup>
+	
+<rich:panelMenuGroup label="A4J Components" id="group2" value="#{menuState.menu['group2']}">
+
+<rich:panelMenuItem actionListener="#{menuBean.select}" mode="server">
+<h:outputLink value="queue.xhtml" >a4j:queue</h:outputLink>
+</rich:panelMenuItem>
+
+
+
+</rich:panelMenuGroup>
+<rich:panelMenuGroup label="Framework" id="group3" value="#{menuState.menu['group3']}">
+
+<rich:panelMenuItem actionListener="#{menuBean.select}" mode="server">
+<h:outputLink value="framework.xhtml" >Framework</h:outputLink>
+</rich:panelMenuItem>
+
+</rich:panelMenuGroup>
+
+<rich:panelMenuGroup label="Skinnability" id="group4" value="#{menuState.menu['group4']}">
+
+<rich:panelMenuItem actionListener="#{menuBean.select}" mode="server">
+<h:outputLink value="stskinning.xhtml" >Standard Skinning</h:outputLink>
+</rich:panelMenuItem>
+
+</rich:panelMenuGroup>
+
+</rich:panelMenu>

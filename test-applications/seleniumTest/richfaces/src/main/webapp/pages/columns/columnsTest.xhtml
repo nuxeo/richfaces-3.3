@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_controls">
+			
+		</h:form>
+		<h:form id="_form">
+			<h:outputText id="status" value="#{columnsBean.status}"></h:outputText><br/>
+			<h:outputText id="checkInputs" value="#{columnsBean.checkInputs}"></h:outputText>
+			<br/><br/>
+			<rich:dataTable id="table"  value="#{columnsBean.model}" var="row" width="750">
+            	<rich:columns value="#{columnsBean.columns}" var="column"
+                	index="index" rendered="#{columnsBean.rendered}">
+                	<f:facet name="header">
+						<h:outputText value="#{column.header}"></h:outputText>
+					</f:facet>
+					<f:facet name="footer">
+						<h:outputText value="#{column.footer}"></h:outputText>
+					</f:facet>
+					<h:inputText value="#{row[index].input}" />
+					<h:commandButton value="Submit#{index}" actionListener="#{column.listener}" />
+            	</rich:columns>
+        	</rich:dataTable>
+        	<h:commandButton id="submit" value="Submit"></h:commandButton>
+        </h:form>
+	</ui:define>
+</ui:composition>
+</html>

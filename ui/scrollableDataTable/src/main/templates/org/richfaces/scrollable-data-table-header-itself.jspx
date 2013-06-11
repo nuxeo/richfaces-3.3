@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:h=" http://ajax4jsf.org/cdk/headers"
+	xmlns:vcp="http://ajax4jsf.org/cdk/vcp"
+	baseclass="org.richfaces.renderkit.html.SortIconRenderer"
+	class="org.richfaces.renderkit.html.ScrollableDataTableHeaderItselfRenderer"
+	component="javax.faces.component.UIComponent" 
+	>
+
+<div id="#{client_id}:hcb_#{cell_index}" class="dr-sdt-cbody dr-sdt-c-#{cell_index} #{component.attributes['headerClass']}">
+	<vcp:body/>
+
+	<div align="right" id="#{client_id}:hs_#{cell_index}" class="dr-sdt-sort-icon">
+			<c:if test="#{sortAscending}">
+				<f:call name="renderAscIcon"/>
+			</c:if>
+			<c:if test="#{sortDescending}">
+				<f:call name="renderDescIcon"/>
+			</c:if>
+	</div>
+	
+</div>
+<ajax:update>#{client_id}:hcb_#{cell_index}</ajax:update>
+
+</f:root>

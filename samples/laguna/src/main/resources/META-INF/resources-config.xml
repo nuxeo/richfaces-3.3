@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+
+	<resource>
+		<name>META-INF/skins/laguna.xcss</name>
+		<path>META-INF/skins/laguna.xcss</path>
+	</resource>
+
+	<resource>
+		<name>org/richfaces/skins/laguna/css/calendar.xcss</name>
+		<path>org/richfaces/skins/laguna/css/calendar.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/combobox.xcss</name>
+		<path>org/richfaces/skins/laguna/css/combobox.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/contextmenu.xcss</name>
+		<path>org/richfaces/skins/laguna/css/contextmenu.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/dataFilterSlider.xcss</name>
+		<path>org/richfaces/skins/laguna/css/dataFilterSlider.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/datascroller.xcss</name>
+		<path>org/richfaces/skins/laguna/css/datascroller.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/dataTable.xcss</name>
+		<path>org/richfaces/skins/laguna/css/dataTable.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/dragIndicator.xcss</name>
+		<path>org/richfaces/skins/laguna/css/dragIndicator.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/dropdownmenu.xcss</name>
+		<path>org/richfaces/skins/laguna/css/dropdownmenu.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/fileUpload.xcss</name>
+		<path>org/richfaces/skins/laguna/css/fileUpload.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/gmap.xcss</name>
+		<path>org/richfaces/skins/laguna/css/gmap.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/inplaceinput.xcss</name>
+		<path>org/richfaces/skins/laguna/css/inplaceinput.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/inplaceselect.xcss</name>
+		<path>org/richfaces/skins/laguna/css/inplaceselect.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/inputNumberSlider.xcss</name>
+		<path>org/richfaces/skins/laguna/css/inputNumberSlider.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/inputNumberSpinner.xcss</name>
+		<path>org/richfaces/skins/laguna/css/inputNumberSpinner.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/listShuttle.xcss</name>
+		<path>org/richfaces/skins/laguna/css/listShuttle.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/menuItem.xcss</name>
+		<path>org/richfaces/skins/laguna/css/menuItem.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/modalPanel.xcss</name>
+		<path>org/richfaces/skins/laguna/css/modalPanel.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/msgs.xcss</name>
+		<path>org/richfaces/skins/laguna/css/msgs.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/orderingList.xcss</name>
+		<path>org/richfaces/skins/laguna/css/orderingList.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/paint2D.xcss</name>
+		<path>org/richfaces/skins/laguna/css/paint2D.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/panel.xcss</name>
+		<path>org/richfaces/skins/laguna/css/panel.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/panelBar.xcss</name>
+		<path>org/richfaces/skins/laguna/css/panelBar.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/panelMenu.xcss</name>
+		<path>org/richfaces/skins/laguna/css/panelMenu.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/picklist.xcss</name>
+		<path>org/richfaces/skins/laguna/css/picklist.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/progressBar.xcss</name>
+		<path>org/richfaces/skins/laguna/css/progressBar.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/sdt.xcss</name>
+		<path>org/richfaces/skins/laguna/css/sdt.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/separator.xcss</name>
+		<path>org/richfaces/skins/laguna/css/separator.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/simpleTogglePanel.xcss</name>
+		<path>org/richfaces/skins/laguna/css/simpleTogglePanel.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/spacer.xcss</name>
+		<path>org/richfaces/skins/laguna/css/spacer.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/standard.xcss</name>
+		<path>org/richfaces/skins/laguna/css/standard.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/suggestionbox.xcss</name>
+		<path>org/richfaces/skins/laguna/css/suggestionbox.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/tabPanel.xcss</name>
+		<path>org/richfaces/skins/laguna/css/tabPanel.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/togglePanel.xcss</name>
+		<path>org/richfaces/skins/laguna/css/togglePanel.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/toolBar.xcss</name>
+		<path>org/richfaces/skins/laguna/css/toolBar.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/tooltip.xcss</name>
+		<path>org/richfaces/skins/laguna/css/tooltip.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/tree.xcss</name>
+		<path>org/richfaces/skins/laguna/css/tree.xcss</path>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/skins/laguna/css/virtualEarth.xcss</name>
+		<path>org/richfaces/skins/laguna/css/virtualEarth.xcss</path>
+	</resource>
+</resource-config>

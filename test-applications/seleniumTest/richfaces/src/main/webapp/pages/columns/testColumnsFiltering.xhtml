@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+			<br/><br/>
+			<rich:dataTable id="table"  value="#{columnsBean.model}" var="row">
+            	<rich:columns id="c#{index}" value="#{columnsBean.columns}" var="column"
+                	index="index" filterBy="#{row[index].value}" filterValue="#{column.filterValue}">
+                	<f:facet name="header" filterEvent="onkeyup">
+						<h:outputText value="#{column.filterValue}"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{row[index].value}" />
+            	</rich:columns>
+        	</rich:dataTable><br/>
+        	
+        	<rich:dataTable id="table2"  value="#{columnsBean.model}" var="row">
+        		<f:facet name="header">
+        			<rich:column colspan="2">
+        				<h:outputText value="Test Filter Method"></h:outputText>
+        			</rich:column>
+        		</f:facet>
+            	<rich:columns id="c#{index}" value="#{columnsBean.columns}" var="column"
+                	index="index" filterMethod="#{column.filterMethod}">
+					<h:outputText value="#{row[index].value}" />
+            	</rich:columns>
+        	</rich:dataTable><br/>
+        	
+        	<rich:dataTable id="table3"  value="#{columnsBean.model}" var="row">
+        		<f:facet name="header">
+        			<rich:column colspan="2">
+        				<h:outputText value="Test Filter Expression"></h:outputText>
+        			</rich:column>
+        		</f:facet>
+            	<rich:columns id="c#{index}" value="#{columnsBean.columns}" var="column"
+                	index="index" filterExpression="#{(row[index].value-1) == index}">
+					<h:outputText value="#{row[index].value}" />
+            	</rich:columns>
+        	</rich:dataTable><br/>
+        	
+        	<h:commandButton id="submit" value="Submit"></h:commandButton>
+        </h:form>
+	</ui:define>
+</ui:composition>
+</html>

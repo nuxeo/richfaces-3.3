@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://ajax4jsf.org/cdk/template"
+	xmlns:vcp=" http://jsf.exadel.com/vcp"
+	xmlns:c=" http://java.sun.com/jsf/core"
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	class="org.richfaces.renderkit.html.ToolBarRenderer"
+	baseclass="org.richfaces.renderkit.html.ToolBarRendererBase"
+	component="org.richfaces.component.UIToolBar">
+
+<h:styles>css/toolBar.xcss</h:styles>
+	
+<f:clientid var="clientId" />
+
+<table border="0" cellpadding="0" cellspacing="0" id="#{clientId}" width="#{component.attributes['width']}" 
+	height="#{component.attributes['height']}" class="dr-toolbar-ext rich-toolbar #{component.attributes['styleClass']}" 
+	style="#{component.attributes['style']}"
+	onclick="#{component.attributes['onclick']}"
+	ondblclick="#{component.attributes['ondblclick']}"
+	onkeydown="#{component.attributes['onkeydown']}"
+	onkeypress="#{component.attributes['onkeypress']}"
+	onkeyup="#{component.attributes['onkeyup']}"
+	onmousedown="#{component.attributes['onmousedown']}"
+	onmousemove="#{component.attributes['onmousemove']}"
+	onmouseout="#{component.attributes['onmouseout']}"
+	onmouseover="#{component.attributes['onmouseover']}"
+	onmouseup="#{component.attributes['onmouseup']}">
+	<tr valign="middle">
+		<vcp:body />		
+	</tr>
+</table>
+
+</f:root>

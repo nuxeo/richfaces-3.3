@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!-- 
+	17.06.2008
+	pkawiak
+ -->
+
+
+<project name="dev-tools" default="merge-scripts">
+	
+	<description>
+            Tools speeding up developement
+    </description>
+
+	<target name="merge-scripts">
+		<property name="resources-dir" value="./src/main/javascript"></property>
+		<property name="target-dir" value="../../../../g3-demonstration/WebContent/JS/"></property>
+		<property name="script-path" value=""></property>
+		<property name="gen-script-name" value="extended-data-table.js"></property>	
+		<property name="gen-script-full-name" value="${target-dir}/${script-path}/${gen-script-name}"></property>
+		<concat append="false" binary="false"  destfile="${gen-script-full-name}">
+			<filelist>
+				<file name="${resources-dir}/ClientUI/controls/dataTable/ExtendedDataTable.js"/>
+				<file name="${resources-dir}/ClientUI/controls/datatable/ExtendedDataTableHeader.js"/>
+				<file name="${resources-dir}/ClientUI/controls/datatable/ExtendedDataTableSelection.js"/>
+			</filelist>
+		</concat>
+	</target>
+
+</project>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="1.2" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+ <managed-bean>
+  <managed-bean-name>general</managed-bean-name>
+  <managed-bean-class>general.General</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>dropDownMenuGeneral</managed-bean-name>
+  <managed-bean-class>dropDownMenu.DropDownMenuGeneral</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>comboBoxGeneral</managed-bean-name>
+  <managed-bean-class>comboBox.ComboBoxGeneral</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>comboBoxHandlers</managed-bean-name>
+  <managed-bean-class>comboBox.ComboBoxHandlers</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>comboBoxStyles</managed-bean-name>
+  <managed-bean-class>comboBox.ComboBoxStyles</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>calendarHandlers</managed-bean-name>
+  <managed-bean-class>calendar.CalendarHandlers</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <lifecycle>
+  <phase-listener>phaseTracker.PhaseTracker</phase-listener>
+ </lifecycle>
+</faces-config>

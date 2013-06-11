@@ -1,0 +1,62 @@
+/**
+ * GENERATED FILE - DO NOT EDIT
+ *
+ */
+package ${tag.packageName};
+
+#foreach($import in $imports)
+import $import ;
+#end
+import javax.el.ELException;
+import javax.faces.FacesException;
+import javax.faces.component.UIComponent;
+import javax.el.MethodExpression;
+import javax.faces.el.MethodBinding;
+import javax.faces.el.ValueBinding;
+import javax.el.ValueExpression;
+import javax.faces.convert.Converter;
+import javax.faces.webapp.UIComponentTag;
+import javax.faces.context.FacesContext;
+import javax.servlet.jsp.JspException;
+import ${converter.classname};
+
+public class $tag.simpleClassName extends $tag.superclass 
+{
+
+#tagPropertyMethods12($converter)
+
+  protected Converter createConverter() throws JspException 
+  {
+    ${converter.simpleClassName} converter = (${converter.simpleClassName}) FacesContext.getCurrentInstance().getApplication().createConverter("${converter.id}");
+    _setProperties(converter);
+    return converter;
+  }
+
+  // Support method to wire in attributes
+  private void _setProperties(${converter.simpleClassName} converter) throws JspException 
+  {
+    FacesContext facesContext = FacesContext.getCurrentInstance();
+#foreach( $prop in $converter.properties )
+#if( !$prop.existintag )
+    if (_${prop.name} != null) 
+    {
+#if( ${prop.el} )
+      if (_${prop.name} instanceof ValueExpression) 
+      {
+        converter.${prop.setterName}((${prop.simpleClassName}) _${prop.name}.getValue(facesContext.getELContext()));
+      }
+#if (${prop.elonly})
+      if(null != this._${prop.name} && this._${prop.name}.isLiteralText())
+      {
+	    throw new IllegalArgumentException("Converter ${converter.name} allows only EL expressions for property ${prop.name}");
+	  }
+#end
+    }
+#else
+    converter.${prop.setterName}((${prop.simpleClassName}) _${prop.name});
+#end
+#end
+#end
+  }
+
+}

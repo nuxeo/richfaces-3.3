@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<audio-library>
+	<performer>
+		<name>Britney Spears</name>
+		<album>
+			<title>Oops! ... I Did It Again</title>
+			<year>2000</year>
+			<song>
+				<title>Oops!... I Did It Again</title>
+			</song>
+			<song>
+				<title>Stronger</title>
+			</song>
+			<song>
+				<title>Don't Go Knockin' on My Door</title>
+			</song>
+			<song>
+				<title>(I Can't Get No) Satisfaction</title>
+			</song>
+			<song>
+				<title>What U See (Is What U Get)</title>
+			</song>
+			<song>
+				<title>Don't Let Me Be the Last to Know</title>
+			</song>
+			<song>
+				<title>Lucky</title>
+			</song>
+		</album>
+	</performer>
+	<performer>
+		<name>Christina Aguilera</name>
+		<album>
+			<title>Stripped</title>
+			<year>2002</year>
+			<song>
+				<title>Stripped (Intro)</title>
+			</song>
+			<song>
+				<title>Can't Hold Us Down</title>
+			</song>
+			<song>
+				<title>Walk Away</title>
+			</song>
+			<song>
+				<title>Fighter</title>
+			</song>
+			<song>
+				<title>Infatuation</title>
+			</song>
+			<song>
+				<title>Beautiful</title>
+			</song>
+		</album>
+	</performer>
+</audio-library>

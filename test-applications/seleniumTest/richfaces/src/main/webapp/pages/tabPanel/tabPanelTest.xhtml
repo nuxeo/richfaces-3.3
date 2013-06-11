@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+		.link {margin: 0px 5px}
+	</ui:define>
+	<ui:define name="component">
+	<h:form id="controls">
+		<h:commandButton id="reset" actionListener="#{panelBean.reset}" value="Reset"></h:commandButton>
+		
+	</h:form>
+	<h:form id="_form">
+		<rich:tabPanel id="panel1" switchType="ajax" selectedTab="#{panelBean.selectedTab}">
+			<rich:tab label="tab1" 
+					id="tab1"
+					actionListener="#{panelBean.actionListener}"
+					switchType="server"
+					>
+				<h:outputText value="Tab one" /><br/>
+				<h:inputText id="tab1_input" value="#{panelBean.inputs['tab1']}"></h:inputText>
+			</rich:tab>
+			<rich:tab label="tab2"
+					id="tab2"
+					actionListener="#{panelBean.actionListener}"
+					reRender="_value, _inputs"
+					>
+				<h:outputText value="Tab two" />
+				<h:inputText id="tab2_input" value="#{panelBean.inputs['tab2']}"></h:inputText>
+			</rich:tab>
+			<rich:tab label="tab3"
+					id="tab3"
+					actionListener="#{panelBean.actionListener}"
+					disabled="true"
+					>
+				<h:outputText value="Tab three" />
+			</rich:tab>
+			<rich:tab label="tab4"
+					id="tab4"
+					actionListener="#{panelBean.actionListener}"
+					switchType="client"
+					>
+				<h:outputText value="Tab four" />
+				<h:inputText id="tab4_input" value="#{panelBean.inputs['tab4']}"></h:inputText>
+			</rich:tab>
+		</rich:tabPanel>
+		<h:commandLink id="submit" value="Submit"></h:commandLink><br/>
+		<a4j:commandLink id="ajaxSubmit" value="Ajax Submit" reRender="_value, _inputs"></a4j:commandLink>
+		<br/>
+		<h:outputText value="#{panelBean.value}" id="_value"></h:outputText><br/>
+		<h:outputText value="#{panelBean.inputs}" id="_inputs"></h:outputText>
+		<br/>
+	</h:form>		
+	</ui:define>
+</ui:composition>
+</html>

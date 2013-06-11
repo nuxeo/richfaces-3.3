@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="../layout/layout.xhtml">
+	<ui:define name="template">
+		<ui:insert name="outOfTemplateArea"></ui:insert>
+		<rich:modalPanel id="_Selenium_Test_ModalPanel" showWhenRendered="true" width="600"  height="600">
+			<f:facet name="header" >
+				<h:outputText value="Modal Panel" />
+			</f:facet>
+			<f:facet name="controls" >
+				<a onclick="Richfaces.hideModalPanel('_Selenium_Test_ModalPanel'); return false;" 
+					href="#" >Hide the panel</a>
+			</f:facet>
+			<ui:insert name="component" />
+			<ui:include src="../layout/controlLayout.xhtml" />
+		</rich:modalPanel>
+	</ui:define>
+</ui:composition>
+</html>

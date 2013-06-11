@@ -1,0 +1,27 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
+
+	<ui:define name="body">
+
+		<h:messages globalOnly="true" styleClass="message" />
+		<h:form>
+			Please enter your name:<br />
+			<h:inputText value="#{person.name}" size="15" />
+			<br />
+			<h:commandButton type="submit" value="Say Hello"
+				action="#{manager.sayHello}" />
+		</h:form>
+		<h:dataTable value="#{fans}" var="fan">
+			<h:column>
+				<h:outputText value="#{fan.name}" />
+			</h:column>
+		</h:dataTable>
+
+	</ui:define>
+</ui:composition>

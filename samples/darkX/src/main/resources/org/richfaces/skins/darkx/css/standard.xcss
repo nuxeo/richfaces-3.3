@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template 
+	xmlns:f="http://jsf.exadel.com/template"
+   	xmlns:u="http://jsf.exadel.com/template/util" 
+   	xmlns="http://www.w3.org/1999/xhtml" >	
+
+
+	<u:selector name="*|button">
+		<u:style name="font-weight" value="bold" />
+		<u:style name="border-color" skin="panelBorderColor" />
+		<u:style name="font-size" skin="generalSizeFont" />
+		<u:style name="font-family" skin="generalFamilyFont" />
+		<u:style name="color" skin="headerTextColor" />
+		<u:style name="background-color" skin="headerGradientColor" />
+		<u:style name="padding" value="2px 0px 1px 0px " />
+
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+
+	<u:selector name="button[type=&quot;button&quot;], button[type=&quot;reset&quot;], button[type=&quot;submit&quot;], 
+						input[type=&quot;reset&quot;], input[type=&quot;submit&quot;], input[type=&quot;button&quot;]">
+		<u:style name="font-weight" value="bold" />
+		<u:style name="border-color" skin="panelBorderColor" />
+		<u:style name="font-size" skin="generalSizeFont" />
+		<u:style name="font-family" skin="generalFamilyFont" />
+		<u:style name="color" skin="headerTextColor" />
+		<u:style name="background-color" skin="headerGradientColor" />
+		<u:style name="padding" value="2px 0px 1px 0px " />
+
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+
+	<u:selector name="*|button[disabled]">
+		<u:style name="font-weight" value="bold" />
+		<u:style name="border-color" skin="panelBorderColor" />
+		<u:style name="font-size" skin="generalSizeFont" />
+		<u:style name="font-family" skin="generalFamilyFont" />
+		<u:style name="background-color" skin="panelBorderColor" />
+		<u:style name="padding" value="2px 0px 1px 0px " />
+
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="panelBorderColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+
+	<u:selector name="button[type=&quot;button&quot;][disabled], button[type=&quot;reset&quot;][disabled], button[type=&quot;submit&quot;][disabled], 
+						input[type=&quot;reset&quot;][disabled], input[type=&quot;submit&quot;][disabled], input[type=&quot;button&quot;][disabled]">
+		<u:style name="font-weight" value="bold" />
+		<u:style name="border-color" skin="panelBorderColor" />
+		<u:style name="font-size" skin="generalSizeFont" />
+		<u:style name="font-family" skin="generalFamilyFont" />
+		<u:style name="background-color" skin="panelBorderColor" />
+		<u:style name="padding" value="2px 0px 1px 0px " />
+
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="panelBorderColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+
+	
+	
+	<u:selector name=".rich-input" >
+	</u:selector>
+
+	<u:selector name=".rich-select" >
+	</u:selector>
+
+	<u:selector name=".rich-textarea" >
+	</u:selector>
+
+	<u:selector name=".rich-button" >
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="28px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+
+	<u:selector name=".rich-button-disabled" >
+	</u:selector>
+
+	<u:selector name=".rich-button-over" >
+	</u:selector>
+
+	<u:selector name=".rich-button-press" >
+	</u:selector>
+
+	<u:selector name=".rich-keygen" >
+	</u:selector>
+
+	<u:selector name=".rich-isindex" >
+	</u:selector>
+
+	<u:selector name=".rich-legend" >
+	</u:selector>
+
+	<u:selector name=".rich-link" >
+	</u:selector>
+
+	<u:selector name=".rich-fieldset" >
+	</u:selector>
+
+	<u:selector name=".rich-field" >
+	</u:selector>
+
+	<u:selector name=".rich-field-edit" >
+	</u:selector>
+
+	<u:selector name=".rich-field-error" >
+	</u:selector>
+
+	<u:selector name=".rich-form" >
+	</u:selector>
+	
+	<u:selector name=".rich-hr" >
+	</u:selector>
+
+	<u:selector name=".rich-link" >
+	</u:selector>
+
+	<u:selector name=".rich-link:hover" >
+	</u:selector>
+
+	<u:selector name=".rich-link:visited" >
+	</u:selector>
+	
+</f:template>

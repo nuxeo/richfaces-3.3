@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.autoTestTemplate}">
+	<ui:define name="component">
+			<rich:dataFilterSlider id="componentId"
+				for="planetList"
+				forValRef="dataFilterSliderBean.planets"
+				filterBy="getGravity"
+				manualInput="true"
+				submitOnSlide="true"
+				storeResults="true"
+				trailer="true"
+				width="200px" 
+				startRange="0"
+				endRange="40" 
+				increment="1"
+				handleValue="40"
+				ajaxSingle="#{autoTestBean.ajaxSingle}"
+            	immediate="#{autoTestBean.immediate}"
+            	actionListener="#{autoTestBean.actionListener}"
+            	rendered="#{autoTestBean.rendered}"
+            	process="#{autoTestBean.process}"
+            	limitToList="#{autoTestBean.limitToList}"
+				bypassUpdates="#{autoTestBean.bypassUpdate}"
+				oncomplete="#{autoTestBean.oncomplete}"
+				reRender="#{autoTestBean.reRender}"/>
+			<rich:dataTable width="300" id="planetList" value="#{dataFilterSliderBean.planets}" var="planet">
+            <f:facet name="header">
+                <rich:columnGroup>
+                    <h:column>
+                        <h:outputText styleClass="headerText" value="Planet Name" />
+                    </h:column>
+                    <h:column>
+                        <h:outputText styleClass="headerText" value="Surface Gravity, g" />
+                    </h:column>
+                </rich:columnGroup>
+            </f:facet>
+            <h:column>
+                <h:outputText value="#{planet.name}" />
+            </h:column>
+            <h:column>
+                <h:outputText value="#{planet.gravity}" />
+            </h:column>
+        </rich:dataTable>
+	</ui:define>
+</ui:composition>
+</html>

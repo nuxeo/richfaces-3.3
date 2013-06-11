@@ -1,0 +1,72 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	id="virtualEarthPropertySubviewID">
+	<h:commandButton action="#{virtualEarth.add}" value="add test" />
+	<h:panelGrid columns="2">
+		<h:outputText value="lat(-97 &lt; x &gt; 97):"></h:outputText>
+		<h:inputText value="#{virtualEarth.lat}" onchange="submit();"></h:inputText>
+
+		<h:outputText value="lng(-180 &lt; x &gt; 180):"></h:outputText>
+		<h:inputText value="#{virtualEarth.lng}" onchange="submit();"></h:inputText>
+
+		<h:outputText value="dashboardSize"></h:outputText>
+		<h:selectOneMenu value="#{virtualEarth.dashboardSize}"
+			onchange="submit();">
+			<f:selectItem itemLabel="Normal" itemValue="Normal" />
+			<f:selectItem itemLabel="Small" itemValue="Small" />
+			<f:selectItem itemLabel="Tiny" itemValue="Tiny" />
+		</h:selectOneMenu>
+
+		<h:outputText value="mapStyle"></h:outputText>
+		<h:selectOneMenu value="#{virtualEarth.mapStyle}" onchange="submit();">
+			<f:selectItem itemLabel="Birdseye" itemValue="Birdseye" />
+			<f:selectItem itemLabel="Hybrid" itemValue="Hybrid" />
+			<f:selectItem itemLabel="Aerial" itemValue="Aerial" />
+			<f:selectItem itemLabel="Road" itemValue="Road" />
+		</h:selectOneMenu>
+
+		<h:outputText value="rendered:"></h:outputText>
+		<h:selectBooleanCheckbox value="#{virtualEarth.rendered}"
+			onchange="submit();"></h:selectBooleanCheckbox>
+	</h:panelGrid>
+	<h:panelGroup>
+		<f:verbatim>
+		Dashboard:<br />
+			<a href="javascript:void(0);"
+				onclick="map.HideDashboard();return false;">Remove</a>
+			<a href="javascript:void(0);"
+				onclick="map.ShowDashboard();return false;">Show</a>
+			<br />
+			<br />
+		Type:<br />
+			<a href="javascript:void(0);"
+				onclick="map.SetMapStyle(VEMapStyle.Road);return false;">Road</a>
+			<a href="javascript:void(0);"
+				onclick="map.SetMapStyle(VEMapStyle.Aerial);return false;">Aerial</a>
+			<a href="javascript:void(0);"
+				onclick="map.SetMapStyle(VEMapStyle.Hybrid);return false;">Hybrid</a>
+			<a href="javascript:void(0);"
+				onclick="map.SetMapStyle(VEMapStyle.Birdseye);return false;">Birdseye</a>
+			<br />
+			<br />
+		Zoom:<br />
+			<a href="javascript:void(0);" onclick="map.ZoomIn();return false;">In</a>
+			<a href="javascript:void(0);" onclick="map.ZoomOut();return false;">Out</a>
+			<br />
+			<br />
+			<a href="javascript:void(0);" onclick="showExadel();return false;">Show
+			Exadel Office</a>
+			<br />
+			<a href="javascript:void(0);"
+				onclick="showExadelInMinsk();return false;">Show Exadel in
+			Belarus</a>
+		</f:verbatim>
+	</h:panelGroup>
+	<br />
+	<br />
+	
+</f:subview>

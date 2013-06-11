@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+		 	<a4j:push id="push" interval="500" eventProducer="#{ajaxPushBean.addListener}" enabled="#{ajaxPushBean.enabled}"
+		 		reRender="out,push" />
+
+			<h:panelGrid id="out" columns="1">
+	            <h:outputText id="startPanel" rendered="#{!ajaxPushBean.enabled}" value="Press Start to commence observing"/>
+            	<h:panelGroup id="progressPanel">
+	                <h:outputText value="Event(s) sent: "/>
+                	<h:outputText id="events" value="#{ajaxPushBean.eventsSent}"/>
+            	</h:panelGroup>
+            	<h:panelGroup>
+                <a4j:commandButton id="startButton" value="Start" action="#{ajaxPushBean.start}"
+                    ajaxSingle="true" reRender="out,push"/>
+                <a4j:commandButton id="stopButton" value="Stop" action="#{ajaxPushBean.stop}"
+                    ajaxSingle="true" reRender="out,push"/>
+            	</h:panelGroup>
+        	</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

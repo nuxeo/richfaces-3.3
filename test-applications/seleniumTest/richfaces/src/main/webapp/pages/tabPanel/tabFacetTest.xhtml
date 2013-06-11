@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<rich:tabPanel id="panel1" switchType="ajax" selectedTab="#{panelBean.selectedTab}">
+			<rich:tab label="tab1"
+					id="tab1"
+					switchType="server">
+					<f:facet name="label">
+						<h:outputText value="Facet: tab1"/>
+        			</f:facet>
+				<h:outputText value="Tab one" /><br/>
+			</rich:tab>
+			<rich:tab label="tab2"
+					id="tab2">
+				<f:facet name="label">
+					<h:outputText value="Facet: tab2"/>
+       			</f:facet>
+				<h:outputText value="Tab two" />
+			</rich:tab>
+			<rich:tab label="tab3"
+					id="tab3"
+					disabled="true">
+				<f:facet name="label">
+					<h:outputText value="Facet: tab3"/>
+        		</f:facet>
+				<h:outputText value="Tab three" />
+			</rich:tab>
+			<rich:tab label="tab4"
+					id="tab4"
+					switchType="client">
+				<f:facet name="label">
+					<h:outputText value="Facet: tab4"/>
+       			</f:facet>
+				<h:outputText value="Tab four" />
+			</rich:tab>
+		</rich:tabPanel>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+	   xmlns:u='http:/jsf.exadel.com/template/util' 
+	   xmlns="http://www.w3.org/1999/xhtml" >
+	   
+   <u:selector name=".rich-messages">
+   </u:selector>
+   
+   <u:selector name=".rich-messages-marker">
+   </u:selector>
+   
+   <u:selector name=".rich-messages-label">
+   </u:selector>
+   
+   <u:selector name=".rich-messages-header">
+   </u:selector>
+   
+   <u:selector name=".rich-message">
+   </u:selector>
+   
+   <u:selector name=".rich-message-marker">
+   </u:selector>
+   
+   <u:selector name=".rich-message-label">
+   </u:selector>
+   
+</f:template>

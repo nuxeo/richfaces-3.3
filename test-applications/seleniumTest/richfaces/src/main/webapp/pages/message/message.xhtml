@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="messageBase.xhtml">
+	<ui:define name="message">
+		<rich:message id="message" for="inputText"
+			ajaxRendered="#{messageBean.ajaxRendered}"
+			showSummary="#{messageBean.showSummary}"
+			showDetail="#{messageBean.showDetail}"
+			rendered="#{messageBean.rendered}"
+			styleClass="noname"
+			style="color: blue; text-decoration: underline;"
+			>
+			<ui:insert name="facets" />
+		</rich:message>
+	</ui:define>
+</ui:composition>
+</html>

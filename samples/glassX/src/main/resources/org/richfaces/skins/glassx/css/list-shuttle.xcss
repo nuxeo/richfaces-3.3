@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<u:selector name=".rich-shuttle-list">
+</u:selector>
+
+	<u:selector name=".rich-shuttle-source-cell, .rich-shuttle-target-cell, .rich-shuttle-source-cell *, .rich-shuttle-target-cell *">
+	</u:selector>
+
+	<u:selector name=".rich-list-shuttle">
+	</u:selector>
+
+	<u:selector name=".rich-shuttle-header-tab-cell, .rich-shuttle-header-tab-cell-last">
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-header-tab-cell-last">
+	</u:selector>
+
+	<u:selector name=".rich-list-shuttle-button">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="18px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>	
+	</u:selector>
+	
+	<u:selector name=".rich-list-shuttle-button-disabled">
+        <u:style name="color" skin="tabDisabledTextColor" />
+        <u:style name="border-color" skin="newBorder" />
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="18px" />
+                <f:attribute name="baseColor" skin="tabHeader" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+
+	<u:selector name=".rich-list-shuttle-button-light">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="18px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>	
+	</u:selector>
+
+	<u:selector name=".rich-list-shuttle-button-press">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="border-color" skin="newBorder" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="18px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>	
+	</u:selector>
+
+	<u:selector name=".rich-shuttle-source-cell-last, .rich-shuttle-target-cell-last">
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-source-items, .rich-shuttle-target-items">
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-source-cell-selected, .rich-shuttle-target-cell-selected, .rich-shuttle-source-cell-selected *, .rich-shuttle-target-cell-selected *">
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-source-cell-active, .rich-shuttle-target-cell-active, .rich-shuttle-source-cell-active *, .rich-shuttle-target-cell-active *">
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-source-cell-active, .rich-shuttle-target-cell-active" >
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-control-disabled, .rich-shuttle-control-top, .rich-shuttle-control-bottom, .rich-shuttle-control-up, .rich-shuttle-control-down, .rich-shuttle-control-copyall, .rich-shuttle-control-copy, .rich-shuttle-control-remove, .rich-shuttle-control-removeall">
+        <u:style name="border-width" value="1px" />
+        <u:style name="border-style" value="solid" />
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+	
+	<u:selector name=".rich-list-shuttle-button-content img">
+        <u:style name="margin-right" value="4px" />
+	</u:selector>
+	
+	<u:selector name=".rich-list-shuttle-button-content">
+	</u:selector>
+	
+	<u:selector name=".rich-list-shuttle-button-selection, .rich-list-shuttle-button-selection:hover">
+        <u:style name="color" skin="headerTextColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-source-caption, .rich-shuttle-target-caption">
+	</u:selector>
+	
+	<u:selector name=".rich-shuttle-source-row-selected, .rich-shuttle-target-row-selected">
+        <u:style name="background-color" skin="headerBackgroundColor" />
+	</u:selector>
+
+	<u:selector name=".rich-shuttle-target-cell">
+	</u:selector>
+
+	<u:selector name=".rich-shuttle-source-cell">
+	</u:selector>
+
+	<u:selector name=".rich-shuttle-target-row-active">
+	</u:selector>
+
+	<u:selector name=".rich-shuttle-source-row-active">
+	</u:selector>
+
+	<u:selector name=".rich-list-shuttle-caption">
+	</u:selector>
+
+	<u:selector name=".rich-shuttle-internal-tab">
+	</u:selector>
+
+	<u:selector name=".rich-shuttle-list-header">
+	</u:selector>
+
+	<u:selector name=".rich-shuttle-list-content">
+	</u:selector>
+
+	<u:selector name=".rich-shuttle-controls">
+	</u:selector>
+
+	<u:selector name=".rich-shuttle-body">
+	</u:selector>
+	
+</f:template>

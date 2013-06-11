@@ -1,0 +1,152 @@
+Release Notes - RichFaces - Version 3.2.0
+** Bug
+    * [RF-894] - PanelMenu: chevron icons are inconsistent with the spec	
+    * [RF-910] - Tooltip javascript error
+    * [RF-945] - calendar. Selection doesn't applied with a4j:support inside calendar
+    * [RF-956] - Messages produce unnessesarry html when no messages exsist.
+    * [RF-973] - Sorting doesn't work after rerender ScrollableDataTable using ajax.
+    * [RF-981] - Menu Components do not support non-latin character
+    * [RF-984] - Calendar exception
+    * [RF-992] - calendar: the typo in style attribute
+
+
+** Feature Request
+
+
+** Task
+
+
+
+
+Release Notes - RichFaces - Version 3.0.1
+
+** Bug
+    * [RF-2] - problem with z-index when modalPanel is used with tabPanel
+    * [RF-3] - drag-n-drop: the panel is transparent for dropping in IE if graphic image is dragged
+    * [RF-5] - The content of the rich components is not rendered if particular components are direct children
+    * [RF-7] - SuggestionBox not working in IE
+    * [RF-8] - Suggestion Box doesn't align correctly in IE
+    * [RF-13] - input cursor is invisible inside the modalPanel
+    * [RF-14] - iteration components shows wrong data if there are pointed with ReRender
+    * [RF-17] - DataScrollerEvent actioListener method is not invoked the first time when scrolling occurs
+    * [RF-18] - ModalPanel displaying a white column on right side of panel
+    * [RF-19] - rich:dataTable, rich:columnGroup ignore use 'renderer' attribute for columns.
+    * [RF-21] - DnD: the background of the component is transparent for Drop
+    * [RF-22] - dnd: the drag operation must stop when user releases the mouse button event the cursor is out of the browser window at this moment
+    * [RF-23] - datascroller: renderIfSinglePage="false" does not work correctly
+    * [RF-24] - NPE from Drag/Drop Support classes if a component is added, then removed from a UIComponent children collection
+    * [RF-25] - Suggestion Box doesn't implement AjaxSource
+    * [RF-26] - tabPanel: exception occurs when tabPanel with  switchType="client" has a h:form around
+    * [RF-28] - datascroller: Exception in the SNAPSHOT version 
+    * [RF-30] - TabPanel: IllegalArgumentException on MyFaces
+    * [RF-33] - In tree DropEvent.getDropValue() is always showing up as null
+    * [RF-36] - datascroller: remove unnecessary attribute name from the top div
+    * [RF-37] - dataTable is re-rendered incorrect when the records are deleted
+    * [RF-38] - a4j:include does not work as expected inside tabPanel
+    * [RF-41] - Label of dragIndicators disappeared
+    * [RF-42] - Exception on starting Gmap project
+    * [RF-43] - Question-mark appeared after label of simple toggle panel
+    * [RF-45] - dataTable has wrong representation for the empty fields.
+    * [RF-47] - inputNumberSpinner: the look-n-feel is not good inside the dataTable cell
+    * [RF-48] - DnD: components having dragType not assigned should not initiate drag
+    * [RF-50] - Tree selection may stop working if more than one node is refreshed at a time
+    * [RF-52] - modalPanel: ModalPanel via https. annoying warning appears
+    * [RF-53] - Drag Indicator's acceptClass and rejectClass attributes don't work
+    * [RF-54] - DnD: DnDEventsExchangeMailer got confused by components with simultaneous drag & drop capabilities
+    * [RF-58] - Hitting escape reopens the suggestion box after closure
+    * [RF-65] - SimpleTogglePanel encodes wrong </form> element in client mode
+    * [RF-66] - Suggestion Box positioned incorreclty in FireFox 2.0.0.3
+    * [RF-67] - panelBar: Rendering bug with CSS
+    * [RF-68] - rich:dataTable: the style attribute for rich:columnGroup is ignored
+    * [RF-70] - dataTable: onRowXXXX events are not rendered if columns are united with rich:columnGroup
+    * [RF-71] - Tabs doesn't fill Ajax-update-Ids field with the own reRender value
+    * [RF-72] - h:commandLink does not work in rich:dataTable
+    * [RF-73] - Controls underneath a suggestionbox - inaccessible.
+    * [RF-74] - Data Scroller doesn't works in the footer facet
+    * [RF-76] - Tree does not render node added in action listener until second refresh
+    * [RF-77] - Tree component should not allow explicit drag/drop value setting
+    * [RF-78] - TabPanel lost component state in "client" mode
+    * [RF-79] - Modal Panel positioned wrong in Opera 9.10
+    * [RF-83] - dataTable: the column on the same row is not updated in the latest snapshot. Focus is lost in FF
+    * [RF-91] - datascroller. actionListener is not invoked
+    * [RF-92] - tree. incorrect style definition for imgaes inside nodes
+    * [RF-95] - inputNumberSlider:  slider reproduces wrong value when spinner works fine
+    * [RF-97] - inputNumberSpinner doesn't render onblur
+    * [RF-98] - table: incorrect style paramater
+    * [RF-99] - datatablescroller: style and class contain unnecessary  value
+    * [RF-101] - Rerender table, reset datascroller
+    * [RF-104] - DataFilterSlider: slider doesn't slide
+    * [RF-107] - simpleTogglePanel actionListener is not called
+    * [RF-108] - simpleTogglePanel: duplicate class attribute rendering is invalid XHTML
+    * [RF-111] - tree: Exception when user clicks a4:commandLink on the same page outside the Tree
+    * [RF-112] - If inputText linked to rich:suggestionBox fails validation then the suggestionBox will not redisplay without page refresh
+    * [RF-113] - ModalPanel: shadow decoration
+    * [RF-116] - richfaces-demo: FF 2.0. The border of the left panels does not feet the panels
+    * [RF-123] - tab: onclick does not work
+    * [RF-125] - suggestionBox on demo: background disappears when the first char is typed
+    * [RF-128] - tree: dnd: start draging close to the boundary of the node makes Dnd functionality unstable
+    * [RF-132] - menu: page is scrolled up after ajax call
+    * [RF-134] - menu: menu overlapping in IE
+    * [RF-136] - menu: black border around the menu label in IE
+    * [RF-137] - menu: menu label look-n-feels are too different depends of the skin and browser
+    * [RF-140] - menu: default value for hideDelay and and showDelay attribute
+    * [RF-142] - menu: mode should be renamed to submitMode
+    * [RF-144] - menu: warning message on console
+    * [RF-147] - menu: the height of the label should be set to auto
+    * [RF-150] - Suggestionbox - in IE6, if you type a character, and then click on an item in the list (with the mouse), and then press Tab, it won't tab out of the field
+    * [RF-151] - Hide unnecessary attributes for some components.
+    * [RF-154] - Suggestion do not appears for the second time
+    * [RF-173] - Exception on trying to open page with suggestion in Firefox
+    * [RF-177] - DataScroller isn't rendered placed before table in JSF 1.1 env
+    * [RF-178] - SuggestionBox: incorrect popup positioning, when parent has position:absolute
+    * [RF-180] - SuggestionBox positioned wrong on demoSite
+    * [RF-184] - dataScroller duplicate style and class attribute if specified
+    * [RF-190] - dropDownMenu: showDelay and hideDelay do not work in IE
+    * [RF-192] - exception: stateOrder for togglePanel shouldn't be empty
+    * [RF-193] - TogglePanel: panel stops to switch after several changing of switchType
+    * [RF-194] - Isn't  possible to select text inside inputs via mouse in IE 6.
+    * [RF-196] - DropDownMenu: menu is blinking after changing any parameter
+    * [RF-197] - DropDownMenu has wrong style appearence in Firefox 2.0
+    * [RF-200] - Separator: separator doesn't displayed
+    * [RF-202] - Tree : ConnectingLines doesn't displayed
+    * [RF-205] - Suggestion Box : transparent suggestion appeares
+    * [RF-208] - modal panel can't be displayed in Safari if attribute resizeable seted to false
+    * [RF-212] - rich:suggestionbox doesn't work inside  rich:simpleTogglePanel 
+    * [RF-222] - DDMenu. Disabled item do not change its color
+    * [RF-223] - Separator: separator isn't displayed after each parameter changing
+    * [RF-227] - DataFilterSlider: slider dissapeares in right end position in Firefox
+    * [RF-228] - DDMenu. Disabled note still can be highlighted
+    * [RF-229] - DropDownMenu: bad appearence of 2nd level menu
+    * [RF-231] - Spacer: XML error
+    * [RF-232] - Tab Panel: can't open component
+    * [RF-233] - Suggestion Box : can't invoke suggestion in Opera
+    * [RF-235] - SuggestionBox: suggestion isn't disappeared 
+    * [RF-239] - panelMenu: <imgs> are not closed properly.
+    * [RF-242] - Menu Group. can't customize icons 
+    * [RF-243] - Action Listener isn't invoked by DEFAULT on the menuItem
+    * [RF-245] - If there is only one item on the last page of a datatable, datascroller then the next buttons disappear
+
+
+** Feature Request
+    * [RF-4] - Add expression or the current row index of rich:dataTable
+    * [RF-10] - Allow ajaxSingle for suggestionBox to make it possible to use other fields values in the suggestion action
+    * [RF-11] - SuggestionBox: assign default values for width and height
+    * [RF-15] - Add support for facets in rich:datascroller
+    * [RF-29] - add Impementation-Version to MANIFEST.MF
+    * [RF-32] - Add DnD parameters to dragIndicator
+    * [RF-81] - suggestion box. Enable onsubmit to to make it possible to discard ajax request
+    * [RF-84] - Create RichFaces resources descriptors
+    * [RF-87] - Tree - make selection submit on mouse up
+    * [RF-102] - Tree - Need ability to disable node selection
+    * [RF-120] - datatablescroller: add align attribute
+    * [RF-220] - tree: icon*, leaf facets
+
+
+
+** Task
+    * [RF-9] - The RichFaces Developer Guide for the suggestionBox states that the autocomplete method should take a SuggestionEvent, but it appears that it takes an Object instead
+    * [RF-94] - tree: add alt="" to the images in the template
+    * [RF-135] - menu: menu is shown too big by default
+    * [RF-145] - menu: remove gradient for focused items
+    * [RF-185] - Unit testing: check & update
+

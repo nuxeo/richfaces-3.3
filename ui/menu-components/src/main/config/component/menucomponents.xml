@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+    <component>
+        <name>org.richfaces.MenuGroup</name>
+        <family>org.richfaces.DropDownMenu</family>
+        <classname>org.richfaces.component.html.HtmlMenuGroup</classname>
+        <superclass>org.richfaces.component.UIMenuGroup</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlMenuGroupComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+        <description>
+            <![CDATA[The <rich:menuGroup> component is used to define an expandable group of items inside a pop-up list or another group.]]>
+        </description>
+		<facet>
+		   <name>icon</name>
+		   <description>Redefines the icon for the enabled item state. Related attribute is "icon"</description>
+		</facet>
+		<facet>
+		   <name>iconFolder</name>
+		   <description>Redefines the folder icon for the enabled item state. Related attribute is "iconFolder"</description>
+		</facet>
+        <renderer generate="true" override="true">
+            <name>org.richfaces.MenuGroupRenderer</name>
+            <template>org/richfaces/htmlMenuGroup.jspx</template>
+        </renderer>
+
+        <tag>
+            <name>menuGroup</name>
+            <classname>org.richfaces.taglib.MenuGroupTag</classname>
+            <superclass>
+                org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+            </superclass>
+			<test/>
+        </tag>
+
+        <property>
+            <name>icon</name>
+            <classname>java.lang.String</classname>
+            <description>Path to the icon to be displayed for the enabled item
+                state</description>
+        </property>
+        <property>
+            <name>iconDisabled</name>
+            <classname>java.lang.String</classname>
+            <description>Path to the icon to be displayed for the disabled item
+                state</description>
+        </property>
+        <property>
+            <name>disabled</name>
+            <classname>boolean</classname>
+            <description>If "true" sets state of the item to disabled state. Default value is &quot;false&quot;.
+               </description>
+            <defaultvalue>false</defaultvalue>
+        </property>
+        <property required="true">
+            <name>value</name>
+            <classname>java.lang.Object</classname>
+            <description>Defines representation text for menuItem</description>
+        </property>
+        <property>
+            <name>direction</name>
+            <classname>java.lang.String</classname>
+            <description>Defines direction of the popup sublist to appear
+                (&quot;right&quot;, &quot;left&quot;, &quot;auto&quot;(Default), &quot;left-down&quot;, &quot;left-up&quot;, &quot;right-down&quot;, &quot;right-up&quot;)</description>
+        </property>
+        <property>
+            <name>iconFolder</name>
+            <classname>java.lang.String</classname>
+            <description>Path to the folder icon to be displayed for the enabled
+                item state</description>
+        </property>
+        <property>
+            <name>iconFolderDisabled</name>
+            <classname>java.lang.String</classname>
+            <description>Path to the folder icon to be displayed for the enabled
+                item state</description>
+        </property>
+        <property>
+            <name>event</name>
+            <classname>java.lang.String</classname>
+            <description>Defines the event on the representation element that
+                triggers the menu's appearance. Default value is &quot;onmouseover&quot;.</description>
+            <defaultvalue>"onmouseover"</defaultvalue>
+        </property>
+        <property>
+            <name>showDelay</name>
+            <classname>java.lang.Integer</classname>
+            <description>Delay between event and menu showing. Default value is &quot;300&quot;.</description>
+            <defaultvalue><![CDATA[new Integer(300)]]></defaultvalue>
+        </property>
+        <property>
+            <name>onmousemove</name>
+            <classname>java.lang.String</classname>
+            <description>HTML: a script expression; a pointer is moved
+                within</description>
+        </property>
+        <property>
+            <name>onmouseout</name>
+            <classname>java.lang.String</classname>
+            <description>HTML: a script expression; a pointer is moved
+                away</description>
+        </property>
+        <property>
+            <name>onmouseover</name>
+            <classname>java.lang.String</classname>
+            <description>HTML: a script expression; a pointer is moved
+                onto</description>
+        </property>
+        <property>
+            <name>onopen</name>
+            <classname>java.lang.String</classname>
+            <description>HTML: script expression; group was
+                opened</description>
+        </property>
+        <property>
+            <name>onclose</name>
+            <classname>java.lang.String</classname>
+            <description>HTML: script expression; group was
+                closed</description>
+        </property>
+
+        <property>
+            <name>selectStyle</name>
+            <classname>java.lang.String</classname>
+            <description>CSS style rules to be applied to selected items</description>
+        </property>
+        <property>
+            <name>selectClass</name>
+            <classname>java.lang.String</classname>
+            <description>Class to be applied to selected items</description>
+        </property>
+        <property>
+            <name>iconStyle</name>
+            <classname>java.lang.String</classname>
+            <description>CSS style rules to be applied to icon element</description>
+        </property>
+        <property>
+            <name>iconClass</name>
+            <classname>java.lang.String</classname>
+            <description>Class to be applied to icon element</description>
+        </property>
+        <property>
+            <name>labelClass</name>
+            <classname>java.lang.String</classname>
+            <description>Class to be applied to label element</description>
+        </property>
+		<property>
+			<name>converter</name>
+			<classname>javax.faces.convert.Converter</classname>
+			<description>
+				Id of Converter to be used or reference to a Converter
+			</description>
+		</property>
+
+        &ui_component_attributes;
+        &html_style_attributes;
+    </component>
+    <component>
+        <name>org.richfaces.MenuItem</name>
+        <family>org.richfaces.DropDownMenu</family>
+        <classname>org.richfaces.component.html.HtmlMenuItem</classname>
+        <superclass>org.richfaces.component.UIMenuItem</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlMenuItemComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+        <description>
+            <![CDATA[The <rich:menuItem> component is used for the definition of a single item inside a pop-up list.]]>
+        </description>
+		<facet>
+		   <name>icon</name>
+		   <description>Redefines the icon for the enabled item state. Related attribute is "icon"</description>
+		</facet>
+		<facet>
+		   <name>iconFolder</name>
+		   <description>Redefines the folder icon for the enabled item state. Related attribute is "iconFolder"</description>
+		</facet>
+        <renderer generate="true" override="true">
+            <name>org.richfaces.MenuItemRenderer</name>
+            <template>org/richfaces/htmlMenuItem.jspx</template>
+        </renderer>
+
+
+        <tag>
+            <name>menuItem</name>
+            <classname>org.richfaces.taglib.MenuItemTag</classname>
+            <superclass>
+                org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+            </superclass>
+            <test/>
+        </tag>
+
+        <!-- Standart component attributes -->
+        &ui_component_attributes;
+
+        <!-- Specific component attributes -->
+        <property>
+            <name>icon</name>
+            <classname>java.lang.String</classname>
+            <description>Path to the icon to be displayed for the enabled item
+                state</description>
+        </property>
+        <property>
+            <name>iconDisabled</name>
+            <classname>java.lang.String</classname>
+            <description>Path to the icon to be displayed for the disabled item state.
+			</description>
+        </property>
+		<property hidden="true">
+			<name>actionExpression</name>
+		</property>
+        <property>
+            <name>disabled</name>
+            <classname>boolean</classname>
+            <description>If "true" sets state of the item to disabled state. Default value is &quot;false&quot;.
+               </description>
+            <defaultvalue>false</defaultvalue>
+        </property>
+        <!-- property>
+              <name>value</name>
+              <classname>java.lang.Object</classname>
+              <description>Defines representation text for menuItem</description>
+          </property -->
+        <property>
+            <name>submitMode</name>
+            <classname>java.lang.String</classname>
+            <description>Sets the submission mode. Possible values are &quot;ajax&quot;, &quot;server&quot;, &quot;none&quot;. Default value is &quot;server&quot;.</description>
+        </property>
+
+        <!-- Command attributes -->
+        &ui_command_attributes;
+        <property>
+            <name>target</name>
+            <classname>java.lang.Object</classname>
+            <description>Name of a frame where the resource retrieved via this
+                hyperlink is to be displayed</description>
+            <defaultvalue>""</defaultvalue>
+        </property>
+
+        <!-- Events attributes -->
+        &html_events;
+        <property>
+            <name>onselect</name>
+            <classname>java.lang.String</classname>
+            <description>HTML: script expression; The onselect event occurs when
+                you select some menu item</description>
+        </property>
+        <property hidden="true">
+            <name>ondblclick</name>
+            <classname>java.lang.String</classname>
+        </property>
+        <property hidden="true">
+            <name>onkeydown</name>
+            <classname>java.lang.String</classname>
+        </property>
+        <property hidden="true">
+            <name>onkeypress</name>
+            <classname>java.lang.String</classname>
+        </property>
+        <property hidden="true">
+            <name>onkeyup</name>
+            <classname>java.lang.String</classname>
+        </property>
+
+        <!-- Style Attributes -->
+        &html_style_attributes;
+        <property>
+            <name>selectClass</name>
+            <classname>java.lang.String</classname>
+            <description>Class to be applied to selected items</description>
+        </property>
+        <property>
+            <name>selectStyle</name>
+            <classname>java.lang.String</classname>
+            <description>CSS style rules to be applied to selected items</description>
+        </property>
+        <property>
+            <name>iconClass</name>
+            <classname>java.lang.String</classname>
+            <description>Class to be applied to icon element</description>
+        </property>
+        <property>
+            <name>iconStyle</name>
+            <classname>java.lang.String</classname>
+            <description>CSS style rules to be applied to icon element</description>
+        </property>
+        <property>
+            <name>labelClass</name>
+            <classname>java.lang.String</classname>
+            <description>Class to be applied to label element</description>
+        </property>
+
+        &ajax_component_attributes;
+    </component>
+    <component>
+        <name>org.richfaces.MenuSeparator</name>
+        <family>org.richfaces.DropDownMenu</family>
+        <classname>org.richfaces.component.html.HtmlMenuSeparator</classname>
+        <superclass>org.richfaces.component.UIMenuSeparator</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlMenuSeparatorComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+        <description><![CDATA[
+            A horizontal separator to use in the menu.
+        ]]></description>
+
+        <renderer generate="true" override="true">
+            <name>org.richfaces.MenuSeparatorRenderer</name>
+            <template>org/richfaces/htmlMenuSeparator.jspx</template>
+        </renderer>
+
+        <tag bodyContent="empty">
+            <name>menuSeparator</name>
+            <classname>org.richfaces.taglib.MenuSeparatorTag</classname>
+            <superclass>
+                org.ajax4jsf.webapp.taglib.UIComponentTagBase</superclass>
+            <test/>
+        </tag>
+
+        &ui_component_attributes;
+    </component>
+</components>

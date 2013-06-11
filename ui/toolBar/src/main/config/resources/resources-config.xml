@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+	<resource class="org.richfaces.renderkit.html.images.DotSeparatorImage">
+		<name>org.richfaces.renderkit.html.images.DotSeparatorImage</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.GridSeparatorImage">
+		<name>org.richfaces.renderkit.html.images.GridSeparatorImage</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.LineSeparatorImage">
+		<name>org.richfaces.renderkit.html.images.LineSeparatorImage</name>
+	</resource>
+	<resource class="org.richfaces.renderkit.html.images.SquareSeparatorImage">
+		<name>org.richfaces.renderkit.html.images.SquareSeparatorImage</name>
+	</resource>
+
+</resource-config>

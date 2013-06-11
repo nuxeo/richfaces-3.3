@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+	<u:selector name=".rich-inplace">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-control">
+	</u:selector>
+		
+	<u:selector name=".rich-inplace-control-press">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-shadow-tl">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-shadow-tr">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-shadow-bl">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-shadow-br">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-view">
+	</u:selector>	
+	
+	<u:selector name=".rich-inplace-changed">
+	</u:selector>
+	
+	<u:selector name="input.rich-inplace-field">
+	</u:selector>	
+	
+	<u:selector name=".rich-inplace-shadow-size">
+	</u:selector>	
+	
+	<u:selector name=".rich-inplace-shadow">
+	</u:selector>	
+	
+	<u:selector name=".rich-inplace-input-controls-press">
+	</u:selector>	
+	
+	<u:selector name=".rich-inplace-input-controls-set">
+	</u:selector>	
+	
+	<u:selector name=".rich-inplace-input-strut">
+	</u:selector>	
+	
+	<u:selector name=".rich-inplace-input-changed-hover">
+	</u:selector>	
+	
+	<u:selector name=".rich-inplace-input-view-hover">
+	</u:selector>	
+	
+	<u:selector name=".rich-inplace-edit">
+	</u:selector>	
+	
+</f:template>

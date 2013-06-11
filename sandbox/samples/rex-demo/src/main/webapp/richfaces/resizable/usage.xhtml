@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	<ui:composition template="/templates/component-sample.xhtml">
+		<ui:define name="sample">
+			
+			<p>The "resizable" component represents the Ext JS wizard with the same name. It allows
+			to resize the JSF component or any pure DOM element. The following simplte example
+			shows how "resizable" might use to resize DIV element.
+			</p>
+
+			<div class="sample-container" >
+
+				<ui:include src="/richfaces/resizable/examples/simple.xhtml"/>
+				<ui:include src="/templates/include/sourceview.xhtml">
+					<ui:param name="sourcepath" value="/richfaces/resizable/examples/simple.xhtml"/>
+				</ui:include>						
+			</div>
+
+			<p>The following example shows how to resize the image manually and resize it programmatically
+			 using the javascript object API.
+			</p>
+
+
+
+			<div class="sample-container" >
+
+				<ui:include src="/richfaces/resizable/examples/pictures.xhtml"/>
+				<ui:include src="/templates/include/sourceview.xhtml">
+					<ui:param name="sourcepath" value="/richfaces/resizable/examples/pictures.xhtml"/>
+				</ui:include>						
+			</div>
+
+
+
+			<p><ul>Known drawbacks:
+				<li>Requires the width and height defined explicitly.
+				 I.e. no "auto fit" mode. No 100% mode.</li>
+				<li>Does not fit the size of the wrapped element precisely. Requires different
+				style for IE and FF browsers for correction</li>
+				<li>Incompatible with xhtml mode (it is EXT JS disease in general). Might cause
+				losing the flexibility in Ajax mode.</li>
+			</ul>
+			</p>
+
+			
+		
+		</ui:define>
+
+	</ui:composition>
+</html>

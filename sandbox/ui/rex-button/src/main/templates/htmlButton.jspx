@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	class="org.richfaces.sandbox.renderkit.html.ButtonRenderer"
+	baseclass="org.ajax4jsf.renderkit.AjaxComponentRendererBase"
+	component="org.richfaces.sandbox.component.UIButton" 
+	>
+ 	<h:styles>extjs/ext-all.css,extjs/ext-css-patch.xcss</h:styles>
+	<h:scripts>extjs/ext-base.js,extjs/ext-all.js,/org/richfaces/renderkit/html/scripts/jquery/jquery.js</h:scripts>
+
+	<c:set var="value" value="#{component.attributes['value']}"/>
+
+    <f:clientid var="clientId"/>	
+	<div id="#{clientId}"  x:passThruWithExclusions="id" style="width:auto">
+		<vcp:body>
+			<f:call name="renderChildren" />
+		</vcp:body>
+    <f:clientid var="clientId"/>		
+	<script type="text/javascript">
+		var $pardiv = Ext.get('#{clientId}');
+		$pardiv.dom.button = new Object();
+		if (Ext.query('input','#{clientId}' ) != 0) {
+			$pardiv.dom.button.input = Ext.query('input','#{clientId}' );
+			jQuery($pardiv.dom.button.input).hide();
+		} 
+		$pardiv.dom.button.extobj =  new Ext.Button ({
+			text: '#{value}',
+			renderTo:'#{clientId}',
+			handler: function() {
+						var $bdiv = jQuery(Ext.get('#{clientId}').dom.button.input);
+						$bdiv.click();
+                    } 
+
+		});
+		$pardiv = null;
+	</script>
+
+		
+	</div>
+</f:root>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+##Create tag attributes for object's properties
+#macro(tagAttributes $source)
+  #foreach( $prop in ${source.properties} )
+	#if( !${prop.hidden} && !${prop.disabled} )
+	  <attribute>
+	   <description>${prop.xmlEncodedDescription}</description>
+	   <name>${prop.name}</name>
+	   #if(${prop.required})
+			<required>true</required>
+	   #end
+	   #if(${prop.el})
+	   		#if( !$prop.isInstanceof("javax.faces.el.MethodBinding") && !$prop.isInstanceof("javax.el.MethodExpression") ) 
+			   	<deferred-value>
+					<type>${prop.classname}</type>
+				</deferred-value>
+			#else
+				<deferred-method>
+					<method-signature>${prop.returntype} ${prop.name}(${prop.methodargs})</method-signature>
+				</deferred-method>
+			#end   		
+	   #else
+	   		<rtexprvalue>false</rtexprvalue>
+	   		<type>${prop.classname}</type>
+	   #end
+	  </attribute>
+	#if( $prop.alias )
+	  <attribute>
+	   <name>${prop.alias}</name>
+	   <rtexprvalue>false</rtexprvalue>
+	   <description>Alias for ${prop.name} : ${prop.xmlEncodedDescription}</description>
+	  </attribute>
+	#end
+	#end
+  #end
+#end
+##Create tag for dedicated object in config
+#macro(tag $source)
+	#if($source.tag)
+	 <tag>
+	  #if(${source.tag.description})
+	  <description>${source.tag.xmlEncodedDescription}</description>
+	  #elseif(${source.description})
+	  <description>${source.xmlEncodedDescription}</description>
+	  #end
+	  #if(${source.tag.displayname})  
+		<display-name>${source.tag.xmlEncodedDisplayname}</display-name>
+	  #elseif(${source.displayname})
+		<display-name>${source.xmlEncodedDisplayname}</display-name>
+	  #end
+	  #if(${source.tag.name})
+		  <name>${source.tag.name}</name>
+	  #else
+		  <name>${source.name}</name>
+	  #end
+	  <tag-class>${source.tag.classname}</tag-class>
+	  <body-content>${source.tag.bodyContent}</body-content>
+	  
+	  #tagAttributes($source)
+	  
+	</tag>
+	#end
+
+#end
+
+##Generate tags for each category of config beans
+#macro(generateBunchOfTags $category)
+	#foreach($item in $category)
+		#tag($item)
+	#end
+#end
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_${taglib.jspversion.replace('.', '_')}.xsd"
+    version="${taglib.jspversion}">
+ <tlib-version>${taglib.tlibversion}</tlib-version>
+## <jsp-version>${taglib.jspversion}</jsp-version>
+#if(${taglib.shortname})
+ <short-name>${taglib.shortname}</short-name>
+#end
+ <uri>${taglib.uri}</uri>
+#if(${taglib.description})
+ <description>${taglib.description}</description>
+#end
+
+${taglib.includeContent}
+
+#generateBunchOfTags(${components})
+#generateBunchOfTags(${validators})
+#generateBunchOfTags(${converters})
+#generateBunchOfTags(${listeners})
+
+  #foreach( $function in ${functions} )
+	<function>
+		#if (${function.description})
+		<description>${function.description}</description>
+		#end
+		<name>${function.name}</name>
+		<function-class>${function.methodClassname}</function-class>
+		<function-signature>${function.methodSignature}</function-signature>
+	</function>
+  #end
+
+</taglib>

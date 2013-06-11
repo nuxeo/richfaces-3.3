@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+ <description>Richfaces Editor Sample</description>
+ <display-name>editor-sample</display-name>
+ <context-param>
+  <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+  <param-value>server</param-value>
+ </context-param>
+  <context-param>
+  <param-name>org.ajax4jsf.COMPRESS_SCRIPT</param-name>
+  <param-value>false</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.ajax4jsf.xmlparser.ORDER</param-name>
+  <param-value>NONE</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.ajax4jsf.SKIN</param-name>
+  <param-value>#{skinBean.skin}</param-value>
+ </context-param>
+ <filter>
+  <display-name>Ajax4jsf Filter</display-name>
+  <filter-name>ajax4jsf</filter-name>
+  <filter-class>org.ajax4jsf.Filter</filter-class>
+ </filter>
+ <filter-mapping>
+  <filter-name>ajax4jsf</filter-name>
+  <servlet-name>Faces Servlet</servlet-name>
+  <dispatcher>FORWARD</dispatcher>
+  <dispatcher>REQUEST</dispatcher>
+  <dispatcher>INCLUDE</dispatcher>
+ </filter-mapping>
+ <servlet>
+  <servlet-name>Faces Servlet</servlet-name>
+  <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+
+ <servlet-mapping>
+  <servlet-name>Faces Servlet</servlet-name>
+  <url-pattern>*.jsf</url-pattern>
+ </servlet-mapping>
+ 
+ <!--servlet>
+	<display-name>TinyMCE Loader Servlet</display-name>
+	<servlet-name>TinyMCELoaderServlet</servlet-name>
+	<servlet-class>org.richfaces.component.TinyMceLoaderServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+	<servlet-name>TinyMCELoaderServlet</servlet-name>
+	<url-pattern>/a4j/g/3_3_0-SNAPSHOTorg/richfaces/renderkit/html/scripts/tiny_mce/*</url-pattern>
+ </servlet-mapping--> 
+ <login-config>
+  <auth-method>BASIC</auth-method>
+ </login-config>
+</web-app>

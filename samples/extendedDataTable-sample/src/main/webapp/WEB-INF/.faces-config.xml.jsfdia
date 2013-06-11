@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS ENTITY="JSFProcess">
+ <PROCESS-ITEM ENTITY="JSFProcessGroup" NAME="rules:*" PATH="*" SHAPE="32,17,0,0">
+  <PROCESS-ITEM ENTITY="JSFProcessItem" ID="rules:*:0" NAME="item" PATH="*">
+   <PROCESS-ITEM-OUTPUT ENTITY="JSFProcessItemOutput"
+    ID="stateTest::#pages#stateTestPage.jsp" NAME="output"
+    PATH="/pages/stateTestPage.jsp"
+    TARGET="rules:#pages#stateTestPage.jsp" TITLE="stateTest"/>
+   <PROCESS-ITEM-OUTPUT ENTITY="JSFProcessItemOutput"
+    ID="index::#pages#index.jsp" NAME="output1" PATH="/pages/index.jsp"
+    TARGET="rules:#pages#index.jsp" TITLE="index"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="JSFProcessGroup"
+  NAME="rules:#pages#stateTestPage.jsp" PATH="/pages/stateTestPage.jsp" SHAPE="32,465,0,0"/>
+ <PROCESS-ITEM ENTITY="JSFProcessGroup" NAME="rules:#pages#index.jsp"
+  PATH="/pages/index.jsp" SHAPE="32,577,0,0"/>
+</PROCESS>

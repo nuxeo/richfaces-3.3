@@ -1,0 +1,55 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" id="toolBarPropertySubviewID">
+	<h:commandButton action="#{toolBar.add}" value="add test" />
+	<h:panelGrid columns="2">
+		<h:outputText value="Image location:"></h:outputText>
+		<h:selectOneRadio value="#{toolBar.location}">
+			<f:selectItem itemLabel="left" itemValue="left" />
+			<f:selectItem itemLabel="right" itemValue="right" />
+			<a4j:support event="onclick" reRender="toolBarId"></a4j:support>
+		</h:selectOneRadio>
+
+
+		<h:outputText value="itemSeparator:"></h:outputText>
+		<h:selectOneRadio value="#{toolBar.itemSeparator}">
+			<f:selectItem itemLabel="none" itemValue="none" />
+			<f:selectItem itemLabel="line" itemValue="line" />
+			<f:selectItem itemLabel="square" itemValue="square" />
+			<f:selectItem itemLabel="disc" itemValue="disc" />
+			<f:selectItem itemLabel="grid" itemValue="grid" />
+			<a4j:support event="onclick" reRender="toolBarId"></a4j:support>
+		</h:selectOneRadio>
+		
+				<h:outputText value="Width:"></h:outputText>
+		<h:inputText value="#{toolBar.width}">
+			<a4j:support event="onchange" reRender="toolBarId" />
+		</h:inputText>
+		
+		<h:outputText value="Height:"></h:outputText>
+		<h:inputText value="#{toolBar.height}">
+			<a4j:support event="onchange" reRender="toolBarId" />
+		</h:inputText>
+
+		<h:outputText value="Switch Styles" />
+		<a4j:commandButton id="slBtn" value="#{toolBar.btnLabel}"
+			action="#{toolBar.doStyles}" reRender="toolBarId,slBtn">
+		</a4j:commandButton>
+	</h:panelGrid>
+	<br />
+	<br />
+	<div style="FONT-WEIGHT: bold;">rich:findComponent</div>
+	<h:panelGrid columns="2">
+		<rich:column>
+			<a4j:commandLink value="getItemSeparator" reRender="findID"></a4j:commandLink>
+		</rich:column>
+		<rich:column id="findID">
+			<h:outputText
+				value="#{rich:findComponent('toolBarId').itemSeparator}" />
+		</rich:column>
+	</h:panelGrid>
+
+</f:subview>

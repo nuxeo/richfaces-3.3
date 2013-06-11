@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.ListShuttle</name>
+		<family>org.richfaces.ListShuttle</family>
+		<classname>org.richfaces.component.html.HtmlListShuttle</classname>
+		<superclass>org.richfaces.component.UIListShuttle</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlListShuttleComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			The &lt;rich:listShuttle&gt; component is used for moving chosen items from one list into another with their optional reordering there.
+		</description>
+		<facet>
+		   <name>copyAllControl</name>
+		   <description>Redefines the label content for the "copyAll" control. Related attribute is "copyAllControlLabel"</description>
+		</facet>
+		<facet>
+		   <name>removeAllControl</name>
+		   <description>Redefines the label content for the "removeAll" control. Related attribute is "removeAllControlLabel"</description>
+		</facet>
+		<facet>
+		   <name>copyControl</name>
+		   <description>Redefines the label content for the "copy" control. Related attribute is "copyControlLabel"</description>
+		</facet>
+		<facet>
+		   <name>removeControl</name>
+		   <description>Redefines the label content for the "remove" control. Related attribute is "removeControlLabel"</description>
+		</facet>
+		<facet>
+		   <name>copyAllControlDisabled</name>
+		   <description>Redefines the disabled label content for the "copyAll" control</description> 
+		</facet>
+		<facet>
+		   <name>removeAllControlDisabled</name>
+		   <description>Redefines the disabled label content for the "removeAll" control</description> 
+		</facet>
+		<facet>
+		   <name>caption</name>
+		   <description>Redefines the caption control</description> 
+		</facet>
+		<facet>
+		   <name>sourceCaption</name>
+		   <description>Defines source list caption representation text. Related attribute is "sourceCaptionLabel"</description> 
+		</facet>
+		<facet>
+		   <name>targetCaption</name>
+		   <description>Defines source list target representation text. Related attribute is "targetCaptionLabel"</description> 
+		</facet>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.ListShuttleRenderer</name>
+			<template>org/richfaces/htmlListShuttle.jspx</template>
+		</renderer>
+		<tag>
+			<name>listShuttle</name>
+			<classname>org.richfaces.taglib.ListShuttleTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		
+		&ui_input_attributes;
+       	&html_style_attributes;
+        &ui_data_attributes;
+        <property hidden="true">
+            <name>first</name>
+            <classname>int</classname>
+            <description>
+                A zero-relative row number of the first row to display
+            </description>
+        </property>
+        <property hidden="true">
+            <name>rows</name>
+            <classname>int</classname>
+            <description>
+                A number of rows to display, or zero for all remaining
+                rows in the table
+            </description>
+        </property>
+
+		<property>
+			<name>sourceRequired</name>
+			<classname>boolean</classname>
+			<description>
+				Defines the case when source value is being validated.
+				If the value is &quot;true&quot;, there should be at least one item in the source list
+			</description>
+		</property>
+		<property>
+			<name>targetRequired</name>
+			<classname>boolean</classname>
+			<description>
+				Defines the case when target value is being validated.
+				If the value is &quot;true&quot;, there should be at least one item in the target list
+			</description>
+		</property>
+	    <property>
+	        <name>columnClasses</name>
+	        <classname>java.lang.String</classname>
+	        <description>
+	               Comma-separated list of CSS classes for columns
+	        </description>
+	    </property>
+        <property hidden="true" exist="true">
+        	<name>value</name>
+        </property>
+        <property hidden="true" el="false">
+        	<name>submittedValue</name>
+        </property>
+        <property hidden="true" el="false">
+        	<name>localValueSet</name>
+        </property>
+		<property hidden="true" el="false">
+			<name>valid</name>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property hidden="true">
+			<name>required</name>
+		</property>
+
+		<property elonly="true">
+			<name>sourceSelection</name>
+		            <classname>java.util.Set</classname>
+		            <description>Manages selection in a source list from the server side</description>
+		</property>
+
+		<property elonly="true">
+			<name>targetSelection</name>
+		            <classname>java.util.Set</classname>
+		            <description>Manages selection in a target list from the server side</description>
+		</property>
+
+		<property>
+            <name>switchByClick</name>
+            <classname>boolean</classname>
+			<description>If &quot;true&quot;, items can be moved between the lists by clicking on them. Default value is &quot;false&quot;. </description>
+            <defaultvalue>false</defaultvalue>
+        </property>
+        <property>
+            <name>switchByDblClick</name>
+            <classname>boolean</classname>
+			<description>If &quot;true&quot;, items can be moved between the lists by double-clicking on them. Default value is &quot;true&quot;. </description>
+            <defaultvalue>true</defaultvalue>
+        </property>
+        <property>
+            <name>sourceListWidth</name>
+            <classname>java.lang.String</classname>
+            <description>
+            	Defines width of a source list. Default value is &quot;140&quot;. 
+            </description>
+            <defaultvalue>"140"</defaultvalue>
+        </property>
+        <property>
+            <name>targetListWidth</name>
+            <classname>java.lang.String</classname>
+            <description>
+            	Defines width of a target list. Default value is &quot;140&quot;. 
+            </description>
+            <defaultvalue>"140"</defaultvalue>
+        </property>
+        <property>
+            <name>listsHeight</name>
+            <classname>java.lang.String</classname>
+            <description>
+            	Defines height of the list. Default value is &quot;140&quot;. 
+            </description>
+            <defaultvalue>"140"</defaultvalue>
+        </property>
+        <property>
+            <name>orderControlsVisible</name>
+            <classname>boolean</classname>
+            <description>
+            	If &quot;false&quot;, &apos;Up&apos; and &apos;Down&apos; controls aren&apos;t displayed. Default value is &quot;true&quot;. 
+            </description>
+            <defaultvalue>true</defaultvalue>
+        </property>
+        <property>
+            <name>fastOrderControlsVisible</name>
+            <classname>boolean</classname>
+            <description>
+            	If &quot;false&quot;, &apos;Top&apos; and &apos;Bottom&apos; controls aren&apos;t displayed. Default value is &quot;true&quot;. 
+            </description>
+            <defaultvalue>true</defaultvalue>
+        </property>
+
+		<property>
+            <name>moveControlsVisible</name>
+            <classname>boolean</classname>
+            <description>
+            	If &quot;false&quot;, &apos;Copy&apos; and &apos;Remove&apos; controls aren&apos;t displayed. Default value is &quot;true&quot;. 
+            </description>
+            <defaultvalue>true</defaultvalue>
+        </property>
+        <property>
+            <name>fastMoveControlsVisible</name>
+            <classname>boolean</classname>
+            <description>
+            	If &quot;false&quot;, &apos;Copy All&apos; and &apos;Remove All&apos; controls aren&apos;t displayed. Default value is &quot;true&quot;. 
+            </description>
+            <defaultvalue>true</defaultvalue>
+        </property>
+	    <property>
+	        <name>onlistchanged</name>
+	        <classname>java.lang.String</classname>
+	        <description>HTML: script expression; a list is changed</description>
+	    </property>
+		<property>
+			<name>onorderchanged</name>
+			<classname>java.lang.String</classname>
+		    <description>HTML: script expression; called after ordering action</description>
+		</property>
+		<property>
+	        <name>onlistchange</name>
+	        <classname>java.lang.String</classname>
+	        <description>HTML: script expression; before a list is changed</description>
+	    </property>
+		<property>
+			<name>onorderchange</name>
+			<classname>java.lang.String</classname>
+		    <description>HTML: script expression; called before ordering action</description>
+		</property>
+
+         <property>
+            <name>showButtonLabels</name>
+            <classname>boolean</classname>
+             <description>
+             	Shows a label for a button. Default value is &quot;true&quot;. 
+            </description>
+            <defaultvalue><![CDATA[true]]></defaultvalue>
+        </property>
+
+        <property>
+        	<name>topControlLabel</name>
+        	<classname>java.lang.String</classname>
+            <description>
+                Defines a label for a &quot;Top&quot; control
+            </description>
+        </property>
+        <property>
+        	<name>upControlLabel</name>
+        	<classname>java.lang.String</classname>
+            <description>
+                Defines a label for an &quot;Up&quot; control
+            </description>
+        </property>
+        <property>
+        	<name>downControlLabel</name>
+        	<classname>java.lang.String</classname>
+            <description>
+                Defines a label for a down control
+            </description>
+        </property>
+        <property>
+        	<name>bottomControlLabel</name>
+        	<classname>java.lang.String</classname>
+            <description>
+                Defines a label for a bottom control
+            </description>
+        </property>
+        
+        <property>
+            <name>upTitle </name>
+            <classname>java.lang.String</classname>
+            <description>HTML: alt for top button</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property> 
+        <property>
+            <name>downTitle </name>
+            <classname>java.lang.String</classname>
+            <description>HTML: alt for bottom button</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property> 
+        <property>
+            <name>topTitle </name>
+            <classname>java.lang.String</classname>
+            <description>HTML: alt for the first button</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property> 
+        <property>
+            <name>bottomTitle </name>
+            <classname>java.lang.String</classname>
+            <description>HTML: alt for the last button</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property> 
+
+        <property>
+        	<name>copyAllControlLabel</name>
+        	<classname>java.lang.String</classname>
+            <description>
+                Defines a label for a &quot;Copy all&quot; control
+            </description>
+        </property>
+        <property>
+        	<name>copyControlLabel</name>
+        	<classname>java.lang.String</classname>
+            <description>
+                Defines a label for a &quot;Copy&quot; control
+            </description>
+        </property>
+        <property>
+        	<name>removeControlLabel</name>
+        	<classname>java.lang.String</classname>
+            <description>
+                Defines a label for a &quot;Remove&quot; control
+            </description>
+        </property>
+        <property>
+        	<name>removeAllControlLabel</name>
+        	<classname>java.lang.String</classname>
+            <description>
+                Defines a label for a &quot;Remove all&quot; control
+            </description>
+        </property>
+        
+        <property>
+            <name>copyAllTitle </name>
+            <classname>java.lang.String</classname>
+            <description>HTML: alt for &quot;Copy all&quot; button</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property> 
+        <property>
+            <name>copyTitle </name>
+            <classname>java.lang.String</classname>
+            <description>HTML: alt for a &quot;Copy&quot; button</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property> 
+        <property>
+            <name>removeTitle </name>
+            <classname>java.lang.String</classname>
+            <description>HTML: alt for a &quot;Remove&quot; button</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property> 
+        <property>
+            <name>removeAllTitle </name>
+            <classname>java.lang.String</classname>
+            <description>HTML: alt for &quot;Remove all&quot; button</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property> 
+        
+        <property>
+        	<name>sourceCaptionLabel</name>
+        	<classname>java.lang.String</classname>
+            <description>
+                Defines source list caption representation text 
+            </description>
+        </property>
+        <property>
+        	<name>targetCaptionLabel</name>
+        	<classname>java.lang.String</classname>
+            <description>
+                Defines target list caption representation text
+            </description>
+        </property>
+	    <property el="false">
+	        <name>var</name>
+	        <classname>java.lang.String</classname>
+	        <description>
+	            Defines a list on the page
+	        </description>
+	    </property>
+	    <property>
+	        <name>componentState</name>
+	        <classname>org.ajax4jsf.model.DataComponentState</classname>
+	        <description>It defines EL-binding  for a component state for saving or redefinition</description>
+	    </property>
+	    <property  attachedstate="true">
+	        <name>converter</name>
+	        <classname>javax.faces.convert.Converter</classname>
+	        <description>
+	            Id of Converter to be used or reference to a Converter
+	        </description>
+	    </property>
+	    <property>
+	        <name>ajaxKeys</name>
+	        <classname>java.util.Set</classname>
+	    	<description>Defines row keys that are updated after an Ajax request</description>
+	    </property>
+	    <property>
+	        <name>rowClasses</name>
+	        <classname>java.lang.String</classname>
+	        <description>
+	            CSS class for a row
+	        </description>
+	        <defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property hidden="true">
+	        <name>rowKey</name>
+	   </property>
+	   <property>
+			<name>rowKeyConverter</name>
+			<classname>javax.faces.convert.Converter</classname>
+			<description>Converter for a row key object</description>
+		</property>	
+
+
+
+	   <property el="false">
+	        <name>rowKeyVar</name>
+	        <classname>java.lang.String</classname>
+	        <description>The attribute provides access to a row key in a Request scope</description>
+	    </property>
+	    <property hidden="true" el="false">
+	        <name>stateVar</name>
+	        <classname>java.lang.String</classname>
+	        <description>
+	            The attribute  provides access to a component state on the client side
+	        </description>
+	    </property>
+	    <property>
+	        <name>sourceValue</name>
+	        <classname>java.lang.Object</classname>
+	        <description>
+	        	Defines a List or Array of items to be shown in a source list
+	        </description>
+	    </property>
+	    <property>
+	        <name>targetValue</name>
+	        <classname>java.lang.Object</classname>
+	        <description>
+	        	Defines a List or Array of items to be shown in a target list
+	        </description>
+	    </property>
+	    <property>
+	        <name>activeItem</name>
+	        <classname>java.lang.Object</classname>
+	        <description>
+	            Stores active item
+	        </description>
+	    </property>
+	    <property>
+	        <name>switchByClick</name>
+	        <classname>boolean</classname>
+	        <description>
+	            If &quot;true&quot;, dragging between lists realized by click 
+	        </description>
+	    </property>
+        <property>
+            <name>controlsType</name>
+            <classname>java.lang.String</classname>
+            <description>
+            	Defines type of a control: button or none. Default value is &quot;button&quot;. 
+            </description>
+            <defaultvalue><![CDATA["button"]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>ontopclick</name>
+            <classname>java.lang.String</classname>
+            <description>
+                A JavaScript event handler; a button &quot;Top&quot; is clicked
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>onupclick</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: a script expression; a button &quot;Up&quot; is clicked
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>ondownclick</name>
+            <classname>java.lang.String</classname>
+            <description>
+                A JavaScript event handler; a button &quot;Down&quot; is clicked
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>onbottomclick</name>
+            <classname>java.lang.String</classname>
+            <description>
+                A JavaScript event handler; a button &quot;Bottom&quot; is clicked
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>oncopyallclick</name>
+            <classname>java.lang.String</classname>
+            <description>
+                A JavaScript event handler; a button &quot;Copy All&quot; is clicked
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>oncopyclick</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: a script expression; a button &quot;Copy&quot; is clicked
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>onremoveclick</name>
+            <classname>java.lang.String</classname>
+            <description>
+                A JavaScript event handler; a button &quot;Remove&quot; is clicked
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>onremoveallclick</name>
+            <classname>java.lang.String</classname>
+            <description>
+                A JavaScript event handler; a button &quot;Remove All&quot; is clicked
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+	    <property>
+	    	<name>onclick</name>
+	    	<classname>java.lang.String</classname>
+	        <description>HTML: a script expression; a pointer button is clicked</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>ondblclick</name>
+	    	<classname>java.lang.String</classname>
+	        <description>HTML: a script expression; a pointer button is double-clicked</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>onmouseout</name>
+	    	<classname>java.lang.String</classname>
+	        <description>HTML: a script expression; a pointer is moved away</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>onmousemove</name>
+	    	<classname>java.lang.String</classname>
+	        <description>HTML: a script expression; a pointer is moved within</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property> 
+	    <property>
+	    	<name>onmouseover</name>
+	    	<classname>java.lang.String</classname>
+	        <description>HTML: a script expression; a pointer is moved onto</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property hidden="true">
+		    	<name>onchange</name>
+		    	<classname>java.lang.String</classname>
+		    </property>
+		    <property>
+		    	<name>onfocus</name>
+		    	<classname>java.lang.String</classname>
+				<description>HTML: script expression; the element got the focus</description>
+		    </property>
+		    <property>
+		    	<name>onblur</name>
+		    	<classname>java.lang.String</classname>
+				<description>HTML: script expression; the element lost the focus</description>
+		    </property>
+	    
+	    <property>
+	    	<name>controlsVerticalAlign</name>
+	    	<classname>java.lang.String</classname>
+	    	<description>Customizes vertically a position of move/copy and order controls relatively to lists. Default value is &quot;middle&quot;</description>
+	    	<defaultvalue><![CDATA["middle"]]></defaultvalue>
+	    </property> 
+	     <property>
+	    	<name>listClass</name>
+	    	<classname>java.lang.String</classname>
+	        <description>CSS class for a list</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name>disabledControlClass</name>
+	    	<classname>java.lang.String</classname>
+	        <description>CSS class for a disabled control</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	     <property>
+	    	<name>topControlClass</name>
+	    	<classname>java.lang.String</classname>
+	        <description>CSS class for a &quot;Top&quot; control</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name>bottomControlClass</name>
+	    	<classname>java.lang.String</classname>
+	        <description>CSS class for a &quot;Bottom&quot; control</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name>upControlClass</name>
+	    	<classname>java.lang.String</classname>
+	        <description>CSS class for an &quot;Up&quot; control</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name>downControlClass</name>
+	    	<classname>java.lang.String</classname>
+	        <description>CSS class for a &quot;Down&quot; control</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name>copyAllControlClass</name>
+	    	<classname>java.lang.String</classname>
+	        <description>CSS class for a &quot;Copy all&quot; control</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name>removeAllControlClass</name>
+	    	<classname>java.lang.String</classname>
+	        <description>CSS class for &quot;Remove all&quot; control</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name>copyControlClass</name>
+	    	<classname>java.lang.String</classname>
+	        <description>CSS class for &quot;Copy&quot; control</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+	    <property>
+	    	<name>removeControlClass</name>
+	    	<classname>java.lang.String</classname>
+	        <description>CSS class for a &quot;Remove&quot; control</description>
+	    	<defaultvalue><![CDATA[""]]></defaultvalue>
+	    </property>
+		<property>
+			<name>label</name>
+			<classname>java.lang.String</classname>
+			<description>A localized user presentable name for this component.</description>
+		</property>
+	</component>
+</components>

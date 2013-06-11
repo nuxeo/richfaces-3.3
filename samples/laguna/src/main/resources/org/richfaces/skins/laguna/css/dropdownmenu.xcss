@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+	   xmlns:u='http:/jsf.exadel.com/template/util' 
+	   xmlns="http://www.w3.org/1999/xhtml" >
+   
+   <u:selector name=".rich-ddmenu-label">
+   </u:selector>
+   
+   <u:selector name=".rich-label-text-decor">
+   </u:selector>
+   
+	<u:selector name=".rich-ddmenu-label-disabled">
+   </u:selector>
+   
+   <u:selector name=".rich-ddmenu-label-unselect">
+   </u:selector>
+   
+    <u:selector name=".rich-menu-list-border">
+		<u:style name="filter" value="alpha(opacity=80)" />
+		<u:style name="opacity" value="0.8" />
+    </u:selector>
+
+</f:template>

@@ -1,0 +1,5 @@
+	if (_action != null) {
+		setActionExpression(new org.richfaces.webapp.taglib.MethodExpressionMethodBindingAdaptor(_action));
+	} else {
+		setActionExpression(null);
+	}

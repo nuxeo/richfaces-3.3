@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components 
+        PUBLIC "-//AJAX4JSF//CDK Generator config/EN"
+        "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+
+<components>
+        <function>
+                <name>clientId</name>
+                <method>org.richfaces.function.RichFunction.clientId(String)</method>
+        </function>
+
+        <function>
+                <name>component</name>
+                <method>org.richfaces.function.RichFunction.component(String)</method>
+        </function>
+        
+        <function>
+                <name>element</name>
+                <method>org.richfaces.function.RichFunction.element(String)</method>
+        </function>
+
+        <function>
+                <name>findComponent</name>
+                <method>org.richfaces.function.RichFunction.findComponent(String)</method>
+        </function>
+
+        <function>
+                <name>isUserInRole</name>
+                <method>org.richfaces.function.RichFunction.isUserInRole(Object)</method>
+        </function>
+</components>

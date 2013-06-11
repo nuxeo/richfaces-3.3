@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd"
+[
+<!ENTITY attributes SYSTEM "commonTreeAttributes.ent">
+<!ENTITY listeners SYSTEM "commonTreeListeners.ent">
+<!ENTITY commonTreeClientListeners SYSTEM "commonTreeClientListeners.ent">
+]
+>
+
+<components>
+	<component>
+		<name>org.richfaces.TreeNode</name>
+		<family>org.richfaces.TreeNode</family>
+		<classname>org.richfaces.component.html.HtmlTreeNode</classname>
+		<superclass>org.richfaces.component.UITreeNode</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlTreeNodeComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:treeNode> component is designed for creating sets of tree elements within a <rich:tree> component.]]>
+		</description>
+		<facet>
+		   <name>icon</name>
+		   <description>Redefines the icon for node. Related attribute is "icon"</description>
+		</facet>
+		<facet>
+		   <name>iconCollapsed</name>
+		   <description>Redefines the icon for collapsed node. Related attribute is "iconCollapsed"</description>
+		</facet>
+		<facet>
+		   <name>iconExpanded</name>
+		   <description>Redefines the icon for expanded node. Related attribute is "iconExpanded"</description>
+		</facet>
+		<facet>
+		   <name>iconLeaf</name>
+		   <description>Redefines the icon for component leaves. Related attribute is "iconLeaf"</description>
+		</facet>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.TreeNodeRenderer</name>
+			<template>htmlTreeNode.jspx</template>
+		</renderer>
+		<tag>
+			<name>treeNode</name>
+			<classname>org.richfaces.taglib.TreeNodeTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<taghandler generate="true">
+			<classname>
+				org.richfaces.taglib.TreeNodeTagHandler
+			</classname>
+			<superclass>
+				org.richfaces.taglib.TreeListenersTagHandler
+			</superclass>
+		</taghandler>
+
+		&attributes;
+		&ui_component_attributes;
+		
+		<property>
+			<name>type</name>
+			<classname>java.lang.String</classname>
+			<description>A node type</description>
+		</property>
+		<property>
+			<name>ajaxSubmitSelection</name>
+			<classname>java.lang.String</classname>
+			<description>An algorithm of AJAX request submission. Possible values are &quot;inherit&quot;, &quot;true&quot;, &quot;false&quot;. Default value is &quot;inherit&quot;.</description>
+			<defaultvalue>"inherit"</defaultvalue>
+		</property>
+        <property>
+           <name>ondrop</name>
+        	<classname>java.lang.String</classname>
+        	<description>It's an event that is called when something is dropped on a drop zone. Default value is &quot;getDefaultOndrop()&quot;.</description>
+		   <defaultvalue>getDefaultOndrop()</defaultvalue>
+        </property>
+        <property>
+           <name>ondropend</name>
+           <classname>java.lang.String</classname>
+        	<description>A JavaScript handler for event fired on a drop even the drop for a given type is not available. Default value is &quot;getDefaultOndropend()&quot;.</description>
+		   <defaultvalue>getDefaultOndropend()</defaultvalue>
+        </property>
+        <property>
+           <name>ondragstart</name>
+           <classname>java.lang.String</classname>
+        	<description>A JavaScript event handler called before drag object. Default value is &quot;getDefaultOndragstart()&quot;.</description>
+		   <defaultvalue>getDefaultOndragstart()</defaultvalue>
+        </property>
+        <property>
+           <name>ondragend</name>
+           <classname>java.lang.String</classname>
+        	<description>A JavaScript event handler called after a drag operation. Default value is &quot;getDefaultOndragend()&quot;.</description>
+		   <defaultvalue>getDefaultOndragend()</defaultvalue>
+        </property>
+        <property>
+           <name>ondragenter</name>
+           <classname>java.lang.String</classname>
+        	<description>A JavaScript event handler called on enter draggable object to zone. Default value is &quot;getDefaultOndragenter()&quot;.</description>
+		   <defaultvalue>getDefaultOndragenter()</defaultvalue>
+        </property>
+        <property>
+           <name>ondragexit</name>
+           <classname>java.lang.String</classname>
+        	<description>A JavaScript event handler called after a drag object leaves zone. Default value is &quot;getDefaultOndragexit()&quot;.</description>
+		   <defaultvalue>getDefaultOndragexit()</defaultvalue>
+        </property>
+
+		<property>
+           <name>oncontextmenu</name>
+           <classname>java.lang.String</classname>
+           <description>JavaScript handler to be called on right click.
+		   Returning false prevents default browser context menu from being displayed</description>
+		</property>
+		
+		<property>
+			<name>grabCursors</name>
+			<classname>java.lang.String</classname>
+			<description>
+				List of comma separated cursors that indicates when you can grab and drag an object
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		
+		<property>
+			<name>grabbingCursors</name>
+			<classname>java.lang.String</classname>
+			<description>
+				List of comma separated cursors that indicates when you has grabbed something
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		
+		<property>
+			<name>acceptCursors</name>
+			<classname>java.lang.String</classname>
+			<description>
+				List of comma separated cursors that indicates when acceptable draggable over dropzone
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		
+		<property>
+			<name>rejectCursors</name>
+			<classname>java.lang.String</classname>
+			<description>
+				List of comma separated cursors that indicates when rejectable draggable over dropzone   
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		
+		<property>
+			<name>cursorTypeMapping</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				Mapping between drop types and acceptable cursors
+			</description>
+		</property>
+		
+		<property>
+            <name>nodeClass</name>
+            <classname>java.lang.String</classname>
+            <description>Name of node CSS class</description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+		<property>
+			<name>changeExpandListener</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description>Listener called on expand/collapse event on the node</description>
+		</property>
+		<property>
+			<name>dragListener</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description>MethodBinding representing an action listener method that will be notified after drag operation</description>
+		</property>
+		<property>
+			<name>dropListener</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description>MethodBinding representing an action listener method that will be notified after drop operation</description>
+		</property>
+		<property>
+			<name>nodeSelectListener</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description>MethodBinding representing an action listener method that will be notified after selection of node.   </description>
+		</property>
+		<property>
+			<name>iconLeaf</name>
+			<classname>java.lang.String</classname>
+			<description>An icon for component leaves</description>
+		</property>
+		&commonTreeClientListeners;
+		&ajax_component_attributes;
+
+        <property>
+        	<name>dragValue</name>        	
+			<classname>java.lang.Object</classname>
+			<description>
+				Data to be sent to the drop zone after a drop event. Default value is &quot;getUITree().getDragValue()&quot;.
+			</description>			
+			<defaultvalue>getUITree().getDragValue()</defaultvalue>
+        </property>
+
+        <property>
+        	<name>dropValue</name>        	
+			<classname>java.lang.Object</classname>
+			<description>
+				Data to be processed after a drop event. Default value is &quot;getUITree().getDropValue()&quot;.
+			</description>			
+			<defaultvalue>getUITree().getDropValue()</defaultvalue>
+        </property>
+        
+        <property>
+           <name>timeout</name>
+           <classname>int</classname>
+        	<description>Gets timeout in ms. Default value is &quot;getDefaultTimeout()&quot;. </description>
+		   <defaultvalue>getDefaultTimeout()</defaultvalue>
+        </property>
+        <property>
+           <name>reRender</name>
+           <classname>java.lang.Object</classname>
+		   <description>
+		   	Id['s] (in format of call  UIComponent.findComponent()) of components, 
+		   	rendered in case of AjaxRequest  caused by this component. 
+		   	Can be single id, comma-separated list of Id's, or EL Expression  with array or Collection. Default value is &quot;getDefaultReRender()&quot;.
+		   </description>
+		   <defaultvalue>getDefaultReRender()</defaultvalue>
+        </property>
+        
+        &html_events;
+        
+        	<listener>
+		<name>dropListener</name>
+		<listenerclass>
+			org.richfaces.event.DropListener
+		</listenerclass>
+		<componentclass>
+			org.richfaces.event.DropSource
+		</componentclass>
+		<eventclass>
+			org.richfaces.event.DropEvent
+		</eventclass>
+	</listener>
+
+	<listener>
+		<name>dragListener</name>
+		<listenerclass>
+			org.richfaces.event.DragListener
+		</listenerclass>
+		<componentclass>
+			org.richfaces.component.Draggable
+		</componentclass>
+		<eventclass>
+			org.richfaces.event.DragEvent
+		</eventclass>
+	</listener>
+
+
+	<listener>
+		<name>changeExpandListener</name>
+		<listenerclass>
+			org.richfaces.event.NodeExpandedListener
+		</listenerclass>
+		<componentclass>
+			org.richfaces.event.TreeListenerEventsProducer
+		</componentclass>
+		<eventclass>
+			org.richfaces.event.NodeExpandedEvent
+		</eventclass>
+	</listener>
+	<listener>
+		<name>nodeSelectListener</name>
+		<listenerclass>
+			org.richfaces.event.NodeSelectedListener
+		</listenerclass>
+		<componentclass>
+			org.richfaces.event.TreeListenerEventsProducer
+		</componentclass>
+		<eventclass>
+			org.richfaces.event.NodeSelectedEvent
+		</eventclass>
+	</listener>
+        
+    </component>
+</components>

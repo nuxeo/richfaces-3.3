@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:vcp="http://ajax4jsf.org/cdk/vcp"	
+	class="org.richfaces.renderkit.html.DataDefinitionListRenderer"
+	baseclass="org.richfaces.renderkit.AbstractDefinitionListRenderer"
+	component="org.richfaces.component.UIDataDefinitionList" 
+	>
+	<f:clientid var="clientId"/>
+	<dl id="#{clientId}"
+	    class="dr-deflist rich-deflist #{component.attributes['styleClass']}"
+		x:passThruWithExclusions="value,id,class"
+		>
+	<vcp:body>
+	   <f:call name="encodeRows"/>
+	</vcp:body>
+	</dl>
+</f:root>

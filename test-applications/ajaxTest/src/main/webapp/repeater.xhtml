@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	<head><title>Simple repeater in seam</title></head>
+	<body>
+	  <h:form id="ajaxForm">
+	      <h:inputText id="text" value="#{bean.text}">
+	         <a4j:support reRender="out" event="onkeyup"></a4j:support>
+	      </h:inputText>
+	      <h:outputText id="out" value="#{bean.text}"></h:outputText>
+	  </h:form>
+	</body>
+</html>

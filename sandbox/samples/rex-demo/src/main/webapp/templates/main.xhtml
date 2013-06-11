@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:rex="http://labs.jboss.com/jbossrichfaces/ui/ui/rex-button"      
+      xmlns:a4j="http://richfaces.org/a4j"
+	  xmlns:rich="http://richfaces.org/rich">
+      
+<head>
+	<style>
+		.displaynone {
+			display:none;
+		}
+	</style>
+	<link rel="STYLESHEET" type="text/css" href="${facesContext.externalContext.requestContextPath}/css/common.css"/>
+ 	<ui:include src="/templates/include/dynamic-css.xhtml" />
+	<script type="text/javascript">
+    Ext.onReady(function(){
+
+        Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
+        
+       var viewport = new Ext.Viewport({
+            layout:'border',
+            items:[
+                 new Ext.BoxComponent({ // raw
+                    region:'north',
+                    el: 'north',
+                    split:false,                    
+                    height:55
+                })
+                 /*{  region:'north',
+                    contentEl: 'north',
+                    height: 35,
+                    minSize: 100,
+                    maxSize: 200,
+                    margins:'0 0 3 0'
+                }*/
+                ,
+                /*{
+                    region:'south',
+                    contentEl: 'south',
+                    split:true,
+                    height: 100,
+                    minSize: 100,
+                    maxSize: 200,
+                    collapsible: true,
+                    title:'South',
+                    margins:'0 0 0 0'
+                },*/
+                /*{
+                    region:'east',
+                    id:'east-panel',
+                    title:'East',
+                    split:true,
+                    contentEl: 'east',
+                    width: 200,
+                    minSize: 175,
+                    maxSize: 400,
+                    collapsible: true,
+                    margins:'0 0 0 0',
+
+                    }, */
+  
+                   {
+                    region:'west',
+                    id:'west-panel',
+                    title:'Navigator',
+                    split:true,
+                    contentEl: 'west',
+                    width: 200,
+                    minSize: 175,
+                    maxSize: 400,
+                    collapsible: true,
+                    margins:'0 0 0 0'
+
+                    },
+                 {
+                	region:'center',
+                        contentEl:'center2',
+                        layout:'fit',
+                        _title: 'Center Panel',
+                        autoScroll:true
+                }
+                
+             ]
+        });
+    });
+    Ext.onReady(function(){
+    	Ext.get('west').removeClass("displaynone");
+    	Ext.get('north-body').removeClass("displaynone");
+    	Ext.get('center2').removeClass("displaynone");
+    });
+	</script>
+
+</head>
+<body>
+<f:view contentType="text/html">
+
+
+
+
+
+  <div id="west" class="displaynone">
+    <ui:include src="/templates/include/components-navigation.xhtml" />
+  </div>
+  <div id="north">
+  	<div id="north-body" class="displaynone">
+    <ui:include src="/templates/include/header.xhtml" />
+    </div>
+  </div>
+  <div id="center2"  class="displaynone">
+  	<div style="padding:10px;">
+	  	<ui:insert name="body">Body</ui:insert>
+	  	<div  style="display:none" >
+			<rex:button id="mb4" value="Just forcing the loading of ext css and js for time being" />
+		</div>
+  	</div>
+  </div>
+  
+</f:view>
+</body>
+
+
+</html>

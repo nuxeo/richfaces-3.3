@@ -1,0 +1,18 @@
+<archetype>
+  <id>maven-archetype-jsf-component</id>
+  <sources><!--
+    <source>src/main/java/component/_CompName.java</source>
+  -->
+    <source>src/main/java/component/README</source>
+  </sources>
+  <testSources>
+    <source>src/test/java/component/JSFComponentTest.java</source>
+  </testSources>
+  <resources><!--
+    <resource>src/main/config/component/_compName.xml</resource>
+    <resource>src/main/templates/_compName.jspx</resource>
+  -->
+    <resource>src/main/config/component/README</resource>
+    <resource>src/main/templates/README</resource>
+  </resources>
+</archetype>

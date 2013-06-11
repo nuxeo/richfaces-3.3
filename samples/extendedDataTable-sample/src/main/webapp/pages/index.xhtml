@@ -1,0 +1,199 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:extdt="http://labs.jboss.com/jbossrichfaces/ui/extendedDataTable"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<head>
+<title><h:outputText value="#{msg['demo.title']}">
+</h:outputText></title>
+<style type="text/css">
+.leftColumn {
+	width: 50%;
+	height: 100%;
+}
+
+.rightColumn {
+	width: 50%;
+	height: 100%;
+}
+
+#mainPanel {
+	width: 100%;
+	height: 100%;
+}
+
+#leftPanel {
+	width: 100%;
+	height: 100%;
+}
+
+#rightPanel {
+	width: 100%;
+	height: 100%;
+}
+</style>
+</head>
+<body>
+<f:view>
+	<table style="width: 100%;">
+		<tr>
+			<td />
+			<td />
+		</tr>
+		<tr style="width: 100%;">
+			<td class="leftColumn"><rich:panel id="leftPanel">
+				<h:form id="form1">
+					<extdt:extendedDataTable id="demoTable"
+						value="#{extendedDataTableBean.dataModel}" var="patient"
+						style="margin: 0 auto;"
+						rows="#{extendedDataTableControlBean.rowsNumber}"
+						width="#{extendedDataTableControlBean.width}"
+						height="#{extendedDataTableControlBean.height}"
+						selectedClass="dataTableSelectedRow" footerClass="demo-footer"
+						sortMode="#{extendedDataTableControlBean.sortMode}"
+						selectionMode="#{extendedDataTableControlBean.selectionMode}"
+						selection="#{extendedDataTableBean.selection}" rowKeyVar="rkvar"
+						enableContextMenu="#{extendedDataTableControlBean.contextMenuEnabled}"
+						tableState="#{extendedDataTableBean.tableState}">
+						<rich:column id="firstName" headerClass="dataTableHeader"
+							width="25%" label="#{msg['patient.firstName']}" sortable="true"
+							sortBy="#{patient.firstName}" filterBy="#{patient.firstName}"
+							filterEvent="onkeyup">
+							<f:facet name="header">
+								<h:outputText value="#{msg['patient.firstName']}" />
+							</f:facet>
+							<h:outputText id="text" value="#{patient.firstName}">
+								<rich:toolTip for="text">
+									<h:outputText value="sasasasasasa" />
+								</rich:toolTip>
+							</h:outputText>
+						</rich:column>
+						<rich:column id="lastName" headerClass="dataTableHeader"
+							width="25%" label="#{msg['patient.lastName']}" sortable="true"
+							sortBy="#{patient.lastName}" filterBy="#{patient.lastName}"
+							filterEvent="onkeyup">
+							<f:facet name="header">
+								<h:outputText value="#{msg['patient.lastName']}" />
+							</f:facet>
+							<h:outputText value="#{patient.lastName}" />
+						</rich:column>
+						<rich:column id="admissionDate" headerClass="dataTableHeader"
+							width="50%" label="#{msg['patient.admissionDate']}"
+							sortable="true" sortBy="#{patient.admissionDate}">
+							<f:facet name="header">
+								<h:outputText value="#{msg['patient.admissionDate']}" />
+							</f:facet>
+							<h:outputText value="#{patient.admissionDate}" />
+						</rich:column>
+
+						<f:facet name="footer">
+							<rich:datascroller
+								style="width: #{extendedDataTableControlBean.width}"
+								rendered="#{extendedDataTableControlBean.paginated}"
+								for="demoTable">
+							</rich:datascroller>
+						</f:facet>
+						<a4j:support event="onselectionchange"
+							action="#{extendedDataTableBean.takeSelection}"
+							reRender="selectedPatients" />
+					</extdt:extendedDataTable>
+				</h:form>
+			</rich:panel></td>
+			<td class="rightColumn"><rich:panel id="rightPanel">
+				<rich:tabPanel switchType="ajax">
+					<rich:tab label="#{msg['component.test']}">
+						<h:form id="componentTestForm">
+							<h:panelGrid columns="2">
+								<h:outputLabel value="#{msg['table.width']}"
+									for="tableWidthInput" />
+								<h:inputText id="tableWidthInput"
+									value="#{extendedDataTableControlBean.width}" />
+								<h:outputLabel value="#{msg['table.height']}"
+									for="tableHeightInput" />
+								<h:inputText id="tableHeightInput"
+									value="#{extendedDataTableControlBean.height}" />
+								<h:outputLabel value="#{msg['table.patientsNumber']}"
+									for="tablePatientsNumberInput" />
+								<h:inputText id="tablePatientsNumberInput"
+									value="#{extendedDataTableBean.patientsNumber}" />
+								<h:outputLabel value="#{msg['table.enableContextMenu']}"
+									for="tableEnableContextMenu" />
+								<h:selectBooleanCheckbox id="tableEnableContextMenu"
+									value="#{extendedDataTableControlBean.contextMenuEnabled}" />
+								<h:outputLabel value="#{msg['table.sortMode']}"
+									for="tableSortModeSelect" />
+								<h:selectOneMenu id="tableSortModeSelect"
+									value="#{extendedDataTableControlBean.sortMode}">
+									<f:selectItems
+										value="#{extendedDataTableControlBean.sortModeSelectItems}" />
+								</h:selectOneMenu>
+								<h:outputLabel value="#{msg['table.selectionMode']}"
+									for="tableSelectionModeSelect" />
+								<h:selectOneMenu id="tableSelectionModeSelect"
+									value="#{extendedDataTableControlBean.selectionMode}">
+									<f:selectItems
+										value="#{extendedDataTableControlBean.selectionModeSelectItems}" />
+								</h:selectOneMenu>
+								<h:outputLabel value="#{msg['table.paginated']}"
+									for="paginatedCheckbox" />
+								<h:selectBooleanCheckbox id="paginatedCheckbox"
+									value="#{extendedDataTableControlBean.paginated}" />
+								<h:outputLabel value="#{msg['table.rowsNumber']}"
+									for="tableRowsNumberInput" />
+								<h:inputText id="tableRowsNumberInput"
+									value="#{extendedDataTableControlBean.rowsNumber}" />
+							</h:panelGrid>
+							<a4j:commandButton value="#{msg['table.update']}"
+								reRender="demoTable">
+							</a4j:commandButton>
+							<a4j:commandButton value="#{msg['table.testComponentState']}"
+								action="stateTest">
+							</a4j:commandButton>
+							<rich:spacer height="5px" width="100%">
+							</rich:spacer>
+							<rich:dataTable id="selectedPatients"
+								value="#{extendedDataTableBean.selectedItems}"
+								var="selectedPatient">
+								<f:facet name="header">
+									<h:outputText value="#{msg['table.selectedPatients']}" />
+								</f:facet>
+								<rich:column id="selectedFirstName"
+									headerClass="dataTableHeader"
+									label="#{msg['patient.firstName']}">
+									<f:facet name="header">
+										<h:outputText value="#{msg['patient.firstName']}" />
+									</f:facet>
+									<h:outputText value="#{selectedPatient.firstName}" />
+								</rich:column>
+								<rich:column id="selectedLastName" headerClass="dataTableHeader"
+									label="#{msg['patient.lastName']}">
+									<f:facet name="header">
+										<h:outputText value="#{msg['patient.lastName']}" />
+									</f:facet>
+									<h:outputText value="#{selectedPatient.lastName}" />
+								</rich:column>
+							</rich:dataTable>
+						</h:form>
+					</rich:tab>
+					<rich:tab label="#{msg['dataModel.test']}">
+						<h:form id="dataModelTestForm">
+							<a4j:commandButton value="#{msg['table.serializeDataModel']}"
+								actionListener="#{extendedDataTableBean.serializeModel}" />
+							<a4j:commandButton value="#{msg['table.deserializeDataModel']}"
+								reRender="demoTable"
+								actionListener="#{extendedDataTableBean.deserializeModel}" />
+						</h:form>
+					</rich:tab>
+				</rich:tabPanel>
+				<rich:messages>
+				</rich:messages>
+			</rich:panel></td>
+		</tr>
+	</table>
+</f:view>
+</body>
+</html>

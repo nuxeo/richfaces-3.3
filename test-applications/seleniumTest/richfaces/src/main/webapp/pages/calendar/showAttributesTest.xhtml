@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+			<h:panelGrid columns="2">
+				<h:outputText value="Is popup:"/>
+				<h:selectBooleanCheckbox id="showPopup" value="#{calendarBean.popup}">
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectBooleanCheckbox>
+				<h:outputText value="Show apply button:"/>
+				<h:selectBooleanCheckbox id="showApplyButton" value="#{calendarBean.showApplyButton}">
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectBooleanCheckbox>
+				<h:outputText value="Show header:"/>
+				<h:selectBooleanCheckbox id="showHeader" value="#{calendarBean.showHeader}">
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectBooleanCheckbox>
+				<h:outputText value="Show footer:"/>
+				<h:selectBooleanCheckbox id="showFooter" value="#{calendarBean.showFooter}">
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectBooleanCheckbox>
+				<h:outputText value="Show input:"/>
+				<h:selectBooleanCheckbox id="showInput" value="#{calendarBean.showInput}">
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectBooleanCheckbox>
+				<h:outputText value="Show week days bar:"/>
+				<h:selectBooleanCheckbox id="showWeekDaysBar" value="#{calendarBean.showWeekDaysBar}">
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectBooleanCheckbox>
+				<h:outputText value="Show weeks bar:"/>
+				<h:selectBooleanCheckbox id="showWeeksBar" value="#{calendarBean.showWeeksBar}">
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectBooleanCheckbox>
+				<h:outputText value="First week day:"/>
+				<h:inputText id="firstWeekDay" value="#{calendarBean.firstWeekDay}">
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:inputText>
+				<h:outputText value="Is disabled:"/>
+				<h:selectBooleanCheckbox id="isDisabled" value="#{calendarBean.disabled}">
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectBooleanCheckbox>
+				<h:outputText value="Enable manual input:"/>
+				<h:selectBooleanCheckbox id="enableManualInput" value="#{calendarBean.enableManualInput}">
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectBooleanCheckbox>
+				<h:outputText id="locale" style="display:none" value="#{calendarBean.locale.language}"/>
+				<h:outputText id="datePattern" style="display:none" value="#{calendarBean.datePattern}"/>
+			</h:panelGrid>
+			<rich:calendar
+					id="calendar"
+					mode="client"
+					popup="#{calendarBean.popup}"
+					value="#{calendarBean.selectedDate}"
+					datePattern="#{calendarBean.datePattern}"
+					timeZone="#{calendarBean.timeZone}"
+					locale="#{calendarBean.locale}"
+					showApplyButton="#{calendarBean.showApplyButton}"
+					showHeader="#{calendarBean.showHeader}"
+					showFooter="#{calendarBean.showFooter}"
+					showInput="#{calendarBean.showInput}"
+					showWeekDaysBar="#{calendarBean.showWeekDaysBar}"
+					showWeeksBar="#{calendarBean.showWeeksBar}"
+					firstWeekDay="#{calendarBean.firstWeekDay}"
+					disabled="#{calendarBean.disabled}"
+					enableManualInput="#{calendarBean.enableManualInput}">
+			</rich:calendar>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
+
+	

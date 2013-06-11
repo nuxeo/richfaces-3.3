@@ -1,0 +1,49 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                template="layout/template.xhtml">
+	
+    
+	<ui:define name="body">
+		<script type="text/javascript">
+                function enlarge(){
+                        document.getElementById('pic').width=document.getElementById('pic').width*1.1;
+                        document.getElementById('pic').height=document.getElementById('pic').height*1.1;
+                }
+
+                function decrease(){
+                        document.getElementById('pic').width=document.getElementById('pic').width*0.9;
+                        document.getElementById('pic').height=document.getElementById('pic').height*0.9;
+                }
+        </script>
+	    <h:messages globalOnly="true" styleClass="message"/>
+	    
+	    <rich:panel>
+		    <f:facet name="header">rich:contextMenu</f:facet>
+		
+		 	<rich:contextMenu event="oncontextmenu" attachTo="pic1" submitMode="none" ongroupactivate="alert('hey')">
+	            <rich:menuItem value="Zoom In" onclick="enlarge();" id="zin"/>
+	            <rich:menuItem value="Zoom Out" onclick="decrease();" id="zout"/>
+            </rich:contextMenu>
+
+	        <h:panelGrid columns="1" columnClasses="cent">
+	        	<h:panelGroup id="picture">
+	            	<h:graphicImage value="/img/contextMenuImages/pic1.png" id="pic"/>
+	            </h:panelGroup>
+	        </h:panelGrid>
+
+	        <h:panelGrid columns="1" columnClasses="cent">
+                <h:panelGroup id="picture1">
+                        <h:graphicImage value="/img/contextMenuImages/pic2.png" id="pic1"/>
+                </h:panelGroup>
+            </h:panelGrid>
+
+	    </rich:panel>
+	    
+	</ui:define> 
+</ui:composition>

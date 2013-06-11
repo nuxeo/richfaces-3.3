@@ -1,0 +1,49 @@
+<a:page xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:a="http://richfaces.org/a4j" 
+	xmlns:rich="http://richfaces.org/rich"
+	pageTitle="#{title}" format="xhtml">
+	<a:loadStyle src="/css/grids.css" />
+	<a:loadStyle src="resource://css/panel.xcss" />
+	<a:loadStyle src="resource://css/table.xcss" />
+	<div id="doc3" class="yui-t3 dr-pnl">
+	<div id="hd" class="dr-pnl-h">
+		<h1>RichFaces Validation components examples</h1>
+	<ui:insert name="header" /></div>
+	<div id="bd">
+	<div class="yui-b">
+		<!-- YOUR NAVIGATION GOES HERE -->
+		<ui:include src="/include/pagesList.xhtml" />
+	</div>
+	<div class="yui-main">
+	<div class="yui-b">
+		<!-- YOUR DATA GOES HERE -->
+		<rich:tabPanel binding="#{tabNavigation.tabPanel}" switchType="ajax">
+			<rich:tab name="usage" label="Usage">
+				<ui:insert name="description" />				
+				<ui:insert name="content" />				
+			</rich:tab>
+			<rich:tab name="page" label="Page Source">
+				<rich:insert  content="#{contentBean.content}" highlight="xhtml"/>				
+			</rich:tab>
+			<rich:tab name="java" label="Java Source" rendered="#{!empty javaBean}">
+				<rich:insert  src="/src/#{javaBean}" highlight="java"/>				
+			</rich:tab>
+		</rich:tabPanel>
+	</div>
+	</div>
+	</div>
+	<div id="ft" class="dr-table-footer">
+	   <div class="yui-ge dr-table-footercell">
+	      <div class="yui-u first">
+	        Built with RichFaces #{a4j.version}
+	      </div>
+	      <div class="yui-u" style="text-align:right">
+	      	&#169; 2007 Exadel, Inc.
+	      </div>
+	   </div>
+	</div>
+	</div>
+</a:page>

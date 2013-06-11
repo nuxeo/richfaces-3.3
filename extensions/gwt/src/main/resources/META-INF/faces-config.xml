@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<faces-config version="1.2" xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+    <component>
+        <component-type>org.ajax4jsf.gwt.Page</component-type>
+        <component-class>org.ajax4jsf.gwt.jsf.UIPage</component-class>
+    </component>
+    <component>
+        <component-type>org.ajax4jsf.gwt.Widget</component-type>
+        <component-class>org.ajax4jsf.gwt.jsf.UIWidget</component-class>
+    </component>
+    <render-kit>
+        <renderer>
+            <component-family>org.ajax4jsf.gwt.Widget</component-family>
+            <renderer-type>org.ajax4jsf.gwt.Widget</renderer-type>
+            <renderer-class>org.ajax4jsf.gwt.jsf.WidgetRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>org.ajax4jsf.gwt.Widget</component-family>
+            <renderer-type>org.ajax4jsf.gwt.WidgetWithFacets</renderer-type>
+            <renderer-class>org.ajax4jsf.gwt.jsf.WidgetWithFacetsRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>org.ajax4jsf.gwt.Page</component-family>
+            <renderer-type>org.ajax4jsf.gwt.Page</renderer-type>
+            <renderer-class>org.ajax4jsf.gwt.jsf.PageRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+    <!-- commented out as per Jason DeTiberus -->
+    <!-- All plain G4JSF apps MUST add this in themselves -->
+    <!--
+    <lifecycle>
+     <phase-listener>org.ajax4jsf.gwt.jsf.GwtPhaseListener</phase-listener>
+    </lifecycle>
+    -->
+</faces-config>

@@ -1,0 +1,129 @@
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" id="jQuerySubviewID">
+	<style>
+.divSize_1 {
+	width: 150px;
+	height: 90px;
+	margin: 10px;
+	border: 2px solid #DAA520;
+}
+
+.divColor_1 {
+	background-color: #1E90FF;
+}
+
+.divTextSize_1 {
+	font-size: xx-large;
+}
+
+.divSize_2 {
+	width: 90px;
+	height: 150px;
+	margin: 10px;
+	border: 2px solid #FF0000;
+}
+
+.divColor_2 {
+	background-color: #7FFF00;
+}
+
+.oddTable {
+	background-color: #FFE4C4;
+}
+
+.activeTable {
+	background-color: #AFEEEE;
+}
+
+.fontColor {
+	font-style: italic;
+	color: #228B22;
+}
+</style>
+	<h:panelGrid id="panelGridID" columns="2" border="1">
+		<h:outputText value="add text: [li],work!, e.g. A. one [li],work!" />
+		<h:panelGroup>
+			<f:verbatim>
+				<ol type="A" title="li">
+					<li>one</li>
+					<li>two</li>
+					<li>three</li>
+				</ol>
+			</f:verbatim>
+		</h:panelGroup>
+
+		<h:outputText value="green text: add text3 " />
+		<f:verbatim>
+			<p><span>Text1 </span>text2</p>
+		</f:verbatim>
+
+		<h:panelGroup>
+			<h:outputText
+				value="Rectangle: size: &#34;150 x 90&#34;; bgcolor: &#34;dodgerblue&#34;" />
+			<f:verbatim>
+				<br />
+			</f:verbatim>
+			<h:outputText value="Table: bgcolor: &#34;bisque&#34;" />
+		</h:panelGroup>
+		<f:verbatim>
+			<div id="div_1_ID">xx-large <br />
+			text</div>
+		</f:verbatim>
+
+		<h:panelGroup>
+			<h:outputText
+				value="Rectangle: size: &#34;90 x 150&#34;; border-color &#34;red&#34;" />
+			<f:verbatim>
+				<br />
+			</f:verbatim>
+			<h:outputText value="Table: bgcolor: &#34;none&#34;" />
+			<f:verbatim>
+				<br />
+			</f:verbatim>
+			<h:outputText value="effect(mouseover)" />
+		</h:panelGroup>
+		<f:verbatim>
+			<div id="div_2_ID">normal text</div>
+		</f:verbatim>
+	</h:panelGrid>
+
+
+	<rich:jQuery selector="li" timing="onload" id="jQid"
+		query="find('ol').end().append('[li],work!')" binding="#{jQuery.htmlJQuery}" />
+
+	<rich:jQuery selector="body" timing="onload" query="addClass('body')" />
+	<rich:jQuery selector="tr:nth-child(odd)" timing="onload"
+		query="addClass('oddTable')" />
+	<rich:jQuery selector="#panelGridID tr"
+		query="mouseover(function(){jQuery(this).addClass('activeTable')})" />
+	<rich:jQuery selector="#panelGridID tr"
+		query="mouseout(function(){jQuery(this).removeClass('activeTable')})" />
+
+	<rich:jQuery selector="#div_2_ID" timing="onload"
+		query="mouseover(function(){jQuery(this).fadeOut({height: 'hide'}, 500).text('New text').animate({height: 'show'}, 500)})" />
+	<rich:jQuery selector="p" timing="onload"
+		query="find('span').html('text1').end().append('&lt;p class=\'fontColor\'&gt;add text3&lt;p&gt;')" />
+	<rich:jQuery selector="#div_1_ID" timing="onload"
+		query="addClass('divSize_1')" />
+	<rich:jQuery selector=".divSize_1" timing="onload"
+		query="addClass('divColor_1')" />
+	<rich:jQuery selector="#panelGridID #div_1_ID" timing="onload"
+		query="addClass('divTextSize_1')" />
+	<rich:jQuery selector="#form\\:panelGridID #div_2_ID" timing="onload"
+		query="addClass('divSize_2')" />
+	<br />
+	<h:commandButton action="#{jQuery.add}" value="add test" />
+	<br />
+	<div style="FONT-WEIGHT: bold;">rich:findComponent</div>
+	<h:panelGrid columns="2">
+		<rich:column>
+			<a4j:commandLink value="getRendererType" reRender="findID"></a4j:commandLink>
+		</rich:column>
+		<rich:column id="findID">
+			<h:outputText value="#{rich:findComponent('jQid').rendererType}" />
+		</rich:column>
+	</h:panelGrid>
+</f:subview>

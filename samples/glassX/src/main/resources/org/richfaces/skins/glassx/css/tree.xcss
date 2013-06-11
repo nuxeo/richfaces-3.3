@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template 
+	xmlns:f="http://jsf.exadel.com/template"
+   	xmlns:u="http://jsf.exadel.com/template/util" 
+   	xmlns="http://www.w3.org/1999/xhtml">
+   	
+   	<u:selector name=".rich-tree">
+   		<u:style name="border-width" value="0px" />
+   		<u:style name="border-style" value="dashed" />
+   		<u:style name="border-color" skin="panelBorderColor" />
+   	</u:selector>
+   	
+   	<u:selector name=".rich-tree-node">
+   	</u:selector>
+   	
+   	<u:selector name=".rich-tree-node-selected">
+        <u:style name="border-color" skin="panelBorderColor" />
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="20px" />
+                <f:attribute name="baseColor" skin="headerGradientColor" />
+            </f:resource>
+        </u:style>
+   	</u:selector>
+   	
+   	<u:selector name=".rich-tree-node-highlighted">
+        <u:style name="color" skin="generalTextColor" />
+   	</u:selector>
+   	
+   	<u:selector name=".rich-tree-node-icon">
+   	</u:selector>
+   	
+   	<u:selector name=".rich-tree-node-handleicon">
+   	</u:selector>
+   	
+   	<u:selector name=".rich-tree-node-handleicon-collapsed">
+   	</u:selector>
+   	
+   	<u:selector name=".rich-tree-node-handleicon-expanded">
+   	</u:selector>
+   	
+   	<u:selector name=".rich-tree-node-text">
+   	</u:selector>
+   	
+   	<u:selector name=".rich-tree-node-children">
+   	</u:selector>
+   	
+</f:template>

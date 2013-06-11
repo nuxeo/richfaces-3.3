@@ -1,0 +1,36 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="seleniumTestDANe">
+  <!--test name="IEFunctionalTests">
+    <parameter name="browser" value="*iexplore"/>
+    <parameter name="loadStyleStrategy" value="DEFAULT"/>
+   <parameter name="loadScriptStrategy" value="ALL"/>
+   <parameter name="filterPrefix" value="/faces/NEKO/"/>
+    <packages>
+      <package name="org.richfaces.testng" />
+      <package name="org.richfaces.testng.rf4507" />
+      <package name="org.richfaces.testng.rf4709" />
+      <package name="org.richfaces.testng.rf5264" />
+      <package name="org.richfaces.testng.rf5851" />
+      <package name="org.richfaces.testng.rf5948" />
+    </packages>
+  </test-->
+  <test name="FireFoxFunctionalTestsDANe">
+    <parameter name="loadStyleStrategy" value="DEFAULT"/>
+    <parameter name="loadScriptStrategy" value="ALL"/>
+    <parameter name="filterPrefix" value="/faces/NEKO/"/>
+    <parameter name="browser" value="*firefox"/>
+		<packages>
+			<package name="org.richfaces.testng" />
+			<package name="org.richfaces.testng.rf4507" />
+			<package name="org.richfaces.testng.rf4709" />
+			<package name="org.richfaces.testng.rf5264" />
+			<package name="org.richfaces.testng.rf5849" />
+			<package name="org.richfaces.testng.rf5851" />
+			<package name="org.richfaces.testng.rf5948" />
+			<package name="org.richfaces.testng.rf5933" />
+			<package name="org.richfaces.testng.rf6035" />
+			<package name="org.richfaces.testng.rf6267" />
+			<package name="org.richfaces.testng.rf6547" />
+		</packages>
+	</test>
+</suite>

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim><![CDATA[
+/* Clearlooks 2 */
+
+/* Reset */
+.clearlooks2, .clearlooks2 div, .clearlooks2 span, .clearlooks2 a {vertical-align:baseline; text-align:left; position:absolute; border:0; padding:0; margin:0; background:transparent; font-family:Arial,Verdana; font-size:11px; color:#000; text-decoration:none; font-weight:normal; width:auto; height:auto; overflow:hidden; display:block}
+
+/* General */
+.clearlooks2 {position:absolute; direction:ltr}
+.clearlooks2 .mceWrapper {position:static}
+.mceEventBlocker {position:fixed; left:0; top:0; width:100%; height:100%}
+]]>
+</f:verbatim>
+<u:selector name=".mceEventBlocker">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/horizontal.gif"/>
+	</u:style>
+	<u:style name="background-repeat" value="no-repeat"/>
+	<u:style name="background-position" value="0 -75px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mcePlaceHolder {border:1px solid #000; background:#888; top:0; left:0; opacity:0.5; filter:alpha(opacity=50)}
+.clearlooks2_modalBlocker {position:fixed; left:0; top:0; width:100%; height:100%; background:#FFF; opacity:0.6; filter:alpha(opacity=60); display:none}
+
+/* Top */
+.clearlooks2 .mceTop, .clearlooks2 .mceTop div {top:0; width:100%; height:23px}
+.clearlooks2 .mceTop .mceLeft {width:6px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceTop .mceLeft">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/corners.gif"/>
+	</u:style>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceTop .mceCenter {right:6px; width:100%; height:23px; clip:rect(auto auto auto 12px)}
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceTop .mceCenter">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/horizontal.gif"/>
+	</u:style>
+	<u:style name="background-position" value="12px 0"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceTop .mceRight {right:0; width:6px; height:23px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceTop .mceRight">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/corners.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-12px 0"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceTop span {width:100%; text-align:center; vertical-align:middle; line-height:23px; font-weight:bold}
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceFocus .mceTop .mceLeft">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/corners.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-6px 0"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceFocus .mceTop .mceCenter">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/horizontal.gif"/>
+	</u:style>
+	<u:style name="background-position" value="0 -23px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceFocus .mceTop .mceRight">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/corners.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-18px 0"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceFocus .mceTop span {color:#FFF}
+
+/* Middle */
+.clearlooks2 .mceMiddle, .clearlooks2 .mceMiddle div {top:0}
+.clearlooks2 .mceMiddle {width:100%; height:100%; clip:rect(23px auto auto auto)}
+.clearlooks2 .mceMiddle .mceLeft {left:0; width:5px; height:100%; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceMiddle .mceLeft">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/vertical.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-5px 0"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceMiddle span {top:23px; left:5px; width:100%; height:100%; background:#FFF}
+.clearlooks2 .mceMiddle .mceRight {right:0; width:5px; height:100%; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceMiddle .mceRight">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/vertical.gif"/>
+	</u:style>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+
+/* Bottom */
+.clearlooks2 .mceBottom, .clearlooks2 .mceBottom div {height:6px}
+.clearlooks2 .mceBottom {left:0; bottom:0; width:100%}
+.clearlooks2 .mceBottom div {top:0}
+.clearlooks2 .mceBottom .mceLeft {left:0; width:5px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceBottom .mceLeft">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/corners.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-34px -6px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceBottom .mceCenter {left:5px; width:100%; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceBottom .mceCenter">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/horizontal.gif"/>
+	</u:style>
+	<u:style name="background-position" value="0 -46px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceBottom .mceRight {right:0; width:5px}
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceBottom .mceRight">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/corners.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-34px 0"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceBottom span {display:none}
+.clearlooks2 .mceStatusbar .mceBottom, .clearlooks2 .mceStatusbar .mceBottom div {height:23px}
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceStatusbar .mceBottom .mceLeft">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/corners.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-29px 0"/>
+</u:selector>
+<u:selector name=".clearlooks2 .mceStatusbar .mceBottom .mceCenter">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/horizontal.gif"/>
+	</u:style>
+	<u:style name="background-position" value="0 -52px"/>
+</u:selector>
+<u:selector name=".clearlooks2 .mceStatusbar .mceBottom .mceRight">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/corners.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-24px 0"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceStatusbar .mceBottom span {display:block; left:7px; font-family:Arial, Verdana; font-size:11px; line-height:23px}
+
+/* Actions */
+.clearlooks2 a {width:29px; height:16px; top:3px;}
+.clearlooks2 .mceClose {right:6px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceClose">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-87px 0"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceMin {display:none; right:68px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceMin">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="0 0"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceMed {display:none; right:37px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceMed">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-29px 0"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceMax {display:none; right:37px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceMax">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-58px 0"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceMove {display:none;width:100%;cursor:move;}
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceMove">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/corners.gif"/>
+	</u:style>
+	<u:style name="background-repeat" value="no-repeat"/>
+	<u:style name="background-position" value="-100px -100px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceMovable .mceMove {display:block}
+.clearlooks2 .mceFocus .mceClose {right:6px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceFocus .mceClose">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-87px -16px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceFocus .mceMin {right:68px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceFocus .mceMin">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="0 -16px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceFocus .mceMed {right:37px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceFocus .mceMed">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-29px -16px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceFocus .mceMax {right:37px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceFocus .mceMax">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-58px -16px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceFocus .mceClose:hover {right:6px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceFocus .mceClose:hover">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-87px -32px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceFocus .mceClose:hover {right:6px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceFocus .mceClose:hover">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-87px -32px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceFocus .mceMin:hover {right:68px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceFocus .mceMin:hover">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="0 -32px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceFocus .mceMed:hover {right:37px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceFocus .mceMed:hover">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-29px -32px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceFocus .mceMax:hover {right:37px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceFocus .mceMax:hover">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif"/>
+	</u:style>
+	<u:style name="background-position" value="-58px -32px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+
+/* Resize */
+.clearlooks2 .mceResize {top:auto; left:auto; display:none; width:5px; height:5px; }
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceResize">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/horizontal.gif"/>
+	</u:style>
+	<u:style name="background-repeat" value="no-repeat"/>
+	<u:style name="background-position" value="0 -75px"/>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceResizable .mceResize {display:block}
+.clearlooks2 .mceResizable .mceMin, .clearlooks2 .mceMax {display:none}
+.clearlooks2 .mceMinimizable .mceMin {display:block}
+.clearlooks2 .mceMaximizable .mceMax {display:block}
+.clearlooks2 .mceMaximized .mceMed {display:block}
+.clearlooks2 .mceMaximized .mceMax {display:none}
+.clearlooks2 a.mceResizeN {top:0; left:0; width:100%; cursor:n-resize}
+.clearlooks2 a.mceResizeNW {top:0; left:0; cursor:nw-resize}
+.clearlooks2 a.mceResizeNE {top:0; right:0; cursor:ne-resize}
+.clearlooks2 a.mceResizeW {top:0; left:0; height:100%; cursor:w-resize;}
+.clearlooks2 a.mceResizeE {top:0; right:0; height:100%; cursor:e-resize}
+.clearlooks2 a.mceResizeS {bottom:0; left:0; width:100%; cursor:s-resize}
+.clearlooks2 a.mceResizeSW {bottom:0; left:0; cursor:sw-resize}
+.clearlooks2 a.mceResizeSE {bottom:0; right:0; cursor:se-resize}
+
+/* Alert/Confirm */
+.clearlooks2 .mceButton {font-weight:bold; bottom:10px; width:80px; height:30px; line-height:30px; vertical-align:middle; text-align:center; outline:0}
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceButton">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/button.gif"/>
+	</u:style>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceMiddle .mceIcon {left:15px; top:35px; width:32px; height:32px}
+.clearlooks2 .mceAlert .mceMiddle span, .clearlooks2 .mceConfirm .mceMiddle span {background:transparent;left:60px; top:35px; width:320px; height:50px; font-weight:bold; overflow:auto; white-space:normal}
+.clearlooks2 a:hover {font-weight:bold;}
+.clearlooks2 .mceAlert .mceMiddle, .clearlooks2 .mceConfirm .mceMiddle {background:#D6D7D5}
+.clearlooks2 .mceAlert .mceOk {left:50%; top:auto; margin-left: -40px}
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceAlert .mceIcon">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/alert.gif"/>
+	</u:style>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+.clearlooks2 .mceConfirm .mceOk {left:50%; top:auto; margin-left: -90px}
+.clearlooks2 .mceConfirm .mceCancel {left:50%; top:auto}
+]]>
+</f:verbatim>
+<u:selector name=".clearlooks2 .mceConfirm .mceIcon">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/confirm.gif"/>
+	</u:style>
+</u:selector>
+<f:verbatim>
+<![CDATA[
+]]>
+</f:verbatim>
+</f:template>

@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<description>RichFaces Test-Application</description>
+	<display-name>test-application</display-name>
+	<context-param>
+		<param-name>org.ajax4jsf.SKIN</param-name>
+		<param-value>#{skinBean.skin}</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.richfaces.CONTROL_SKINNING_CLASSES</param-name>
+		<param-value>#{skinning.skinningClass}</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.richfaces.CONTROL_SKINNING</param-name>
+		<param-value>#{skinning.skinning}</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+		<param-value>.xhtml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>facelets.REFRESH_PERIOD</param-name>
+		<param-value>2</param-value>
+	</context-param>
+	<context-param>
+		<param-name>facelets.DEVELOPMENT</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>client</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.ajax4jsf.handleViewExpiredOnClient</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>com.sun.faces.validateXml</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>com.sun.faces.verifyObjects</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.CONFIG_FILES</param-name>
+		<param-value>
+			/WEB-INF/faces-config-TreeSwing.xml,/WEB-INF/faces-config-LayoutComponents.xml,/WEB-INF/faces-config-ColorPicker.xml,/WEB-INF/faces-config-tTree.xml,/WEB-INF/faces-config-Queue.xml,/WEB-INF/faces-config-Editor.xml,/WEB-INF/faces-config-ExtendedDataTable.xml,/WEB-INF/faces-config-DataGrid.xml,/WEB-INF/faces-config-Validator.xml,/WEB-INF/faces-config-ComponentInfo.xml,/WEB-INF/faces-config-HotKey.xml,/WEB-INF/faces-config-DataTable.xml,/WEB-INF/faces-config-SimpleTogglePanel.xml,/WEB-INF/faces-config-Panel.xml,/WEB-INF/faces-config-PanelBar.xml,/WEB-INF/faces-config-TabPanel.xml,/WEB-INF/faces-config-TogglePanel.xml,/WEB-INF/faces-config-Paint2D.xml,/WEB-INF/faces-config-InputNumberSlider.xml,/WEB-INF/faces-config-InputNumberSpinner.xml,/WEB-INF/faces-config-DDMenu.xml,/WEB-INF/faces-config-Tree.xml,/WEB-INF/faces-config-PanelMenu.xml,/WEB-INF/faces-config-Icon.xml,/WEB-INF/faces-config-ModalPanel.xml,/WEB-INF/faces-config-tooltip.xml,/WEB-INF/faces-config-Skin.xml,/WEB-INF/faces-config-Calendar.xml,/WEB-INF/faces-config-Gmap.xml,/WEB-INF/faces-config-DataFilterSlider.xml,/WEB-INF/faces-config-Separator.xml,/WEB-INF/faces-config-Spacer.xml,/WEB-INF/faces-config-ToolBar.xml,/WEB-INF/faces-config-DataScroller.xml,/WEB-INF/faces-config-SuggestionBox.xml,/WEB-INF/faces-config-Message.xml,/WEB-INF/faces-config-VirtualEarth.xml,/WEB-INF/faces-config-Effect.xml,/WEB-INF/faces-config-Insert.xml,/WEB-INF/faces-config-RichBean.xml,/WEB-INF/faces-config-ScrollableDataTable.xml,/WEB-INF/faces-config-jQuery.xml,/WEB-INF/faces-config-DragAndDrop.xml,/WEB-INF/faces-config-OrderingList.xml,/WEB-INF/faces-config-DataOrderedList.xml,/WEB-INF/faces-config-DataDefinitionList.xml,/WEB-INF/faces-config-ContextMenu.xml,/WEB-INF/faces-config-ListShuttle.xml,/WEB-INF/faces-config-Converter.xml,/WEB-INF/faces-config-ComponentControl.xml,/WEB-INF/faces-config-Columns.xml,/WEB-INF/faces-config-PickList.xml,/WEB-INF/faces-config-Combobox.xml,/WEB-INF/faces-config-PTComponent.xml,/WEB-INF/faces-config-Event.xml,/WEB-INF/faces-config-ProgressBar.xml,/WEB-INF/faces-config-Options.xml,/WEB-INF/faces-config-SortingAndFiltering.xml,/WEB-INF/faces-config-Style.xml,/WEB-INF/faces-config-FileUpload.xml,/WEB-INF/faces-config-InplaceSelect.xml,/WEB-INF/faces-config-InplaceInput.xml,/WEB-INF/faces-config-Skinning.xml,/WEB-INF/faces-config-Custom.xml
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.ajax4jsf.COMPRESS_SCRIPT</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.richfaces.LoadScriptStrategy</param-name>
+		<param-value>DEFAULT</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.ajax4jsf.xmlparser.ORDER</param-name>
+		<param-value>NONE</param-value>
+	</context-param>
+	<context-param>
+		<param-name>
+			org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL
+		</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<filter>
+		<display-name>Ajax4jsf Filter</display-name>
+		<filter-name>ajax4jsf</filter-name>
+		<filter-class>org.ajax4jsf.Filter</filter-class>
+		<init-param>
+			<param-name>createTempFiles</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>maxRequestSize</param-name>
+			<param-value>143482880</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>ajax4jsf</filter-name>
+		<servlet-name>Faces Servlet</servlet-name>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+
+	<session-config>
+		<session-timeout>500</session-timeout>
+	</session-config>
+
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+</web-app>

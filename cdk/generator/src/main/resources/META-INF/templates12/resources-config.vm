@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+<!-- Include manual created resource -->
+${resourcesConfig.includeContent}
+
+#foreach( $key in ${classResources.keySet()})
+	<resource class="${classResources.get($key)}">
+		<name>${key}</name>
+	</resource>
+#end
+
+#foreach( $key in ${pathResources.keySet()})
+	<resource>
+		<name>${key}</name>
+		<path>${pathResources.get($key)}</path>
+	</resource>
+#end
+</resource-config>

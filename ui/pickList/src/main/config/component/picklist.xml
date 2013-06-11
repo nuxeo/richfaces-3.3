@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+<components>
+  <component>
+    <name>org.richfaces.PickList</name>
+    <family>org.richfaces.PickList</family>
+    <classname>
+      org.richfaces.component.html.HtmlPickList
+        </classname>
+    <superclass>org.richfaces.component.UIPickList</superclass>
+    <test>
+      <classname>org.richfaces.component.html.HtmlPickListComponentTest</classname>
+      <superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+    </test>
+    <description>
+        	<![CDATA[The <rich:pickList> component is used for moving selected item(s) from one list into another. ]]>
+    </description>
+	<facet>
+	   <name>copyAllControl</name>
+	   <description>Redefines the label content for the "copyAll" control. Related attribute is "copyAllControlLabel"</description>
+	</facet>
+	<facet>
+	   <name>removeAllControl</name>
+	   <description>Redefines the label content for the "removeAll" control. Related attribute is "removeAllControlLabel"</description>
+	</facet>
+	<facet>
+	   <name>copyControl</name>
+	   <description>Redefines the label content for the "copy" control. Related attribute is "copyControlLabel"</description>
+	</facet>
+	<facet>
+	   <name>removeControl</name>
+	   <description>Redefines the label content for the "remove" control. Related attribute is "removeControlLabel"</description>
+	</facet>
+	<facet>
+	   <name>copyAllControlDisabled</name>
+	   <description>Redefines the disabled label content for the "copyAll" control</description> 
+	</facet>
+	<facet>
+	   <name>removeAllControlDisabled</name>
+	   <description>Redefines the disabled label content for the "removeAll" control</description> 
+	</facet>
+	<facet>
+	   <name>copyControlDisabled</name>
+	   <description>Redefines the disabled "copy" label with the control set.</description> 
+	</facet>
+	<facet>
+	   <name>removeControlDisabled</name>
+	   <description>Redefines the disabled "remove" label with the control set.</description> 
+	</facet>
+	<facet>
+	   <name>caption</name>
+	   <description>Redefines the caption control</description> 
+	</facet>
+    <renderer generate="true" override="true">
+      <name>org.richfaces.PickListRenderer</name>
+      <template>htmlPickList.jspx</template>
+    </renderer>
+
+    <tag>
+      <name>pickList</name>
+      <classname>org.richfaces.taglib.PickListTag</classname>
+      <superclass>
+        org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+      <test />
+    </tag>
+
+    <properties>
+      <property hidden="true">
+        <name>selectedValues</name>
+        <classname>java.lang.Object[]</classname>
+      </property>
+
+      <property>
+        <name>showButtonsLabel</name>
+        <classname>boolean</classname>
+        <description>Shows a label for a button. Default value is &quot;true&quot;</description>
+        <defaultvalue>true</defaultvalue>
+      </property>
+       		
+       		<property>
+       			<name>copyAllControlLabel</name>
+       			<classname>java.lang.String</classname>
+       			<description>Defines a label for a &quot;Copy all&quot; control</description>
+       			<defaultvalue>""</defaultvalue>
+       		</property>
+       		
+       		<property>
+       			<name>copyControlLabel</name>
+       			<classname>java.lang.String</classname>
+       			<description>Defines a label for a &quot;Copy&quot; control</description>
+       			<defaultvalue>""</defaultvalue>
+       		</property>
+       		
+       		<property>
+       			<name>removeControlLabel</name>
+       			<classname>java.lang.String</classname>
+       			<description>Defines a label for a &quot;Remove&quot; control</description>
+       			<defaultvalue>""</defaultvalue>
+       		</property>
+       		
+       		<property>
+       			<name>removeAllControlLabel</name>
+       			<classname>java.lang.String</classname>
+       			<description>Defines a label for a &quot;Remove all&quot; control</description>
+       			<defaultvalue>""</defaultvalue>
+       		</property>
+       			    
+             <property>
+                <name>copyAllTitle </name>
+                <classname>java.lang.String</classname>
+             	<description>HTML: alt for a &quot;Copy all&quot; button</description>
+                <defaultvalue><![CDATA[""]]></defaultvalue>
+            </property> 
+            <property>
+                <name>copyTitle </name>
+                <classname>java.lang.String</classname>
+            	<description>HTML: alt for a &quot;Copy&quot; button</description>
+                <defaultvalue><![CDATA[""]]></defaultvalue>
+            </property> 
+            <property>
+                <name>removeTitle </name>
+                <classname>java.lang.String</classname>
+            	<description>HTML: alt for a &quot;Remove&quot; button</description>
+                <defaultvalue><![CDATA[""]]></defaultvalue>
+            </property> 
+            <property>
+                <name>removeAllTitle </name>
+                <classname>java.lang.String</classname>
+            	<description>HTML: alt for a &quot;Remove&quot; all button</description>
+                <defaultvalue><![CDATA[""]]></defaultvalue>
+            </property> 
+            
+			<property>
+	            <name>switchByClick</name>
+	            <classname>boolean</classname>
+				<description>If &quot;true&quot;, items can be moved between the lists by clicking on them. Default value is &quot;false&quot;. </description>
+	            <defaultvalue>false</defaultvalue>
+	        </property>
+	        
+	        <property>
+	            <name>switchByDblClick</name>
+	            <classname>boolean</classname>
+				<description>If &quot;true&quot;, items can be moved between the lists by double-clicking on them. Default value is &quot;true&quot;. </description>
+	            <defaultvalue>true</defaultvalue>
+	        </property>
+	        
+	        <property>
+	            <name>sourceListWidth</name>
+	            <classname>java.lang.String</classname>
+	            <description>
+	            	Defines width of a source list. Default value is &quot;140px&quot;
+	            </description>
+	            <defaultvalue>"140px"</defaultvalue>
+	        </property>
+	        
+	        <property>
+	            <name>targetListWidth</name>
+	            <classname>java.lang.String</classname>
+	            <description>
+	            	Defines width of a target list. Default value is &quot;140px&quot;
+	            </description>
+	            <defaultvalue>"140px"</defaultvalue>
+	        </property>
+	        
+	        <property>
+	            <name>listsHeight</name>
+	            <classname>java.lang.String</classname>
+	            <description>
+	            	Defines height of the list. Default value is &quot;140px&quot;
+	            </description>
+	            <defaultvalue>"140px"</defaultvalue>
+	        </property>
+			<property>
+	            <name>copyAllVisible</name>
+	            <classname>boolean</classname>
+	            <description>
+	            	If &quot;false&quot;, the &apos;Copy All&apos; control will not be displayed. Even if this value is &quot;true&quot;, the &apos;Copy All&apos; control will not be displayed if the &quot;fastMoveControlsVisible&quot; attribute is &quot;false&quot;. Default value is &quot;true&quot;. 
+	            </description>
+	            <defaultvalue>true</defaultvalue>
+	        </property>
+			<property>
+	            <name>copyVisible</name>
+	            <classname>boolean</classname>
+	            <description>
+	            	If &quot;false&quot;, the &apos;Copy&apos; control will not be displayed. Even if this value is &quot;true&quot;, the &apos;Copy&apos; control will not be displayed if the &quot;moveControlsVisible&quot; attribute is &quot;false&quot;. Default value is &quot;true&quot;. 
+	            </description>
+	            <defaultvalue>true</defaultvalue>
+	        </property>
+			<property>
+	            <name>removeVisible</name>
+	            <classname>boolean</classname>
+	            <description>
+	            	If &quot;false&quot;, the &apos;Remove&apos; control will not be displayed. Even if this value is &quot;true&quot;, the &apos;Remove&apos; control will not be displayed if the &quot;moveControlsVisible&quot; attribute is &quot;false&quot;. Default value is &quot;true&quot;. 
+	            </description>
+	            <defaultvalue>true</defaultvalue>
+	        </property>
+			<property>
+	            <name>removeAllVisible</name>
+	            <classname>boolean</classname>
+	            <description>
+	            	If &quot;false&quot;, the &apos;Remove All&apos; control will not be displayed. Even if this value is &quot;true&quot;, the &apos;Remove All&apos; control will not be displayed if the &quot;fastMoveControlsVisible&quot; attribute is &quot;false&quot;. Default value is &quot;true&quot;. 
+	            </description>
+	            <defaultvalue>true</defaultvalue>
+	        </property>
+			<property>
+	            <name>moveControlsVisible</name>
+	            <classname>boolean</classname>
+	            <description>
+	            	If &quot;false&quot;, &apos;Copy&apos; and &apos;Remove&apos; controls aren&apos;t displayed. Even if this value is &quot;true&quot;, the &apos;Copy&apos; and &apos;Remove&apos; controls will not be displayed if the &quot;copyVisible&quot; and &quot;removeVisible&quot; attribute values are &quot;false&quot;. Default value is &quot;true&quot;. 
+	            </description>
+	            <defaultvalue>true</defaultvalue>
+	        </property>
+	        <property>
+	            <name>fastMoveControlsVisible</name>
+	            <classname>boolean</classname>
+	            <description>
+	            	If &quot;false&quot;, &apos;Copy All&apos; and &apos;Remove All&apos; controls aren&apos;t displayed. Even if this value is &quot;true&quot;, the &apos;Copy All&apos; and &apos;Remove All&apos; controls will not be displayed if the &quot;copyAllVisible&quot; and &quot;removeAllVisible&quot; attribute values are &quot;false&quot;. Default value is &quot;true&quot;. 
+	            </description>
+	            <defaultvalue>true</defaultvalue>
+	        </property>
+       		<property>
+       			<name>disabledStyle</name>
+       			<classname>java.lang.String</classname>
+       			<description>CSS style rules to be applied to disabled controls</description>
+       		</property>
+       		
+       		<property>
+       			<name>disabledStyleClass</name>
+       			<classname>java.lang.String</classname>
+       			<description>The disabledStyleClass for disabled controls</description>
+       		</property>
+       		
+       		<property>
+       			<name>enabledStyle</name>
+       			<classname>java.lang.String</classname>
+       			<description>CSS style rules to be applied to enabled controls</description>
+       			
+       		</property>
+       		
+       		<property>
+       			<name>enabledStyleClass</name>
+       			<classname>java.lang.String</classname>
+       			<description>The enabledStyleClass for enabled controls</description>
+       		</property>
+       		      		
+       		<property>
+       			<name>moveControlsVerticalAlign</name>
+       			<classname>java.lang.String</classname>
+       			<description>Customizes vertically a position of move/copy controls relatively to lists. Default value is "center".</description>
+       		</property>
+       	
+       		<property>
+       			<name>size</name>
+       			<classname>int</classname>
+       			<description>This attribute tells the user agent the initial width of the control. The width is given in pixels except when type attribute has the value "text" or "password". In that case, its value refers to the (integer) number of characters</description>
+       		</property>
+       	
+       		<property>
+		    	<name>listClass</name>
+		    	<classname>java.lang.String</classname>
+		        <description>CSS class for a list</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    
+		    <property>
+		    	<name>controlClass</name>
+		    	<classname>java.lang.String</classname>
+		        <description>CSS class for a list</description>
+		    	<defaultvalue><![CDATA[""]]></defaultvalue>
+		    </property>
+		    
+		    <property>
+	        	<name>onlistchanged</name>
+	        	<classname>java.lang.String</classname>
+		    	<description>The client side script method to be called before the list is changed</description>
+		    </property>
+		    <property>
+	        	<name>onlistchange</name>
+	        	<classname>java.lang.String</classname>
+		    	<description>The client side script method to be called when the list is changed</description>
+		    </property>
+       		<property>
+       			<name>disabled</name>
+       			<classname>boolean</classname>
+       			<description>If  "true", disable this component on page.</description>
+       		</property>
+		      
+   	    	&ui_input_attributes;
+	        &html_universal_attributes;
+	       	&html_events;
+	       	&html_control_events;
+	       	
+	       	<property hidden="true">
+		    	<name>valid </name>
+		    	<classname>boolean</classname>
+		    </property>
+		    
+		    <property hidden="true">
+		    	<name>lang</name>
+		    	<classname>java.lang.String</classname>
+		    </property>
+		    
+		    <property hidden="true">
+		    	<name>localValueSet </name>
+		    	<classname>boolean</classname>
+		    </property>
+		    
+		    <property hidden="true">
+		    	<name>dir</name>
+		    	<classname>java.lang.String</classname>
+		    	<description></description>
+		    </property>
+		    
+		    <property hidden="true">
+		    	<name>size</name>
+		    	<classname>int</classname>
+		    </property>
+		    
+		    <property hidden="true">
+		    	<name>onchange</name>
+		    	<classname>java.lang.String</classname>
+		    </property>
+		    <property>
+		    	<name>onfocus</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>The client side script method to be called when the component gets the focus</description>
+		    </property>
+		    <property>
+		    	<name>onblur</name>
+		    	<classname>java.lang.String</classname>
+		    	<description>The client side script method to be called when the component loses the focus</description>
+		    </property>
+	          	       		
+			<property>
+				<name>label</name>
+				<classname>java.lang.String</classname>
+				<description>A localized user presentable name for this component.</description>
+			</property>
+       	</properties>
+       
+    </component>
+</components>

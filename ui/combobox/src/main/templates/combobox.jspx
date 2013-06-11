@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:jsp=" http://ajax4jsf.org/cdk/jsp"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	baseclass="org.richfaces.renderkit.ComboBoxBaseRenderer"
+	class="org.richfaces.renderkit.html.ComboBoxRenderer"
+	component="org.richfaces.component.UIComboBox"> 
+	
+	<jsp:directive.page import="org.richfaces.component.util.HtmlUtil" />
+	<jsp:directive.page import="java.util.List"/>
+	<jsp:directive.page import="org.ajax4jsf.renderkit.compiler.TemplateContext"/>
+	
+	<h:styles>css/combobox.xcss</h:styles>
+	<h:scripts>
+			new org.ajax4jsf.javascript.PrototypeScript(),
+			/org/richfaces/renderkit/html/scripts/jquery/jquery.js,
+			scripts/comboboxUtils.js,
+			scripts/combolist.js,
+			scripts/combobox.js,
+			scripts/comboboxstyles.js,
+			/org/richfaces/renderkit/html/scripts/utils.js
+	</h:scripts>
+ 
+	<f:clientid var="clientId" />
+	
+	<jsp:scriptlet>
+		<![CDATA[
+            Boolean directInputSuggestions = (Boolean) component.getAttributes().get("directInputSuggestions");
+            variables.setVariable("directInputSuggestions", directInputSuggestions);
+            
+            Boolean filterNewValues = (Boolean) component.getAttributes().get("filterNewValues");
+            variables.setVariable("filterNewValues", filterNewValues);
+            
+            Boolean disabled = (Boolean) component.getAttributes().get("disabled");
+            variables.setVariable("disabled", disabled);
+            
+            String listHeight = (String) component.getAttributes().get("listHeight");
+			if (listHeight == null || listHeight.length() == 0 || listHeight.trim().startsWith("0")) {
+				listHeight = "200px";
+			} else {
+				listHeight = HtmlUtil.qualifySize(listHeight);
+			}
+			variables.setVariable("listHeight", listHeight);
+		
+			    	
+	    	String width = (String) component.getAttributes().get("width");
+	    	String correction = null;
+	    	if (width == null || (width.length() == 0) || (width.trim().startsWith("0")) ) {
+	    	    width = "150px";
+	    	     
+	    	} else {
+	    		width = HtmlUtil.qualifySize(width);
+	    	}
+	    	
+	    	correction =  width.substring(0,width.indexOf("px"));  
+    	    correction = (Integer.parseInt(correction) - 10) + "px";
+	    	
+	    	variables.setVariable("width", width);
+	    	variables.setVariable("correction", correction);
+	    	
+	    	String listWidth = (String) component.getAttributes().get("listWidth");
+	    	
+	    	if (listWidth == null || listWidth.length() == 0 || listWidth.trim().startsWith("0")) {
+	//    		String listCorrection =  width.substring(0,width.indexOf("px"));  
+	//    	    listCorrection = (Integer.parseInt(listCorrection) - 2) + "px";
+	    		listWidth = width;	    	   		
+	    	} else {
+	    		listWidth = HtmlUtil.qualifySize(listWidth);
+	    	}
+	    	variables.setVariable("listWidth", listWidth);
+	    	 
+	    	
+	    	String inputSize = (String) component.getAttributes().get("inputSize");
+	    	variables.setVariable("inputSize", inputSize);
+	    	
+	    	String defaultLabel = (String) component.getAttributes().get("defaultLabel");
+	    	variables.setVariable("defaultLabel", defaultLabel);
+	    	
+	    	Boolean selectFirstOnUpdate = (Boolean) component.getAttributes().get("selectFirstOnUpdate");
+	        variables.setVariable("selectFirstOnUpdate", selectFirstOnUpdate);
+	        
+			Object value = component.getSubmittedValue();
+			if (value == null) {
+			    value = component.getAttributes().get("value");    
+			}
+
+       		String valueStyle = "rich-combobox-font-inactive";	
+	    	value = getConvertedStringValue(context, component,value);
+	    	if ("".equals(value)) {
+				valueStyle = "rich-combobox-font-disabled";
+				//value = defaultLabel;
+	    	} 
+	    	variables.setVariable("value", value);
+	    	String convertedValue = encodeValue((String)value);
+	    	variables.setVariable("convertedValue", convertedValue);
+	    	
+			variables.setVariable("valueStyle", valueStyle);
+
+			Object inputStyle = component.getAttributes().get("inputStyle");
+	    	variables.setVariable("inputStyle", inputStyle);
+	    	
+	    	Object inputClass = component.getAttributes().get("inputClass");
+	    	if("".equals(inputClass)) {
+	    		inputClass = null;
+	    	}
+	    	variables.setVariable("inputClass", inputClass);
+	    	
+	    	Object inputDisabledStyle = component.getAttributes().get("inputDisabledStyle");
+	    	variables.setVariable("inputDisabledStyle", inputDisabledStyle);
+	    	
+	    	Object inputDisabledClass = component.getAttributes().get("inputDisabledClass");
+	    	if("".equals(inputDisabledClass)) {
+	    		inputDisabledClass = null;
+	    	}
+	    	variables.setVariable("inputDisabledClass", inputDisabledClass);
+	    	
+	    	Object inputInactiveStyle = component.getAttributes().get("inputInactiveStyle");
+	    	variables.setVariable("inputInactiveStyle", inputInactiveStyle);
+	    	
+	    	Object inputInactiveClass = component.getAttributes().get("inputInactiveClass");
+	    	if("".equals(inputInactiveClass)) {
+	    		inputInactiveClass = null;
+	    	}
+	    	variables.setVariable("inputInactiveClass", inputInactiveClass);
+	    	
+	    	
+	    	Object buttonInactiveClass = component.getAttributes().get("buttonInactiveClass");
+	    	if("".equals(buttonInactiveClass)) {
+	    		buttonInactiveClass = null;
+	    	}
+	    	variables.setVariable("buttonInactiveClass", buttonInactiveClass);
+	    	
+	    	Object buttonInactiveStyle = component.getAttributes().get("buttonInactiveStyle");
+	    	variables.setVariable("buttonInactiveStyle", buttonInactiveStyle);
+	    	
+	    	Object buttonDisabledClass = component.getAttributes().get("buttonDisabledClass");
+	    	if("".equals(buttonDisabledClass)) {
+	    		buttonDisabledClass = null;
+	    	}
+	    	variables.setVariable("buttonDisabledClass", buttonDisabledClass);
+	    	
+	    	Object buttonDisabledStyle = component.getAttributes().get("buttonDisabledStyle");
+	    	variables.setVariable("buttonDisabledStyle", buttonDisabledStyle);
+	    	
+	    	Object buttonClass = component.getAttributes().get("buttonClass");
+	    	if("".equals(buttonClass)) {
+	    		buttonClass = null;
+	    	}
+	    	variables.setVariable("buttonClass", buttonClass);
+	    	
+	    	Object buttonStyle = component.getAttributes().get("buttonStyle");
+	    	variables.setVariable("buttonStyle", buttonStyle);
+	    	
+	    	Object listStyle = component.getAttributes().get("listStyle");
+	    	variables.setVariable("listStyle", listStyle);
+	    	
+	    	Object listClass = component.getAttributes().get("listClass");
+	    	if("".equals(listClass)) {
+	    		listClass = null;
+	    	}
+	    	variables.setVariable("listClass", listClass);
+	    	
+	      	Object styleClass = component.getAttributes().get("styleClass");
+	    	variables.setVariable("styleClass", styleClass);
+	    	
+	    	Object style = component.getAttributes().get("style");
+	    	variables.setVariable("style", style);
+	    	
+	    	Object itemClass = component.getAttributes().get("itemClass");
+	    	if("".equals(itemClass)) {
+	    		itemClass = null;
+	    	}
+	    	variables.setVariable("itemClass", itemClass);
+	    	
+	      	Object itemSelectedClass = component.getAttributes().get("itemSelectedClass");
+	    	if("".equals(itemSelectedClass)) {
+	    		itemSelectedClass = null;
+	    	}
+	    	variables.setVariable("itemSelectedClass", itemSelectedClass);
+	      	
+	    	String buttonIcon = (String)component.getAttributes().get("buttonIcon");
+    		if (!"".equals(buttonIcon)) {
+    			buttonIcon = "url('" + getResource(buttonIcon).getUri(context, component) + "')";
+    		}
+    		variables.setVariable("buttonIcon", buttonIcon);
+    		
+    		String buttonIconDisabled = (String)component.getAttributes().get("buttonIconDisabled");
+    		if (!"".equals(buttonIconDisabled)) {
+    			buttonIconDisabled = "url('" +  getResource(buttonIconDisabled).getUri(context, component) + "')";
+    		}
+    		variables.setVariable("buttonIconDisabled", buttonIconDisabled);
+    		
+    		String buttonIconInactive = (String)component.getAttributes().get("buttonIconInactive");
+    		if (!"".equals(buttonIconInactive)) {
+    			buttonIconInactive = "url('" + getResource(buttonIconInactive).getUri(context, component) + "')";
+    		}
+       		variables.setVariable("buttonIconInactive", buttonIconInactive);
+       		variables.setVariable("enableManualInput", !component.isEnableManualInput());
+		]]>
+    </jsp:scriptlet>
+		<f:resource var="spacer" name="images/spacer.gif"/>
+<div id="#{clientId}">		
+<div id="#{clientId}combobox" class="rich-combobox-font rich-combobox #{styleClass}" style="width:#{width};#{style}"
+	 x:passThruWithExclusions="value,name,type,id,styleClass,class,style,size,autocomplete,disabled,onchange">
+
+	<div class="rich-combobox-list-cord"></div>
+	<div class="rich-combobox-font rich-combobox-shell" style="width:#{width};">
+		<input id="#{clientId}comboboxField" 
+					   name="#{clientId}comboboxField" 
+					   disabled="#{disabled}" 
+					   class="#{valueStyle} rich-combobox-input-inactive  #{inputInactiveClass}" type="text" 
+					   readonly="#{enableManualInput}"
+					   value="#{value}" 
+					   x:onblur="#{component.attributes['onblur']}"
+					   onfocus = "#{component.attributes['onfocus']}"
+					   onchange = "#{component.attributes['onchange']}"
+					   style="width:#{correction}; #{inputInactiveStyle}"
+					   autocomplete="off"
+					   tabindex="#{component.attributes['tabindex']}"
+					   />
+		<input id="#{clientId}comboBoxButtonBG" 
+			   tabindex="-1"
+			   readonly="true" 
+			   type="text" 
+			   value="" 
+			   class="rich-combobox-font-inactive rich-combobox-button-background rich-combobox-button-inactive"/>
+		<input id="#{clientId}comboboxButton"
+			   tabindex="-1"
+			   readonly="true" 
+			   disabled="#{disabled}" 
+			   type="text" 
+			   value="" 
+			   style="#{buttonStyle}; background-image: #{buttonIconInactive};" 
+			   class="rich-combobox-font-inactive rich-combobox-button-icon-inactive rich-combobox-button-inactive #{buttonInactiveClass}"/>
+		<div class="rich-combobox-strut rich-combobox-font" style="width:#{correction}">Strut</div>		   
+	</div>
+	
+	<div id="#{clientId}listParent" class="rich-combobox-list-cord #{listClass}" style="display:none; #{listStyle}; position:absolute;z-index:1000;">
+		<div class="rich-combobox-shadow">
+			<table id="#{clientId}shadow" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td class="rich-combobox-shadow-tl">
+						<img src="#{spacer}" width="10" height="1" alt="" style="border:0"></img><br></br>
+					</td>
+					<td class="rich-combobox-shadow-tr">
+						<img src="#{spacer}" width="1" height="10" alt="" style="border:0"></img><br></br>
+					</td>
+				</tr>
+				<tr>
+					<td class="rich-combobox-shadow-bl">
+						<img src="#{spacer}" width="1" height="10" alt="" style="border:0"></img><br></br>
+					</td>
+					<td class="rich-combobox-shadow-br">
+						<img src="#{spacer}" width="10" height="10" alt="" style="border:0"></img><br></br>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="#{clientId}listPosition" class="rich-combobox-list-position">
+			<div id="#{clientId}listDecoration" class="rich-combobox-list-decoration">
+				<div id="#{clientId}list" class="rich-combobox-list-scroll">
+					<c:object type="java.util.List" var="items" value="#{this:encodeItems(context,component)}">
+					</c:object>
+				</div>
+			</div>
+		</div>
+	</div>
+	<jsp:scriptlet>
+	<![CDATA[
+	    variables.setVariable("hiddenValue", value);
+	 ]]>
+	</jsp:scriptlet>
+	<input id="#{clientId}comboboxValue" name="#{clientId}" type="hidden"/>
+	
+	
+</div>
+
+	<script type="text/javascript">
+		
+		var clientId = '#{clientId}';
+ 
+				
+		var comboboxUserStyles = {
+			button : { 
+				classes : 
+					{
+						normal:  "#{buttonInactiveClass}",
+						active: "#{buttonClass}",
+						disabled: "#{buttonDisabledClass}" 
+					},
+				style :
+					{
+						normal: "#{buttonInactiveStyle}",
+						active: "#{buttonStyle}",
+						disabled:	"#{buttonDisabledStyle}"
+					}	 
+			},
+			buttonicon : {
+			 	style :
+			 		{
+			 			normal: "#{buttonIconInactive}",
+						active: "#{buttonIcon}",
+						disabled: "#{buttonIconDisabled}"
+			 		}		   			   
+			},
+			field : {
+				classes :
+					{
+						normal:  "#{inputInactiveClass}",
+						active: "#{inputClass}",
+						disabled: "#{inputDisabledClass}" 
+					},
+				style : 
+					{
+						normal : "#{inputInactiveStyle}",
+					  	active : "#{inputStyle}",
+					  	disabled : "#{inputDisabledStyle}"
+					}	
+			},
+			combolist : {
+						list: {
+							classes: 
+							 	{
+							 		active: "#{listClass}"
+							 	},
+							style: 
+								{
+									active: "'#{listStyle}"
+								} 						
+						},
+						item: {
+							normal : "#{itemClass}",
+							selected: "#{itemSelectedClass}"
+						}
+			}
+		};
+		 
+		
+		var combobox = new Richfaces.ComboBox( "#{clientId}", 
+							   				   "#{clientId}list", 
+							   				   "#{clientId}listParent",
+							   				   "#{clientId}comboboxValue",
+											   "#{clientId}comboboxField", 
+											   "#{clientId}comboboxButton", 
+											   "#{clientId}comboBoxButtonBG",
+											   "#{clientId}shadow",
+											   new Richfaces.ComboBoxStyles(), 
+											   comboboxUserStyles, 
+											   "#{listWidth}", "#{listHeight}",
+											   #{this:getItemsTextAsJSArray(context, component,items)}, 
+											   #{directInputSuggestions}, 
+											   #{filterNewValues}, 
+											   #{selectFirstOnUpdate},
+											   #{this:getAsEventHandler(context, component, "onlistcall")}, 
+											   #{this:getAsEventHandler(context, component, "onlistclose")}, 
+											   #{this:getAsEventHandler(context, component, "onselect")},
+											   "#{defaultLabel}",
+											   #{disabled}, #{convertedValue}, 
+											   #{component.attributes["showDelay"]},  #{component.attributes["hideDelay"]});
+	</script>
+</div>
+</f:root>	

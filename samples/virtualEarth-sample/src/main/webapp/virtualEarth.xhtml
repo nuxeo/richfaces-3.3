@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ve="http://labs.jboss.com/jbossrichfaces/ui/virtualEarth"
+      xmlns:a4j="http://richfaces.org/a4j">
+
+  <f:view contentType="text/html" >
+
+  <body>
+  
+ 
+ <h:panelGrid  columns="2">
+	<ve:virtualEarth  style="width:800px;" id="gm" lat="37.97" dashboardSize="Normal"  zoom="#{bean.zoom}" mapStyle="Hybrid" var="map" />
+	
+	
+	<!-- client side solution -->
+	<h:panelGroup>
+		Dashboard:<br />
+		<a href="javascript:void(0);" onclick="map.HideDashboard();return false;">Remove</a>
+		<a href="javascript:void(0);" onclick="map.ShowDashboard();return false;">Show</a>
+		<br /><br />
+		Type:<br/>
+		<a href="javascript:void(0);" onclick="map.SetMapStyle(VEMapStyle.Road);return false;">Road</a>
+		<a href="javascript:void(0);" onclick="map.SetMapStyle(VEMapStyle.Aerial);return false;">Aerial</a>
+		<a href="javascript:void(0);" onclick="map.SetMapStyle(VEMapStyle.Hybrid);return false;">Hybrid</a>
+		<a href="javascript:void(0);" onclick="map.SetMapStyle(VEMapStyle.Birdseye);return false;">Birdseye</a>
+		<br /><br />
+		Zoom:<br/>
+		<a href="javascript:void(0);" onclick="map.ZoomIn();return false;">In</a>
+		<a href="javascript:void(0);" onclick="map.ZoomOut();return false;">Out</a>
+		<br /><br />
+		<a href="javascript:void(0);" onclick="showExadel();return false;">Show Exadel Office</a>
+		
+	</h:panelGroup>	
+
+
+	<!-- client side solution -->
+	<h:form>
+			
+        </h:form>
+	
+</h:panelGrid>
+
+	<a4j:outputPanel id="zoomer">
+		<script>
+		  function zoomIt() {
+		   map.setZoom(#{bean.zoom});
+		  }
+		</script>
+	</a4j:outputPanel>
+
+	<a4j:outputPanel>
+	   <script>
+	   
+      function createMarker(point,html) {
+        var marker = new GMarker(point);
+        GEvent.addListener(marker, "click", function() {
+          marker.openInfoWindowHtml(html);
+        });
+        return marker;
+      }
+
+	   
+	   
+	   function showExadel() {
+
+	    var point = new VELatLong(37.9721046, -122.0424842834);
+		map.SetCenterAndZoom(point, 16);
+		map.SetMapStyle(VEMapStyle.Birdseye);
+	   
+	   }
+	   
+
+	   </script>
+	</a4j:outputPanel>
+
+	</body>
+</f:view>
+</html>

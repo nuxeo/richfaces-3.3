@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.0//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_0.dtd">
+<faces-config>
+ <managed-bean>
+  <managed-bean-name>layout</managed-bean-name>
+  <managed-bean-class>componentsLayout.LayoutBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>layoutPanel</managed-bean-name>
+  <managed-bean-class>componentsLayout.LayoutPanelBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>page</managed-bean-name>
+  <managed-bean-class>componentsLayout.PageBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+</faces-config>

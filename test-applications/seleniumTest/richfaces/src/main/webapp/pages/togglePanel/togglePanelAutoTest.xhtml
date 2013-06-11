@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<ui:composition template="#{templateBean.autoTestTemplate}">
+		
+		<ui:define name="component">
+	           	<rich:togglePanel id="componentId"
+            					  initialState="one"
+            					  stateOrder="one,two"
+            					  switchType="ajax" 
+							   	  immediate="#{autoTestBean.immediate}"
+							   	  rendered="#{autoTestBean.rendered}"
+								  required="#{autoTestBean.required}"
+								  requiredMessage="#{autoTestBean.requiredMessage}"
+								  style="width: 200px; background-color: blue; color: yellow;"
+							      styleClass="className"
+							      onclick="EventQueue.fire('onclick')"
+							      ondbclick="EventQueue.fire('ondbclick')"
+							      onkeydown="EventQueue.fire('onkeydown')"
+							      onkeypress="EventQueue.fire('onkeypress')"
+							      onkeyup="EventQueue.fire('onkeyup')"
+							      onmousedown="EventQueue.fire('onmousedown')"
+							      onmousemove="EventQueue.fire('onmousemove')"
+							      onmouseout="EventQueue.fire('onmouseout')"
+							      onmouseover="EventQueue.fire('onmouseover')"
+							      onmouseup="EventQueue.fire('onmouseup')">
+	                
+	                <f:facet name="one">
+	                    <h:outputText id="client_state_one" value="State One" />
+	                </f:facet>
+	                
+	                <f:facet name="two">
+	                    <h:outputText id="client_state_two" value="State Two" />
+	                </f:facet>
+	                
+            	</rich:togglePanel>
+            	
+            	<rich:toggleControl id="client_next" for="componentId"  >
+                	<h:outputText value="Client next" />
+            	</rich:toggleControl>
+        
+            	<br />
+        
+            	<rich:toggleControl id="client_one" for="componentId"  switchToState="one" >
+                	<h:outputText value="Client one" />
+            	</rich:toggleControl>
+        
+           		<br />
+        
+            	<rich:toggleControl id="client_two" for="componentId"  switchToState="two" >
+                	<h:outputText value="Client two" />
+            	</rich:toggleControl>
+            	
+        </ui:define>
+		
+	</ui:composition>
+
+</html>

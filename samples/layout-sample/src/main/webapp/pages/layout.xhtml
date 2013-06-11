@@ -1,0 +1,82 @@
+<rich:page xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+	  xmlns:rich="http://richfaces.org/rich"
+      markupposition="xhtml"
+      contentposition="text/html"
+      theme="#{bean.theme}"
+      width="#{bean.width}"
+      sidebarWidth="#{bean.sidebarWidth}"
+      sidebarPosition="#{bean.position}"
+      headerClass="p_header"
+      footerClass="p_footer"
+      bodyClass="p_body"
+      sidebarClass="p_sidebar"
+      pageTitle="Simple Page Layout"
+      >
+      <f:facet name="pageHeader">
+        <style>
+			.layout {text-align: center;border-width: 1px;border-color: red;border-style: solid;}
+			.layoutPanel {text-align: center;border-width: 1px;border-color: blue;margin: 0px;border-style: dotted;}
+        </style>
+      </f:facet>
+      <f:facet name="header">
+        <h:outputText value="Header"/>
+      </f:facet>
+      <f:facet name="footer">
+        <h:outputText value="Copyright (c) 2009 RichFaces. All rights reserved."/>
+      </f:facet>
+      <f:facet name="sidebar">
+          <h:form>
+	    <h2>Page Attributes</h2>
+            <h:panelGrid columns="2">
+            <h:outputLabel for="theme" value="Page Theme"/>
+            <h:inputText id="theme" value="#{bean.theme}"/>
+            <h:outputLabel for="width" value="Page Width"/>
+            <h:inputText id="width" value="#{bean.width}"/>
+            <h:outputLabel for="sidebarwidth" value="Sidebar Width"/>
+            <h:inputText id="sidebarwidth" value="#{bean.sidebarWidth}"/>
+            <h:outputLabel for="position" value="Side bar position"/>
+            <h:selectOneMenu value="#{bean.position}">
+              <f:selectItem itemValue="left"/>
+              <f:selectItem itemValue="right"/>
+            </h:selectOneMenu>
+            <h:outputLabel for="skin" value="Current skin"/>
+            <h:selectOneMenu binding="#{skinBean.component}">
+            </h:selectOneMenu>
+            <h:commandButton value="Change" action="#{skinBean.change}"></h:commandButton>
+            </h:panelGrid>
+          </h:form>
+      </f:facet>
+
+      <!-- body of the page -->
+
+	<div class="layout" style="zoom: 1">
+	<div class="layoutPanel top" style="">Top</div>
+	<div class="layoutPanel left" style="float: left; width: 38%">Left
+	panel xxxx yyy zzz</div>
+	<div class="layoutPanel center" style="float: left; width: 35%">
+	<div class="layout" style="zoom: 1">
+	<div class="layoutPanel top" style="">Top</div>
+	<div class="layoutPanel left" style="float: left; width: 38%">Left
+	panel xxxx yyy zzz</div>
+	<div class="layoutPanel center" style="float: left; width: 35%">Center
+	panel dhisdf ncdl dcd</div>
+	<div class="layoutPanel right" style="float: right; width: 25%">Right
+	wersdupsdo; osajo;sca</div>
+	<div
+		style="display: block; height: 0; clear: both; visibility: hidden;">.</div>
+	<div class="layoutPanel bottom" style="">Bottom</div>
+	</div>
+	</div>
+	<div class="layoutPanel right" style="float: right; width: 25%">Right
+	wersdupsdo; osajo;sca</div>
+	<div
+		style="display: block; height: 0; clear: both; visibility: hidden;">.</div>
+	<div class="layoutPanel bottom" style="">Bottom</div>
+	</div>
+
+</rich:page>

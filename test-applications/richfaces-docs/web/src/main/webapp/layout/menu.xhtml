@@ -1,0 +1,68 @@
+<rich:toolBar 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:rich="http://richfaces.org/rich"
+    styleClass="menuToolBar"
+    
+     >
+    
+    <rich:toolBarGroup>
+        <h:outputText value="#{projectName}:"/>
+        <s:link view="/home.xhtml" value="Home"/>
+       <span>|</span>
+       
+       <s:link view="/conventions.xhtml" value="Conventions" />
+       
+       
+    </rich:toolBarGroup>
+    <!-- @newMenuItem@ -->
+    <rich:toolBarGroup location="right">
+            
+
+       
+            <h:outputText value="Global  Queue:"  style="margin: 0px; padding: 0px;"/>
+    <h:form>
+ 
+       
+       <h:selectOneMenu value="#{globalQueue.globalQueue}" onchange="submit()">
+            <f:selectItem  itemLabel="Enable" itemValue="true" />
+  <f:selectItem  itemLabel="Disable" itemValue="false" />
+       
+       </h:selectOneMenu>
+    </h:form>
+    
+   <span>|</span>
+   
+   
+     <h:outputText value="Standard controls skinning:"  />    
+    <h:form>
+      <h:selectOneMenu value="#{skin.standardSkinning}">
+      <f:selectItem itemLabel="Enable" itemValue="enable"/>
+       <f:selectItem  itemLabel="Disable" itemValue="disable" />
+      </h:selectOneMenu> 
+       
+    </h:form>
+    <span>|</span>
+
+  <h:outputText value="Select skin:"  />
+<h:form>
+
+	   <h:selectOneMenu id="select" value="#{skin.skin}" onchange="submit()">
+		<f:selectItem itemLabel="plain" itemValue="plain" />
+		<f:selectItem itemLabel="emeraldTown" itemValue="emeraldTown" />
+		<f:selectItem itemLabel="blueSky" itemValue="blueSky" />
+		<f:selectItem itemLabel="wine" itemValue="wine" />
+		<f:selectItem itemLabel="japanCherry" itemValue="japanCherry" />
+		<f:selectItem  itemLabel="ruby" itemValue="ruby" />
+		<f:selectItem  itemLabel="classic" itemValue="classic" />
+		<f:selectItem itemLabel="deepMarine" itemValue="deepMarine" />
+	 </h:selectOneMenu>
+
+   </h:form>   
+       </rich:toolBarGroup>
+</rich:toolBar>
+
+

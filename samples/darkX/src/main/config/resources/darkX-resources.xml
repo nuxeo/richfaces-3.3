@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><resource-config>
+  
+  <resource>
+    <name>org/richfaces/skins/darkx/css/calendar.xcss</name>
+    <path>org/richfaces/skins/darkx/css/calendar.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/combobox.xcss</name>
+    <path>org/richfaces/skins/darkx/css/combobox.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/contextmenu.xcss</name>
+    <path>org/richfaces/skins/darkx/css/contextmenu.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/dataFilterSlider.xcss</name>
+    <path>org/richfaces/skins/darkx/css/dataFilterSlider.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/datascroller.xcss</name>
+    <path>org/richfaces/skins/darkx/css/datascroller.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/dataTable.xcss</name>
+    <path>org/richfaces/skins/darkx/css/dataTable.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/dragDrop.xcss</name>
+    <path>org/richfaces/skins/darkx/css/dragDrop.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/dropdownmenu.xcss</name>
+    <path>org/richfaces/skins/darkx/css/dropdownmenu.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/fileUpload.xcss</name>
+    <path>org/richfaces/skins/darkx/css/fileUpload.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/gmap.xcss</name>
+    <path>org/richfaces/skins/darkx/css/gmap.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/inplaceinput.xcss</name>
+    <path>org/richfaces/skins/darkx/css/inplaceinput.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/inplaceselect.xcss</name>
+    <path>org/richfaces/skins/darkx/css/inplaceselect.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/inputNumberSlider.xcss</name>
+    <path>org/richfaces/skins/darkx/css/inputNumberSlider.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/inputNumberSpinner.xcss</name>
+    <path>org/richfaces/skins/darkx/css/inputNumberSpinner.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/listShuttle.xcss</name>
+    <path>org/richfaces/skins/darkx/css/listShuttle.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/menuComponents.xcss</name>
+    <path>org/richfaces/skins/darkx/css/menuComponents.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/message.xcss</name>
+    <path>org/richfaces/skins/darkx/css/message.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/modalPanel.xcss</name>
+    <path>org/richfaces/skins/darkx/css/modalPanel.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/orderingList.xcss</name>
+    <path>org/richfaces/skins/darkx/css/orderingList.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/paint2D.xcss</name>
+    <path>org/richfaces/skins/darkx/css/paint2D.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/panel.xcss</name>
+    <path>org/richfaces/skins/darkx/css/panel.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/panelBar.xcss</name>
+    <path>org/richfaces/skins/darkx/css/panelBar.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/panelMenu.xcss</name>
+    <path>org/richfaces/skins/darkx/css/panelMenu.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/picklist.xcss</name>
+    <path>org/richfaces/skins/darkx/css/picklist.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/progressBar.xcss</name>
+    <path>org/richfaces/skins/darkx/css/progressBar.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/sdt.xcss</name>
+    <path>org/richfaces/skins/darkx/css/sdt.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/separator.xcss</name>
+    <path>org/richfaces/skins/darkx/css/separator.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/simpleTogglePanel.xcss</name>
+    <path>org/richfaces/skins/darkx/css/simpleTogglePanel.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/spacer.xcss</name>
+    <path>org/richfaces/skins/darkx/css/spacer.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/standard.xcss</name>
+    <path>org/richfaces/skins/darkx/css/standard.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/suggestionbox.xcss</name>
+    <path>org/richfaces/skins/darkx/css/suggestionbox.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/tabPanel.xcss</name>
+    <path>org/richfaces/skins/darkx/css/tabPanel.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/togglePanel.xcss</name>
+    <path>org/richfaces/skins/darkx/css/togglePanel.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/toolBar.xcss</name>
+    <path>org/richfaces/skins/darkx/css/toolBar.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/tooltip.xcss</name>
+    <path>org/richfaces/skins/darkx/css/tooltip.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/tree.xcss</name>
+    <path>org/richfaces/skins/darkx/css/tree.xcss</path>
+  </resource>
+
+  <resource>
+    <name>org/richfaces/skins/darkx/css/virtualEarth.xcss</name>
+    <path>org/richfaces/skins/darkx/css/virtualEarth.xcss</path>
+  </resource>
+  
+  
+
+  <resource>
+    <name>META-INF/skins/darkx.xcss</name>
+    <path>META-INF/skins/darkx.xcss</path>
+  </resource>
+</resource-config>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+ <description>Richfaces Editor Sample</description>
+ <display-name>editor-sample</display-name>
+ <context-param>
+  <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+  <param-value>server</param-value>
+ </context-param>
+  <context-param>
+  <param-name>org.ajax4jsf.COMPRESS_SCRIPT</param-name>
+  <param-value>false</param-value>
+ </context-param>
+ <context-param> 
+ 	<param-name>org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL</param-name> 
+ 	<param-value>true</param-value> 
+ </context-param>
+ <listener>
+      <listener-class>org.jboss.seam.servlet.SeamListener</listener-class>
+   </listener>
+    
+    <filter>
+        <filter-name>Seam Filter</filter-name>
+        <filter-class>org.jboss.seam.servlet.SeamFilter</filter-class>
+    </filter>
+ <filter-mapping>
+        <filter-name>Seam Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+   
+   <!-- Facelets development mode (disable in production) -->
+   
+   <context-param>
+      <param-name>facelets.DEVELOPMENT</param-name>
+      <param-value>true</param-value>
+   </context-param>
+    
+   <!-- JSF -->
+   
+   <context-param>
+      <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+      <param-value>.xhtml</param-value>
+   </context-param>
+
+   <servlet>
+      <servlet-name>Faces Servlet</servlet-name>
+      <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+    
+   <servlet-mapping>
+      <servlet-name>Faces Servlet</servlet-name>
+      <url-pattern>*.seam</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>Faces Servlet</servlet-name>
+      <url-pattern>*.jsf</url-pattern>
+   </servlet-mapping>
+ <login-config>
+  <auth-method>BASIC</auth-method>
+ </login-config>
+</web-app>

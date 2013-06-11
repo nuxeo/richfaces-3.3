@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<pageflow-definition xmlns="http://jboss.com/products/seam/pageflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jboss.com/products/seam/pageflow http://jboss.com/products/seam/pageflow-1.2.xsd"
+	name="pageflow">
+
+	<start-page view-id="/pages/Pageflow.jsp" name="pageflow"
+		redirect="yes">
+		<description>test</description>
+		<transition name="fillList" to="fillListDecision" />
+
+	</start-page>
+
+	<decision name="fillListDecision" expression="#{flow.fillList}">
+		<transition name="OK" to="pageflow" />
+		<transition name="NOT" to="pageflow" />
+	</decision>
+
+
+</pageflow-definition>
+
+

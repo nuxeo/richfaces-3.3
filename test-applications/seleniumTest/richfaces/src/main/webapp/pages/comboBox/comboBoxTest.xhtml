@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="attrForm">
+			<h:outputText value="directInputSuggestions" />
+			<h:selectBooleanCheckbox id="directInputSuggestions" value="#{comboBean.directInputSuggestions}">
+				<a4j:support event="onchange" reRender="comboBox, outputPanel"/>
+			</h:selectBooleanCheckbox>		
+			<h:outputText value="filterNewValues" />
+			<h:selectBooleanCheckbox id="filterNewValues" value="#{comboBean.filterNewValues}">
+				<a4j:support event="onchange" reRender="comboBox, outputPanel"/>
+			</h:selectBooleanCheckbox>		
+			<h:outputText value="selectFirstOnUpdate" />
+			<h:selectBooleanCheckbox id="selectFirstOnUpdate" value="#{comboBean.selectFirstOnUpdate}">
+				<a4j:support event="onchange" reRender="comboBox, outputPanel"/>
+			</h:selectBooleanCheckbox>		
+			<h:outputText value="enableManualInput" />
+			<h:selectBooleanCheckbox id="enableManualInput" value="#{comboBean.enableManualInput}">
+				<a4j:support event="onchange" reRender="comboBox, outputPanel"/>
+			</h:selectBooleanCheckbox>		
+		</h:form>
+		<h:form id="_form">
+			<rich:comboBox id="comboBox" selectFirstOnUpdate="#{comboBean.selectFirstOnUpdate}"
+				filterNewValues="#{comboBean.filterNewValues}"
+				directInputSuggestions="#{comboBean.directInputSuggestions}"
+				validator="#{comboBean.validate2}" value="#{comboBean.value}"
+				valueChangeListener="#{comboBean.valueChangeListener}"
+				converter="#{comboBean}"
+				defaultLabel="Select ..."
+				enableManualInput="#{comboBean.enableManualInput}">
+				<f:selectItem itemValue="11" />
+				<f:selectItem itemValue="22" />
+				<f:selectItem itemValue="33" />
+				<f:selectItem itemValue="44" />
+				<f:validator validatorId="comboBoxValidator"/>
+			</rich:comboBox>
+			<rich:comboBox id="predefined" defaultLabel="Select a forest resident ...">
+				<f:selectItem itemValue="Forester" />
+				<f:selectItem itemValue="Shedim" />
+				<f:selectItem itemValue="Mushroomer" />
+				<f:selectItem itemValue="Hunter" />
+			</rich:comboBox>
+
+			<rich:comboBox id="selectItems" directInputSuggestions="true" defaultLabel="Select a tree ...">
+				<f:selectItems value="#{comboBean.treeItems}"/>
+			</rich:comboBox>
+
+			<rich:comboBox id="suggestionValues" defaultLabel="Select a tree ..." suggestionValues="#{comboBean.treeNames}"/>
+			<a4j:commandButton id="submit" value="Submit" reRender="outputPanel"></a4j:commandButton>
+		</h:form>
+		<a4j:outputPanel id="outputPanel">
+			<h:outputText id="value" value="#{comboBean.value}"></h:outputText>
+			<h:outputText id="trace" value="#{comboBean.trace}"></h:outputText>
+			<rich:message id="message" for="comboBox"></rich:message>
+		</a4j:outputPanel>
+	</ui:define>
+</ui:composition>
+</html>

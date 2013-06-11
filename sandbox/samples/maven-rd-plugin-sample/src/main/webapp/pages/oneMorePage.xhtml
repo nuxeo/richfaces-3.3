@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:c="http://java.sun.com/jstl/core" 
+      >
+     <head>
+    	<script src="#{facesContext.externalContext.requestContextPath}/faces/rfResscripts/custom-dependencies.js" type="text/javascript">  	</script>
+		<link rel="stylesheet"  href="#{facesContext.externalContext.requestContextPath}/faces/rfRescss/custom-dependencies.xcss" type="text/css" />
+    	
+    </head> 
+
+	<f:view>
+		<h:form>
+		<rich:toolBar id="toolBar" itemSeparator="line" height="28px">
+			<c:forEach items="#{toolBar.items}" var="item">
+                <h:panelGroup>
+                    <h:graphicImage value="#{item.iconURI}" styleClass="pic" />
+                    <h:outputLink value="#" style="color:#{a4jSkin.generalTextColor}; text-decoration:none;" >
+                        <h:outputText value="#{item.label}" />
+                    </h:outputLink>
+                </h:panelGroup>
+            </c:forEach>
+        </rich:toolBar>
+        <rich:spacer height="20" />
+			<rich:listShuttle sourceValue="#{toolBar.freeItems}"
+				targetValue="#{toolBar.items}" var="items" listHeight="300"
+				listWidth="300" sourceCaptionLabel="Available Items"
+				targetCaptionLabel="Currently Active Items"
+				converter="listShuttleconverter">
+            
+            <rich:column width="18">
+                <h:graphicImage value="#{items.iconURI}"></h:graphicImage>
+            </rich:column>
+            
+            <rich:column>
+                <h:outputText value="#{items.label}"></h:outputText>
+            </rich:column>
+            
+            <a4j:support event="onlistchanged" reRender="toolBar" />
+            <a4j:support event="onorderchanged" reRender="toolBar" />
+        
+        	</rich:listShuttle>
+        	<h:commandLink action="main"> To the Main page" </h:commandLink>
+		</h:form>
+	</f:view>	
+</html>      

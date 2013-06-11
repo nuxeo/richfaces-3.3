@@ -1,0 +1,7 @@
+	MethodExpression expression = getActionExpression();
+	if (expression instanceof org.richfaces.webapp.taglib.MethodExpressionMethodBindingAdaptor) {
+		return ((org.richfaces.webapp.taglib.MethodExpressionMethodBindingAdaptor) expression).getBinding();
+	} else if (expression != null) {
+		return new org.richfaces.webapp.taglib.MethodBindingMethodExpressionAdaptor(expression);
+	}
+	return null;

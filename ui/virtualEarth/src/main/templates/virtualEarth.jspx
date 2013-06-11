@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	class="org.richfaces.renderkit.html.VirtualEarthRenderer"
+	baseclass="org.ajax4jsf.renderkit.HeaderResourcesRendererBase"
+	component="org.richfaces.component.UIVirtualEarth">
+	<f:clientid var="clientId"/>
+	
+
+	<c:set var="zoom" value="#{component.attributes['zoom']}"/>
+	<c:set var="style" value="#{component.attributes['style']}"/>
+	<c:set var="map" value="#{component.attributes['var']}"/>
+	<c:set var="lat" value="#{component.attributes['lat']}"/>
+	<c:set var="lng" value="#{component.attributes['lng']}"/>
+	<c:set var="mapStyle" value="VEMapStyle.#{component.attributes['mapStyle']}"/>
+	<c:set var="onLoadMap" value="#{component.attributes['onLoadMap']}"/>
+	<c:set var="dashboardSize" value="VEDashboardSize.#{component.attributes['dashboardSize']}"/>
+    <h:styles>css/virtualEarth.xcss</h:styles>
+	<h:scripts>new org.ajax4jsf.javascript.PrototypeScript(),script/virtualEarth.js</h:scripts>
+
+<div	id="#{clientId}" style="position:relative; width:400px; height:400px;#{style}" class="dr-ve rich-virtualEarth #{component.attributes['styleClass']}"
+			x:passThruWithExclusions="id, styleClass,style,class"
+>
+<script type="text/javascript"  src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=#{component.attributes['version']}" />
+<script type="text/javascript"> 
+ //<![CDATA[
+
+function __initVE() { __initVirtualEarthdiv("#{map}","#{clientId}");
+var userfunc = function (event) { #{onLoadMap} };
+ __applyVirtualEarthparam("#{map}",userfunc, #{lat}, #{lng},#{zoom}, #{mapStyle},#{dashboardSize});
+}
+__addLoadEvent(__initVE);
+//]]>
+</script>
+</div>
+</f:root>

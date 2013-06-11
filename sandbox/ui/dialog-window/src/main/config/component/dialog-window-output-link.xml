@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components 
+        PUBLIC "-//AJAX4JSF//CDK Generator config/EN"
+        "http://labs.jboss.com/jbossrichfaces/component-config.dtd" [
+<!ENTITY universal_html_attributes   SYSTEM "html_universal_attributes.xml">	
+]>
+<components>
+  <component>
+    <name>org.richfaces.DialogWindowOutputLink</name>
+    <family>javax.faces.command</family>
+    <description>Dialog Window Output Link</description>
+    <superclass>org.richfaces.component.UIDialogWindowOutputLink</superclass>
+    <classname>org.richfaces.component.html.DialogWindowOutputLink</classname>
+    
+    <renderer generate="true">
+        <name>org.richfaces.DialogWindowOutputLink</name>
+        <template>dialog-window-output-link.xhtml</template>
+    </renderer>
+    <tag>
+        <name>dialogWindowOutputLink</name>
+        <classname>org.richfaces.taglib.DialogWindowOutputLinkTag</classname>
+        <superclass>org.ajax4jsf.webapp.taglib.UIComponentTagBase</superclass>
+    </tag>
+    <taghandler>
+        <classname>org.ajax4jsf.webapp.taglib.AjaxComponentHandler</classname>
+    </taghandler>
+
+    <property>
+    	<name>value</name>
+    	<classname>java.lang.Object</classname>
+    	<description>Initial value to set when rendered for the first time.</description>
+   	</property>
+
+  	<property exist="true">
+  		<name>closeWindowAction</name>
+  		<classname>javax.faces.el.MethodBinding</classname>
+  		<description>Close window action</description>
+        <methodargs> </methodargs>
+  	</property>
+
+  	<property exist="true">
+  		<name>closeWindowActionListener</name>
+  		<classname>javax.faces.el.MethodBinding</classname>
+  		<description>Close window action listener</description>
+        <methodargs>javax.faces.event.ActionEvent.class</methodargs>
+  	</property>
+
+    <property>
+    	<name>dir</name>
+    	<classname>java.lang.String</classname>
+    	<description>Direction indication for text that does not inherit directionality. Valid values are "LTR" (left-to-right) and "RTL" (right-to-left).</description>
+    </property>
+    <property>
+    	<name>lang</name>
+    	<classname>java.lang.String</classname>
+    	<description>Code describing the language used in the generated markup for this component.</description>
+    </property>
+    <property>
+    	<name>title</name>
+    	<classname>java.lang.String</classname>
+    	<description>Advisory title information about markup elements generated for this component.</description>
+    </property>
+    <property>
+    	<name>style</name>
+    	<classname>java.lang.String</classname>
+    	<description>CSS style(s) to be applied when this component is rendered.</description>
+    </property>
+    <property>
+    	<name>styleClass</name>
+    	<classname>java.lang.String</classname>
+    	<description>Space-separated list of CSS style class(es) to be applied when this element is rendered. This value must be passed through as the "class" attribute on generated markup.</description>
+    </property>
+
+    <property>
+	    <name>onblur</name>
+	    <classname>java.lang.String</classname>
+       	<description>Javascript code executed when this element loses focus.</description>
+	</property>
+    <property>
+	    <name>ondblclick</name>
+	    <classname>java.lang.String</classname>
+       	<description>Javascript code executed when a pointer button is double clicked over this element.</description>
+	</property>
+    <property>
+	    <name>onfocus</name>
+	    <classname>java.lang.String</classname>
+       	<description>Javascript code executed when this element receives focus.</description>
+	</property>
+    <property>
+    	<name>onmousedown</name>
+    	<classname>java.lang.String</classname>
+       	<description>Javascript code executed when a pointer button is pressed down over this element.</description>
+    </property>
+    <property>
+	    <name>onmouseup</name>
+	    <classname>java.lang.String</classname>
+       	<description>Javascript code executed when a pointer button is released over this element.</description>
+	</property>
+    <property>
+	    <name>onmouseover</name>
+	    <classname>java.lang.String</classname>
+       	<description>Javascript code executed when a pointer button is moved onto this element.</description>
+	</property>
+    <property>
+	    <name>onmousemove</name>
+	    <classname>java.lang.String</classname>
+       	<description>Javascript code executed when a pointer button is moved within this element.</description>
+	</property>
+    <property>
+	    <name>onmouseout</name>
+	    <classname>java.lang.String</classname>
+       	<description>Javascript code executed when a pointer button is moved away from this element.</description>
+	</property>
+    <property>
+	    <name>onkeypress</name>
+	    <classname>java.lang.String</classname>
+       	<description>Javascript code executed when a key is pressed and released over this element.</description>
+	</property>
+    <property>
+	    <name>onkeydown</name>
+	    <classname>java.lang.String</classname>
+       	<description>Javascript code executed when a key is pressed down over this element.</description>
+	</property>
+    <property>
+	    <name>onkeyup</name>
+	    <classname>java.lang.String</classname>
+       	<description>Javascript code executed when a key is released over this element.</description>
+	</property>
+
+    <property>
+    	<name>accesskey</name>
+    	<classname>java.lang.String</classname>
+       	<description>Access key that, when pressed, transfers focus to this element.</description>
+    </property>
+    <property>
+    	<name>tabindex</name>
+    	<classname>java.lang.String</classname>
+       	<description>Position of this element in the tabbing order for the current document. This value must be an integer between 0 and 32767.</description>
+    </property>
+
+    <property>
+    	<name>width</name>
+    	<classname>java.lang.String</classname>
+       	<description>Width of created dialog window.</description>
+    </property>
+
+    <property>
+    	<name>height</name>
+    	<classname>java.lang.String</classname>
+       	<description>Height of created dialog window.</description>
+    </property>
+
+    <property>
+    	<name>posx</name>
+    	<classname>java.lang.String</classname>
+       	<description>Horizontal position of created dialog window. Can be absolute integer, 
+       	or relative (integer plus '%') or one of "left", "center", "right". Defaults to "center"</description>
+    </property>
+
+    <property>
+    	<name>posy</name>
+    	<classname>java.lang.String</classname>
+       	<description>Vertical position of created dialog window. Can be absolute integer, 
+       	or relative (integer plus '%') or one of "bottom", "middle", "top",. Defaults to "middle"</description>
+    </property>
+
+    <property>
+    	<name>resizable</name>
+    	<classname>boolean</classname>
+       	<description>Possibility for a customer to change dialog window size
+       	by dragging from within +/- 2px zone of any border. 
+       	The value is a Boolean (true/false). Default value is 'true'.</description>
+       	<defaultvalue>true</defaultvalue>
+    </property>
+
+    <property>
+    	<name>float</name>
+    	<classname>boolean</classname>
+       	<description>Possibility for a customer to change dialog window position
+       	by dragging from within 16px zone of the top border. 
+       	The value is a Boolean (true/false). Default value is 'true'.</description>
+       	<defaultvalue>true</defaultvalue>
+    </property>
+
+    <property>
+    	<name>headerHeight</name>
+    	<classname>java.lang.String</classname>
+       	<description>The height of zone near the top border of dialog window, 
+       	by dragging from which customer can change dialog window position if float=true. 
+       	When float=false, this attribute is ignored.
+       	The value is a number of pixels. Default value is 16px.</description>
+       	<defaultvalue>"16px"</defaultvalue>
+    </property>
+
+    <property>
+    	<name>maxWidth</name>
+    	<classname>java.lang.String</classname>
+       	<description>Maximum width of dialog window. 
+       	Can be absolute number in pixels or relative in % of browser width.
+       	Used at initial calculation of width if 'width' attribute is not set,
+       	and at resizing. Default value is undefined.</description>
+    </property>
+
+    <property>
+    	<name>maxHeight</name>
+    	<classname>java.lang.String</classname>
+       	<description>Maximum height of dialog window. 
+       	Can be absolute number in pixels or relative in % of browser height.
+       	Used at initial calculation of height if 'height' attribute is not set,
+       	and at resizing. Default value is undefined.</description>
+    </property>
+
+    <property>
+    	<name>posFunction</name>
+    	<classname>java.lang.String</classname>
+		<description>Java script function name to be used for 
+    	calculating position of dialog window. The function should 
+		accept parameters (windowId, referenceId, options).
+			windowId - id of element in html document representing the 
+		dialog window, coordinates of which are to be set;
+			referenceId - id of element in html document, relative to 
+		which dialog window is to be positioned;
+			options - positioning parameters posx and posy that may be 
+		either used or ignored by the function.
+		If posFunction is not set, posx and posy are treated as 
+		coordinates in browser window.
+       	Default value is undefined.</description>
+    </property>
+
+    <property>
+    	<name>posReferenceId</name>
+    	<classname>java.lang.String</classname>
+		<description>Id of a component used for 
+    	calculating position of dialog window. Is taken into account
+    	only when posFunction is set.
+       	By default posReferenceId equals to id of this component.</description>
+    </property>
+
+    <property>
+    	<name>hideParentDialog</name>
+    	<classname>boolean</classname>
+       	<description>If set to true and the control is placed 
+       	in another (parent) dialog, then the parent dialog will be
+       	hidden before new one is opened. If subdialog is closed 
+       	with "close:" prefix (or no prefix), the parent dialog will be
+       	set visible again. If subdialog is closed with "closeall:" prefix,
+       	then as usual control will be returned to the main page, 
+       	without activating the parent dialog.
+       	The value is a Boolean (true/false). Default value is 'false'.</description>
+       	<defaultvalue>false</defaultvalue>
+    </property>
+
+	&ajax_component_attributes;
+
+  </component>
+</components>

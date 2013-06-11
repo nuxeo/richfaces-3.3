@@ -1,0 +1,118 @@
+/**
+ * GENERATED FILE - DO NOT EDIT
+ *
+ */
+
+package ${tag.packageName};
+
+#foreach($import in $imports)
+import $import ;
+#end
+import javax.faces.component.UIComponent;
+import ${component.classname};
+import com.sun.facelets.tag.jsf.ComponentHandler;
+import com.sun.facelets.tag.jsf.ComponentConfig;
+
+import com.sun.facelets.*;
+import com.sun.facelets.el.*;
+import com.sun.facelets.tag.*;
+/**
+ * @author shura (latest modification by $Author: alexsmirnov $)
+ * @version $Revision: 1.1.2.1 $ $Date: 2007/02/26 20:48:51 $
+ *
+ */
+public class $tag.simpleClassName extends $tag.superclass {
+
+
+  private static final ${tag.simpleClassName}MetaRule metaRule = new ${tag.simpleClassName}MetaRule();
+
+
+  
+  public ${tag.simpleClassName}(ComponentConfig config) 
+  {
+    super(config);
+  }
+// Metarule
+  protected MetaRuleset createMetaRuleset(Class type)
+  {
+    MetaRuleset m = super.createMetaRuleset(type);
+	m.addRule(metaRule);
+	return m;
+  }
+
+  	/**
+	 * @author shura (latest modification by $Author: alexsmirnov $)
+	 * @version $Revision: 1.1.2.1 $ $Date: 2007/02/26 20:48:51 $
+	 *
+	 */
+	static class ${tag.simpleClassName}MetaRule extends MetaRule{
+
+		/* (non-Javadoc)
+		 * @see com.sun.facelets.tag.MetaRule#applyRule(java.lang.String, com.sun.facelets.tag.TagAttribute, com.sun.facelets.tag.MetadataTarget)
+		 */
+		public Metadata applyRule(String name, TagAttribute attribute, MetadataTarget meta) {
+	        if (meta.isTargetInstanceOf(${component.simpleClassName}.class)) {
+		#foreach($prop in $component.properties)
+		 #if( !$prop.existintag )
+		  #if( $prop.isInstanceof("javax.faces.el.MethodBinding") || $prop.isInstanceof("javax.el.MethodExpression") )
+	            #if ( $prop.name != "actionExpression" )
+	            
+	            if ("${prop.name}".equals(name)) {
+	                    return new ${prop.name}Mapper(attribute);
+	            }
+				
+				#else
+		
+				//skip $prop.name
+	
+				#end
+		  #end
+		 #end
+		#end
+	        }
+			return null;
+		}
+
+	}
+
+#foreach($prop in $component.properties)
+#if( !$prop.existintag )
+
+  #if( $prop.isInstanceof("javax.faces.el.MethodBinding") || $prop.isInstanceof("javax.el.MethodExpression") )
+	#if ( $prop.name != "actionExpression" )
+	
+	static class ${prop.name}Mapper extends Metadata {
+
+		private static final Class[] SIGNATURE = new Class[] {${prop.methodArgsClasses}};
+
+		private final TagAttribute _action;
+		/**
+		 * @param attribute
+		 */
+		public ${prop.name}Mapper(TagAttribute attribute) {
+			_action = attribute;
+		}
+
+		/* (non-Javadoc)
+		 * @see com.sun.facelets.tag.Metadata#applyMetadata(com.sun.facelets.FaceletContext, java.lang.Object)
+		 */
+		public void applyMetadata(FaceletContext ctx, Object instance) {
+            ((${component.simpleClassName}) instance)
+            .${prop.setterName}
+            	#if( $prop.isInstanceof("javax.faces.el.MethodBinding"))
+            		(new LegacyMethodBinding(this._action.getMethodExpression(ctx, null,
+                            SIGNATURE)));
+            	#else
+            		(this._action.getMethodExpression(ctx, null,
+                            SIGNATURE));
+            	#end
+		}
+
+	}
+	
+	#end
+	
+	#end
+ #end
+ #end
+}

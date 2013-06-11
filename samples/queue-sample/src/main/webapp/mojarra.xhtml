@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core">
+<f:view contentType="text/html" />
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Ajax</title>
+	<link type="text/css" href="resources/stylesheet.css" rel="stylesheet" />
+	<script src="resources/ui.js"></script>
+</head>
+
+
+<body>
+
+	<h:form id="form1" prependId="false">
+		<a4j:queue />
+
+		<h:panelGrid styleClass="title-panel">
+			<h:panelGrid columns="2" cellpadding="20">
+				<h:outputText value="a j a x R e q u e s t"
+					styleClass="title-panel-text" />
+				<h:outputText value="Q u e u e" styleClass="title-panel-text" />
+			</h:panelGrid>
+			<h:outputText value="Powered By RichFaces 3.3.0 "
+				styleClass="title-panel-subtext" />
+		</h:panelGrid>
+
+		<h:panelGrid border="1">
+			<f:facet name="header">
+				<h:outputText value="Instructions" styleClass="keytitle" />
+			</f:facet>
+			The <b>Ajax Requests</b> area represent individual Ajax requests that can be fired by clicking the green images.  Each click fires a <br /> 
+			<i>jsf.ajaxRequest</i>.  A <i>JSF managed bean</i> on the server causes a random sleep time (4 seconds or less) to simulate <br /> 
+			different processing times for each request.  The JSF 2.0 Ajax request queue on the client uses the <i>observer</i> pattern to "record" queue events as they happen.<br />
+			The demo JavaScript on the client includes a function that subscribes to these queue events, so the UI is updated as queue events happen.<br />
+			Just click on any sequence of green images (any number, any order) and you will see that each request is handled in the order they were fired.
+		</h:panelGrid>
+
+		<h:panelGrid columns="2" cellspacing="5">
+			<h:panelGrid id="board1" columns="6" border="1">
+				<f:facet name="header">
+					<h:outputText value="Ajax Requests" styleClass="keytitle" />
+				</f:facet>
+				
+				<c:forEach begin="0" end="17" step="1" var="i">
+					<h:panelGrid>
+						<a4j:commandButton id="_#{i}" image="resources/button2.gif"
+							style="height:50px;width:50px;"
+							onclick="buttonpush('_#{i}');"
+							oncomplete="buttonpop('_#{i}');"	
+							actionListener="#{mojarraBean.process}" />
+						<h:panelGrid cellpadding="5">
+							<h:outputText value="_#{i}" />
+						</h:panelGrid>
+					</h:panelGrid>
+				</c:forEach>
+			</h:panelGrid>
+			<h:panelGrid>
+				<f:facet name="header">
+					<h:outputText value="Request Queue" styleClass="keytitle" />
+				</f:facet>
+				<table id="queuetable" border="1">
+					<tr id="tr1">
+					</tr>
+				</table>
+			</h:panelGrid>
+		</h:panelGrid>
+
+	</h:form>
+
+</body>
+
+</html>

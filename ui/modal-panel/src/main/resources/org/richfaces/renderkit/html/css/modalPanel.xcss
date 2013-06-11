@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template 
+	xmlns:f="http://jsf.exadel.com/template"
+   	xmlns:u="http://jsf.exadel.com/template/util" 
+   	xmlns="http://www.w3.org/1999/xhtml">	
+
+	<f:verbatim>
+		.dr-mpnl-ovf-hd {
+			overflow: hidden;
+		}
+		
+		.dr-mpnl-trim {
+			position: relative; 
+			z-index: 0;
+		}
+		
+		.dr-mpnl-iframe {
+			position: absolute; 
+			left: 0px; 
+			top: 0px; 
+			background-color: white; 
+			overflow-y: hidden; 
+			z-index: -1;
+		}
+		
+		.dr-mpnl-mask-div {
+			position: fixed;
+			top: 0;
+			left: 0;
+			border: 0;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+			border-style: none;
+			background-color: #d0d0d0;
+		}
+	
+		.dr-mpnl-mask-div-opaque {
+			filter: alpha(opacity=50);
+			opacity: 0.5;
+		}
+	
+		.dr-mpnl-mask-div-transparent {
+			background-color: transparent;
+		}
+	
+		.dr-mpnl-mask {
+			
+		}
+		
+		.dr-mpnl-panel {
+			position: fixed;
+			margin: 0px;
+			padding: 0px;
+			background-color: inherit;
+			z-index: 9;
+			left: 0px; 
+			top: 0px; 
+		}
+		
+		.dr-mpnl-resizer {
+			line-height: 1px;
+			font-size: 1px;
+			position: absolute;
+			/*background-color: red;
+			filter: alpha(opacity=50); 
+			opacity: 0.5;*/
+		}
+
+		.dr-mpnl-header {
+			height: 20px;
+			width: 100%;
+			vertical-align: middle;
+			z-index: 5;
+		}
+		
+		.dr-mpnl-pnl-button {
+			outline-style: none;
+			position: absolute;
+			border: 10px solid red; 
+			position: absolute; 
+			clip: rect(0px 0px 1px 1px);
+			height: 10px; 
+			width: 10px;
+			left: 0px; 
+			top: 0px;
+			z-index: -300;
+		}
+		
+		.rich-mpnl-controls {
+			position: absolute;
+			top: 3px;
+			right: 3px;
+			z-index: 1;
+		}
+		
+		.rich-modalpanel {
+			left: 0px;
+			top: 0px;
+		}
+	</f:verbatim>
+
+	<u:selector name=".dr-mpnl-spacer, .dr-mpnl-resizer">
+		<u:style name="background-image">
+			<f:resource f:key="/org/richfaces/renderkit/html/images/spacer.gif"/>
+		</u:style>
+	</u:selector>
+	
+<f:verbatim>
+<![CDATA[
+.dr-mpnl-pnl {
+   border-width: 1px;
+   border-style: solid;
+   padding : 1px;
+   background-color: inherit;
+}
+   
+.dr-mpnl-pnl-h{
+   padding : 2px;
+   border-width: 1px;
+   border-style: solid;
+   background-position : top left;
+   background-repeat : repeat-x;
+}
+
+.dr-mpnl-pnl-b{
+   padding : 10px;
+} 
+
+.dr-mpnl-shadow {
+	position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    top: 4px;
+    left: 4px;
+    filter:alpha(opacity=10);
+    opacity: 0.1;
+}
+
+]]>
+</f:verbatim>
+<u:selector name=".dr-mpnl-pnl">
+	<u:style name="background-color" skin="generalBackgroundColor" />
+	<u:style name="border-color" skin="panelBorderColor" />
+</u:selector>
+<u:selector name=".dr-mpnl-pnl-h">
+	<u:style name="background-color" skin="headerBackgroundColor" />
+	<u:style name="border-color" skin="headerBackgroundColor" />
+	<u:style name="background-image" >
+    	<f:resource f:key="org.richfaces.renderkit.html.GradientA"/>
+    </u:style>
+
+</u:selector>
+
+
+<u:selector name=".dr-mpnl-pnl-text">
+	<u:style name="font-size" skin="headerSizeFont" />
+	<u:style name="color" skin="headerTextColor" />
+	<u:style name="font-weight" skin="headerWeightFont" />
+   	<u:style name="font-family" skin="headerFamilyFont" />
+</u:selector>
+
+<u:selector name=".dr-mpnl-pnl-b">
+	<u:style name="font-size" skin="generalSizeFont" />
+	<u:style name="color" skin="generalTextColor" />
+    <u:style name="font-family" skin="generalFamilyFont" />
+</u:selector>
+	
+<u:selector name=".dr-mpnl-shadow">
+    <u:style name="background-color" skin="shadowBackgroundColor" />
+</u:selector>
+
+</f:template>
+

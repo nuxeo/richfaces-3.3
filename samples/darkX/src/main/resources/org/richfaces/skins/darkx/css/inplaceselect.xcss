@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+	<u:selector name=".rich-inplace-select">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-select-changed">
+	</u:selector>
+	
+	<u:selector name=".insel_arrow">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-select-view">
+	</u:selector>
+	
+	<u:selector name="input.rich-inplace-select-field">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-select-field">
+	</u:selector>
+		
+	<u:selector name=".rich-inplace-select-control">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-select-control-press">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-select-list-decoration">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-select-shadow-tl">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-select-shadow-tr">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-select-shadow-bl">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-select-shadow-br">
+	</u:selector>
+	
+	<u:selector name="input.rich-inplace-select-arrow">
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-select-font">
+	</u:selector>
+
+	<u:selector name=".rich-inplace-select-item">
+	</u:selector>
+
+	<u:selector name=".rich-inplace-select-width-list">
+	</u:selector>
+
+	<u:selector name=".rich-inplace-select-list-position">
+	</u:selector>
+
+	<u:selector name=".rich-inplace-select-list-scroll">
+	</u:selector>
+
+	<u:selector name=".rich-inplace-select-list_cord">
+	</u:selector>
+
+	<u:selector name=".rich-inplace-select-shadow-size">
+	</u:selector>
+
+	<u:selector name=".rich-inplace-select-list-shadow">
+	</u:selector>
+
+	<u:selector name=".rich-inplace-select-shadow">
+	</u:selector>
+
+	<u:selector name=".rich-inplace-select-control-set">
+	</u:selector>
+
+	<u:selector name=".rich-inplace-select-strut">
+	</u:selector>
+
+	<u:selector name=".rich-inplace-select-edit">
+	</u:selector>
+
+	<u:selector name=".rich-inplace-select-changed-hover">
+	</u:selector>
+
+	<u:selector name=".rich-inplace-select-selected-item">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="border-color" skin="newBorder" />
+        <u:style name="color" skin="headerTextColor" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                <f:attribute name="gradientHeight" value="36px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+</f:template>

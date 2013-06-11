@@ -1,0 +1,153 @@
+/**
+ * GENERATED FILE - DO NOT EDIT
+ *
+ */
+package ${tag.packageName};
+
+#foreach($import in $imports)
+import $import ;
+#end
+
+import javax.el.ELException;
+import javax.faces.FacesException;
+import javax.faces.component.UIComponent;
+import javax.el.MethodExpression;
+import javax.faces.el.MethodBinding;
+import javax.faces.el.ValueBinding;
+import javax.el.ValueExpression;
+import org.richfaces.webapp.taglib.MethodBindingMethodExpressionAdaptor;
+import org.richfaces.webapp.taglib.ValueBindingValueExpressionAdaptor;
+import ${component.classname};
+
+public class $tag.simpleClassName extends $tag.superclass {
+
+	#tagPropertyMethods12($component)
+	
+    public void release()
+    {
+        // TODO Auto-generated method stub
+        super.release();
+        #tagPropertyRelease($component)
+	}
+	
+    /* (non-Javadoc)
+     * @see org.ajax4jsf.components.taglib.html.HtmlCommandButtonTagBase#setProperties(javax.faces.component.UIComponent)
+     */
+    protected void setProperties(UIComponent component)
+    {
+        // TODO Auto-generated method stub
+        super.setProperties(component);
+		${component.simpleClassName} comp = (${component.simpleClassName}) component;
+#foreach( $prop in $component.properties )
+ #if( !$prop.existintag && !$prop.hidden)
+		 #if($prop.name == "action")
+			setActionProperty(comp, this._${prop.name});
+		 #elseif($prop.name == "actionListener")
+			setActionListenerProperty(comp, this._${prop.name});
+		 #elseif($prop.name == "actionExpression")
+			//Do nothing. Use 'action' instead
+		 #elseif($prop.name == "converter")
+			setConverterProperty(comp, this._${prop.name});
+		 #elseif($prop.name == "rowKeyConverter")
+			setRowKeyConverterProperty(comp, this._${prop.name});
+		 #elseif($prop.name == "validator")
+			setValidatorProperty(comp, this._${prop.name});
+		 #elseif($prop.name == "valueChangeListener")
+			setValueChangeListenerProperty(comp, this._${prop.name});
+		 #elseif( $prop.isInstanceof("javax.faces.el.MethodBinding") )
+			if(null != this._${prop.name}){
+             if (!this._${prop.name}.isLiteralText())
+             {
+                MethodBinding mb = new MethodBindingMethodExpressionAdaptor(this._${prop.name});
+                ((${component.simpleClassName})component).${prop.setterName}(mb);
+             }
+             else
+             {
+                getFacesContext().getExternalContext().log("Component " + component.getClientId(getFacesContext()) + " has invalid ${prop.name} value: " + this._${prop.name});
+             }
+			}
+		 #elseif($prop.isInstanceof("javax.faces.el.ValueBinding") )
+			if(null != this._${prop.name}){
+				ValueBinding vb = new ValueBindingValueExpressionAdaptor(this._${prop.name});
+				((${component.simpleClassName})component).${prop.setterName}(vb);
+			}		
+		 #elseif($prop.isInstanceof("javax.el.MethodExpression") )
+			if(null != this._${prop.name}){
+				((${component.simpleClassName})component).${prop.setterName}(this._${prop.name});
+			}		
+		 #else
+			 #if($prop.elonly)
+				if(null != this._${prop.name} && this._${prop.name}.isLiteralText()){
+					throw new IllegalArgumentException("Component ${component.name} with Id " + component.getClientId(getFacesContext()) +" allows only EL expressions for property ${prop.name}");
+				}
+			 #end
+
+			#if ($prop.el)
+			if (this._${prop.name} != null) {
+				if (this._${prop.name}.isLiteralText()) {
+					try {
+						#if (${prop.simpleType}) 
+							#set ($propertyClass = ${prop.boxingClass})
+						#else
+							#set ($propertyClass = ${prop.classname})
+						#end
+
+						$propertyClass __${prop.name} = ($propertyClass) getFacesContext().
+							getApplication().
+								getExpressionFactory().
+									coerceToType(this._${prop.name}.getExpressionString(), 
+											${propertyClass}.class);
+					
+						#if (${prop.simpleType}) 
+						comp.${prop.setterName}(__${prop.name}.${prop.classname}Value());
+						#else
+						comp.${prop.setterName}(__${prop.name});
+						#end
+					} catch (ELException e) {
+						throw new FacesException(e);
+					}
+				} else {
+					component.setValueExpression("${prop.name}", this._${prop.name});
+				}
+			}
+			#else
+				#if (!${prop.simpleType})
+				if (this._${prop.name} != null) {
+					comp.${prop.setterName}(this._${prop.name});
+				}
+				#else 
+					#set ($propertyClass = ${prop.boxingClass})
+					$propertyClass __${prop.name} = ($propertyClass) getFacesContext().
+							getApplication().
+								getExpressionFactory().
+									coerceToType(this._${prop.name}, 
+											${propertyClass}.class);
+					comp.${prop.setterName}(__${prop.name}.${prop.classname}Value());						
+						
+				#end
+			#end
+		 #end	
+ #end	 
+#end
+   }
+	
+	/* (non-Javadoc)
+	 * @see javax.faces.webapp.UIComponentTag#getComponentType()
+	 */
+	public String getComponentType() {
+		// TODO Auto-generated method stub
+		return "${component.name}";
+	}
+
+	/* (non-Javadoc)
+	 * @see javax.faces.webapp.UIComponentTag#getRendererType()
+	 */
+	public String getRendererType() {
+		#if($renderer)
+		return "${renderer.name}";
+		#else
+		return null;
+		#end
+	}
+
+}

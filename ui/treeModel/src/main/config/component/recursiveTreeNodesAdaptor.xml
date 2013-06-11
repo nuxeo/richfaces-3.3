@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.RecursiveTreeNodesAdaptor</name>
+		<family>org.richfaces.RecursiveTreeNodesAdaptor</family>
+		<classname>org.richfaces.component.html.HtmlRecursiveTreeNodesAdaptor</classname>
+		<superclass>org.richfaces.component.UIRecursiveTreeNodesAdaptor</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlRecursiveTreeNodesAdaptorComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:recursiveTreeNodesAdaptor> is an extension of a <rich:treeNodesAdaptor> component that provides the possibility to define data models and process nodes recursively. ]]>
+		</description>
+		<tag>
+			<name>recursiveTreeNodesAdaptor</name>
+			<classname>org.richfaces.taglib.RecursiveTreeNodesAdaptorTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+		&ui_component_attributes;
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+		<property>
+			<name>var</name>
+			<classname>java.lang.String</classname>
+			<description>
+			A request-scope attribute via which the data object for the current collection element will be used when iterating
+			</description>
+		</property>
+		<property elonly="true">
+			<name>nodes</name>
+			<classname>java.lang.Object</classname>
+			<description>
+			Defines collection to use at the other (non-top) levels of iteration
+			</description>
+		</property>
+		<property elonly="true">
+			<name>roots</name>
+			<classname>java.lang.Object</classname>
+			<description>
+			Defines collection to use at the top of iteration
+			</description>
+		</property>
+		<property>
+			<name>included</name>
+			<classname>boolean</classname>
+			<description>
+				This boolean expression is used to define which elements of both collections are processed. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>includedRoot</name>
+			<classname>boolean</classname>
+			<description>
+				This boolean expression is used to define which elements are processed applying to &quot;roots&quot; collection. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>includedNode</name>
+			<classname>boolean</classname>
+			<description>
+				This boolean expression is used to define which elements are processed. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>recursionOrder</name>
+			<description>The attribute is used to control a recursion order. Possible values are &quot;first&quot;, &quot;last&quot;, &quot;[id of adaptor]&quot; (&quot;first&quot; and &quot;last&quot; are reserved values). When "[id of the adaptor]" is set it means that recursion occurs after these adaptor component nodes are processed. The default value is &quot;last&quot; </description>
+			<classname>java.lang.String</classname>
+		</property>
+	</component>
+</components>

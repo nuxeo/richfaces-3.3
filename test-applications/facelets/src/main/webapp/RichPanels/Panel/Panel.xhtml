@@ -1,0 +1,289 @@
+<f:subview id="PanelsModalPanelSubviewID" xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:messages showDetail="true"></h:messages>
+	
+	<rich:panel rendered="true" id="Calendar"
+		style="width:900px;height:850px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:calendar"></h:outputText>
+		</f:facet>
+		<ui:include src="/Calendar/Calendar.xhtml" />
+	</rich:panel>
+
+	<rich:spacer width="10" height="50"></rich:spacer>
+
+	<rich:panel rendered="true" id="DataFilterSlider"
+		style="width:500px;height:500px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:dataFilterSlider"></h:outputText>
+		</f:facet>
+		<ui:include src="/DataFilterSlider/DataFilterSlider.xhtml" />
+	</rich:panel>
+
+	<rich:spacer width="10" height="50"></rich:spacer>
+
+	<rich:panel rendered="true" id="DataScroller"
+		style="width:500px;height:500px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:datascroller"></h:outputText>
+		</f:facet>
+		<ui:include src="/DataScroller/DataScroller.xhtml" />
+	</rich:panel>
+
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="DataTable"
+		style="width:600px;height:1900px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:dataTable"></h:outputText>
+		</f:facet>
+		<ui:include src="/DataTable/DataTable.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="DragAndDrop"
+		style="width:700px;height:800px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:dragSupport, rich:dropSupport, rich:dragIndicator, rich:dndParam "></h:outputText>
+		</f:facet>
+		<ui:include src="/DragAndDrop/DragAndDrop.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="DropDownMenu"
+		style="500px;height:500px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:dropDownMenu"></h:outputText>
+		</f:facet>
+		<ui:include src="/DropDownMenu/DropDownMenu.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="Effect"
+		style="width:700px;height:500px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:effect"></h:outputText>
+		</f:facet>
+		<ui:include src="/Effect/Effect.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="GMap"
+		style="width:600px;height:800px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:gmap"></h:outputText>
+		</f:facet>
+		<ui:include src="/Gmap/Gmap.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="InputNumberSlider"
+		style="width:400px;height:900px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:inputNumberSlider"></h:outputText>
+		</f:facet>
+		<ui:include src="/InputNumberSlider/InputNumberSlider.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="InputNumberSpinner"
+		style="width:400px;height:700px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:inputNumberSpinner"></h:outputText>
+		</f:facet>
+		<ui:include src="/InputNumberSpinner/InputNumberSpinner.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="Insert"
+		style="width:600px;height:1000px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:insert"></h:outputText>
+		</f:facet>
+		<ui:include src="/Insert/Insert.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="jQuery"
+		style="width:400px;height:600px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:jQuery"></h:outputText>
+		</f:facet>
+		<ui:include src="/jQuery/jQuery.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="message"
+		style="width:400px;height:600px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:message, rich:messages"></h:outputText>
+		</f:facet>
+		<ui:include src="/Message/Message.xhtml" />
+	</rich:panel>
+
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="ModalPanel"
+		style="width:400px;height:400px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:modalpanel"></h:outputText>
+		</f:facet>
+		<ui:include src="/ModalPanel/ModalPanel.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="Paint2D"
+		style="width:1000px;height:600px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:paint2D"></h:outputText>
+		</f:facet>
+		<ui:include src="/Paint2D/Paint2D.xhtml" />
+	</rich:panel>	
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="PanelBar"
+		style="width:600px;height:600px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:panelBar"></h:outputText>
+		</f:facet>
+		<ui:include src="/PanelBar/PanelBar.xhtml" />
+	</rich:panel>
+
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="PanelMenu"
+		style="width:800px;height:900px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:panelmenu"></h:outputText>
+		</f:facet>
+		<ui:include src="/PanelMenu/PanelMenu.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="ScrollableDataTable"
+		style="width:500px;height:700px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:scrollableDataTable"></h:outputText>
+		</f:facet>
+		<ui:include src="/ScrollableDataTable/ScrollableDataTable.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="Separator"
+		style="width:600px;height:500px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:separator"></h:outputText>
+		</f:facet>
+		<ui:include src="/Separator/Separator.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="SimpleTogglePanel"
+		style="width:600px;height:800px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:simpleTogglePanel"></h:outputText>
+		</f:facet>
+		<ui:include src="/SimpleTogglePanel/SimpleTogglePanel.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="Spacer"
+		style="width:700px;height:400px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:spacer"></h:outputText>
+		</f:facet>
+		<ui:include src="/Spacer/Spacer.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="SuggestionBox"
+		style="width:500px;height:700px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:suggestionbox"></h:outputText>
+		</f:facet>
+		<ui:include src="/SuggestionBox/SuggestionBox.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="TabPanel"
+		style="width:700px;height:700px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:tabPanel"></h:outputText>
+		</f:facet>
+		<ui:include src="/TabPanel/TabPanel.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="TogglePanel"
+		style="width:700px;height:1000px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:togglePanel"></h:outputText>
+		</f:facet>
+		<ui:include src="/TogglePanel/TogglePanel.xhtml" />
+	</rich:panel>
+
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="ToolBar"
+		style="width:1000px;height:300px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:toolBar"></h:outputText>
+		</f:facet>
+		<ui:include src="/ToolBar/ToolBar.xhtml" />
+	</rich:panel>
+
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="ToolTip"
+		style="width:500px;height:600px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:toolTip"></h:outputText>
+		</f:facet>
+		<ui:include src="/Tooltip/Tooltip.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="Tree"
+		style="width:600px;height:1200px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:tree, rich:treeNode"></h:outputText>
+		</f:facet>
+		<ui:include src="/Tree/Tree.xhtml" />
+	</rich:panel>
+	
+	<rich:spacer width="10" height="50"></rich:spacer>
+	
+	<rich:panel rendered="true" id="VirtualEarth"
+		style="width:1000px;height:600px;overflow:auto;">
+		<f:facet name="header">
+			<h:outputText value="rich:virtualEarth"></h:outputText>
+		</f:facet>
+		<ui:include src="/VirtualEarth/VirtualEarth.xhtml" />
+	</rich:panel>
+
+
+</f:subview>
+

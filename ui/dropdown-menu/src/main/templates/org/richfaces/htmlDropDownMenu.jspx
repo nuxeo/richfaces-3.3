@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://ajax4jsf.org/cdk/template"
+	xmlns:c=" http://java.sun.com/jsf/core"
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	baseclass="org.richfaces.renderkit.html.DropDownMenuRendererBase"
+	class="org.richfaces.renderkit.html.DropDownMenuRenderer"
+	component="org.richfaces.component.UIDropDownMenu">
+	<h:styles>css/dropdownmenu.xcss</h:styles>
+
+	<f:clientid var="clientId" />
+	<jsp:scriptlet>
+		<![CDATA[ org.richfaces.component.UIDropDownMenu menu = (org.richfaces.component.UIDropDownMenu) component;
+		        if (!menu.getSubmitMode().equalsIgnoreCase("none"))
+		        	org.richfaces.component.util.FormUtil.throwEnclFormReqExceptionIfNeed(context,component);
+		        
+    			if (!menu.isDisabled()) {]]>
+    </jsp:scriptlet>
+	<div id="#{clientId}" style="#{component.attributes['style']}"
+		class="dr-menu-label dr-menu-label-unselect rich-ddmenu-label rich-ddmenu-label-unselect #{component.attributes['styleClass']} #{component.attributes['labelClass']}"
+		onmouseover="#{component.attributes['onmouseover']}"
+		onmouseout="#{component.attributes['onmouseout']}"
+		onmousemove="#{component.attributes['onmousemove']}">
+	<jsp:scriptlet>	
+		<![CDATA[ } else { ]]> 
+	</jsp:scriptlet>
+	<div id="#{clientId}" style="#{component.attributes['style']}"
+		class="dr-menu-label dr-menu-label-unselect dr-ddmenu-label-disabled rich-ddmenu-label-disabled rich-ddmenu-label-unselect #{component.attributes['styleClass']} #{component.attributes['disabledLabelClass']}"
+		onmouseover="#{component.attributes['onmouseover']}"
+		onmouseout="#{component.attributes['onmouseout']}"
+		onmousemove="#{component.attributes['onmousemove']}">
+	<jsp:scriptlet>
+		<![CDATA[ } if (menu.isDisabled() &&
+			(component.getFacet("labelDisabled")!=null && component.getFacet("labelDisabled").isRendered())) {]]>
+	</jsp:scriptlet> <div class="dr-label-text-decor rich-label-text-decor"> <u:insertFacet
+		name="labelDisabled" /> </div> <jsp:scriptlet>			
+			<![CDATA[} else if(component.getFacet("label")!=null && component.getFacet("label").isRendered()) {]]>
+		 </jsp:scriptlet> <div class="dr-label-text-decor rich-label-text-decor"> <u:insertFacet
+		name="label" /> </div> <jsp:scriptlet>	
+					<![CDATA[} else {]]> 
+		</jsp:scriptlet> <div id="#{clientId}_span" class="dr-label-text-decor rich-label-text-decor">#{component.attributes['value']}</div>
+	<jsp:scriptlet>	
+					<![CDATA[}]]> 
+		</jsp:scriptlet>
+
+	<div
+		style="margin: 0px; padding: 0px; border: 0px; position: absolute; z-index: 100;">
+	<vcp:body>
+		<f:call name="renderChildren" />
+	</vcp:body></div>
+
+	<jsp:scriptlet>
+		<![CDATA[if (!((org.richfaces.component.UIDropDownMenu) component).isDisabled()) {]]>
+    </jsp:scriptlet>
+	</div>
+	<jsp:scriptlet>	
+		<![CDATA[} else {]]> 
+	</jsp:scriptlet>
+	</div>
+	<jsp:scriptlet>	
+		<![CDATA[}]]>  
+	</jsp:scriptlet>
+</f:root>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+	<a4j:page
+		id="componentId"
+		styleClass="noclass"
+		style="font-size: 13px"
+		format="xhtml"
+		selfRendered="true"
+		pageTitle="Page Title"
+		title="Title"
+		rendered="#{autoTestBean.rendered}"
+		immediate="#{autoTestBean.immediate}"
+		ajaxListener="#{pageBean.ajaxListener}">
+		<f:facet name="head">
+			Head Content here
+			<script>
+			<!--
+			var errorMessage = null;
+			window.onerror = function (message, url, code) {
+								errorMessage = message;
+								return true;
+							};
+			function checkError () {
+				return errorMessage;
+			}
+			-->
+			</script>
+		</f:facet>
+		<h:form id="form">
+			<p id="pageContent">Page Content here</p>
+			<h:panelGrid id="readout" columns="2">
+				<h:outputLabel value="Value: " for="input" />
+				<h:inputText id="input" value="#{pageBean.value}">
+					<f:validateLength minimum="3"/>
+				</h:inputText>
+				<h:outputLabel value="Submitted Value:" for="submittedValue" />
+				<h:outputText id="submittedValue" value="#{pageBean.value}" />
+				<h:outputLabel value="Status: " for="status" />
+				<h:outputText id="status" value="#{pageBean.status}" />
+				<h:outputLabel value="Time: " for="timestamp" />
+				<h:outputText id="timestamp" value="#{pageBean.time}" />
+			</h:panelGrid>
+			<a4j:commandLink id="submit" value="Send ajax" reRender="status,submittedValue" />
+		</h:form>
+		<script type="text/javascript">
+		<!--
+		window.done=false;
+		window.loaded = true;
+		if (A4J && A4J.AJAX) {
+			A4J.AJAX.AddListener(new A4J.AJAX.Listener(function(req){window.done=true;}));
+		}
+		-->
+		</script>
+	</a4j:page>
+</f:view>
+</html>

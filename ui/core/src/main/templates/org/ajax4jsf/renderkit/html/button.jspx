@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://jsf.exadel.com/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://jsf.exadel.com/ui"
+	xmlns:vcp=" http://jsf.exadel.com/vcp"
+	xmlns:u=" http://jsf.exadel.com/vcp"
+	xmlns:x=" http://jsf.exadel.com/vcp"
+	class="org.ajax4jsf.renderkit.html.CommandButtonRenderer"
+	baseclass="org.ajax4jsf.renderkit.AjaxCommandRendererBase"
+	component="org.ajax4jsf.component.UIAjaxCommandButton" 
+	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0" >
+	<jsp:directive.page import="javax.faces.context.FacesContext,javax.faces.component.UIComponent"/>
+	<f:clientid var="clientId"/>	
+	<jsp:declaration><![CDATA[
+    public void encodeTypeAndImage(FacesContext context, UIComponent uiComponent) throws IOException {
+    	ResponseWriter writer = context.getResponseWriter();
+    	String type = (String)uiComponent.getAttributes().get("type");
+		String image =	(String)uiComponent.getAttributes().get("image");
+		if(image != null){
+			image = context.getApplication().getViewHandler().getResourceURL(context,image);
+			image = context.getExternalContext().encodeResourceURL(image);
+			writer.writeAttribute("type","image","image");
+			writer.writeURIAttribute("src",image,"image");
+			Object value;
+			if (null == uiComponent.getAttributes().get("alt") &&  null != (value = uiComponent.getAttributes().get("value")) ) {
+				writer.writeAttribute("alt",value,"value");
+			}
+		} else {
+			if(null != type ){
+			writer.writeAttribute("type",type.toLowerCase(),"type");
+			} else {
+				writer.writeAttribute("type","button","type");				
+			}
+		}
+    }	
+	]]></jsp:declaration>
+	<input 
+		id="#{clientId}"
+		name="#{clientId}"
+		value=""
+		x:value="#{this:getValue(component)}" 
+		x:passThruWithExclusions="value,name,onclick,type,id,class"
+		onclick="#{this:getOnClick(context,component)}"
+		class="#{component.attributes['styleClass']}"
+		>
+		<jsp:scriptlet>encodeTypeAndImage(context,component);</jsp:scriptlet>
+</input>
+
+</f:root>

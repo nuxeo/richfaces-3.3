@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+	</ui:define>
+	<ui:define name="component">
+			 	<rich:modalPanel id="test_panel" 							 
+							 top="101" 
+							 left="102" 
+							 width="103" 
+							 height="104" 
+							 zindex="12"
+							 showWhenRendered="false" 
+							 minWidth="70"
+							 minHeight="70"
+							 trimOverlayedElements="#{modalPanelBean.trimOverlayedElements}"
+							 styleClass="noclass">
+			    <f:facet name="header">
+			        <h:outputText id="header" value="header" />
+			    </f:facet>
+			    <div style="position: absolute; width: 50px; left: -20px; top: 18px; color: red">
+			    	Richfaces
+			    </div>
+			   	<h:form id="_f">
+			    	<h:outputText value="Richfaces modal panel" /><br/><br/>
+			    	<h:inputText id="input" value="#{modalPanelBean.input}" style="width: 20px"></h:inputText><br/>
+			    	<h:commandLink id="hide" onclick="Richfaces.hideModalPanel('test_panel'); return false;" value="Hide panel" /><br/>
+			    	<h:commandLink id="submit" value="Submit"></h:commandLink>
+			    </h:form>
+			</rich:modalPanel>
+			<h:form id="form">
+				<a href="#" id="show" onclick="Richfaces.showModalPanel('test_panel'); return false;">Open</a>
+				<h:selectBooleanCheckbox id="trimOverlayed" value="#{modalPanelBean.trimOverlayedElements}"></h:selectBooleanCheckbox>
+				<h:commandButton id="submit" value="Submit"></h:commandButton>
+			</h:form>
+			
+		
+	</ui:define>
+</ui:composition>
+</html>

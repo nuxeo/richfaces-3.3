@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+
+<components>
+	<component>
+		<name>org.richfaces.ProgressBar</name>
+		<family>org.richfaces.ProgressBar</family>
+		<classname>org.richfaces.component.html.HtmlProgressBar</classname>
+		<superclass>org.richfaces.component.UIProgressBar</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlProgressBarComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:progressBar> component is designed for displaying a progress bar which shows the current status of the process. ]]>
+		</description>
+		<facet>
+		   <name>initial</name>
+		   <description>Defines the information content about the state of the process if the progress value is less or equal to "minValue"</description>
+		</facet>
+		<facet>
+		   <name>complete</name>
+		   <description>Defines the information content about the state of the process if the value is greater or equal to "maxValue"</description>
+		</facet>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.renderkit.ProgressBarRenderer</name>
+			<template>org/richfaces/progressBar.jspx</template>
+		</renderer>
+		<tag>
+			<name>progressBar</name>
+			<classname>org.richfaces.taglib.ProgressBarTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<taghandler generate="false">
+			<classname>org.ajax4jsf.webapp.taglib.AjaxComponentHandler</classname>
+		</taghandler>
+		&ui_component_attributes;
+		&ui_command_attributes;
+		&html_style_attributes;
+		&ajax_component_attributes;
+		&html_events;
+		<property>
+			<name>title</name>
+			<classname>java.lang.String</classname>
+			<description> Advisory title information about markup elements generated for this component</description>
+		</property>
+		<property>
+			<name>mode</name>
+			<classname>java.lang.String</classname>
+			<description>Attributes defines AJAX or CLIENT modes for component. Possible values are &quot;ajax&quot;, &quot;client&quot;. Default value is &quot;ajax&quot;.</description>
+			<defaultvalue><![CDATA["ajax"]]></defaultvalue>
+		</property>
+		<property>
+			<name>parameters</name>
+			<classname>java.lang.Object</classname>
+			<description>Parameters for macrosubstitution in the label</description>
+		</property>
+		<property>
+			<name>label</name>
+			<classname>java.lang.String</classname>
+			<description>Attribute defines a simple label instead of rendering children component </description>
+		</property>
+		<property hidden="true">
+			<name>dualColoredLabel</name>
+			<classname>java.lang.Boolean</classname>
+			<description>Defines if component renderes as simple markup. Default value is &quot;false&quot;.</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		<property>
+			<name>minValue</name>
+			<classname>java.lang.Object</classname>
+			<description>Min value when initial state should be rendered. Default value is &quot;0&quot;.</description>
+			<defaultvalue>0</defaultvalue>
+		</property>
+		<property>
+			<name>maxValue</name>
+			<classname>java.lang.Object</classname>
+			<description>Max value, after which complete state should be rendered. Default value is &quot;100&quot;.</description>
+			<defaultvalue>100</defaultvalue>
+		</property>
+		<property>
+			<name>progressVar</name>
+			<classname>java.lang.String</classname>
+			<description>DEPRECATED. Provides access to value of the component on the client</description>
+		</property>
+		<property>	
+			<name>styleClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS class that defines style for progress bar</description>
+		</property>
+		<property>
+			<name>completeClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS class that defines style for progress line rendering</description>
+		</property>
+		<property>
+			<name>remainClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS class that defines style for remained part of progress bar</description>
+		</property>
+		<property>
+			<name>initialClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS class that defines style for initial state of the component</description>
+		</property>
+		<property>
+			<name>finishClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS class that defines style for complete state of the component</description>
+		</property>
+		<property>
+			<name>reRenderAfterComplete</name>
+			<classname>java.lang.String</classname>
+			<description>Set of componets to rerender after completion</description>
+		</property>
+		<property hidden="true">
+			<name>actionExpression</name>
+		</property>
+		<property hidden="true">
+			<name>action</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description>The action method binding expression.</description>
+		</property>					
+		<property>
+			<name>onsubmit</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code for call before submission of ajax
+				event
+			</description>
+		</property>
+		<property>
+			<name>interval</name>
+			<classname>int</classname>
+			<description>
+				Interval (in ms) for call poll requests. Default value
+				1000 ms (1 sec)
+			</description>
+			<defaultvalue>1000</defaultvalue>
+		</property>
+		<property>
+			<name>enabled</name>
+			<classname>boolean</classname>
+			<description>
+				<![CDATA[Enables/disables polling. Default value is "true".]]>
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				Sets the current value of the progress
+			</description>
+			
+		</property>
+		<property hidden="true">
+			<name>submitted</name>
+			<classname>boolean</classname>
+		</property>
+		<property hidden="true">
+			<name>requestDelay</name>
+			<classname>int</classname>
+		</property>
+		<property>
+			<name>ignoreDupResponses</name>
+			<classname>boolean</classname>
+			<description>
+Attribute allows to ignore an Ajax Response produced by a request if the newest 'similar' request is
+in a queue already. ignoreDupResponses="true" does not cancel the request while it is processed on the server,
+but just allows to avoid unnecessary updates on the client side if the response isn't actual now			
+			</description>
+		</property>
+		<property hidden="true" >
+			<name>onkeydown</name>
+			<classname>java.lang.String</classname>
+		</property>
+		<property hidden="true">
+			<name>onkeypress</name>
+			<classname>java.lang.String</classname>
+		</property>
+		<property hidden="true">
+			<name>onkeyup</name>
+			<classname>java.lang.String</classname>
+		</property>
+	</component>
+
+</components>

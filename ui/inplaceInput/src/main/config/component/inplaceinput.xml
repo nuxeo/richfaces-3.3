@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+
+<components>
+    <component>
+        <name>org.richfaces.InplaceInput</name>
+        <family>org.richfaces.InplaceInput</family>
+        <classname>
+            org.richfaces.component.html.HtmlInplaceInput
+        </classname>
+        <superclass>org.richfaces.component.UIInplaceInput</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlInplaceInputComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+        <description>
+        	The &lt;rich:inplaceInput&gt; is an input component used for displaying and editing data inputted. 
+        </description>
+		<facet>
+		   <name>controls</name>
+		   <description>Defines the contols contents. Related attributes are "saveControlIcon" and "cancelControlIcon"</description>
+		</facet>
+		<renderer  generate="true" override="true">
+			<name>org.richfaces.renderkit.InplaceInputRenderer</name>
+			<template>inplaceinput.jspx</template>
+		</renderer>
+       	
+       	<tag>
+       		<name>inplaceInput</name>
+            <classname>org.richfaces.taglib.InplaceInputTag</classname>
+            <superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+       	</tag>
+       	<properties>
+
+       		<property>
+       			<name>layout</name>
+       			<classname>java.lang.String</classname>
+       			<description>Defines how the component is displayed in the layout. Possible values are &quot;block&quot;, &quot;inline&quot;. Default value is &quot;inline&quot;. </description>
+       			<defaultvalue><![CDATA["inline"]]></defaultvalue>
+       		</property>
+       		<property>
+		  		<name>maxInputWidth</name>
+		  		<classname>java.lang.String</classname>
+       			<description>Sets the maximum width of the input field. Default value is &quot;500px&quot;.</description>
+		  		<defaultvalue><![CDATA["500px"]]></defaultvalue>
+		  	</property>
+		  	<property>
+		  		<name>minInputWidth </name>
+		  		<classname>java.lang.String</classname>
+		  		<description>Sets the minimum width of the input field. Default value is &quot;40px&quot;.</description>
+		  		<defaultvalue><![CDATA["40px"]]></defaultvalue>
+		  	</property>
+		  	<property>
+		  		<name>inputWidth</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>Sets width of the input field</description>
+		  	</property>
+		  	
+		  	<property>
+		  		<name>defaultLabel</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>The attribute is used to display text while value is undefined</description>
+		  		<defaultvalue>""</defaultvalue>
+		  	</property>
+		  	<property>
+		  		<name>showControls</name>
+		  		<classname>boolean</classname>
+		  		<description>Serves to display &quot;save&quot; and &quot;cancel&quot; controls. Default value is &quot;false&quot;.</description>
+		  		<defaultvalue>false</defaultvalue>
+		  	</property>
+		  	<property>
+		  		<name>editEvent</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>Provides an option to assign an JavaScript action that initiates the change of the state. Default value is &quot;onclick&quot;.</description>
+		  		<defaultvalue><![CDATA["onclick"]]></defaultvalue>
+		  	</property>
+		  	<property>
+		  		<name>controlsVerticalPosition</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>Positions the controls vertically. Possible values are &quot;bottom&quot;,&quot;center&quot; and &quot;top&quot;. Default value is &quot;center&quot;</description>
+		  		<defaultvalue><![CDATA["center"]]></defaultvalue>
+		  	</property>
+		  	
+		  	<property>
+		  		<name>controlsHorizontalPosition</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>Positions the controls horizontally. Possible values are &quot;left&quot;, &quot;center&quot;, &quot;right&quot;. Default value is &quot;right&quot;.</description>
+		  		<defaultvalue><![CDATA["right"]]></defaultvalue>
+		  	</property>
+		  	
+		  	<property>
+		  		<name>oneditactivation</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>Provides a possibility to assign JavaScript on edit state activation</description>
+		  	</property>
+		  	<property>
+		  		<name>onviewactivation</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>Provides a possibility  to assign JavaScript  on view state activation</description>
+		  	</property>
+		  	<property>
+		  		<name>oneditactivated</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>HTML: script expression; edit state is activated</description>
+		  	</property>
+		  	<property>
+		  		<name>onviewactivated</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>HTML: script expression; view state is activated</description>
+		  	</property>
+		  	<property>
+		  		<name>selectOnEdit</name>
+		  		<classname>boolean</classname>
+		  		<description>Makes the input field select when switched to edit state. Default value is &quot;false&quot;</description>
+		  		<defaultvalue>false</defaultvalue>
+		  	</property>
+		  	<property>
+		  		<name>tabindex</name>
+		  		<classname>int</classname>
+		  		<description>Serves to define the tabbing order</description>
+		  	</property>
+		  	<property>
+		  		<name>saveControlIcon</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>Defines custom save icon</description>
+		  	</property>
+		  	<property>
+		  		<name>cancelControlIcon</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>Defines custom cancel icon</description>
+		  	</property>
+		  	
+		  	<property>
+		  		<name>styleClass</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>Corresponds to the HTML class attribute</description>
+		  	</property>
+		  	<property>
+		  		<name>viewClass</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>CSS style class for view state</description>
+		  	</property>
+		  	<property>
+		  		<name>editClass</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>CSS style class for edit state</description>
+		  	</property>
+		  	<property>
+		  		<name>changedClass</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>CSS style class for changed state</description>
+		  	</property>
+		  	<property>
+		  		<name>controlClass</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>CSS style class for controls</description>
+		  	</property>
+		  	<property>
+		  		<name>viewHoverClass</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>CSS style class for hovered text in view state</description>
+		  	</property>
+		  	<property>
+		  		<name>changedHoverClass</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>CSS style class for hovered text in changed state</description>
+		  	</property>
+		  	<property>
+		  		<name>controlPressedClass</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>CSS style class for pressed press controls</description>
+		  	</property>
+		  	<property>
+		  		<name>controlHoverClass</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>CSS style class for hovered control</description>
+		  	</property>
+		  	<property>
+		  		<name>onchange</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>HTML: script expression; the element value was changed</description>
+		  	</property>
+		  	
+		  	<property>
+		  		<name>onselect</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>HTML: script expression; the onselect event occurs when you select some menu item</description>
+		  	</property>
+		  	<property>
+		  		<name>onfocus</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>HTML: script expression; the element got the focus</description>
+		  	</property>
+		  	<property>
+		  		<name>onblur</name>
+		  		<classname>java.lang.String</classname>
+		  		<description>HTML: script expression; the element lost the focus</description>
+		  	</property>
+		  	<property>
+        		<name>oninputclick</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer button is clicked</description>
+        	</property>
+    		<property>
+        		<name>oninputdblclick</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer button is double-clicked</description>
+    		</property>
+    		<property>
+        		<name>oninputkeydown</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a key is pressed down</description>
+    		</property>
+    		<property>
+        		<name>oninputkeypress</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a key is pressed and released</description>
+    		</property>
+    		<property>
+        		<name>oninputkeyup</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a key is released</description>
+    		</property>
+    		<property>
+        		<name>oninputmousedown</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: script expression; a pointer button is pressed down</description>
+    		</property>
+    		<property>
+        		<name>oninputmousemove</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer is moved within</description>
+    		</property>
+    		<property>
+        		<name>oninputmouseout</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer is moved away</description>
+    		</property>
+    		<property>
+        		<name>oninputmouseover</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: a script expression; a pointer is moved onto</description>
+    		</property>
+    		<property>
+        		<name>oninputmouseup</name>
+        		<classname>java.lang.String</classname>
+        		<description>HTML: script expression; a pointer button is released</description>
+    		</property>
+			<property>
+				<name>label</name>
+				<classname>java.lang.String</classname>
+				<description>A localized user presentable name for this component.</description>
+			</property>
+		    <property>
+		        <name>maxlength</name>
+		        <classname>int</classname>
+		        <description>Specifies the maximum number of digits that could be entered into the input field. 
+				The maximum number is unlimited by default. 
+				</description>
+		    </property>
+			&html_events;
+		  	&ui_input_attributes;
+		  	<property hidden="true">
+        		<name>localValueSet</name>
+        		<classname>boolean</classname>
+        		<description></description>
+    		</property>
+    		<property hidden="true">
+        		<name>valid</name>
+        		<classname>boolean</classname>
+        		<description></description>
+    		</property>
+		  	
+		</properties>    
+    </component>
+</components>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd" >
+<components>
+    <component>
+        <name>org.richfaces.ContextMenu</name>
+        <family>org.richfaces.ContextMenu</family>
+        <classname>org.richfaces.component.html.ContextMenu</classname>
+        <superclass>org.richfaces.component.UIContextMenu</superclass>
+        <test/>
+        <description>
+          The &lt;rich:contextMenu&gt; component is used for creating multileveled context menus that are activated after a user defines an event ( &quot;onmouseover&quot; , &quot;onclick&quot; , etc.) on any element on the page.
+        </description>
+
+        <renderer>
+            <name>org.richfaces.DropDownMenuRenderer</name>
+            <classname>org.richfaces.renderkit.html.ContextMenuRendererBase</classname>
+        </renderer>
+        <tag>
+            <name>contextMenu</name>
+            <classname>org.richfaces.taglib.ContextMenuTag</classname>
+            <superclass>
+                org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+            </superclass>
+			<test/>
+        </tag>
+        &html_style_attributes;
+        &ui_component_attributes;
+        <property>
+            <name>submitMode</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Sets the submission mode for all menu items of the menu except
+                those where this attribute redefined. Possible value are &quot;ajax&quot;,&quot;server&quot;, &quot;none&quot;. Default value is &quot;server&quot;.
+            </description>
+            <defaultvalue>&quot;server&quot;</defaultvalue>
+        </property>
+        <property>
+            <name>event</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Defines an event on the parent element to display  the menu. Default value is  &quot;oncontextmenu&quot;.
+            </description>
+            <defaultvalue>&quot;oncontextmenu&quot;</defaultvalue>
+        </property>
+        <property>
+            <name>attached</name>
+            <classname>boolean</classname>
+            <description>
+                If the value of the &quot;attached&quot; attribute is true, the component is attached to the component,
+                specified in the &quot;attachTo&quot; attribute or to the parent component,
+                if &quot;attachTo&quot; is not defined.  Default value is &quot;true&quot;.
+            </description>
+            <defaultvalue>true</defaultvalue>
+        </property>
+        <property>
+            <name>disableDefaultMenu</name>
+            <classname>boolean</classname>
+            <description>
+                Forbids default handling for adjusted event. Default value &quot;false&quot;. 
+            </description>
+            <defaultvalue><![CDATA[false]]></defaultvalue>
+        </property>
+        <property>
+            <name>showDelay</name>
+            <classname>java.lang.Integer</classname>
+            <description>
+                Delay between event and menu showing. Default value is &quot;50&quot;.
+            </description>
+            <defaultvalue><![CDATA[new Integer(50)]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>hideDelay</name>
+            <classname>java.lang.Integer</classname>
+            <description>
+                Delay between losing focus and menu closing. Default value is &quot;800&quot;.
+            </description>
+            <defaultvalue><![CDATA[new Integer(800)]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>popupWidth</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Set minimal width for the all of the lists that will appear
+            </description>
+        </property>
+        
+        <property>
+			<name>attachTo</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Client identifier of the component or id of the existing DOM element that is a source
+				for a given event. If attachTo is defined, the event is attached on the client according
+				to the AttachTiming attribute.
+				If both attached and attachTo attributes are defined, and attribute attached has value
+				'false', it is considered to have higher priority.
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		
+		<property>
+			<name>attachTiming</name>
+			<classname>java.lang.String</classname>
+			<description>
+			    Defines the timing when the menu is attached to the target element. Possible values &quot;onload&quot;, &quot;immediate&quot;, &quot;onavailable&quot; (default). Default value is &quot;onavailable&quot;.
+			</description>
+			<defaultvalue>"onavailable"</defaultvalue>
+		</property>
+
+		<!-- 
+		 
+		These attributes don't work in present.
+		They are in DDMenu, and will be here later
+
+        <property>
+            <name>direction</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Defines direction of the popup list to appear (top-right,
+                top-left bottom-right, bottom-left, auto(default))
+            </description>
+            <defaultvalue>"auto"</defaultvalue>
+        </property>
+
+        <property>
+            <name>jointPoint</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Set the corner of the label for the popup to be connected with.
+                (auto(default), tr, tl, bl, br, where tr – top-right)
+            </description>
+            <defaultvalue>"auto"</defaultvalue>
+        </property>
+
+        <property>
+            <name>horizontalOffset</name>
+            <classname>int</classname>
+            <description>
+                Sets the horizontal offset between popup list and label element
+                conjunction point
+            </description>
+            <defaultvalue><![CDATA[0]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>verticalOffset</name>
+            <classname>int</classname>
+            <description>
+                Sets the vertical offset between popup list and label element
+                conjunction point
+            </description>
+            <defaultvalue><![CDATA[0]]></defaultvalue>
+        </property>
+
+		-->
+
+        &html_style_attributes;
+
+        <property>
+            <name>selectItemStyle</name>
+            <classname>java.lang.String</classname>
+            <description>
+			CSS style(s) is/are to be applied to selected item when this component is rendered.	
+            </description>
+        </property>
+
+        <property>
+            <name>selectItemClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+			Space-separated list of CSS style class(es) that are be applied to selected item of this component.
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>disabledItemStyle</name>
+            <classname>java.lang.String</classname>
+            <description>
+			CSS style(s) is/are to be applied to disabled item when this component is rendered.	
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>disabledItemClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+			Space-separated list of CSS style class(es) that are be applied to disabled item of this component
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>itemStyle</name>
+            <classname>java.lang.String</classname>
+            <description>
+			CSS style(s) is/are to be applied to item when this component is rendered.	
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>itemClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+			Space-separated list of CSS style class(es) that are be applied to item of this component
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>oncollapse</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; a menu is collapsed.
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>onexpand</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; a menu is expanded.
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+
+        <property>
+            <name>onmouseout</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; a pointer was moved away
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>onmousemove</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; a pointer was moved within
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>onmouseover</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; a pointer was moved onto
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>onitemselect</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; some item was selected
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>ongroupactivate</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; some group was activated
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+  		</property>
+    </component>
+</components>

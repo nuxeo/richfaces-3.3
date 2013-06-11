@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="control">
+			<h:panelGrid columns="2">
+				<h:outputText value="Disabled:"/>
+				<h:selectBooleanCheckbox id="disabled" value="#{spinnerBean.disabled}"/>
+				<h:outputText value="Enabled manual input:"/>
+				<h:selectBooleanCheckbox id="enableManualInput" value="#{spinnerBean.enableManualInput}"/>
+			</h:panelGrid>
+			<h:commandButton id="apply" value="Apply"></h:commandButton>
+		</h:form>
+		<h:form id="autoTestForm">
+			<rich:inputNumberSpinner id="componentId" 
+				cycled="true" 
+				minValue="0"
+				maxValue="50"
+				value="#{spinnerBean.value}"
+				step="10"
+				style="font-size: 10px"
+				styleClass="noclass"
+				inputStyle="color: blue"
+				inputClass="input-class"
+				inputSize="20"
+				disabled="#{spinnerBean.disabled}"
+				enableManualInput="#{spinnerBean.enableManualInput}" 
+				oninputclick="EventQueue.fire('onclick')"
+				oninputdblclick="EventQueue.fire('ondblclick')"
+				oninputkeydown="EventQueue.fire('onkeydown')"
+				oninputkeypress="EventQueue.fire('onkeypress')"
+				oninputmousedown="EventQueue.fire('onmousedown')"
+				oninputkeyup="EventQueue.fire('onkeyup')"
+				oninputmousemove="EventQueue.fire('onmousemove')"
+				oninputmouseout="EventQueue.fire('onmouseout')"
+				oninputmouseover="EventQueue.fire('onmouseover')"
+				oninputmouseup="EventQueue.fire('onmouseup')"/>
+				<h:commandLink id="submit" value="Submit"/>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

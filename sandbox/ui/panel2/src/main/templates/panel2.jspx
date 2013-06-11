@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://jsf.exadel.com/template" 
+	xmlns:vcp=" http://jsf.exadel.com/vcp"
+	xmlns:ui=" http://jsf.exadel.com/ui"
+	xmlns:x=" http://jsf.exadel.com/vcp"
+       	xmlns:u="http://jsf.exadel.com/util"
+        xmlns:h="http://jsf.exadel.com/header"
+	baseclass="org.ajax4jsf.renderkit.HeaderResourcesRendererBase"
+	class="org.richfaces.renderkit.html.Panel2Renderer">
+
+	<f:clientid var="clientId"/>
+        <h:styles>css/panel2.xcss</h:styles>
+        <div id="#{clientId}" x:passThruWithExclusions="id,value,styleClass,class" class="dr-pnl rich-panel #{component.attributes['styleClass']}">
+        <div class="dr-pnl1 rich-panel1">        
+		<jsp:scriptlet>
+			<![CDATA[if(component.getFacet("header")!=null && component.getFacet("header").isRendered()) {]]>
+		</jsp:scriptlet>
+		   <div id="#{clientId}_header" class="dr-pnl-h rich-panel-header #{component.attributes['headerClass']}">
+	              <u:insertFacet name="header" />
+           </div>
+		<jsp:scriptlet>
+			<![CDATA[}]]>
+		</jsp:scriptlet>
+		<div id="#{clientId}_body" class="dr-pnl-b rich-panel-body #{component.attributes['bodyClass']}">
+			<vcp:body>
+				<f:call name="renderChildren" />
+			</vcp:body>
+	    </div>
+        </div> 	        
+	    </div> 
+</f:root>

@@ -1,0 +1,48 @@
+private final InternetResource[] ${property} = {
+	#set ($count = 0)
+	#foreach($resource in $resourceKeys)
+		#if($count > 0)
+			,
+		#end
+		#set ($count = $count + 1)
+		${resource}
+	#end
+};
+
+private InternetResource[] ${property}All = null;
+
+${getterModifier} InternetResource[] ${propertyGetterName}() {
+	synchronized (this) {
+		if (${property}All == null) {
+			InternetResource[] rsrcs = super.${propertyGetterName}();
+			boolean ignoreSuper = rsrcs == null || rsrcs.length == 0;
+			boolean ignoreThis = ${property} == null || ${property}.length == 0;
+			
+			if (ignoreSuper) {
+				if (ignoreThis) {
+					${property}All = new InternetResource[0];	
+				} else {
+					${property}All = ${property};
+				}
+			} else {
+				if (ignoreThis) {
+					${property}All = rsrcs;
+				} else {
+					java.util.Set rsrcsSet = new java.util.LinkedHashSet();
+
+					for (int i = 0; i < rsrcs.length; i++ ) {
+						rsrcsSet.add(rsrcs[i]);
+					}
+
+					for (int i = 0; i < ${property}.length; i++ ) {
+						rsrcsSet.add(${property}[i]);
+					}
+
+					${property}All = (InternetResource[]) rsrcsSet.toArray(new InternetResource[rsrcsSet.size()]);
+				}
+			}
+		}
+	}
+	
+	return ${property}All;
+}

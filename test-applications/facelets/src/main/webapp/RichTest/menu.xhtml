@@ -1,0 +1,149 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:rich="http://richfaces.org/rich">
+  
+      <f:subview xmlns:ui="http://java.sun.com/jsf/facelets" id="menuTestID">
+ 			<rich:toolBar itemSeparator="disc">
+				<rich:dropDownMenu value="File" event="onmouseover" submitMode="ajax">
+					<rich:menuItem value="Item 1" ></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 2"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 3"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 4"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 5"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 6"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 7"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuGroup value="menu 1">
+						<rich:menuItem value="Item 1" ></rich:menuItem>
+						<rich:menuSeparator />
+						<rich:menuItem value="Item 2"></rich:menuItem>
+						<rich:menuSeparator />
+						<rich:menuItem value="Item 3"></rich:menuItem>
+						<rich:menuSeparator />
+						<rich:menuItem value="Item 4"></rich:menuItem>
+							<rich:menuGroup value="menu 1_1">
+								<rich:menuItem value="Item 1" ></rich:menuItem>
+								<rich:menuSeparator />
+								<rich:menuItem value="Item 2"></rich:menuItem>
+								<rich:menuSeparator />
+								<rich:menuItem value="Item 3"></rich:menuItem>
+								<rich:menuSeparator />
+								<rich:menuItem value="Item 4"></rich:menuItem>
+							</rich:menuGroup>
+					</rich:menuGroup>
+					<rich:menuGroup value="menu 2">
+						<rich:menuItem value="Item 1" ></rich:menuItem>
+						<rich:menuSeparator />
+						<rich:menuItem value="Item 2"></rich:menuItem>
+						<rich:menuSeparator />
+						<rich:menuItem value="Item 3"></rich:menuItem>
+						<rich:menuSeparator />
+						<rich:menuItem value="Item 4"></rich:menuItem>
+					</rich:menuGroup>
+				</rich:dropDownMenu>
+
+				<rich:dropDownMenu value="Edit" event="onmouseover">
+					<rich:menuItem value="Item 1" ></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 2"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 3"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 4"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 5"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 6"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 7"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 8"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 9"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 10"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 11"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 12"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 13"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 14"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuItem value="Item 15"></rich:menuItem>
+					<rich:menuSeparator />
+					<rich:menuGroup value="menu 1">
+						<rich:menuItem value="Item 1" ></rich:menuItem>
+					<rich:menuSeparator />
+						<rich:menuItem value="Item 2"></rich:menuItem>
+					<rich:menuSeparator />
+						<rich:menuItem value="Item 3"></rich:menuItem>
+					<rich:menuSeparator />
+						<rich:menuItem value="Item 4"></rich:menuItem>
+					<rich:menuSeparator />
+							<rich:menuGroup value="menu 1_1">
+								<rich:menuItem value="Item 1" ></rich:menuItem>
+								<rich:menuSeparator />
+								<rich:menuItem value="Item 2"></rich:menuItem>
+								<rich:menuSeparator />
+								<rich:menuItem value="Item 3"></rich:menuItem>
+								<rich:menuSeparator />
+								<rich:menuItem value="Item 4"></rich:menuItem>
+							</rich:menuGroup>
+					</rich:menuGroup>
+					<rich:menuGroup value="menu 2">
+						<rich:menuItem value="Item 1" ></rich:menuItem>
+						<rich:menuSeparator />
+						<rich:menuItem value="Item 2"></rich:menuItem>
+						<rich:menuSeparator />
+						<rich:menuItem value="Item 3"></rich:menuItem>
+						<rich:menuSeparator />
+						<rich:menuItem value="Item 4"></rich:menuItem>
+					</rich:menuGroup>
+				</rich:dropDownMenu>
+	
+				<rich:toolBarGroup>
+					<rich:dropDownMenu value="Navigate" event="onmouseover">
+											<rich:menuGroup value="menu 1">
+							<rich:menuItem value="Item 1" ></rich:menuItem>
+							<rich:menuItem value="Item 2"></rich:menuItem>
+							<rich:menuItem value="Item 3"></rich:menuItem>
+							<rich:menuItem value="Item 4"></rich:menuItem>
+								<rich:menuGroup value="menu 1_1">
+									<rich:menuItem value="Item 1" ></rich:menuItem>
+									<rich:menuItem value="Item 2"></rich:menuItem>
+									<rich:menuItem value="Item 3"></rich:menuItem>
+									<rich:menuItem value="Item 4"></rich:menuItem>
+								</rich:menuGroup>
+						</rich:menuGroup>
+						<rich:menuGroup value="menu 2">
+							<rich:menuItem value="Item 1" ></rich:menuItem>
+							<rich:menuItem value="Item 2"></rich:menuItem>
+							<rich:menuItem value="Item 3"></rich:menuItem>
+							<rich:menuItem value="Item 4"></rich:menuItem>
+						</rich:menuGroup>
+						<rich:menuItem value="Item 1" ></rich:menuItem>
+						<rich:menuItem value="Item 2"></rich:menuItem>
+						<rich:menuItem value="Item 3"></rich:menuItem>
+						<rich:menuItem value="Item 4"></rich:menuItem>
+						<rich:menuItem value="Item 5"></rich:menuItem>
+						<rich:menuItem value="Item 6"></rich:menuItem>
+						<rich:menuItem value="Item 7"></rich:menuItem>
+						<rich:menuItem value="Item 8"></rich:menuItem>
+						<rich:menuItem value="Item 9"></rich:menuItem>
+						<rich:menuItem value="Item 10"></rich:menuItem>
+					</rich:dropDownMenu>
+					<h:graphicImage value="/pics/ajax_process.gif"></h:graphicImage>
+				</rich:toolBarGroup>
+			</rich:toolBar>
+      </f:subview>      
+</html>

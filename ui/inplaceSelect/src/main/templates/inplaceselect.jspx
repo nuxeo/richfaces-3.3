@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:jsp=" http://ajax4jsf.org/cdk/jsp"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	baseclass="org.richfaces.renderkit.InplaceSelectBaseRenderer"
+	class="org.richfaces.renderkit.html.InplaceSelectRenderer"
+	component="org.richfaces.component.UIInplaceSelect">
+	
+	
+
+<h:styles>css/inplaceselect.xcss</h:styles>  
+	
+<h:scripts>
+	new org.ajax4jsf.javascript.PrototypeScript()    ,
+	/org/richfaces/renderkit/html/scripts/jquery/jquery.js,
+	scripts/comboboxUtils.js      ,
+	scripts/combolist.js         ,
+	scripts/inplaceinput.js     ,
+	scripts/inplaceselectlist.js,
+	scripts/inplaceselect.js,
+	scripts/inplaceselectstyles.js,
+	/org/richfaces/renderkit/html/scripts/utils.js
+</h:scripts>
+
+<f:clientid var="clientId" />
+<f:resource var="saveIcon" name="org.richfaces.renderkit.html.images.SaveControlIcon"/>
+<f:resource var="cancelIcon" name="org.richfaces.renderkit.html.images.CancelControlIcon"/>
+
+<c:object var="preparedItems" type="java.util.List" value="#{this:prepareItems(context, component)}" />
+
+<jsp:scriptlet>
+		<![CDATA[
+		Object value = null;
+		String selectedItemLabel = null;
+
+		Object submittedValue = component.getSubmittedValue();
+		if (submittedValue != null) {
+			if (preparedItems != null) {
+				for (Object o: preparedItems) {
+					PreparedSelectItem item = (PreparedSelectItem) o;
+					if (submittedValue.equals(item.getConvertedValue())) {
+						selectedItemLabel = item.getLabel();
+						value = submittedValue;
+						break;
+					}
+				}
+			}
+		} else {
+			value = component.getAttributes().get("value");
+			selectedItemLabel = getItemLabel(context, component, value);
+			value = getConvertedStringValue(context, component,value);
+		}
+		
+		String fieldValue = null;
+		String fieldLabel = null;
+		String fieldInputLabel = null;
+		
+		if (selectedItemLabel == null) {
+			fieldValue = null;
+			fieldLabel = createDefaultLabel(component);
+			fieldInputLabel="";
+		} else {
+			fieldValue = (String)value;
+			fieldLabel = selectedItemLabel;
+			fieldInputLabel = fieldLabel; 
+		}
+		
+	   	String encodedFieldValue = encodeJS(fieldValue);
+	   	
+	   	variables.setVariable("fieldLabel", fieldLabel);
+	   	variables.setVariable("fieldValue", fieldValue);
+	   	variables.setVariable("fieldInputLabel", fieldInputLabel);
+	   	variables.setVariable("encodedFieldValue", encodedFieldValue);
+	   	
+	   	String saveIcon =  (String)component.getAttributes().get("saveControlIcon");
+	   	if (saveIcon != null && saveIcon.length() != 0 ) {
+	   		variables.setVariable("saveIcon", org.richfaces.component.util.ViewUtil.getResourceURL(saveIcon ,context));
+	   	}
+	   	
+	   	String cancelIcon =  (String)component.getAttributes().get("cancelControlIcon");
+	   	if (cancelIcon != null && cancelIcon.length() != 0 ) {
+	   		variables.setVariable("cancelIcon", org.richfaces.component.util.ViewUtil.getResourceURL(cancelIcon ,context));
+	   	}
+
+	   	String controlClass = (String)component.getAttributes().get("controlClass");
+	   	variables.setVariable("controlClass", controlClass);
+	   	String controlHoveredClass = (String)component.getAttributes().get("controlHoveredClass"); 
+	   	variables.setVariable("controlHoveredClass", controlHoveredClass);
+	   	String controlPressedClass = (String)component.getAttributes().get("controlPressedClass"); 
+	   	variables.setVariable("controlPressedClass", controlPressedClass);
+	   	
+	   	String styleClass = (String)component.getAttributes().get("styleClass");
+	   	styleClass = styleClass != null ? styleClass.trim() : "";
+	   	variables.setVariable("styleClass", styleClass);
+	   	
+	   	String changedClass = (String)component.getAttributes().get("changedClass");
+	   	changedClass = (changedClass != null ? changedClass.trim() : "") + " " + styleClass;
+	   	variables.setVariable("changedClass", changedClass);
+	   	
+	   	String viewClass = (String)component.getAttributes().get("viewClass");
+	   	viewClass = (viewClass != null ? viewClass.trim() : "") + " " + styleClass;
+	   	variables.setVariable("viewClass", viewClass);
+	   	
+	   	String editClass = (String)component.getAttributes().get("editClass");
+	   	editClass = (editClass != null ? editClass.trim() : "") + " " + styleClass;
+	   	variables.setVariable("editClass", editClass);
+	   	
+	   	String layout = (String)component.getAttributes().get("layout");
+	   	
+	   	if (layout != null && layout.length() != 0) {
+	   		if (!layout.equals("block")) {
+	   			layout = "inline";
+	   		}
+	   	} else {
+   			layout = "inline";
+	   	}
+	   	
+	   	]]>
+	</jsp:scriptlet>
+<f:resource var="spacer" name="images/spacer.gif"/>
+	
+
+<jsp:scriptlet>
+	if (layout.equals("inline")) {	
+</jsp:scriptlet>
+		<span id="#{clientId}" class="rich-inplace-select rich-inplace-select-view #{viewClass}"  x:passThruWithExclusions="id,styleClass,class" style="zoom: 1; #{component.attributes['style']}">
+<jsp:scriptlet>
+	} else {	
+</jsp:scriptlet>
+		<div id="#{clientId}" class="rich-inplace-select rich-inplace-select-view #{viewClass}"  x:passThruWithExclusions="id,styleClass,class" style="zoom: 1; #{component.attributes['style']}">
+<jsp:scriptlet>
+	} 	
+</jsp:scriptlet>	  
+	<input id="#{clientId}inplaceTmpValue" 
+			   type="text"
+			   style='clip:rect(0px 0px 0px 0px)' 
+			   value="#{fieldInputLabel}" 
+			   autocomplete="off"
+			   maxlength='#{component.attributes["inputMaxLength"]}'
+			   readonly="readonly"
+			   class="rich-inplace-select-field"
+			   onselect='#{component.attributes["onselect"]}'
+			   onblur='#{component.attributes["oninputblur"]}'
+			   onfocus='#{component.attributes["oninputfocus"]}'
+			   onclick='#{component.attributes["oninputclick"]}'
+			   ondblclick='#{component.attributes["oninputdblclick"]}'
+			   onkeydown='#{component.attributes["oninputkeydown"]}'
+			   onkeypress='#{component.attributes["oninputkeypress"]}'
+			   onkeyup='#{component.attributes["oninputkeyup"]}'
+			   onmousedown='#{component.attributes["oninputmousedown"]}'
+			   onmousemove='#{component.attributes["oninputmousemove"]}'
+			   onmouseout='#{component.attributes["oninputmouseout"]}'
+			   onmouseover='#{component.attributes["oninputmouseover"]}'
+			   onmouseup='#{component.attributes["oninputmouseup"]}'
+			   
+			   />
+		<input id="#{clientId}inselArrow" readonly="readonly" type="text" value="" class="rich-inplace-select-arrow" style='display:none;'/>
+		<input id='#{clientId}inplaceValue' name='#{clientId}' type='hidden' value='#{fieldValue}'
+			   onchange='#{component.attributes["onchange"]}'>
+		</input>
+	<div id="#{clientId}bar" class="rich-inplace-select-control-set" style="display:none;">
+		<jsp:scriptlet>
+				<![CDATA[
+				 if (isControlsFacetExists(context, component)) {
+				     encodeControlsFacet(context, component);
+				 } else {
+				]]>
+			</jsp:scriptlet>
+		<div class="rich-inplace-select-shadow" id="#{clientId}btns_shadow">
+			<table cellpadding="0" cellspacing="0" border="0" class="rich-inplace-select-shadow-size">
+				<tr>
+					<td class="rich-inplace-select-shadow-tl">
+						<img src="#{spacer}" width="10" height="1" alt="" style="border:0"/><br/>
+					</td>
+					<td class="rich-inplace-select-shadow-tr">
+						<img src="#{spacer}" width="1" height="10" alt="" style="border:0"/><br/>
+					</td>
+				</tr>
+				<tr>
+					<td class="rich-inplace-select-shadow-bl">
+						<img src="#{spacer}" width="1" height="10" alt="" style="border:0"/><br/>
+					</td>
+					<td class="rich-inplace-select-shadow-br">
+						<img src="#{spacer}" width="10" height="1" alt="" style="border:0"/><br/>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="#{clientId}buttons" style="position : relative; width: 1px">		
+			<input id="#{clientId}ok" type="image" src="#{saveIcon}" 
+				   class="rich-inplace-select-control #{controlClass}" 
+				   onmousedown="this.className='rich-inplace-select-control-press #{controlPressedClass}'" 
+				   onmouseout="this.className='rich-inplace-select-control #{controlClass}'" 
+				   onmouseup="this.className='rich-inplace-select-control #{controlClass}'"
+				   onmouseover="this.className='rich-inplace-select-control #{controlHoverClass}'"/>
+			<input id="#{clientId}cancel" type="image" src="#{cancelIcon}" 
+				   class="rich-inplace-select-control #{controlClass}" 
+				   onmousedown="this.className='rich-inplace-select-control-press #{controlPressedClass}'" 
+				   onmouseout="this.className='rich-inplace-select-control #{controlClass}'" 
+				   onmouseup="this.className='rich-inplace-select-control #{controlClass}'"
+				   onmouseover="this.className='rich-inplace-select-control #{controlHoverClass}'"
+				   />
+		</div>
+		
+		<jsp:scriptlet>
+				<![CDATA[
+				 }
+				 ]]>
+		</jsp:scriptlet>
+	</div>
+		<div id="#{clientId}listParent" class="rich-inplace-select-width-list" style="display: none; position : absolute; height : 100px; left : 0px; top: 13px; z-index:1000;">
+			<div class="rich-inplace-select-list-shadow">
+				<!-- TODO welcome magic numbers! -->
+				<table id="#{clientId}shadow" cellpadding="0" cellspacing="0" border="0" width="257" height="109">
+					<tr>
+						<td class="rich-inplace-select-shadow-tl">
+							<img src="#{spacer}" width="10" height="1" alt="" style="border:0"/><br/>
+						</td>
+						<td class="rich-inplace-select-shadow-tr">
+							<img src="#{spacer}" width="1" height="10" alt="" style="border:0"/><br/>
+						</td>
+					</tr>
+					<tr>
+						<td class="rich-inplace-select-shadow-bl">
+							<img src="#{spacer}" width="1" height="10" alt="" style="border:0"/><br/>
+						</td>
+						<td class="rich-inplace-select-shadow-br">
+							<img src="#{spacer}" width="10" height="10" alt="" style="border:0"/><br/>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="#{clientId}listPosition" class="rich-inplace-select-list-position">
+				<div id="#{clientId}listDecoration" class="rich-inplace-select-list-decoration">
+					<div id="#{clientId}list" class="rich-inplace-select-list-scroll">
+						<jsp:scriptlet>
+						<![CDATA[
+						encodeItems(context, component, preparedItems);
+						]]>
+						</jsp:scriptlet>
+					</div>
+				</div>
+			</div>
+			
+			
+			<script type="text/javascript">
+				#{this:encodeScriptAttributes(context, component)};
+								
+				var inplaceSelectUserStyles = {
+					
+					combolist: {
+						list: { classes: {active:'#{listClass}'}},
+						item: { normal:'#{itemClass}', selected:'#{itemSelectedClass}'}
+					},
+					
+					component: {
+						changed :{normal:'#{changedClass}' ,hovered:'#{component.attributes["changedHoverClass"]}'}, 
+						view : {normal:'#{viewClass}',hovered:'#{component.attributes["viewHoverClass"]}'}, 
+						editable:'#{editClass}'
+					}
+				};
+				
+				var inplaceSelectCommonStyles = new Richfaces.InplaceSelectStyles();
+				
+				new Richfaces.InplaceSelect(new Richfaces.InplaceSelectList('#{clientId}list', '#{clientId}listParent', true,
+															inplaceSelectUserStyles.combolist, inplaceSelectCommonStyles.getCommonStyles().combolist, '#{component.attributes["listWidth"]}', '#{component.attributes["listHeight"]}',  #{this:encodeJS(preparedItems)}, null, 
+															'#{clientId}inplaceTmpValue', '#{clientId}shadow', 0, 0, #{encodedFieldValue}), 
+															'#{clientId}', '#{clientId}inplaceTmpValue', 
+															'#{clientId}inplaceValue', '#{clientId}tabber',
+															attributes,
+															{oneditactivation : #{this:getAsEventHandler(context, component, "oneditactivation")}, 
+															onviewactivation : #{this:getAsEventHandler(context, component, "onviewactivation")}, 
+															oneditactivated : #{this:getAsEventHandler(context, component, "oneditactivated")}, 
+															onviewactivated : #{this:getAsEventHandler(context, component, "onviewactivated")},
+															onchange : #{this:getAsEventHandler(context, component, "onchange")}}, 
+															inplaceSelectUserStyles,  inplaceSelectCommonStyles, 
+															['#{clientId}bar', '#{clientId}ok', '#{clientId}cancel', '#{clientId}buttons', '#{clientId}btns_shadow'], '#{clientId}inselArrow');
+			</script>
+	</div>
+		
+<jsp:scriptlet>
+	if(isEmptyDefaultLabel(convertToString(variables.getVariable("fieldLabel")))) {
+		writer.write(convertToString(variables.getVariable("fieldLabel")));
+	} else {
+		writer.writeText(convertToString(variables.getVariable("fieldLabel")),null);
+	}	
+	
+	if (!layout.equals("inline")) {	
+</jsp:scriptlet>
+		</div>
+<jsp:scriptlet>
+	} else {	
+</jsp:scriptlet>
+		</span>
+<jsp:scriptlet>
+	} 	
+</jsp:scriptlet>
+
+</f:root>	 

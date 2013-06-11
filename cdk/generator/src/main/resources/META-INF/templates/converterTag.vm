@@ -1,0 +1,95 @@
+/**
+ * GENERATED FILE - DO NOT EDIT
+ *
+ */
+package ${tag.packageName};
+
+#foreach($import in $imports)
+import $import ;
+#end
+import javax.faces.component.UIComponent;
+import javax.faces.convert.Converter;
+import javax.faces.webapp.UIComponentTag;
+import javax.faces.context.FacesContext;
+import javax.faces.el.ValueBinding;
+import org.apache.commons.beanutils.ConvertUtils;
+import javax.servlet.jsp.JspException;
+import ${converter.classname};
+
+public class $tag.simpleClassName extends $tag.superclass 
+{
+
+// Fields
+#foreach( $prop in $converter.properties )
+#if( !$prop.existintag )
+  /*
+   * $prop.name
+   * ${prop.xmlEncodedDescription}
+   */
+  private String  _$prop.name = null;
+
+#end	 
+#end
+// Setters
+#foreach( $prop in $converter.properties )
+#if( !$prop.existintag )
+  /*
+   * $prop.description
+   * Setter for $prop.name
+   * @param $prop.name - new value
+   */
+  public void ${prop.setterName}(String  __${prop.name}) 
+  {
+    this._${prop.name} = __${prop.name};
+  }
+	 
+#end
+#if( $prop.alias)
+  /*
+   * ${prop.xmlEncodedDescription}
+   * Setter for alias of $prop.name as $prop.alias
+   * @param $prop.name - new value
+   */
+  public void set${prop.upperFirstChar($prop.alias)}(String  __${prop.alias}) 
+  {
+    this.${prop.setterName}(__${prop.alias});
+  }
+#end
+#end
+
+  protected Converter createConverter() throws JspException 
+  {
+    ${converter.simpleClassName} converter = (${converter.simpleClassName}) FacesContext.getCurrentInstance().getApplication().createConverter("${converter.id}");
+    _setProperties(converter);
+    return converter;
+  }
+
+  // Support method to wire in attributes
+  private void _setProperties(${converter.simpleClassName} converter) throws JspException 
+  {
+    FacesContext facesContext = FacesContext.getCurrentInstance();
+#foreach( $prop in $converter.properties )
+#if( !$prop.existintag )
+    if (_${prop.name} != null) 
+    {
+#if( ${prop.el} )
+      if (UIComponentTag.isValueReference(_${prop.name})) 
+      {
+        ValueBinding vb = facesContext.getApplication().createValueBinding(_${prop.name});
+        converter.${prop.setterName}((${prop.simpleClassName}) vb.getValue(facesContext));
+      }
+#if (!${prop.elonly})
+      else
+      {
+        converter.${prop.setterName}((${prop.simpleClassName}) ConvertUtils.convert(_${prop.name}, ${prop.simpleClassName}.class));
+      }
+#end
+    }
+#else
+    converter.${prop.setterName}((${prop.simpleClassName}) ConvertUtils.convert(_${prop.name}, ${prop.simpleClassName}.class));
+#end
+#end
+#end
+  }
+
+}

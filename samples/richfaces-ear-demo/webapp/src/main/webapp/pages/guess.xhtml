@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<head>
+<title>Guess number demo</title>
+</head>
+<body>
+<f:view>
+	<h:form id="form" >
+	  <rich:panel>
+	    <f:facet name="header" >
+	      <h:outputText value="Guess number demo application"/>
+	    </f:facet>
+	    	Guess number from <h:outputText value="#{guessView.min}"/> to <h:outputText value="#{guessView.max}"/>
+	    	<h:commandButton value="Start" action="#{guessView.start}" />
+	  </rich:panel>
+	</h:form>
+	<a4j:log hotkey="D" />
+</f:view>
+</body>
+</html>

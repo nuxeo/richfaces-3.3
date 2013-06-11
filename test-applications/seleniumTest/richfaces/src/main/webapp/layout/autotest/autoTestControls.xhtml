@@ -1,0 +1,97 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:form id="autoTestControlForm">
+			<table>
+				<tr>
+					<td>ReRender:</td>
+					<td>
+						<h:inputText id="_auto_reRender" value="#{autoTestBean.reRender}"></h:inputText>
+					</td>
+				</tr>
+				<tr>
+					<td>Oncomplete:</td>
+					<td>
+						<h:inputText id="_auto_oncomplete" value="#{autoTestBean.oncomplete}"></h:inputText>
+					</td>
+				</tr>
+				<tr>
+					<td>ValidatorId:</td>
+					<td>
+						<h:inputText id="_auto_validatorId" value="#{autoTestBean.validatorId}"></h:inputText>
+					</td>
+				</tr>
+				<tr>
+					<td>Rendered:</td>
+					<td>
+						<h:selectBooleanCheckbox id="_auto_rendered" value="#{autoTestBean.rendered}"></h:selectBooleanCheckbox>
+					</td>
+				</tr>
+				<tr>
+					<td>AjaxSingle:</td>
+					<td>
+						<h:selectBooleanCheckbox id="_auto_ajaxSingle" value="#{autoTestBean.ajaxSingle}"></h:selectBooleanCheckbox>
+					</td>
+				</tr>
+				<tr>
+					<td>Immediate:</td>
+					<td>
+						<h:selectBooleanCheckbox id="_auto_immediate" value="#{autoTestBean.immediate}"></h:selectBooleanCheckbox>
+					</td>
+				</tr>
+				<tr>
+					<td>BypassUpdate:</td>
+					<td>
+						<h:selectBooleanCheckbox id="_auto_bypassUpdate" value="#{autoTestBean.bypassUpdate}"></h:selectBooleanCheckbox>
+					</td>
+				</tr>
+				<tr>
+					<td>LimitToList:</td>
+					<td>
+						<h:selectBooleanCheckbox id="_auto_limitToList" value="#{autoTestBean.limitToList}"></h:selectBooleanCheckbox>
+					</td>
+				</tr>
+				<tr>
+					<td>Converter:</td>
+					<td>
+						<h:selectBooleanCheckbox id="_auto_converter" value="#{autoTestBean.converterSet}"></h:selectBooleanCheckbox>
+					</td>
+				</tr>
+				<tr>
+					<td>Test process:</td>
+					<td>
+						<h:selectBooleanCheckbox id="_auto_process" value="#{autoTestBean.processSet}"></h:selectBooleanCheckbox>
+					</td>
+				</tr>
+				<tr>
+					<td>Process ext valid. fail:</td>
+					<td>
+						<h:selectBooleanCheckbox id="_auto_processExtValid" value="#{autoTestBean.processExternalValidationSet}"></h:selectBooleanCheckbox>
+					</td>
+				</tr>
+				<tr>
+					<td>Required:</td>
+					<td>
+						<h:selectBooleanCheckbox id="_auto_required" value="#{autoTestBean.required}"></h:selectBooleanCheckbox>
+					</td>
+				</tr>
+				<tr>
+					<td>Disabled:</td>
+					<td>
+						<h:selectBooleanCheckbox id="_auto_disabled" value="#{autoTestBean.disabled}"></h:selectBooleanCheckbox>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h:commandButton id="_auto_load" actionListener="#{templateBean.reset}" action="#{autoTestBean.load}" value="Load"></h:commandButton> 
+					</td>
+					<td>
+						<a4j:commandButton id="_auto_ajax_reset" value="Ajax reset" ajaxSingle="true" style="display: none;" action="#{autoTestBean.reset}" />
+					</td>
+				</tr>
+			</table>
+	</h:form>
+</html>

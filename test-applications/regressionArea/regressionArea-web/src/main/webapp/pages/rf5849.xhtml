@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="/layout/layout.xhtml">
+	<ui:define name="style">
+
+	</ui:define>
+	<ui:define name="template">
+		<h:form id="form">
+			<h:inputText id="text" />
+			
+			<script type="text/javascript">
+				var counter = 0;
+			</script>
+			
+			<a4j:status startText="...start..." stopText="stop" id="status" forceId="true"
+				onstart="#{rich:element('text')}.value = 'undefined'; counter++;" 
+				onstop="#{rich:element('text')}.value = (counter + '')" />
+			
+			<br />
+
+			<a4j:jsFunction timeout="10" action="#{rf5849.test}" status="status"
+				name="kill" eventsQueue="a" id="link0" />
+			<br />
+
+			<a4j:jsFunction timeout="10" action="#{rf5849.test}" status="status"
+				name="kill2" eventsQueue="a" id="link1" oncomplete="#{rich:element('text')}" />
+			<br />
+
+			<a4j:jsFunction name="normal" action="#{rf5849.test}" status="status"
+				eventsQueue="a" id="link2" />
+
+			<a id="execute" onclick="kill(); kill2(); normal(); return false;" href="#">execute</a>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

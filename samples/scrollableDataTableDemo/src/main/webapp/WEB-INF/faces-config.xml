@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config>
+	
+	<managed-bean>
+		<managed-bean-name>priority_blocker</managed-bean-name>
+		<managed-bean-class>org.richfaces.demo.datagrid.model.Priority</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>id</property-name>
+			<value>1</value>
+		</managed-property>
+		<managed-property>
+			<property-name>name</property-name>
+			<value>Showstopper</value>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>priority_critical</managed-bean-name>
+		<managed-bean-class>org.richfaces.demo.datagrid.model.Priority</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>id</property-name>
+			<value>2</value>
+		</managed-property>
+		<managed-property>
+			<property-name>name</property-name>
+			<value>Critical</value>
+		</managed-property>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>priority_major</managed-bean-name>
+		<managed-bean-class>org.richfaces.demo.datagrid.model.Priority</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>id</property-name>
+			<value>3</value>
+		</managed-property>
+		<managed-property>
+			<property-name>name</property-name>
+			<value>Major</value>
+		</managed-property>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>priority_minor</managed-bean-name>
+		<managed-bean-class>org.richfaces.demo.datagrid.model.Priority</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>id</property-name>
+			<value>4</value>
+		</managed-property>
+		<managed-property>
+			<property-name>name</property-name>
+			<value>Minor</value>
+		</managed-property>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>priority_cosmetic</managed-bean-name>
+		<managed-bean-class>org.richfaces.demo.datagrid.model.Priority</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>id</property-name>
+			<value>5</value>
+		</managed-property>
+		<managed-property>
+			<property-name>name</property-name>
+			<value>Cosmetics</value>
+		</managed-property>
+	</managed-bean>
+ 
+	<managed-bean>
+		<managed-bean-name>status_open</managed-bean-name>
+		<managed-bean-class>org.richfaces.demo.datagrid.model.Status</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>id</property-name>
+			<value>1</value>
+		</managed-property>
+		<managed-property>
+			<property-name>name</property-name>
+			<value>Open</value>
+		</managed-property>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>status_inprogress</managed-bean-name>
+		<managed-bean-class>org.richfaces.demo.datagrid.model.Status</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>id</property-name>
+			<value>3</value>
+		</managed-property>
+		<managed-property>
+			<property-name>name</property-name>
+			<value>In Progress</value>
+		</managed-property>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>status_resolved</managed-bean-name>
+		<managed-bean-class>org.richfaces.demo.datagrid.model.Status</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>id</property-name>
+			<value>5</value>
+		</managed-property>
+		<managed-property>
+			<property-name>name</property-name>
+			<value>Resolved</value>
+		</managed-property>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>status_reopened</managed-bean-name>
+		<managed-bean-class>org.richfaces.demo.datagrid.model.Status</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>id</property-name>
+			<value>4</value>
+		</managed-property>
+		<managed-property>
+			<property-name>name</property-name>
+			<value>Reopened</value>
+		</managed-property>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>status_closed</managed-bean-name>
+		<managed-bean-class>org.richfaces.demo.datagrid.model.Status</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>id</property-name>
+			<value>6</value>
+		</managed-property>
+		<managed-property>
+			<property-name>name</property-name>
+			<value>Closed</value>
+		</managed-property>
+	</managed-bean>
+	
+	
+	<managed-bean>
+		<managed-bean-name>imageStore</managed-bean-name>
+  		<managed-bean-class>org.richfaces.demo.datagrid.service.ImageStore</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+		   <property-name>images</property-name>
+		   <property-class>java.util.HashMap</property-class>
+		   <map-entries>
+				<map-entry>
+				     <key>#{priority_blocker.name}</key>
+				     <value>/images/priority_blocker.gif</value>
+			    </map-entry>
+			    <map-entry>
+				     <key>#{priority_critical.name}</key>
+				     <value>/images/priority_critical.gif</value>
+			    </map-entry>
+			    <map-entry>
+				     <key>#{priority_major.name}</key>
+				     <value>/images/priority_major.gif</value>
+			    </map-entry>
+			    <map-entry>
+				     <key>#{priority_minor.name}</key>
+				     <value>/images/priority_minor.gif</value>
+			    </map-entry>
+			    <map-entry>
+				     <key>#{priority_cosmetic.name}</key>
+				     <value>/images/priority_trivial.gif</value>
+			    </map-entry>
+			    <map-entry>
+				     <key>#{status_open.name}</key>
+				     <value>/images/status_open.gif</value>
+			    </map-entry>
+			    <map-entry>
+			    	<key>#{status_inprogress.name}</key>
+				    <value>/images/status_inprogress.gif</value>
+				</map-entry>
+			    <map-entry>
+    				 <key>#{status_closed.name}</key>
+				     <value>/images/status_closed.gif</value>
+			    </map-entry>
+			    <map-entry>
+				     <key>#{status_reopened.name}</key>
+				     <value>/images/status_reopened.gif</value>
+			    </map-entry>
+			    <map-entry>
+				     <key>#{status_resolved.name}</key>
+				     <value>/images/status_resolved.gif</value>
+			    </map-entry>
+		   </map-entries>
+		</managed-property>
+	</managed-bean>
+	
+	
+	<!--managed-bean>
+ 		<managed-bean-name>jiraService</managed-bean-name>
+ 		<managed-bean-class>org.richfaces.demo.datagrid.service.JiraService</managed-bean-class>
+ 		<managed-bean-scope>application</managed-bean-scope>
+	 </managed-bean-->
+	
+	<managed-bean>
+	 	<managed-bean-name>dataModel2</managed-bean-name>
+ 		<managed-bean-class>org.richfaces.demo.datagrid.bean.ChannelDataModel2</managed-bean-class>
+	 	<managed-bean-scope>request</managed-bean-scope>
+ 		<managed-property>
+ 			<property-name>wrappedData</property-name>
+			<value>#{jiraService.channel}</value> 		
+	 	</managed-property>
+	</managed-bean>
+
+ 	<managed-bean>
+ 		<managed-bean-name>jiraUserConverter</managed-bean-name>
+ 		<managed-bean-class>org.richfaces.demo.converters.JiraUserConverter</managed-bean-class>
+ 		<managed-bean-scope>session</managed-bean-scope>
+ 		<managed-property>
+ 			<property-name>channel</property-name>
+ 			<value>#{jiraService.channel}</value>
+ 		</managed-property>
+ 	</managed-bean>
+ 	
+ 	<managed-bean>
+ 		<managed-bean-name>StatusConverter</managed-bean-name>
+ 		<managed-bean-class>org.richfaces.demo.converters.StatusConverter</managed-bean-class>
+ 		<managed-bean-scope>session</managed-bean-scope>
+ 		<managed-property>
+ 			<property-name>statusList</property-name>
+ 			<list-entries>
+ 				<value>#{status_open}</value>
+ 				<value>#{status_inprogress}</value>
+ 				<value>#{status_resolved}</value>
+ 				<value>#{status_reopened}</value>
+ 				<value>#{status_closed}</value>
+ 			</list-entries>
+ 		</managed-property>
+ 	</managed-bean>
+ 	
+ 		<managed-bean>
+ 		<managed-bean-name>PriorityConverter</managed-bean-name>
+ 		<managed-bean-class>org.richfaces.demo.converters.PriorityConverter</managed-bean-class>
+ 		<managed-bean-scope>session</managed-bean-scope>
+ 		<managed-property>
+ 			<property-name>prioritiesList</property-name>
+ 			<list-entries>
+ 				<value>#{priority_blocker}</value>
+ 				<value>#{priority_critical}</value>
+ 				<value>#{priority_major}</value>
+ 				<value>#{priority_minor}</value>
+ 				<value>#{priority_cosmetic}</value>
+			</list-entries>
+ 		</managed-property>
+ 	</managed-bean>
+ 	
+	<managed-bean>
+	 	<managed-bean-name>modelBuilder</managed-bean-name>
+ 		<managed-bean-class>org.richfaces.demo.datagrid.bean.TestGridDataModelBuilder</managed-bean-class>
+	 	<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+        <managed-bean-name>skinBean</managed-bean-name>
+        <managed-bean-class>org.richfaces.SkinBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+ 	
+<lifecycle>
+		<phase-listener>org.richfaces.demo.benchmark.PhaseDemarcationNotifier</phase-listener>
+	</lifecycle> 	
+
+ <!-- 
+ 	 
+ 	<converter>
+ 		<description>converter for issues status</description>
+ 		<converter-id>status_converter</converter-id>
+ 		<converter-class>org.richfaces.demo.converters.StatusConverter</converter-class>
+ 	</converter>
+ 	 	<converter>
+ 		<description>converter for issues priority</description>
+ 		<converter-id>priority_converter</converter-id>
+ 		<converter-class>org.richfaces.demo.converters.PriorityConverter</converter-class>
+ 	</converter>
+  -->		
+ 	
+</faces-config>

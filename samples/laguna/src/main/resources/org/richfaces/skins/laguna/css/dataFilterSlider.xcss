@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+	<u:selector name=".rich-dataFilterSlider-range">
+        <u:style name="border-width" value="1px" />
+        <u:style name="border-style" value="solid" />
+        <u:style name="border-color" skin="newBorder" />
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle " />
+                <f:attribute name="gradientHeight" value="10px" />
+                <f:attribute name="gradientType" value="plain" />
+                <f:attribute name="baseColor" skin="generalBackgroundColor" />
+                <f:attribute name="gradientColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-dataFilterSlider-trailer">
+        <u:style name="border" value="0px" />
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle " />
+                <f:attribute name="gradientHeight" value="10px" />
+                <f:attribute name="gradientType" value="plain" />
+                <f:attribute name="baseColor" skin="generalBackgroundColor" />
+                <f:attribute name="gradientColor" skin="tableSubfooterBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-dataFilterSlider-input-field">
+	</u:selector>
+	
+	<u:selector name=".rich-dataFilterSlider-track">
+	</u:selector>
+	
+	<u:selector name=".rich-dataFilterSlider-range-decor">
+        <u:style name="border" value="0px" />
+	</u:selector>
+	
+	<u:selector name=".rich-dataFilterSlider-container">
+	</u:selector>
+	
+	<u:selector name=".rich-dataFilterSlider-handle">
+	</u:selector>
+		
+</f:template>

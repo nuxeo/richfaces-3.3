@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+<components>
+  <component>
+    <name>org.richfaces.ToolBar</name>
+    <family>org.richfaces.ToolBar</family>    
+    <classname>org.richfaces.component.html.HtmlToolBar</classname>
+    <superclass>org.richfaces.component.UIToolBar</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlToolBarComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+    <description>
+		<![CDATA[A horizontal bar with Action items on it that accepts any JSF components as children.]]>
+	</description>
+	<facet>
+	   <name>itemSeparator</name>
+	   <description>Defines the custom separator. Related attribute is "itemSeparator"</description>
+	</facet>	
+    <renderer generate="true" override="true">
+      <name>org.richfaces.ToolBarRenderer</name>
+      <template>toolBar.jspx</template>
+    </renderer>
+    
+    <tag>
+      <name>toolBar</name>
+      <classname>org.richfaces.taglib.ToolBarTag</classname>
+      <superclass>org.ajax4jsf.webapp.taglib.HtmlComponentTagBase</superclass>
+      <test/>
+	  <description>
+	  	<![CDATA[A horizontal bar with items on it. 
+		If you want to use it as a standard top tool bar, point to each item with a ch:menu "for" attribute
+		to link the appropriate drop-down menu with the item id on a tool bar.
+		"toolBar" accepts any JSF components as children. They appear from left to right 
+		in the definition order. The children are separated from each other basing on the value of the
+		"itemSeparator" attribute. If you want to put the items along the right side for a menu bar,
+		you can use the "toolBarGroup" component as a wrapper and define the "location" attribute
+		there. The items inside the group can have their own separator. See the "toolBarGroup" component description for details.]]>
+	  </description>
+    </tag>
+    
+    <property>
+    	<name>width</name>
+    	<classname>java.lang.String</classname>
+    	<description>
+    		<![CDATA[A width of a bar that can be defined in pixels or as percentage. Default value is &quot;100%&quot;.]]>
+    	</description>
+    	<defaultvalue>
+    		<![CDATA["100%"]]>
+    	</defaultvalue>
+    </property>
+    <property>
+    	<name>height</name>
+    	<classname>java.lang.String</classname>
+    	<description>
+    		<![CDATA[A height of a bar in pixels. If a height is not defined,
+    		a bar height depends of the "headerFontSize" skin parameter.]]>
+    	</description>
+    </property>
+    <property>
+    	<name>itemSeparator</name>
+    	<classname>java.lang.String</classname>
+    	<description>
+    		<![CDATA[A separator between items on a bar. Possible values
+    		are "none", "line", "square", "disc" and "grid". Default value is "none".]]>
+    	</description>
+    	<defaultvalue>
+    		<![CDATA["none"]]>
+    	</defaultvalue>
+    </property>
+    <property>
+    	<name>separatorClass</name>
+    	<classname>java.lang.String</classname>
+    	<description>
+    		<![CDATA[A CSS class to be applied to tool bar separators.]]>
+    	</description>
+    </property>
+    <property>
+    	<name>contentClass</name>
+    	<classname>java.lang.String</classname>
+    	<description>
+    		<![CDATA[A CSS style is to be applied to each element of tool bar content. 
+    		Use this style, for example, to setup parameters of the font.]]>
+    	</description>
+    </property>
+    <property>
+    	<name>contentStyle</name>
+    	<classname>java.lang.String</classname>
+    	<description>
+    		<![CDATA[A CSS style is to be applied to each element of tool bar content.]]>
+    	</description>
+    </property>
+    
+    &ui_component_attributes;
+    &html_style_attributes;  
+      
+    <property>
+    	<name>onitemkeydown</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a key is pressed down on an item</description>
+    </property>
+    <property>
+    	<name>onitemkeypress</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a key is pressed and released on an item</description>
+    </property>
+    <property>
+    	<name>onitemkeyup</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a key is released on an item</description>
+    </property>
+    <property>
+    	<name>onitemclick</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a pointer button is clicked on an item</description>
+    </property>
+    <property>
+    	<name>onitemdblclick</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a pointer button is double-clicked on an item</description>
+    </property>
+    <property>
+    	<name>onitemmousedown</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: script expression; a pointer button is pressed down on an item</description>
+    </property>
+    <property>
+    	<name>onitemmousemove</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a pointer is moved on an item</description>
+    </property>
+    <property>
+    	<name>onitemmouseover</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a pointer is moved onto an item</description>
+    </property>
+    <property>
+    	<name>onitemmouseout</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a pointer is moved away from an item</description>
+    </property>
+    <property>
+    	<name>onitemmouseup</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: script expression; a pointer button is released on an item</description>
+    </property>
+    &html_events; 
+  </component>
+  
+  <component>
+    <name>org.richfaces.ToolBarGroup</name>
+    <family>org.richfaces.ToolBar</family>
+    <superclass>org.richfaces.component.UIToolBarGroup</superclass>
+    <classname>org.richfaces.component.html.HtmlToolBarGroup</classname>
+		<test>
+			<classname>org.richfaces.component.html.HtmlToolBarGroupComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+    <description>
+		<![CDATA[The ToolBarGroup component description.]]>
+	</description> 
+	   
+    <renderer>
+      <name>org.richfaces.ToolBarGroupRenderer</name>
+      <classname>org.richfaces.renderkit.html.ToolBarGroupRenderer</classname>
+      <!-- template>toolBarGroup.jspx</template-->
+    </renderer>    
+    <description>
+    	<![CDATA[A group of items inside a tool bar. The group item
+	    is separated basing on the "itemSeparator" attribute. Location of a group
+	    on a tool bar is set up with the "location" attribute.]]>
+	</description>
+    <tag>
+      <name>toolBarGroup</name>
+      <classname>org.richfaces.taglib.ToolBarGroupTag</classname>
+      <superclass>org.ajax4jsf.webapp.taglib.UIComponentTagBase</superclass>
+      <test/>
+    </tag>
+    
+    <property>
+    	<name>itemSeparator</name>
+    	<classname>java.lang.String</classname>
+    	<description>
+    		<![CDATA[A separator for the items in a group. Possible
+	    	values are "none", "line", "square", "disc" and "grid" Default value is "none".]]>
+    	</description>
+    	<defaultvalue>
+    		<![CDATA["none"]]>
+    	</defaultvalue>    	
+    </property>
+    <property>
+    	<name>separatorClass</name>
+    	<classname>java.lang.String</classname>
+    	<description>
+    		<![CDATA[A CSS class to be applied to tool bar group separators.]]>
+    	</description>    	
+    </property>
+    <property>
+    	<name>location</name>
+    	<classname>java.lang.String</classname>
+    	<description>
+    		<![CDATA[A location of a group on a tool bar. Possible values are "left" and "right". Default value is "left". ]]>
+    	</description>
+    	<defaultvalue>
+    		<![CDATA["left"]]>
+    	</defaultvalue>    	
+    </property>
+        
+	&ui_component_attributes;
+    &html_style_attributes;
+    
+    <property>
+    	<name>onitemkeydown</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a key is pressed down on an item</description>
+    </property>
+    <property>
+    	<name>onitemkeypress</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a key is pressed and released on an item</description>
+    </property>
+    <property>
+    	<name>onitemkeyup</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a key is released on an item</description>
+    </property>
+    <property>
+    	<name>onitemclick</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a pointer button is clicked on an item</description>
+    </property>
+    <property>
+    	<name>onitemdblclick</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a pointer button is double-clicked on an item</description>
+    </property>
+    <property>
+    	<name>onitemmousedown</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: script expression; a pointer button is pressed down on an item</description>
+    </property>
+    <property>
+    	<name>onitemmousemove</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a pointer is moved on an item</description>
+    </property>
+    <property>
+    	<name>onitemmouseover</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a pointer is moved onto an item</description>
+    </property>
+    <property>
+    	<name>onitemmouseout</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: a script expression; a pointer is moved away from an item</description>
+    </property>
+    <property>
+    	<name>onitemmouseup</name>
+    	<classname>java.lang.String</classname>
+    	<description>HTML: script expression; a pointer button is released on an item</description>
+    </property>
+  </component>  
+</components>

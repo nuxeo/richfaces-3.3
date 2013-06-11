@@ -1,0 +1,64 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" id="messageSubviewID">
+		<rich:panel>
+			<h:outputText value="Rich Message Demo:" />
+
+			<f:verbatim>			
+				<br />
+			</f:verbatim>
+
+			<rich:message for="#{message.msg}" tooltip="#{message.tooltip}" showDetail="#{message.showDetail}"
+				showSummary="#{message.showSummary}" passedLabel="No Error" errorLabelClass="errorLabel" fatalLabelClass="warnLabel"
+				infoLabelClass="infoLabel" warnLabelClass="fatalLabel" title="#{message.title}" id="messageID" binding="#{message.htmlMessage}">
+
+
+				<f:facet name="errorMarker">
+					<h:graphicImage url="/pics/error.gif" />
+				</f:facet>
+
+				<f:facet name="fatalMarker">
+					<h:graphicImage url="/pics/fatal.gif" />
+				</f:facet>
+
+				<f:facet name="infoMarker">
+					<h:graphicImage url="/pics/info.gif" />
+				</f:facet>
+
+				<f:facet name="warnMarker">
+					<h:graphicImage url="/pics/warn.gif" />
+				</f:facet>
+
+				<f:facet name="passedMarker">
+					<h:graphicImage url="/pics/passed.gif" />
+				</f:facet>
+			</rich:message>
+
+			<rich:separator></rich:separator>
+
+			<h:outputText value="Rich Messages Demo" />
+			<rich:messages layout="#{message.layout}" tooltip="#{message.tooltip}" showDetail="#{message.showDetail}"
+				showSummary="#{message.showSummary}" passedLabel="No Error" errorLabelClass="errorLabel" fatalLabelClass="warnLabel"
+				infoLabelClass="infoLabel" warnLabelClass="fatalLabel" warnMarkerClass="markerWarn" infoMarkerClass="markerInfo"
+				errorMarkerClass="markerError" fatalMarkerClass="markerFatal" errorClass="errorClass" fatalClass="fatalClass"
+				warnClass="warnClass" infoClass="infoClass" labelClass="labelClass" styleClass="class" title="#{message.title}" 
+				id="messagesID" binding="#{message.htmlMessages}">
+				<f:facet name="errorMarker">
+					<h:graphicImage url="/pics/error.gif" />
+				</f:facet>
+				<f:facet name="fatalMarker">
+					<h:graphicImage url="/pics/fatal.gif" />
+				</f:facet>
+				<f:facet name="infoMarker">
+					<h:graphicImage url="/pics/info.gif" />
+				</f:facet>
+				<f:facet name="warnMarker">
+					<h:graphicImage url="/pics/warn.gif" />
+				</f:facet>
+				<f:facet name="passedMarker">
+					<h:graphicImage url="/pics/passed.gif" />
+				</f:facet>
+				<h:outputText value="#{messages.summary}">
+				</h:outputText>
+			</rich:messages>
+		</rich:panel>
+</f:subview>

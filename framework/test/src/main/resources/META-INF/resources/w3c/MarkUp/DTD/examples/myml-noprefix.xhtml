@@ -1,0 +1,16 @@
+<!DOCTYPE html SYSTEM "myml-1_0.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+      xmlns:myml="http://www.example.com/xmlns/myml" >
+<head>
+<title>An example using defaults</title>
+</head>
+<body>
+<p>This is content in the XHTML namespace</p>
+<myelement xhtml:id="myid" xhtml:class="localElement">
+  This is content in the SimpleML namespace.
+  <myotherelement />
+</myelement>
+<p><img src="missing" alt="Missing image" myml:myattr="value"/></p>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.ModalPanel</name>
+		<family>org.richfaces.ModalPanel</family>
+		<classname>org.richfaces.component.html.HtmlModalPanel</classname>
+		<superclass>org.richfaces.component.UIModalPanel</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlModalPanelComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:modalPanel> component implements a modal dialog window. 
+			All operations in the main application window are locked out while this window is active. Opening and closing the window is done through client JavaScript code.]]>
+		</description>
+		<facet>
+		   <name>header</name>
+		   <description>Define the header content</description>
+		</facet>
+		<facet>
+		   <name>controls</name>
+		   <description>Defines the control elements on the header</description>
+		</facet>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.ModalPanelRenderer</name>
+			<template>org/richfaces/htmlModalPanel.jspx</template>
+		</renderer>
+		<tag>
+			<name>modalPanel</name>
+			<classname>org.richfaces.taglib.ModalPanelTag</classname>
+			<superclass> org.ajax4jsf.webapp.taglib.HtmlComponentTagBase </superclass>
+			<test/>
+		</tag>
+		
+		&ui_component_attributes;
+		&ui_input_attributes;
+		&ui_output_attributes;
+		&html_style_attributes;
+		
+		<property>
+			<name>headerClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style(s) is/are to be applied to component header when this component
+				is rendered </description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>controlsClass</name>
+			<classname>java.lang.String</classname>
+			<description>CSS style(s) is/are to be applied to component controls when this component
+				is rendered </description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		<property>
+			<name>width</name>
+			<classname>int</classname>
+			<description> Attribute defines width of component. Default value is &quot;300&quot;.  </description>
+			<defaultvalue>-1</defaultvalue>
+		</property>
+		<property>
+			<name>height</name>
+			<classname>int</classname>
+			<description>Attribute defines height of component. Default value is &quot;200&quot;.  </description>
+			<defaultvalue>-1</defaultvalue>
+		</property>
+		<property>
+			<name>minWidth</name>
+			<classname>int</classname>
+			<description> Attribute defines min width of component. Default value is &quot;10&quot;.  If the value is less then 10, a &quot;IllegalArgumentException&quot; exception is thrown.</description>
+			<defaultvalue>-1</defaultvalue>
+		</property>
+		<property>
+			<name>minHeight</name>
+			<classname>int</classname>
+			<description> Attribute defines min height of component. Default value is &quot;10&quot;. If the value is less then 10, a &quot;IllegalArgumentException&quot; exception is thrown.  </description>
+			<defaultvalue>-1</defaultvalue>
+		</property>
+		<property>
+			<name>left</name>
+			<classname>java.lang.String</classname>
+			<description> Attribute defines X position of component left-top corner. Default value is &quot;auto&quot;.  </description>
+			<defaultvalue>"auto"</defaultvalue>
+		</property>
+		<property>
+			<name>top</name>
+			<classname>java.lang.String</classname>
+			<description> Attribute defines Y position of component left-top corner. Default value is &quot;auto&quot;. </description>
+			<defaultvalue>"auto"</defaultvalue>
+		</property>
+		<property>
+			<name>resizeable</name>
+			<classname>boolean</classname>
+			<description>If "true" there is possibility to change component size. Default value is &quot;true&quot;.</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>moveable</name>
+			<classname>boolean</classname>
+			<description>If "true" there is possibility to move component. Default value is &quot;true&quot;. </description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>zindex</name>
+			<classname>int</classname>
+			<description> Attribute is similar to the standard HTML attribute and can specify window. Default value is &quot;100&quot;.
+				placement relative to the content </description>
+			<defaultvalue>100</defaultvalue>
+		</property>
+		<property>
+			<name>shadowOpacity</name>
+			<classname>java.lang.String</classname>
+			<description> HTML CSS class attribute of element for pop-up suggestion content
+			</description>
+		</property>
+		
+		<property>
+			<name>shadowDepth</name>
+			<classname>java.lang.String</classname>
+			<description> Pop-up shadow depth for suggestion content </description>
+		</property>
+		<property>
+			<name>onshow</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when the modal panel is displayed</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		<property>
+			<name>onhide</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called after the modal panel is hidden</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		
+		<property>
+			<name>onmove</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called before the modal panel is moved</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		
+		<property>
+			<name>onbeforeshow</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called before the modal panel is opened</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		
+		<property>
+			<name>onbeforehide</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called before the modal panel is hidden</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+			
+		<property>
+			<name>onresize</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when the modal panel is resized</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		
+		<property>
+			<name>showWhenRendered</name>
+			<classname>boolean</classname>
+			<description> If "true" value for this attribute makes a modal panel opened as default. Default value is &quot;false&quot;</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		
+		<property>
+			<name>keepVisualState</name>
+			<classname>boolean</classname>
+			<description> If &quot;true&quot; modalPanel should save state after submission. Default value is &quot;false&quot;. </description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		
+		<property>
+			<name>visualOptions</name>
+			<classname>java.lang.Object</classname>
+			<description>Defines options that were specified on the client side</description>
+			<defaultvalue/>
+		</property>
+		<property>
+			<name>tridentIVEngineSelectBehavior</name>
+			<classname>java.lang.String</classname>
+			<description> How to handle HTML SELECT-based controls in IE 6? - "disable" - default,
+				handle as usual, use disabled="true" to hide SELECT controls - "hide" - use
+				visibility="hidden" to hide SELECT controls </description>
+			<defaultvalue><![CDATA["disable"]]></defaultvalue>
+		</property>
+		<property>
+			<name>autosized</name>
+			<classname>boolean</classname>
+			<description> If &quot;true&quot; modalPanel should be autosizeable. Default value is &quot;false&quot;. </description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		<property>
+			<name>overlapEmbedObjects</name>
+			<classname>boolean</classname>
+			<description> If &quot;true&quot; modalPanel creates iframe to overlap embed objects like PDF on a page. Default value is &quot;false&quot;. </description>
+			<defaultvalue>false</defaultvalue>
+		</property>		
+		<property hidden="true" >
+			<name>requiredMessage</name>
+			<classname>java.lang.String</classname>
+		</property>
+		<property hidden="true" >
+			<name>required</name>
+			<classname>boolean</classname>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		<property hidden="true" >
+			<name>immediate</name>
+			<classname>boolean</classname>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		<property hidden="true">
+			<name>validatorMessage</name>
+			<classname>java.lang.String</classname>
+		</property>
+		<property hidden="true">
+			<name>converterMessage</name>
+		</property>
+		<property hidden="true">
+			<name>localValueSet</name>
+			<description>localValueSet</description>
+		</property>
+		<property hidden="true">
+			<name>valid</name>
+			<description>valid</description>
+		</property>
+		<property hidden="true">
+			<name>valueChangeListener</name>
+			<description>valueChangeListener</description>
+		</property>
+		<property>
+			<name>onmaskclick</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a left mouse button is clicked outside the modal panel</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		<property>
+			<name>onmaskdblclick</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a left mouse button is double-clicked outside the modal panel</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		<property>
+			<name>onmaskcontextmenu</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a right mouse button is clicked outside the modal panel</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		<property>
+			<name>onmaskmouseup</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a mouse button is released outside the modal panel</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		<property>
+			<name>onmaskmousedown</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a mouse button is pressed down outside the modal panel</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		<property>
+			<name>onmaskmousemove</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a pointer is moved outside the modal panel</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		<property>
+			<name>onmaskmouseover</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a pointer is moved onto the modal panel</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		<property>
+			<name>onmaskmouseout</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a pointer is moved away from the modal panel</description>
+			<defaultvalue><![CDATA[""]]></defaultvalue>
+		</property>
+		<property>
+			<name>label</name>
+			<classname>java.lang.String</classname>
+			<description>A localized user presentable name for this component.</description>
+		</property>
+		<property exist="false" existintag="false" hidden="true" >
+			<name>converter</name>
+			<classname>javax.faces.convert.Converter</classname>
+		</property>
+		<property exist="false" existintag="false" hidden="true" >
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+		</property>
+		<property exist="false" existintag="false" hidden="true" >
+			<name>validator</name>
+			<classname>javax.faces.validator.Validator</classname>
+		</property>
+		<property>
+			<name>trimOverlayedElements</name>
+			<classname>boolean</classname>
+			<description>Defines whether to trim or not elements inside modalPanel. Default value is &quot;true&quot;</description>
+                        <defaultvalue>true</defaultvalue>
+		</property>
+		
+		<property>
+			<name>domElementAttachment</name>
+			<classname>java.lang.String</classname>
+			<description>Defines the DOM element, which stacking context will assimilate the modalPanel. Possible values: &quot;body&quot;, &quot;form&quot;, &quot;parent&quot;. Default value is &quot;body&quot;.</description>
+		</property>
+	</component>
+</components>

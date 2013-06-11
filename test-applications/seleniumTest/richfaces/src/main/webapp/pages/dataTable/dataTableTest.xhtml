@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+	
+	<h:form id="_controls">
+		<h:commandButton id="testACS" value="Test ASC" action="#{dataTableBean.testASCSorting}"></h:commandButton>
+		<h:commandButton id="testDESC" value="Test DESC" action="#{dataTableBean.testDESCSorting}"></h:commandButton>
+		<h:commandButton id="testFilterMethod" value="Test FilterMethod" action="#{dataTableBean.testFilterMethod}"></h:commandButton>
+		<h:commandButton id="testComponentState" value="Test ComponentState" action="#{dataTableBean.testComponentState}"></h:commandButton>
+		<h:commandButton id="testRowKeyConverter" value="Test RowKeyConverter" action="#{dataTableBean.testRowKeyConverter}"></h:commandButton>
+	</h:form>
+	
+	<h:form id="_form">
+			<h:outputText id="date" value="#{dataTableBean.date}"></h:outputText>
+		
+		<rich:dataTable value="#{dataTableBean.model}" 
+						id="table" 
+						var="var" 
+						sortPriority="#{dataTableBean.prioritList}"
+						ajaxKeys="#{dataTableBean.ajaxKeys}"
+						rowKeyVar="row"
+						stateVar="state"
+						componentState="#{dataTableBean.componentState}"
+						rowKeyConverter="#{dataTableBean.rowKeyConverter}">
+		<f:facet name="header">
+			<rich:columnGroup>
+				<rich:column colspan="3">
+					<h:outputText id="header1" value="Data Table header 1"></h:outputText>				
+				</rich:column>
+				<rich:column colspan="2" rowspan="2">
+					<h:outputText id="header2" value="Data Table header 2"></h:outputText>				
+				</rich:column>
+				<rich:column colspan="3" breakBefore="true">
+					<h:outputText id="header3" value="Data Table header 3"></h:outputText>
+				</rich:column>
+			</rich:columnGroup>	
+		</f:facet>
+		<f:facet name="footer">
+			<h:outputText id="footer" value="Data Table footer"></h:outputText>
+		</f:facet>
+				<rich:column id="col1" sortBy="#{var.v1}" sortOrder="#{dataTableBean.ordering}" selfSorted="false">
+					<f:facet name="header">
+						<h:outputText value="Column1"></h:outputText>
+					</f:facet>
+					<h:outputText id="v1" value="#{var.v1}" /><br/>
+					<h:outputText id="rowN" value="#{row}" />
+					<h:outputText style="display: none;" id="state" value="#{state}" />
+				</rich:column>
+				<rich:column  id="col2" sortBy="#{var.v2}">
+					<f:facet name="header">
+						<h:outputText value="Column2"></h:outputText>
+					</f:facet>
+					<h:outputText id="v2" value="#{var.v2}" /> 
+				</rich:column>
+				<rich:column   id="col3" comparator="#{dataTableBean.comparator}">
+					<f:facet name="header">
+						<h:outputText value="Column3"></h:outputText>
+					</f:facet>
+					<h:outputText id="v3" value="#{var.v3}" /> 
+				</rich:column>
+				<rich:column  id="col4"  filterBy="#{var.v4}" filterEvent="onclick">
+					<f:facet name="header">
+						<h:outputText value="Column4"></h:outputText>
+					</f:facet>
+					<h:outputText id="v4" value="#{var.v4}" /><br/>
+					<h:outputText id="date" value="#{dataTableBean.date}"></h:outputText>
+					<a4j:commandLink id="link" value="Link" reRender="date"></a4j:commandLink> 
+				</rich:column>
+				<rich:column   id="col5"  filterMethod="#{dataTableBean.filterMethod}">
+					<f:facet name="header">
+						<h:outputText value="Column5"></h:outputText>
+					</f:facet>
+					<h:outputText id="v5" value="#{var.v5}" /> 
+					<h:inputText id="input" value="#{var.input}"></h:inputText>
+				</rich:column>
+				#{state}
+		</rich:dataTable>
+		<br/>
+		<h:commandButton id="submit" value="Submit"></h:commandButton>
+	</h:form>
+	
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,197 @@
+/**
+ * GENERATED FILE - DO NOT EDIT
+ *
+ */
+
+package $package;
+
+#foreach($import in $imports)
+import $import ;
+#end
+
+import javax.faces.context.FacesContext;
+import javax.el.ValueExpression;
+import javax.el.ELException;
+
+/**
+ * Component-Type ${component.name}
+ * Component-Family ${component.family}
+  	#if(${component.renderer})
+ * Renderer-Type ${component.renderer.name}
+  	#end
+ * ${component.xmlEncodedDescription}
+ */
+ public class $component.simpleClassName extends $component.superclass {
+
+  public static final String COMPONENT_TYPE = "${component.name}";
+
+  /**
+   *  Constructor to init default renderers 
+   */ 
+  public $component.simpleClassName (){
+  	#if(${component.renderer})
+  	setRendererType("${component.renderer.name}");
+  	#end
+  }
+
+// Component properties fields
+#set( $fiedCounter = 1 )
+#foreach( $prop in $component.properties )
+ #if( !$prop.exist )
+	/**
+	 * $prop.name
+	 * ${prop.xmlEncodedDescription}
+	 */
+	 #if($prop.simpleType)
+	 private $prop.simpleClassName  _$prop.name = ${prop.defaultvalue};		
+	/**
+	 * Flag indicated what $prop.name is set.
+	 */
+	 private boolean _${prop.name}Set = false;	
+	 #set( $fiedCounter = $fiedCounter+2)
+	 #else
+	 private $prop.simpleClassName  _$prop.name = null; /* Default is ${prop.defaultvalue}*/
+	 #set( $fiedCounter = $fiedCounter+1)
+	 #end
+#end	 
+#end
+
+// Getters-setters
+#foreach( $prop in $component.properties )
+ #if( !$prop.exist )
+   /**
+	 * ${prop.xmlEncodedDescription}
+	 * Setter for $prop.name
+	 * @param $prop.name - new value
+	 */
+	 public void ${prop.setterName}( $prop.simpleClassName  __$prop.name ){
+		this._${prop.name} = __$prop.name;
+	 #if($prop.simpleType)
+		this._${prop.name}Set = true;
+	 #end
+	 }
+
+
+   /**
+	 * ${prop.xmlEncodedDescription}
+	 * Getter for $prop.name
+	 * @return $prop.name value from local variable or value bindings
+	 */
+	 public $prop.simpleClassName ${prop.getterName}(  ){
+	 #if($prop.simpleType)
+		 if(this._${prop.name}Set){
+			return this._${prop.name};
+		 }
+    	ValueExpression ve = getValueExpression("${prop.name}");
+    	if (ve != null) {
+    	    ${prop.boxingClass} value = (${prop.boxingClass}) ve.getValue(getFacesContext().getELContext());
+    	    if (null == value) {
+    			return this._${prop.name};
+    	    }
+    	    return (value.${prop.classname}Value());
+    	} else {
+    	    return (this._${prop.name});
+    	}
+	 #else
+        if (null != this._${prop.name})
+        {
+            return this._${prop.name};
+        #if( !$prop.isInstanceof("javax.el.MethodExpression") && !$prop.isInstanceof("javax.el.ValueExpression")&& !$prop.isInstanceof("javax.faces.el.ValueBinding")&& !$prop.isInstanceof("javax.faces.el.MethodBinding"))
+	    }
+        ValueExpression ve = getValueExpression("${prop.name}");
+        if (null != ve){
+            return (${prop.simpleClassName})ve.getValue(getFacesContext().getELContext());
+		#end
+        } else {
+            return ${prop.defaultvalue};
+        }
+	 #end
+	 }
+	 #if($prop.raw)
+   /**
+	 * ${prop.xmlEncodedDescription}
+	 * Raw Setter for $prop.name
+	 * @param $prop.name - new value
+	 */
+	 public void ${prop.setterName}Raw( $prop.simpleClassName  __$prop.name ){
+		this._${prop.name} = __$prop.name;
+	 }
+   /**
+	 * ${prop.xmlEncodedDescription}
+	 * Raw ( bypadd bindings ) Getter for $prop.name
+	 * @return $prop.name value from local variable 
+	 */
+	 public $prop.simpleClassName ${prop.getterName}Raw(  ){
+			return this._${prop.name};
+	 }
+	 #end
+ #end	 
+#end
+
+#if( ${component.family}  )
+// Component family.
+	public static final String COMPONENT_FAMILY = "${component.family}";
+
+	public String getFamily() {
+		return COMPONENT_FAMILY;
+	}
+#end
+
+// Save state
+// ----------------------------------------------------- StateHolder Methods
+
+
+    public Object saveState(FacesContext context) {
+        Object values[] = new Object[${fiedCounter}];
+        values[0] = super.saveState(context);
+#set($currentField = 1)
+#foreach( $prop in $component.properties )
+ #if( !$prop.exist )
+	 #if($prop.simpleType)		
+       values[${currentField}] = new ${prop.boxingClass}(_$prop.name);
+	   #set( $currentField = $currentField+1)
+	   values[${currentField}] = Boolean.valueOf(_${prop.name}Set);	
+	   #set( $currentField = $currentField+1)
+	 #else
+	   #if(!${prop.attachedstate} )
+       values[${currentField}] = _$prop.name;
+	   #else
+       values[${currentField}] = saveAttachedState(context, _$prop.name );		
+	   #end
+	   #set( $currentField = $currentField+1)
+	 #end
+	
+ #end	 
+#end
+	  return values;
+   }
+   
+
+    public void restoreState(FacesContext context, Object state) {
+        Object values[] = (Object[]) state;
+        super.restoreState(context, values[0]);
+#set($currentField = 1)
+#foreach( $prop in $component.properties )
+ #if( !$prop.exist )
+	 #if($prop.simpleType)		
+       _$prop.name = ((${prop.boxingClass})values[${currentField}]).${prop.classname}Value();
+	   #set( $currentField = $currentField+1)
+	   _${prop.name}Set = ((Boolean)values[${currentField}]).booleanValue();	
+	   #set( $currentField = $currentField+1)
+	 #else
+	   #if( !${prop.attachedstate} )
+       _$prop.name = (${prop.simpleClassName})values[${currentField}] ;
+	   #else
+       _$prop.name = (${prop.simpleClassName})restoreAttachedState(context,values[${currentField}] );		
+	   #end
+	   #set( $currentField = $currentField+1)
+	 #end
+	
+ #end	 
+#end
+	
+		
+	}	
+// Utilites
+
+}

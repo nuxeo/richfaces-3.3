@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	template="../../template/caseTemplate.xhtml">
+	<ui:define name="caseName">testBasicBehaviour</ui:define>
+	<ui:define name="caseBody">
+		<h:form id="_form">
+			<h:panelGroup id="group_tbb">
+			<table cellpadding="5" >
+				<tr>
+					<td></td>
+					<td>
+						<rich:inplaceInput id="ii_tbb" value="#{inplaceInputBean.iiValue}">
+						</rich:inplaceInput>
+					</td>
+				</tr>
+			</table>
+			</h:panelGroup>
+		</h:form>
+	</ui:define>
+</ui:composition>

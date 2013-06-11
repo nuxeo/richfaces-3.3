@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_controls">
+			<table>
+				<tr>
+					<td>Total Rows:</td><td><h:inputText value="#{dataScrollerBean.totalRows}" /></td>
+				</tr>
+				<tr>
+					<td>Table Rows:</td><td><h:inputText id="tableRow" value="#{dataScrollerBean.tableRows}" /></td>
+				</tr>
+			</table>
+			<h:commandButton id="apply" actionListener="#{dataScrollerBean.apply}" value="apply"/>
+			<h:commandButton id="maxP" action="#{dataScrollerBean.maxPages}" value="Test maxPages" />
+			<h:commandButton id="onpagechange" action="#{dataScrollerBean.onpagechange}" value="Test onpagechange" />
+			<h:commandButton id="pageVars" action="#{dataScrollerBean.pageVars}" value="Test page vars" />
+			<h:commandButton id="changePage" action="#{dataScrollerBean.changePage}" value="Change Page through binding" />
+		</h:form>		
+		<br/>
+		<h:form id="_data">
+			<rich:datascroller id="scroller" 
+							  for="tbl" 
+							   align="left" 
+							   maxPages="#{dataScrollerBean.maxPages}"
+							   page="#{dataScrollerBean.page}" 
+							   onclick="EventQueue.fire('onclick')"
+							   onmousedown="EventQueue.fire('onmousedown')"
+							   onmousemove="EventQueue.fire('onmousemove')"
+							   onmouseout="EventQueue.fire('onmouseout')"
+							   onmouseover="EventQueue.fire('onmouseover')"
+							   onmouseup="EventQueue.fire('onmouseup')"
+							   onpagechange="#{dataScrollerBean.onpagechange}"
+							   reRender="activePage, pagesCount, scroller2"
+							   pageIndexVar="activePage"
+							   pagesVar="pagesCount"							   
+			>
+				<f:facet name="next">
+					<h:outputText value="Next"></h:outputText>
+				</f:facet>
+				<f:facet name="previous">
+					<h:outputText value="Previous"></h:outputText>
+				</f:facet>
+			</rich:datascroller>
+						
+   				
+			<br/>
+			<br/>
+			<rich:dataTable id="tbl" value="#{dataScrollerBean.data}" rows="#{dataScrollerBean.tableRows}" var="var">
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="#" />
+					</f:facet>
+					<h:outputText value="#{var[0]}" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Data" />
+					</f:facet>
+					<h:outputText value="#{var[1]}" />
+				</rich:column>
+			</rich:dataTable>
+			
+			<br/><br/>
+			<rich:datascroller id="scroller2" 
+							   for="tbl" 
+							   align="left" 
+							   maxPages="#{dataScrollerBean.maxPages}"
+							   page="#{dataScrollerBean.page}" 
+							   onclick="EventQueue.fire('onclick')"
+							   onmousedown="EventQueue.fire('onmousedown')"
+							   onmousemove="EventQueue.fire('onmousemove')"
+							   onmouseout="EventQueue.fire('onmouseout')"
+							   onmouseover="EventQueue.fire('onmouseover')"
+							   onmouseup="EventQueue.fire('onmouseup')"
+							   onpagechange="#{dataScrollerBean.onpagechange}"
+							   reRender="activePage, pagesCount, scroller"
+							   pageIndexVar="activePage"							 
+							   pagesVar="pagesCount">
+				<f:facet name="next">
+					<h:outputText value="Next"></h:outputText>
+				</f:facet>
+				<f:facet name="previous">
+					<h:outputText value="Previous"></h:outputText>
+				</f:facet>
+			</rich:datascroller>
+			<br/><br/>
+			<h:outputText id="activePage" value="Active page: #{activePage}"></h:outputText>
+			<h:outputText id="pagesCount" value="Count of pages: #{pagesCount}"></h:outputText>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

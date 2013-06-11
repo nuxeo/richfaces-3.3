@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>root</artifactId>
+		<groupId>org.richfaces</groupId>
+		<version>3.3.1.GA</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.richfaces</groupId>
+	<artifactId>sandbox</artifactId>
+	<packaging>pom</packaging>
+	<name>RichFaces Sandbox Components</name>
+	<url>http://richfaces.ajax4jsf.org/sandbox</url>
+    <properties>
+		<!-- -->
+    </properties>
+	<!--
+		<url>http://labs.jboss.com/jbossrichfaces</url>
+	-->
+  <modules>
+    <module>api</module>
+    <module>impl</module>
+    <module>ui</module>
+    <module>samples</module>
+  </modules>
+</project>

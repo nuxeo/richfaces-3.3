@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util' 
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim><![CDATA[
+.drgind_fly{
+	z-index : 1000;
+	top:40; 
+	left : 40;
+	position : absolute;
+}
+.drgind_internal{
+	opacity:0.93;  
+	filter:alpha(opacity=93);
+}
+
+.drgind_wordcut{
+	padding : 0px 0px 0px 3px;
+	width : 200px;
+	overflow : hidden;	
+	float : left;
+	white-space: nowrap;
+}
+.drgind_text{
+	border-top-width: 1px;
+	border-top-style: solid;
+	
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	
+	border-right-width: 2px;
+	border-right-style: solid;
+}
+
+.drgind_marker {
+	border-top-width: 1px;
+	border-top-style: solid;
+	
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	
+	border-left-width: 1px;
+	border-left-style: solid;
+
+	vertical-align : top;
+}
+
+.rich-dragindicator-iframe {
+	position: absolute;
+	display: inline;
+	z-index: 999;
+	top: 0px;
+	left: 0px;
+	filter:Alpha(opacity=0);
+}
+
+]]></f:verbatim>
+
+<f:verbatim><![CDATA[
+/* order is sufficient! */
+.drgind_reject .drgind_marker{
+	background-color : #EF6771;
+	border-top-color : #96000B;
+	border-left-color : #96000B;
+	border-bottom-color : #96000B;
+	vertical-align : top;
+}
+
+.drgind_accept .drgind_marker, .drgind_default .drgind_marker {
+	background-color : #9CDC48;
+	border-top-color : #589900;
+	border-left-color : #589900;
+	border-bottom-color : #589900;
+	vertical-align : top;
+}
+]]></f:verbatim>
+	
+	<u:selector name=".drgind_text">
+		<u:style name="border-top-color" skin="headerBackgroundColor"/>
+		<u:style name="border-bottom-color" skin="headerBackgroundColor"/>
+		<u:style name="border-right-color" skin="headerBackgroundColor"/>
+		<u:style name="background-color" skin="headerGradientColor"/>
+		<u:style name="color" skin="headerTextColor"/>
+	</u:selector>
+
+	<u:selector name=".drgind_text_content">
+		<u:style name="color" skin="headerTextColor"/>
+		<u:style name="font-weight" skin="headerWeightFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+	</u:selector>
+</f:template>

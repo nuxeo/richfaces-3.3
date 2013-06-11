@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:h=" http://ajax4jsf.org/cdk/headers"
+	xmlns:vcp="http://ajax4jsf.org/cdk/vcp"	
+	class="org.richfaces.renderkit.html.ScrollableDataTableRenderer"
+	baseclass="org.richfaces.renderkit.html.ScrollableDataTableBaseRenderer"
+	component="org.richfaces.component.UIScrollableDataTable" 
+	>	
+	<jsp:directive.page import="javax.faces.component.UIComponent,javax.faces.component.UIColumn, java.util.List, java.util.Iterator, org.richfaces.component.Column"/>
+	<h:styles>
+		/org/richfaces/renderkit/html/css/scrollable-data-table.xcss
+	</h:styles>
+	
+	<h:scripts>
+		new org.ajax4jsf.javascript.PrototypeScript(),
+		new org.ajax4jsf.javascript.AjaxScript(),
+		/org/richfaces/renderkit/html/scripts/common-scrollable-data-table.js,
+		/org/richfaces/renderkit/html/scripts/controls-scrollable-data-table.js
+	</h:scripts>
+
+	<f:clientId var="clientId" />
+
+	<f:call name="setUpColumnsWidth"/>	
+	
+	<jsp:scriptlet>
+     	<![CDATA[
+			List children = component.getChildren();
+			String hStyle, fStyle;
+			boolean footer = false;
+			boolean header = false;
+	
+			for (Iterator iterator = children.iterator(); iterator.hasNext();) {
+				UIComponent column = (UIComponent) iterator.next();
+				if(column instanceof UIColumn){
+					UIComponent hFacet = ((UIColumn) column).getHeader(); 
+					UIComponent fFacet = ((UIColumn) column).getFooter();
+					if(hFacet != null){
+						if(!header)
+							header = true;
+					}
+					if(fFacet != null){
+						if(!footer)
+							footer = true;
+					}
+				}
+			}
+			
+			if(header){
+				hStyle = "";
+			}else{
+				hStyle = "display: none";
+			}
+			if(footer){
+				fStyle = "";
+			}else{;
+				fStyle = "display: none";
+			}
+			
+			variables.setVariable("fStyle", fStyle);
+			variables.setVariable("hStyle", hStyle);
+			variables.setVariable("normalizedId", getNormalizedId(context, component));
+		]]>
+	</jsp:scriptlet>
+
+	<table id="#{clientId}" cellpadding="0" cellspacing="0" style="width: #{component.attributes['width']};height: #{component.attributes['height']};" class="dr-sdt rich-sdt #{component.attributes['styleClass']}" >
+		<tbody>
+			<jsp:scriptlet>
+	     		<![CDATA[				
+					UIComponent facet = component.getFacet("header");
+					if (null != facet && facet .isRendered()) {
+				]]>	
+			</jsp:scriptlet>
+			<tr>
+				<td>
+				    <u:insertFacet name="header" />
+				</td>
+			</tr>
+			<jsp:scriptlet>
+	     		<![CDATA[				
+					}
+				]]>	
+			</jsp:scriptlet>
+			<tr>
+				<td id="#{normalizedId}" style="height: 100%;">
+					<div id="#{clientId}:c" style="height: 100%; position: relative;">
+						<div id="#{clientId}:cs" class="dr-sdt-hsplit" style="display: none;"/>
+						<div id="#{clientId}_GridHeaderTemplate" class="dr-sdt-inlinebox" style="#{hStyle}; width: #{component.attributes['width']};">
+							<iframe id="#{clientId}:hs" class="dr-sdt-substrate" src="javascript:\'\'" scrolling="no" frameborder="0" > <br/> </iframe>
+							<div style="display: block; left: 0px; top: 0px; width: #{sumWidth}px;">
+									<style>
+										<f:call name="renderStyle" />	
+									</style>
+									<span class="dr-sdt-tmplbox dr-sdt-fb" id="#{clientId}:header:FrozenBox">
+										<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+											<thead>
+												<tr class="dr-sdt-hr rich-std-header-row #{component.attributes['headerClass']}">	
+													<jsp:scriptlet>
+								                   		<![CDATA[
+															renderHeaders(context, component, true);
+														]]>
+													</jsp:scriptlet>
+												</tr>	
+											</thead>
+										</table>					
+									</span>
+							
+									<span class="dr-sdt-tmplbox dr-sdt-nb" id="#{clientId}:header:NormalBox">
+										<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+											<thead>
+												<tr class="dr-sdt-hr rich-std-header-row #{component.attributes['headerClass']}">	
+													<jsp:scriptlet>
+								                   		<![CDATA[
+															renderHeaders(context, component, false);
+														]]>
+													</jsp:scriptlet>
+													<th class="dr-sdt-hc dr-sdt-c-f rich-sdt-header-cell">
+														<div class="dr-sdt-cbody" />
+													</th>
+												</tr>	
+											</thead>
+										</table>
+								</span>	
+							</div>			
+						</div>
+						
+						
+						
+						<div id="#{clientId}_GridBodyTemplate" class="dr-sdt-inlinebox" style="overflow: auto; width: #{component.attributes['width']}; height: #{component.attributes['height']};">
+							<div id="#{clientId}:scb" style="position: absolute; z-index: 0;">
+								<div id="#{clientId}:sb" style="position: absolute;" ><br/> </div>
+							</div>
+							<div id="#{clientId}:bc" style="display: block; width:  #{sumWidth}px;">
+								<span class="dr-sdt-tmplbox dr-sdt-fb" id="#{clientId}:body:FrozenBox">
+									<table id="#{clientId}:f" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+										<tbody>
+											<jsp:scriptlet>
+								                <![CDATA[
+													renderGridBody(context, component, true);	
+												]]>
+											</jsp:scriptlet>
+										</tbody>
+									</table>
+									<span class="dr-sdt-ho" id="#{clientId}:fho" ><br/></span>
+								</span>
+								<span class="dr-sdt-tmplbox dr-sdt-nb" id="#{clientId}:body:NormalBox">
+									<table id="#{clientId}:n" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+										<tbody>
+											<jsp:scriptlet>
+							                	<![CDATA[
+													renderGridBody(context, component, false);	
+												]]>
+											</jsp:scriptlet>
+										</tbody>
+									</table>
+									<span class="dr-sdt-ho" id="#{clientId}:nho" ><br/></span>
+								</span>		
+							</div>			
+						</div>
+						
+						<div id="#{clientId}_GridFooterTemplate" class="dr-sdt-inlinebox" style="#{fStyle}; width: #{component.attributes['width']};">
+							<iframe id="#{clientId}:fs" class="dr-sdt-substrate" src="javascript:\'\'" scrolling="no" frameborder="0" >  <br/></iframe>
+							<div style="display: block; width: width: #{sumWidth}px;">
+								<span class="dr-sdt-tmplbox dr-sdt-fb" id="#{clientId}:footer:FrozenBox">
+									<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+										<tfoot>
+											<tr class="dr-sdt-fr rich-std-footer-row #{component.attributes['footerClass']}">	
+												<jsp:scriptlet>
+								        	        <![CDATA[
+														renderFooters(context, component,true);	
+													]]>
+												</jsp:scriptlet>
+											</tr>
+										</tfoot>
+									</table>			
+								</span>
+								
+								<span class="dr-sdt-tmplbox dr-sdt-nb" id="#{clientId}:footer:NormalBox">
+									<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+										<tfoot>
+											<tr class="dr-sdt-fr rich-std-footer-row #{component.attributes['footerClass']}">
+												<jsp:scriptlet>
+								        	        <![CDATA[
+														renderFooters(context, component,false);	
+													]]>
+												</jsp:scriptlet>
+												<th class="dr-sdt-fc dr-sdt-c-f rich-sdt-footer-cell">
+													<div class="dr-sdt-cbody" />
+												</th>
+											</tr>
+										</tfoot>
+									</table>
+								</span>			
+							</div>
+						</div>			
+					
+						<input type="hidden" name="#{clientId}_hc" id="#{clientId}_hc"/>
+						<input type="hidden" name="#{clientId}_state_input" id="#{clientId}_state_input"/>
+						<input type="hidden" name="#{clientId}_options_input" id="#{clientId}_options_input"/>
+						<input type="hidden" name="#{clienId}_rows_input" id="#{clientId}_rows_input" value="#{rows_count}"/>
+						<input type="button" name="#{clientId}_submit_input" id="#{clientId}_submit_input" onclick="#{this:getRowsAjaxUpdate(context,component)}" style="display:none"/>
+						<jsp:scriptlet>
+						   <![CDATA[
+								renderHiddenScrollInput(context, component);	
+							]]>
+						</jsp:scriptlet>
+						
+						<f:call name="contributorsEncodeHere"/>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<jsp:scriptlet>
+		     		<![CDATA[				
+						facet = component.getFacet("footer");
+						if (null == facet || !facet.isRendered()) {
+							getUtils().writeAttribute(writer, "style", "display:none;" );							
+						}
+					]]>	
+				</jsp:scriptlet>
+				<td>
+				    <u:insertFacet name="footer" />
+					<script id="#{clientId}_grid_create_scripts" type="text/javascript">
+					//<![CDATA[
+					
+					#{this:getJavaScriptVarName(context, component)} = #{this:createClientScrollableGrid(context, component)};
+					#{this:getScriptContributions(context, component)};
+			
+					//		]]>
+					</script>
+					<f:call name="tearDownState"/>	
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+</f:root>	
+	
+	
+	

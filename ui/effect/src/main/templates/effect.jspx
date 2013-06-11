@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	class="org.richfaces.renderkit.html.EffectRenderer"
+	baseclass="org.richfaces.renderkit.EffectRendererBase"
+	component="org.richfaces.component.UIEffect">
+	<f:clientid var="clientId"/>
+	
+
+	<c:set var="for" value="#{component.attributes['for']}"/>
+	<c:set var="event" value="#{component.attributes['event']}"/>
+	<c:set var="name" value="#{component.attributes['name']}"/>
+	<c:set var="type" value="#{component.attributes['type']}"/>
+	<c:set var="targetId" value="#{component.attributes['targetId']}"/>
+	<c:set var="params" value="#{this:convertParameters(context, component)}"/>
+	<h:scripts>new org.ajax4jsf.javascript.PrototypeScript(),scripts/scriptaculous/effects.js,/org/richfaces/renderkit/html/script/processEffect.js</h:scripts>
+         
+
+<jsp:scriptlet>
+<![CDATA[
+	String sid = (String) variables.getVariable("for");
+        variables.setVariable("attachObj","''");
+	if (! "".equals(sid)) {
+		UIComponent forcomp = getUtils().findComponentFor((UIComponent)component,sid);
+        	if (forcomp != null) {
+        		String cid= forcomp.getClientId(context);
+			variables.setVariable("forPart",
+			"{targetId:'"+cid+"',attachId:'"+cid+"'}");
+		} else {
+	 		// if no corresponded component id,  may be it is non-jsf id.
+	        	// So, returning the id as is
+	                variables.setVariable("forPart","{targetId:'"+sid+"',attachId:'"+sid+"'}");
+	                // it might be the DOM object
+		        variables.setVariable("attachObj",sid);
+	       }
+	} else {
+           variables.setVariable("forPart","{}");
+	}
+	String tid = (String) variables.getVariable("targetId");
+        variables.setVariable("targetObj","''");
+	if (! "".equals(tid)) {
+		UIComponent targetcomp = getUtils().findComponentFor(component,tid);
+        	if (targetcomp != null) {
+			variables.setVariable("targetPart","{targetId:'"+targetcomp.getClientId(context)+"'}");
+		} else {
+	 		// if no corresponded component id,  may be it is non-jsf id.
+	        	// So, returning the id as is
+	                variables.setVariable("targetPart","{targetId:'"+tid+"'}");
+		        variables.setVariable("targetObj",tid);
+	       }
+	}  else {
+         	variables.setVariable("targetPart","{}");
+	}
+
+	String type = (String) variables.getVariable("type");
+	if (!"".equals(type)) {
+		variables.setVariable("typePart","{type:'"+type+"'}");
+	} else {
+		variables.setVariable("typePart","{}");
+	}
+
+	String event = (String) variables.getVariable("event");
+        String name = (String)variables.getVariable("name");
+        Boolean needsFunction = new Boolean(! "".equals(name) && "".equals(event));
+        variables.setVariable("needsFunction",needsFunction);
+
+        Boolean needsObserver = new Boolean(! "".equals(event) && ! "".equals(sid) );
+        variables.setVariable("needsObserver",needsObserver);
+]]>
+</jsp:scriptlet>
+<c:if test="#{needsFunction}">
+<script type="text/javascript" x:passThruWithExclusions="name,type,for">
+ //<![CDATA[
+#{name} = function () { return Richfaces.processEffect(Object.extend(Object.extend( Object.extend(#{typePart},#{forPart}), Object.extend (#{targetPart},#{params})), arguments[0]||{})); };
+//]]>
+</script>
+</c:if>
+<c:if test="#{needsObserver}">
+<script type="text/javascript" x:passThruWithExclusions="name,type,for">
+ //<![CDATA[
+{
+var pm = Object.extend( Object.extend(#{typePart},#{forPart}), #{targetPart} );
+/* pm.id can have a special meaning, let's check */
+//pm.id = #{this:convertElementParameter(pmId)};
+var attachObj;
+try {
+	attachObj = eval('#{this:escapeJavaScript(attachObj)}');
+} catch (e) {
+}
+
+var targetObj;
+try {
+	targetObj = eval('#{this:escapeJavaScript(targetObj)}');
+} catch (e) {
+}
+
+if (typeof attachObj == 'object') {pm.attachId = attachObj;if (targetObj == '') pm.targetId = attachObj; };
+if (typeof targetObj == 'object') pm.targetId = targetObj;
+
+pm = Object.extend(pm, #{params});
+var ename = Richfaces.effectEventOnOut('#{event}');
+var bindedFunction = function(event){ return Richfaces.processEffect(this); }.bindAsEventListener(pm);
+Event.observe(pm.attachId,ename, bindedFunction, pm.useCapture||false);
+}
+//]]>
+</script>
+</c:if>
+
+</f:root>

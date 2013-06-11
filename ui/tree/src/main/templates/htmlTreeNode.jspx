@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root
+	xmlns:f="http://ajax4jsf.org/cdk/template"
+	xmlns:c=" http://java.sun.com/jsf/core"
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:vcp=" http://ajax4jsf.org/cdk/vcp"
+	class="org.richfaces.renderkit.html.TreeNodeRenderer"
+	baseclass="org.richfaces.renderkit.NodeRendererBase"
+	component="org.richfaces.component.UITreeNode">
+
+	<f:clientId var="clientId" />
+
+	<f:resource
+		name="images/spacer.gif"
+		var="spacer" />
+	<f:resource
+		name="org.richfaces.renderkit.html.images.TreePlusImage"
+		var="collapsed" />
+	<f:resource
+		name="org.richfaces.renderkit.html.images.TreeMinusImage"
+		var="expanded" />
+	<f:resource
+		name="images/iconFolder.gif"
+		var="folderIcon" />
+	<f:resource
+		name="images/iconLeaf.gif"
+		var="leafIcon" />
+
+	<f:call name="initializeLines" />
+	<f:call name="initializeResources" />
+
+	<c:object var="leaf" type="boolean" value="#{component.UITree.leaf}" />
+
+	<table border="0" cellpadding="0" cellspacing="0" id="#{clientId}" class="dr-tree-full-width rich-tree-node">
+	<tbody>
+
+	<tr id="#{clientId}:mainRow" onclick="#{component.attributes['onclick']} #{!leaf ? this:getToggleScript(context, component, 'mainRow') : ''}" x:passThruWithExclusions="id,onclick">
+		<f:call name="encodeAttributeParameters" />
+		
+		<td class="dr-tree-h-ic rich-tree-node-handleicon #{line}" id="#{clientId}:handles">
+			<jsp:scriptlet>
+				<![CDATA[
+					if (Boolean.TRUE.equals(component.getAttributes().get("isAjaxUpdateRoot")) && component.getUITree().isShowConnectingLines()) {
+						String lineBasic = getResource("org.richfaces.renderkit.html.images.TreeLineNodeImage").getUri(context, component);
+						String lineLast = getResource("org.richfaces.renderkit.html.images.TreeLineLastImage").getUri(context, component);
+						getUtils().writeAttribute(writer, "style", 
+								"background-image:expression(this.parentNode.parentNode.parentNode.nextSibling.nextSibling ? " +
+										"'url(" + lineBasic + ")' : 'url(" + lineLast + ")')");
+					}
+				]]>
+			</jsp:scriptlet>
+
+			<div>
+				<jsp:scriptlet>
+					<![CDATA[
+						if (leaf) {
+					]]>
+				</jsp:scriptlet>
+							<img id="#{clientId}:handle:img" src="#{spacer}" alt="" class="dr-tree-h-ic-img-md dr-tree-h-ic-img" />
+				<jsp:scriptlet>
+					<![CDATA[
+						} else {
+					]]>
+				</jsp:scriptlet>
+							<a href="#" id="#{clientId}:handle" class="rich-tree-node-handle"
+							   onclick="#{this:getToggleScript(context, component, 'handle')} return false;">
+
+				<jsp:scriptlet>
+						<![CDATA[
+								UIComponent iconCollapsedFacet = component.getIconCollapsedFacet();
+								if (iconCollapsedFacet != null && iconCollapsedFacet.isRendered()) {
+						 ]]>
+				</jsp:scriptlet>
+									<span id="#{clientId}:handle:img:collapsed"
+										 class="dr-tree-pointer-cursor dr-tree-h-ic-img-md dr-tree-h-ic-img dr-tree-h-ic-facets rich-tree-node-handleicon-collapsed"
+										 style="#{this:getHandleCollapsedDisplayStyle(context, component)}">
+
+				<jsp:scriptlet>
+					<![CDATA[
+										renderChild(context, iconCollapsedFacet);
+					]]>
+				</jsp:scriptlet>
+									</span>
+				<jsp:scriptlet>
+						<![CDATA[
+								} else {
+						]]>
+				</jsp:scriptlet>
+
+									<img id="#{clientId}:handle:img:collapsed"
+										 src="#{collapsed}" class="dr-tree-pointer-cursor dr-tree-h-ic-img-md dr-tree-h-ic-img rich-tree-node-handleicon-collapsed"
+										 style="#{this:getHandleCollapsedDisplayStyle(context, component)};border:0" alt="" />
+
+				<jsp:scriptlet>
+						<![CDATA[
+								}
+						 ]]>
+				</jsp:scriptlet>
+
+
+				<jsp:scriptlet>
+						<![CDATA[
+								UIComponent iconExpandedFacet = component.getIconExpandedFacet();
+								if (iconExpandedFacet != null && iconExpandedFacet.isRendered()) {
+						 ]]>
+				</jsp:scriptlet>
+									<span id="#{clientId}:handle:img:expanded"
+										 style="#{this:getHandleExpandedDisplayStyle(context, component)}"
+										 class="dr-tree-pointer-cursor dr-tree-h-ic-img-md dr-tree-h-ic-img dr-tree-h-ic-facets rich-tree-node-handleicon-expanded">
+
+				<jsp:scriptlet>
+					<![CDATA[
+										renderChild(context, iconExpandedFacet);
+					]]>
+				</jsp:scriptlet>
+									</span>
+				<jsp:scriptlet>
+						<![CDATA[
+								} else {
+						 ]]>
+				</jsp:scriptlet>
+									<img id="#{clientId}:handle:img:expanded" src="#{expanded}"
+										 style="#{this:getHandleExpandedDisplayStyle(context, component)};border:0"
+										 class="dr-tree-pointer-cursor dr-tree-h-ic-img-md dr-tree-h-ic-img rich-tree-node-handleicon-expanded" alt="" />
+				<jsp:scriptlet>
+						<![CDATA[
+								}
+						 ]]>
+				</jsp:scriptlet>
+							</a>
+				<jsp:scriptlet>
+					<![CDATA[
+						}
+					]]>
+				</jsp:scriptlet>
+
+				<jsp:scriptlet>
+					<![CDATA[
+						if (org.richfaces.component.UITree.SWITCH_CLIENT.equals(component.getUITree().getSwitchType())) {
+					]]>
+				</jsp:scriptlet>
+							<input class="dr-tree-h-input" type="hidden" id="#{clientId}NodeExpanded" name="#{clientId}NodeExpanded" value="#{this:getExpandedValue(context,component)}" />
+				<jsp:scriptlet>
+					<![CDATA[
+						}
+					]]>
+				</jsp:scriptlet>
+
+			</div>
+		</td>
+
+			<jsp:scriptlet>
+				<![CDATA[
+				String iconClass = "rich-tree-node-icon";				         
+				if (leaf) {
+					iconClass += "-leaf";
+				}
+				variables.setVariable("iconClass",iconClass);
+				]]>
+			</jsp:scriptlet>
+		
+		<c:object value="#{this:getScriptOptions(context, component)}" type="org.richfaces.renderkit.NodeRendererBase$DnDOptionsHolder" var="scriptOptionsMap" />	
+				
+		<td
+			rich:ajaxselectedlistener="#{this:getAjaxSelectedListenerFlag(context, component)}"
+			rich:draggableoptions="#{scriptOptionsMap.dragOptions}"
+			rich:dragcursoroptions="#{scriptOptionsMap.dragCursorOptions}"
+			rich:dropzoneoptions="#{scriptOptionsMap.dropOptions}"
+			rich:dropcursoroptions="#{scriptOptionsMap.dropCursorOptions}"
+			rich:oncontextmenu="#{component.attributes['oncontextmenu']}"
+			rich:onselected="#{component.attributes['onselected']}"
+			rich:onexpand="#{component.attributes['onexpand']}"
+			rich:oncollapse="#{component.attributes['oncollapse']}"
+			class="dr-tree-h-ic #{iconClass} #{lineFirst}" id="#{clientId}:icon">
+			<jsp:scriptlet>
+				<![CDATA[
+				if (leaf) {
+					UIComponent leafFacet = component.getIconLeafFacet();
+					if (leafFacet != null && leafFacet.isRendered()) {
+
+				]]>
+			</jsp:scriptlet>
+					<span class="dr-tree-h-ic-img-md dr-tree-h-ic-img dr-tree-h-ic-facets">
+						<jsp:scriptlet>
+							<![CDATA[
+								renderChild(context, leafFacet);
+							]]>
+						</jsp:scriptlet>
+					</span>
+			<jsp:scriptlet>
+				<![CDATA[
+					} else {
+				]]>
+			</jsp:scriptlet>
+						<img src="#{leafIcon}" alt="" class="dr-tree-h-ic-img-md dr-tree-h-ic-img" />
+			<jsp:scriptlet>
+				<![CDATA[
+					}
+				]]>
+			</jsp:scriptlet>
+			<jsp:scriptlet>
+				<![CDATA[
+				} else {
+					UIComponent iconFacet = component.getIconFacet();
+					if (iconFacet != null && iconFacet.isRendered()) {
+				]]>
+			</jsp:scriptlet>
+						<span class="dr-tree-h-ic-img-md dr-tree-h-ic-img dr-tree-h-ic-facets">
+							<jsp:scriptlet>
+								<![CDATA[
+									renderChild(context, iconFacet);
+								]]>
+							</jsp:scriptlet>
+						</span>
+			<jsp:scriptlet>
+				<![CDATA[
+					} else {
+				]]>
+			</jsp:scriptlet>
+						<img src="#{folderIcon}" alt="" class="dr-tree-h-ic-img-md dr-tree-h-ic-img" />
+			<jsp:scriptlet>
+				<![CDATA[
+					}
+				}
+				]]>
+			</jsp:scriptlet>
+		</td>
+		<td class="dr-tree-h-text rich-tree-node-text #{component.attributes['nodeClass']}"
+            rich:selectedclass="#{selectedClass}" rich:highlightedclass="#{highlightedClass}"
+            id="#{clientId}:text">
+            <vcp:body />
+		</td>
+	</tr>
+	</tbody>
+	</table>
+	
+</f:root>

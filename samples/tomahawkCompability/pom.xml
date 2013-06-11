@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<project>
+	<parent>
+		<artifactId>samples</artifactId>
+		<groupId>org.richfaces</groupId>
+		<version>3.3.1.GA</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.richfaces.samples</groupId>
+	<artifactId>tomahawkCompability</artifactId>
+	<packaging>war</packaging>
+	<name>tomahawkCompability Maven Webapp</name>
+	<properties>
+		<tomahawk>1.1.5</tomahawk>
+	</properties>
+	<build>
+		<finalName>tomahawkCompability</finalName>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.myfaces.tomahawk</groupId>
+			<artifactId>tomahawk</artifactId>
+			<version>${tomahawk}</version>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">		
+	</ui:define>
+	<ui:define name="component">
+		<h:form id="_form">
+		<fieldset>
+			<legend>Child processing test</legend>
+			<rich:simpleTogglePanel switchType="#{panelBean.switchType}" id="panel" label="#{panelBean.switchType} switchType"
+				action="#{panelBean.increment}" actionListener="#{panelBean.actionListener}"
+				opened="#{panelBean.opened}"
+				reRender="_luck,_result" >
+	    		<h:panelGroup>
+	    			<h:inputText id="_child" value="#{panelBean.content}" required="true"/>
+	    		</h:panelGroup>
+			</rich:simpleTogglePanel>
+		<br/>
+		Number of successful actions:&#160;<h:outputText value="#{panelBean.value2}" id="_luck"></h:outputText>
+		<br/>
+		Content:&#160;<h:outputText value="#{panelBean.content}" id="_result"></h:outputText>
+		<br/>
+		<a4j:commandLink id="_ajaxSubmit" action="#{panelBean.increment}" reRender="_luck,_result" value="Ajax submit" />
+		<h:commandLink id="_fullSubmit" action="#{panelBean.increment}" value="Full submit" />
+		<br/>
+		</fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

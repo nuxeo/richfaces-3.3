@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.SubTable</name>
+		<family>org.richfaces.SubTable</family>
+		<classname>org.richfaces.component.html.HtmlSubTable</classname>
+		<superclass>org.richfaces.component.UISubTable</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlSubTableComponentTest</classname>
+			<superclassname>org.richfaces.component.AbstractDataTableComponentTest</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:subTable> component is used for inserting subtables into tables with opportunity to choose data from a model and built-in Ajax updates support.]]>
+		</description>
+		<facet>
+		   <name>header</name>
+		   <description>Defines the header content</description>
+		</facet>		
+		<facet>
+		   <name>footer</name>
+		   <description>Defines the footer content</description>
+		</facet>		
+		<renderer generate="false" override="false">
+			<name>org.richfaces.SubTableRenderer</name>
+			<classname>org.richfaces.renderkit.html.SubTableRenderer</classname>
+			<!-- template>org/richfaces/htmlSubTable.jspx</template-->
+		</renderer>
+		<tag>
+			<name>subTable</name>
+			<classname>org.richfaces.taglib.SubTableTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<taghandler generate="false">
+			<classname>org.richfaces.taglib.RowKeyConverterComponentHandler</classname>
+		</taghandler>
+
+		&ui_component_attributes;
+		&ui_data_attributes;
+		&spec_table_attributes;
+		&html_events;
+		<property>
+			<name>ajaxKeys</name>
+			<classname>java.util.Set</classname>
+			<description>This attribute defines row keys that are updated after an AJAX request</description>
+		</property>
+		<property disabled="true" hidden="true">
+			<name>breakBefore</name>
+			<classname>boolean</classname>
+			<description>
+			</description>
+		</property>
+		<property disabled="false" hidden="true">
+			<name>sortable</name>
+			<classname>boolean</classname>
+			<description></description>
+			<defaultvalue>true</defaultvalue>
+		</property>		
+		
+		<property hidden="true">
+			<name>filterMethod</name>
+		</property>
+		<property hidden="true">
+			<name>filterValue</name>
+		</property>
+		<property hidden="true">
+			<name>selfSorted</name>
+		</property>
+		<property hidden="true">
+			<name>sortExpression</name>
+		</property>
+		<property hidden="true">
+			<name>sortMode</name>
+		</property>
+		<property hidden="true">
+			<name>sortOrder</name>
+		</property>
+		<property hidden="true">
+			<name>sortPriority</name>
+		</property>
+		
+		<property>
+			<name>componentState</name>
+			<classname>org.ajax4jsf.model.DataComponentState</classname>
+			<description>It defines EL-binding  for a component state for saving or redefinition</description>
+		</property>
+		<property>
+			<name>rowKeyVar</name>
+			<classname>java.lang.String</classname>
+			<description>The attribute provides access to a row key in a Request scope</description>
+		</property>
+		<property>
+			<name>stateVar</name>
+			<classname>java.lang.String</classname>
+			<description>
+				The attribute  provides access to a component state on the client side
+			</description>
+		</property>			
+		<property hidden="true" existintag="false" exist="false" >
+			<name>rowKey</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				RowKey is a representation of an identifier for a specific data row
+			</description>
+		</property>
+		
+		<property>
+			<name>rowKeyConverter</name>
+			<classname>javax.faces.convert.Converter</classname>
+			<description>Converter for a row key object</description>
+		</property>	
+		<property>
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				The current value for this component
+			</description>
+		</property>
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+		<!-- rows javascript events -->
+		<property>
+			<name>onRowClick</name>
+			<classname>java.lang.String</classname>
+			<description>
+				HTML: a script expression; a pointer button is clicked on row
+			</description>
+		</property>
+		<property>
+			<name>onRowDblClick</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: a script expression; a pointer button is double-clicked on row
+			</description>
+		</property>
+		<property>
+			<name>onRowMouseUp</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: script expression; a pointer button is released on row
+			</description>
+		</property>
+		<property>
+			<name>onRowMouseDown</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: script expression; a pointer button is pressed down on row
+			</description>
+		</property>
+		<property>
+			<name>onRowMouseOver</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: a script expression; a pointer is moved onto of row
+			</description>
+		</property>
+		<property>
+			<name>onRowMouseOut</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: a script expression; a pointer is moved away of row
+			</description>
+		</property>
+		<property>
+			<name>onRowMouseMove</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: a script expression; a pointer is moved within of row
+			</description>
+		</property>
+		<property hidden="true" existintag="false" exist="false" >
+			<name>summary</name>
+			<classname>java.lang.Object</classname>
+		</property>
+	</component>
+</components>

@@ -1,0 +1,260 @@
+<html>
+	<head>
+<style type="text/css">
+.rich-colorPicker-wrapper{
+	display:none;
+	font-family:Arial,Helvetica,sans-serif;
+	height:176px;
+	!height:166px;
+	overflow:hidden;
+	position:absolute;
+	width:350px;
+	margin-top: 2px;
+	!margin-top: -6px;
+	!margin-left: -2px;
+}
+.rich-colorPicker-ext{
+	position: relative;
+	background-color: #ECF4FE;
+	border: 1px solid #BED6F8;
+	height: 170px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.rich-colorPicker-color {
+	background:#FF0000 none repeat scroll 0 0;
+	cursor:crosshair;
+	left:7px;
+	top:7px;
+	position:absolute;
+	overflow:hidden;
+	height:150px;
+	width:150px;
+	border: 1px solid #BED6F8;
+}
+
+.rich-colorPicker-color div {
+	background:transparent url(images/colorpicker_overlay.png) repeat scroll 0 0;
+	left:0;
+	position:absolute;
+	top:0;
+	height:150px;
+	width:150px;
+}
+
+.rich-colorPicker-color div div {
+	background:transparent url(images/colorpicker_select.gif) repeat scroll 0 0;
+	left:0;
+	top:0;
+	position:absolute;
+    margin:-6px 0 0 -6px;
+	overflow:hidden;
+	width:11px;
+	height:11px;
+}
+
+.rich-colorPicker-rainbow{
+	cursor:n-resize;
+	height:150px;
+	left:160px;
+	position:absolute;
+	top:7px;
+	width:35px;
+	text-align: center;
+}
+.rich-colorPicker-rainbow div{
+	background:transparent url(images/rangearrows.gif) no-repeat scroll left top;
+	height:9px;
+	left:1px;
+	margin:-4px 0 0;
+	overflow:hidden;
+	position:absolute;
+	width:35px;
+}
+
+.rich-colorPicker-new-color, .rich-colorPicker-current-color{
+	position:absolute;
+	top:7px;
+	width: 60px;
+	height: 30px;
+	border: 1px solid #BED6F8;
+}
+
+.rich-colorPicker-current-color{
+	right:7px;
+	top:7px;
+}
+
+.rich-colorPicker-new-color{
+    left:198px;
+}
+.rich-colorPicker-hex-wrapper {
+	height:22px;
+	left:202px;
+	position:absolute;
+	top:119px;
+}
+
+.rich-colorPicker-rgb-wrapper{
+	left:184px;
+	position:absolute;
+	top:55px;
+	width:70px;
+	padding: 0px;
+	text-align: right;
+	margin-bottom: 2px
+}
+
+.rich-colorPicker-hsb-wrapper{
+	right:7px;
+	position:absolute;
+	top:55px;
+	width:70px;
+	padding: 0px;
+	text-align: right;
+	margin-bottom: 2px
+}
+.rich-colorPicker-hsb-h, .rich-colorPicker-rgb-r{
+	top:45px;
+}
+.rich-colorPicker-hsb-s, .rich-colorPicker-rgb-g{
+	top:70px;
+}
+.rich-colorPicker-hsb-b, .rich-colorPicker-rgb-b{
+	top:95px;
+}
+
+
+.rich-colorPicker-rgb-wrapper  label {
+	padding-top: 2px;
+	font-size: 16px;
+}
+
+.rich-colorPicker-rgb-wrapper input, .rich-colorPicker-hex-wrapper input, .rich-colorPicker-hsb-wrapper input{
+	width: 35px;	
+	background-color: #fff;
+	border: 1px solid #BED6F8;
+	color: #000;
+	font-family: Arial,Verdana,sans-serif;
+	font-size: 16px;
+}
+
+.rich-colorPicker-hex-wrapper input{
+	width:60px;
+	font-size: 13px;
+}
+
+.rich-colorPicker-submit, .rich-colorPicker-cancel{
+	position:absolute;
+right:75px;
+top:144px;
+	border: 1px solid #BED6F8;
+}
+.rich-colorPicker-cancel{
+right:7px;
+}
+.rich-colorPicker-span input{
+	border: 1px solid #BED6F8;
+	font-size: 12px;
+	width:130px;
+	vertical-align:middle;
+}
+.rich-colorPicker-icon {
+	display:inline;
+	cursor:pointer;
+	height:16px;
+	width:16px;
+	vertical-align:middle;	
+	border: 1px solid #BED6F8;
+}
+
+</style>
+
+<script type="text/javascript" src="jquery-1.2.6.js"></script>
+<script type="text/javascript" src="ui.core.js"></script>
+<script type="text/javascript" src="pngFix.js"></script>
+<script type="text/javascript" src="ui.colorpicker.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	if(navigator.appName == "Microsoft Internet Explorer" && parseInt(navigator.appVersion) == 4 && navigator.appVersion.indexOf("MSIE 7.0") == -1){
+		$('div.rich-colorPicker-color').pngFix();
+	}
+	$("#rich-colorPicker input, img").colorPicker({ 
+		eventName: 'click',
+		flat: true,
+		color: "rgb(255, 250, 240)",
+		/*color: {r:128,g:117,b:64},*/
+		/*color: {h:50,s:50,b:50}*/
+		clientId: "#rich-colorPicker",
+		submit: function(e, ui) {
+// Possibility to choose color modes for the input
+ 	        $("#rich-colorPicker input").val(ui.hex); 
+//	        $("#rich-colorPicker input").val(ui.rgb); 
+	    } 
+	});
+});
+</script>
+
+
+	</head>
+	<body>
+
+
+<span id="rich-colorPicker" class="rich-colorPicker-span">
+	<input readonly="readonly"/>
+	<img src="images/arrow.gif" alt="icon" class="rich-colorPicker-icon" vertical-align="middle" />
+</span>
+<input type="button" value="Set red color in RGB format" onclick="$('#rich-colorPicker').colorPicker('setColor', {r:255,g:0,b:0})"/>
+<input type="button" value="Set gray color in HEX format" onclick="$('#rich-colorPicker').colorPicker('setColor', '#cccccc')"/>
+<input type="button" value="Set seagreen color in HSB format" onclick="$('#rich-colorPicker').colorPicker('setColor', {h:160,s:100,b:100})"/>
+
+<div id="rich-colorPicker-ui" class="rich-colorPicker-wrapper">
+	<div class="rich-colorPicker-ext">
+		<div class="rich-colorPicker-color">
+			<div>
+				<div></div>
+			</div>
+		</div>
+		<div class="rich-colorPicker-rainbow">
+			<img src="images/rainbow.png" alt="rainbow" />	
+			<div></div>
+		</div>
+		<div class="rich-colorPicker-new-color"></div>
+		<div class="rich-colorPicker-current-color"></div>
+		<div class="rich-colorPicker-hex-wrapper">
+			<label for="rich-colorPicker-hex-wrapper" title="hex">#:</label>
+			<input type="text" maxlength="6" size="6" />
+		</div>
+		<div class="rich-colorPicker-rgb-wrapper rich-colorPicker-rgb-r">
+				<label for="rgb">R:</label>
+				<input id="rgb-r" type="text" maxlength="3" size="2" />
+        </div>
+		<div class="rich-colorPicker-rgb-wrapper rich-colorPicker-rgb-g">
+				<label for="rgb-g">G:</label>
+				<input id="rgb-g" type="text" maxlength="3" size="2" />
+		</div>
+		<div class="rich-colorPicker-rgb-wrapper rich-colorPicker-rgb-b">
+				<label for="rgb-b">B:</label>
+				<input id="rgb-b" type="text" maxlength="3" size="2" />
+		</div>
+		<div class="rich-colorPicker-hsb-h rich-colorPicker-hsb-wrapper">
+				<label for="hsb-h">H:</label>
+				<input id="hsb-h" type="text" maxlength="3" size="2" />
+		</div>
+		<div class="rich-colorPicker-hsb-s rich-colorPicker-hsb-wrapper">
+				<label for="hsb-s">S:</label>
+				<input id="hsb-s" type="text" maxlength="3" size="2" />
+		</div>		
+		<div class="rich-colorPicker-hsb-b rich-colorPicker-hsb-wrapper">		
+				<label for="hsb-b">B:</label>
+				<input id="hsb-b" type="text" maxlength="3" size="2" />
+		</div>
+		<button type="button" class="rich-colorPicker-submit" name="submit">Apply</button>
+		<button type="button" class="rich-colorPicker-cancel" name="cancel">Cancel</button>
+	</div>
+</div>
+
+
+	</body>
+</html>

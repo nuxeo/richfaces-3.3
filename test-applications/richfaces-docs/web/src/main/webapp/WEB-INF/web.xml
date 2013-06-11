@@ -1,0 +1,155 @@
+<?xml version="1.0" ?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+
+	<!-- Ajax4jsf -->
+
+	<context-param>
+
+		<param-name>org.richfaces.queue.global.enabled</param-name>
+		<param-value>#{globalQueue.globalQueue}</param-value>
+
+	</context-param>
+
+	<filter>
+		<display-name>Ajax4jsf Filter</display-name>
+		<filter-name>ajax4jsf</filter-name>
+		<filter-class>org.ajax4jsf.Filter</filter-class>
+		<init-param>
+        <param-name>createTempFiles</param-name>
+        <param-value>false</param-value>
+		</init-param>
+		<init-param>
+        <param-name>maxRequestSize</param-name>
+        <param-value>10000000</param-value>
+		</init-param>
+	</filter>
+
+
+
+
+
+	<context-param>
+		<param-name>org.richfaces.LoadScriptStrategy</param-name>
+		<param-value>ALL</param-value>
+	</context-param>
+
+	<filter-mapping>
+		<filter-name>ajax4jsf</filter-name>
+		<url-pattern>*.seam</url-pattern>
+	</filter-mapping>
+
+	<context-param>
+		<param-name>org.richfaces.SKIN</param-name>
+		<param-value>#{skin.skin}</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>org.richfaces.CONTROL_SKINNING</param-name>
+		<param-value>#{skin.standardSkinning}</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>org.richfaces.CONTROL_SKINNING_LEVEL</param-name>
+		<param-value>extended</param-value>
+	</context-param>
+
+
+
+	<!-- Seam -->
+
+	<listener>
+		<listener-class>org.jboss.seam.servlet.SeamListener</listener-class>
+	</listener>
+
+	<filter>
+		<filter-name>Seam Filter</filter-name>
+		<filter-class>org.jboss.seam.servlet.SeamFilter</filter-class>
+		<init-param>
+			<param-name>maxRequestSize</param-name>
+			<param-value>100000</param-value>
+		</init-param>
+
+	</filter>
+
+	<filter-mapping>
+		<filter-name>Seam Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>Seam Resource Servlet</servlet-name>
+		<servlet-class>org.jboss.seam.servlet.SeamResourceServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Seam Resource Servlet</servlet-name>
+		<url-pattern>/seam/resource/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Facelets development mode (disable in production) -->
+
+	<context-param>
+		<param-name>facelets.DEVELOPMENT</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<!-- JSF -->
+
+	<context-param>
+		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+		<param-value>.xhtml</param-value>
+	</context-param>
+
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.seam</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+
+
+
+
+<security-constraint>
+	<web-resource-collection>
+	<web-resource-name>Protected Pages</web-resource-name>
+	<url-pattern>/isuserinrole.xhtml</url-pattern>
+	</web-resource-collection>
+	<auth-constraint>
+	<role-name>admin</role-name>
+	</auth-constraint>
+</security-constraint>
+
+<login-config>
+<auth-method>FORM</auth-method>
+<realm-name>openldap</realm-name>
+<form-login-config>
+<form-login-page>/login.xhtml</form-login-page>
+<form-error-page>/noauth.xhtml</form-error-page>
+</form-login-config>
+</login-config>
+
+
+<security-role>
+<role-name>user</role-name>
+</security-role>
+
+<security-role>
+<role-name>admin</role-name>
+</security-role>
+
+
+
+
+</web-app>

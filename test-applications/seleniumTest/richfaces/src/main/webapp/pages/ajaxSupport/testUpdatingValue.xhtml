@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="../../template/caseTemplate.xhtml">
+	<ui:define name="caseName">testUpdatingValue</ui:define>
+	<ui:define name="caseBody">
+		<h:form id="_form">
+		<table cellpadding="5" >
+			<tr>
+				<td>1</td>
+				<td>
+					<h:inputText id="input_uv" value="#{ajaxSupport.inputValue}">
+						<a4j:support event="onkeyup" reRender="input_uv,data1_uv" action="#{ajaxSupport.updatingValueAction}"/>
+					</h:inputText>
+				</td>
+				<td><div><h:outputText style="font-weight: bold; border: 1px solid green" value="#{ajaxSupport.data}" id="data1_uv"></h:outputText></div></td>
+			</tr>
+		</table>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

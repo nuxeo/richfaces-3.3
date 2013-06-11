@@ -1,0 +1,136 @@
+&ui_component_attributes;
+&ui_component_attributes;
+&html_universal_attributes;
+<property disabled="true">
+	<name>header</name>
+</property>
+<property disabled="true">
+	<name>footer</name>
+</property>
+<property>
+	<name>colspan</name>
+	<classname>int</classname>
+	<description>Corresponds to the HTML colspan attribute</description>
+</property>
+<property>
+	<name>rowspan</name>
+	<classname>int</classname>
+	<description>Corresponds to the HTML rowspan attribute</description>
+</property>
+<property>
+	<name>breakBefore</name>
+	<classname>boolean</classname>
+	<description>if "true" next column begins from the first row</description>
+</property>
+<property>
+	<name>headerClass</name>
+	<classname>java.lang.String</classname>
+	<description>Space-separated list of CSS style class(es) that are be applied to any header generated for this table</description>
+	<defaultvalue>""</defaultvalue>
+</property>
+<property>
+	<name>footerClass</name>
+	<classname>java.lang.String</classname>
+	<description>Space-separated list of CSS style class(es) that are be applied to any footer generated for this table</description>
+	<defaultvalue>""</defaultvalue>
+</property>
+<property>
+	<name>width</name>
+	<classname>java.lang.String</classname>
+	<description>
+	Attribute defines width of column.
+	</description>
+</property>		
+
+<property>
+	<name>sortable</name>
+	<classname>boolean</classname>
+	<description>Boolean attribute. If "true" it's possible to sort the column content after click on the header.
+	Default value is "true"
+	</description>
+	<defaultvalue>true</defaultvalue>
+</property>		
+<property>
+	<name>sortExpression</name>
+	<classname>java.lang.String</classname>
+	<description>Defines a bean property which is used for sorting of a column and used only with &lt;rich:scrollableDataTable&gt;.</description>
+</property>		
+<property>
+	<name>sortBy</name>
+	<classname>java.lang.Object</classname>
+	<description>Defines a bean property which is used for sorting of a column. This attribute used with &lt;rich:dataTable&gt;</description>
+</property>		
+<property>
+	<name>sortOrder</name>
+	<classname>org.richfaces.model.Ordering</classname>
+	<description>SortOrder is an enumeration of the possible sort orderings. Default value is &quot;UNSORTED&quot;</description>
+	<defaultvalue>Ordering.UNSORTED</defaultvalue>
+</property>		
+<property>
+	<name>comparator</name>
+	<classname>java.util.Comparator</classname>
+	<description>Defines value binding to the comparator that is used to compare the values</description>
+</property>		
+<property>
+	<name>selfSorted</name>
+	<classname>boolean</classname>
+	<description>Manages if the header of the column is clickable, icons rendered and sorting is fired after click on the header. You need to define this attribute inside &lt;rich:dataTable&gt; component.
+	Default value is &quot;true&quot;</description>
+	<defaultvalue>true</defaultvalue>
+</property>		
+
+<property elonly="true">
+	<name>filterExpression</name>
+	<classname>boolean</classname>
+	<description>Attribute defines a bean property which is used for filtering of a column</description>
+</property>		
+<property elonly="true">
+	<name>filterMethod</name>
+	<classname>javax.el.MethodExpression</classname>
+	<methodargs>java.lang.Object</methodargs>
+	<returntype>boolean</returntype>
+	<description>This attribute is defined with method binding. This method accepts on Object parameter and return boolean value</description>
+</property>		
+<property elonly="true">
+	<name>filterBy</name>
+	<classname>java.lang.Object</classname>
+	<description>Defines iterable object property which is used when filtering performed.</description>
+</property>		
+<property>
+	<name>filterValue</name>
+	<classname>java.lang.String</classname>
+	<description>Defines current filtering value</description>
+</property>		
+<property>
+	<name>filterEvent</name>
+	<classname>java.lang.String</classname>
+	<description>Event for filter input that forces the filtration (default value is &quot;onchange&quot;)</description>
+	<defaultvalue>"onchange"</defaultvalue>
+</property>
+<property>
+	<name>sortIcon</name>
+	<classname>java.lang.String</classname>
+	<description>Defines sort icon. The value for the attribute is context related.</description>
+</property>
+<property>
+	<name>sortIconAscending</name>
+	<classname>java.lang.String</classname>
+	<description>Defines sort icon for ascending order. The value for the attribute is context related.</description>
+</property>
+<property>
+	<name>sortIconDescending</name>
+	<classname>java.lang.String</classname>
+	<description>Defines sort icon for descending order. The value for the attribute is context related.</description>
+</property>
+<property>
+	<name>label</name>
+	<classname>java.lang.String</classname>
+	<description>Column label for drag indicator. Usable only for extendedDataTable component</description>
+	<defaultvalue>""</defaultvalue>
+</property>
+<property>
+	<name>visible</name>
+	<classname>boolean</classname>
+	<description>The attribute is used to define whether the component is visible or not. The default value is "true".</description>
+	<defaultvalue>true</defaultvalue>
+</property>

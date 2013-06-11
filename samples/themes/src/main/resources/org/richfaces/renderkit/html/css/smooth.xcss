@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml">
+
+	<u:selector name="body">
+		<u:style name="background" skin="headerGradientColor"/>
+		<u:style name="margin" value="0px"/>
+		<u:style name="background-image">
+		    <!-- images/bg_header.png -->
+			<f:resource f:key="org.richfaces.theme.images.PageBackground"/>
+		</u:style>
+		<u:style name="background-repeat" value="repeat-x"/>
+		<u:style name="background-position" value="top left"/>
+	</u:selector>
+
+	<u:selector name=".bg_tabbody">
+		<u:style name="background" skin="generalBackgroundColor"/>
+		<u:style name="border-color" skin="panelBorderColor" />
+		<u:style name="border-top-style" value="solid" />
+		<u:style name="border-top-width" value="15px" />
+	</u:selector>
+
+	<u:selector name=".content_body">
+		<u:style name="background" skin="generalBackgroundColor"/>
+		<u:style name="border-color" skin="panelBorderColor" />
+		<u:style name="border" value="none" />
+	</u:selector>
+
+	<u:selector name=".menu_col">
+		<u:style name="background" skin="generalBackgroundColor"/>
+		<u:style name="border-color" skin="panelBorderColor" />
+		<u:style name="border-right-style" value="solid" />
+		<u:style name="border-right-width" value="2px" />
+		<u:style name="vertical-align" value="top"/>
+	</u:selector>
+	<u:selector name=".content_col">
+		<u:style name="background" skin="generalBackgroundColor"/>
+		<u:style name="width" value="100%" />
+		<u:style name="vertical-align" value="top"/>
+	</u:selector>
+
+
+		<u:selector name=".header_content">
+		<u:style name="background-image">
+		    <!-- images/bg_header.png -->
+			<f:resource f:key="org.richfaces.theme.images.ShadowHeaderBackground"/>
+		</u:style>
+		<u:style name="margin" value="0px 15px 0px 15px" />
+		<u:style name="padding" value="15px" />
+		<u:style name="border-bottom-color" skin="generalBackgroundColor" />
+		<u:style name="background-color" skin="headerBackgroundColor"/>
+		<u:style name="background-repeat" value="repeat-x"/>
+		<u:style name="background-position" value="top left"/>
+		<u:style name="position" value="relative"/>
+	</u:selector>
+	
+		<u:selector name=".header_bg_left">
+		<u:style name="background-image">
+		    <!-- images/bg_header.png -->
+			<f:resource f:key="org.richfaces.theme.images.ShadowHeaderLeft"/>
+		</u:style>
+		<u:style name="background-repeat" value="no-repeat"/>
+		<u:style name="background-position" value="top left"/>
+		</u:selector>
+		<u:selector name=".header_bg_right">
+		<u:style name="background-image">
+		    <!-- images/bg_header.png -->
+			<f:resource f:key="org.richfaces.theme.images.ShadowHeaderRight"/>
+		</u:style>
+		<u:style name="background-repeat" value="no-repeat"/>
+		<u:style name="background-position" value="top right"/>
+	    </u:selector>
+
+	<u:selector name=".footer_bg_content">
+		<u:style name="background-image">
+		    <!-- images/bg_footer.png -->
+			<f:resource f:key="org.richfaces.theme.images.ShadowFooterBackground"/>
+		</u:style>
+		<u:style name="background-repeat" value="repeat-x"/>
+		<u:style name="background-position" value="top left"/>
+		<u:style name="margin" value="0px 15px" />
+		<u:style name="position" value="relative"/>
+		<u:style name="padding" value="15px" />
+		<u:style name="height" value="53px" />
+	</u:selector>
+
+		<u:selector name=".footer_bg_left">
+		<u:style name="background-image">
+		    <!-- images/bg_header.png -->
+			<f:resource f:key="org.richfaces.theme.images.ShadowFooterLeft"/>
+		</u:style>
+		<!-- u:style name="background-color" skin="panelBorderColor"/-->
+		<u:style name="background-repeat" value="no-repeat"/>
+		<u:style name="background-position" value="top left"/>
+		</u:selector>
+		<u:selector name=".footer_bg_right">
+		<u:style name="background-image">
+		    <!-- images/bg_header.png -->
+			<f:resource f:key="org.richfaces.theme.images.ShadowFooterRight"/>
+		</u:style>
+		<u:style name="background-repeat" value="no-repeat"/>
+		<u:style name="background-position" value="top right"/>
+		<u:style name="height" value="72px" />
+	    </u:selector>
+
+
+		<u:selector name=".left_col">
+		<u:style name="background-image">
+		    <!-- images/bg_header.png -->
+			<f:resource f:key="org.richfaces.theme.images.ShadowBackgroundButtomLeft"/>
+		</u:style>
+		<!-- u:style name="background-color" skin="panelBorderColor"/-->
+		<u:style name="background-repeat" value="repeat-y"/>
+		<u:style name="background-position" value="top left"/>
+		<u:style name="vertical-align" value="top"/>
+		</u:selector>
+		<u:selector name=".left_strut">
+		<u:style name="background-image">
+		    <!-- images/bg_header.png -->
+			<f:resource f:key="org.richfaces.theme.images.ShadowBackgroundLeft"/>
+		</u:style>
+		<!-- u:style name="background-color" skin="panelBorderColor"/-->
+		<u:style name="background-repeat" value="no-repeat"/>
+		<u:style name="background-position" value="top left"/>
+		<u:style name="width" value="15px"/>
+		<u:style name="height" value="100%"/>
+		</u:selector>
+
+		<u:selector name=".right_col">
+		<u:style name="background-image">
+		    <!-- images/bg_header.png -->
+			<f:resource f:key="org.richfaces.theme.images.ShadowBackgroundButtomRight"/>
+		</u:style>
+		<!-- u:style name="background-color" skin="panelBorderColor"/-->
+		<u:style name="background-repeat" value="repeat-y"/>
+		<u:style name="background-position" value="buttom right"/>
+		<u:style name="vertical-align" value="top"/>
+		</u:selector>
+		<u:selector name=".right_strut">
+		<u:style name="background-image">
+		    <!-- images/bg_header.png -->
+			<f:resource f:key="org.richfaces.theme.images.ShadowBackgroundRight"/>
+		</u:style>
+		<!-- u:style name="background-color" skin="panelBorderColor"/-->
+		<u:style name="background-repeat" value="no-repeat"/>
+		<u:style name="background-position" value="top right"/>
+		<u:style name="width" value="15px"/>
+		<u:style name="height" value="100%"/>
+		</u:selector>
+
+	<f:verbatim>
+		<![CDATA[
+.page_size{width:90%; margin:0px auto; border: none;}
+.menu_width{width : 300px;}
+
+.common_box {margin : 0px; }
+.spacer{font-size : 1px;}
+		]]>
+	</f:verbatim>
+</f:template>

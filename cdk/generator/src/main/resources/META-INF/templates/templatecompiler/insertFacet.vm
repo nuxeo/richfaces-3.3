@@ -1,0 +1,4 @@
+UIComponent indexChildren_$index = component.getFacet("$FacetName");
+if (null != indexChildren_$index && indexChildren_$index .isRendered()) {
+	renderChild(context, indexChildren_$index);
+}

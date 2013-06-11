@@ -1,0 +1,38 @@
+<f:subview id="infoSubview" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:panelGrid binding="#{myInfo.panelEvent}" columns="2">
+	</h:panelGrid>
+	<f:verbatim>
+		<br />
+	</f:verbatim>
+	<h:commandButton action="#{myInfo.getEvent}" value="test event"></h:commandButton>
+
+	<h:panelGrid columns="2">
+		<h:outputText value="style:"></h:outputText>
+		<h:dataTable id="styleTableID" value="#{myInfo.style}" var="myInfo">
+			<h:column>
+				<h:outputText value="#{myInfo.key}"></h:outputText>
+			</h:column>
+			<h:column>
+				<h:outputText value="#{myInfo.value}"></h:outputText>
+			</h:column>
+		</h:dataTable>
+
+		<h:outputText value="attribute"></h:outputText>
+		<h:selectBooleanCheckbox value="#{option.attribute}"
+			onchange="submit();"></h:selectBooleanCheckbox>
+
+
+		<h:outputText value="attribute:" rendered="#{option.attribute}"></h:outputText>
+		<h:dataTable id="attributeTableID" rendered="#{option.attribute}"
+			value="#{myInfo.attribute}" var="myInfo">
+			<h:column>
+				<h:outputText value="#{myInfo.key}"></h:outputText>
+			</h:column>
+			<h:column>
+				<h:outputText value="#{myInfo.value}"></h:outputText>
+			</h:column>
+		</h:dataTable>
+	</h:panelGrid>
+</f:subview>

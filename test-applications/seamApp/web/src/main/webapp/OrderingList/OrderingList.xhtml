@@ -1,0 +1,113 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" id="orderingListSubviewID">
+
+	<a4j:outputPanel ajaxRendered="true">
+		<h:messages />
+	</a4j:outputPanel>
+
+	<rich:orderingList id="orderingListID" value="#{orderingList.list}" var="item" listHeight="#{orderingList.listHeight}"
+		listWidth="#{orderingList.listWidth}" controlsType="#{orderingList.controlsType}" converter="orderingListConverter"
+		bottomControlLabel="#{orderingList.bottomControlLabel}" captionLabel="#{orderingList.captionLabel}"
+		topControlLabel="#{orderingList.topControlLabel}" upControlLabel="#{orderingList.upControlLabel}"
+		controlsHorizontalAlign="#{orderingList.controlsHorizontalAlign}" controlsVerticalAlign="#{orderingList.controlsVerticalAlign}"
+		downControlLabel="#{orderingList.downControlLabel}"
+		orderControlsVisible="#{orderingList.orderControlsVisible}" fastOrderControlsVisible="#{orderingList.fastOrderControlsVisible}"
+		rendered="#{orderingList.rendered}" showButtonLabels="#{orderingList.showButtonLabels}" selection="#{orderingList.selection}"
+	 	onmousemove="#{event.onmousemove}" onclick="#{event.onclick}" ondblclick="#{event.ondblclick}" onmouseout="#{event.onmouseout}" 
+	 	onmouseover="#{event.onmouseover}" onorderchanged="#{event.onorderchanged}" ontopclick="#{event.ontopclick}" onupclick="#{event.onupclick}" 
+	 	ondownclick="#{event.ondownclick}" onbottomclick="#{event.onbottomclick}" onheaderclick="#{event.onheaderclick}" binding="#{orderingList.htmlOL}">
+		<f:facet name="header">
+			<h:outputText value="header" />
+		</f:facet>
+		<f:facet name="footer">
+			<h:outputText value="footer" />
+		</f:facet>
+
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Number" />
+			</f:facet>
+			<h:outputText value="#{item.int0}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Input" />
+			</f:facet>
+			<h:inputText value="#{item.str0}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Button" />
+			</f:facet>
+			<h:commandButton onclick="submit();" action="#{orderingList.cbAction}" value="#{item.str0} submit();" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Input" />
+			</f:facet>
+			<h:inputText value="#{item.str1}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Link" />
+			</f:facet>
+			<a4j:commandLink action="#{orderingList.clAction}" value="#{item.str1} submit()" reRender="orderingListID"></a4j:commandLink>
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="select" />
+			</f:facet>
+			<h:selectOneMenu value="#{item.str2}" >
+				<f:selectItem itemLabel="select0" itemValue="select0" />
+				<f:selectItem itemLabel="select1" itemValue="select1" />
+				<f:selectItem itemLabel="select2" itemValue="select2" />
+				<f:selectItem itemLabel="select3" itemValue="select3" />
+				<f:selectItem itemLabel="select4" itemValue="select4" />
+				<a4j:support event="onclick" reRender="orderingListID"></a4j:support>
+			</h:selectOneMenu>
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Text" />
+			</f:facet>
+			<h:outputText value="#{item.str3}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="graphicImage" />
+			</f:facet>
+			<h:graphicImage value="#{item.str3}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Link"></h:outputText>
+			</f:facet>
+			<h:outputLink value="http://www.jboss.com/"><f:verbatim>Link</f:verbatim></h:outputLink>
+		</h:column>
+	</rich:orderingList>
+	<h:panelGrid columns="3">
+		<h:column></h:column>
+		<h:outputText value="JavaScript API"></h:outputText>
+		<h:column></h:column>
+		<a4j:commandLink onclick="$('formID:orderingListSubviewID:orderingListID').component.doHide()" value="Hide"></a4j:commandLink>
+		<a4j:commandLink onclick="$('formID:orderingListSubviewID:orderingListID').component.doShow()" value="Show"></a4j:commandLink>
+		<a4j:commandLink onclick="alert($('formID:orderingListSubviewID:orderingListID').component.isShown)" value="isShown"></a4j:commandLink>
+		<a4j:commandLink onclick="$('formID:orderingListSubviewID:orderingListID').component.Enable()" value="Enable"></a4j:commandLink>
+		<a4j:commandLink onclick="$('formID:orderingListSubviewID:orderingListID').component.Disable()" value="Disable"></a4j:commandLink>
+		<a4j:commandLink onclick="$('formID:orderingListSubviewID:orderingListID').component.isEnabled()" value="isEnabled"></a4j:commandLink>
+		<a4j:commandLink onclick="$('formID:orderingListSubviewID:orderingListID').component.moveUp" value="moveUp"></a4j:commandLink>
+		<a4j:commandLink onclick="$('formID:orderingListSubviewID:orderingListID').component.moveDown" value="moveDown"></a4j:commandLink>
+		<a4j:commandLink onclick="$('formID:orderingListSubviewID:orderingListID').component.moveTop" value="moveTop"></a4j:commandLink>
+		<a4j:commandLink onclick="$('formID:orderingListSubviewID:orderingListID').component.moveBottom" value="moveBottom"></a4j:commandLink>
+		<a4j:commandLink onclick="$('formID:orderingListSubviewID:orderingListID').component.getSelection" value="getSelection"></a4j:commandLink>
+		<a4j:commandLink onclick="$('formID:orderingListSubviewID:orderingListID').component.getItems" value="getItems"></a4j:commandLink>
+	</h:panelGrid>	
+</f:subview>

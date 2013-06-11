@@ -1,0 +1,95 @@
+<html 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jstl/core">
+	<head>
+		<title></title>
+		<script type="text/javascript">
+			function findLog() {
+				return document.getElementById('logConsole');
+			}
+			
+			function hideLog() {
+				findLog().style.display = 'none';
+			}
+			
+			function showLog() {
+				findLog().style.display = '';
+			}
+		</script>
+	</head>
+	<body>
+		<f:view>
+			<ui:include src="/templates/navigation.xhtml" />
+
+			<a4j:status startText="...running..." stopText="stopped" startStyle="color: green" />
+
+			<c:set var="size" value="2" />
+			<c:set var="requestDelay" value="#{bean.queueRequestDelay}" />
+
+			<c:forEach items="#{oversizeBean.queueNames}" var="queueName">
+				<a4j:queue requestDelay="#{requestDelay}" size="#{size}" name="#{queueName}" 
+					sizeExceededBehavior="#{queueName}"/>
+			</c:forEach>
+
+			<script type="text/javascript">
+				function initSequences() {
+					window.sequences = {
+							dropNext: 0,
+							dropNew: 0,
+							fireNext: 0,
+							fireNew: 0
+						};				
+				}
+
+				initSequences();
+			</script>
+
+			<h:panelGroup id="queueStatus">
+				<table style="width: 50%;"><tbody>
+				<tr style="width: 25%">
+					<a4j:repeat value="#{oversizeBean.queueNames}" var="queueName">
+						<td>
+							#{queueName}
+						</td>
+					</a4j:repeat>
+				</tr>
+				<tr>
+					<a4j:repeat value="#{oversizeBean.queueNames}" var="queueName">
+						<td>
+							#{oversizeBean.queueData[queueName]}
+						</td>
+					</a4j:repeat>
+				</tr>
+				</tbody></table>
+			</h:panelGroup>
+
+			<h:form>
+				<c:forEach items="#{oversizeBean.queueNames}" var="queueName">
+					<button onclick="#{queueName}FireDelay();#{queueName}Fire1();#{queueName}Fire2(); return false;">
+						#{queueName}
+					</button>
+					<a4j:jsFunction action="#{oversizeBean.fireDelay}" 
+						name="#{queueName}FireDelay" 
+						reRender="queueStatus" eventsQueue="#{queueName}">
+					</a4j:jsFunction>
+					<c:forEach begin="1" end="2" var="index">
+						<a4j:jsFunction action="#{oversizeBean.action}" 
+							name="#{queueName}Fire#{index}" 
+							reRender="queueStatus" eventsQueue="#{queueName}">
+							<a4j:actionparam name="sequence" value="sequences.#{queueName}++" noEscape="true" />
+							<a4j:actionparam name="queueName" value="#{queueName}"/>
+						</a4j:jsFunction>
+					</c:forEach>
+				</c:forEach>
+				
+				<br />
+				
+				<a4j:commandButton value="reset" reRender="queueStatus" action="#{oversizeBean.reset}" oncomplete="initSequences()"/>
+			</h:form>
+
+		</f:view>
+	</body>	
+</html>  

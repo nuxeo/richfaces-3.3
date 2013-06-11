@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:sg="http://labs.jboss.com/jbossrichfaces/ui/scrollableDataTable"
+      xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+      xmlns:dt="http://labs.jboss.com/jbossrichfaces/ui/dataTable"
+      
+       >
+     <body>
+   	 <f:view>
+     <h:form>
+	     <dt:dataTable value="#{jiraService.channel.issues}" 
+	     					 var="issues" 
+	     					 width="800px"
+	     					 height="500px">       	
+	      	<dt:column id="index" width="100px" filterExpression="#{issues.index > 5}">		
+     			<f:facet name="header">
+     				<h:outputText value="Index"></h:outputText>
+     			</f:facet>		
+     			<h:outputText value="#{issues.index}"></h:outputText> 			
+     		</dt:column>
+     		
+     		<dt:column width="200px"> 		
+     			<f:facet name="header">
+	   				<h:outputText value="Key"></h:outputText>
+     			</f:facet>    			
+				<h:outputText value="#{issues.key.value}"></h:outputText>				
+     		</dt:column>   		
+     		
+     		<dt:column id="summary" width="200px" sortExpression="#{issues.summary}" sortOrder="ASCENDING">    			
+     			<f:facet name="header">
+	   				<h:outputText value="Summary"></h:outputText>
+     			</f:facet>			
+				<h:outputText value="#{issues.summary}"></h:outputText>
+    		</dt:column>
+    	</dt:dataTable>
+     	<h:commandButton value="submit"></h:commandButton>
+   	   	<h:messages showDetail="true"/>
+     </h:form> 
+      </f:view>
+    </body>
+</html>	

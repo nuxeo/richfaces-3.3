@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://jsf.exadel.com/template"
+	    xmlns:c="http://java.sun.com/jsf/core"
+	    xmlns:ui="http://jsf.exadel.com/ui"
+	    xmlns:vcp="http://jsf.exadel.com/vcp"
+	    xmlns:u="http://jsf.exadel.com/util"
+	    xmlns:x="http://jsf.exadel.com/mock"
+	    baseclass="org.richfaces.renderkit.DialogVerticalFillerRenderer"
+	    class="org.richfaces.renderkit.DialogVerticalFillerTemplate"
+        component="org.richfaces.component.UIDialogVerticalFiller">
+        	
+    <f:clientid var="clientId"/>			
+	<table border="0px" cellspacing="0" cellpadding="0" style="background-color: black;">
+		<tbody>
+			<tr>
+				<td class="filler #{component.attributes['styleClass']}" 
+					style="#{component.attributes['style']}"
+					id="#{clientId}"/>
+			</tr>
+		</tbody>
+	</table>
+</f:root>

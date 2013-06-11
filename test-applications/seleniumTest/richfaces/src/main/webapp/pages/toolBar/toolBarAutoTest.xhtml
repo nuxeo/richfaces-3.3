@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="#{templateBean.autoTestTemplate}">
+	<ui:define name="component">
+			<rich:toolBar id="componentId"
+						rendered="#{autoTestBean.rendered}"
+						style="font-size: 16px;"
+						styleClass="styleClass"
+						onclick="EventQueue.fire('onclick')"
+						onkeydown="EventQueue.fire('onkeydown')"
+						onkeypress="EventQueue.fire('onkeypress')"
+						onmousedown="EventQueue.fire('onmousedown')"
+						onkeyup="EventQueue.fire('onkeyup')"
+						onmousemove="EventQueue.fire('onmousemove')"
+						onmouseout="EventQueue.fire('onmouseout')"
+						ondblclick="EventQueue.fire('ondblclick')"
+						onmouseover="EventQueue.fire('onmouseover')"
+						onmouseup="EventQueue.fire('onmouseup')"
+					 	itemSeparator="#{toolBarBean.groupSeparator}">
+			<rich:toolBarGroup itemSeparator="#{toolBarBean.groupItemSeparator}">
+				<h:outputText value="Group1.1"></h:outputText>
+				<h:outputText value="Group1.2"></h:outputText>
+				<h:outputText value="Group1.3"></h:outputText>
+			</rich:toolBarGroup>
+			<rich:toolBarGroup itemSeparator="#{toolBarBean.groupItemSeparator}">
+				<h:outputText value="Group2.1"></h:outputText>
+				<h:outputText value="Group2.2"></h:outputText>
+			</rich:toolBarGroup>
+			<rich:toolBarGroup location="right" itemSeparator="#{toolBarBean.groupItemSeparator}">
+				<h:outputText value="Group3.1"></h:outputText>
+				<h:outputText value="Group3.2"></h:outputText>
+			</rich:toolBarGroup>
+		</rich:toolBar>
+	</ui:define>
+</ui:composition>
+</html>

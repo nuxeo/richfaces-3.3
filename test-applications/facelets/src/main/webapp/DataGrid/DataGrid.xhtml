@@ -1,0 +1,56 @@
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" id="dataGridSubviewID">
+
+	<rich:dataGrid id="dataGridID" value="#{dataGrid.allCars}" var="car" columns="#{dataGrid.columns}"
+		elements="#{dataGrid.elements}" first="#{dataGrid.first}" binding="#{dataGrid.htmlDataGrid}"
+		dir="#{dataGrid.dir}" border="#{dataGrid.border}" 
+		cellpadding="#{dataGrid.cellpadding}" cellspacing="#{dataGrid.cellspacing}"
+		rendered="#{dataGrid.rendered}" width="#{dataGrid.width}" 
+		captionClass="#{style.captionClass}"
+		captionStyle="#{style.captionStyle}"
+		columnClasses="#{style.columnClasses}"
+		footerClass="#{style.footerClass}"
+		headerClass="#{style.headerClass}"
+		rowClasses="#{style.rowClasses}"
+		style="#{style.style}"
+		styleClass="#{style.styleClass}"		
+		onclick="#{event.onclick}"
+		ondblclick="#{event.ondblclick}"
+		onkeydown="#{event.onkeydown}"
+		onkeypress="#{event.onkeypress}"
+		onkeyup="#{event.onkeyup}"
+		onmousedown="#{event.onmousedown}"
+		onmousemove="#{event.onmousemove}"
+		onmouseout="#{event.onmouseout}"
+		onmouseover="#{event.onmouseover}"
+		onmouseup="#{event.onmouseup}"
+		onRowClick="#{event.onRowClick}"
+		onRowDblClick="#{event.onRowDblClick}"
+		onRowMouseDown="#{event.onRowMouseDown}"
+		onRowMouseMove="#{event.onRowMouseMove}"
+		onRowMouseOut="#{event.onRowMouseOut}"
+		onRowMouseOver="#{event.onRowMouseOver}"
+		onRowMouseUp="#{event.onRowMouseUp}" >
+		<f:facet name="header">
+			<h:outputText value="Car Store"></h:outputText>
+		</f:facet>
+		<rich:panel>
+			<f:facet name="header">
+				<h:outputText value="#{car.make} #{car.model}"></h:outputText>
+			</f:facet>
+			<h:panelGrid columns="2">
+				<h:outputText value="Price:"></h:outputText>
+				<h:outputText value="#{car.price}" />
+				<h:outputText value="Mileage:"></h:outputText>
+				<h:outputText value="#{car.mileage}" />
+				<rich:inplaceInput defaultLabel="add comment here.." />
+			</h:panelGrid>
+		</rich:panel>
+		<f:facet name="footer">
+			<rich:datascroller></rich:datascroller>
+		</f:facet>
+	</rich:dataGrid>
+</f:subview>

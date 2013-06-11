@@ -1,0 +1,22 @@
+.page_size{width : 90%;}
+.menu_width{width : 300px;}
+
+body {margin : 0px; background : url(images/bg_page.png) top left #93C4E5;}
+.common_box {margin : 0px; background : url(images/bg_grad_page.png) top left repeat-x;}
+.header_bg_left {background : url(images/bg_header_left.png) top left no-repeat;}
+.header_bg_right {background : url(images/bg_header_right.png) top right no-repeat; height : 105px;}
+.header_content {margin : 0px 10px 0px 10px; height : 80px; position : relative;}
+.spacer{font-size : 1px;}
+.left_col {background : url(images/bg_left.png) top left no-repeat; vertical-align : top}
+.left_strut {background : url(images/bg_left_strut.png) top left no-repeat; height : 389px; width : 14px}
+.bg_tabbody {background : #c0c0c0}
+
+.menu_col {border-right : 2px solid #C0C0C0; vertical-align : top; background : #FFFFFF;}
+.content_col {vertical-align : top; width : 100%; background : #FFFFFF;}
+
+.right_col {background : url(images/bg_right.png) top right no-repeat; vertical-align : top}
+.right_strut {background : url(images/bg_right_strut.png) top right no-repeat; height : 389px; width : 14px}
+.footer_bg_left {background : url(images/bg_footer_left.png) top left no-repeat;}
+.footer_bg_right {background : url(images/bg_footer_right.png) top right no-repeat; height : 72px;}
+.footer_bg_content {margin : 0px 10px 0px 10px; height : 53px; position : relative;}
+

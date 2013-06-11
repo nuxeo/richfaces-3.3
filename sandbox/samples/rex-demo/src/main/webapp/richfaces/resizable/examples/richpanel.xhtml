@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rex="http://labs.jboss.com/jbossrichfaces/ui/ui/rex-resizable"
+      xmlns:rich="http://richfaces.org/rich">
+
+<f:view contentType="text/html">
+
+
+		
+		<rex:resizable draggable="true" name="mypanel" preserveRatio="false" easing="easingInStrong" animate="true" 
+		minWidth="480" minHeight="130" width="429" height="200"
+		style="padding-bottom:4px;padding-right:4px;z-index:2000">
+			<rich:panel style="height:100%">
+				<f:facet name="header">
+					Dialog Title
+				</f:facet>
+				Drag the botton right hand corner to resize<br /><br />
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed metus nibh,
+				sodales a, porta at, vulputate eget, dui. Pellentesque ut nisl. Maecenas
+				tortor turpis, interdum non, sodales non, iaculis ac, lacus. Vestibulum auctor,
+				tortor quis iaculis malesuada, libero lectus bibendum purus, sit amet tincidunt
+				quam turpis vel lacus.
+			</rich:panel>
+		</rex:resizable>	
+
+
+
+
+</f:view>	
+</ui:composition>

@@ -1,0 +1,135 @@
+<html 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j">
+	<head>
+		<title>Events check page</title>
+	</head>
+	<body>
+		<f:view>
+			<ui:include src="/templates/navigation.xhtml" />
+			
+			<a4j:status startText="...running..." startStyle="color: green" />
+
+			<style type="text/css">
+				td {
+					border: 1px solid black;
+				}
+				
+				#handlersTableHeaders td {
+					width: 25%;
+				}
+			</style>
+			
+			<table id="handlersTable" width="30%">
+				<tbody>
+					<tr>
+						<td colspan="4">Queue - Q, Component - C</td>
+					</tr>
+					<tr id="handlersTableHeaders">
+						<td>onrequestqueue</td>
+						<td>onsubmit</td>
+						<td>onbeforedomupdate</td>
+						<td>onrequestdequeue</td>
+						<td>oncomplete</td>
+						<td>onerror</td>
+					</tr>
+					<tr>
+						<td id="onrequestqueueElt"></td>
+						<td id="onsubmitElt"></td>
+						<td id="onbeforedomupdateElt"></td>
+						<td id="onrequestdequeueElt"></td>
+						<td id="oncompleteElt"></td>
+						<td id="onerrorElt"></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<script type="text/javascript">//<![CDATA[
+				function my$(id) {
+					return document.getElementById(id);
+				}
+				
+				function resetCells() {
+					var handlersTable = my$('handlersTable');
+					var rows = handlersTable.rows;
+					var cells = rows[2].cells;
+					for ( var cellIdx = 0; cellIdx < cells.length; cellIdx++) {
+						var cell = cells[cellIdx];
+						cell.innerHTML = '&#160;';
+					}
+				}
+
+				resetCells();
+
+				var events = {
+					"onrequestqueue": ["query", "options", "event"],
+					"onrequestdequeue": ["query", "options", "event"],
+					"onbeforedomupdate": ["request", "event", "data"], 
+					"onsubmit": ["request"], 
+					"oncomplete": ["request", "event", "data"], 
+					"onerror": ["request", "status", "message"]
+				};
+
+				var handlers = {};
+				
+				for (var handlerName in events) {
+					var args = events[handlerName];
+					var argCheck = "";
+					for ( var i = 0; i < args.length; i++) {
+						argCheck += "if (!" + args[i] + ") alert('argument " + args[i] + " missing for handler " + handlerName + "');";
+					}
+
+					handlers["queue:" + handlerName] = Function.constructor.apply(this, [args, argCheck + "my$('" + handlerName + "Elt').innerHTML += 'Q'"]);
+					handlers["component:" + handlerName] = Function.constructor.apply(this, [args, argCheck + "my$('" + handlerName + "Elt').innerHTML += 'C'"]);
+				}
+			//]]></script>
+			<a4j:queue name="queue" onsubmit="handlers['queue:onsubmit'](request)" onerror="handlers['queue:onerror'](request, status, message)" 
+				onrequestdequeue="handlers['queue:onrequestdequeue'](query, options, event)" onrequestqueue="handlers['queue:onrequestqueue'](query, options, event)" 
+				oncomplete="handlers['queue:oncomplete'](request, event, data)" 
+				onbeforedomupdate="handlers['queue:onbeforedomupdate'](request, event, data)" />
+			
+			<h:form>
+				<h:panelGrid columns="1">
+					Components in queue
+					<a4j:commandLink onclick="resetCells()" value="No component handlers" eventsQueue="queue" data="data" />			
+					
+					<a4j:commandLink onclick="resetCells()" value="Oncomplete component client handler" eventsQueue="queue" 
+						onbeforedomupdate="request.options.oncomplete = handlers['component:oncomplete']" data="data" />			
+					
+					<a4j:commandLink onclick="resetCells(); A4J.AJAX.onError = undefined;" value="Queue only onerror" eventsQueue="queue" timeout="1" data="data" 
+						oncomplete="handlers['component:oncomplete'](request, event, data)" 
+						onbeforedomupdate="handlers['component:onbeforedomupdate'](request, event, data)" />			
+					
+					<a4j:commandLink onclick="resetCells(); A4J.AJAX.onError = handlers['component:onerror'];" value="Component and queue onerror" eventsQueue="queue" 
+						oncomplete="handlers['component:oncomplete'](request, event, data)" 
+						onbeforedomupdate="handlers['component:onbeforedomupdate'](request, event, data)" timeout="1" data="data" />			
+					
+					<a4j:commandLink onclick="resetCells()" value="Both component handlers" eventsQueue="queue" 
+						oncomplete="handlers['component:oncomplete'](request, event, data)" 
+						onbeforedomupdate="handlers['component:onbeforedomupdate'](request, event, data)" data="data" />			
+				</h:panelGrid>
+				<h:panelGrid columns="1">
+					Components without queue
+					<a4j:commandLink onclick="resetCells()" value="No component handlers" data="data" />			
+					
+					<a4j:commandLink onclick="resetCells()" value="Oncomplete component client handler" 
+						onbeforedomupdate="request.options.oncomplete = handlers['component:oncomplete']" data="data" />			
+					
+					<a4j:commandLink onclick="resetCells(); A4J.AJAX.onError = undefined;" value="Queue only onerror" timeout="1" data="data" 
+						oncomplete="handlers['component:oncomplete'](request, event, data)" 
+						onbeforedomupdate="handlers['component:onbeforedomupdate'](request, event, data)" />			
+					
+					<a4j:commandLink onclick="resetCells(); A4J.AJAX.onError = handlers['component:onerror'];" value="Component and queue onerror" 
+						oncomplete="handlers['component:oncomplete'](request, event, data)" 
+						onbeforedomupdate="handlers['component:onbeforedomupdate'](request, event, data)" timeout="1" data="data" />			
+					
+					<a4j:commandLink onclick="resetCells()" value="Both component handlers" 
+						oncomplete="handlers['component:oncomplete'](request, event, data)" 
+						onbeforedomupdate="handlers['component:onbeforedomupdate'](request, event, data)" data="data" />			
+				</h:panelGrid>
+			</h:form>
+		</f:view>
+	</body>	
+</html>  

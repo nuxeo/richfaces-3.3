@@ -1,0 +1,118 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ <!--  DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd" --> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:cmb="http://labs.jboss.com/jbossrichfaces/ui/combobox"
+      xmlns:p="http://labs.jboss.com/jbossrichfaces/ui/panel"
+      xmlns:a4j="http://richfaces.org/a4j"
+      >
+ <head>
+		<title></title>
+	</head>
+	<body>
+		<f:view>
+			
+			<h:form>
+				<h:selectOneRadio binding="#{skinBean.component}" />
+				<h:commandLink action="#{skinBean.change}" value="set skin" />
+				<h:outputText value="Current skin: #{skinBean.skin}"/><br />
+			</h:form>
+									
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputText value="is disable (default: false):" />
+					<h:selectBooleanCheckbox value="#{bean.disabled}" />
+
+					<h:outputText value="enableManualInput (default: false):" />
+					<h:selectBooleanCheckbox value="#{bean.enableManualInput}" />
+					
+					<h:outputText value="selectFirstOnUpdate (default: true):" />
+					<h:selectBooleanCheckbox value="#{bean.selectFirstOnUpdate}" />
+					
+					<h:outputText value="filterNewValues (default: true):" />
+					<h:selectBooleanCheckbox value="#{bean.filterNewValues}" />
+					
+					<h:outputText value="directInputSuggestions (default: true):" />
+					<h:selectBooleanCheckbox value="#{bean.directInputSuggestions}" />
+					
+					<h:outputText value="defaultMessage is:" />
+					<h:inputText value="#{bean.defaultMessage}" />
+					
+					<h:outputText value="width (in 'px'):" />
+					<h:inputText value="#{bean.width}" />
+					
+					<h:outputText value="listWidth (in 'px'):" />
+					<h:inputText value="#{bean.listWidth}" />
+					
+					<h:outputText value="listHeight (in 'px'):" />
+					<h:inputText value="#{bean.listHeight}" />
+					
+					<h:outputText value="inputSize:" />
+					<h:inputText value="#{bean.inputSize}" />
+					
+					<h:outputText value="onchange event script:" />
+					<h:inputText value="#{bean.onchangeScript}" />
+					
+					<h:outputText value="onlistcall event script:" />
+					<h:inputText value="#{bean.onlistcallScript}" />
+
+					<h:outputText value="onlistclose event script:" />
+					<h:inputText value="#{bean.onlistcloseScript}" />
+					
+					<h:outputText value="onitemselected event script:" />
+					<h:inputText value="#{bean.onitemselectedScript}" />
+				
+				</h:panelGrid>
+				<cmb:comboBox 
+					disabled="#{bean.disabled}" 
+					inputClass="inputClass" 
+					buttonDisabledClass="buttonDisabledClass" 
+					buttonClass="buttonClass" 
+					listClass="listClass" 
+					value="#{bean.state}" 
+					valueChangeListener="#{bean.selectionChanged}"  
+					suggestionValues="#{bean.suggestions}"
+					width = "#{bean.width}" 
+					listWidth="#{bean.listWidth}"
+					listHeight="#{bean.listHeight}"
+					enableManualInput="#{bean.enableManualInput}"
+					selectFirstOnUpdate="#{bean.selectFirstOnUpdate}"
+					filterNewValues="#{bean.filterNewValues}"
+					directInputSuggestions="#{bean.directInputSuggestions}"
+					defaultLabel="&amp;test&apos;&lt;test"
+					inputSize="#{bean.inputSize}"
+					onchange="#{bean.onchangeScript}"
+					onlistcall="#{bean.onlistcallScript}"
+					onlistclose="#{bean.onlistcloseScript}"
+					onitemselected="#{bean.onitemselectedScript}">
+					<f:selectItems  value="#{bean.selectItems}"/>
+					<f:selectItem itemValue="Oregon"/>			  
+					<f:selectItem itemValue="&amp;select"/>
+					<f:selectItem itemValue="&amp;unselect"/>
+					<f:selectItem itemValue="J&amp;&apos;&lt;uneau"/>
+					
+					<f:selectItem itemValue="test"/>
+				</cmb:comboBox>
+				
+				<br/>
+				<h:commandButton action="none" value="submit"></h:commandButton>
+				<br/>
+				<h:outputText value="Selected state is: #{bean.state}"></h:outputText>
+				
+				 <p:panel id="orderHead">
+    				<a4j:commandButton id="com" reRender="part" action="#{suggest.updateProperty2}" value="Refresh"/>
+    				<p:panel id="part">
+    					<cmb:comboBox value="#{suggest.property}">
+    						<f:selectItems value="#{suggest.comboSelectItems}" />    	
+    					</cmb:comboBox>
+	    				<h:outputText id="propOut" value="#{suggest.property}" /><br/>
+	    				<h:outputText id="propOut2" value="#{suggest.property2}" /><br/>	
+    				</p:panel>    
+  				</p:panel>
+  					
+			</h:form>
+		</f:view>
+	</body>	
+</html>      

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root
+	xmlns:f="http://ajax4jsf.org/cdk/template"
+	xmlns:c=" http://java.sun.com/jsf/core"
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	class="org.richfaces.renderkit.html.JQueryRenderer"
+	baseclass="org.richfaces.renderkit.JQueryRendererBase"
+	component="org.richfaces.component.UIJQuery">
+	<f:clientid var="clientId"/>
+
+
+	<c:set var="selector" value="#{component.attributes['selector']}"/>
+	<c:set var="name" value="#{component.attributes['name']}"/>
+	<c:set var="timing" value="#{component.attributes['timing']}"/>
+	<c:set var="query" value="#{component.attributes['query']}"/>
+	<h:scripts>/org/richfaces/renderkit/html/scripts/jquery/jquery.js</h:scripts>
+
+
+<jsp:scriptlet>
+<![CDATA[ 
+			String name = (String) variables.getVariable("name");
+			String timing = (String) variables.getVariable("timing");
+			String query = (String) variables.getVariable("query");
+			String selector = (String) variables.getVariable("selector");
+			         
+			checkValidity(clientId, name, timing, query); 
+			variables.setVariable("selector", getUtils().escapeJavaScript(
+					replaceClientIds(context, component, selector)));
+]]>
+</jsp:scriptlet>
+
+<jsp:scriptlet><![CDATA[ if (! "".equals(name.trim()) ) { ]]></jsp:scriptlet>
+<script type="text/javascript">
+ //<![CDATA[
+function #{name}(elm, param) {
+	var selector = "#{selector}";
+	try {
+		selector = eval("#{selector}");
+	} catch (e) {}
+	
+	jQuery(elm || selector).#{query};
+}
+//]]>
+</script>
+<jsp:scriptlet><![CDATA[ } ]]></jsp:scriptlet>
+
+<jsp:scriptlet><![CDATA[ if ( "immediate".equals(timing) ) { ]]></jsp:scriptlet>
+<script type="text/javascript">
+ //<![CDATA[
+ {
+	var selector = "#{selector}";
+	try {
+		selector = eval("#{selector}");
+	} catch (e) {}
+	jQuery(selector).#{query};
+}
+//]]>
+</script>
+<jsp:scriptlet><![CDATA[ } ]]></jsp:scriptlet>
+
+<jsp:scriptlet><![CDATA[ if ( "onload".equals(timing) ) { ]]></jsp:scriptlet>
+<script type="text/javascript">
+ //<![CDATA[
+  jQuery(document).ready(function() {
+	var selector = "#{selector}";
+	try {
+		selector = eval("#{selector}");
+	} catch (e) {}
+	jQuery(selector).#{query};
+ });
+//]]>
+</script>
+<jsp:scriptlet><![CDATA[ } ]]></jsp:scriptlet>
+
+
+</f:root>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     26.06.2008 15:33:20                                                        
+
+     project    
+     description
+                   
+     pyaschenko                                                                
+     ====================================================================== -->
+<project name="FlashFileUploadComponent" default="default">
+    <description>
+            description
+    </description>
+
+	<property file="build.properties" />
+    <!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" description="--> description">
+        <exec executable="${mtasc.path}\mtasc" dir="">
+        	<arg line="-cp ${basedir}\src\main\flash -cp ${mtasc.path}\std8 -swf ${basedir}\src\main\resources\org\richfaces\renderkit\html\swf\fileUploadComponent.swf -trace no -header 640:480:12:0080c0 -version 8 -main FileUploadComponent"/>
+        </exec>
+    </target>
+</project>

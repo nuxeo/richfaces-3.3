@@ -1,0 +1,24 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	id="dataFilterSliderPropertySubviewID">
+	<h:commandButton action="#{dfs.addHtmlDataFilterSlider}" value="add test" />
+	<h:panelGrid columns="2">
+		<h:outputText value="Rendered:" />
+		<h:selectBooleanCheckbox value="#{dfs.rendered}" onchange="submit();" />
+	</h:panelGrid>
+	<br />
+	<br />
+	<!-- <div style="FONT-WEIGHT: bold;">rich:findComponent</div>
+	<h:panelGrid columns="2">
+		<rich:column>
+			<a4j:commandLink value="getEndRange" reRender="findID"></a4j:commandLink>
+		</rich:column>
+		<rich:column id="findID">
+			<h:outputText value="#{rich:findComponent('dfsID').endRange}" />
+		</rich:column>
+	</h:panelGrid> -->
+</f:subview>

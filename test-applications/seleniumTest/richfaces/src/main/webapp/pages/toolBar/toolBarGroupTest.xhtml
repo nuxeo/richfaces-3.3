@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+			<h:selectBooleanCheckbox id="rendered" value="#{toolBarBean.toolBarGroupRendered}"></h:selectBooleanCheckbox>
+			<br/>
+			<a4j:commandLink id="location" value="right" reRender="toolBar">
+							<a4j:actionparam name="location" value="right" assignTo="#{toolBarBean.location}" />
+			</a4j:commandLink>
+			<br/>
+			<rich:toolBar id="toolBar"
+					 	itemSeparator="#{toolBarBean.groupSeparator}">
+			<rich:toolBarGroup
+						rendered="#{toolBarBean.toolBarGroupRendered}"
+						style="font-size: 16px;"
+						styleClass="styleClass"
+						location="#{toolBarBean.location}"
+						itemSeparator="#{toolBarBean.groupItemSeparator}">
+				<h:outputText id="groupContent1" value="Group1"></h:outputText>
+				<h:outputText id="groupContent2" value="Group1"></h:outputText>
+				<h:outputText id="groupContent3" value="Group1"></h:outputText>
+			</rich:toolBarGroup>
+		</rich:toolBar>
+		<h:commandLink id="submit" value="Submit"></h:commandLink>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

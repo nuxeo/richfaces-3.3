@@ -1,0 +1,32 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" id="panelBarSubviewID">
+		<rich:panelBar id="pBId" height="#{panelBar.height}" width="#{panelBar.width}" contentClass="#{panelBar.contentStyle}"
+			styleClass="#{panelBar.style}" selectedPanel="pBiId4" onclick="#{event.onclick}" onitemchange="#{event.onitemchange}" 
+			onmousemove="#{event.onmousemove}" onmouseout="#{event.onmouseout}" onmouseover="#{event.onmouseover}" binding="#{panelBar.htmlPanelBar}">
+			<rich:panelBarItem rendered="#{panelBar.rendered}" id="pBiId1" label="#{panelBar.label[0]}"
+				headerClass="#{panelBar.headerStyle}">
+				<h:outputText value="Some text..."></h:outputText>
+				<h:outputLink value="http://www.jboss.com/"><f:verbatim>Link</f:verbatim></h:outputLink>
+			</rich:panelBarItem>
+
+			<rich:panelBarItem id="pBiId2" label="#{panelBar.label[1]}" headerClass="#{panelBar.headerStyle}">
+				<h:graphicImage value="/pics/masshtaby_01.jpg" width="300" height="200"></h:graphicImage>
+			</rich:panelBarItem>
+
+			<rich:panelBarItem id="pBiId3" label="#{panelBar.label[2]}" headerClass="#{panelBar.headerStyle}">
+				<f:facet name="openMarker">
+					<h:graphicImage value="/pics/ajax_process.gif"></h:graphicImage>
+				</f:facet>
+				<f:facet name="closeMarker">
+					<h:graphicImage value="/pics/ajax_stoped.gif"></h:graphicImage>
+				</f:facet>
+				<h:graphicImage value="/pics/podb109_61.jpg" width="300" height="200"></h:graphicImage>
+			</rich:panelBarItem>
+
+			<rich:panelBarItem id="pBiId4" label="#{panelBar.label[3]}" headerClass="#{panelBar.headerStyle}">
+				<h:outputText value="Select Panel"></h:outputText>
+			</rich:panelBarItem>
+		</rich:panelBar>
+
+		<rich:spacer height="20px"></rich:spacer>
+</f:subview>

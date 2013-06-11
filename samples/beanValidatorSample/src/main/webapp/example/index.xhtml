@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/layout/template.xhtml">
+	<ui:param name="title" value="Hibernate validator test" />
+	<!-- Page header -->
+	<ui:define name="header">
+		<h1>Using Hibernate validator annotations in the JSF beans</h1>
+	</ui:define>
+	<!-- content -->
+	<ui:define name="content">
+	<h:form id="form">
+		<rich:panel>
+			<f:facet name="header">
+				<h:outputText>Single input field with label and message. Validated by AJAX on every char.</h:outputText>
+			</f:facet>
+			<h:panelGrid columns="3">
+			<h:outputLabel for="ltext" value="#{lengthBean.textDescription}" />
+			<h:inputText id="ltext" value="#{lengthBean.text}" label="3-letter text">
+				<rich:ajaxValidator event="onkeyup" summary="Invalid Id"/>
+			</h:inputText>
+			<rich:message for="ltext" showDetail="true" showSummary="true" />
+			<h:outputLabel for="mtext" value="#{minMaxBean.intDescription}" />
+			<h:inputText id="mtext" value="#{minMaxBean.intValue}" label="value">
+				<rich:ajaxValidator event="onkeyup" summary="Invalid value"/>
+			</h:inputText>
+			<rich:message for="mtext" showDetail="true" showSummary="true" />
+			</h:panelGrid>
+					<h:commandButton value="Submit"></h:commandButton>
+		</rich:panel>
+	<rich:messages id="fieldsMessages"/>
+		</h:form>
+	<h:form id="form1">
+		<h2>Input fields with label and message in the JSF dataTable.
+		Each field validated by AJAX on 'onblur' event</h2>
+		<rich:graphValidator value="#{data}">
+			<rich:dataTable value="#{data.beans}" var="bean" id="table">
+				<f:facet name="header">
+					<h:outputText
+						value="Validate values in the data table. Total sum for an all integer values validated for a value less then 20" />
+				</f:facet>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="text field" />
+					</f:facet>
+					<h:outputLabel for="text" value="#{bean.textDescription}" />
+					<h:inputText id="text" value="#{bean.text}">
+						<rich:ajaxValidator event="onblur"
+							ajaxListener="#{data.ajaxListener}" summary="#{bean.textSummary}"/>
+					</h:inputText>
+					<rich:message for="text" showDetail="true" showSummary="true" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="integer field" />
+					</f:facet>
+					<h:outputLabel for="intValue" value="#{bean.intDescription}" />
+					<h:inputText id="intValue" value="#{bean.intValue}">
+						<rich:ajaxValidator event="onblur" summary="#{bean.intSummary}"/>
+					</h:inputText>
+					<rich:message for="intValue" showDetail="true" showSummary="true" />
+				</h:column>
+				<f:facet name="footer">
+					<h:panelGroup>
+						<h:outputText>in addition to fields validation, total sum for an all integer values validated for a value less then 20.</h:outputText>
+						<h:commandButton value="Submit all fields"></h:commandButton>
+					</h:panelGroup>
+				</f:facet>
+			</rich:dataTable>
+		</rich:graphValidator>
+		</h:form>
+	<h:form id="form2">
+		<h2>Input fields with label and message in the JSF dataTable.
+		Same as above, but fields validated by form submit only.</h2>
+
+		<rich:dataTable value="#{data.beans}" var="bean" id="table2">
+			<f:facet name="header">
+				<h:outputText
+					value="Validate values in the data table." />
+			</f:facet>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="text field" />
+				</f:facet>
+				<h:outputLabel for="text" value="#{bean.textDescription}" />
+				<h:inputText id="text" value="#{bean.text}">
+					<rich:beanValidator summary="Invalid text"/>
+				</h:inputText>
+				<rich:message for="text"  />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="integer field" />
+				</f:facet>
+				<h:outputLabel for="intValue" value="#{bean.intDescription}" />
+				<h:inputText id="intValue" value="#{bean.intValue}">
+					<rich:beanValidator summary="Invalid number"/>
+				</h:inputText>
+				<rich:message for="intValue"  />
+			</h:column>
+			<f:facet name="footer">
+				<h:panelGroup>
+					<h:outputText></h:outputText>
+					<h:commandButton value="Submit all fields"></h:commandButton>
+				</h:panelGroup>
+			</f:facet>
+		</rich:dataTable>
+
+	</h:form>
+	<rich:messages />
+	</ui:define>
+</ui:composition>
+</html>

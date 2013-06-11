@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="seleniumTest">
+  <test name="IEFunctionalTests">
+    <parameter name="browser" value="*iexplore"/>
+    <packages>
+      <package name="org.samples.booking" />
+      <package name="org.samples.seamdiscs" />
+    </packages>
+  </test>
+
+  <test name="FireFoxFunctionalTests">
+    <parameter name="browser" value="*firefox"/>
+    <packages>
+      <package name="org.samples.booking" />
+      <package name="org.samples.seamdiscs" />
+    </packages>
+  </test>
+</suite>
+

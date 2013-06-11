@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+
+<components>
+
+<!--AJAX VALIDATOR-->
+	<component>
+		<name>org.richfaces.BeanValidator</name>
+		<family>org.richfaces.BeanValidator</family>
+		<classname>
+			org.richfaces.component.html.HtmlBeanValidator
+		</classname>
+		<superclass>org.richfaces.component.UIBeanValidator</superclass>
+		<description><![CDATA[The <rich:ajaxValidator> is a component designed to provide ajax validation inside for JSF inputs.]]></description>
+		<renderer generate="false" override="true">
+			<name>org.richfaces.BeanValidatorRenderer</name>
+			<classname>org.richfaces.renderkit.html.BeanValidatorRenderer</classname>
+		</renderer>
+		<tag>
+			<name>ajaxValidator</name>
+			<classname>org.richfaces.taglib.AjaxValidatorTag</classname>
+			<superclass>
+				org.richfaces.taglib.AjaxValidatorTagBase
+			</superclass>
+		</tag>
+		<taghandler>
+			<classname>org.richfaces.taglib.AjaxValidatorHandler</classname>
+		</taghandler>
+		&ui_component_attributes;
+		&ajax_component_attributes;
+		<property el="false">
+			<name>event</name>
+			<classname>java.lang.String</classname>
+			<description>
+			Name of JavaScript event property ( onclick, onchange, etc.) of parent component by 
+			which validation will be triggered. Default value is &quot;onblur&quot;
+			</description>
+			<defaultvalue><![CDATA["onblur"]]></defaultvalue>
+		</property> 
+		<property exist="true" existintag="true">
+			<name>summary</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Summary message for a validation errors.
+			</description>
+		</property>
+		<property>
+			<name>onsubmit</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JavaScript code for call before submission of ajax
+				event
+			</description>
+		</property>
+
+		<property>
+			<name>disableDefault</name>
+			<description>
+				Disables default action for target event ( append &quot;return false;&quot; to JavaScript ). Default value is &quot;false&quot;
+			</description>
+		</property>
+		
+		<property disabled="true">
+			<name>ajaxSingle</name>
+			<classname>boolean</classname>
+			<description>
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property disabled="true">
+			<name>process</name>
+		</property>
+	    <property elonly="true" el="true" attachedstate="true" >
+	        <name>ajaxListener</name>
+	        <classname>javax.el.MethodExpression</classname>
+	    	<description> MethodExpression representing an action listener method that will be notified when this component is activated by the ajax Request and handle it. The expression must evaluate to a public method that takes an AjaxEvent parameter, with a return type of void. Default value is &quot;null&quot;</description>
+	        <defaultvalue>null</defaultvalue>
+	        <methodargs>org.ajax4jsf.event.AjaxEvent</methodargs>
+	    </property>
+    	<property disabled="true">
+			<name>bypassUpdates</name>
+			<classname>boolean</classname>
+			<description>
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		
+		<property disabled="true">
+			<name>immediate</name>
+		</property>
+		<property disabled="true">
+			<name>parentProperties</name>
+		</property>
+		<property disabled="true">
+			<name>renderRegionOnly</name>
+		</property>
+		<property disabled="true">
+			<name>selfRendered</name>
+		</property>
+		<property disabled="true">
+			<name>submitted</name>
+		</property>
+	</component>
+	
+	
+	<!--GRAPH VALIDATOR-->
+	<component>
+		<name>org.richfaces.GraphValidator</name>
+		<family>org.richfaces.GraphValidator</family>
+		<classname>
+			org.richfaces.component.html.HtmlGraphValidator
+		</classname>
+		<superclass>org.richfaces.component.UIGraphValidator</superclass>
+		<test>
+			<classname>
+				org.richfaces.component.html.GraphValidatorTest
+			</classname>
+			<superclassname>
+				org.ajax4jsf.tests.AbstractAjax4JsfTestCase
+			</superclassname>
+		</test>
+		<description><![CDATA[The <rich:graphValidator> component allows to register Hibernate Validators for multiple input components.]]></description>
+		<tag>
+			<name>graphValidator</name>
+			<classname>org.richfaces.taglib.html.jsp.GraphValidator</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.UIComponentTagBase
+			</superclass>
+			<!-- 			<superclass>
+				org.ajax4jsf.webapp.taglib.UIComponentTagBase
+				</superclass>
+			-->
+			<displayname>Bean validation @ and @validation support</displayname>
+			<icon>icon</icon>
+			<test />
+		</tag>
+		&ui_component_attributes;
+		
+		<property hidden="true">
+			<name>rendered</name>
+		</property>	
+		
+		<property >
+			<name>profile</name>
+			
+			<description>
+				This attribute is reserved till the implementation of JavaBean Validation feature (JSR-303).
+			</description>
+		</property>
+		
+		<property exist="true">
+			<name>summary</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Summary message for a validation errors.
+			</description>
+		</property>
+		
+		<property exist="true">
+			<name>type</name>
+			<classname>java.lang.String</classname>
+			<description>
+				JSF Validator type, that implements GraphValidator interface.This validator is used for the Graph and input fields validation.
+			</description>
+			<defaultvalue>"org.richfaces.BeanValidator"</defaultvalue>
+		</property>
+
+ 		<property exist="true">
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				The current value for this component.
+			</description>
+		</property>
+	</component>
+	
+	
+	<!--BEAN VALIDATOR-->
+	<validator generate="false">
+		<id>org.richfaces.BeanValidator</id>
+		<classname>
+			org.richfaces.validator.FacesBeanValidator
+		</classname>
+		<test>
+			<classname>
+				org.richfaces.component.html.BeanValidatorTest
+			</classname>
+			<superclassname>
+				org.ajax4jsf.tests.AbstractAjax4JsfTestCase
+			</superclassname>
+		</test>
+		<description>
+			<![CDATA[Validate Input by the Bean/Hibernate validator annotations]]>
+		</description>
+		<tag generate="false">
+			<name>beanValidator</name>
+			<classname>org.richfaces.taglib.BeanValidatorTag</classname>
+		</tag>
+		<taghandler>
+			<classname>org.richfaces.taglib.BeanValidatorHandler</classname>
+		</taghandler>
+		<property exist="true">
+			<name>summary</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Summary message for a validation errors.
+			</description>
+		</property>
+		<property exist="true">
+			<name>binding</name>
+			<classname>org.richfaces.validator.FacesBeanValidator</classname>
+			<description>                
+				A ValueExpression that evaluates to an instance of
+                FacesBeanValidator.
+			</description>
+		</property>
+	</validator>
+</components>

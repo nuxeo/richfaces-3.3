@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+	<resource>
+		<name>extjs/ext-all.js</name>
+		<path>org/richfaces/renderkit/html/scripts/extjs/ext-all-debug.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>extjs/ext-base.js</name>
+		<path>org/richfaces/renderkit/html/scripts/extjs/ext-base.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>extjs/ext-all.css</name>
+		<path>org/richfaces/renderkit/html/scripts/extjs/resources/css/ext-all.css</path>
+		<renderer class="org.ajax4jsf.resource.StyleRenderer"/>
+	</resource>
+	<resource>
+		<name>extjs/ext-css-patch.xcss</name>
+		<path>org/richfaces/renderkit/html/scripts/extjs/ext-css-patch.xcss</path>
+	</resource>
+</resource-config>

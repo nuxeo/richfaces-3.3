@@ -1,0 +1,72 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<rich:page sidebarPosition="left"  sidebarWidth="300"   title="advisory"  pageTitle="Page Title" 
+theme="simple"
+  >        
+         <f:facet name="pageHeader" > 
+  </f:facet>
+         
+         <f:facet name="header" >
+      <ui:include src="layout/menu.xhtml">
+        <ui:param name="projectName" value="RichFaces Docs"/>
+        
+         <!--Header-->
+    </ui:include>
+          
+       </f:facet>
+       
+                <f:facet name="subheader" >
+ <!--Subheader-->
+     
+       </f:facet>
+          
+         <f:facet name="sidebar">
+<ui:include src="layout/mainMenu.xhtml" />
+<!--Side panel-->
+
+         </f:facet>
+         
+<rich:layout>
+
+    <rich:layoutPanel position="top">
+
+        <!--Top-->
+
+    </rich:layoutPanel>
+
+    <rich:layoutPanel position="left">
+
+        <!--Left-->
+
+    </rich:layoutPanel>
+
+    <rich:layoutPanel position="center">
+
+        <!--Center-->
+
+    </rich:layoutPanel>
+
+    <rich:layoutPanel position="right">
+
+        <!--Right-->
+
+    </rich:layoutPanel>
+
+    <rich:layoutPanel position="bottom">
+
+        <!--Bottom-->
+
+    </rich:layoutPanel>
+
+</rich:layout>
+         <f:facet name="footer">
+         <!--Footer-->
+         </f:facet>   
+     </rich:page>
+
+</f:view>

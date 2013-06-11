@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<ui:composition template="/templates/component-sample.xhtml">
+	<ui:define name="sample">
+		<p>
+			This sample is designed to show how to use <b>datascroller</b> component
+			<b>facets</b> for component look-and-feel and functionality <b>customization</b>.
+		</p>
+		<p>
+			As you could see the <b>datascroller</b> customizes step controls 
+			and default buttons changes to select which allows to switch to
+			the four nearest pages to the current one.  
+		</p>
+		<fieldset class="demo_fieldset">
+			<legend class="demo_legend">Data Scroller customization</legend>
+			<div class="sample-container">
+				<ui:include src="/richfaces/dataTableScroller/examples/customScroller.xhtml"/>
+				<ui:include src="/templates/include/sourceview.xhtml">
+					<ui:param name="sourcepath" value="/richfaces/dataTableScroller/examples/customScroller.xhtml"/>
+					<ui:param name="openlabel" value="View Source" />
+				</ui:include>			
+			</div>
+		</fieldset>
+		<p>
+			The next new JS API functions are introduced and were used to build this sample:
+		</p>
+		<ul>
+			<li>switchToPage(pageToGoValue)</li>
+			<li>next()</li>
+			<li>previous()</li>
+			<li>first()</li>
+			<li>last()</li>
+			<li>fastForward()</li>
+			<li>fastRewind()</li>
+		</ul>
+	</ui:define>
+</ui:composition>
+</html>

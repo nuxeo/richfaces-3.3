@@ -1,0 +1,80 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rex="http://labs.jboss.com/jbossrichfaces/ui/ui/rex-button"
+      xmlns:mb="http://labs.jboss.com/jbossrichfaces/ui/ui/rex-messageBox"
+      xmlns:cc="http://labs.jboss.com/jbossrichfaces/ui/ui/componentControl"
+      xmlns:rich="http://richfaces.org/rich">
+
+<f:view contentType="text/html">
+
+	<h:inputText >
+	<cc:componentControl name="controlMe" event="onclick" attachTiming="onload"  for="mb4" params="animEl:'d:mb4'"  operation="show"/>	
+	</h:inputText>
+
+	
+
+	<h:form id="f">
+	
+		<rex:button id="a" style="color:red" value="The real button Name">
+			<a4j:commandButton   />
+		</rex:button>
+
+		<rich:panel id="mb3" style="width:100px;border:1px solid red">Start</rich:panel>
+
+
+	</h:form>
+
+	<f:subview id="d">
+		<rex:button id="mb4" onclick="aaa()" value="Show Box" />
+	</f:subview>
+
+
+	<rich:modalPanel id="dd">
+		<h:outputText value="hello" />
+	</rich:modalPanel>
+	
+	<script>
+		jQuery('#d\\:mb4')[0].component = {};
+		jQuery('#d\\:mb4')[0].component.show = function(event, params) {
+			jQuery('#d\\:mb4').click();
+		}
+	</script>
+	
+	<button onclick="controlMe()">UpUp</button>
+	
+	
+
+	        
+		<div id="ddd" style="position:absolute;top:400px;right:200px; border:1px solid green;width:100px">x</div>
+		<div id="ddd2" style="position:absolute;top:800px;right:700px; border:1px solid green;width:100px">x</div>
+		
+		<div id="d:e">
+		<script type="text/javascript">
+				window.$pardiv = Ext.get('d:e').dom;
+				$pardiv.messageBox = new Object();
+				$pardiv.messageBox.show = function(anim) {
+					Ext.MessageBox.show({
+			           title: 'Address',
+			           msg: 'Please enter your address:',
+			           width:300,
+			           modal:true,
+			           multiline:16,
+			           buttons: {ok:'foo', cancel:'bar'},
+			           animEl: anim || 'ddd2'
+			       });
+			     };
+		       function aaa(par) {
+			       Ext.get('d:e').dom.messageBox.show(par);
+			   }
+		</script>
+			   
+		</div>
+
+
+	
+
+</f:view>	
+</ui:composition>

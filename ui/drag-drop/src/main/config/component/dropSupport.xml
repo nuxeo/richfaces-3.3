@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+
+<components>
+	<component>
+		<name>org.richfaces.DropSupport</name>
+		<family>org.richfaces.DropSupport</family>
+		<classname>org.richfaces.component.html.HtmlDropSupport</classname>
+		<superclass>org.richfaces.component.UIDropSupport</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlDropSupportComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:dropSupport>  component transforms a parent component into a target zone for drag-and-drop operations. When a draggable element is moved and dropped onto the area of the parent component, Ajax request processing for this event is started.]]>
+		</description>
+		<renderer generate="false" override="true">
+			<name>org.richfaces.DropSupportRenderer</name>
+			<classname>org.richfaces.renderkit.html.DropSupportRenderer</classname>
+		</renderer>
+		<tag>
+			<name>dropSupport</name>
+			<classname>org.richfaces.taglib.DropSupportTag</classname>
+			<superclass>org.ajax4jsf.webapp.taglib.HtmlComponentTagBase</superclass>
+			<test />
+		</tag>
+		<taghandler>
+			<classname>org.richfaces.taglib.DropSupportHandler</classname>
+		</taghandler>
+		
+		&ui_command_attributes;
+		&dropzone_attributes;
+		&ajax_component_attributes;
+		
+		<property elonly="true" attachedstate="true">
+			<name>dropListener</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description><![CDATA[
+				MethodBinding representing an action listener method that will be notified after drop operation.
+				]]>
+			</description>
+			<methodargs>org.richfaces.event.DropEvent</methodargs>
+		</property>
+		<property>
+			<name>disableDefault</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Disable default action for target event (append "return false;" to JavaScript)
+			</description>
+		</property>
+		
+		<property>
+			<name>acceptCursors</name>
+			<classname>java.lang.String</classname>
+			<description>
+				List of comma separated cursors that indicates when acceptable draggable over dropzone
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+				
+		<property>
+			<name>rejectCursors</name>
+			<classname>java.lang.String</classname>
+			<description>
+				List of comma separated cursors that indicates when rejectable draggable over dropzone   
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		
+		<property>
+			<name>cursorTypeMapping</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				Mapping between drop types and acceptable cursors   
+			</description>
+		</property>
+		
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+        
+        <property hidden="true" >
+                <name>actionExpression</name>
+        </property>
+	</component>
+        <listener>
+                <name>dropListener</name>
+        	<property existintag="true" exist="true" el="true" elonly="true">
+        		<name>binding</name>
+        		<classname>javax.faces.component.UIComponent</classname>
+        		<description>The attribute takes a value-binding expression for a component property of
+        			a backing bean</description>
+        	</property>
+                <listenerclass>
+                        org.richfaces.event.DropListener
+                </listenerclass>
+                <componentclass>
+                        org.richfaces.event.DropSource
+                </componentclass>
+                <eventclass>
+                        org.richfaces.event.DropEvent
+                </eventclass>
+                <methodname>addDropListener</methodname>
+                <taghandler generate="true">
+                        <classname>
+                                org.richfaces.taglib.DropListenerHandler
+                        </classname>
+                </taghandler>
+				<tag generate="true">
+					<classname>
+						org.richfaces.taglib.DropListenerTag
+					</classname>
+				</tag>
+				<property existintag="true" exist="true" el="false">
+					<name>type</name>
+					<classname>java.lang.String</classname>
+					<description>The fully qualified Java class name for the listener</description>
+				</property>
+        </listener>
+
+</components>

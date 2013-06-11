@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+		.link {margin: 0px 5px}
+		
+		.component_div {
+			border: 1px solid blue;
+			margin: 2px;
+		}
+	</ui:define>
+	<ui:define name="component">
+		<h:form id="mainForm">
+        
+        <h:panelGroup layout="block" styleClass="component_div" >
+            <rich:togglePanel id="panel_client" 
+                              switchType="client" 
+                              stateOrder="one,two" initialState="one" label="Client">
+                <f:facet name="one">
+                    <h:outputText id="client_state_one" value="State One" />
+                </f:facet>
+                <f:facet name="two">
+                    <h:outputText id="client_state_two" value="State Two" />
+                </f:facet>
+            </rich:togglePanel>
+            <rich:toggleControl id="client_next" for="panel_client"  >
+                <h:outputText value="Client next" />
+            </rich:toggleControl>
+            <br />
+            <rich:toggleControl id="client_one" for="panel_client"  switchToState="one" >
+                <h:outputText value="Client one" />
+            </rich:toggleControl>
+            <br />
+            <rich:toggleControl id="client_two" for="panel_client"  switchToState="two" >
+                <h:outputText value="Client two" />
+            </rich:toggleControl>
+        </h:panelGroup>
+        
+		<h:panelGroup layout="block" styleClass="component_div" >
+			<rich:togglePanel id="panel_ajax" switchType="ajax" initialState="one" 
+						stateOrder="one,two" label="Ajax">
+				<f:facet name="one">
+					<h:outputText id="ajax_state_one" value="State One" />
+				</f:facet>
+				<f:facet name="two">
+					<h:outputText id="ajax_state_two" value="State Two" />
+				</f:facet>
+			</rich:togglePanel>
+			<rich:toggleControl id="ajax_next" for="panel_ajax"
+					action="#{panelBean.increment}" actionListener="#{panelBean.actionListener}" >
+				<h:outputText value="Ajax next" />
+			</rich:toggleControl>
+			<br />
+			<rich:toggleControl id="ajax_one" for="panel_ajax"  switchToState="one"
+					action="#{panelBean.increment}" actionListener="#{panelBean.actionListener}" >
+				<h:outputText value="Ajax one" />
+			</rich:toggleControl>
+			<br />
+			<rich:toggleControl id="ajax_two" for="panel_ajax"  switchToState="two"
+					action="#{panelBean.action1}" actionListener="#{panelBean.actionListener}" >
+				<h:outputText value="Ajax two" />
+			</rich:toggleControl>
+		</h:panelGroup>
+
+		<h:panelGroup layout="block" styleClass="component_div" >
+			<rich:togglePanel id="panel_server" switchType="server" initialState="one" 
+						stateOrder="one,two" label="Server" >
+				<f:facet name="one">
+					<h:outputText id="server_state_one" value="State One" />
+				</f:facet>
+				<f:facet name="two">
+					<h:outputText id="server_state_two" value="State Two" />
+				</f:facet>
+			</rich:togglePanel>
+			<rich:toggleControl id="server_next" for="panel_server"
+                				action="#{panelBean.increment}" 
+                                actionListener="#{panelBean.actionListener}" 
+                              >
+				<h:outputText value="Server next" />
+			</rich:toggleControl>
+			<br />
+			<rich:toggleControl id="server_one" for="panel_server"  switchToState="one"
+					            action="#{panelBean.increment}" actionListener="#{panelBean.actionListener}" >
+				<h:outputText value="Server one" />
+			</rich:toggleControl>
+			<br />
+			<rich:toggleControl id="server_two" for="panel_server"  switchToState="two"
+					action="#{panelBean.increment}" actionListener="#{panelBean.actionListener}" >
+				<h:outputText value="Server two" />
+		
+			</rich:toggleControl>
+			
+		</h:panelGroup>
+		
+		<br/>
+		<a4j:outputPanel ajaxRendered="true" id="outputPanel" >
+			<h:inputText value="#{panelBean.value}" id="value"></h:inputText>
+			<h:outputText value="#{panelBean.value2}" id="value2"></h:outputText>
+		</a4j:outputPanel>
+		<br/>
+		<a4j:commandButton value="Clean values" id="clean" actionListener="#{panelBean.cleanValues}" ajaxSingle="true" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

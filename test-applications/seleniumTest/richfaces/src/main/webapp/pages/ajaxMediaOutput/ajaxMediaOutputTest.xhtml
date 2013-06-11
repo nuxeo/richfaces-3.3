@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+	</ui:define>
+	<ui:define name="component">
+		<script type="text/javascript">
+			<!--			
+			function getElementType(id){
+				return document.getElementById(id).tagName;
+			}
+			 -->
+		</script>
+		<h:form id="form">
+	    	<br/>
+	    	<a4j:mediaOutput id="media_data" 
+	    					 element="img" 
+	    					 cacheable="false" 
+	    					 session="true"
+	        				 createContent="#{a4jMediaBean.paint}" value="#{a4jMediaBean.data}" 
+	        				 mimeType="image/jpeg" 
+	        				 />
+	        <h:panelGrid columns="3" border="1">
+	    	
+	    	<h:outputText value="mediaOutput" />	    	
+	    	<h:outputText value="Event" />
+	    	<h:outputText  value="Event test passed:" />
+				
+				<a4j:mediaOutput id="media_data_event_1" 
+	    					 element="img" 
+	    					 cacheable="false" 
+	        				 createContent="#{a4jMediaBean.paint}" value="#{a4jMediaBean.data2}" 
+	        				 mimeType="image/jpeg" 
+	        				 onclick="testEvent(this);"
+	        				 />
+		  		<h:outputText value="onclick event test" />				
+				<h:outputText id="media_data_event_1_result" value="No" />
+				
+				<a4j:mediaOutput id="media_data_event_2" 
+	    					 element="img" 
+	    					 cacheable="false" 
+	        				 createContent="#{a4jMediaBean.paint}" value="#{a4jMediaBean.data2}" 
+	        				 mimeType="image/jpeg" 
+	        				 ondblclick="testEvent(this);"
+	        				 />
+		  		<h:outputText value="ondblclick event test" />				
+				<h:outputText id="media_data_event_2_result" value="No" /> 	
+				
+				<a4j:mediaOutput id="media_data_event_7" 
+	    					 element="img" 
+	    					 cacheable="false" 
+	        				 createContent="#{a4jMediaBean.paint}" value="#{a4jMediaBean.data2}" 
+	        				 mimeType="image/jpeg" 
+	        				 onmousedown="testEvent(this);"
+	        				 />
+		  		<h:outputText value="onmousedown event test" />				
+				<h:outputText id="media_data_event_7_result" value="No" />
+				
+				<a4j:mediaOutput id="media_data_event_8" 
+	    					 element="img" 
+	    					 cacheable="false" 
+	        				 createContent="#{a4jMediaBean.paint}" value="#{a4jMediaBean.data2}" 
+	        				 mimeType="image/jpeg" 
+	        				 onmousemove="testEvent(this);"
+	        				 />
+		  		<h:outputText value="onmousemove event test" />				
+				<h:outputText id="media_data_event_8_result" value="No" />
+				
+				<a4j:mediaOutput id="media_data_event_9" 
+	    					 element="img" 
+	    					 cacheable="false" 
+	        				 createContent="#{a4jMediaBean.paint}" value="#{a4jMediaBean.data2}" 
+	        				 mimeType="image/jpeg" 
+	        				 onmouseout="testEvent(this);"
+	        				 />
+		  		<h:outputText value="onmouseout event test" />				
+				<h:outputText id="media_data_event_9_result" value="No" />
+				
+				<a4j:mediaOutput id="media_data_event_10" 
+	    					 element="img" 
+	    					 cacheable="false" 
+	        				 createContent="#{a4jMediaBean.paint}" value="#{a4jMediaBean.data2}" 
+	        				 mimeType="image/jpeg" 
+	        				 onmouseover="testEvent(this);"
+	        				 />
+		  		<h:outputText value="onmouseover event test" />				
+				<h:outputText id="media_data_event_10_result" value="No" />
+				
+				<a4j:mediaOutput id="media_data_event_11" 
+	    					 element="img" 
+	    					 cacheable="false" 
+	        				 createContent="#{a4jMediaBean.paint}" value="#{a4jMediaBean.data2}" 
+	        				 mimeType="image/jpeg" 
+	        				 onmouseup="testEvent(this);"
+	        				 />
+		  		<h:outputText value="onmouseup event test" />				
+				<h:outputText id="media_data_event_11_result" value="No" />
+				
+				
+	    	</h:panelGrid>
+    	</h:form>      
+	</ui:define>
+</ui:composition>
+</html>

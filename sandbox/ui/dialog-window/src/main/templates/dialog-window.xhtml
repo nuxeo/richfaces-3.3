@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 	xmlns:f="http://jsf.exadel.com/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://jsf.exadel.com/ui"
+	xmlns:vcp=" http://jsf.exadel.com/vcp"
+	xmlns:u=" http://jsf.exadel.com/vcp"
+	xmlns:x=" http://jsf.exadel.com/vcp"
+	    baseclass="org.richfaces.renderkit.DialogWindowRenderer"
+	    class="org.richfaces.renderkit.DialogWindowTemplate"
+        component="org.richfaces.component.UIDialogWindow">
+        				
+	<f:clientid var="clientId"/>
+<span id="#{clientId}">
+	<a href="#" id="#{this:getLinkID(context,component)}"
+				style="#{component.attributes['style']}"
+				class="#{component.attributes['styleClass']}"
+				oncomplete="#{component.attributes['oncomplete']}"
+				onclick="#{this:getOnClick(context,component)}"
+				oncontextmenu="return false;"
+	>
+		<f:call name="utils.encodePassThruWithExclusions">
+			<f:parameter value="onclick,oncontextmenu"/>
+		</f:call>
+		#{component.attributes['value']}<vcp:body/>
+	</a>
+	<script type="text/javascript">#{this:getDialogBox(context,component)}</script>
+</span>
+</f:root>

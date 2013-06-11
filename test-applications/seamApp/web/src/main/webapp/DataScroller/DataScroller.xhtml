@@ -1,0 +1,38 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" id="DataScrollerSubviewID">
+	<rich:dataTable id="dataTableId" value="#{dataScroller.dataTable}" sortMode="#{dataScroller.sortMode}" 
+		var="dT" cellpadding="5px" rows="5" border="1" reRender="dsID">
+		<f:facet name="header">
+			<rich:datascroller inactiveStyle="#{style.inactiveStyle}" inactiveStyleClass="#{style.inactiveStyleClass}" 
+			selectedStyle="#{style.selectedStyle}" selectedStyleClass="#{style.selectedStyleClass}" style="#{style.style}" 
+			styleClass="#{style.styleClass}" tableStyle="#{style.tableStyle}" tableStyleClass="#{style.tableStyleClass}" 
+				fastControls="#{dataScroller.fastControls}" action="#{dataScroller.act}" actionListener="#{dataScroller.actListener}"
+				align="#{dataScroller.align}" rendered="#{dataScroller.render}"
+				limitToList="#{dataScroller.limitToList}"
+				renderIfSinglePage="#{dataScroller.renderIfSinglePage}"
+				maxPages="#{dataScroller.maxPages}"
+				scrollerListener="#{dataScroller.ScrollerListener}"
+				onclick="#{event.onclick}" oncomplete="#{event.oncomplete}"
+				ondblclick="#{event.ondblclick}" onkeydown="#{event.onkeydown}"
+				onkeypress="#{event.onkeypress}" onkeyup="#{event.onkeyup}"
+				onmousedown="#{event.onmousedown}"
+				onmousemove="#{event.onmousemove}" onmouseout="#{event.onmouseout}"
+				onmouseover="#{event.onmouseover}" onmouseup="#{event.onmouseup}" id="dsID" 
+				binding="#{dataScroller.htmlDatascroller}" reRender="dataTableId">				
+				</rich:datascroller>
+		</f:facet>
+		<rich:column sortBy="#{dT.str0}" filterBy="#{dT.str0}" filterEvent="onchange" 
+		selfSorted="#{dataScroller.selfSorted}" sortOrder="#{dataScroller.sortOrder}" filterValue="#{dataScroller.filterValue}">
+			<h:outputText value="#{dT.str0}" />
+		</rich:column>
+		<rich:column sortBy="#{dT.int0}" filterBy="#{dT.int0}" filterEvent="onchange" 
+		sortOrder="#{dataScroller.sortOrder}">
+			<h:outputText value="#{dT.int0} " />
+		</rich:column>
+	</rich:dataTable>
+	<h:panelGrid id="dataScrollerActionID" columns="1">
+		<a4j:commandButton value="Show action" reRender="dataScrollerActionID" style=" width : 95px;"></a4j:commandButton>
+		<h:outputText value="#{dataScroller.action}" />
+		<h:outputText value="#{dataScroller.actionListener}" />
+	</h:panelGrid>
+</f:subview>

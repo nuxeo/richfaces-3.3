@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.autoTestTemplate}">
+	<ui:define name="component">
+		<rich:dropDownMenu id="componentId" 
+							   rendered="#{autoTestBean.rendered}"
+							   value="test"
+							   style="color: red"
+							   styleClass="dropDownMenuClass"
+							   oncollapse="EventQueue.fire('ddmenuOncollapse')"
+							   onexpand="EventQueue.fire('ddmenuOnexpand')"
+							   ongroupactivate="EventQueue.fire('ddmenuOngroupactivate')"
+							   onitemselect="EventQueue.fire('ddmenuOnitemselect')"
+							   onmousemove="EventQueue.fire('ddmenuOnmousemove')"
+							   onmouseout="EventQueue.fire('ddmenuOnmouseout')"
+							   onmouseover="EventQueue.fire('ddmenuOnmouseover')"
+							   >
+  			    <rich:menuItem id="new"
+  			    	submitMode="ajax"
+  			    	immediate="#{autoTestBean.immediate}"
+  			    	ajaxSingle="#{autoTestBean.ajaxSingle}" 
+  			    	value="New" 
+  			    	process="#{autoTestBean.process}"
+  			    	bypassUpdates="#{autoTestBean.bypassUpdate}"
+  			    	limitToList="#{autoTestBean.limitToList}"
+  			    	reRender="#{autoTestBean.reRender}"
+  			    	action="#{ddmenuBean.doNew}" 
+  			    	actionListener="#{autoTestBean.actionListener}"
+  			    	oncomplete="#{autoTestBean.oncomplete}">
+  			    	<h:inputText id="inputRequired" value="#{ddmenuBean.input}" style="display: none" required="true"></h:inputText>
+  			    	<f:param name="parameter1" value="value1" />
+  			    </rich:menuItem>
+  			    <rich:menuGroup id="group1" value="group"
+  			    		style="color: green"
+  			    		styleClass="menuGroupClass"
+  			    		selectClass="menuGroupSelectClass"
+  			    		selectStyle="color: blue;"
+  			    		onclose="EventQueue.fire('ddmenuGroupOnclose')"
+  			    		onmousemove="EventQueue.fire('ddmenuGroupOnmousemove')"
+  			    		onmouseout="EventQueue.fire('ddmenuGroupOnmouseout')"
+  			    		onmouseover="EventQueue.fire('ddmenuGroupOnmouseover')"
+  			    		onopen="EventQueue.fire('ddmenuGroupOnopen')">
+  			    	<rich:menuItem value="Item1" id="item1"
+  			    		style="color: black"
+ 			    		styleClass="menuItemClass"
+  			    		onclick="EventQueue.fire('onclick')"
+  			    		onmousedown="EventQueue.fire('onmousedown')"
+  			    		onmousemove="EventQueue.fire('onmousemove')"
+  			    		onmouseout="EventQueue.fire('onmouseout')"
+  			    		onmouseover="EventQueue.fire('onmouseover')"
+  			    		onmouseup="EventQueue.fire('onmouseup')"
+  			    		onselect="EventQueue.fire('onselect')"
+  			    		submitMode="none">
+  			    		<h:commandLink id="submit1" value="Submit" actionListener="#{autoTestBean.actionListener}"></h:commandLink>
+  			    	</rich:menuItem>
+  			    </rich:menuGroup>
+			</rich:dropDownMenu>
+	</ui:define>
+</ui:composition>
+</html>

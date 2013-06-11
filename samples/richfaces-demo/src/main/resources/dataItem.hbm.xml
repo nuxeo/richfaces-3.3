@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="org.richfaces.demo.modifiableModel.DataItem">
+		<id name="id">
+			<generator class="native" />
+		</id>
+
+		<property name="issueType" />
+		<property name="key" />
+		<property name="summary" />
+		<property name="assignee" />
+		<property name="fixVersion" />
+		<property name="reporter" />
+		<property name="priority" />
+		<property name="status" />
+		<property name="resolution" />
+		<property name="created" />
+		<property name="updated" />
+		<property name="dueDate" />
+	</class>
+
+</hibernate-mapping>

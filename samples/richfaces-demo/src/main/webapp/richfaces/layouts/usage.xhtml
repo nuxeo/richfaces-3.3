@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<ui:composition template="/templates/component-sample.xhtml">
+	<ui:define name="sample">
+		<p>A set of layout components designed based on <h:outputLink
+			target="blank" value="http://developer.yahoo.com/yui/layout/">Yahoo layouts</h:outputLink>.
+		</p>
+		<p>
+			The component set consists of three components. A <b>Page </b>component for page 
+			layout definition and <b>Layout/LayoutPanel</b> components for nesting layout
+			grids creation.
+		</p>
+		<p>
+			Since these components are designed to create full page layouts, click on the link
+			below to open a page template sample based on them and read 
+			detailed descriptions. 
+		</p> 
+		<h:outputLink target="blank"
+			value="#{facesContext.externalContext.requestContextPath}/richfaces/layouts/page/template.jsf">Open a sample built with layouts components</h:outputLink>
+<br/>
+	</ui:define>
+
+</ui:composition>
+</html>

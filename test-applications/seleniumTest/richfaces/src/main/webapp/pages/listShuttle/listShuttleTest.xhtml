@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+		
+	</ui:define>
+	<ui:define name="component">
+		<a4j:outputPanel>
+			<h:messages></h:messages>
+		</a4j:outputPanel>
+		<p id="crack"></p>
+		<a4j:outputPanel ajaxRendered="true">
+			<h:message for="ls" id="msgId"></h:message>
+		</a4j:outputPanel>
+		<h:form id="attrFormId">
+			<h:outputText value="sourceRequired" />
+			<h:selectBooleanCheckbox id="sourceRequiredId" value="#{listShuttle.sourceRequired}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+			<h:outputText value="targetRequired" />
+			<h:selectBooleanCheckbox id="targetRequiredId" value="#{listShuttle.targetRequired}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+			<h:outputText value="showButtonLabels" />
+			<h:selectBooleanCheckbox id="showButtonLabelsId" value="#{listShuttle.showButtonLabels}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+			<h:outputText value="switchByClick" />
+			<h:selectBooleanCheckbox id="switchByClickId" value="#{listShuttle.switchByClick}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+			<h:outputText value="rendered" />
+			<h:selectBooleanCheckbox id="renderedId" value="#{listShuttle.rendered}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+			<h:outputText value="immediate" />
+			<h:selectBooleanCheckbox id="immediateId" value="#{listShuttle.immediate}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+			<h:outputText value="attrValidator" />
+			<h:selectBooleanCheckbox id="attrValidatorId" value="#{listShuttle.attrValidator}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+			<h:outputText value="tagValidator" />
+			<h:selectBooleanCheckbox id="tagValidatorId" value="#{listShuttle.tagValidator}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+			<h:outputText value="renderControlFacet" />
+			<h:selectBooleanCheckbox id="renderControlFacet" value="#{listShuttle.renderControlFacet}">
+				<a4j:support event="onchange" reRender="ls"/>
+			</h:selectBooleanCheckbox>
+		</h:form>
+		<h:form id="_form">
+			<h:panelGroup id="lsPanel">
+				<h:inputText id="inputTextId" value="#{listShuttle.string}" immediate="true" required="true"></h:inputText>
+				<rich:listShuttle id="ls" sourceValue="#{listShuttle.freeItems}"
+	            targetValue="#{listShuttle.items}" var="items" listHeight="300"
+	            listWidth="300" sourceCaptionLabel="Available Items"
+	            targetCaptionLabel="Currently Active Items"
+	            converter="listShuttleconverter"
+	            moveControlsVisible="#{listShuttle.controlsVisible}"
+	            fastMoveControlsVisible="#{listShuttle.controlsVisible}"
+	            fastOrderControlsVisible="#{listShuttle.controlsVisible}"
+	            orderControlsVisible="#{listShuttle.controlsVisible}"
+	            sourceRequired="#{listShuttle.sourceRequired}"
+	            targetRequired="#{listShuttle.targetRequired}"
+	            showButtonLabels="#{listShuttle.showButtonLabels}"
+	            switchByClick="#{listShuttle.switchByClick}"
+	            rendered="#{listShuttle.rendered}"
+	            immediate="#{listShuttle.immediate}"
+	            valueChangeListener="#{listShuttle.valueChangeListener}"
+				styleClass="noname"
+				style="color: blue; text-decoration: underline;"
+				onclick="EventQueue.fire('onclick')"
+				onmousemove="EventQueue.fire('onmousemove')"
+				onmouseout="EventQueue.fire('onmouseout')"
+				onmouseover="EventQueue.fire('onmouseover')"
+				sourceSelection="#{listShuttle.sourceSelection}"
+				targetSelection="#{listShuttle.targetSelection}"
+				validator="#{listShuttle.validate}" 
+	            >
+	            	<f:validator validatorId="validatorWithAttribute" />
+	            	<f:attribute name="failed" value="#{listShuttle.tagValidator}"/>
+		            <f:facet name="sourceCaption"><h:outputText id="sourceCaptionId" value="sourceCaption" /></f:facet>
+		            <f:facet name="targetCaption"><h:outputText id="targetCaptionId" value="targetCaption" /></f:facet>
+				    <f:facet name="copyControl" > <h:outputText id="copyControlFacet" rendered="#{listShuttle.renderControlFacet}" value="copyControlFacet" /></f:facet>
+				    <f:facet name="copyControlDisabled"> <h:outputText id="copyControlDisabledFacet" rendered="#{listShuttle.renderControlFacet}" value="copyControlDisabledFacet" /></f:facet>
+				    <f:facet name="removeControl"> <h:outputText id="removeControlFacet" rendered="#{listShuttle.renderControlFacet}" value="removeControlFacet" /></f:facet>
+				    <f:facet name="removeControlDisabled"> <h:outputText id="removeControlDisabledFacet" rendered="#{listShuttle.renderControlFacet}" value="removeControlDisabledFacet" /></f:facet>
+				    <f:facet name="copyAllControl"> <h:outputText id="copyAllControlFacet" rendered="#{listShuttle.renderControlFacet}" value="copyAllControlFacet" /></f:facet>
+				    <f:facet name="copyAllControlDisabled"> <h:outputText id="copyAllControlDisabledFacet" rendered="#{listShuttle.renderControlFacet}" value="copyAllControlDisabledFacet" /></f:facet>
+				    <f:facet name="removeAllControl"> <h:outputText id="removeAllControlFacet" rendered="#{listShuttle.renderControlFacet}" value="removeAllControlFacet" /></f:facet>
+				    <f:facet name="removeAllControlDisabled"> <h:outputText id="removeAllControlDisabledFacet" rendered="#{listShuttle.renderControlFacet}" value="removeAllControlDisabledFacet" /></f:facet>
+				    <f:facet name="topControl"> <h:outputText id="topControlFacet" rendered="#{listShuttle.renderControlFacet}" value="topControlFacet" /></f:facet>
+				    <f:facet name="topControlDisabled"> <h:outputText id="topControlDisabledFacet" rendered="#{listShuttle.renderControlFacet}" value="topControlDisabledFacet" /></f:facet>
+				    <f:facet name="bottomControl"> <h:outputText id="bottomControlFacet" rendered="#{listShuttle.renderControlFacet}" value="bottomControlFacet" /></f:facet>
+				    <f:facet name="bottomControlDisabled"> <h:outputText id="bottomControlDisabledFacet" rendered="#{listShuttle.renderControlFacet}" value="bottomControlDisabledFacet" /></f:facet>
+				    <f:facet name="upControl"> <h:outputText id="upControlFacet" rendered="#{listShuttle.renderControlFacet}" value="upControlFacet" /></f:facet>
+				    <f:facet name="upControlDisabled"> <h:outputText id="upControlDisabledFacet" rendered="#{listShuttle.renderControlFacet}" value="upControlDisabledFacet" /></f:facet>
+				    <f:facet name="downControl"> <h:outputText id="downControlFacet" rendered="#{listShuttle.renderControlFacet}" value="downControlFacet" /></f:facet>
+				    <f:facet name="downControlDisabled"> <h:outputText id="downControlDisabledFacet" rendered="#{listShuttle.renderControlFacet}" value="downControlDisabledFacet" /></f:facet>
+		            <rich:column width="18">
+						<f:facet name="header">
+							<h:outputText value="Number" />
+						</f:facet>
+		                <h:outputLink value="#">
+		                	<h:outputText value="#{items.numder}"></h:outputText>
+		                </h:outputLink>
+		            </rich:column>
+		            <rich:column>
+						<f:facet name="header">
+							<h:outputText value="Name" />
+						</f:facet>
+		                <h:outputText value="#{items.name}" id="item"></h:outputText>
+		            </rich:column>
+	        	</rich:listShuttle>
+	        	<h:panelGrid columns="2">
+		        	<h:dataTable id="sourceTableId" value="#{listShuttle.freeItems}" var="items">
+			            <h:column >
+		                	<h:outputText value="#{items.numder}"></h:outputText>
+			            </h:column>
+			            <h:column>
+			                <h:outputText value="#{items.name}"></h:outputText>
+			            </h:column>
+		        	</h:dataTable>
+		        	<h:dataTable id="targetTableId" value="#{listShuttle.items}"  var="items">
+			            <h:column >
+		                	<h:outputText value="#{items.numder}"></h:outputText>
+			            </h:column>
+			            <h:column>
+			                <h:outputText value="#{items.name}"></h:outputText>
+			            </h:column>
+		        	</h:dataTable>
+	        	</h:panelGrid>
+	        	<h:panelGrid columns="2">
+		        	<h:dataTable id="sourceSelectionTableId" value="#{listShuttle.sourceSelection2}" var="items">
+			            <h:column >
+		                	<h:outputText value="#{items.numder}"></h:outputText>
+			            </h:column>
+			            <h:column>
+			                <h:outputText value="#{items.name}"></h:outputText>
+			            </h:column>
+		        	</h:dataTable>
+		        	<h:dataTable id="targetSelectionTableId" value="#{listShuttle.targetSelection2}"  var="items">
+			            <h:column >
+		                	<h:outputText value="#{items.numder}"></h:outputText>
+			            </h:column>
+			            <h:column>
+			                <h:outputText value="#{items.name}"></h:outputText>
+			            </h:column>
+		        	</h:dataTable>
+	        	</h:panelGrid>
+	        </h:panelGroup>
+	        <a4j:commandLink id="reset" value="Reset" actionListener="#{listShuttle.reset}" reRender="ls"></a4j:commandLink><br/>
+	        <a4j:commandLink id="submit" value="Submit" reRender="lsPanel" action="#{listShuttle.submit}"></a4j:commandLink><br/>
+	        <a4j:commandLink id="hide" value="Hide Controls" actionListener="#{listShuttle.hide}" reRender="ls"></a4j:commandLink>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

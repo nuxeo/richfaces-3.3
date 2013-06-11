@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+		xmlns:f="http:/jsf.exadel.com/template" 
+		xmlns:h=" http://ajax4jsf.org/cdk/headers"
+		xmlns:c=" http://java.sun.com/jsf/core" 
+		xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+		xmlns:u=" http://ajax4jsf.org/cdk/u"
+		xmlns:x=" http://ajax4jsf.org/cdk/x"
+		xmlns:vcp="http://ajax4jsf.org/cdk/vcp"
+		class="org.richfaces.renderkit.html.HtmlToolTipRenderer"
+		baseclass="org.richfaces.renderkit.html.ToolTipRenderer"
+		component="org.richfaces.component.UIToolTip" >
+		
+	<f:clientid var="clientId"/>
+	<span id="#{clientId}" style="z-index:#{component.attributes['zorder']}; #{component.attributes['style']}"
+			class="dr-rich-tool-tip rich-tool-tip #{component.attributes['styleClass']}">
+		<f:call name="utils.encodePassThruWithExclusions">
+				<f:parameter value="id,style,class,disabled" />
+			</f:call>
+		 <jsp:scriptlet>
+			<![CDATA[if("ajax".equals(component.getMode()) && component.getFacet("defaultContent")!=null) {]]>
+		 </jsp:scriptlet>
+		    <span id="#{clientId}defaultContent" style="display:none">
+			    <u:insertFacet name="defaultContent" />
+			</span>
+		 <jsp:scriptlet>
+			<![CDATA[}]]>
+		 </jsp:scriptlet>
+		
+           <vcp:body>
+           	<f:call name="encodeTooltipText"/>
+           </vcp:body>
+           <f:clientid var="clientId"/>
+           <span id="#{clientId}script" style="display:none">
+           	<f:call name="insertScript"/>
+           </span>
+	</span>			
+</f:root>

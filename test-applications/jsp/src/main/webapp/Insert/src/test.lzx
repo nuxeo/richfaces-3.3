@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <canvas debug="false" bgcolor='#D4D0C8'>
+
+    <dataset name='dset' request='true' type='http' src='/app/user/list?keyword='/>
+    <grid id="gd" datapath="dset:/rowset" contentdatapath="row" doesenter="true">
+       <gridcolumn width='100'>name<text datapath='@name'></text></gridcolumn>
+       <gridcolumn width='100'>email<text datapath='@email'></text> </gridcolumn>
+    </grid>
+  </canvas>
+
+

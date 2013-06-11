@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://jsf.exadel.com/template"
+	    xmlns:c="http://java.sun.com/jsf/core"
+	    xmlns:ui="http://jsf.exadel.com/ui"
+	    xmlns:vcp="http://jsf.exadel.com/vcp"
+	    xmlns:u="http://jsf.exadel.com/util"
+	    xmlns:x="http://jsf.exadel.com/mock"
+	    baseclass="org.richfaces.renderkit.DialogCloseRenderer"
+	    class="org.richfaces.renderkit.DialogCloseButtonTemplate"
+        component="org.richfaces.component.UIDialogCloseButton">
+<f:clientid var="clientId"/>
+<span id="#{clientId}">
+	<button href="#" style="#{component.attributes['style']}"
+					 class="#{component.attributes['styleClass']}"
+					 onclick="#{this:getOnClick(context,component)}"
+	>
+		<f:call name="utils.encodePassThruWithExclusions">
+			<f:parameter value="onclick"/>
+		</f:call>
+		#{component.attributes['value']}<vcp:body/>
+		<script>#{this:getRegistration(context,component)}</script>
+	</button>
+</span>
+</f:root>

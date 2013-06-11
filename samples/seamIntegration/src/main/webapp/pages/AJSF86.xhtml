@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j">
+<head><title>Seam + ajax4jsf + binding</title></head>
+<body>
+<h:form>
+    Input:
+    <h:inputText binding="#{testController.input}"
+                 value="#{testController.value}">
+        <a4j:support event="onkeyup" reRender="repeater"/>
+    </h:inputText>
+    <h:commandButton value="Ok" />
+    <br/>
+    Repeat:
+    <h:outputText id="repeater" value="#{testController.value}"/>
+</h:form>
+</body>
+</html>

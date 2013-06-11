@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.richfaces</groupId>
+    <artifactId>seamApp</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>sample application</name>
+    <properties>
+		<projectName>seamApp</projectName>
+		<rfVersion>3.3.1.GA</rfVersion>
+		<seamVersion>2.1.0.SP1</seamVersion>
+		<jbossDownloadURL>http://downloads.sourceforge.net/jboss/jboss-4.2.2.GA.zip</jbossDownloadURL>
+		<jbossDeployDir>jboss-4.2.2.GA/jboss-4.2.2.GA/server/default/</jbossDeployDir>
+		<droolsVersion>4.0.0</droolsVersion>
+		<faceletsVersion>1.1.14</faceletsVersion>
+		<installDir>E:/apps/jboss</installDir>
+	</properties>
+    <repositories>
+        <repository>
+            <id>repository.jboss.com</id>
+            <name>Jboss Repository for Maven</name>
+            <url>http://repository.jboss.com/maven2/</url>
+        </repository>
+        <repository>
+            <id>repository.exadel.com</id>
+            <name>Exadel Maven 2 Repository</name>
+            <url>http://repository.exadel.com/</url>
+        </repository>
+    </repositories>
+
+    <modules>
+        <module>ear</module>
+        <module>ejb</module>
+        <module>web</module>
+    </modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>el-api</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!--dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>el-api</artifactId>
+			<version>1.2</version>
+		</dependency-->
+	</dependencies>
+	
+    <build>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-ejb-plugin</artifactId>
+			<configuration>
+				<ejbVersion>3.0</ejbVersion>
+			</configuration>
+		</plugin>
+	</plugins>
+	
+	<pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.5</version>
+					<configuration>
+						<downloadSources>true</downloadSources>
+						<downloadJavadocs>false</downloadJavadocs>
+						<projectNameTemplate>[artifactId]-[version]</projectNameTemplate>
+						<wtpmanifest>true</wtpmanifest>
+						<wtpapplicationxml>true</wtpapplicationxml>
+						<wtpversion>2.0</wtpversion>
+						<classpathContainers>
+							<classpathContainer>org.eclipse.jdt.launching.JDK_CONTAINER</classpathContainer>
+						</classpathContainers>
+					</configuration>
+				</plugin>
+				<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+			</plugins>
+		</pluginManagement>
+    </build>
+
+</project>

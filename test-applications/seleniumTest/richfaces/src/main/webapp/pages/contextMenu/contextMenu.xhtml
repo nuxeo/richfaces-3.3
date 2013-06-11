@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">	
+	<ui:define name="component">
+		<h:form id="_controls">
+			<h:commandButton id="testServerMode" action="#{contextMenuBean.testServerSubmitMode}" value="testServerSubmit"></h:commandButton>
+			<h:commandButton id="testAjaxMode" action="#{contextMenuBean.testAjaxSubmitMode}" value="testAjaxSubmit"></h:commandButton>
+			<h:commandButton id="testAttached" action="#{contextMenuBean.testAttached}" value="testAttached"></h:commandButton>
+			<h:commandButton id="testAttachTo" action="#{contextMenuBean.testAttachTo}" value="testAttachTo"></h:commandButton>
+			<h:commandButton id="testDisableDefault" action="#{contextMenuBean.testDisableDefault}" value="testDisableDefault"></h:commandButton>
+		</h:form>
+	
+		
+		<h:form id="_form">
+		<h:outputText id="time" value="#{contextMenuBean.time}"></h:outputText>
+		<h:outputText id="status" style="display: none;" value="#{contextMenuBean.status}"></h:outputText>
+		<br/>
+ 
+		<a href="#" id="attachToLink">AttachToLink</a>
+				<br/>
+		
+		<h:outputLink value="#" id="parentLink">
+				<h:outputText value="Parent Link"></h:outputText>
+				<rich:contextMenu id="contextMenu" 
+								  submitMode="#{contextMenuBean.submitMode}" 
+								  attached="#{contextMenuBean.attached}"
+								  attachTo="#{contextMenuBean.attacheTo}"
+								  event="onclick">
+					<rich:menuItem id="item1" value="{message1}" reRender="time" />
+					<rich:menuItem id="item2" reRender="status" actionListener="#{contextMenuBean.actionListener}" value="Menu2" />
+					<rich:menuItem id="item3" value="{message3}" />
+					<rich:menuItem id="item4" submitMode="none"  value="{message4}" >
+						
+					</rich:menuItem>
+				</rich:contextMenu>
+		</h:outputLink>
+		
+		<br/>
+				
+			<a href="#" id="showMenu" onclick="$(getParentId() + '_form:contextMenu').component.show(event, {message1 : 'Menu1'})">Show Menu</a>
+			<a href="#" id="hideMenu" style="padding-left: 5px;" onclick="$(getParentId() + '_form:contextMenu').component.hide(event)">Hide Menu</a>
+			<br/>
+			
+			<h:outputLink id="showMenu" value="#">
+				<h:outputText value="Show Menu"></h:outputText>
+				<rich:componentControl event="onclick" for="contextMenu" operation="show">
+					<f:param name="message1" value="Menu1" />	
+					<f:param name="message3" value="#{contextMenuBean.message3}" />
+					<f:param name="message4" value="#{contextMenuBean.message4}" />
+				</rich:componentControl>
+			</h:outputLink>
+			<h:outputLink style="padding-left: 5px;" id="hideMenu" value="#">
+				<h:outputText value="Hide Menu" />
+				<rich:componentControl event="onclick" for="contextMenu" operation="hide" />
+			</h:outputLink>
+			
+			
+			<rich:contextMenu id="contextMenu2" disableDefaultMenu="#{contextMenuBean.disableDefault}">
+				<rich:menuGroup id="menuGroup" value="Group1">
+					<rich:menuItem id="g1" value="Item1"></rich:menuItem>
+					<rich:menuItem id="g2" value="Item2"></rich:menuItem>
+					<rich:menuSeparator id="g3" />
+					<rich:menuItem id="g4" value="Item3"></rich:menuItem>
+				</rich:menuGroup>
+				<rich:menuSeparator />
+				<rich:menuItem id="g5" value="Item4"></rich:menuItem>
+			</rich:contextMenu>
+			
+			<a href="#" id="showContext2" onclick="$(getParentId() + '_form:contextMenu2').component.show(event)">ShowContext2</a>
+			<a href="#" id="hideContext2" onclick="$(getParentId() + '_form:contextMenu2').component.hide()">HideContext2</a>
+			
+		</h:form>
+		
+	</ui:define>
+	
+</ui:composition>
+</html>

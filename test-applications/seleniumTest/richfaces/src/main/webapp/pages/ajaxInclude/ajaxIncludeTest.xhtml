@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="attrForm">
+			<h:outputText value="layout" />
+			<h:inputText id="layout" value="#{a4jIncludeBean.layout}">
+				<a4j:support event="onchange" reRender="panelGroup"/>
+			</h:inputText>		
+			<h:outputText value="keepTransient" />
+			<h:selectBooleanCheckbox id="keepTransient" value="#{a4jIncludeBean.keepTransient}">
+				<a4j:support event="onchange" reRender="panelGroup"/>
+			</h:selectBooleanCheckbox>		
+		</h:form>
+		<h:form id="mainForm">
+			<h:panelGroup id="panelGroup">
+				<a4j:include id="include"
+					keepTransient="#{a4jIncludeBean.keepTransient}"
+					viewId="/pages/ajaxInclude/step1.xhtml"
+					layout="#{a4jIncludeBean.layout}" />
+				<a4j:commandButton id="setTransient" value="setTransient" action="#{a4jIncludeBean.setTransient}" reRender="panelGroup"></a4j:commandButton>
+			</h:panelGroup>
+        </h:form>
+	</ui:define>
+</ui:composition>
+</html>

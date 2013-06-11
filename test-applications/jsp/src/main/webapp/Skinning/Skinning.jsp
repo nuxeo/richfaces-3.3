@@ -1,0 +1,375 @@
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
+<%@ taglib uri="https://ajax4jsf.dev.java.net/ajax" prefix="a4j"%>
+<%@ taglib uri="http://richfaces.ajax4jsf.org/rich" prefix="rich"%>
+
+<f:subview id="skinningSubviewID">
+	<rich:dataTable columns="4" value="">
+		<f:facet name="caption">
+			<h:outputText
+				value="Standard controls skinning feature provides styling for standard HTML elements so that they become highly compliant with RichFaces look and feel. Skinning can be applied to all page controls based on element name and type attribute (where applicable). Also this feature provides a set of CSS styles so that skinning can be applied by assigning rich-.. classes to particular elements or to container element that nests controls." />
+		</f:facet>
+		<f:facet name="header">
+			<rich:columnGroup>
+				<rich:column>
+					<h:outputText value="Name of Component" />
+				</rich:column>
+				<rich:column>
+					<h:outputText value="styleClass of Component" />
+				</rich:column>
+				<rich:column>
+					<h:outputText value="Component is enabled" />
+				</rich:column>
+				<rich:column>
+					<h:outputText value="Component is disabled" />
+				</rich:column>
+			</rich:columnGroup>
+		</f:facet>
+		<f:facet name="footer">
+			<h:outputText value="" />
+		</f:facet>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="inputText" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{skinning.inputTextStyleClass}" />
+			</rich:column>
+			<rich:column>
+				<h:inputText styleClass="#{skinning.inputTextStyleClass}"
+					value="#{skinning.inputText}" />
+			</rich:column>
+			<rich:column>
+				<h:inputText styleClass="#{skinning.inputTextStyleClass}"
+					value="#{skinning.inputText}" disabled="true" />
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="inputSecret" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{skinning.inputSecretStyleClass}" />
+			</rich:column>
+			<rich:column>
+				<h:inputSecret styleClass="#{skinning.inputSecretStyleClass}"
+					value="#{skinning.inputSecret}" redisplay="true" />
+			</rich:column>
+			<rich:column>
+				<h:inputSecret styleClass="#{skinning.inputSecretStyleClass}"
+					value="#{skinning.inputSecret}" disabled="true" redisplay="true" />
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="input" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="rich-input" />
+			</rich:column>
+			<rich:column>
+				<input class="rich-input" value="input"></input>
+			</rich:column>
+			<rich:column>
+				<input class="rich-input" value="input" disabled="true"></input>
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="inputTextarea" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{skinning.inputTextareaStyleClass}" />
+			</rich:column>
+			<rich:column>
+				<%--<h:inputTextarea styleClass="#{skinning.inputTextareaStyleClass}" value="#{skinning.inputTextarea}" />--%>
+			</rich:column>
+			<rich:column>
+				<%--<h:inputTextarea styleClass="#{skinning.inputTextareaStyleClass}" value="#{skinning.inputTextarea}" disabled="true" />--%>
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="selectBooleanCheckbox" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{skinning.selectBooleanCheckboxStyleClass}" />
+			</rich:column>
+			<rich:column>
+				<h:selectBooleanCheckbox
+					styleClass="#{skinning.selectBooleanCheckboxStyleClass}"
+					value="#{skinning.selectBooleanCheckbox1}" />
+				<h:selectBooleanCheckbox
+					styleClass="#{skinning.selectBooleanCheckboxStyleClass}"
+					value="#{skinning.selectBooleanCheckbox2}" />
+			</rich:column>
+			<rich:column>
+				<h:selectBooleanCheckbox
+					styleClass="#{skinning.selectBooleanCheckboxStyleClass}"
+					value="#{skinning.selectBooleanCheckbox1}" disabled="true" />
+				<h:selectBooleanCheckbox
+					styleClass="#{skinning.selectBooleanCheckboxStyleClass}"
+					value="#{skinning.selectBooleanCheckbox2}" disabled="true" />
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="selectManyCheckbox" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{skinning.selectManyCheckbox}" />
+			</rich:column>
+			<rich:column>
+				<h:selectManyCheckbox styleClass="#{skinning.selectManyCheckbox}">
+					<f:selectItems value="#{skinning.list}" />
+				</h:selectManyCheckbox>
+			</rich:column>
+			<rich:column>
+				<h:selectManyCheckbox styleClass="#{skinning.selectManyCheckbox}"
+					disabled="true">
+					<f:selectItems value="#{skinning.list}" />
+				</h:selectManyCheckbox>
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="selectManyListbox" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{skinning.selectManyListbox}" />
+			</rich:column>
+			<rich:column>
+				<h:selectManyListbox styleClass="#{skinning.selectManyListbox}"
+					style="height: 55px;">
+					<f:selectItems value="#{skinning.list}" />
+				</h:selectManyListbox>
+			</rich:column>
+			<rich:column>
+				<h:selectManyListbox styleClass="#{skinning.selectManyListbox}"
+					style="height: 55px;" disabled="true">
+					<f:selectItems value="#{skinning.list}" />
+				</h:selectManyListbox>
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="selectManyMenu" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{skinning.selectManyMenu}" />
+			</rich:column>
+			<rich:column>
+				<h:selectManyMenu styleClass="#{skinning.selectManyMenu}"
+					style="height: 55px;">
+					<f:selectItems value="#{skinning.list}" />
+				</h:selectManyMenu>
+			</rich:column>
+			<rich:column>
+				<h:selectManyMenu styleClass="#{skinning.selectManyMenu}"
+					style="height: 55px;" disabled="true">
+					<f:selectItems value="#{skinning.list}" />
+				</h:selectManyMenu>
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="selectOneListbox" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{skinning.selectOneListbox}" />
+			</rich:column>
+			<rich:column>
+				<h:selectOneListbox styleClass="#{skinning.selectOneListbox}"
+					style="height: 55px;">
+					<f:selectItems value="#{skinning.list}" />
+				</h:selectOneListbox>
+			</rich:column>
+			<rich:column>
+				<h:selectOneListbox styleClass="#{skinning.selectOneListbox}"
+					style="height: 55px;" disabled="true">
+					<f:selectItems value="#{skinning.list}" />
+				</h:selectOneListbox>
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="selectOneMenu" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{skinning.selectOneMenu}" />
+			</rich:column>
+			<rich:column>
+				<h:selectOneMenu styleClass="#{skinning.selectOneMenu}">
+					<f:selectItems value="#{skinning.list}" />
+				</h:selectOneMenu>
+			</rich:column>
+			<rich:column>
+				<h:selectOneMenu styleClass="#{skinning.selectOneMenu}"
+					disabled="true">
+					<f:selectItems value="#{skinning.list}" />
+				</h:selectOneMenu>
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="selectOneRadio" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{skinning.selectOneRadio}" />
+			</rich:column>
+			<rich:column>
+				<h:selectOneRadio styleClass="#{skinning.selectOneRadio}">
+					<f:selectItems value="#{skinning.list}" />
+				</h:selectOneRadio>
+			</rich:column>
+			<rich:column>
+				<h:selectOneRadio styleClass="#{skinning.selectOneRadio}"
+					disabled="true">
+					<f:selectItems value="#{skinning.list}" />
+				</h:selectOneRadio>
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="commandButton" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{skinning.commandButton}" />
+			</rich:column>
+			<rich:column>
+				<h:commandButton styleClass="#{skinning.commandButton}"
+					value="commandButton" />
+			</rich:column>
+			<rich:column>
+				<h:commandButton styleClass="#{skinning.commandButton}"
+					value="commandButton" disabled="true" />
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="button" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="rich-button" />
+			</rich:column>
+			<rich:column>
+				<button class="rich-button">button</button>
+			</rich:column>
+			<rich:column>
+				<button class="rich-button" disabled="true">button</button>
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="commandLink" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{skinning.commandLink}" />
+			</rich:column>
+			<rich:column>
+				<h:commandLink styleClass="#{skinning.commandLink}"
+					value="commandLink" />
+			</rich:column>
+			<rich:column>
+				<h:commandLink styleClass="#{skinning.commandLink}"
+					value="commandLink" disabled="true" />
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="outputLink" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{skinning.outputLink}" />
+			</rich:column>
+			<rich:column>
+				<h:outputLink styleClass="#{skinning.outputLink}">
+					<h:outputText value="outputLink" />
+				</h:outputLink>
+			</rich:column>
+			<rich:column>
+				<h:outputLink styleClass="#{skinning.outputLink}" disabled="true">
+					<h:outputText value="outputLink" />
+				</h:outputLink>
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="a" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="rich-link" />
+			</rich:column>
+			<rich:column>
+				<a href="http://localhost:8081/jsp/pages/Rich/Rich.jsf"
+					class="rich-link">link</a>
+			</rich:column>
+			<rich:column>
+				<h:outputText value="component has not disabled state" />
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="fieldset && legend" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="rich-fieldset, rich-legend" />
+			</rich:column>
+			<rich:column>
+				<fieldset class="rich-fieldset">
+					<legend class="rich-legend">Student</legend>
+					<input type="checkbox"> The first </input> <br />
+				    <input type="checkbox"> The second </input> <br />
+				    <input type="checkbox"> The third </input> 
+				</fieldset>
+			</rich:column>
+			<rich:column>
+				<h:outputText value="components have not disabled state" />
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="hr" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="rich-hr" />
+			</rich:column>
+			<rich:column>
+				<hr class="rich-hr" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="components have not disabled state" />
+			</rich:column>
+		</rich:columnGroup>
+		<%--		
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="isindex" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="rich-isindex" />
+			</rich:column>
+			<rich:column>
+				<isindex class="rich-isindex" prompt="Enter"/>
+			</rich:column>
+			<rich:column>
+				<h:outputText value="components have not disabled state" />
+			</rich:column>
+		</rich:columnGroup>
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="keygen" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="rich-keygen" />
+			</rich:column>
+			<rich:column>
+				<keygen class="rich-keygen" />
+			</rich:column>
+			<rich:column>
+				<keygen disabled="true" class="rich-keygen" />
+			</rich:column>
+		</rich:columnGroup>
+--%>
+	</rich:dataTable>
+</f:subview>

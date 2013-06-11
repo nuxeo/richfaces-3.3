@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+		
+	</ui:define>
+	<ui:define name="component">
+	
+	
+		<h:form id="form1">
+			<a4j:commandLink value="Ajax Submit" id="ajaxSubmit" reRender="out, ajaxSubmit">
+				<a4j:actionparam name="param" assignTo="#{actionParam.object}" converter="actionParamConverter" value="#{actionParam.object}"></a4j:actionparam>
+			</a4j:commandLink>
+		</h:form>
+		
+		<h:panelGrid columns="2" id="out">
+			<h:outputText value="Name:"></h:outputText>
+			<h:outputText id="name" value="#{actionParam.object.name}"></h:outputText>
+			<h:outputText value="Value"></h:outputText>
+			<h:outputText id="value" value="#{actionParam.object.date}"></h:outputText>
+		</h:panelGrid>
+	</ui:define>
+</ui:composition>
+</html>

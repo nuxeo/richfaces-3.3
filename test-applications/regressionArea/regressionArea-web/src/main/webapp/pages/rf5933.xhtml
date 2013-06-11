@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+      
+<ui:composition template="/layout/layout.xhtml">
+	<ui:define name="style">
+		
+	</ui:define>
+	<ui:define name="template">
+		<h:form id="form">
+			<a4j:status startText="...start..." stopText="stop" id="status" forceId="true" /><br /> 
+
+			<h:panelGroup id="group"></h:panelGroup>
+			
+			<script type="text/javascript">
+				function logResult(result) {
+					#{rich:element('group')}.appendChild(document.createTextNode(result ? "pass" : "fail"));
+				}
+			</script>
+			
+			<a4j:jsFunction status="status" name="functionA" eventsQueue="a" similarityGroupingId="a" oncomplete="logResult(false)" timeout="100" action="#{rf5933.test}" /> 
+			<a4j:jsFunction status="status" name="functionB" eventsQueue="a" similarityGroupingId="a" ignoreDupResponses="true" oncomplete="logResult(true)" action="#{rf5933.test}" /> 
+			<a href="#" id="execute" onclick="functionA(); functionB();">Click here</a> 
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

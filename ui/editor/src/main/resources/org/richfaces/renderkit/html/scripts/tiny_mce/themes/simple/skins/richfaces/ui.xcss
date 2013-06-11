@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+/* Reset */
+
+<u:selector name=".richfacesSimpleSkin table, .richSimplefacesSkin tbody, .richfacesSimpleSkin a, .richfacesSimpleSkin img, .richfacesSimpleSkin tr, .richfacesSimpleSkin div, .richfacesSimpleSkin td, .richfacesSimpleSkin iframe, .richfacesSimpleSkin span, .richfacesSimpleSkin *">
+	<u:style name="color" skin="generalTextColor"/>
+	<u:style name="border" value="0"/>
+	<u:style name="margin" value="0"/>
+	<u:style name="padding" value="0"/>
+	<u:style name="background" value="transparent"/>
+	<u:style name="white-space" value="nowrap"/>
+	<u:style name="text-decoration" value="none"/>
+	<u:style name="font-weight" value="normal"/>
+	<u:style name="cursor" value="default"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+/* Containers */
+.richfacesSimpleSkin {position:relative}
+]]>
+</f:verbatim>
+
+<u:selector name=".richfacesSimpleSkin table.mceLayout">
+	<u:style name="border-width" value="1px"/>
+	<u:style name="border-style" value="solid"/>
+	<u:style name="border-color" skin="panelBorderColor"/>
+	<u:style name="background" skin="additionalBackgroundColor"/>
+</u:selector>
+
+<u:selector name=".richfacesSimpleSkin iframe">
+	<u:style name="display" value="block"/>
+	<u:style name="background" skin="tableBackgroundColor"/>
+	<u:style name="border-bottom-width" value="1px"/>
+	<u:style name="border-bottom-style" value="solid"/>
+	<u:style name="border-bottom-color" skin="panelBorderColor"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+.richfacesSimpleSkin .mceToolbar {height:26px;}
+
+/* Layout */
+.richfacesSimpleSkin .mceToolbar .mceToolbarStart span {display:block;  width:1px; height:22px; }
+]]>
+</f:verbatim>
+
+<u:selector name=".richfacesSimpleSkin .mceToolbar .mceToolbarStart span">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.EditorSimpleThemeIcons"/>
+	</u:style>
+	<u:style name="background-position" value="-22px 0"/>
+</u:selector>
+
+<f:verbatim>
+<![CDATA[
+.richfacesSimpleSkin .mceToolbar .mceToolbarEnd span {display:block;  width:1px; height:22px}
+]]>
+</f:verbatim>
+
+<u:selector name=".richfacesSimpleSkin .mceToolbar .mceToolbarEnd span">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.EditorSimpleThemeIcons"/>
+	</u:style>
+	<u:style name="background-position" value="-22px 0"/>
+</u:selector>
+
+<f:verbatim>
+<![CDATA[
+.richfacesSimpleSkin span.mceIcon, .richfacesSimpleSkin img.mceIcon {display:block; width:20px; height:20px}
+]]>
+</f:verbatim>
+
+<u:selector name=".richfacesSimpleSkin .mceIcon">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/themes/simple/img/icons.gif"/>
+	</u:style>
+	<u:style name="background-repeat" value="no-repeat"/>
+	<u:style name="background-position" value="20px 20px"/>
+</u:selector>
+
+<f:verbatim>
+<![CDATA[
+
+/* Button */
+.richfacesSimpleSkin .mceButton {display:block;  width:22px; height:22px}
+]]>
+</f:verbatim>
+
+<u:selector name=".richfacesSimpleSkin .mceButton">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.EditorSimpleThemeIcons"/>
+	</u:style>
+</u:selector>
+
+<f:verbatim>
+<![CDATA[
+.richfacesSimpleSkin a.mceButton span, .richfacesSimpleSkin a.mceButton img {margin:1px 0 0 1px}
+]]>
+</f:verbatim>
+
+<u:selector name=".richfacesSimpleSkin a.mceButtonEnabled:hover">
+	<u:style name="background-color" skin="headerBackgroundColor"/>			
+	<u:style name="background-position" value="0 -22px"/>
+</u:selector>
+
+<f:verbatim>
+<![CDATA[
+.richfacesSimpleSkin a.mceButtonActive {background-position:0 -44px}
+.richfacesSimpleSkin .mceButtonDisabled span {opacity:0.3; filter:alpha(opacity=30)}
+
+/* Separator */
+.richfacesSimpleSkin .mceSeparator {display:block;  width:5px; height:22px}
+]]>
+</f:verbatim>
+
+<u:selector name=".richfacesSimpleSkin .mceSeparator">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.images.EditorSimpleThemeIcons"/>
+	</u:style>
+	<u:style name="background-position" value="-22px 0"/>
+</u:selector>
+
+<f:verbatim>
+<![CDATA[
+
+/* Theme */
+.richfacesSimpleSkin span.mce_bold {background-position:0 0}
+.richfacesSimpleSkin span.mce_italic {background-position:-60px 0}
+.richfacesSimpleSkin span.mce_underline {background-position:-140px 0}
+.richfacesSimpleSkin span.mce_strikethrough {background-position:-120px 0}
+.richfacesSimpleSkin span.mce_undo {background-position:-160px 0}
+.richfacesSimpleSkin span.mce_redo {background-position:-100px 0}
+.richfacesSimpleSkin span.mce_cleanup {background-position:-40px 0}
+.richfacesSimpleSkin span.mce_insertunorderedlist {background-position:-20px 0}
+.richfacesSimpleSkin span.mce_insertorderedlist {background-position:-80px 0}
+]]>
+</f:verbatim>
+
+</f:template>

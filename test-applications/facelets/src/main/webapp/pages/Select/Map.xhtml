@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+	<head>
+	<title></title>
+	<script type="text/javascript">
+		function showEvent(elementID, value) {
+			var oldObject = window.document.getElementById(elementID);
+			var newObject = window.document.createElement('input');
+			newObject.type = "text";
+			newObject.size = oldObject.size;
+			newObject.value = value;
+			newObject.id = oldObject.id;
+			//if(oldObject.size) newObject.size = oldObject.size;
+			//if(oldObject.value) newObject.value = value;
+			//if(oldObject.id) newObject.id = oldObject.id;
+			//if(oldObject.name) newObject.name = oldObject.name;
+			//if(oldObject.className) newObject.className = oldObject.className;
+			oldObject.parentNode.replaceChild(newObject,oldObject);
+		}
+	</script>
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/styles/styles.css"
+		type="text/css" />
+	</head>
+	<body>
+	<jsp:include page="/pages/RichMenu/RichMenu.jsp" />
+	<div id="divID" style="position: absolute; top:60px; left: 10px; z-index: 1">
+	 	<jsp:include page="SelectOneMenuPage.jsp" />
+	</div>
+	<div id="divID" style="position: absolute; top:60px; left: 10px; z-index: 1">
+		<jsp:include page="${richBean.pathComponent}" />
+	</div>
+	<h:form>
+		<jsp:include page="${richBean.pathStraightforward}" />
+		<jsp:include page="${richBean.pathProperty}" />
+	</h:form>
+	<rich:modalPanel id="eventInfoID" minHeight="550" minWidth="200" moveable="true" resizeable="true" style="overflow: true;">
+		<f:facet name="header">
+			<h:outputText value="Events ..." />
+		</f:facet>
+		<f:facet name="controls">
+			<h:graphicImage value="/pics/error.gif"  onclick="Richfaces.hideModalPanel('eventInfoID');"/>
+		</f:facet>
+		
+		<jsp:include page="/pages/Action/EventInfo.jsp" />
+
+	</rich:modalPanel>	
+	<a4j:commandButton value="Show event" onclick="Richfaces.showModalPanel('eventInfoID');return false;"></a4j:commandButton>
+	</body>
+</f:view>
+</html>

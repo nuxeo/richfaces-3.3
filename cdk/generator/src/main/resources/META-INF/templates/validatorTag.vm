@@ -1,0 +1,96 @@
+/**
+ * GENERATED FILE - DO NOT EDIT
+ *
+ */
+package ${tag.packageName};
+
+#foreach($import in $imports)
+import $import ;
+#end
+import javax.faces.component.UIComponent;
+import javax.faces.webapp.UIComponentTag;
+import javax.faces.validator.Validator;
+import org.apache.commons.beanutils.ConvertUtils;
+import javax.faces.context.FacesContext;
+import javax.servlet.jsp.JspException;
+import javax.faces.el.ValueBinding;
+import ${validator.classname};
+
+public class $tag.simpleClassName extends $tag.superclass {
+
+	//private String validatorId = "${validator.id}";
+	
+	
+// Fields
+#foreach( $prop in $validator.properties )
+#if( !$prop.existintag )
+  /*
+   * $prop.name
+   * ${prop.xmlEncodedDescription}
+   */
+  private String  _$prop.name = null;
+
+#end	 
+#end
+// Setters
+#foreach( $prop in $validator.properties )
+#if( !$prop.existintag )
+  /*
+   * $prop.description
+   * Setter for $prop.name
+   * @param $prop.name - new value
+   */
+  public void ${prop.setterName}( String  __${prop.name} )
+  {
+	this._${prop.name} = __${prop.name};
+  }
+	 
+#end
+#if( $prop.alias)
+  /* 
+   * ${prop.xmlEncodedDescription}
+   * Setter for alias of $prop.name as $prop.alias
+   * @param $prop.name - new value
+   */
+  public void set${prop.upperFirstChar($prop.alias)}( String  __${prop.alias} )
+  {
+    this.${prop.setterName}(__${prop.alias});
+  }
+#end
+#end
+
+  protected Validator createValidator() throws JspException
+  {
+    ${validator.simpleClassName} validator = (${validator.simpleClassName}) FacesContext.getCurrentInstance().getApplication().createValidator("${validator.id}");
+    _setProperties(validator);
+    return validator;
+  }
+
+  // Support method to wire in properties
+  private void _setProperties(${validator.simpleClassName} validator) throws JspException 
+  {
+    FacesContext facesContext = FacesContext.getCurrentInstance();
+#foreach( $prop in $validator.properties )
+#if( !$prop.existintag )
+    if (_${prop.name} != null) 
+    {
+#if( ${prop.el} )
+      if (UIComponentTag.isValueReference(_${prop.name})) 
+      {
+        ValueBinding vb = facesContext.getApplication().createValueBinding(_${prop.name});
+        validator.${prop.setterName}((${prop.simpleClassName}) vb.getValue(facesContext));
+      }
+#if (!${prop.elonly})
+      else
+      {
+        validator.${prop.setterName}((${prop.simpleClassName}) ConvertUtils.convert(_${prop.name}, ${prop.simpleClassName}.class));
+      }
+#end
+    }
+#else
+    validator.${prop.setterName}((${prop.simpleClassName}) ConvertUtils.convert(_${prop.name}, ${prop.simpleClassName}.class));
+#end
+#end
+#end
+  }
+}

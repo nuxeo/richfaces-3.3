@@ -1,0 +1,64 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" id="tooltipSubviewID">
+    <h:messages></h:messages>
+
+    <h:inputText value="Text" id="inp1" size="50">
+        <rich:toolTip id="toolTipID" value="toolTip for input text" >
+            <f:facet name="defaultContent">
+                <f:verbatim>DEFAULT VALUE</f:verbatim>
+            </f:facet>
+        </rich:toolTip>
+    </h:inputText>
+    <h:panelGrid columns="2">
+        <h:outputText value="JavaScript API"></h:outputText>
+        <h:column></h:column>
+        <a4j:commandLink onclick="$('formID:tooltipSubviewID:toolTipID').component.doShow(event)" value="doShow"></a4j:commandLink>
+        <a4j:commandLink onclick="$('formID:tooltipSubviewID:toolTipID').component.doHide(event)" value="doHide"></a4j:commandLink>
+        <a4j:commandLink onclick="$('formID:tooltipSubviewID:toolTipID').component.doEnable" value="doEnable"></a4j:commandLink>
+        <a4j:commandLink onclick="$('formID:tooltipSubviewID:toolTipID').component.doDisable" value="doDisable"></a4j:commandLink>
+    </h:panelGrid>
+    <h:selectOneListbox value="1" id="ddl">
+        <rich:toolTip value="1231231">
+            <f:facet name="defaultContent">
+                <f:verbatim>DEFAULT VALUE DropDown</f:verbatim>
+            </f:facet>
+        </rich:toolTip>
+    </h:selectOneListbox>
+
+    <f:verbatim>
+        <br/>
+        <br/>
+    </f:verbatim>
+
+    <h:outputText value=" Test tooltip:"></h:outputText>
+    <f:verbatim>
+        <br/>
+    </f:verbatim>
+
+    <rich:panel style="width:50px; height:50px; background-color: gray">
+        <rich:toolTip id="tooltipID" value="#{tooltip.value}" mode="#{tooltip.mode}" styleClass="#{style.styleClass}" style="#{style.style}" 
+                      hideDelay="#{tooltip.hideDelay}" showDelay="#{tooltip.showDelay}" layout="#{tooltip.layout}"
+                      horizontalOffset="#{tooltip.horizontalOffset}" verticalOffset="#{tooltip.verticalOffset}" followMouse="#{tooltip.followMouse}"
+                      direction="#{tooltip.direction}" disabled="#{tooltip.disabled}" rendered="#{tooltip.rendered}"
+					  event="#{tooltip.event}" onclick="#{event.onclick}" oncomplete="#{event.oncomplete}" ondblclick="#{event.ondblclick}" 
+					  onhide="#{event.onhide}" onkeydown="#{event.onkeydown}" onkeypress="#{event.onkeypress}" onkeyup="#{event.onkeyup}" 
+					  onmousedown="#{event.onmousedown}" onmousemove="#{event.onmousemove}" onmouseout="#{event.onmouseout}" 
+					  onmouseover="#{event.onmouseover}" onmouseup="#{event.onmouseup}" onshow="#{event.onshow}"
+					  binding="#{tooltip.htmlToolTip}">
+            <h:graphicImage id="pricsID" value="/pics/ajax_process.gif"></h:graphicImage>
+            <h:outputLink value="http://www.jboss.com/"><f:verbatim>Link</f:verbatim></h:outputLink>
+        </rich:toolTip>
+    </rich:panel>
+
+    <f:verbatim>
+        <br/>
+    </f:verbatim>
+    <h:selectOneMenu value="#{richBean.srcContainer}" onchange="submit();">
+        <f:selectItems value="#{richBean.listContainer}"/>
+    </h:selectOneMenu>
+    <rich:panel style="width:50px; height:50px; background-color: gray">
+        <rich:toolTip id="includeToolTIpID" hideDelay="5000" showDelay="0" value="test include">
+            <ui:include src="${richBean.pathComponentContainer}"/>
+        </rich:toolTip>
+    </rich:panel>
+</f:subview>

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:ls="http://labs.jboss.com/jbossrichfaces/ui/listShuttle"
+      xmlns:c="http://labs.jboss.com/jbossrichfaces/ui/dataTable">
+      
+	 <body>
+	 	<f:view>
+		 	<h:form>
+		 		<h:panelGroup id="group">
+					<ls:listShuttle id="listShuttle" var="cap" sourceValue="#{capitalsBean.capitals}"
+						sourceListWidth="300px" targetListWidth="300px" rendered="#{testBean.rendered}">
+						<c:column>
+							<f:facet name="header">
+								<h:outputText value="State flag"/>
+							</f:facet>
+							<h:graphicImage value="#{cap.stateFlag}"/>
+						</c:column>
+						<c:column>
+							<f:facet name="header">
+								<h:outputText value="State name"/>
+							</f:facet>
+							<h:outputText value="#{cap.name}"/>
+						</c:column>
+						<c:column>
+							<f:facet name="header">
+								<h:outputText value="State capital"/>
+							</f:facet>
+							<h:outputText value="#{cap.state}"/>
+						</c:column>
+					</ls:listShuttle>
+				</h:panelGroup>
+				<div id="test">
+				</div>
+				<a4j:commandButton value="switch" action="#{testBean.switchRendered}" reRender="group" ajaxSingle="true"></a4j:commandButton>
+			</h:form>
+		</f:view>
+	</body>
+</html>

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml">
+
+	<f:verbatim>
+		<![CDATA[
+body {
+	margin: 0;
+	background: #7A287A none repeat left top;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #C752C7;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: normal;
+	color: #649632;
+}
+
+h1 { font-size: 44px; }
+
+h2 { font-size: 20px; }
+
+h3 { }
+
+p, ul, ol {
+	margin-top: 0;
+	line-height: 240%;
+	text-align: justify;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+ul, ol { }
+
+blockquote { }
+
+a { color: #FFFFFF; }
+
+a:hover { text-decoration: none; }
+
+a img {
+	border: none;
+}
+
+img.left {
+	float: left;
+	margin: 7px 30px 0 0;
+}
+
+img.right {
+	float: right;
+	margin: 7px 0 0 30px;
+}
+
+hr { display: none; }
+
+.list1 {
+}
+
+.list1 li {
+	float: left;
+	line-height: normal;
+}
+
+.list1 li img {
+	margin: 0 30px 30px 0;
+}
+
+.list1 li.alt img {
+	margin-right: 0;
+}
+
+#wrapper {
+	background: none repeat-x left top;
+	padding-top: 30px;
+}
+
+/* Header */
+
+#header-wrapper {
+}
+
+#header {
+	width: 913px;
+	height: 71px;
+	margin: 0 auto;
+
+	padding-top:10px;
+	text-align:center;
+	background: none no-repeat left top;
+}
+
+/* Search */
+
+#search {
+	float: right;
+	width: 305px;
+	height: 76px;
+}
+
+#search form {
+	float: right;
+	margin: 0;
+	padding: 35px 20px 0 0;
+}
+
+#search fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+#search input {
+	float: left;
+	font: 12px Georgia, "Times New Roman", Times, serif;
+	border: none;
+}
+
+#search-text {
+	width: 135px;
+	height: 18px;
+	padding: 3px 0 0 5px;
+	background: #ECF9E4;
+	color: #658453;
+}
+
+#search-submit {
+	height: 21px;
+	margin-left: 12px;
+	color: #39561D;
+}
+
+/* Page */
+
+#page {
+	width: 913px;
+	margin: 0 auto;
+	padding: 30px 0px 0px 0px;
+	background: #180818;
+}
+
+/** LOGO */
+
+#logo {
+	width: 913px;
+	height: 200px;
+	margin: 0 auto;
+	background: #180818;
+}
+
+#logo h1, #logo p {
+	margin: 0;
+	padding: 0 0 0 20px;
+	line-height: normal;
+}
+
+#logo h1 { 	
+	padding-top: 70px; 
+}
+
+#logo h1 a {
+	text-decoration: none;
+	text-transform: lowercase;
+	color: #FFFFFF;
+}
+
+#logo h1 a:hover { text-decoration: underline; }
+
+#logo h2 {
+	padding: 0;
+	margin: 0;
+}
+
+#logo p {
+	padding: 0px 0 0 20px;
+	font: italic 13px Georgia, "Times New Roman", Times, serif;
+	color: #FFFFFF;
+}
+
+#logo p a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#logo p a:hover { text-decoration: underline; }
+
+/* Content */
+
+#content {
+	float: right;
+	width: 600px;
+}
+
+/* Post */
+
+.post {
+	margin-bottom: 25px;
+}
+
+.post .title {
+	height: 30px;
+	margin-bottom: 3px;
+	padding: 8px 0px 2px 20px;
+	background: #230C23;
+	color: #FFFFFF;
+}
+
+.post .date {
+	float: right;
+	margin-top: 0;
+	padding-right: 20px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: normal;
+	font-size: 18px;
+	color: #DB44DB;
+}
+
+.post .meta {
+	margin: 0  0 3px 25px;
+	padding: 2px 30px 2px 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 10px;
+	color: #B6ACA2;
+}
+
+.post .meta a { color: #B6ACA2; }
+
+.post .entry {
+	padding: 25px 20px 0px 20px;
+}
+
+.post .links {
+	margin: 0 250px 0 0;
+	padding: 0 0 0 0px;
+}
+
+.post .links .comments {
+}
+
+.post .links .permalink {
+	padding-left: 17px;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: left;
+	width: 280px;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: normal;
+}
+
+#sidebar li {
+	margin-bottom: 30px;
+	padding: 0 0 20px 0px;
+}
+
+#sidebar li ul {
+	line-height: 200%;
+}
+
+#sidebar li li {
+	margin: 0;
+	padding: 0 20px;
+}
+
+#sidebar p {
+	margin: 0;
+	padding: 0 20px;
+}
+
+#sidebar h2 {
+	height: 30px;
+	margin-bottom: 3px;
+	padding: 8px 0px 2px 20px;
+	background: #230C23;
+	font-size: 20px;
+	color: #FFFFFF;
+}
+
+
+#sidebar p {
+	line-height: 200%;
+}
+
+/* Calendar */
+
+#calendar {
+}
+
+#calendar caption {
+	padding-bottom: 5px;
+	font-weight: bold;
+}
+
+#calendar table {
+	width: 90%;
+	border-collapse: collapse;
+	margin: 0 20px;
+}
+
+#calendar thead th {
+	padding: 5px 0;
+	text-align: center;
+}
+
+#calendar tbody td {
+	padding: 5px 0;
+	text-align: center;
+}
+
+#calendar tfoot td {
+	padding: 5px;
+}
+
+#calendar tfoot #next {
+	text-align: right;
+}
+
+#calendar #today {
+}
+
+/* Footer */
+
+#footer {
+	width: 913px;
+	margin: 0 auto;
+	padding: 0;
+	text-align:center;
+	padding-top:20px;
+	background: none no-repeat left top;
+	height: 80px;
+}
+
+#footer p {
+	margin: 0;
+	padding: 20px 0;
+	text-align: center;
+	line-height: normal;
+	color: #FFFFFF;
+}
+
+#footer a {
+	color: #C752C7;
+}
+
+		]]>
+	</f:verbatim>
+
+
+
+	<u:selector name="body">
+		<u:style name="background-image">
+			<f:resource f:key="/org/richfaces/renderkit/html/images/violet/img02.jpg" />
+		</u:style>
+	</u:selector>
+
+	<u:selector name="#wrapper">
+		<u:style name="background-image">
+			<f:resource f:key="/org/richfaces/renderkit/html/images/violet/img01.jpg" />
+		</u:style>
+	</u:selector>
+	<u:selector name="#header">
+		<u:style name="background-image">
+			<f:resource f:key="/org/richfaces/renderkit/html/images/violet/img03.jpg" />
+		</u:style>
+	</u:selector>
+
+	<u:selector name="#footer">
+		<u:style name="background-image">
+			<f:resource f:key="/org/richfaces/renderkit/html/images/violet/img04.jpg" />
+		</u:style>
+	</u:selector>
+
+</f:template>

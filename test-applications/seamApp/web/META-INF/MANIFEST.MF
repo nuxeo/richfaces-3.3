@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: commons-beanutils-1.7.0.jar commons-collections-3.2.jar co
+ mmons-digester-1.8.jar commons-logging-1.0.4.jar jboss-el-2.0.1.GA.ja
+ r jboss-seam-2.0.1.GA.jar jboss-seam-debug-2.0.1.GA.jar jboss-seam-ui
+ -2.0.1.GA.jar jsf-facelets-1.1.14.jar richfaces-api-3.3.0-SNAPSHOT.ja
+ r richfaces-impl-3.3.0-SNAPSHOT.jar richfaces-ui-3.3.0-SNAPSHOT.jar
+

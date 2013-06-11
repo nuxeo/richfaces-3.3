@@ -1,0 +1,185 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                template="layout/template.xhtml"
+                xmlns:a4j="http://richfaces.org/a4j">
+
+<ui:define name="body">
+
+
+    <h:messages globalOnly="true" styleClass="message"/>
+    
+
+    
+    <rich:panel>
+    <p>A page with the rich:page component can be found <a href="richPage.xhtml" style="display:inline">here</a>.</p>
+    <f:facet name="header">Layout Components: rich:page, rich:layout, rich:layoutPanel </f:facet>
+<h3>Listing 1: pageTitle, markupType and pageHeader facet</h3>
+
+<rich:page  markupType="#{page.markupType}" pageTitle="#{page.pageTitle}" contentType="text/html; charset=UTF-8" > 
+  <f:facet name="pageHeader" title="advisory" >
+  <meta content="The rich:page component" name="keywords" />
+  <link rel="shortcut icon" href="/images/favicon.ico"/>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="/js/menu.js"></script>
+  </f:facet>
+  		<!-- page content --> 
+       <p> page content   </p>
+</rich:page>
+     
+     
+
+
+<h3>Listing 2:  facets &quot;header&quot;, &quot;sidebar&quot;  and &quot;footer&quot;</h3>
+
+
+<rich:page sidebarPosition="right" sidebarWidth="300">
+         <f:facet name="header" >
+      header content 
+          
+       </f:facet>
+          
+         <f:facet name="sidebar">
+side bar content
+         </f:facet>
+    <p>body content</p>
+    
+         <f:facet name="footer">
+           footer  content
+         </f:facet>   
+     </rich:page>
+     
+   
+<h3>Listing 3: with classes attributes</h3>  
+    
+  
+  
+  <rich:page sidebarPosition="right" sidebarWidth="300"  
+bodyClass="myBodyClass"
+footerClass="myFooterClass"
+headerClass="myHeaderClass"
+sidebarClass="mySidebarClass"
+>
+         <f:facet name="header" >
+        header  content 
+          
+       </f:facet>
+          
+         <f:facet name="sidebar">
+side bar content
+         </f:facet>
+    <p>body content</p>
+    
+         <f:facet name="footer">
+           footer  content
+         </f:facet>   
+     </rich:page>
+
+ 
+ 
+ <h3>Listing 4: t</h3>  
+    
+  
+  
+  <rich:page sidebarPosition="right" sidebarWidth="300"  
+theme="#{page.theme}"
+>  
+         <f:facet name="header" >
+        header  content 
+          
+       </f:facet>
+          
+         <f:facet name="sidebar">
+side bar content
+         </f:facet>
+    <p>body content</p>
+    
+         <f:facet name="footer">
+           footer  content
+         </f:facet>   
+     </rich:page>
+     
+     
+      
+
+
+<table class="tableofattributes" cellpadding="0" cellspacing="0" >
+<thead>
+	
+
+		<tr>
+			<td>
+				Attribute
+			</td>
+					<td>
+				Value
+			</td>
+		</tr>
+</thead>
+	<tbody>
+				<tr>
+			<td>
+				Theme
+			</td>
+					<td>
+				<h:form>
+				       <h:selectOneMenu value="#{page.theme}" onchange="submit()">
+            <f:selectItem  itemLabel="Default" itemValue="" />
+            <f:selectItem  itemLabel="simple" itemValue="simple" />
+  <f:selectItem  itemLabel="csszend" itemValue="csszend" />
+ 
+       
+       </h:selectOneMenu>
+				</h:form>
+			</td>
+		</tr>
+		
+		
+			<tr>
+			<td>
+				markupType
+			</td>
+					<td>
+				<h:form>
+				       <h:selectOneMenu value="#{page.markupType}" onchange="submit()">
+            <f:selectItem  itemLabel="html" itemValue="html" />
+            <f:selectItem  itemLabel="xhtml" itemValue="xhtml" />
+  <f:selectItem  itemLabel="html-transitional" itemValue="html-transitional" />
+  <f:selectItem  itemLabel="html-3.2" itemValue="html-3.2" /> 
+       
+       </h:selectOneMenu>
+				</h:form>
+			</td>
+		</tr>
+	
+	
+				<tr>
+			<td>
+				page title
+			</td>
+					<td>
+				<h:form>
+				      <h:inputText value="#{page.pageTitle}"  onchange="submit()"/>
+				</h:form>
+			</td>
+		</tr>	
+		
+		
+	</tbody>
+	
+	
+</table>
+     
+
+
+
+     
+    </rich:panel>
+    
+</ui:define> 
+</ui:composition>

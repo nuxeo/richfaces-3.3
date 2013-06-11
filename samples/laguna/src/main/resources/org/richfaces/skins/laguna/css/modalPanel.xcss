@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template 
+	xmlns:f="http://jsf.exadel.com/template"
+   	xmlns:u="http://jsf.exadel.com/template/util" 
+   	xmlns="http://www.w3.org/1999/xhtml">	
+
+	<u:selector name=".rich-modalpanel">
+	</u:selector>
+	
+	<u:selector name=".rich-mpnl-controls">
+		<u:style name="top" value="4px" />
+		<u:style name="right" value="4px" />
+	</u:selector>
+	
+	<u:selector name=".rich-mpnl-mask-div">
+	</u:selector>
+	
+	<u:selector name=".rich-mpnl_panel">
+	</u:selector>
+	
+	<u:selector name=".rich-mpnl-resizer">
+	</u:selector>
+	
+	<u:selector name=".rich-mpnl-shadow">
+	</u:selector>
+	
+	<u:selector name=".rich-mp-content">
+		<u:style name="padding" value="0px" />
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+	
+	<u:selector name=".rich-mpnl-text">
+	</u:selector>
+	
+	<u:selector name=".rich-mpnl-header-cell">
+	</u:selector>
+	
+	<u:selector name=".rich-mpnl-header">
+        <u:style name="color" skin="headerTextColor" />
+        <u:style name="border-top" value="0px" />
+        <u:style name="border-right" value="0px" />
+        <u:style name="border-left" value="0px" />
+        <u:style name="border-color" skin="newBorder" />
+		<u:style name="filter" value="alpha(opacity=80)" />
+		<u:style name="opacity" value="0.8" />
+        <u:style name="background-position" value="0% 50%" />
+
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="22px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+                <f:attribute name="gradientColor" skin="headerGradientColor" />
+            </f:resource>
+        </u:style>
+		
+		<u:style name="padding" value="4px 4px 4px 14px" />
+	</u:selector>
+	
+	<u:selector name=".rich-mpnl-body">
+		<u:style name="background-color" skin="generalBackgroundColor" />
+		<u:style name="padding" value="10px 10px 10px 14px" />
+        <u:style name="background-position" value="0% -496px" />
+		<u:style name="background-repeat" value="repeat-x" />
+		<u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="bottom" />
+                <f:attribute name="gradientType" value="plain" />
+                <f:attribute name="gradientColor" skin="intShadow" />
+                <f:attribute name="baseColor" skin="generalBackgroundColor" />
+                
+                <f:attribute name="gradientHeight" value="4px" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-mpnl-mask-div">
+	</u:selector>
+	<u:selector name=".rich-laguna-mpnl-no-header">
+		<u:style name="background-image" value="none"/>
+	</u:selector>	
+</f:template>
+

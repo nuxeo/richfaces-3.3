@@ -1,0 +1,72 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                template="layout/template.xhtml"
+                xmlns:a4j="http://richfaces.org/a4j">
+
+<ui:define name="body">
+
+
+    <h:messages globalOnly="true" styleClass="message"/>
+    
+
+    
+    <rich:panel>
+    <f:facet name="header">Standard Controls Skinning</f:facet>
+
+<h:selectOneRadio id="subscriptions1" value="">
+  <f:selectItem  itemLabel="News" itemValue="1" />
+  <f:selectItem  itemLabel="Sports" itemValue="2" />
+  <f:selectItem  itemLabel="Music" itemValue="3" />
+  <f:selectItem  itemLabel="Java" itemValue="4" />
+  <f:selectItem  itemLabel="Web" itemValue="5" />
+</h:selectOneRadio>
+
+
+<h:selectManyCheckbox id="subscriptions2" value="" layout="pageDirection">
+  <f:selectItem  itemLabel="News" itemValue="1" />
+  <f:selectItem  itemLabel="Sports" itemValue="2" />
+  <f:selectItem itemLabel="Music" itemValue="3" />
+  <f:selectItem  itemLabel="Java" itemValue="4" />
+  <f:selectItem  itemLabel="Web" itemValue="5" />
+</h:selectManyCheckbox>
+
+<h:selectManyListbox id="subscriptions3" value="">
+  <f:selectItem  itemLabel="News" itemValue="1" />
+  <f:selectItem  itemLabel="Sports" itemValue="2" />
+  <f:selectItem itemLabel="Music" itemValue="3" />
+  <f:selectItem  itemLabel="Java" itemValue="4" />
+  <f:selectItem  itemLabel="Web" itemValue="5" />
+</h:selectManyListbox>
+
+
+<h:commandButton value="Submit" />
+
+
+<select id="form:menu" name="form:menu" multiple="true" size="1">
+  <option value="1">News</option>
+  <option value="2">Sports</option>
+  <option value="3">Music</option>
+  <option value="4">Java</option>
+  <option value="5">Web</option>
+</select>
+
+
+<select id="form:subscriptions" name="form:subscriptions" size="1">
+  <option value="1">News</option>
+  <option value="2">Sports</option>
+  <option value="3">Music</option>
+  <option value="4">Java</option>
+  <option value="5">Web</option>
+</select>
+
+
+    </rich:panel>
+    
+</ui:define> 
+</ui:composition>

@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view contentType="text/html">
+<head>
+	<script>
+		var errorMessage = null;
+		var pauseHolder = {};
+		window.onerror = function (message, url, code) {
+								errorMessage = message;
+							}; 
+		function checkError () {
+			return errorMessage;
+		}
+		
+		function pause (miliseconds, id) {
+			pauseHolder[id] = false;
+			window.setTimeout(function () { pauseHolder[id] = true; }, miliseconds);
+		}
+		
+		function submitForm () {
+			document.getElementById('_form').submit();
+		}
+		
+		function reRenderAll () {
+			document.getElementById('_Selenium_Test_ReRender_Form:_reRender').onclick();
+			return;
+		}
+		
+		function loadTemplate (name) {
+			document.getElementById('_Selenium_Test_Template_Form:_Selenium_Test_Template_id').value = name;
+			document.getElementById('_Selenium_Test_Template_Form:_Selenium_Test_loadTemplate').onclick();
+			return;
+		}
+		
+		function getParentId () {
+			return '#{templateBean.parentId}';
+		}
+		
+		function writeStatus (mess, failed) {
+			document.getElementById('_Selenium_Test_Status_Message').value = mess;
+			if (failed) {
+				var o = document.getElementById('_Selenium_Test_Status_Message');
+				o.style.backgroundColor= '#F7A784';
+				o.style.fontWeight = 'bold';
+			}else {
+				var o = document.getElementById('_Selenium_Test_Status_Message');
+				o.style.backgroundColor= '';
+				o.style.fontWeight = '';
+			}
+		}
+
+		//Marks ${element.id}_${resultElemIdPostfix} result element as passed test
+		//if resultElemIdPostfix is not specified ${element.id}_result will be used instead
+		function testEvent(element, resultElemIdPostfix) {
+			resultElemIdPostfix = resultElemIdPostfix || 'result';
+			element = document.getElementById(element.id + "_" + resultElemIdPostfix);
+			element.style.cssText = 'background-color: green';
+			element.innerHTML = 'Passed';
+		}
+
+		function resetEventTestResult(id) {
+			element = document.getElementById(id);
+			element.style.cssText = 'background-color: white';
+			element.innerHTML = 'No';
+		}
+		
+		function fireMouseEvent(id,eventName, x, y, ctrl) {
+			var e = document.getElementById(id);
+			var evt;
+			if (document.createEvent) {
+				evt = document.createEvent("MouseEvents");
+				evt.initMouseEvent(eventName, true, true, window,0, x, y, x, y, ctrl, false, false, false, 0, null);
+				evt.srcElement = e;
+				e.dispatchEvent(evt);
+			}else {
+				if (e[eventName]) {
+					return e[eventName]();
+				}
+			}
+		}
+			
+	</script>
+	<style type="text/css">
+		<ui:insert name="style"/>
+	</style>
+</head>
+<body>
+<div style="padding: 10px; font-size: 24px;">Regression Area testing by Selenium</div><br/>
+
+<div id="_Selenium_Test_ControlPoint1" style="display: none;">Control1</div>
+<h:panelGrid id="_Selenium_Test_Common_Grid">
+	<div>
+		<b>Status: </b> <input style="border: 0px; color: black; width: 700px" readonly="true" id="_Selenium_Test_Status_Message" />
+	</div>
+		<br/>
+	<div>
+		<ui:insert name="template"/>
+	</div>
+</h:panelGrid>
+
+<div id="_Selenium_Test_ControlPoint2" style="display: none;">Control2</div>
+
+<ui:include src="controlLayout.xhtml" />
+
+<script type="text/javascript">
+	window.done=false;
+	if (A4J) { 
+		A4J.AJAX.AddListener(new A4J.AJAX.Listener(function(){window.done=true;}));
+	}
+</script>
+</body>
+</f:view>
+</html>

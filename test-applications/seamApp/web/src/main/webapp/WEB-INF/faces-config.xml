@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="1.2" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+	<converter>
+		<converter-id>listShuttleConverter</converter-id>
+		<converter-class>
+			org.richfaces.helloworld.domain.util.converter.ListShuttleConverter
+		</converter-class>
+	</converter>
+	<converter>
+		<converter-id>orderingListConverter</converter-id>
+		<converter-class>
+			org.richfaces.helloworld.domain.util.converter.OrderingListConverter
+		</converter-class>
+	</converter>
+	<converter>
+		<converter-id>inplaceInputConverter</converter-id>
+		<converter-class>
+			org.richfaces.helloworld.domain.util.converter.InplaceInputConverter
+		</converter-class>
+	</converter>
+	<converter>
+		<converter-id>colorPickerConverter</converter-id>
+		<converter-class>
+			org.richfaces.helloworld.domain.colorPicker.ColorPickerConverter
+		</converter-class>
+	</converter>
+	<validator>
+		<validator-id>CalendarValidator</validator-id>
+		<validator-class>
+			org.richfaces.helloworld.domain.calendar.CalendarValidator
+		</validator-class>
+	</validator>
+	<validator>
+		<validator-id>MessageValidator</validator-id>
+		<validator-class>
+			org.richfaces.helloworld.domain.message.MessageValidator
+		</validator-class>
+	</validator>
+	<application>
+		<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>bg</supported-locale>
+			<supported-locale>de</supported-locale>
+			<supported-locale>en</supported-locale>
+			<supported-locale>fr</supported-locale>
+			<supported-locale>tr</supported-locale>
+		</locale-config>
+	</application>
+	<lifecycle>
+		<phase-listener>
+			org.richfaces.helloworld.domain.util.phaseTracker.PhaseTracker
+		</phase-listener>
+	</lifecycle>
+</faces-config>

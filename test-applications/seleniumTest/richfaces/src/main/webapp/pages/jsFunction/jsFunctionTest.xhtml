@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:panelGrid columns="3" width="400">
+			<span id="alex" onmouseover="updateName('Alex')" onmouseout="updateName('')">Alex</span>
+			<span id="jonh" onmouseover="updateName('Jonh')" onmouseout="updateName('')">Jonh</span>
+			<span id="roger" onmouseover="updateName('Roger')" onmouseout="updateName('')">Roger</span>
+		</h:panelGrid>
+		<br/>
+		<h:panelGrid columns="3" width="400">
+			<h:outputText value="Name:"/>
+			<h:outputText id="showname" value="#{jsFunctionBean.name}"/>
+		</h:panelGrid>
+		<h:form id="_form">
+			<a4j:jsFunction name="updateName" reRender="showname">
+				<a4j:actionparam name="param1" assignTo="#{jsFunctionBean.name}"/>
+			</a4j:jsFunction>
+		</h:form>
+	</ui:define>
+	<ui:define name="description">
+		<ui:include src="jsFunctionDescription.xhtml" />
+	</ui:define>
+</ui:composition>
+</html>

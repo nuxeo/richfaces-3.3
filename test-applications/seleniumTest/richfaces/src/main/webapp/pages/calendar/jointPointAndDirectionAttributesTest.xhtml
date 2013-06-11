@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+			<h:panelGrid columns="2">
+				<h:outputText value="Joint point:"/>
+				<h:selectOneMenu id="jointPoint" value="#{calendarBean.jointPoint}">
+					<f:selectItem itemLabel="top-left" itemValue="top-left" />
+					<f:selectItem itemLabel="top-right" itemValue="top-right" />
+					<f:selectItem itemLabel="bottom-left" itemValue="bottom-left" />
+					<f:selectItem itemLabel="bottom-right" itemValue="bottom-right" />
+					<f:selectItem itemLabel="auto" itemValue="auto" />
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectOneMenu>
+				<h:outputText value="Direction:"/>
+				<h:selectOneMenu id="direction" value="#{calendarBean.direction}">
+					<f:selectItem itemLabel="top-left" itemValue="top-left" />
+					<f:selectItem itemLabel="top-right" itemValue="top-right" />
+					<f:selectItem itemLabel="bottom-left" itemValue="bottom-left" />
+					<f:selectItem itemLabel="bottom-right" itemValue="bottom-right" />
+					<f:selectItem itemLabel="auto" itemValue="auto" />
+					<a4j:support event="onchange" ajaxSingle="true" reRender="calendar" />
+				</h:selectOneMenu>
+			</h:panelGrid>
+			<h:outputText id="locale" style="display:none" value="#{calendarBean.locale.displayName}"/>
+			<h:outputText id="datePattern" style="display:none" value="#{calendarBean.datePattern}"/>
+			<br/>
+			<rich:calendar
+					id="calendar"
+					mode="client"
+					popup="true"
+					value="#{calendarBean.selectedDate}"
+					datePattern="#{calendarBean.datePattern}"
+					timeZone="#{calendarBean.timeZone}"
+					locale="#{calendarBean.locale}"
+					direction="#{calendarBean.direction}"
+					jointPoint="#{calendarBean.jointPoint}">
+			</rich:calendar>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
+
+	

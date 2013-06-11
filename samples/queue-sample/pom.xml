@@ -1,0 +1,37 @@
+<?xml version="1.0"?><project>
+  <parent>
+    <artifactId>samples</artifactId>
+    <groupId>org.richfaces</groupId>
+    <version>3.3.1.GA</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.richfaces</groupId>
+  <artifactId>queue-sample</artifactId>
+  <packaging>war</packaging>
+  <name>queue-sample Maven Webapp</name>
+  <version>3.3.1.GA</version>
+  <build>
+    <finalName>queue-sample</finalName>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+	<dependency>
+		<groupId>org.richfaces.ui</groupId>
+		<artifactId>core</artifactId>
+		<version>${project.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>com.sun.facelets</groupId>
+		<artifactId>jsf-facelets</artifactId>
+		<version>1.1.14</version>
+	</dependency>
+  </dependencies>
+</project>

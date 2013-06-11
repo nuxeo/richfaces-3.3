@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:sg="http://labs.jboss.com/jbossrichfaces/ui/scrollableDataTable"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:cl="http://labs.jboss.com/jbossrichfaces/ui/columns"
+      xmlns:dt="http://labs.jboss.com/jbossrichfaces/ui/dataTable"
+       >
+     <body>
+   	 <f:view>
+	<h:form>
+		<sg:scrollableDataTable value="#{modelBuilder.model1}" var="issues"
+			frozenColCount="1" first="0" rows="30" width="1000px" height="200px">
+			<dt:column width="300px">
+				<f:facet name="header">
+					<h:outputText value="issue"></h:outputText>
+				</f:facet>
+			<h:outputText value="#{issues.cell1}"></h:outputText>
+				<f:facet name="footer">
+					<h:outputText value="footer"></h:outputText>
+				</f:facet>
+			</dt:column>
+			<dt:column width="200px">
+				<f:facet name="header">
+					<h:outputText value="data"></h:outputText>
+				</f:facet>
+				<f:facet name="footer">
+					<h:outputText value="footer"></h:outputText>
+				</f:facet>
+				<h:outputText value="data"></h:outputText>
+			</dt:column>
+		</sg:scrollableDataTable>
+		<sg:scrollableDataTable value="#{modelBuilder.model1}" var="issues"
+			frozenColCount="1" first="0" rows="30" width="1000px" height="200px">
+			<dt:column width="100px">
+				<f:facet name="header">
+					<h:outputText value="issue"></h:outputText>
+				</f:facet>
+			<h:outputText value="#{issues.cell1}"></h:outputText>
+				<f:facet name="footer">
+					<h:outputText value="footer"></h:outputText>
+				</f:facet>
+			</dt:column>
+			<dt:column width="400px">
+				<f:facet name="header">
+					<h:outputText value="data"></h:outputText>
+				</f:facet>
+				<f:facet name="footer">
+					<h:outputText value="footer"></h:outputText>
+				</f:facet>
+				<h:outputText value="data"></h:outputText>
+			</dt:column>
+		</sg:scrollableDataTable>
+	</h:form>
+      </f:view>
+    </body>
+</html>	

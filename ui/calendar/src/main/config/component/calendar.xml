@@ -1,0 +1,632 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd"
+
+[
+<!ENTITY listeners SYSTEM "listener.ent">
+]
+>
+<components>
+	<component>
+		<name>org.richfaces.Calendar</name>
+		<family>org.richfaces.Calendar</family>
+		<classname>org.richfaces.component.html.HtmlCalendar</classname>
+		<superclass>org.richfaces.component.UICalendar</superclass>
+		<test>
+			<classname>
+				org.richfaces.component.html.HtmlCalendarTest
+			</classname>
+			<superclassname>
+				org.ajax4jsf.tests.AbstractAjax4JsfTestCase
+			</superclassname>
+		</test>
+		<description>
+			The &lt;rich:calendar&gt; component is a UI control used for creating graphical monthly calendar on a page.
+		</description>
+		<facet>
+		   <name>header</name>
+		   <description>Redefines calendar header. Related attribute is "showHeader"</description>
+		</facet>
+		<facet>
+		   <name>footer</name>
+		   <description>Redefines calendar footer. Related attribute is "showFooter"</description>
+		</facet>
+		<facet>
+		   <name>optionalHeader</name>
+		   <description>Defines calendar's optional header</description>
+		</facet>
+		<facet>
+		   <name>optionalFooter</name>
+		   <description>Defines calendar's optional footer</description>
+		</facet>
+		<facet>
+		   <name>weekNumber</name>
+		   <description>Redefines week number</description>
+		</facet>
+		<facet>
+		   <name>weekDay</name>
+		   <description>Redefines names of the week days. Related attributes are "weekDayLabels" and "weekDayLabelsShort"</description>
+		</facet>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.CalendarRenderer</name>
+			<template>org/richfaces/htmlCalendar.jspx</template>
+		</renderer>
+		<tag>
+			<name>calendar</name>
+			<classname>org.richfaces.taglib.CalendarTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+
+			<test>
+				<classname>
+					org.richfaces.component.html.HtmlCalendarTest
+				</classname>
+				<superclassname>
+					org.ajax4jsf.tests.AbstractJspTestCase
+				</superclassname>
+			</test>
+		</tag>
+		<taghandler generate="true">
+			<classname>org.richfaces.taglib.CalendarTagHandler</classname>
+			<superclass>com.sun.facelets.tag.jsf.ComponentHandler</superclass>
+		</taghandler>
+		&ui_component_attributes;
+		&ajax_component_attributes;
+		&ui_input_attributes;
+		&ui_output_attributes;
+		<property elonly="true">
+			<name>dataModel</name>
+			<classname>org.richfaces.model.CalendarDataModel</classname>
+			<description>
+				Used to provide data for calendar elements. If data is
+				not provided, all Data Model related functions are
+				disabled
+			</description>
+		</property>
+		<property>
+			<name>locale</name>
+			<classname>java.lang.Object</classname>
+			<description>Used for locale definition.   Default value is &quot;getDefaultLocale()&quot;.</description>
+			<defaultvalue>getDefaultLocale()</defaultvalue>
+		</property>
+		<property elonly="true">
+			<name>timeZone</name>
+			<classname>java.util.TimeZone</classname>
+			<description>
+				Used for current date calculations. Default value is &quot;getDefaultTimeZone()&quot;.
+			</description>
+			<defaultvalue>getDefaultTimeZone()</defaultvalue>
+		</property>
+		<property>
+			<name>preloadDateRangeBegin</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				Define the initial range of date which will be loaded to
+				client from dataModel under rendering. Default value is &quot;getDefaultPreloadBegin(getCurrentDateOrDefault())&quot;.
+			</description>
+			<defaultvalue>
+				getDefaultPreloadBegin(getCurrentDateOrDefault())
+			</defaultvalue>
+		</property>
+		<property>
+			<name>preloadDateRangeEnd</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				Defines the last range of date which will be loaded to
+				client from dataModel under rendering. Default value is &quot;getDefaultPreloadEnd(getCurrentDateOrDefault())&quot;.
+			</description>
+			<defaultvalue>
+				getDefaultPreloadEnd(getCurrentDateOrDefault())
+			</defaultvalue>
+		</property>
+		<property>
+			<name>currentDate</name>
+			<classname>java.lang.Object</classname>
+			<description>Defines current date</description>
+		</property>
+		<property>
+			<name>currentDateChangeListener</name>
+			<classname>javax.el.MethodExpression;</classname>
+			<description>
+				MethodExpression representing an action listener method
+				that will be notified after date selection
+			</description>
+		</property>
+		<property>
+			<name>datePattern</name>
+			<classname>java.lang.String</classname>
+			<description>Defines date pattern. Default value is &quot;MMM d, yyyy&quot;.</description>
+			<defaultvalue>"MMM d, yyyy"</defaultvalue>
+		</property>
+		
+		<property>
+			<name>defaultTime</name>
+			<classname>java.lang.Object</classname>
+			<description>Defines time that will be used:
+			1) to set time when the value is empty
+			2) to set time when date changes and flag &quot;resetTimeOnDateSelect&quot; is true. Default value is &quot;getDefaultValueOfDefaultTime()&quot; </description>
+			<defaultvalue>getDefaultValueOfDefaultTime()</defaultvalue>
+		</property>
+
+		<property>
+			<name>resetTimeOnDateSelect</name>
+			<classname>boolean</classname>
+			<description>If value is true then calendar should change time to defaultTime for newly-selected dates. Default value is &quot;false&quot;</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+
+		<property>
+			<name>popup</name>
+			<classname>boolean</classname>
+			<description>
+				If &quot;true&quot;, the calendar will be rendered initially
+				as hidden with additional elements for calling as popup. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>disabled</name>
+			<classname>boolean</classname>
+			<description>
+				If &quot;true&quot;, rendered is disabled. In
+				&quot;popup&quot; mode both controls are disabled. Default value is &quot;false&quot;.
+			</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		<property>
+			<name>readonly</name>
+			<classname>boolean</classname>
+			<description>
+				If &quot;true&quot;. Date and time are not selectable.  In
+				&quot;popup&quot; mode input is disabled and button is enabled. Default value is &quot;false&quot;.
+			</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		<property>
+			<name>jointPoint</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Set the corner of the button for the popup to be
+				connected with (top-left, top-right, bottom-left
+				(Default), bottom-right, auto). Default value is &quot;bottom-left&quot;.
+			</description>
+			<defaultvalue>"bottom-left"</defaultvalue>
+		</property>
+		<property>
+			<name>direction</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Defines direction of the calendar popup (&quot;top-left&quot;,
+				&quot;top-right&quot;, &quot;bottom-left&quot;, &quot;bottom-right&quot; (Default), &quot;auto&quot;). Default value is &quot;bottom-right&quot;.
+			</description>
+			<defaultvalue>&quot;bottom-right&quot;</defaultvalue>
+		</property>
+		<property>
+			<name>weekDayLabels</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				List of the day names displays on the days bar in the
+				following way &quot;Sun, Mon, Tue, Wed, &quot;
+			</description>
+		</property>
+		<property>
+			<name>weekDayLabelsShort</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				Attribute that allows to customize short names of the
+				weeks. Should accept list with the weeks names.
+			</description>
+		</property>
+		<property>
+			<name>monthLabels</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				Attribute that allows to customize names of the months.
+				Should accept list with the month names
+			</description>
+		</property>
+		<property>
+			<name>monthLabelsShort</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				Attribute that allows to customize short names of the
+				months. Should accept list with the month names
+			</description>
+		</property>
+
+		<property hidden="true">
+			<name>toolTipMode</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Used to specify mode to load tooltips. Valid values are
+				&quot;none&quot;, &quot;single&quot; and
+				&quot;batch&quot; Default value is &quot;batch&quot;.
+			</description>
+			<defaultvalue>"batch"</defaultvalue>
+		</property>
+		<property>
+			<name>boundaryDatesMode</name>
+			<classname>java.lang.String</classname>
+			<description>
+				This attribute is responsible for behaviour of dates 
+				from the previous and next months which are displayed in the current month. Valid values
+				are &quot;inactive&quot; (Default) dates inactive and
+				gray colored, &quot;scroll&quot; boundaries work as
+				month scrolling controls, and &quot;select&quot;
+				boundaries work in the same way as &quot;scroll&quot;
+				but with the date clicked selection. Default value is &quot;inactive&quot;.
+			</description>
+			<defaultvalue>"inactive"</defaultvalue>
+		</property>
+		<property>
+			<name>enableManualInput</name>
+			<classname>boolean</classname>
+			<description>
+				If &quot;true&quot; calendar input will be editable and
+				it will be possible to change the date manualy. If
+				&quot;false&quot; value for this attribute makes a text
+				field &quot;read-only&quot;, so the value can be changed
+				only from a handle. Default value is &quot;false&quot;.
+			</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		<property>
+			<name>showInput</name>
+			<classname>boolean</classname>
+			<description>
+				&quot;false&quot; value for this attribute makes text
+				field invisible. It works only if popupMode=&quot;true&quot;
+				If showInput is &quot;true&quot; - input field will
+				be shown. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>style</name>
+			<classname>java.lang.String</classname>
+			<description>
+				CSS style(s) is/are to be applied when this component is
+				rendered
+			</description>
+		</property>
+		<property>
+			<name>styleClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Corresponds to the HTML class attribute
+			</description>
+		</property>
+		<property>
+			<name>inputStyle</name>
+			<classname>java.lang.String</classname>
+			<description>Style attribute for text field</description>
+		</property>
+		<property>
+			<name>inputClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Style Class attribute for the text field
+			</description>
+		</property>
+		<property>
+			<name>buttonClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Style Class attribute for the popup button
+			</description>
+		</property>
+		<property>
+			<name>zindex</name>
+			<classname>int</classname>
+			<description>
+				Attribute is similar to the standard HTML attribute and
+				can specify window placement relative to the content. Default value is &quot;3&quot;.
+			</description>
+			<defaultvalue>3</defaultvalue>
+		</property>
+
+		<property>
+			<name>oninputmouseover</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a pointer is moved onto the input field</description>
+		</property>
+		<property>
+			<name>oninputmouseout</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a pointer is moved away from the input field</description>
+		</property>
+		<property>
+			<name>ondateselect</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when some date cell is selected</description>
+		</property>
+		<property>
+			<name>ondateselected</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called after some date cell is selected</description>
+		</property>
+		<property>
+			<name>ontimeselect</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called before new time is selected</description>
+		</property>
+		<property>
+			<name>ontimeselected</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called after time is selected</description>
+		</property>
+		<property>
+			<name>onchanged</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when the date or time is changed and applied to input</description>
+		</property>
+		<property>
+			<name>oncurrentdateselect</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when the current month or year is changed</description>
+		</property>
+		<property>
+			<name>oncurrentdateselected</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called after the current month or year is changed</description>
+		</property>
+		<property>
+			<name>onexpand</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called before the calendar popup is opened</description>
+		</property>
+		<property>
+			<name>oncollapse</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called before the calendar popup is closed</description>
+		</property>
+		<property>
+			<name>ondatemouseover</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a pointer is moved onto the date cell</description>
+		</property>
+		<property>
+			<name>ondatemouseout</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a pointer is moved away from the date cell</description>
+		</property>
+
+		<property>
+			<name>oninputchange</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when the input field value is changed manually</description>
+		</property>
+		<property>
+			<name>oninputselect</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when the input field value is selected</description>
+		</property>
+		<property>
+			<name>oninputfocus</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when the input field gets the focus</description>
+		</property>
+		<property>
+			<name>oninputblur</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when the input field loses the focus</description>
+		</property>
+		<property>
+			<name>oninputclick</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when the input field is clicked</description>
+		</property>
+		<property>
+			<name>oninputkeypress</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a key is pressed and released in the input field</description>
+		</property>
+		<property>
+			<name>oninputkeydown</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a key is pressed down in the input field</description>
+		</property>
+		<property>
+			<name>oninputkeyup</name>
+			<classname>java.lang.String</classname>
+			<description>The client side script method to be called when a key is released in the input field</description>
+		</property>
+
+		<property hidden="true">
+			<name>localValueSet</name>
+			<classname>boolean</classname>
+			<description>localValueSet</description>
+		</property>
+		<property hidden="true">
+			<name>valid</name>
+			<classname>boolean</classname>
+			<description>valid</description>
+		</property>
+
+		<property>
+			<name>ajaxSingle</name>
+			<classname>boolean</classname>
+			<description>
+				boolean attribute which provides possibility to limit JSF tree processing(decoding, conversion/validation, value applying) to the component which send the request only.
+				Default value is &quot;true&quot;
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+
+		<property hidden="true">
+			<name>data</name>
+			<classname>java.lang.Object</classname>
+		</property>
+
+		<property>
+			<name>buttonIcon</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Defines icon for the popup button element. The attribute
+				is ignored if the &quot;buttonLabel&quot; is set
+			</description>
+		</property>
+
+		<property>
+			<name>buttonLabel</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Defines label for the popup button element. If the
+				attribute is set &quot;buttonIcon&quot; and &quot;buttonIconDisabled&quot;
+				are ignored
+			</description>
+		</property>
+
+		<property>
+			<name>buttonIconDisabled</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Defines disabled icon for the popup button element. The
+				attribute is ignored if the &quot;buttonLabel&quot; is set
+			</description>
+		</property>
+		<property>
+			<name>mode</name>
+			<classname>java.lang.String</classname>
+				
+			<description>Valid values: ajax or client. Default value is &quot;client&quot;.</description>
+			
+			<defaultvalue>UICalendar.CLIENT_MODE</defaultvalue>
+			
+		
+		</property>
+
+		<property>
+			<name>horizontalOffset</name>
+			<classname>int</classname>
+			<description>
+				Sets the horizontal offset between button and calendar
+				element conjunction point. Default value is &quot;0&quot;.
+			</description>
+			<defaultvalue>0</defaultvalue>
+		</property>
+
+		<property>
+			<name>verticalOffset</name>
+			<classname>int</classname>
+			<description>
+				Sets the vertical offset between button and calendar
+				element conjunction point. Default value is &quot;0&quot;.
+			</description>
+			<defaultvalue>0</defaultvalue>
+		</property>
+		
+		<property>
+			<name>cellWidth</name>
+			<classname>java.lang.String</classname>
+			<description>
+				attribute to set fixed cells width
+			</description>
+		</property>
+		
+		<property>
+			<name>cellHeight</name>
+			<classname>java.lang.String</classname>
+			<description>
+				attribute to set fixed cells height
+			</description>
+		</property>
+		
+		<property>
+			<name>dayStyleClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Should be binded to some JS function that will provide style classes
+				for special sets of days highlighting.
+			</description>
+		</property>
+		
+		<property>
+			<name>isDayEnabled</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Should be binded to some JS function that returns day state.
+			</description>
+		</property>
+		<property>
+			<name>showWeekDaysBar</name>
+			<classname>boolean</classname>
+			<description>
+				If false this bar should not be shown. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>showWeeksBar</name>
+			<classname>boolean</classname>
+			<description>
+				If false this bar should not be shown. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>todayControlMode</name>
+			<classname>java.lang.String</classname>
+			<description>
+						This attribute defines the mode for &quot;today&quot; control. Possible values are &quot;scroll&quot;, &quot;select&quot;, &quot;hidden&quot;. Default value is &quot;select&quot;.
+			</description>
+			<defaultvalue>"select"</defaultvalue>
+	</property>
+	<property>
+			<name>showApplyButton</name>
+			<classname>boolean</classname>
+			<description>
+				If false ApplyButton should not be shown. Default value is &quot;false&quot;.
+			</description>
+			<defaultvalue>false</defaultvalue>
+	</property>
+	<property>
+			<name>inputSize</name>
+			<classname>int</classname>
+		<description>Defines the size of an input field. Similar to the &quot;size&quot; attribute of &lt;h:inputText/&gt;</description>
+	</property>
+	<property>
+		<name>label</name>
+		<classname>java.lang.String</classname>
+		<description>A localized user presentable name for this component.</description>
+	</property>
+	<property>
+			<name>showHeader</name>
+			<classname>boolean</classname>
+			<description>
+				If false Calendar's header should not be shown. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>true</defaultvalue>
+	</property>
+			<property>
+			<name>showFooter</name>
+			<classname>boolean</classname>
+			<description>
+				If false Calendar's footer should not be shown. Default value is &quot;true&quot;.
+			</description>
+			<defaultvalue>true</defaultvalue>
+	</property>
+	<property>
+			<name>firstWeekDay</name>
+			<classname>int</classname>
+		<description>Gets what the first day of the week is; e.g., SUNDAY in the U.S., MONDAY in France. Default value is &quot;getDefaultFirstWeekDay()&quot;. Possible values should be integers from 0 to 6, 0 corresponds to Sunday</description>
+	</property>
+	<property>
+			<name>minDaysInFirstWeek</name>
+			<classname>int</classname>
+		<description>
+			Gets what the minimal days required in the first week of the year 
+			are; e.g., if the first week is defined as one that contains the first 
+			day of the first month of a year, this method returns 1. If the 
+			minimal days required must be a full week, this method returns 7. Default value is &quot;getDefaultMinDaysInFirstWeek()&quot;.
+ 		</description>
+	</property>
+	<property>
+		<name>tabindex</name>
+		<description>This attribute specifies the position of the current element in the tabbing order for the current document. This value must be a number between 0 and 32767. User agents should ignore leading zeros</description>
+		<classname>java.lang.String</classname>
+	</property>
+	</component>
+	&listeners;
+</components>
+

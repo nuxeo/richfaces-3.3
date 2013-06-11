@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://ajax4jsf.org/cdk/template"
+	xmlns:c=" http://java.sun.com/jsf/core"
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:h="http://jsf.exadel.com/header"
+	baseclass="org.richfaces.renderkit.TabHeaderRendererBase"
+	class="org.richfaces.renderkit.html.TabHeaderRenderer"
+	component="org.richfaces.component.UITab">
+
+	<f:clientid var="clientId" />
+
+	<f:resource name="images/spacer.gif" var="spacer" />
+	
+	<td style="height: 100%; vertical-align: bottom;" id="#{clientId}_cell">
+		<f:call name="encodeCellClasses" />
+
+		<table id="#{clientId}_shifted" border="0" cellpadding="0" cellspacing="0">
+			<f:call name="encodeTabLabel" />
+
+			<tr>
+				<td class="dr-tbpnl-tbbrdr rich-tabhdr-side-border"><img src="#{spacer}" width="1" height="1" alt="" style="border:0" /></td>
+				<td class="dr-tbpnl-tbtopbrdr rich-tabhdr-side-cell" style="#{this:encodeTabLabelWidth(context, component)}">
+					<table style="height: 100%; width: 100%;" border="0" cellpadding="0" cellspacing="0" >
+						<tr>
+							<td id="#{clientId}_lbl" 
+								onclick="#{component.attributes['onlabelclick']}"
+								onkeypress="#{component.attributes['onlabelkeypress']}"
+								ondblclick="#{component.attributes['onlabeldblclick']}"
+								onkeyup="#{component.attributes['onlabelkeyup']}"
+								onkeydown="#{component.attributes['onlabelkeydown']}"
+								onmousedown="#{component.attributes['onlabelmousedown']}"
+								onmouseup="#{component.attributes['onlabelmouseup']}"
+								onmousemove="#{component.attributes['onlabelmousemove']}"
+								>
+								
+								<f:call name="writeLabel" />
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td class="dr-tbpnl-tbbrdr rich-tabhdr-side-border"><img src="#{spacer}" width="1" height="1" alt="" style="border:0" /></td>
+			</tr>
+		</table>
+
+	</td>
+	<td><img src="#{spacer}" height="1" alt="" style="#{this:encodeHeaderSpacing(context, component)};border:0"/></td>
+
+</f:root>
+

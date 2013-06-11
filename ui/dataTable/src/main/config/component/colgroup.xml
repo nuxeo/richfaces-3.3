@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+	<component>
+		<name>org.richfaces.ColumnGroup</name>
+		<family>org.richfaces.ColumnGroup</family>
+		<classname>org.richfaces.component.html.HtmlColumnGroup</classname>
+		<superclass>org.richfaces.component.UIColumnGroup</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlColumnGroupComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:columnGroup> component combines columns in one row to organize complex subparts of a table.]]>
+		</description>
+		<renderer generate="false" override="false">
+			<name>org.richfaces.ColumnGroupRenderer</name>
+			<classname>org.richfaces.renderkit.html.ColgroupRenderer</classname>
+		</renderer>
+		<tag>
+			<name>columnGroup</name>
+			<classname>org.richfaces.taglib.ColumnGroupTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+		&ui_component_attributes;
+		&html_universal_attributes;
+		<property disabled="true" hidden="true">
+			<name>breakBefore</name>
+		</property>
+
+		<property>
+			<name>columnClasses</name>
+			<classname>java.lang.String</classname>
+			<description>
+				Comma-delimited list of CSS style classes that are be applied to the columns of this table.
+				A space separated list of classes may also be specified for any individual column.
+				If the number of elements in this list is less than the number of columns specified in the "columns" attribute, no "class" attribute is output for each column greater than the number of elements in the list. If the number of elements in the list is greater than the number of columns specified in the "columns" attribute, the elements at the position in the list after the value of the "columns" attribute are ignored
+			</description>
+		</property>
+		<property>
+			<name>rowClasses</name>
+			<classname>java.lang.String</classname>
+			<description>
+				A comma-delimited list of CSS style classes that is applied to popup table rows. A space separated list of classes may also be specified for any individual row. The styles are applied, in turn, to each row in the table. For example, if the list has two elements, the first style class in the list is applied to the first row, the second to the second row, the first to the third row, the second to the fourth row, etc. In other words, we keep iterating through the list until we reach the end, and then we start at the beginning again
+			</description>
+		</property>
+		<property disabled="false" hidden="true">
+			<name>sortable</name>
+			<classname>boolean</classname>
+			<description>Boolean attribute. If "true" it's possible to sort the column content after click on the header. Default value is "true"</description>
+			<defaultvalue>true</defaultvalue>
+		</property>		
+		<property disabled="false" hidden="true">
+			<name>sortExpression</name>
+			<classname>java.lang.String</classname>
+			<description>Attribute defines a bean property which is used for sorting of a column</description>
+		</property>
+		<property elonly="true" hidden="true">
+			<name>filterMethod</name>
+			<classname>javax.el.MethodExpression</classname>
+			<methodargs>java.lang.Object</methodargs>
+			<returntype>boolean</returntype>
+			<description>This attribute is defined with method binding. This method accepts on Object parameter and return boolean value</description>
+		</property>	
+		<property hidden="true">
+			<name>filterValue</name>
+			<classname>java.lang.String</classname>
+			<description>Defines current filtering value</description>
+		</property>	
+		<property hidden="true">
+			<name>selfSorted</name>
+			<classname>boolean</classname>
+			<description>Manages if the header of the column is clickable, icons rendered and sorting is fired after click on the header. You need to define this attribute inside &lt;rich:dataTable&gt; component.
+				Default value is &quot;true&quot;</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property hidden="true">
+			<name>sortOrder</name>
+			<classname>org.richfaces.model.Ordering</classname>
+			<description>SortOrder is an enumeration of the possible sort orderings. Default value is &quot;UNSORTED&quot;</description>
+			<defaultvalue>Ordering.UNSORTED</defaultvalue>
+		</property>	
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+	</component>
+</components>

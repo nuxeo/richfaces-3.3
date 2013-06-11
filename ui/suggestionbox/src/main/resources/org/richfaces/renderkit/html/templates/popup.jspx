@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+            xmlns:u='http:/jsf.exadel.com/template/util'
+            xmlns="http://www.w3.org/1999/xhtml"
+            component="org.richfaces.component.UISuggestionBox">
+
+    <div class="dr-sb-ext-decor-1 rich-sb-ext-decor-1">
+        <div class="dr-sb-ext-decor-2 rich-sb-ext-decor-2">
+            <f:attribute name="style">
+                <f:call name="bgcolor"/>
+                <f:call name="border"/>
+            </f:attribute>
+
+            <table border="0" cellpadding="0" cellspacing="1"
+                   class="dr-sb-ext-decor-3 rich-sb-ext-decor-3">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="_suggestion_size_ dr-sb-overflow rich-sb-overflow">
+                                <f:attribute name="style">
+                                    <f:call name="overflowSize"/>
+                                </f:attribute>
+
+                                <table width="100%" >
+                                    <f:attribute name="id">
+                                        <f:call name="getContentId"/>
+                                    </f:attribute>
+                                    <f:attribute name="border">
+                                        <f:call name="getBorder"/>
+                                    </f:attribute>
+                                    <f:call name="utils.encodePassThruWithExclusions">
+                                        <f:parameter value="onclick,onselect,width,height,rows,border"/>
+                                    </f:call>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="dr-sb-shadow rich-sb-shadow">
+        <f:attribute name="style">
+            <f:call name="opacityStyle"/>
+            <f:call name="shadowDepth"/>
+        </f:attribute></div>
+
+</f:template>

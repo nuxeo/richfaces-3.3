@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.autoTestTemplate}">
+	<ui:define name="component">
+		<rich:panelMenu>
+            <rich:panelMenuGroup id="serverGrp"
+            	label="Server group"
+            	expandMode="server"
+            	actionListener="#{autoTestBean.actionListener}">
+            		<rich:panelMenuItem mode="none">
+            			<h:inputText id="sRequired" value="#{panelBean.inputs['grp1']}" required="#{autoTestBean.required}"/>
+            		</rich:panelMenuItem>
+            </rich:panelMenuGroup>
+            <rich:panelMenuGroup id="ajaxGrp"
+            	label="Ajax group"
+            	expandMode="ajax"
+            	reRender="_inputs"
+            	actionListener="#{autoTestBean.actionListener}">
+            	    <rich:panelMenuItem mode="none">
+            			<h:inputText id="aRequired" value="#{panelBean.inputs['grp2']}" required="#{autoTestBean.required}"/>
+            		</rich:panelMenuItem>
+            </rich:panelMenuGroup>
+            <rich:panelMenuGroup id="noneGrp"
+            	label="None group"
+            	expandMode="none"
+            	actionListener="#{autoTestBean.actionListener}">
+            		<rich:panelMenuItem mode="none">
+            			<h:inputText id="nRequired" value="#{panelBean.inputs['grp3']}" required="#{autoTestBean.required}"/>
+            		</rich:panelMenuItem>
+            </rich:panelMenuGroup>
+      	</rich:panelMenu>
+      	<h:outputText value="#{panelBean.inputs}" id="_inputs"></h:outputText>
+	</ui:define>
+</ui:composition>
+</html>

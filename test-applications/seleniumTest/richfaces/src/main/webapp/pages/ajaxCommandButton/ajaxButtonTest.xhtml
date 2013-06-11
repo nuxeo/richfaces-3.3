@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+		.yes {
+			font-weight: bold;
+		} 
+		
+		.no {
+			color: gray;
+		}
+		
+		.passed {
+			background-color: #ACE6B3;
+		}
+		
+		.failed {
+			background-color: #CECCCC;
+		}
+	</ui:define>
+	<ui:define name="component">
+		<script type="text/javascript">
+		<!--
+			var responseData = null;
+			var _onCompleteHandler = false;
+			
+			function onCompleteHandler (data) {
+				if (data) {
+					responseData = data;
+				} 
+				_onCompleteHandler = true;
+			}
+			
+			function checkButton(id, testData ,testAction, testActionListener, testFListener, testInput) {
+				var b = '';
+				if (responseData) {
+					if (!equals(responseData.action,testAction)) {
+						b = (!responseData.action) ? 'Error: action has been skipped' : 'Error: action should be skipped';
+						writeStatus('Test button id=['+id+'] failure cased by : ' + b, true);
+					}
+					if (!equals(responseData.actionListener,testActionListener)) {
+						b = (!responseData.actionListener) ? 'Error: actionListener has been skipped' : 'Error: actionListener should be skipped';
+						writeStatus('Test button id=['+id+'] failure cased by : ' + b, true);
+					}
+					if (!equals(responseData.FListener,testFListener)) {
+						b = (!responseData.FListener) ? 'Error: calling f:listener has been skipped' : 'Error: f:listener should be skipped';
+						writeStatus('Test button id=['+id+'] failure cased by : ' + b, true);
+					}
+					if (!equals(responseData.input,testInput)) {
+						b = (!responseData.input) ? 'Error: input value has not been updated' : 'Error: input value should not been updated';
+						writeStatus('Test button id=['+id+'] failure cased by : ' + b, true);
+					}
+				}else if (testData){
+					writeStatus('Test button id=['+id+'] failure caused by: Error: no response data received', true);
+					markButton(id, false);
+					return "Error: no response data received"; 
+				}
+				responseData = null;
+				if (b == '') {
+					writeStatus('Test button id=['+id+'] passed succesfully');
+					markButton(id, true);
+				}else {
+					markButton(id, false);
+				}
+				return b;
+			}
+		
+			function equals(o1, o2) {
+				if ((!o1 && o2) || (o1 && !o2)) {
+					return false;
+				}
+				return true;
+			}	
+			
+			function markButton(id, success) {
+				if (success) {
+					document.getElementById(id).style.cssText = 'background-color: green';
+				}else {
+					document.getElementById(id).style.cssText = 'background-color: red';
+				}
+			}
+		
+			function setValidation(success) {
+				var i = document.getElementById(getParentId() + '_form:_value');
+				if (i) {
+					if (success) {
+						i.value = 'text';
+					}else {
+						i.value = '';
+					}
+				}
+			}
+			 -->
+		</script>
+	
+		<h:form id="_form">
+			<table border="1px" cellspacing="0" cellpadding="3">
+				<thead style="font-size: 13px; color: green; font-style: italic;">
+					<tr>
+						<th>button</th><th>check control</th><th>AjaxSingle</th><th>Immediate</th><th>Validation Failed</th>
+						<th>Action</th><th>ActionListener</th><th>F:listener</th><th>Value Submit</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a4j:commandButton value="Button [id=b1]"
+											   id="b1"
+											   action="#{commandBean.action}"
+											   actionListener="#{commandBean.actionListener}"
+											   oncomplete="onCompleteHandler(data);"
+											   onmousedown="setValidation(true)"
+											   reRender="_value, _rerender"
+											   >
+									<a4j:ajaxListener type="org.ajax4jsf.bean.TestListener"></a4j:ajaxListener>
+							</a4j:commandButton>
+						</td>
+						<td><input type="button" value="check" onclick="checkButton(getParentId() + '_form:b1',true, true, true, true, true)" /></td>
+						<td class="no">No</td>
+						<td class="no">No</td>
+						<td class="no">No</td>
+						<td class="passed"> </td>
+						<td class="passed"> </td>
+						<td class="passed"> </td>
+						<td class="passed"> </td>
+					</tr>
+					<tr>
+						<td>
+							<a4j:commandButton value="Button [id=b2]"
+											   id="b2"
+											   action="#{commandBean.action}"
+											   actionListener="#{commandBean.actionListener}"
+											   oncomplete="onCompleteHandler(data);"
+											   onmousedown="setValidation(false)"
+											   reRender="_value"
+											   >
+							</a4j:commandButton>
+						</td>
+						<td><input id="check2" value="check" type="button" onclick="checkButton(getParentId() + '_form:b2',false, false, false, false, false)" /></td>
+						<td class="no">No</td>
+						<td class="no">No</td>
+						<td class="yes">Yes</td>
+						<td class="failed"> </td>
+						<td class="failed"> </td>
+						<td class="failed"> </td>
+						<td class="failed"> </td>
+					</tr>
+					<tr>
+						<td>
+							<a4j:commandButton value="Button [id=b3]"
+											   id="b3"
+											   immediate="true"
+											   action="#{commandBean.action}"
+											   actionListener="#{commandBean.actionListener}"
+											   oncomplete="onCompleteHandler(data);"
+											   onmousedown="setValidation(true)"
+											   reRender="_value"
+											   >
+								<a4j:ajaxListener type="org.ajax4jsf.bean.TestListener"></a4j:ajaxListener>
+							</a4j:commandButton>
+						</td>
+						<td><input id="check3" value="check" type="button" onclick="checkButton(getParentId() + '_form:b3',true, true, true, true, false)" /></td>
+						<td class="no">No</td>
+						<td class="yes">Yes</td>
+						<td class="no">No</td>
+						<td class="passed"> </td>
+						<td class="passed"> </td>
+						<td class="passed"> </td>
+						<td class="failed"> </td>
+					</tr>
+					<tr>
+						<td>
+							<a4j:commandButton value="Button [id=b4]"
+											   id="b4"
+											   immediate="true"
+											   ajaxSingle="true"
+											   action="#{commandBean.action}"
+											   actionListener="#{commandBean.actionListener}"
+											   oncomplete="onCompleteHandler(data);"
+											   onmousedown="setValidation(false)"
+											   reRender="_value"
+											   >
+								<a4j:ajaxListener type="org.ajax4jsf.bean.TestListener"></a4j:ajaxListener>
+							</a4j:commandButton>
+						</td>
+						<td><input id="check4" value="check" type="button" onclick="checkButton(getParentId() + '_form:b4',true, true, true, true, false)" /></td>
+						<td class="yes">Yes</td>
+						<td class="yes">Yes</td>
+						<td class="yes">Yes</td>
+						<td class="passed"> </td>
+						<td class="passed"> </td>
+						<td class="passed"> </td>
+						<td class="failed"> </td>
+
+					</tr>
+				</tbody>
+			</table>
+			<h:inputHidden id="_value" required="true" value="#{commandBean.value}"></h:inputHidden>
+			<h:outputText id="_rerender" value="#{commandBean.date}"></h:outputText>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

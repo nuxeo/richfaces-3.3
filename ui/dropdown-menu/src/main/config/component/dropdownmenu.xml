@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd
+">
+
+<components>
+    <component>
+        <name>org.richfaces.DropDownMenu</name>
+        <family>org.richfaces.DropDownMenu</family>
+        <classname>org.richfaces.component.html.HtmlDropDownMenu</classname>
+        <superclass>org.richfaces.component.UIDropDownMenu</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlDropDownMenuComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+        <description>
+            The &lt;rich:dropDownMenu&gt; component is used for creating multilevel drop-down menus.
+        </description>
+		<facet>
+		   <name>label</name>
+		   <description>Redefines the content set of label</description>
+		</facet>
+		<facet>
+		   <name>labelDisabled</name>
+		   <description>Redefines the content set of disabled label</description>
+		</facet>
+        <renderer generate="true" override="true">
+            <name>org.richfaces.DropDownMenuRenderer</name>
+            <template>org/richfaces/htmlDropDownMenu.jspx</template>
+        </renderer>
+
+        <tag>
+            <name>dropDownMenu</name>
+            <classname>org.richfaces.taglib.DropDownMenuTag</classname>
+            <superclass>
+                org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+            </superclass>
+			<test/>
+        </tag>
+
+        <taghandler generate="true">
+            <classname>org.richfaces.taglib.DropDownMenuTagHandler</classname>
+            <superclass>com.sun.facelets.tag.jsf.ComponentHandler</superclass>
+        </taghandler>
+
+        &ui_component_attributes;
+		
+		 <property>
+            <name>disabled</name>
+            <classname>boolean</classname>
+            <description>
+                Attribute 'disabled' provides possibility to make the whole menu disabled if its value equals to "true". Default value is &quot;false&quot;
+            </description>
+            <defaultvalue>false</defaultvalue>
+        </property>
+        <property>
+            <name>event</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Defines the event on the representation element that triggers
+                the menu's appearance.
+            </description>
+        </property>
+
+        <property>
+            <name>submitMode</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Sets the submission mode for all menu items of the menu except
+                ones where this attribute redefined.
+                Possible values are &quot;ajax&quot;,&quot;server&quot;,&quot;none&quot;. Default value is &quot;sever&quot;.
+            </description>
+            <defaultvalue>"server"</defaultvalue>
+        </property>
+
+        <property>
+            <name>showDelay</name>
+            <classname>java.lang.Integer</classname>
+            <description>
+                Delay between event and menu showing. Default value is &quot;50&quot;.
+            </description>
+            <defaultvalue><![CDATA[new Integer(50)]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>hideDelay</name>
+            <classname>java.lang.Integer</classname>
+            <description>
+                Delay between losing focus and menu closing. Default value is &quot;800&quot;.
+            </description>
+            <defaultvalue><![CDATA[new Integer(800)]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>value</name>
+            <classname>java.lang.Object</classname>
+            <description>
+                Defines representation text for Label used for menu calls.
+            </description>
+        </property>
+
+        <property>
+            <name>direction</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Defines direction of the popup list to appear. 
+                Possible values are &quot;top-right&quot;, &quot;top-right&quot;, &quot;top-left&quot;, &quot;bottom-right&quot;, &quot;bottom-left&quot;, &quot;auto&quot;.
+                Default value is &quot;auto&quot;.
+            </description>
+            <defaultvalue>"auto"</defaultvalue>
+        </property>
+
+
+        <property>
+            <name>popupWidth</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Sets minimal width for  all  lists that will appear.
+            </description>
+        </property>
+
+        <property>
+            <name>jointPoint</name>
+            <classname>java.lang.String</classname>
+            <description>
+                Sets the corner of the label for the pop-up to be connected with.
+                Possible values are &quot;tr&quot;, &quot;tl&quot;, &quot;bl&quot;, &quot;br&quot;, &quot;bottom-left&quot;, &quot;auto&quot;.
+                Default value is &quot;auto&quot;.
+                &quot;tr&quot; stands for top-right. 
+                
+            </description>
+            <defaultvalue>"auto"</defaultvalue>
+        </property>
+
+        <property>
+            <name>horizontalOffset</name>
+            <classname>int</classname>
+            <description>
+                Sets the horizontal offset between popup list and label element. Default value is &quot;0&quot;.
+                conjunction point
+            </description>
+            <defaultvalue><![CDATA[0]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>verticalOffset</name>
+            <classname>int</classname>
+            <description>
+                Sets the vertical offset between popup list and label element. Default value is &quot;0&quot;.
+                conjunction point
+            </description>
+            <defaultvalue><![CDATA[0]]></defaultvalue>
+        </property>
+
+
+        &html_style_attributes;
+
+        <property>
+            <name>selectItemStyle</name>
+            <classname>java.lang.String</classname>
+            <description>
+			CSS style(s) is/are to be applied to selected item when this component is rendered.	
+            </description>
+        </property>
+
+        <property>
+            <name>selectItemClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+			Space-separated list of CSS style class(es) that are be applied to selected item of this component.
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>disabledItemStyle</name>
+            <classname>java.lang.String</classname>
+            <description>
+			CSS style(s) is/are to be applied to disabled item when this component is rendered.	
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>disabledItemClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+			Space-separated list of CSS style class(es) that are be applied to disabled item of this component
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        
+        <property>
+            <name>disabledLabelClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                  Space-separated list of CSS style class(es) applied to dropdown menu label when it is disabled. 
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+        <property>
+            <name>selectedLabelClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+                  Space-separated list of CSS style class(es) applied to dropdown menu label when it is selected.
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+          <property>
+                <name>labelClass</name>
+                <classname>java.lang.String</classname>
+                <description>
+                      Space-separated list of CSS style class(es) applied to dropdown menu label in it normal (neither selected nor disabled) sate.
+                </description>
+                <defaultvalue><![CDATA[""]]></defaultvalue>
+          </property>
+
+        <property>
+            <name>itemStyle</name>
+            <classname>java.lang.String</classname>
+            <description>
+			CSS style(s) is/are to be applied to item when this component is rendered.	
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>itemClass</name>
+            <classname>java.lang.String</classname>
+            <description>
+			Space-separated list of CSS style class(es) that are be applied to item of this component
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>oncollapse</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; a menu is collapsed.
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>onexpand</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; a menu is expanded.
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+
+        <property>
+            <name>onmouseout</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; a pointer was moved away.
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>onmousemove</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; a pointer was moved within.
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>onmouseover</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; a pointer was moved onto.
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>onitemselect</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; some item was selected.
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+        <property>
+            <name>ongroupactivate</name>
+            <classname>java.lang.String</classname>
+            <description>
+                HTML: script expression; some group was activated.
+            </description>
+            <defaultvalue><![CDATA[""]]></defaultvalue>
+        </property>
+
+    </component>
+</components>

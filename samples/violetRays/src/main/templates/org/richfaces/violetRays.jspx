@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+    xmlns:h="http://jsf.exadel.com/header"
+    xmlns:vcp="http://ajax4jsf.org/cdk/vcp"
+ 	class="org.richfaces.renderkit.html.VioletRaysRenderer"
+	baseclass="org.richfaces.renderkit.AbstractPageRenderer"
+	component="org.richfaces.component.UIPage" 
+	>
+	<c:set var="namespace" value="#{this:prolog(context,component)}"/>
+	<html x:xmlns="#{namespace}" x:lang="#{context.viewRoot.locale}"
+		>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		   <title>#{component.attributes['pageTitle']}</title>
+		   <f:call name="themeStyle"/>
+		   <f:call name="themeScript"/>
+		   <u:insertFacet name="pageHeader"/>
+
+</head>
+<body  x:passThruWithExclusions="value,name,type,id">
+<div id="wrapper">
+
+<div id="header">
+		   <c:if test="#{this:hasFacet(component,'header')}">
+	        <div id="#{clientId}:hd" class="rich-page-header #{component.attributes['headerClass']}">
+		         <u:insertFacet name="header"/>
+		    </div>
+		   </c:if>
+
+</div>
+<!-- end #header -->
+<!--div id="logo"-->
+<!--/div-->
+<hr />
+<!-- end #logo -->
+<!-- end #header-wrapper -->
+
+<div id="page">
+              <div id="content">
+	           <vcp:body>
+	            <div class="rich-page-body #{component.attributes['bodyClass']}">
+	                  <f:call name="renderChildren" />
+	            </div>
+	            </vcp:body>
+	      </div>
+
+	<!-- end #content -->
+	<div id="sidebar">
+
+		       <c:if test="#{this:hasFacet(component,'sidebar')}">
+	              <div class="rich-page-sidebar #{component.attributes['styleClass']}">
+		            <u:insertFacet name="sidebar"/>
+	              </div>
+			</c:if>
+	</div>
+	<!-- end #sidebar -->
+	<div style="clear: both;"></div>
+	</div>
+<!-- end #page -->
+</div>
+	<div id="footer">
+	       <c:if test="#{this:hasFacet(component,'footer')}">
+			<f:clientid var="clientId"/>
+	        <div id="#{clientId}:ft" class="rich-page-footer #{component.attributes['footerClass']}">
+		   <u:insertFacet name="footer"/>
+		    </div>
+		   </c:if>
+
+	</div>
+<!-- end #footer -->
+</body>
+</html>
+</f:root>

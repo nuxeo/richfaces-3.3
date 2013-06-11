@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+	<u:selector name=".rich-combobox">
+	</u:selector>
+
+	<u:selector name=".rich-combobox-shadow-tl">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-shadow-tr">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-shadow-bl">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-shadow-br">
+	</u:selector>
+	
+
+	<u:selector name="input.rich-combobox-button-background">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="17px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>	
+	</u:selector>
+	
+	<u:selector name="input.rich-combobox-button-background-disabled">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="17px" />
+                <f:attribute name="baseColor" skin="hanelBorderColor" />
+            </f:resource>
+        </u:style>	
+	</u:selector>
+	
+	<u:selector name="input.rich-combobox-button-background-inactive">
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="17px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>	
+	</u:selector>
+	
+	<u:selector name="input.rich-combobox-button-pressed-background">
+	</u:selector>
+	
+	<u:selector name="input.rich-combobox-button-icon">
+	</u:selector>
+	
+	<u:selector name="input.rich-combobox-button-icon-disabled">
+	</u:selector>
+	
+	<u:selector name="input.rich-combobox-button-icon-inactive">
+	</u:selector>
+	
+	<u:selector name="input.rich-combobox-button">
+	</u:selector>
+	
+	<u:selector name="input.rich-combobox-button-inactive">
+	</u:selector>
+	
+	<u:selector name="input.rich-combobox-button-disabled">
+	</u:selector> 
+	
+	<u:selector name="input.rich-combobox-font">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-font">
+	</u:selector>
+	
+	<u:selector name="input.rich-combobox-font-disabled">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-font-disabled">
+	</u:selector>
+	
+	<u:selector name="input.rich-combobox-font-inactive">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-font-inactive">
+	</u:selector>
+	
+	
+	<u:selector name=".rich-combobox-input">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-input-disabled">
+	</u:selector>
+
+	<u:selector name=".rich-combobox-input-inactive">
+	</u:selector>
+		
+	<u:selector name=".rich-combobox-item">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-item-selected">
+        <u:style name="border-width" value="1px" />
+        <u:style name="border-style" value="solid" />
+        <u:style name="border-color" skin="newBorder" />
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="17px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>	
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-list-decoration">
+        <u:style name="border-width" value="1px" />
+        <u:style name="border-style" value="solid" />
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+	
+	<u:selector name="input.rich-combobox-button-hovered">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-shadow">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-shell">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-strut">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-list-cord">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-list-scroll">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-list-position">
+	</u:selector>
+	
+	<u:selector name=".rich-combobox-list-width">
+	</u:selector>
+	
+</f:template>

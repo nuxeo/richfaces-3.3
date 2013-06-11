@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+	<resource>
+		<name>org/richfaces/renderkit/html/scripts/simple-draggable.js</name>
+		<path>org/richfaces/renderkit/html/scripts/simple-draggable.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	<resource>
+		<name>org/richfaces/renderkit/html/scripts/simple-dropzone.js</name>
+		<path>org/richfaces/renderkit/html/scripts/simple-dropzone.js</path>
+		<renderer class="org.ajax4jsf.resource.ScriptRenderer"/>
+	</resource>
+	
+	<resource>
+		<name>org/richfaces/renderkit/html/images/accept.gif</name>
+		<path>org/richfaces/renderkit/html/images/accept.gif</path>
+	</resource>
+	<resource>
+		<name>org/richfaces/renderkit/html/images/default.gif</name>
+		<path>org/richfaces/renderkit/html/images/default.gif</path>
+	</resource>
+	<resource>
+		<name>org/richfaces/renderkit/html/images/reject.gif</name>
+		<path>org/richfaces/renderkit/html/images/reject.gif</path>
+	</resource>
+</resource-config>

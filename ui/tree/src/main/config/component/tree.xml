@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd"
+[
+<!ENTITY attributes SYSTEM "commonTreeAttributes.ent">
+<!ENTITY listeners SYSTEM "commonTreeListeners.ent">
+<!ENTITY commonTreeClientListeners SYSTEM "commonTreeClientListeners.ent">
+]
+>
+
+<components>
+	<component>
+		<name>org.richfaces.Tree</name>
+		<family>org.richfaces.Tree</family>
+		<classname>org.richfaces.component.html.HtmlTree</classname>
+		<superclass>org.richfaces.component.UITree</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlTreeComponentTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:tree>  component is designed for hierarchical data presentation and is applied for building a tree structure with a drag-and-drop capability.]]>
+		</description>
+		<facet>
+		   <name>icon</name>
+		   <description>Redefines the icon for node. Related attribute is "icon"</description>
+		</facet>
+		<facet>
+		   <name>iconCollapsed</name>
+		   <description>Redefines the icon for collapsed node. Related attribute is "iconCollapsed"</description>
+		</facet>
+		<facet>
+		   <name>iconExpanded</name>
+		   <description>Redefines the icon for expanded node. Related attribute is "iconExpanded"</description>
+		</facet>
+		<facet>
+		   <name>iconLeaf</name>
+		   <description>Redefines the icon for component leaves. Related attribute is "iconLeaf"</description>
+		</facet>
+		<renderer generate="true" override="true">
+			<name>org.richfaces.TreeRenderer</name>
+			<template>htmlTree.jspx</template>
+		</renderer>
+		<tag>
+			<name>tree</name>
+			<classname>org.richfaces.taglib.TreeTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<taghandler generate="true">
+			<classname>org.richfaces.taglib.TreeTagHandler</classname>
+			<superclass>org.richfaces.taglib.TreeTagHandlerBase</superclass>
+		</taghandler>
+		&attributes;
+		<property>
+			<name>immediate</name>
+			<classname>boolean</classname>
+			<description>
+				A flag indicating that this component value must be
+				converted and validated immediately (during an
+				Apply Request Values phase), rather than waiting until a
+				Process Validations phase
+			</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		&ui_component_attributes;
+		&ajax_component_attributes;
+		&html_style_attributes;
+		&html_events;
+		
+		<property el="false">
+			<name>stateVar</name>
+			<classname>java.lang.String</classname>
+			<description>
+				The attribute  provides access to a component state on the client side
+			</description>
+		</property>	
+		<property el="false">
+			<name>rowKeyVar</name>
+			<classname>java.lang.String</classname>
+			<description>The attribute provides access to a row key in a Request scope</description>
+		</property>
+		<property el="false">
+			<name>treeNodeVar</name>
+			<classname>java.lang.String</classname>
+			<description>The attribute provides access to a TreeNode instance in a Request scope</description>
+		</property>
+		<property>
+			<name>componentState</name>
+			<classname>org.ajax4jsf.model.DataComponentState</classname>
+			<description>It defines EL-binding  for a component state for saving or redefinition</description>
+		</property>
+		<property hidden="true">
+			<name>treeNodeState</name>
+			<classname>java.lang.Object</classname>
+			<description>This attribute defines EL-binding  for a TreeNode state for saving or redefinition</description>
+		</property>
+		<property>
+			<name>nodeFace</name>
+			<classname>java.lang.String</classname>
+			<description>Node face facet name</description>
+		</property>
+		<property>
+			<name>changeExpandListener</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description>Listener called on expand/collapse event on the node</description>
+		</property>
+		<property>
+			<name>dragListener</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description>MethodBinding representing an action listener method that will be notified after drag operation</description>
+		</property>
+		<property>
+			<name>dropListener</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description>MethodBinding representing an action listener method that will be notified after drop operation</description>
+		</property>
+		<property>
+			<name>nodeSelectListener</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description>MethodBinding representing an action listener method that will be notified after selection of node.   </description>
+		</property>		
+		<property>
+			<name>iconLeaf</name>
+			<classname>java.lang.String</classname>
+			<description>An icon for component leaves</description>
+		</property>		
+		<property>
+			<name>switchType</name>
+			<classname>java.lang.String</classname>
+			<description>Tree Nodes switch mode: "client", "server", "ajax"</description>
+			<defaultvalue>"ajax"</defaultvalue>
+		</property>
+		<property>
+			<name>dragIndicator</name>
+			<classname>java.lang.String</classname>
+			<description>Id of a component that is used as drag pointer during the drag operation</description>
+		</property>
+		<property>
+			<name>value</name>
+			<classname>java.lang.Object</classname>
+			<description>The current value for this component</description>
+		</property>
+		<property el="false">
+			<name>var</name>
+			<classname>java.lang.String</classname>
+			<description>Attribute contains a name providing an access to data defined with value</description>
+		</property>		
+		&commonTreeClientListeners;
+		<property>
+			<name>showConnectingLines</name>
+			<classname>boolean</classname>
+			<description>If "true", connecting lines are show</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+
+		<property>
+			<name>preserveDataInRequest</name>
+			<classname>boolean</classname>
+			<description>If "true", data is preserved in a request. Default value is &quot;true&quot;.</description>
+			<defaultvalue>true</defaultvalue>
+		</property>
+		<property>
+			<name>ajaxSubmitSelection</name>
+			<classname>boolean</classname>
+			<description>If "true", an Ajax request to be submit when selecting node. Default value is &quot;false&quot;.</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		
+		<property>
+			<name>preserveModel</name>
+			<classname>java.lang.String</classname>
+			<description>Possible values are  &quot;state&quot;, &quot;request&quot;, &quot;none&quot;. Default value is &quot;request&quot;</description>	
+			<defaultvalue>"request"</defaultvalue>
+		</property>
+        <property>
+           <name>ondrop</name>
+           <classname>java.lang.String</classname>
+		   <description>It's an event that is called when something is dropped on a drop zone</description>
+        </property>
+        
+		<property>
+           <name>oncontextmenu</name>
+           <classname>java.lang.String</classname>
+           <description>JavaScript handler to be called on right click.
+		   Returning false prevents default browser context menu from being displayed</description>
+		</property>
+		<property>
+           <name>rightClickSelection</name>
+           <classname>boolean</classname>
+           <description>Allow to select tree item using mouse right click</description>
+		</property>
+		
+        <property hidden="true">
+        	<name>varState</name>
+        	<classname>java.lang.String</classname>
+        </property>
+        
+        <property hidden="true">
+        	<name>header</name>        	
+        </property>
+        
+        <property hidden="true">
+        	<name>footer</name>        	
+        </property>
+        
+        <property hidden="true">
+        	<name>rows</name>        	
+        </property>
+        
+        <property hidden="true">
+        	<name>first</name>        	
+        </property>
+        
+        <property hidden="true">
+        	<name>rowIndex</name>        	
+        </property>
+        
+        <property hidden="true">
+        	<name>rowKey</name>        	
+        </property>
+
+        <property>
+        	<name>dragValue</name>        	
+ 			<classname>java.lang.Object</classname>
+			<description>
+				Data to be sent to the drop zone after a drop event. Default value is &quot;getRowKey()&quot;.
+			</description>
+			<defaultvalue>getRowKey()</defaultvalue>
+        </property>
+
+        <property>
+        	<name>dropValue</name>        	
+ 			<classname>java.lang.Object</classname>
+			<description>
+				Data to be processed after a drop event. Default value is &quot;getRowKey()&quot;.
+			</description>
+			<defaultvalue>getRowKey()</defaultvalue>
+        </property>
+        
+        <property>
+			<name>toggleOnClick</name>
+			<classname>boolean</classname>
+			<description>
+				If "false" do not toggle node state on click.
+				If "true", than node will be toggles on click on ether node content, 
+				or node icon. 
+ 				Default value is &quot;false&quot;.
+			</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+
+		<property>
+			<name>stateAdvisor</name>
+			<classname>java.lang.Object</classname>
+			<description>
+ValueBinding pointing at instance of class implementing org.richfaces.component.state.TreeStateAdvisor interface.
+			</description>
+		</property>
+		<property>
+			<name>adviseNodeOpened</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description>
+MethodBinding pointing at a method accepting an org.richfaces.component.UITree with return of java.lang.Boolean type.
+If returned value is:
+java.lang.Boolean. TRUE, a particular treeNode is expanded;
+java.lang.Boolean.FALSE, a particular treeNode is collapsed;
+null, a particular treeNode saves the current state
+			</description>
+			<methodargs>org.richfaces.component.UITree</methodargs>
+			<returntype>java.lang.Boolean</returntype>
+		</property>
+		<property>
+			<name>adviseNodeSelected</name>
+			<classname>javax.faces.el.MethodBinding</classname>
+			<description>
+MethodBinding pointing at a method accepting an org.richfaces.component.UITree with return of java.lang.Boolean type.
+If returned value is:
+java.lang.Boolean. TRUE, a particular treeNode is selected;
+java.lang.Boolean.FALSE, a particular treeNode is unselected;
+null, a particular treeNode saves the current state
+			</description>
+			<methodargs>org.richfaces.component.UITree</methodargs>
+			<returntype>java.lang.Boolean</returntype>
+		</property>
+		
+		<property>
+			<name>cursorTypeMapping</name>
+			<classname>java.lang.Object</classname>
+			<description>
+				Mapping between drop types and acceptable cursors
+			</description>
+		</property>
+		
+		<property>
+			<name>grabCursors</name>
+			<classname>java.lang.String</classname>
+			<description>
+				List of comma separated cursors that indicates when you can grab and drag an object
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		
+		<property>
+			<name>grabbingCursors</name>
+			<classname>java.lang.String</classname>
+			<description>
+				List of comma separated cursors that indicates when you has grabbed something
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		
+		<property>
+			<name>acceptCursors</name>
+			<classname>java.lang.String</classname>
+			<description>
+				List of comma separated cursors that indicates when acceptable draggable over dropzone
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		
+		<property>
+			<name>rejectCursors</name>
+			<classname>java.lang.String</classname>
+			<description>
+				List of comma separated cursors that indicates when rejectable draggable over dropzone   
+			</description>
+			<defaultvalue>""</defaultvalue>
+		</property>
+		
+		<property>
+			<name>ajaxKeys</name>
+			<description>This attribute defines row keys that are updated after an AJAX request.</description>
+		</property>
+
+		<property>
+			<name>ajaxNodeKeys</name>
+			<description>Keys of the nodes (without subtree) to be updated for ajax request risen by the node itself</description>
+		</property>
+		
+		<property>
+			<name>rowKeyConverter</name>
+			<description>Converter for a row key object</description>
+		</property>
+		
+		<property>
+			<name>disableKeyboardNavigation</name>
+			<classname>boolean</classname>
+			<description>Disables keyboard navigation. Default value is "false"</description>
+		</property>
+		
+		<property>
+			<name>ajaxNodeSelectionEncodeBehavior</name>
+			<classname>java.lang.String</classname>
+			<description>Defines which nodes keys will be added to AjaxNodeKeys automatically on selecting ajax request from the node. Values: &quot;none&quot; - nothing, &quot;node&quot; - only current node, &quot;subtree&quot; - node and all its children.</description >
+		</property>
+
+		<property>
+			<name>ajaxChildActivationEncodeBehavior</name>
+			<classname>java.lang.String</classname>
+			<description>Defines which nodes keys will be added to AjaxNodeKeys automatically on the request from the children of the node. Values: &quot;none&quot; - nothing, &quot;node&quot; - only current node, &quot;subtree&quot; - node and all its children.</description>
+		</property>
+	</component>
+	
+	&listeners;
+	
+	<converter generate="false">
+		<id>org.richfaces.TreeRowKeyConverter</id>
+		<classname>org.richfaces.converter.TreeRowKeyConverter</classname>
+	</converter>
+
+	<converter generate="false">
+		<id>org.richfaces.TreeAdaptorRowKeyConverter</id>
+		<classname>org.richfaces.converter.TreeAdaptorRowKeyConverter</classname>
+	</converter>
+
+	<converter generate="false">
+		<id>org.richfaces.TreeAdaptorIntegerRowKeyConverter</id>
+		<classname>org.richfaces.converter.TreeAdaptorIntegerRowKeyConverter</classname>
+	</converter>
+</components>
+

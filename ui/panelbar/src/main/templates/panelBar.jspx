@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://ajax4jsf.org/cdk/template"
+	xmlns:vcp=" http://jsf.exadel.com/vcp"
+	xmlns:c=" http://java.sun.com/jsf/core"
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:h="http://jsf.exadel.com/header"
+	class="org.richfaces.renderkit.html.PanelBarRenderer"
+	baseclass="org.richfaces.renderkit.html.PanelBarRendererBase"
+	component="org.richfaces.component.UIPanelBar">
+
+	<h:styles>css/panelbar.xcss</h:styles>
+
+	<f:clientid var="clientId" />
+	
+	<div id="#{clientId}" class="dr-pnlbar rich-panelbar dr-pnlbar-b #{component.attributes['styleClass']}" style="padding: 0px; #{this:height(context, component)} #{this:width(context, component)} #{component.attributes['style']}">
+		<vcp:body>
+			<f:call name="renderChildren"/>
+		</vcp:body>
+		
+		<f:clientid var="clientId" />
+		<input type="hidden" name="#{clientId}" id="#{clientId}_panelBarInput"
+			value="#{this:expanded(context, component)}"/>
+		<f:call name="encodeScript"/>	
+	</div>
+
+</f:root>

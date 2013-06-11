@@ -1,0 +1,21 @@
+	if (this.${field2.name}) {
+	    return (this.${field1.name});
+	}
+	ValueExpression ve = getValueExpression("${property.name}");
+	if (ve != null) {
+	    ${wrapperClass.simpleName} value = null;
+	    
+	    try {
+			value = (${wrapperClass.simpleName}) ve.getValue(getFacesContext().getELContext());
+	    } catch (ELException e) {
+			throw new FacesException(e);
+	    }
+	    
+	    if (null == value) {
+			return (this.${field1.name});
+	    }
+	    
+	    return value;
+	} else {
+	    return (this.${field1.name});
+	}

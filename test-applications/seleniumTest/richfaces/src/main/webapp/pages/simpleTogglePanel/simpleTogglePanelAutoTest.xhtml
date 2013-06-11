@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.autoTestTemplate}">
+	<ui:define name="component">
+		<rich:simpleTogglePanel id="componentId" 
+							   actionListener="#{autoTestBean.actionListener}"
+							   immediate="#{autoTestBean.immediate}"
+							   ajaxSingle="#{autoTestBean.ajaxSingle}"
+							   reRender="#{autoTestBean.reRender}"
+							   limitToList="#{autoTestBean.limitToList}"
+							   bypassUpdates="#{autoTestBean.bypassUpdate}"
+							   rendered="#{autoTestBean.rendered}"
+							   oncomplete="#{autoTestBean.oncomplete}"
+							   process="#{autoTestBean.process}"
+							   switchType="ajax">
+				<f:param name="parameter1" value="value1" />
+				<f:param name="parameter2" value="value2" />
+				<f:param name="parameter3" value="value3" />
+				<f:actionListener type="org.ajax4jsf.autotest.bean.AutoTestListener" />
+				<f:facet name="closeMarker">
+					<h:outputText value="Close It" />
+	    		</f:facet>
+	    		<f:facet name="openMarker">
+					<h:outputText value="Open It" />
+	    		</f:facet>
+	    		<h:panelGroup id="content">
+		    		<h:inputText id="child" value="#{panelBean.content}" required="true" />
+		    	</h:panelGroup>
+			</rich:simpleTogglePanel>
+	</ui:define>
+</ui:composition>
+</html>

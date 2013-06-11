@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+			<h:inputHidden value="#{validationBean.input}"></h:inputHidden><br/>
+			<h:outputText id="status" value="#{validationBean.status}"></h:outputText>
+			<rich:panel>
+				<f:facet name="header">
+					<h:outputText value="#{validationBean.progressString}" id="progress" />
+				</f:facet>
+				<h:panelGrid columns="3">
+					<h:outputText value="Name:" />
+					<h:inputText value="#{validationBean.admin.name}" id="name">
+						<rich:beanValidator summary="Invalid name" />
+					</h:inputText>
+					<rich:message id="name_err_msg" for="name" />
+					<h:outputText value="Age:" />
+					<h:inputText value="#{validationBean.admin.age}" id="age">
+						<rich:beanValidator summary="Wrong age" />
+					</h:inputText>
+					<rich:message id="age_err_msg" for="age" />
+					<h:outputText value="Email:" />
+					<h:inputText value="#{validationBean.admin.email}" id="email">
+						<rich:beanValidator summary="Invalid email" />
+					</h:inputText>
+					<rich:message id="email_err_msg" for="email" />
+					<f:facet name="footer">
+						<a4j:commandButton id="_submit" value="Submit" action="#{validationBean.success}" reRender="progress, status" />
+					</f:facet>
+				</h:panelGrid>
+			</rich:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

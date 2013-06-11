@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd"
+[
+	<!ENTITY attributes SYSTEM "columnAttributes.ent">
+]
+>
+<components>
+	<component>
+		<name>org.richfaces.Column</name>
+		<family>org.richfaces.Column</family>
+		<classname>org.richfaces.component.html.HtmlColumn</classname>
+		<superclass>org.richfaces.component.UIColumn</superclass>
+		<test>
+			<classname>org.richfaces.component.html.HtmlColumnComponentTest</classname>
+			<superclassname>org.richfaces.component.AbstractColumnComponentTest</superclassname>
+		</test>
+		<description>
+			<![CDATA[The <rich:column> component for row rendering for a UIData component.]]>
+		</description>
+		<facet>
+		   <name>header</name>
+		   <description>Defines the header content</description>
+		</facet>		
+		<facet>
+		   <name>footer</name>
+		   <description>Defines the footer content</description>
+		</facet>	
+		<renderer generate="true" override="true">
+			<name>org.richfaces.renderkit.CellRenderer</name>
+			<classname>org.richfaces.renderkit.CellRenderer</classname>			
+		</renderer>
+		<tag>
+			<name>column</name>
+			<classname>org.richfaces.taglib.ColumnTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test/>
+		</tag>
+		<taghandler>
+			<classname>org.richfaces.taglib.ColumnTagHandler</classname>
+		</taghandler>
+		&attributes;
+	</component>
+</components>

@@ -1,0 +1,65 @@
+<?xml version="1.0"?><project>
+  <parent>
+    <artifactId>samples</artifactId>
+    <groupId>org.richfaces.sandbox</groupId>
+    <version>3.3.1.GA</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.richfaces.cdk.sandbox</groupId>
+  <artifactId>maven-rd-plugin-sample</artifactId>
+  <packaging>war</packaging>
+  <name>maven-rd-plugin-sample Maven Webapp</name>
+  <version>3.3.1.GA</version>
+  
+   <pluginRepositories>
+    <pluginRepository>
+      <id>jboss central</id>
+      <name>Maven Plugin Repository</name>
+      <url>http://repository.jboss.org/maven2</url>
+    </pluginRepository>
+  </pluginRepositories>
+  
+  <build>
+    <finalName>maven-rd-plugin-sample</finalName>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <artifactId>maven-resource-dependency-plugin</artifactId>
+        <groupId>org.richfaces.cdk</groupId>
+ 		<version>3.3.1.GA</version>
+ 		<configuration>
+ 			 <scriptFilePath>scripts/custom-dependencies.js</scriptFilePath>
+ 			 <styleFilePath>css/custom-dependencies.xcss</styleFilePath>
+ 		</configuration>
+  		<executions>
+	  		<execution>
+				<phase>generate-resources</phase>
+				<goals>
+					<goal>assembly-resources</goal>
+				</goals>
+			</execution>
+		</executions>
+	  </plugin>
+   </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.richfaces.ui</groupId>
+      <artifactId>richfaces-ui</artifactId>
+      <version>3.3.1.GA</version>
+    </dependency>
+  </dependencies>
+</project>

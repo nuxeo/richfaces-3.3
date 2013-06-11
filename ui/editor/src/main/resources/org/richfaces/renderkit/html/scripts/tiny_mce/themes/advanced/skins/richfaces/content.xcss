@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim><![CDATA[
+body, td, pre {margin:8px;}
+h1 {font-size: 2em}
+h2 {font-size: 1.5em}
+h3 {font-size: 1.17em}
+h4 {font-size: 1em}
+h5 {font-size: .83em}
+h6 {font-size: .75em}
+a.mceItemAnchor {width:12px; line-height:6px; overflow:hidden; padding-left:12px; }
+img.mceItemAnchor {width:12px; height:12px; }
+img {border:0;}
+table {cursor:default}
+table td, table th {cursor:text}
+]]>
+</f:verbatim>
+
+<u:selector name="body, td, pre">
+	<u:style name="color" skin="generalTextColor"/>
+	<u:style name="font-family" skin="generalFamilyFont"/>
+	<u:style name="font-size" skin="generalSizeFont"/>
+</u:selector>
+
+<u:selector name="body">
+	<u:style name="background" skin="tableBackgroundColor"/>
+</u:selector>
+
+<u:selector name="body.mceForceColors">
+	<u:style name="color" skin="generalTextColor"/>
+	<u:style name="background" skin="tableBackgroundColor"/>
+	<u:style name="font-size" skin="generalSizeFont"/>
+</u:selector>
+
+<u:selector name=".mceItemTable, .mceItemTable td, .mceItemTable th, .mceItemTable caption, .mceItemVisualAid">
+	<u:style name="border-width" value="1px"/>
+	<u:style name="border-style" value="dashed"/>
+	<u:style name="border-color" skin="tableBorderColor"/>
+	<u:style name="background" skin="tableBackgroundColor"/>
+	<u:style name="font-size" skin="generalSizeFont"/>
+</u:selector>
+
+<u:selector name="a.mceItemAnchor">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/themes/advanced/skins/default/img/items.gif"/>
+	</u:style>
+	<u:style name="background-repeat" value="no-repeat"/>
+	<u:style name="background-position" value="bottom left"/>
+</u:selector>
+
+<u:selector name="img.mceItemAnchor">
+	<u:style name="background-image">
+		<f:resource f:key="/org/richfaces/renderkit/html/scripts/tiny_mce/themes/advanced/skins/default/img/items.gif"/>
+	</u:style>
+	<u:style name="background-repeat" value="no-repeat"/>
+	<u:style name="background-position" value="no-repeat"/>
+</u:selector>
+
+<u:selector name="ins">
+	<u:style name="border-bottom-width" value="1px"/>
+	<u:style name="border-bottom-style" value="solid"/>
+	<u:style name="border-bottom-color" value="green"/>
+	<u:style name="text-decoration" value="none"/>
+	<u:style name="color" value="green"/>
+</u:selector>
+
+<u:selector name="del">
+	<u:style name="text-decoration" value="line-through"/>
+	<u:style name="color" value="red"/>
+</u:selector>
+
+<u:selector name="cite">
+	<u:style name="border-bottom-width" value="1px"/>
+	<u:style name="border-bottom-style" value="dashed"/>
+	<u:style name="border-bottom-color" value="blue"/>	
+</u:selector>
+
+<u:selector name="acronym">
+	<u:style name="border-bottom-width" value="1px"/>
+	<u:style name="border-bottom-style" value="dotted"/>
+	<u:style name="border-bottom-color" value="#CCC"/>	
+	<u:style name="cursor" value="help"/>
+</u:selector>
+
+<u:selector name="abbr, html\:abbr">
+	<u:style name="border-bottom-width" value="1px"/>
+	<u:style name="border-bottom-style" value="dashed"/>
+	<u:style name="border-bottom-color" value="#CCC"/>	
+	<u:style name="cursor" value="help"/>
+</u:selector>
+
+/* IE */
+<u:selector name="* html body">
+	<u:style name="scrollbar-3dlight-color" value="#F0F0EE"/>
+	<u:style name="scrollbar-arrow-color" value="#676662"/>
+	<u:style name="scrollbar-base-color" value="#F0F0EE"/>	
+	<u:style name="scrollbar-darkshadow-color" value="#DDD"/>
+	<u:style name="scrollbar-face-color" value="#E0E0DD"/>
+	<u:style name="scrollbar-highlight-color" value="#F0F0EE"/>
+	<u:style name="scrollbar-shadow-color" value="#F0F0EE"/>	
+	<u:style name="scrollbar-track-color" value="#F5F5F5"/>
+</u:selector>
+
+/* RF: custom styles */
+
+<f:verbatim><![CDATA[
+.bold-larger {
+	font-weight: bold;
+	font-size: larger;
+}
+.bold-smaller {
+	font-weight: bold;
+	font-size: smaller;
+}
+.red-bold {
+	font-weight: bold;
+	color: red;
+}
+.red-bold-larger {
+	font-weight: bold;
+	font-size: larger;
+	color: red;
+}
+.red-bold-smaller {
+	font-weight: bold;
+	font-size: smaller;
+	color: red;
+}
+]]>
+</f:verbatim>
+
+</f:template>

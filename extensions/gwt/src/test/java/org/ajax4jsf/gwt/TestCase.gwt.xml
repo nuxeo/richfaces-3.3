@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+
+   <!-- Inherit the JUnit support -->
+   <inherits name='org.ajax4jsf.gwt.JUnit'/>
+	<source path="client"/>
+</module>

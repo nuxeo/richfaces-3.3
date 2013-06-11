@@ -1,0 +1,39 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                template="layout/template.xhtml"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:c="http://java.sun.com/jstl/core">
+
+<ui:define name="body">
+
+
+    <h:messages globalOnly="true" styleClass="message"/>
+    
+
+    
+    <rich:panel>
+    <f:facet name="header">rich:fileUpload</f:facet>
+
+     <h:outputText value="Simple rich:fileUpload" />
+	<rich:fileUpload fileUploadListener="#{fileUpload.fileUploadListener}"
+	uploadData="#{fileUpload.data}"
+	
+	 immediateUpload="true"/>
+
+<rich:panel>
+<ui:repeat value="#{fileUpload.strFilesDirs}" var="files">
+<img src="img/fileUploadImages/#{files}" width="200" height="200" />
+</ui:repeat>
+</rich:panel>
+
+    </rich:panel>
+
+    
+</ui:define> 
+</ui:composition>

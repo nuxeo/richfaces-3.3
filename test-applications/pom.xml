@@ -1,0 +1,176 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+    		<artifactId>samples</artifactId>
+    		<groupId>org.richfaces</groupId>
+	    	<version>3.3.1.GA</version>
+		<relativePath>../samples</relativePath>
+	</parent>
+
+	<repositories>
+		<!--repository>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+			
+			<id>maven2-snapshots.exadel.com</id>
+			<name>Exadel Repository for Maven Snapshots</name>
+			<url>http://maven.exadel.com/</url>
+			<layout>default</layout>
+		</repository-->
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+			
+			<id>snapshots.jboss.org</id>
+			<name>JBoss snapshots repository</name>
+			<url>http://snapshots.jboss.org/maven2/</url>
+			<layout>default</layout>
+		</repository>
+
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			
+			<id>jboss.org</id>
+			<name>JBoss repository</name>
+			<url>http://repository.jboss.org/maven2/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.richfaces</groupId>
+	<artifactId>test-applications</artifactId>
+	<packaging>pom</packaging>
+	<version>3.3.1.GA</version>
+	<name>RichFaces Test Applications</name>
+
+	<properties>
+		<rfVersion>3.3.1.GA</rfVersion>
+	</properties>
+
+	<modules>
+		<module>jsp</module>
+		<module>facelets</module>		
+		<module>automator</module>
+	</modules>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<dependencies>
+		<dependency>
+    			<artifactId>richfaces-ui</artifactId>
+    			<groupId>org.richfaces.ui</groupId>
+	    		<version>${rfVersion}</version>
+		</dependency>
+		<dependency>
+    			<artifactId>richfaces-impl</artifactId>
+    			<groupId>org.richfaces.framework</groupId>
+	    		<version>${rfVersion}</version>
+		</dependency>
+		<dependency>
+    			<artifactId>richfaces-api</artifactId>
+    			<groupId>org.richfaces.framework</groupId>
+	    		<version>${rfVersion}</version>
+		</dependency>
+		<dependency>
+			  <artifactId>servlet-api</artifactId>
+			  <groupId>javax.servlet</groupId>
+			  <version>2.5</version>
+		</dependency>
+		<dependency>
+		    	  <groupId>javax.el</groupId> 
+ 		        <artifactId>el-api</artifactId> 
+			  <version>1.0</version> 
+		        <scope>provided</scope> 
+		</dependency>
+	    <dependency>
+	      <groupId>com.uwyn</groupId>
+	      <artifactId>jhighlight</artifactId>
+	      <version>1.0</version>
+	      <optional>true</optional>
+	    </dependency>
+	    <dependency>
+	      <groupId>org.hibernate</groupId>
+	      <artifactId>hibernate-validator</artifactId>
+	      <version>3.1.0.CR1</version>
+	    </dependency>
+		<dependency>
+			  <groupId>org.slf4j</groupId> 
+			  <artifactId>slf4j-simple</artifactId> 
+			  <version>1.4.2</version> 
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>myfaces</id>
+			<dependencies>
+				<dependency>
+					<artifactId>richfaces-ui</artifactId>
+					<groupId>org.richfaces.ui</groupId>
+					<version>${rfVersion}</version>
+					<exclusions>
+						<exclusion>
+							<groupId>javax.faces</groupId>
+							<artifactId>jsf-api</artifactId>
+						</exclusion>
+						<exclusion>
+							<groupId>javax.faces</groupId>
+							<artifactId>jsf-impl</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+				<dependency>
+					<artifactId>richfaces-impl</artifactId>
+					<groupId>org.richfaces.framework</groupId>
+					<version>${rfVersion}</version>
+					<exclusions>
+						<exclusion>
+							<groupId>javax.faces</groupId>
+							<artifactId>jsf-api</artifactId>
+						</exclusion>
+						<exclusion>
+							<groupId>javax.faces</groupId>
+							<artifactId>jsf-impl</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+				<dependency>
+					<artifactId>richfaces-api</artifactId>
+					<groupId>org.richfaces.framework</groupId>
+					<version>${rfVersion}</version>
+					<exclusions>
+						<exclusion>
+							<groupId>javax.faces</groupId>
+							<artifactId>jsf-api</artifactId>
+						</exclusion>
+						<exclusion>
+							<groupId>javax.faces</groupId>
+							<artifactId>jsf-impl</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+</project>

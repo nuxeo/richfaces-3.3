@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="autoTestForm">
+            <rich:colorPicker 
+                id="componentId"
+                value="#{colorPickerBean.value}"
+                
+                
+                onclick="EventQueue.fire('onclick')"
+                onmousedown="EventQueue.fire('onmousedown')"
+                onmousemove="EventQueue.fire('onmousemove')"
+                onmouseup="EventQueue.fire('onmouseup')"
+                onmouseout="EventQueue.fire('onmouseout')"
+                onmouseover="EventQueue.fire('onmouseover')"
+                onkeydown="EventQueue.fire('onkeydown')"
+                onkeypress="EventQueue.fire('onkeypress')"
+                onkeyup="EventQueue.fire('onkeyup')"
+            />   
+                     
+			<a4j:commandButton id="submit" value="Submit" reRender="outputPanel"></a4j:commandButton>
+		</h:form>
+
+		<a4j:outputPanel id="outputPanel">
+			<h:outputText id="value" value="#{colorPickerBean.value}"></h:outputText>
+			<h:outputText id="trace" value="#{colorPickerBean.trace}"></h:outputText>
+			<rich:message id="message" for="comboBox"></rich:message>
+		</a4j:outputPanel>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<hr />
+<h:form id="_Selenium_Test_Template_Form">
+<h:inputHidden id="_r_method_name" value="#{templateBean.methodName}"></h:inputHidden>
+<table style="background-color: #F2F2F2">
+<tr>
+<td>
+Current Template:
+</td>
+<td>
+	<h:selectOneMenu value="#{templateBean.templateId}" id="_Selenium_Test_Template_id">
+		<f:selectItems value="#{templateBean.availableTemplates}" />
+	</h:selectOneMenu>
+</td>
+<td>
+	<h:commandLink id="_Selenium_Test_loadTemplate" actionListener="#{templateBean.reset}" value="Load"></h:commandLink>
+</td>
+</tr>
+</table>
+</h:form>
+<h:form id="_Selenium_Test_ReRender_Form">
+<div>
+	<a href="#{facesContext.externalContext.requestContextPath}/faces/TIDY/index.xhtml">Home</a>
+</div>
+<div>
+	<a4j:commandLink reRender="_Selenium_Test_Common_Grid" value="ReRenderAll" id="_reRender"/>
+</div>
+</h:form>
+</html>

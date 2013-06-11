@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: asmirnov
+Build-Jdk: 1.5.0_11
+Class-Path: commons-logging-1.0.3.jar richfaces-api-3.1.1-SNAPSHOT.jar
+  commons-collections-3.2.jar commons-beanutils-1.7.0.jar
+

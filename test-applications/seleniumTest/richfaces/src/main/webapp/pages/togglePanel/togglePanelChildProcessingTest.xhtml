@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<ui:composition template="#{templateBean.template}">
+		<ui:define name="component">
+			<h:form id="mainForm">
+				
+				<h:panelGroup>
+					<rich:togglePanel id="_ajax_panel" style="border: 1px solid blue; width: 200px;" label="Switch type: #{panelBean.switchType}" switchType="#{panelBean.switchType}" initialState="none" stateOrder="none,one">
+						<f:facet name="none">
+							<h:outputText value="none"/>
+						</f:facet>
+						<f:facet name="one">
+							<h:inputText id="_child" value="#{panelBean.content}" required="true"/>
+						</f:facet>
+					</rich:togglePanel>
+					<rich:toggleControl id="_ajax_switch" for="_ajax_panel"  actionListener="#{panelBean.actionListener}">
+                		<h:outputText value="click me" />
+            		</rich:toggleControl>
+				</h:panelGroup>
+				
+				<br></br>
+				<h:outputText value="Result: " />
+				<h:outputText id="_result" value="#{panelBean.value2}"/>
+				<br></br>				
+							
+				<h:panelGroup>
+					<a4j:commandButton id="_ajax_submit" action="#{panelBean.increment}" value="ajax_submit" reRender="_result, _ajax_panel"/> 
+					<h:commandButton id="_server_submit" action="#{panelBean.increment}" value="server_submit"/>
+				</h:panelGroup>
+					
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</html>	

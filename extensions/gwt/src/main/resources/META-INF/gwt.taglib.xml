@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE facelet-taglib PUBLIC
+  "-//Sun Microsystems, Inc.//DTD Facelet Taglib 1.0//EN"
+  "http://java.sun.com/dtd/facelet-taglib_1_0.dtd">
+<facelet-taglib xmlns="http://java.sun.com/JSF/Facelet">
+	<namespace>https://ajax4jsf.dev.java.net/gwt</namespace>
+	<!-- Tag for creating base GWT page with necessary structure -->
+	<tag>
+		<tag-name>page</tag-name>
+		<component>
+			<component-type>org.ajax4jsf.gwt.Page</component-type>
+			<renderer-type>org.ajax4jsf.gwt.Page</renderer-type>
+		</component>
+	</tag>
+	<tag>
+		<tag-name>widget</tag-name>
+		<component>
+			<component-type>org.ajax4jsf.gwt.Widget</component-type>
+			<renderer-type>org.ajax4jsf.gwt.WidgetWithFacets</renderer-type>
+		</component>
+	</tag>
+	<tag>
+		<tag-name>gwtListener</tag-name>
+		<handler-class>org.ajax4jsf.gwt.jsf.GwtListenerHandler</handler-class>
+	</tag>
+</facelet-taglib>

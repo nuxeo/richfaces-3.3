@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+		.link {margin: 0px 5px}
+	</ui:define>
+	<ui:define name="component">
+	<script>
+		var theLatestEvent = "";
+	</script>
+		<h:form id="attrFormId">
+			<h:outputText value="orderControlsVisible" />
+			<h:selectBooleanCheckbox id="orderControlsVisibleId" value="#{orderingListBean.orderControlsVisible}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+			<h:outputText value="showButtonLabels" />
+			<h:selectBooleanCheckbox id="showButtonLabelsId" value="#{orderingListBean.showButtonLabels}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+			<h:outputText value="rendered" />
+			<h:selectBooleanCheckbox id="renderedId" value="#{orderingListBean.rendered}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+			<h:outputText value="immediate" />
+			<h:selectBooleanCheckbox id="immediateId" value="#{orderingListBean.immediate}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+			<h:outputText value="attrValidator" />
+			<h:selectBooleanCheckbox id="attrValidatorId" value="#{orderingListBean.attrValidator}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+			<h:outputText value="tagValidator" />
+			<h:selectBooleanCheckbox id="tagValidatorId" value="#{orderingListBean.tagValidator}">
+				<a4j:support event="onchange" />
+			</h:selectBooleanCheckbox>
+	</h:form>
+	<h:form id="_form">
+		<h:panelGroup id="orderingListPanel" >
+		<h:inputText id="requiredInputId" value="#{orderingListBean.string}" required="true" immediate="true"></h:inputText>
+			<rich:orderingList id="orderingList" 
+					rendered="#{orderingListBean.rendered}"
+					converter="listShuttleconverter"
+					value="#{orderingListBean.items}" var="item" 
+					captionLabel="Caption Label"
+					
+					selection="#{orderingListBean.selection}" 
+					activeItem="#{orderingListBean.activeItem}"
+					
+					onbottomclick="theLatestEvent = 'bottom';"
+					ondownclick="theLatestEvent = 'down';"
+					ontopclick="theLatestEvent = 'top';"
+					onupclick="theLatestEvent = 'up';"
+					onorderchanged="theLatestEvent += ' orderchanged';"
+					orderControlsVisible="#{orderingListBean.orderControlsVisible}"
+					fastOrderControlsVisible="#{orderingListBean.orderControlsVisible}"
+					showButtonLabels="#{orderingListBean.showButtonLabels}"
+					valueChangeListener="#{orderingListBean.valueChangeListener}"
+					styleClass="noname"
+					style="color: blue; text-decoration: underline;"
+					onclick="EventQueue.fire('onclick')"
+					ondblclick="EventQueue.fire('ondblclick')"
+					onmousemove="EventQueue.fire('onmousemove')"
+					onmouseout="EventQueue.fire('onmouseout')"
+					onmouseover="EventQueue.fire('onmouseover')"
+					validator="#{orderingListBean.validate}" 
+		            >
+		            	<f:validator validatorId="validatorWithAttribute" />
+		            	<f:attribute name="failed" value="#{orderingListBean.tagValidator}"/>
+			    <f:facet name="caption"><h:outputText value="Caption Faset" /></f:facet>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name" />
+					</f:facet>
+					<h:outputText value="#{item.name}" id="output" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ajax Action" />
+					</f:facet>
+					<a4j:commandButton action="#{item.action}" value="Ajax Action" reRender="results"
+						 id="#{item.name}_ajax" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Server Action" />
+					</f:facet>
+					<h:commandLink value="Server Action" action="#{item.action}" id="#{item.name}_server" />
+				</h:column>
+			</rich:orderingList>
+			<h:outputText value="Value was changed:" />
+			<h:outputText id="valueChangedId" value="#{orderingListBean.valueChanged}" />
+		    <h:dataTable id="tableId" value="#{orderingListBean.items}" var="items">
+	            <h:column>
+	                <h:outputText value="#{items.name}"></h:outputText>
+	            </h:column>
+	       	</h:dataTable>
+		</h:panelGroup>
+		<br/>
+		<h:panelGroup id="results" >
+			<h:outputText value="#{orderingListBean.actionResult}" id="actionResult" /><br />
+			<h:outputText value="#{orderingListBean.selectionString}" id="selection" /><br />
+			<h:outputText value="#{orderingListBean.activeItem}" id="activeItem" /><br />
+			<rich:messages id="messages" />
+		</h:panelGroup>
+		<br/>
+		<a4j:commandLink id="submitId" value="Submit" reRender="orderingListPanel,results" ></a4j:commandLink><br/>
+	</h:form>		
+	<h:form id="testRequiredAndImmediate">
+		<h:inputText id="inputTextId" value="#{orderingListBean.string}" immediate="true" required="true" requiredMessage="Input is required"></h:inputText>
+		<rich:orderingList immediate="#{orderingListBean.immediate}" required="true"></rich:orderingList>
+		<a4j:commandButton id="submit" value="test" reRender="testRequiredAndImmediate" />
+	</h:form>		
+	<rich:orderingList id="testControlFacets">
+	    <f:facet name="caption"><h:outputText value="Caption Faset" /></f:facet>
+	    <f:facet name="topControl"> <h:outputText id="topControlFacet" value="topControlFacet" /></f:facet>
+	    <f:facet name="topControlDisabled"> <h:outputText id="topControlDisabledFacet" value="topControlDisabledFacet" /></f:facet>
+	    <f:facet name="bottomControl"> <h:outputText id="bottomControlFacet" value="bottomControlFacet" /></f:facet>
+	    <f:facet name="bottomControlDisabled"> <h:outputText id="bottomControlDisabledFacet" value="bottomControlDisabledFacet" /></f:facet>
+	    <f:facet name="upControl"> <h:outputText id="upControlFacet" value="upControlFacet" /></f:facet>
+	    <f:facet name="upControlDisabled"> <h:outputText id="upControlDisabledFacet" value="upControlDisabledFacet" /></f:facet>
+	    <f:facet name="downControl"> <h:outputText id="downControlFacet" value="downControlFacet" /></f:facet>
+	    <f:facet name="downControlDisabled"> <h:outputText id="downControlDisabledFacet" value="downControlDisabledFacet" /></f:facet>
+	</rich:orderingList>
+	</ui:define>
+</ui:composition>
+</html>

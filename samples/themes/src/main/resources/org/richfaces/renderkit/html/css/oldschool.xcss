@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml">
+	<u:selector name="body">
+		<u:style name="background" skin="generalBackgroundColor"/>
+		<u:style name="margin" value="0px"/>
+	</u:selector>
+
+	<u:selector name=".header_bg">
+		<u:style name="background-image">
+		    <!-- images/bg_header.png -->
+			<f:resource f:key="org.richfaces.theme.images.HeaderBackground"/>
+		</u:style>
+		<u:style name="border-bottom" value="1px solid" />
+		<u:style name="border-bottom-color" skin="generalBackgroundColor" />
+		<u:style name="background-color" skin="headerBackgroundColor"/>
+		<u:style name="background-repeat" value="repeat-x"/>
+		<u:style name="background-position" value="top left"/>
+	</u:selector>
+
+	<u:selector name=".footer_bg">
+		<u:style name="background-image">
+		    <!-- images/bg_footer.png -->
+			<f:resource f:key="org.richfaces.theme.images.FooterBackground"/>
+		</u:style>
+		<u:style name="border-top" value="1px solid" />
+		<u:style name="border-top-color" skin="generalBackgroundColor" />
+		<u:style name="background-color" skin="panelBorderColor"/>
+		<u:style name="background-repeat" value="repeat-x"/>
+		<u:style name="background-position" value="center left"/>
+	</u:selector>
+
+	<u:selector name=".menu_col">
+		<u:style name="background" skin="generalBackgroundColor"/>
+		<u:style name="vertical-align" value="top"/>
+		<u:style name="border-top" value="2px solid" />
+		<u:style name="border-top-color" skin="panelBorderColor" />
+		<u:style name="border-right" value="2px solid" />
+		<u:style name="border-right-color" skin="panelBorderColor" />
+		<u:style name="border-bottom" value="2px solid" />
+		<u:style name="border-bottom-color" skin="panelBorderColor" />
+	</u:selector>
+
+	<u:selector name=".content_col">
+		<u:style name="background" skin="generalBackgroundColor"/>
+		<u:style name="vertical-align" value="top"/>
+		<u:style name="width" value="100%"/>
+		<u:style name="border-top" value="2px solid" />
+		<u:style name="border-top-color" skin="panelBorderColor" />
+		<u:style name="border-bottom" value="2px solid" />
+		<u:style name="border-bottom-color" skin="panelBorderColor" />
+	</u:selector>
+	<u:selector name="*.menu_col, *.content_col, *.footer_bg">
+			<u:style name="font-family" skin="generalFamilyFont" />
+			<u:style name="color" skin="generalTextColor" />
+			<u:style name="font-size" skin="generalSizeFont" />	
+	</u:selector>
+	<u:selector name="*.header_content">
+			<u:style name="font-family" skin="headerFamilyFont" />
+			<u:style name="color" skin="headerTextColor" />
+			<u:style name="font-size" skin="headerSizeFont" />	
+	</u:selector>
+	<f:verbatim>
+		<![CDATA[
+/*.menu_width{width : 300px;}*/
+
+
+.page_size {
+	width : 100%; 
+	height : 100%;
+}
+
+
+.header_content {
+	margin : 0px 0px 0px 0px; 
+	height : 95px; position : relative;
+}
+
+.spacer{font-size : 1px;}
+
+
+.footer_bg_content {
+	margin : 0px 0px 0px 0px; 
+	height : 45px; 
+	position : relative;
+}
+		]]>
+	</f:verbatim>
+</f:template>

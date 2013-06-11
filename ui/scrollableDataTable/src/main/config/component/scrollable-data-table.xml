@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+
+<components>
+	<component>
+		<name>org.richfaces.component.ScrollableDataTable</name>
+		<family>org.richfaces.component.ScrollableDataTable</family>
+	    <classname>
+            org.richfaces.component.html.HtmlScrollableDataTable
+        </classname>
+        <superclass>org.richfaces.component.UIScrollableDataTable</superclass>
+<!-- 
+        <test>
+			<classname>org.richfaces.component.html.HtmlScrollableGridTest</classname>
+			<superclassname>org.ajax4jsf.tests.AbstractAjax4JsfTestCase</superclassname>
+		</test>
+-->
+   		<description>
+   			<![CDATA[The <rich:scrollableDataTable> component is used for the table-like component creation. 
+   			The component just adds the set of additional features described below in comparison with the standard table. ]]>
+   		</description>
+		<facet>
+		   <name>header</name>
+		   <description>Defines the header content</description>
+		</facet>
+		<facet>
+		   <name>footer</name>
+		   <description>Defines the footer content</description>
+		</facet>
+		<test>
+			<classname>org.richfaces.component.html.HtmlScrollableDataTableComponentTest</classname>
+			<superclassname>org.richfaces.component.AbstractScrollableDataTableTestCase</superclassname>
+		</test>
+
+		<renderer generate="true" override="true">
+			<name>org.richfaces.renderkit.html.ScrollableDataTableRenderer</name> 
+			<template>org/richfaces/scrollable-data-table.jspx</template>
+		</renderer>
+		<tag>
+			<name>scrollableDataTable</name>
+			<classname>org.richfaces.taglib.ScrollableDataTableTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+			<test>
+				<classname>org.richfaces.taglib.ScrollableDataTableTagTest</classname>
+				<superclassname>org.ajax4jsf.tests.AbstractJspTestCase</superclassname>
+			</test>
+		</tag>
+		
+		<taghandler generate="false">
+			<classname>org.richfaces.taglib.ScrollableDataTableTagHandler</classname>
+		</taghandler>
+
+		<property>
+			<name>frozenColCount</name>
+			<classname>int</classname>
+			<description>
+			Defines the number of the fixed columns from the left side that will not be scrolled via horizontal scroll.
+			Default value is &quot;0&quot;.
+			</description>
+			<defaultvalue>0</defaultvalue>
+		</property>		
+		
+		<property>
+			<name>height</name>
+			<classname>java.lang.String</classname>
+			<description>Defines a height of the component. Default value is &quot;500px&quot;.</description>
+			<defaultvalue>"500px"</defaultvalue>
+		</property>		
+
+		<property elonly="true">
+			<name>componentState</name>
+			<classname>org.ajax4jsf.model.DataComponentState</classname>
+			<description>It defines EL-binding  for a component state for saving or redefinition</description>
+		</property>
+		
+		<property>
+			<name>width</name>
+			<classname>java.lang.String</classname>
+			<description>Defines a width of the component. Default value is &quot;700px&quot;.</description>
+			<defaultvalue>"700px"</defaultvalue>
+		</property>	
+		<property>
+			<name>rows</name>
+			<classname>int</classname>
+			<defaultvalue>40</defaultvalue>
+		</property>	
+		
+		<property>
+			<name>selectedClass</name>
+			<classname>java.lang.String</classname>
+			<description>Name of the CSS class for a selected row</description>
+		</property>	
+
+    <property>
+        <name>value</name>
+        <classname>java.lang.Object</classname>
+        <description>
+            The current value for this component
+        </description>
+    </property>
+		
+		<property>
+			<name>activeClass</name>
+			<classname>java.lang.String</classname>
+			<description>
+			A CSS class to be applied to an active row
+			</description>
+		</property>		
+		
+		<property>
+			<name>columnClasses</name>
+			<classname>java.lang.String</classname>
+		</property>	
+			
+		<property>
+			<name>rowClasses</name>
+			<classname>java.lang.String</classname>
+		</property>		
+		
+		<property>
+			<name>footerClass</name>
+			<classname>java.lang.String</classname>
+		</property>	
+					
+		<property>
+			<name>headerClass</name>
+			<classname>java.lang.String</classname>
+		</property>	
+			
+		<property>
+			<name>styleClass</name>
+			<classname>java.lang.String</classname>
+		</property>		
+		
+		<property>
+			<name>onselectionchange</name>
+			<classname>java.lang.String</classname>
+			<description>
+			HTML: script expression to invoke on changing of rows selection 
+			</description>
+		</property>		
+
+		<property attachedstate="true" elonly="true">
+			<name>sortOrder</name>
+			<classname>org.richfaces.model.SortOrder</classname>
+			<description>
+			ValueBinding pointing at a property of a class to manage rows sorting
+			</description>
+		</property>
+		
+		<property attachedstate="true" elonly="true">
+			<name>selection</name>
+			<classname>org.richfaces.model.selection.Selection</classname>
+			<description>Value binding representing selected rows</description>
+		</property>
+		
+		<property>
+			<name>hideWhenScrolling</name>
+			<classname>boolean</classname>
+			<description>
+			If &quot;true&quot; data will be hidden during scrolling. Can be used for increase performance.
+			Default value is &quot;false&quot;.
+			</description>
+			<defaultvalue>false</defaultvalue>
+		</property>
+		
+		<property>
+			<name>onRowClick</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: a script expression; a pointer button is clicked on row
+			</description>
+		</property>	
+
+		<property>
+			<name>rowKeyConverter</name>
+			<classname>javax.faces.convert.Converter</classname>
+			<description>Converter for a row key object</description>
+		</property>	
+		
+		<property>
+			<name>activeRowKey</name>
+			<classname>java.lang.Object</classname>
+			<description>Request scope attribute under which the activeRowKey will be accessible</description>
+		</property>		
+		
+		<property el="false">
+			<name>rowKeyVar</name>
+			<classname>java.lang.String</classname>
+			<description>The attribute provides access to a row key in a Request scope</description>
+		</property>
+		
+		
+		<property>
+			<name>sortMode</name>
+			<classname>java.lang.String</classname>
+			<description>
+			Defines mode of sorting. Possible values are 'single' for sorting of one column and 'multi' for some.
+			</description>
+		</property>
+		
+		<property>
+			<name>selectionMode</name>
+			<classname>org.richfaces.model.SelectionMode</classname>
+			<description>SelectionMode is an enumeration of the possible selection modes. Default value is &quot;multi&quot;</description>
+			<defaultvalue>SelectionMode.multi</defaultvalue>
+		</property>		
+
+		<property hidden="true" existintag="false" exist="false" >
+			<name>rowKey</name>
+			<classname>java.lang.Object</classname>
+			<description>The attribute is a representation of an identifier for a specific data row</description>
+		</property>
+		
+		<property el="false">
+			<name>scriptVar</name>
+			<classname>java.lang.String</classname>
+			<description>Name of JavaScript variable corresponding to component
+			</description>
+		</property>
+		
+		<property>
+			<name>onRowMouseDown</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: script expression; a pointer button is pressed down on row</description>
+		</property>	
+			
+		<property>
+			<name>onRowMouseUp</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: script expression; a pointer button is released on row</description>
+		</property>	
+			
+		<property>
+			<name>onRowDblClick</name>
+			<classname>java.lang.String</classname>
+			<description>HTML: a script expression; a pointer button is double-clicked on row
+			</description>
+		</property>	
+
+		<property el="false">
+			<name>stateVar</name>
+			<classname>java.lang.String</classname>
+			<description>
+				The attribute  provides access to a component state on the client side
+			</description>
+		</property>
+
+		<property hidden="true" elonly="true">
+            <name>sortListener</name>
+            <classname>org.richfaces.event.sort.SortListener</classname>
+	            
+            <description>
+                Value representing an scroll listener object that will be notified after sorting of rows
+            </description>
+        </property> 
+
+		<property elonly="true">
+			<name>ajaxKeys</name>
+			<classname>java.util.Set</classname>
+			<description>This attribute defines row keys that are updated after an AJAX request</description>
+		</property>
+
+		<property hidden="true">
+			<name>scrollPos</name>
+			<classname>java.lang.String</classname>
+			<description>Component internal property serving mainly to determine vertical scroll position</description>
+		</property>
+		
+		<property hidden="true">
+			<name>responseData</name>
+			<classname>java.util.Collection</classname>
+			<description>Component internal property serving mainly to determine vertical scroll position</description>
+		</property>
+		
+		&ajax_component_attributes;
+		&ui_component_attributes;
+		&ui_data_attributes;
+		&spec_table_attributes;
+		&html_style_attributes;
+
+		<property hidden="true">
+			<name>oncomplete</name>
+			<classname>java.lang.String</classname>
+		</property>
+
+		<property hidden="true">
+			<name>onbeforedomupdate</name>
+			<classname>java.lang.String</classname>
+		</property>
+
+		<property hidden="true">
+			<name>limitToList</name>
+			<classname>boolean</classname>
+		</property>
+		<property hidden="true">
+			<name>ajaxSingle</name>
+			<classname>boolean</classname>
+		</property>
+
+		<property hidden="true">
+	        <name>focus</name>
+	        <classname>java.lang.String</classname>
+	        <description>
+	            id of the element to set focus after request completed on client side
+	        </description>
+	    </property>
+	    
+		<property hidden="true">
+	        <name>process</name>
+	    </property>
+	</component>
+	
+	<renderer generate="true"> 
+		<template>org/richfaces/scrollable-data-table-cell.jspx</template>
+	</renderer>
+
+	<renderer generate="true"> 
+		<template>org/richfaces/scrollable-data-table-header-cell.jspx</template>
+	</renderer>
+	
+	<renderer generate="true"> 
+		<template>org/richfaces/scrollable-data-table-footer-cell.jspx</template>
+	</renderer>
+
+	<renderer generate="true"> 
+		<template>org/richfaces/scrollable-data-table-header-itself.jspx</template>
+	</renderer>
+	
+</components>		

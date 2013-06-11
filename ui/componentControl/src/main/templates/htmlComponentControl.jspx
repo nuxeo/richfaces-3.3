@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	class="org.richfaces.renderkit.html.ComponentControlRenderer"
+	baseclass="org.richfaces.renderkit.ComponentControlRendererBase"
+	component="org.richfaces.component.UIComponentControl" 
+	>
+	<h:scripts>/org/richfaces/renderkit/html/scripts/jquery/jquery.js,/org/richfaces/renderkit/html/script/controlUtils.js</h:scripts>
+	
+	<c:set var="event" value="#{component.attributes['event']}"/>
+	<c:set var="forAttr" value="#{component.attributes['for']}"/>
+	<c:set var="attachTiming" value="#{component.attributes['attachTiming']}"/>
+	<c:set var="attachTo" value="#{component.attributes['attachTo']}"/>
+	<c:set var="name" value="#{component.attributes['name']}"/>
+	<c:set var="operation" value="#{component.attributes['operation']}"/>
+	<c:set var="params" value="#{component.encodedParametersMap}"/>
+	
+	
+	<f:clientid var="clientId"/>
+	<jsp:scriptlet>
+<![CDATA[ 
+			String event = (String) variables.getVariable("event");
+			String forAttr = (String) variables.getVariable("forAttr");
+			String attachTiming = (String) variables.getVariable("attachTiming");
+			String attachTo = (String) variables.getVariable("attachTo");
+			String name = (String) variables.getVariable("name");
+			String operation = (String) variables.getVariable("operation");
+			         
+			checkValidity(clientId, name, attachTiming, forAttr, operation); 
+			variables.setVariable("forAttr", getUtils().escapeJavaScript(
+					replaceClientIds(context, component, forAttr)));
+			variables.setVariable("attachTo", replaceClientIds(context, component, attachTo));
+]]>
+</jsp:scriptlet>
+	
+<jsp:scriptlet><![CDATA[ if (! "".equals(name.trim()) ) { ]]></jsp:scriptlet>
+<script type="text/javascript">
+ //<![CDATA[
+function #{name}(cevent) {
+	Richfaces.componentControl.performOperation(
+	 cevent, '#{forAttr}', '#{operation}', function() { return {#{params}}; }, #{component.disableDefault} );
+}
+//]]>
+</script>
+<jsp:scriptlet><![CDATA[ } ]]></jsp:scriptlet>
+
+
+<jsp:scriptlet><![CDATA[ if (attachTo != null && attachTo.trim().length() != 0 && !"#".equals(attachTo)) { ]]>
+	attachEventAccordingToTimingOption(context, component);
+<![CDATA[ } ]]>
+</jsp:scriptlet>
+
+</f:root>

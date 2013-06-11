@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="component">
+		<h:form id="_form">
+			<a4j:region renderRegionOnly="true">
+			<rich:panel id="panel">
+                <f:facet name="header">
+                    <h:outputText value="User Info:" />
+                </f:facet>
+                <rich:graphValidator summary="Invalid values: ">
+                    <h:panelGrid columns="3">
+                        <h:outputText value="Name:" />
+                        <h:inputText value="#{validationBean.admin.name}" id="name">
+                            <f:validateLength minimum="2" />
+                        </h:inputText>
+                        <rich:message id="name_err_msg" for="name" />
+                        <h:outputText value="Email:" />
+                        <h:inputText value="#{validationBean.admin.email}" id="email" />
+                        <rich:message id="email_err_msg" for="email" />
+                        <h:outputText value="Age:" />
+                		<h:inputText value="#{validationBean.admin.age}" id="age" />
+                		<rich:message id="age_err_msg" for="age" />
+                    </h:panelGrid>
+                </rich:graphValidator>
+                <a4j:commandButton id="_save" value="Save" />
+            </rich:panel>
+            </a4j:region>
+		</h:form>
+		<br/>
+		<h:form id="_form1">
+			<a4j:region renderRegionOnly="true">
+			<rich:graphValidator summary="Invalid values: " value="#{validationBean.user.orderOfDay}">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Activity</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <a4j:repeat value="#{validationBean.user.orderOfDay.activities}" var="activity"
+                            id="table">
+                            <tr>
+                                <td align="center" width="100px"><h:outputText
+                                    value="#{activity.title}" /></td>
+                                <td align="center" width="100px"><rich:inputNumberSpinner
+                                    minValue="0" maxValue="24" value="#{activity.time}" id="time">
+                                </rich:inputNumberSpinner></td>
+                                <td><rich:message id="time_err_msg" for="time" /></td>
+                            </tr>
+                        </a4j:repeat>
+                    </tbody>
+                </table>
+            </rich:graphValidator>
+            <a4j:commandButton id="_save" value="Save"
+                actionListener="#{validationBean.storeOrderOfDay}" reRender="panel" />
+            <rich:messages id="all_messages" />
+            </a4j:region>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template
+    xmlns:f="http://jsf.exadel.com/template"
+    xmlns:u="http://jsf.exadel.com/template/util"
+    xmlns="http://www.w3.org/1999/xhtml">
+    
+	<u:selector name=".rich-fileupload-font">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-table-td">
+        <u:style name="border-bottom-color" skin="newBorder" />
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-list-decor">
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-anc">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-toolbar-decor">
+        <u:style name="background-color" skin="generalBackgroundColor" />
+        <u:style name="border-bottom-color" skin="newBorder" />
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-button-border">
+        <u:style name="border-color" skin="newBorder" />
+	</u:selector>
+	
+	
+	<u:selector name=".rich-fileupload-button-dis">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-enrty-dis">
+	</u:selector>
+	
+	<u:selector name="a.rich-fileupload-button-selection">
+        <u:style name="font-weight" value="bold" />
+        <u:style name="color" skin="headerTextColor" />
+	</u:selector>
+
+	<u:selector name=".rich-fileupload-button">
+        <u:style name="font-weight" value="bold" />
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="color" skin="headerTextColor" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="18px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+	
+	<u:selector name=".rich-fileupload-button-light">
+        <u:style name="font-weight" value="bold" />
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="color" skin="headerTextColor" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="18px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+	
+	<u:selector name=".rich-fileupload-button-press">
+        <u:style name="font-weight" value="bold" />
+        <u:style name="background-position" value="0% 50%" />
+        <u:style name="color" skin="headerTextColor" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="18px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+            </f:resource>
+        </u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-ico-add">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-ico-add-dis">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-ico-start">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-ico-start-dis">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-ico-stop">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-ico-clear">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-ico-clear-dis">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-hidden">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-ico">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-name-padding">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-button-content">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-scroll">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-del">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-name">
+	</u:selector>
+	
+	<u:selector name=".rich-fileupload-list-overflow">
+        <u:style name="background-color" skin="generalBackgroundColor" />
+	</u:selector>
+
+</f:template>

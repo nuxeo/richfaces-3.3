@@ -1,0 +1,16 @@
+
+    public void doEncodeChildren(ResponseWriter writer, FacesContext context, UIComponent component) throws IOException {
+		ComponentVariables variables = ComponentsVariableResolver.getVariables(this, component);
+		doEncodeChildren(writer, context, (${component.componentClass})component, variables );
+	}		
+
+    public void doEncodeChildren(ResponseWriter writer, FacesContext context, ${component.componentClass} component, ComponentVariables variables) throws IOException {
+	    ${body}
+	}		
+
+	/* (non-Javadoc)
+	 * @see javax.faces.render.Renderer#getRendersChildren()
+	 */
+	public boolean getRendersChildren() {
+		return true;
+	}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+<!DOCTYPE digester-rules SYSTEM "digester-rules.dtd">
+ -->
+
+<digester-rules>
+	<pattern value="*/project">
+		<object-create-rule classname="org.richfaces.model.Project" />
+		<set-next-rule methodname="add" />
+		<set-properties-rule>
+			<alias attr-name="name" prop-name="name" />
+		</set-properties-rule>
+	</pattern>
+
+	<pattern value="*/sourceDirectory">
+		<object-create-rule classname="org.richfaces.model.SourceDirectory" />
+		<set-next-rule methodname="addSrcDir" />
+		<set-properties-rule>
+			<alias attr-name="name" prop-name="name" />
+		</set-properties-rule>
+	</pattern>
+
+	<pattern value="*/directory">
+		<object-create-rule classname="org.richfaces.model.Directory" />
+		<set-next-rule methodname="addDir" />
+		<set-properties-rule>
+			<alias attr-name="name" prop-name="name" />
+		</set-properties-rule>
+	</pattern>
+
+	<pattern value="*/file">
+		<object-create-rule classname="org.richfaces.model.File" />
+		<set-next-rule methodname="addFile" />
+		<set-properties-rule>
+			<alias attr-name="name" prop-name="name" />
+		</set-properties-rule>
+	</pattern>
+
+	<pattern value="*/archive">
+		<object-create-rule classname="org.richfaces.model.ArchiveFile" />
+		<set-next-rule methodname="addFile" />
+		<set-properties-rule>
+			<alias attr-name="name" prop-name="name" />
+		</set-properties-rule>
+	</pattern>
+
+	<pattern value="*/archiveEntry">
+		<object-create-rule classname="org.richfaces.model.ArchiveEntry" />
+		<set-next-rule methodname="addArchiveEntry" />
+		<set-properties-rule>
+			<alias attr-name="name" prop-name="name" />
+		</set-properties-rule>
+	</pattern>
+
+	<pattern value="*/package">
+		<object-create-rule classname="org.richfaces.model.Package" />
+		<set-next-rule methodname="addPackage" />
+		<set-properties-rule>
+			<alias attr-name="name" prop-name="name" />
+		</set-properties-rule>
+	</pattern>
+
+	<pattern value="*/class">
+		<object-create-rule classname="org.richfaces.model.Class" />
+		<set-next-rule methodname="addClass" />
+		<set-properties-rule>
+			<alias attr-name="name" prop-name="name" />
+		</set-properties-rule>
+	</pattern>
+</digester-rules>

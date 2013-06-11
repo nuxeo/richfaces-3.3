@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim>
+	<![CDATA[
+	
+	/***
+	TODO: check for duplicates!!
+	***/
+	
+	
+	.rich-inplace {
+		position:relative;
+	}
+	
+	.rich-inplace-changed {
+		background-position:left top;
+		background-repeat:no-repeat;
+		/*padding-left:3px;
+		padding-right:3px;*/
+		border-bottom-width: 1px;
+		border-bottom-style: dashed;
+		white-space:nowrap;
+	}
+	
+	.rich-inplace-view {
+		border-bottom-width: 1px;
+		border-bottom-style: dashed;
+		/*padding-left:3px;
+		padding-right:3px;*/
+		white-space:nowrap;
+	}
+	
+	.rich-inplace-edit {
+		/*position:relative;*/
+	}
+	
+	input.rich-inplace-field {
+		border-width: 1px;
+		border-style: inset;
+		margin:0px;
+		padding:0px 0px 0px 0px;
+		position: absolute;
+		top:0px;
+		left:0px;
+		font: inherit;
+	}
+		
+	.rich-inplace-input-view-hover {
+		color: blue;
+	}
+	
+	.rich-inplace-input-changed-hover {
+		color: red;
+	}
+	
+	.rich-inplace-input-strut {
+		height : 1px;
+	}
+	
+	.rich-inplace-control{
+		background-position: top;
+		background-repeat: repeat-x;
+		border-width : 1px;
+		border-style:  outset; 
+		padding : 0px; 
+		margin : 0px;
+	}
+	
+	.rich-inplace-controls-press {
+		background-position: top;
+		background-repeat: repeat-x;
+		border-width: 1px;
+		border-style: inset; 
+		padding : 0px; 
+		margin : 0px;
+	}
+	
+	.rich-inplace-input-controls-set {
+		white-space : nowrap;
+		z-index: 3;
+	}
+	
+	
+	.rich-inplace-shadow {
+		position : absolute;
+		font-size: 11px;
+	}
+	
+	.rich-inplace-shadow-size {
+		width : 34px; height : 16px;
+	}
+	
+	.rich-inplace-shadow-tl {
+		background-repeat:  repeat-x;
+		background-position: top left;
+		border : 0px !important;
+	}
+	
+	.rich-inplace-shadow-tr {
+		background-repeat: repeat-x;
+		background-position: top right;
+		border : 0px !important;
+	}
+	
+	.rich-inplace-shadow-bl {
+		background-repeat: repeat-x;
+		background-position: bottom left;
+		border : 0px !important;
+	}
+	
+	.rich-inplace-shadow-br {
+		background-repeat: repeat-x;
+		background-position: bottom right;
+		border : 0px !important;
+	}
+
+]]>
+</f:verbatim>
+	
+	<u:selector name=".rich-inplace-control">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.SpinnerButtonGradient"/>
+		</u:style>
+		<u:style name="background-color" skin="tabBackgroundColor"/>
+		<u:style name="border-color" skin="panelBorderColor"/>
+	</u:selector>
+		
+	<u:selector name=".rich-inplace-control-press">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.ComboBoxButtonPressGradient"/>
+		</u:style>
+		<u:style name="background-color" skin="tabBackgroundColor"/>
+		<u:style name="border-color" skin="panelBorderColor"/>
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-shadow-tl">
+		<u:style name="background-image">
+			<f:resource f:key="/org/richfaces/renderkit/html/images/bg_shadow.png"/>
+		</u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-shadow-tr">
+		<u:style name="background-image">
+			<f:resource f:key="/org/richfaces/renderkit/html/images/bg_shadow.png"/>
+		</u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-shadow-bl">
+		<u:style name="background-image">
+			<f:resource f:key="/org/richfaces/renderkit/html/images/bg_shadow.png"/>
+		</u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-shadow-br">
+		<u:style name="background-image">
+			<f:resource f:key="/org/richfaces/renderkit/html/images/bg_shadow.png"/>
+		</u:style>
+	</u:selector>
+	
+	<u:selector name=".rich-inplace-view">
+		<u:style name="background-color" skin="editorBackgroundColor"/>
+		<u:style name="border-bottom-color" skin="generalTextColor"/>
+	</u:selector>	
+	
+	<u:selector name=".rich-inplace-changed">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.images.EditIcon"/>
+		</u:style>
+		<u:style name="background-color" skin="editorBackgroundColor"/>
+		<u:style name="border-bottom-color" skin="generalTextColor"/>
+	</u:selector>
+	
+	<u:selector name="input.rich-inplace-field">
+		<u:style name="background-color" skin="editBackgroundColor"/>
+		<u:style name="border-color" skin="panelBorderColor"/>
+		<u:style name="background-image">
+			<f:resource f:key="/org/richfaces/renderkit/html/images/spacer.gif"/>
+		</u:style>
+	</u:selector>	
+	
+	
+</f:template>

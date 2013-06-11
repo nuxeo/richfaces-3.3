@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components>
+	<namespace>$uri</namespace>
+
+#foreach( $key in ${components.keySet()})
+	<component>
+		<name>$key</name>
+
+		#set($componentEntry = ${components.get($key)})
+		#set($scripts = ${componentEntry.get("scripts")})
+		#set($styles = ${componentEntry.get("styles")})
+
+		#if(!${scripts.isEmpty()})
+		<scripts>
+			#foreach($script in $scripts)
+			<script>$script</script>
+			#end
+		</scripts>
+		#end
+
+		#if(!${styles.isEmpty()})
+		<styles>
+			#foreach($style in $styles)
+			<style>$style</style>
+			#end
+		</styles>
+		#end
+	</component>
+#end
+
+</components>

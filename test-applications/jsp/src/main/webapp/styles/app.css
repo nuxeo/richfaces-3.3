@@ -1,0 +1,29 @@
+.rich-message-label{
+	padding: 0px 10px;
+}
+
+.rich-messages-label{
+	padding: 0px 10px
+}	
+
+.rich-message-marker{
+}
+
+.rich-message{
+}
+
+.errorLabel{
+	color: #FF0000; 
+}
+
+.warnLabel{
+	color: #0000FF; 
+}
+
+.infoLabel{
+	color: #00FF00;
+}
+
+.fatalLabel{
+	color: #FF1493;
+}

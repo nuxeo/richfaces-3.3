@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util' 
+   xmlns="http://www.w3.org/1999/xhtml" >
+<u:selector name=".dr-table" >
+	<u:style name="border-top" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="border-left" value="solid"> <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="background-color" skin="tableBackgroundColor" />  <!--tableBackgroundColor-->
+	<!-- <u:style name="border-collapse" value="inherit" /> fix RF-535 -->
+	<u:style name="empty-cells" value="show" />
+	<u:style name="border-collapse" value="collapse" />
+</u:selector>
+
+<u:selector name=".dr-table-cell" >
+	<u:style name="border-right" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="border-bottom" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="padding" value="4px 4px 4px 4px"/>
+	<u:style name="font-size" skin="generalSizeFont"/>  <!--generalSizeFont-->
+	<u:style name="color" skin="generalTextColor"/> <!--generalTextColor-->
+	<u:style name="font-family" skin="generalFamilyFont"/> <!--generalFamilyFont-->
+</u:selector>
+
+<u:selector name=".dr-subtable-cell" >
+	<u:style name="border-right" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="border-bottom" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="padding" value="4px 4px 4px 4px"/>
+	<u:style name="font-size" skin="generalSizeFont"/>  <!--generalSizeFont-->
+	<u:style name="color" skin="generalTextColor"/> <!--generalTextColor-->
+	<u:style name="font-family" skin="generalFamilyFont"/> <!--generalFamilyFont-->
+</u:selector>
+
+<u:selector name=".dr-table-header" >
+	<u:style name="background-color" skin="headerBackgroundColor"/> <!--headerBackgroundColor-->
+	<u:style name="background-image" > <!--from headerGradientColor to headerBackgroundColor-->
+    	<f:resource f:key="org.richfaces.renderkit.html.GradientA"/>
+	</u:style>
+	<u:style name="background-position" value="top left"/>
+	<u:style name="background-repeat" value="repeat-x"/>
+</u:selector>
+
+<u:selector name=".dr-table-header-continue" >
+	<u:style name="background-color" skin="headerBackgroundColor"/> <!--headerBackgroundColor-->
+</u:selector>
+
+<u:selector name=".dr-table-headercell" >
+	<u:style name="border-right" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="border-bottom" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="padding" value="4px 4px 4px 4px"/>
+	<u:style name="color" skin="headerTextColor"/> <!--headerTextColor-->
+	<u:style name="text-align" value="center"/>
+	<u:style name="font-weight" skin="headerWeightFont"/>
+	<u:style name="font-size" skin="generalSizeFont"/>  <!--generalSizeFont-->
+	<u:style name="font-family" skin="generalFamilyFont"/> <!--generalFamilyFont-->
+</u:selector>
+
+<u:selector name=".dr-table-subheader" >
+	<u:style name="background-color" skin="additionalBackgroundColor"/> <!--additionalBackgroundColor-->
+</u:selector>
+
+<u:selector name=".dr-table-thead" >
+	<u:style name="border-bottom" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+</u:selector>
+
+<u:selector name=".dr-table-subheadercell" >
+	<u:style name="border-right" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="padding" value="4px 4px 4px 4px"/>
+	<u:style name="text-align" value="center"/>
+	<u:style name="font-size" skin="generalSizeFont"/>  <!--generalSizeFont-->
+	<u:style name="color" skin="generalTextColor"/> <!--generalTextColor-->
+	<u:style name="font-family" skin="generalFamilyFont"/> <!--generalFamilyFont-->
+	<u:style name="white-space" value="nowrap"/>
+</u:selector>
+
+<f:verbatim>
+	.dr-table-sortable-header {
+		background-position: right center;
+		background-repeat: no-repeat;
+		white-space : nowrap;
+	}
+	
+	.dr-table-cursor-pointer {
+		cursor: pointer;
+	}
+	
+	.rich-inplace-edit, .rich-inplace-view {
+		cursor: default;
+	}
+	
+	.dr-table-header-sort-img {
+		vertical-align: middle;
+	}
+</f:verbatim>
+
+<u:selector name=".dr-table-footer" >
+	<u:style name="background-color" skin="tableFooterBackgroundColor"/> <!--tableFooterBackgroundColor-->
+</u:selector>
+
+
+<u:selector name=".dr-table-footer-continue" >
+	<u:style name="background-color" skin="tableFooterBackgroundColor"/> <!--tableFooterBackgroundColor-->
+</u:selector>
+
+<u:selector name=".dr-table-footercell" >
+	<u:style name="border-right" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="border-bottom" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="padding" value="4px 4px 4px 4px"/>
+	<u:style name="color" skin="generalTextColor"/> <!--headerTextColor-->
+	<u:style name="text-align" value="left"/>
+	<u:style name="font-weight" skin="headerWeightFont"/>
+	<u:style name="font-size" skin="generalSizeFont"/>  <!--generalSizeFont-->
+	<u:style name="font-family" skin="generalFamilyFont"/> <!--generalFamilyFont-->
+</u:selector>
+
+<u:selector name=".dr-table-subfooter" >
+	<u:style name="background-color" skin="tableSubfooterBackgroundColor"/> <!--tableSubfooterBackgroundColor-->
+</u:selector>
+
+<u:selector name=".dr-table-subfootercell" >
+	<u:style name="border-right" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="border-bottom" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="padding" value="4px 4px 4px 4px"/>
+	<u:style name="text-align" value="left"/>
+	<u:style name="font-size" skin="generalSizeFont"/>  <!--generalSizeFont-->
+	<u:style name="color" skin="generalTextColor"/> <!--generalTextColor-->
+	<u:style name="font-family" skin="generalFamilyFont"/> <!--generalFamilyFont-->
+</u:selector>
+
+<u:selector name=".dr-table-firstrow .dr-table-cell" >
+<!--	<u:style name="border-top" value="2px solid">
+	  <f:verbatim skin="tableBorderColor" />
+	</u:style> -->
+</u:selector>
+
+<u:selector name=".dr-subtable-firstrow .dr-subtable-cell" >
+	<!-- <u:style name="border" value="2px solid #c0c0c0"/>-->
+</u:selector>
+
+<u:selector name=".dr-subtable-header" >
+	<u:style name="background-color" skin="additionalBackgroundColor"/> <!--additionalBackgroundColor-->
+</u:selector>
+
+<u:selector name=".dr-subtable-headercell" >
+	<u:style name="border-right" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="border-bottom" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="padding" value="4px 4px 4px 4px"/>
+	<u:style name="text-align" value="center"/>
+	<u:style name="font-size" skin="generalSizeFont"/>  <!--generalSizeFont-->
+	<u:style name="color" skin="generalTextColor"/> <!--generalTextColor-->
+	<u:style name="font-family" skin="generalFamilyFont"/> <!--generalFamilyFont-->
+</u:selector>
+
+
+<u:selector name=".dr-subtable-footer" >
+	<u:style name="background-color" skin="tableSubfooterBackgroundColor"/> <!--tableSubfooterBackgroundColor-->
+</u:selector>
+
+<u:selector name=".dr-subtable-footercell" >
+	<u:style name="border-right" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="border-bottom" value="solid">  <!--tableBorderColor-->
+		<f:verbatim skin="tableBorderWidth" />
+		<f:verbatim skin="tableBorderColor" />
+	</u:style>
+	<u:style name="padding" value="4px 4px 4px 4px"/>
+	<u:style name="text-align" value="left"/>
+</u:selector>
+
+<u:selector name=".rich-sort-asc">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.iconimages.DataTableIconSortAsc"/>
+	</u:style>
+</u:selector>
+<u:selector name=".rich-sort-desc">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.iconimages.DataTableIconSortDesc"/>
+	</u:style>
+</u:selector>
+
+
+</f:template>

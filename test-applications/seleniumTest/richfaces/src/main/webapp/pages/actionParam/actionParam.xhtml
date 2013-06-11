@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+		
+	</ui:define>
+	<ui:define name="component">
+	<script type="text/javascript">
+		function _getValue() {
+			return "Action Parameter";
+		}
+	</script>
+	
+	<table style="width: 600px"><tr>
+		<td><b>Parameter:</b></td>
+		<td><h:outputText style="color: green" value="#{actionParam.parameter}" id="_parameter"></h:outputText></td>
+	</tr></table>
+		<h:form id="_form1">
+			<a4j:commandLink value="Ajax Submit" id="ajaxSubmit" reRender="_parameter">
+				<a4j:actionparam assignTo="#{actionParam.parameterValue}" actionListener="#{actionParam.listener}" name="param" value="_getValue()"  noEscape="true"></a4j:actionparam>
+			</a4j:commandLink>
+		</h:form>
+		
+		<h:form id="_form2">
+			<h:commandLink value="Html Submit" id="htmlSubmit">
+				<a4j:actionparam assignTo="#{actionParam.parameterValue}"  actionListener="#{actionParam.listener}" name="param" value="Action Parameter"></a4j:actionparam>
+			</h:commandLink>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,132 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	id="listShuttleStraightforwardSubviewID">
+	<h:panelGrid columns="3">
+		<a4j:commandButton value="Show selection (reRender)"
+			reRender="infoLSID"></a4j:commandButton>
+		<h:column>
+			<h:selectBooleanCheckbox value="#{listShuttle.showSelect}"
+				onclick="submit();" />
+		</h:column>
+		<h:column>
+			<h:dataTable id="infoLSID" value="#{listShuttle.info}" var="info"
+				rendered="#{listShuttle.showSelect}" border="1">
+				<h:column>
+					<h:outputText value="#{info}" />
+				</h:column>
+			</h:dataTable>
+		</h:column>
+
+		<a4j:commandButton value="Show all source (reRender)"
+			reRender="allInfoLSSourceID"></a4j:commandButton>
+		<h:column>
+			<h:selectBooleanCheckbox value="#{listShuttle.showAllSourceData}"
+				onclick="submit();" />
+		</h:column>
+		<h:column>
+			<h:dataTable id="allInfoLSSourceID"
+				value="#{listShuttle.sourceValue}" var="allInfo"
+				rendered="#{listShuttle.showAllSourceData}" border="1">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Output" />
+					</f:facet>
+					<h:outputText value="#{allInfo.int0}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Input" />
+					</f:facet>
+					<h:outputText value="#{allInfo.str4}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Button" />
+					</f:facet>
+					<h:outputText value="#{allInfo.str0} submit();" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="a4jLink" />
+					</f:facet>
+					<h:outputText value="#{allInfo.str1} a4j" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Select" />
+					</f:facet>
+					<h:outputText value="#{allInfo.str2}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="GraphicImage" />
+					</f:facet>
+					<h:outputText value="#{allInfo.str3}" />
+				</h:column>
+			</h:dataTable>
+		</h:column>
+
+		<a4j:commandButton value="Show all target (reRender)"
+			reRender="allInfoLSTargetID"></a4j:commandButton>
+		<h:column>
+			<h:selectBooleanCheckbox value="#{listShuttle.showAllTargetData}"
+				onclick="submit();" />
+		</h:column>
+		<h:column>
+			<h:dataTable id="allInfoLSTargetID"
+				value="#{listShuttle.targetValue}" var="allInfo"
+				rendered="#{listShuttle.showAllTargetData}" border="1">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Output" />
+					</f:facet>
+					<h:outputText value="#{allInfo.int0}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Input" />
+					</f:facet>
+					<h:outputText value="#{allInfo.str4}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Button" />
+					</f:facet>
+					<h:outputText value="#{allInfo.str0} submit();" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="a4jLink" />
+					</f:facet>
+					<h:outputText value="#{allInfo.str1} a4j" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Select" />
+					</f:facet>
+					<h:outputText value="#{allInfo.str2}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="GraphicImage" />
+					</f:facet>
+					<h:outputText value="#{allInfo.str3}" />
+				</h:column>
+			</h:dataTable>
+		</h:column>
+	</h:panelGrid>
+</f:subview>

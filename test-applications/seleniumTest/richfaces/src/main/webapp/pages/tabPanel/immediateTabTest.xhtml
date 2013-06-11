@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="#{templateBean.autoTestTemplate}">
+	<ui:define name="component">
+		<rich:tabPanel id="componentId" 
+							   actionListener="#{autoTestBean.actionListener}"
+							   switchType="ajax"
+							   selectedTab="#{panelBean.selectedTab}"
+							   >
+					<rich:tab id="tab1"
+							  label="Tab1"
+							  actionListener="#{autoTestBean.actionListener}"
+							  immediate="true"
+						      reRender="#{autoTestBean.reRender}"							  
+							  >
+						<h:outputText value="Tab1"></h:outputText>
+					</rich:tab>
+					<rich:tab id="tab2"
+							  label="Tab2"
+					          actionListener="#{autoTestBean.actionListener}"
+					          reRender="#{autoTestBean.reRender}"
+					          immediate="true">
+						<h:outputText value="Tab2"></h:outputText>
+					</rich:tab>
+			</rich:tabPanel>
+	</ui:define>
+</ui:composition>
+</html>

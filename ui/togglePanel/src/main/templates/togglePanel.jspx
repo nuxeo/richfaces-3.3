@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root xmlns:f="http://jsf.exadel.com/template"
+	    xmlns:c="http://java.sun.com/jsf/core"
+	    xmlns:ui="http://jsf.exadel.com/ui"
+	    xmlns:vcp="http://jsf.exadel.com/vcp"
+	    xmlns:u="http://jsf.exadel.com/util"
+	    xmlns:x="http://jsf.exadel.com/mock"
+   	    xmlns:h="http://jsf.exadel.com/header"
+	    baseclass="org.richfaces.renderkit.html.TogglePanelRenderer"
+	    class="org.richfaces.renderkit.html.TogglePanelTemplate"
+        component="org.richfaces.component.UITogglePanel">
+
+
+	<f:clientid var="clientId"/>
+	
+	<jsp:scriptlet>
+		<![CDATA[org.richfaces.component.util.FormUtil.throwEnclFormReqExceptionIfNeed(context,component);]]>
+    </jsp:scriptlet>
+	
+	<div id="#{clientId}" style="#{component.attributes['style']}" class="rich-toggle-panel #{component.attributes['styleClass']}"
+		x:passThruWithExclusions="id,style,class,styleClass">
+		<vcp:body/>
+		<f:call name="handleFacets"/>
+	</div>
+</f:root>

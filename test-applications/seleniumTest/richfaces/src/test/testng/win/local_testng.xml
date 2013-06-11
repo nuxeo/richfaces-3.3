@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="seleniumTest">
+  <test name="FFFunctionalTests">
+    <parameter name="browser" value="*firefox"/>
+     <parameter name="loadStyleStrategy" value="DEFAULT"/>
+   <parameter name="loadScriptStrategy" value="DEFAULT"/>
+   <parameter name="filterPrefix" value="/faces/NONE/"/>
+    <classes>
+    	<class name="org.richfaces.testng.MessageTest" />
+    </classes>
+  </test>
+</suite>

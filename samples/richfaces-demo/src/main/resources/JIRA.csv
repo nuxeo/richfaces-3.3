@@ -1,0 +1,25 @@
+Bug;RF-6338;PanelMenu does not work in 3.3.1.SNAPSHOT;Alex Kolonitsky;03.03.2001;Alexander Dubovsky;Critical;Open;UNRESOLVED;23/Feb/09 06:17 AM;24/Feb/09 11:59 AM;;;;;1
+Bug;RF-3686;listShuttle and s:entityConverter;Alex Kolonitsky;03.03.2001;Marcell Barbacena;Major;Open;UNRESOLVED;11/Jun/08 05:51 PM;17/Feb/09 10:06 AM;;;;;0
+Bug;RF-6278;ScriptUtils: toScript() fails with java.sql.* types;Alex Kolonitsky;03.03.2001;Nick Belaevski;Major;Open;UNRESOLVED;20/Feb/09 06:47 PM;24/Feb/09 12:07 PM;;;;;0
+Bug;RF-5671;Panel Menu. selectedChild problems;Alex Kolonitsky;03.03.2001;Ilya Shaikovsky;Major;Open;UNRESOLVED;13/Jan/09 05:26 AM;24/Feb/09 08:43 PM;;;;;0
+Bug;RF-6155;Column: rendered attribute handled wrong;Alexander Smirnov;03.03.2001;Nick Belaevski;Major;Open;UNRESOLVED;13/Feb/09 10:36 AM;13/Feb/09 10:36 AM;;;;;1
+Bug;RF-6040;Columns: component does not work without value attribute defined;Andrei Markavtsov;03.03.2001;Andrei Markavtsov;Critical;Open;UNRESOLVED;06/Feb/09 04:57 AM;06/Feb/09 09:28 AM;;;;;0
+Bug;RF-6031;columns: allow to use few columns and to use columns together with static column components within the one table .;Andrei Markavtsov;03.03.2001;Ilya Shaikovsky;Major;Open;UNRESOLVED;04/Feb/09 09:05 AM;05/Feb/09 08:40 AM;;;;;0
+Bug;RF-5960;FileUpload sends id parameter to server on each upload.;Andrei Markavtsov;03.03.2001;Andrei Markavtsov;Major;Open;UNRESOLVED;29/Jan/09 05:57 AM;11/Feb/09 10:58 AM;;;;;1
+Bug;RF-6266;FileUpload: AJAX polling problems;Andrei Markavtsov;03.03.2001;Nick Belaevski;Major;Open;UNRESOLVED;19/Feb/09 12:16 PM;24/Feb/09 11:56 AM;;;;;0
+Bug;RF-6143;inplaceSelect: is not expanded in FF;Anton Belevich;03.03.2001;Tsikhon Kuprevich;Critical;Open;UNRESOLVED;11/Feb/09 09:29 AM;12/Feb/09 06:58 AM;;;;;0
+Bug;RF-5735;InplaceInput: input is possible after pressing green (OK) control icon under FF2-3, Safari;Anton Belevich;03.03.2001;Alexander Dubovsky;Major;Open;UNRESOLVED;14/Jan/09 08:05 AM;15/Jan/09 05:20 AM;;;;;0
+Bug;RF-5717;editor: special characters escapement problem;Anton Belevich;03.03.2001;Ilya Shaikovsky;Major;Reopened;UNRESOLVED;13/Jan/09 10:15 AM;15/Jan/09 11:34 AM;;;;;1
+Bug;RF-5790;Editor: converter error if use nesting formatting.;Anton Belevich;03.03.2001;Alexander Dubovsky;Major;Open;UNRESOLVED;19/Jan/09 08:34 AM;20/Jan/09 10:42 AM;;;;;1
+Bug;RF-5825;Editor: convertion failed in case past formatted text in editor.;Anton Belevich;03.03.2001;Alexander Dubovsky;Major;Open;UNRESOLVED;19/Jan/09 09:20 AM;20/Jan/09 11:36 AM;;;;;0
+Bug;RF-5209;Calendar: currentDateChangeListener does not trigger;Anton Belevich;03.03.2001;Andrei Markavtsov;Major;Reopened;UNRESOLVED;03/Dec/08 10:02 AM;10/Feb/09 06:04 AM;;;14400;14400;0
+Bug;RF-5265;Calendar does not switch the current month/year properlly if 'preLoadDateRangeStart' & 'preLoadDateRangeEnd' attributes defined in ajax mode;Anton Belevich;03.03.2001;Andrei Markavtsov;Major;Open;UNRESOLVED;05/Dec/08 12:01 PM;10/Feb/09 06:05 AM;;;;;0
+Bug;RF-6141;ComboBox: Style, styleClass and events attributes wasn't encoded on highest-level html-element of this component..;Anton Belevich;03.03.2001;Konstantin Mishin;Major;Open;UNRESOLVED;11/Feb/09 08:45 AM;11/Feb/09 06:55 PM;;;;;0
+Bug;RF-6142;inplaceSelect: symbols are encoded in output;Anton Belevich;03.03.2001;Tsikhon Kuprevich;Major;Open;UNRESOLVED;11/Feb/09 09:22 AM;11/Feb/09 06:55 PM;;;;;0
+Bug;RF-6000;liveDemo: dropDownMenu bottom example. The 'class' attribute is incorrect for the tag h:panelGrid;Ilya Shaikovsky;03.03.2001;Tsikhon Kuprevich;Major;Open;UNRESOLVED;02/Feb/09 04:52 AM;05/Feb/09 03:05 PM;;;;;0
+Bug;RF-5999;liveDemo: dropDownMenu: remove 'border' attribute from the spacer tag in the top code example;Ilya Shaikovsky;03.03.2001;Tsikhon Kuprevich;Major;Open;UNRESOLVED;02/Feb/09 04:43 AM;05/Feb/09 03:05 PM;;;;;0
+Bug;RF-6018;panelMenu: Attribute iconCollapsedTopPosition invalid for tag panelMenu (demo);Ilya Shaikovsky;03.03.2001;Inna Shchibrya;Major;Open;UNRESOLVED;03/Feb/09 10:16 AM;05/Feb/09 03:05 PM;;;;;0
+Bug;RF-5780;DataScroller: incorrect page name in richfaces-demo;Ilya Shaikovsky;03.03.2001;Alexander Dubovsky;Minor;Open;UNRESOLVED;19/Jan/09 08:04 AM;05/Feb/09 06:22 PM;;;;;0
+Bug;RF-6263;Demo: There is rich:dataList insted of rich:dataOrderedList on dataOrderedList page.;Ilya Shaikovsky;03.03.2001;Konstantin Mishin;Minor;Open;UNRESOLVED;19/Feb/09 09:17 AM;24/Feb/09 11:53 AM;;;;;0
+Bug;RF-5764;demosite: preview state mark on extended table to be removed.;Ilya Shaikovsky;03.03.2001;Ilya Shaikovsky;Trivial;Open;UNRESOLVED;16/Jan/09 04:22 AM;16/Jan/09 04:22 AM;;;;;0
+Bug;RF-5638;DragListener/dropListener do not have 'type' attribute;Nick Belaevski;03.03.2001;Alexandr Levkovsky;Major;Open;UNRESOLVED;10/Jan/09 10:37 AM;09/Feb/09 06:27 PM;;;;;0

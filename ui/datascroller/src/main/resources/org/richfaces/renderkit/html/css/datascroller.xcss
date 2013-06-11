@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim><![CDATA[
+.dr-dscr{
+}
+.dr-dscr-t{
+	border-width : 1px;
+	border-style: solid;
+}
+.dr-dscr-button, .dr-dscr-sepctrl {
+	border-width: 1px;
+	border-style: solid;
+	width : 25px;
+	cursor : pointer;
+	text-align: center;
+}
+
+.dr-dscr-button-dsbld {
+	cursor: default;
+}
+
+.dr-dscr-act{
+	border-top-width: 2px;
+	border-top-style: solid;
+	width : 25px;
+	text-align: center;
+}
+.dr-dscr-inact{
+	border-top-width: 2px;
+	border-top-style: solid;
+	width : 25px;
+	cursor : pointer;
+	text-align: center;
+}
+
+
+]]>
+
+</f:verbatim>
+<u:selector name=".dr-stglpnl">
+    <u:style name="background-color" skin="tableBackgroundColor" />
+    <u:style name="border-color" skin="panelBorderColor" />
+</u:selector>
+
+<u:selector name=".dr-dscr-button, .dr-dscr-sepctrl">
+    <u:style name="background-color" skin="additionalBackgroundColor" />
+    <u:style name="border-color" skin="panelBorderColor" />
+    <u:style name="font-family" skin="generalFamilyFont" />
+    <u:style name="font-size" skin="generalSizeFont" />
+</u:selector>
+
+<u:selector name=".dr-dscr-button-dsbld">
+    <u:style name="color" skin="panelBorderColor" default="gray" />
+</u:selector>
+
+<u:selector name=".dr-dscr-act">
+    <u:style name=" border-top-color" skin="generalTextColor" />
+    <u:style name="color" skin="generalTextColor" />
+    <u:style name="font-family" skin="generalFamilyFont" />
+    <u:style name="font-size" skin="generalSizeFont" />
+</u:selector>
+
+
+<u:selector name=".dr-dscr-inact">
+    <u:style name=" border-top-color" skin="headerBackgroundColor" />
+    <u:style name="color" skin="headerBackgroundColor" />
+    <u:style name="font-family" skin="generalFamilyFont" />
+    <u:style name="font-size" skin="generalSizeFont" />
+</u:selector>
+
+<u:selector name=".dr-dscr-t">
+	<u:style name="border-color" skin="panelBorderColor" />
+	<u:style name="background-color" skin="tableBackgroundColor" />
+</u:selector>
+
+</f:template>

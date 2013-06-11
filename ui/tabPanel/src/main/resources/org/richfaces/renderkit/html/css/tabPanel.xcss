@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template 
+	xmlns:f="http://jsf.exadel.com/template"
+   	xmlns:u="http://jsf.exadel.com/template/util" 
+   	xmlns="http://www.w3.org/1999/xhtml">	
+
+<!-- 
+<f:verbatim>
+
+.dr-tb-ctrl{
+	position: relative;
+}
+.dr-tb-act{
+	top: 1px;
+}
+.dr-tb-inact, .dr-tb-dsbld{
+	top: 0px;
+}
+.dr-tb-inact *, .dr-tb-inact-ovr * {
+	cursor: pointer !important;
+}
+
+.dr-tb-act td.dr-tb-bd {
+	padding: 3px 5px 5px 5px;
+	text-align: center;
+	cursor: default;
+	width: auto;
+	white-space: nowrap;
+	font-weight: bold;
+}
+
+.dr-tb-inact td.dr-tb-bd {
+	padding: 3px 5px 0px 5px;
+	text-align: center;
+	cursor: pointer;
+	width: auto;
+	white-space: nowrap;
+}
+
+.dr-tb-inact-ovr td.dr-tb-bd {
+	padding: 3px 5px 0px 5px;
+	text-align: center;
+	cursor: pointer;
+	width: auto;
+	white-space: nowrap;
+}
+
+.dr-tb-dsbld td.dr-tb-bd {
+	padding: 3px 5px 0px 5px;
+	text-align: center;
+	cursor: default;
+	width: auto;
+	white-space: nowrap;
+}
+
+</f:verbatim>
+-->
+
+<f:verbatim>
+
+.rich-tabpanel{
+			width:100%;
+}
+
+.dr-tbpnl-cntnt {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-right-width: 1px;
+	border-right-style: solid;
+	vertical-align: top;
+}
+
+.dr-tbpnl-tbtopbrdr{
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+
+.dr-tbpnl-tb{
+	padding : 2px 10px 2px 10px;
+	text-align: center;
+}
+
+.dr-tbpnl-tbbrdr{
+	background-repeat: no-repeat;
+	background-position: top;
+}
+
+.dr-tbpnl-tb-act{
+	border-width: 1px;
+	border-style: solid;
+	padding : 3px 10px 4px 10px;
+	background-repeat: repeat-x;
+	background-position: top;
+	border-bottom-width: 0px;
+	cursor : default;
+}
+
+.dr-tbpnl-tb-dsbld {
+	border-width: 1px;
+	border-style: solid;
+	background-repeat: repeat-x;
+	background-position: top;
+	cursor : default;	
+}
+
+.dr-tbpnl-tbcell-dsbld, .dr-tbpnl-tbcell-inact {
+	padding-top: 2px; 
+	
+	
+}
+
+</f:verbatim>
+	<u:selector name=".dr-tbpnl-tb">
+		<u:style name="color" skin="generalTextColor"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+	</u:selector>
+
+	<u:selector name=".dr-tbpnl-tb-act">
+		<u:style name="color" skin="generalTextColor"/>
+		<u:style name="border-color" skin="subBorderColor"/>
+	</u:selector>
+	<u:selector name=".dr-tbpnl-tb-dsbl">
+		<u:style name="border-color" skin="subBorderColor"/>
+		<u:style name="color" skin="tabDisabledTextColor"/>
+	</u:selector>
+<f:verbatim>
+
+.dr-tbpnl-tb-sel {
+	border-width: 1px;
+	border-style: solid;
+	border-bottom : 0px;
+	background-repeat: repeat-x;
+	background-position: top;
+	cursor : default;	
+}
+
+.dr-tbpnl-tb-dsbl {
+	background-repeat: repeat-x;
+	background-position: center top;
+}
+	
+.dr-tbpnl-cntnt-pstn {
+	height:100%;
+	position: relative;
+}	
+</f:verbatim>
+
+	<u:selector name=".dr-tbpnl-tb-sel">
+		<u:style name="border-color" skin="selectControlColor"/>
+	</u:selector>
+
+	<u:selector name=".dr-tbpnl-tbtopbrdr">
+		<u:style name="border-top-color" skin="panelBorderColor"/>
+	</u:selector>
+
+	<u:selector name=".dr-tbpnl-cntnt">
+		<u:style name="background-color" skin="generalBackgroundColor"/>
+		<u:style name="color" skin="generalTextColor"/>
+		<u:style name="border-bottom-color" skin="panelBorderColor"/>
+		<u:style name="border-right-color" skin="panelBorderColor"/>
+		<u:style name="border-left-color" skin="panelBorderColor"/>
+		<u:style name="font-size" skin="generalSizeFont"/>
+		<u:style name="font-family" skin="generalFamilyFont"/>
+	</u:selector>
+
+	<u:selector name=".dr-tbpnl-tb-dsbl">
+		<u:style name="background-color" skin="tabBackgroundColor" />
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.images.TabGradientB" />
+		</u:style>
+	</u:selector>
+
+	<u:selector name=".dr-tbpnl-tb-inact">
+		<u:style name="background-color" skin="tabBackgroundColor" />
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.images.TabGradientB" />
+		</u:style>
+		<u:style name="border-color" skin="subBorderColor"/>
+		
+		<u:style name="border-width" value="1px"/>
+		<u:style name="border-style" value="solid"/>
+		<u:style name="background-repeat" value="repeat-x"/>
+		<u:style name="background-position" value="top"/>
+		<u:style name="border-bottom-width" value="0px"/>
+		<u:style name="cursor" value="default"/>
+		
+	</u:selector>
+
+
+	<u:selector name=".dr-bottom-line">
+		<u:style name="border-bottom-color" skin="panelBorderColor"/>
+		<u:style name="border-bottom-style" value="solid"/>
+		<u:style name="border-bottom-width" value="1px"/>
+	</u:selector>
+
+		
+	<u:selector name=".dr-tbpnl-tb-act">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.images.TabGradientA" />
+		</u:style>
+		<u:style name="background-color" skin="generalBackgroundColor" />
+	</u:selector>
+
+	<u:selector name=".dr-tbpnl-tbbrdr">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.images.TabStripeImage"/>
+		</u:style>
+	</u:selector>
+	
+		<u:selector name=".dr-tbpnl-tb-sel">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.images.TabGradientB" />
+		</u:style>
+		<u:style name="border-color" skin="selectControlColor" />
+	</u:selector>
+	
+</f:template>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+            xmlns:u='http:/jsf.exadel.com/template/util'
+            xmlns="http://www.w3.org/1999/xhtml">
+
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" >
+        <f:attribute name="id">
+            <f:call name="getContentId"/>
+        </f:attribute>
+        <f:call name="utils.encodePassThruWithExclusions">
+            <f:parameter value="styleClass,class,onclick,onselect,width,height,rows,frame,bgcolor,border,rules,cellpadding,cellspacing"/>
+        </f:call>
+        <f:attribute name="class">
+        	<f:verbatim value="dr-sb-int-decor-table rich-sb-int-decor-table "/>
+        	<f:verbatim property="styleClass"/>
+        </f:attribute>
+        <colgroup>
+            <f:attribute name="span" context="columnsCount" mantadory="false"/>
+        </colgroup>
+        <f:if context="hasHead">
+            <thead>
+                <f:attribute name="class" property="headerClass"/>
+                <u:insertFacet name="header">
+                    <tr>
+                        <th nowrap="nowrap"><u:insertChild/></th>
+                    </tr>
+                </u:insertFacet>
+                <f:if context="hasColumnHead">
+                    <u:insertChildren context="columns">
+                        <th nowrap="nowrap"><u:insertFacet name="header"/></th>
+                    </u:insertChildren>
+                </f:if>
+            </thead>
+        </f:if>
+        <f:if context="hasFooter">
+            <tfoot>
+                <f:attribute name="class" property="footerClass"/>
+                <f:if context="hasColumnFooter">
+                    <u:insertChildren context="columns">
+                        <td nowrap="nowrap"><u:insertFacet name="footer"/></td>
+                    </u:insertChildren>
+                </f:if>
+                <u:insertFacet name="footer">
+                    <tr>
+                        <td nowrap="nowrap"><u:insertChild/></td>
+                    </tr>
+                </u:insertFacet>
+            </tfoot>
+        </f:if>
+        <tbody>
+            <u:insertChildren context="rows">
+                <tr>
+                	<f:attribute name="class">
+			            <f:call name="getEntryClass"/>
+			        </f:attribute>
+                    <f:if property="fetchValue">
+                        <td style="display: none;"><f:attribute name="class"
+                                                                property="selectValueClass"
+                                                                mantadory="false"/> <f:verbatim
+                                property="fetchValue"/></td>
+                    </f:if>
+                    <u:insertChildren context="columns">
+                        <td nowrap="nowrap" class="dr-sb-cell-padding rich-sb-cell-padding">
+                        <f:attribute name="style"><f:call name="cellPadding"/></f:attribute>
+                        <u:insertChild/></td>
+                    </u:insertChildren>
+                </tr>
+            </u:insertChildren>
+            
+            <f:call name="insertNothingLabel" />
+            
+        </tbody>
+    </table>
+</f:template>

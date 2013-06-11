@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
+
+<f:verbatim><![CDATA[
+
+.rich-picklist-controls {
+	padding : 0px 8px 5px 8px;
+}
+
+.rich-picklist-list-content {
+	overflow: auto;
+}
+
+.rich-picklist-internal-tab {
+	width:100%;
+}
+
+.rich-picklist-body {
+	-moz-user-select: none;
+}
+]]>
+</f:verbatim>
+
+<u:selector name=".rich-picklist-list">
+	<u:style name="background-color" skin="tableBackgroundColor"/>
+	<u:style name="border-width" value="0px" />
+	<u:style name="border-style" value="none" />
+</u:selector>
+
+<u:selector name=".rich-picklist-source-cell, .rich-picklist-target-cell, .rich-picklist-source-cell *, .rich-picklist-target-cell *">
+	<u:style name="color" skin="generalTextColor"/>
+	<u:style name="font-size" skin="generalSizeFont"/>
+	<u:style name="font-family" skin="generalFamilyFont"/>
+	<u:style name="white-space" value="nowrap"/>
+</u:selector>
+
+<f:verbatim><![CDATA[
+
+.rich-picklist-control-disabled, .rich-picklist-control-top, .rich-picklist-control-bottom, 
+.rich-picklist-control-up, .rich-picklist-control-down, .rich-picklist-control-copyall,
+.rich-picklist-control-copy, .rich-picklist-control-remove, .rich-picklist-control-removeall {
+	border : 1px solid;
+	margin-bottom : 3px;
+}
+
+.rich-list-picklist-button, .rich-list-picklist-button-disabled {
+	background : top left repeat-x;
+	padding : 2px;
+}
+
+.rich-list-picklist-button {
+	cursor: pointer;
+}
+
+.rich-list-picklist-button-disabled {
+	cursor: default;
+}
+
+.rich-list-picklist-button-light {
+	background : top left repeat-x;
+	border-style: solid;
+	cursor : pointer;
+	padding: 1px;
+}
+
+.rich-list-picklist-button-press {
+	background : top left repeat-x;
+	border-style: solid;
+	padding : 2px 0px 0px 2px;
+	cursor: pointer;
+}
+
+.rich-list-picklist-button-valign {
+	vertical-align : middle;
+}
+
+.rich-list-picklist-button-layout {
+	padding : 15px 8px 15px 0px;
+}
+
+.rich-list-picklist-button-content {
+	padding : 0px 4px 0px 1px;
+	text-align : left;
+	white-space: nowrap;
+}
+
+.rich-list-picklist-button-content img {
+	margin-right: 2px;
+	vertical-align: middle;
+}
+
+a.rich-list-picklist-button-selection:visited,
+a.rich-list-picklist-button-selection:link {
+	color: inherit;
+}
+
+.rich-list-picklist-button-a-disabled {
+	cursor: default;
+	text-decoration: none;
+}
+
+.rich-picklist-source-items {
+	margin: 0px 0px 8px 8px;
+}
+
+.rich-picklist-target-items {
+	margin: 0px 0px 8px 0px;
+}
+
+.rich-picklist-source-row-active, .rich-picklist-target-row-active {
+	background : transparent none repeat-x scroll left top;
+}
+
+.rich-picklist-source-row-selected, .rich-picklist-target-row-selected {
+	background : transparent none repeat-x scroll left top;
+}
+
+.rich-picklist-source-cell, .rich-picklist-target-cell {
+	padding : 2px;
+	white-space: nowrap;
+	border: 0px;
+}
+
+.rich-picklist-source-cell-selected, .rich-picklist-target-cell-selected {
+	padding : 2px;
+	white-space: nowrap;
+}
+
+.rich-picklist-source-cell-active, .rich-picklist-target-cell-active {
+	padding: 1px 2px;
+	white-space: nowrap;
+	border-top: 1px dotted;
+	border-bottom: 1px dotted;
+} 
+
+.rich-picklist-control-img {
+	margin: 0px;
+	padding: 0px;
+	border:0px;
+	width: 15px;
+	height: 15px;
+}
+
+]]>
+</f:verbatim>
+
+	<u:selector name=".rich-list-picklist">
+		<!--u:style name="background-color" skin="additionalBackgroundColor" />
+		<u:style name="border-color" skin="tableBorderColor" />
+		<u:style name="border-width" skin="tableBorderWidth" />
+		<u:style name="border-style" value="solid" /-->
+		<u:style name="-moz-user-select" value="-moz-none" />
+	</u:selector>
+
+<u:selector name=".rich-list-picklist-button">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.gradientimages.OrderingListButtonGradient" />
+	</u:style>
+	<u:style name="background-color" skin="tabBackgroundColor" />
+	<u:style name="color" skin="generalTextColor"/>
+	<u:style name="font-family" skin="headerFamilyFont"/>
+	<u:style name="font-size" skin="headerSizeFont"/>
+</u:selector>
+
+<u:selector name=".rich-list-picklist-button-disabled">
+	<u:style name="background-image">
+		<f:resource f:key="org.richfaces.renderkit.html.gradientimages.OrderingListButtonGradient" />
+	</u:style>
+	<u:style name="background-color" skin="tabBackgroundColor" />
+	<u:style name="color" skin="tabDisabledTextColor"/>
+	<u:style name="font-family" skin="headerFamilyFont"/>
+	<u:style name="font-size" skin="headerSizeFont"/>
+</u:selector>
+
+	<u:selector name=".rich-list-picklist-button-light">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.gradientimages.OrderingListButtonGradient" />
+		</u:style>
+		<u:style name="background-color" skin="tabBackgroundColor" />
+		<u:style name="border-color" skin="selectControlColor" />
+		<u:style name="border-width" skin="tableBorderWidth" />
+		<u:style name="font-family" skin="headerFamilyFont" />
+		<u:style name="font-size" skin="headerSizeFont" />
+		<u:style name="color" skin="generalTextColor"/>
+	</u:selector>
+
+	<u:selector name=".rich-list-picklist-button-press">
+		<u:style name="background-image">
+			<f:resource f:key="org.richfaces.renderkit.html.gradientimages.OrderingListClickedGradient" />
+		</u:style>
+		<u:style name="background-color" skin="tabBackgroundColor" />
+		<u:style name="border-color" skin="tableBorderColor" />
+		<u:style name="border-width" skin="tableBorderWidth" />
+		<u:style name="font-family" skin="headerFamilyFont" />
+		<u:style name="font-size" skin="headerSizeFont" />
+		<u:style name="color" skin="generalTextColor"/>
+	</u:selector>
+
+	<u:selector name=".rich-picklist-source-cell-last, .rich-picklist-target-cell-last">
+		<u:style name="border-right-color" skin="selectControlColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-picklist-source-items, .rich-picklist-target-items">
+		<u:style name="background-color" skin="generalBackgroundColor" />
+		<u:style name="border-color" skin="tableBorderColor" />
+		<u:style name="border-width" skin="tableBorderWidth" />
+		<u:style name="border-style" value="solid" />
+	</u:selector>
+	
+	<u:selector name=".rich-picklist-source-cell-selected, .rich-picklist-target-cell-selected, .rich-picklist-source-cell-selected *, .rich-picklist-target-cell-selected *">
+		<u:style name="color" skin="generalTextColor"/>
+		<u:style name="font-family" skin="generalFamilyFont" />
+		<u:style name="font-size" skin="generalSizeFont" />
+	</u:selector>
+	
+	<u:selector name=".rich-picklist-source-cell-active, .rich-picklist-target-cell-active, .rich-picklist-source-cell-active *, .rich-picklist-target-cell-active *">
+		<u:style name="font-size" skin="generalSizeFont" />
+		<u:style name="font-family" skin="generalFamilyFont" />
+	</u:selector>
+	<u:selector name=".rich-picklist-source-cell-active, .rich-picklist-target-cell-active" >
+		<u:style name="border-top-color" skin="generalTextColor" />
+		<u:style name="border-bottom-color" skin="generalTextColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-picklist-control-disabled, .rich-picklist-control-top, .rich-picklist-control-bottom, .rich-picklist-control-up, .rich-picklist-control-down, .rich-picklist-control-copyall, .rich-picklist-control-copy, .rich-picklist-control-remove, .rich-picklist-control-removeall">
+		<u:style name="border-color" skin="tableBorderColor" />
+	</u:selector>
+	
+	<u:selector name=".rich-list-picklist-button-content">
+		<u:style name="font-family" skin="headerFamilyFont" />
+		<u:style name="font-size" skin="headerSizeFont" />
+	</u:selector>
+	
+	<u:selector name=".rich-list-picklist-button-selection">
+		<u:style name="color" skin="generalTextColor" />
+		<u:style name="text-decoration" value="none" />
+		<u:style name="display" value="block" />
+	</u:selector>
+	
+	<u:selector name="a.rich-list-picklist-button-a-disabled a">
+		<u:style name="color" skin="tabDisabledTextColor"/>
+	</u:selector>
+	
+	<u:selector name=".rich-picklist-source-row-selected, .rich-picklist-target-row-selected">
+		<u:style name="background-color" skin="additionalBackgroundColor" />
+	</u:selector>
+}
+
+</f:template>

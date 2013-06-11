@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="#{templateBean.template}">
+	<ui:define name="style">
+		
+	</ui:define>
+	<ui:define name="component">
+		<h:form id="_form">
+		<rich:simpleTogglePanel switchType="ajax" id="panel1" label="ajax switchType" 
+				action="#{panelBean.increment}" actionListener="#{panelBean.actionListener}"
+				opened="#{panelBean.ajaxOpened}"
+				reRender="_value,_value2" 
+				bodyClass="body-class"
+				headerClass="header-class"
+				styleClass="noclass"
+				style="font-size: 13px" >
+	    	<f:facet name="closeMarker">
+				<h:outputText value="Close It" />
+	    	</f:facet>
+	    	<f:facet name="openMarker">
+				<h:outputText value="Open It" />
+	    	</f:facet>
+	    	<h:panelGroup id="content1" >
+	    		<h:outputText value="content" />
+	    	</h:panelGroup>
+		</rich:simpleTogglePanel>
+		
+		<rich:simpleTogglePanel switchType="server" id="panel2" label="server switchType" 
+				action="#{panelBean.increment}" actionListener="#{panelBean.actionListener}" 
+				opened="#{panelBean.serverOpened}" >
+	    	<f:facet name="closeMarker">
+				<h:outputText value="Close It" />
+	    	</f:facet>
+	    	<f:facet name="openMarker">
+				<h:outputText value="Open It" />
+	    	</f:facet>
+	    	<h:panelGroup id="content2" >
+	    		<h:outputText value="content" />
+	    	</h:panelGroup>
+		</rich:simpleTogglePanel>
+		
+		<rich:simpleTogglePanel switchType="client" id="panel3" label="client switchType" 
+				opened="#{panelBean.clientOpened}" >
+	    	<f:facet name="closeMarker">
+				<h:outputText value="Close It" />
+	    	</f:facet>
+	    	<f:facet name="openMarker">
+				<h:outputText value="Open It" />
+	    	</f:facet>
+	    	<h:panelGroup id="content3" >
+	    		<h:outputText value="content" />
+	    	</h:panelGroup>
+		</rich:simpleTogglePanel>
+		<br/>
+		<h:inputText value="#{panelBean.value}" id="_value"></h:inputText>
+		<h:outputText value="#{panelBean.value2}" id="_value2"></h:outputText>
+		<br/>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

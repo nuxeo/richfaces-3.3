@@ -1,0 +1,20 @@
+
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" id="treePropertySubviewID">
+	<br />
+	<h:commandButton action="#{bean.add}" value="add test" />
+	<br />
+	<div style="FONT-WEIGHT: bold;">rich:findComponent</div>
+	<h:panelGrid columns="2">
+		<rich:column>
+			<a4j:commandLink value="getAdviseNodeSelected" reRender="findID"></a4j:commandLink>
+		</rich:column>
+		<rich:column id="findID">
+			<h:outputText
+				value="#{rich:findComponent('tree').adviseNodeSelected}" />
+		</rich:column>
+	</h:panelGrid>
+</f:subview>

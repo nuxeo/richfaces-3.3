@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root
+	xmlns:f="http://ajax4jsf.org/cdk/template"
+	xmlns:c=" http://java.sun.com/jsf/core"
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	class="org.richfaces.renderkit.html.ResizableRenderer"
+	baseclass="org.richfaces.renderkit.ResizableRendererBase"
+	component="org.richfaces.component.UIResizable">
+
+	<f:clientid var="clientId"/>
+
+	<c:set var="name" value="#{component.attributes['name']}"/>
+	<c:set var="styleClass" value="#{component.attributes['styleClass']}"/>
+	
+ 	<h:styles>extjs/ext-all.css,extjs/ext-css-patch.xcss</h:styles>
+	<h:scripts>extjs/ext-base.js,extjs/ext-all.js,script/rexInitWidget.js</h:scripts>
+
+<jsp:scriptlet>
+<![CDATA[ 
+         String[] attr = {"animate","disableTrackOver", "draggable",
+        		 "duration", "dynamic",  "enabled","height",
+        		 "heightIncrement", "maxHeight", "maxWidth", "minHeight",
+        		 "minWidth", "minX", "minY", "multiDirectional",  "pinned", 
+        		 "preserveRatio","resizeChild",  "transparent", "width", 
+        		 "widthIncrement", "wrap"};
+         String[] qattr = {  "adjustments", "easing",  "handles"};
+
+         StringBuffer json = new StringBuffer();
+
+         formParamList(component, attr,json, false);
+         formParamList(component, qattr,json, true);
+         
+         variables.setVariable("params", json.toString());
+         
+         String name = (String)component.getAttributes().get("name"); 
+         if (! "".equals(name)) {
+             variables.setVariable("name", name + "=");
+         }
+         String wrap = (String)component.getAttributes().get("wrap"); 
+         if ("true".equals(wrap)) {variables.setVariable("wrapChild", ".dom.firstChild");}
+         
+         
+]]>
+</jsp:scriptlet>
+
+	 
+
+<div id="#{clientId}" class="#{styleClass}" x:passThruWithExclusions="id,styleClass">
+		<vcp:body>
+			<f:call name="renderChildren" />
+		</vcp:body>
+		<f:clientid var="clientId"/>
+<script type="text/javascript">
+window.Richfaces.rexInitWidget(function(){
+#{name} new Ext.Resizable(Ext.get("#{clientId}")#{wrapChild}, { #{params} });
+});
+
+</script>
+</div>
+</f:root>
