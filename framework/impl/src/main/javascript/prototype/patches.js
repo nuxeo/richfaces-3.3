@@ -25,7 +25,7 @@ Element.isChildOf = function(node, supposedParent){
 	while(node && supposedParent !=node) {
 		node = node.parentNode;
 	}
-	
+
 	return supposedParent == node;
 };
 
@@ -49,14 +49,14 @@ if (typeof Node == "undefined") {
 Element.isUninitialized = function(element) {
 	if (element) {
 		if (element.nodeType == Node.ELEMENT_NODE) {
-		
+
 			if (!element.parentNode || element.document && element.document.readyState == "uninitialized") {
 				return true;
 			} else
 			{
 				return !Element.descendantOf(element, document.documentElement);
 			}
-		
+
 			return false;
 		}
 	}
@@ -67,22 +67,25 @@ if (window.RichFaces && window.RichFaces.Memory) {
 		var eventID = node._prototypeEventID ? node._prototypeEventID[0] : undefined;
 		if (eventID) {
 			var cache = Event.cache[eventID];
-	    	
+
 	        for (var eventName in cache) {
 	        	var wrappers = cache[eventName];
 	        	var domEventName = Event.getDOMEventName(eventName);
-	        	
-	        	wrappers.each(function(wrapper) {
-					if (node.removeEventListener) {
-						node.removeEventListener(domEventName, wrapper, false);
-					} else {
-						node.detachEvent("on" + domEventName, wrapper);
-					}
-	            });            	
-	    		
-	            cache[eventName] = null;
+
+            // NXP-2587: make sure wrappers is not null
+            if (wrappers) {
+              wrappers.each(function(wrapper) {
+                if (node.removeEventListener) {
+                  node.removeEventListener(domEventName, wrapper, false);
+                } else {
+                  node.detachEvent("on" + domEventName, wrapper);
+                }
+              });
+            }
+
+            cache[eventName] = null;
 	        }
-	
+
 	        delete Event.cache[eventID];
 		}
 	});
