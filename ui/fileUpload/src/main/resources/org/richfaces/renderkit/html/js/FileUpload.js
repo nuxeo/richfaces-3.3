@@ -20,12 +20,12 @@ FileUploadEntry.LABELS[FileUploadEntry.UPLOAD_IN_PROGRESS] = '';
 FileUploadEntry.LABELS[FileUploadEntry.UPLOAD_CANCELED] = '';
 FileUploadEntry.LABELS[FileUploadEntry.UPLOAD_FORBIDDEN] = 'Uploading forbidden';
 
-FileUploadEntry.clearControlTemplate = 
-   [	
+FileUploadEntry.clearControlTemplate =
+   [
 	new E('a',
 			{
-				'style':'', 
-				'onclick': function (context) { return 'var entry = FileUploadEntry.getComponent(this); entry.uploadObject.clear(entry); return false;';}, 
+				'style':'',
+				'onclick': function (context) { return 'var entry = FileUploadEntry.getComponent(this); entry.uploadObject.clear(entry); return false;';},
 				'className':function (context) { return 'rich-fileupload-anc ' + Richfaces.evalMacro("className", context); },
 				'href':'#'
 			},
@@ -34,13 +34,13 @@ FileUploadEntry.clearControlTemplate =
 		    ])
    ];
 
-FileUploadEntry.stopControlTemplate = 
+FileUploadEntry.stopControlTemplate =
    [
 	new E('a',
 			{
-				'style':'', 
-				'onclick': function (context) { return 'FileUploadEntry.getComponent(this).uploadObject.stop(); return false;';}, 
-				'className':function (context) { return 'rich-fileupload-anc ' + Richfaces.evalMacro("className", context); }, 
+				'style':'',
+				'onclick': function (context) { return 'FileUploadEntry.getComponent(this).uploadObject.stop(); return false;';},
+				'className':function (context) { return 'rich-fileupload-anc ' + Richfaces.evalMacro("className", context); },
 				'href':'#'
 			},
 		    [
@@ -48,13 +48,13 @@ FileUploadEntry.stopControlTemplate =
 		    ])
 	];
 
-FileUploadEntry.cancelControlTemplate = 
+FileUploadEntry.cancelControlTemplate =
    [
 	new E('a',
 			{
-				'style':'', 
-				'onclick': function (context) { return 'var entry = FileUploadEntry.getComponent(this); entry.uploadObject.clear(entry, true); return false;';}, 
-				'className':function (context) { return 'rich-fileupload-anc ' + Richfaces.evalMacro("className", context); }, 
+				'style':'',
+				'onclick': function (context) { return 'var entry = FileUploadEntry.getComponent(this); entry.uploadObject.clear(entry, true); return false;';},
+				'className':function (context) { return 'rich-fileupload-anc ' + Richfaces.evalMacro("className", context); },
 				'href':'#'
 			},
 		    [
@@ -62,9 +62,9 @@ FileUploadEntry.cancelControlTemplate =
 		    ])
 	];
 
-FileUploadEntry.template = 
+FileUploadEntry.template =
 	[
-	 new E('table', 
+	 new E('table',
 			 {'cellspacing':'0', 'cellpadding':'0', 'border':'0', 'style':'width:100%'},
 			 [
 			  new E('tbody',{},
@@ -85,7 +85,7 @@ FileUploadEntry.template =
 							    		]),
 					    		 new E('td',{'style':'vertical-align: center;', 'className':'rich-fileupload-table-td'},
 					    				 [
-					    				  new E('div',{'className':'rich-fileupload-font rich-fileupload-del'}, 
+					    				  new E('div',{'className':'rich-fileupload-font rich-fileupload-del'},
 			    								[
 		    								    	//FileUploadEntry.clearControlTemplate
 		    								    ])
@@ -115,36 +115,36 @@ FileUploadEntry.getComponent = function(elt) {
 Object.extend(FileUploadEntry.prototype, {
 
 	fileInput: null,
-	
+
 	fileName: null,
-	
+
 	uploadObject: null,
 
 	state: FileUploadEntry.INITIALIZED,
-	
+
 	initialize: function(fileInput, uploadObject, size, type, creator, creationDate, modificationDate) {
 		this.fileInput = fileInput;
 		this.uploadObject = uploadObject;
-		
+
 		this.size = size;
 		this.type = type;
 		this.creator = creator;
 		this.creationDate = creationDate;
 		this.modificationDate  = modificationDate;
-		
+
 		var fileName = JSNode.prototype.xmlEscape($F(this.fileInput));
 		this.fileName = fileName;
 		var content = FileUploadEntry.template.invoke('getContent', {fileName: fileName, fileEntryWidth: uploadObject.getFileEntryWidth(), className : this.uploadObject.classes.FILE_ENTRY.ENABLED }).join('');
-		
+
 		Element.insert(this.uploadObject.items, content);
-	
+
 		this.entryElement = this.uploadObject.items.childNodes[this.uploadObject.items.childNodes.length - 1];
 		this.entryElement.component = this;
 		this.statusLabel = this.entryElement.rows[0].cells[0].lastChild;
 		this.controlArea = this.entryElement.rows[0].cells[1].firstChild;
 		this.progressArea = this.entryElement.rows[0].cells[0].childNodes[1];
 	},
-	
+
 	upload: function() {
 		this.setState(FileUploadEntry.UPLOAD_IN_PROGRESS);
 		this.setupProgressBar();
@@ -155,17 +155,17 @@ Object.extend(FileUploadEntry.prototype, {
 			setTimeout(function(){this.uploadObject.submitForm(this)}.bind(this), 0);
 		}
 	},
-	
+
 	setupProgressBar: function () {
 		this.progressArea.appendChild(this.uploadObject._progressBar);
 		this.uploadObject.prepareProgressBar();
 	},
-	
+
 	setupLabelUpdate: function () {
 		this.updateLabel();
 		this.labelUpdateInterval = setInterval(function () { this.updateLabel(); }.bind(this), this.uploadObject.progressBar.options['pollinterval']);
 	},
-	
+
 	updateLabel: function () {
 		if (this.state != FileUploadEntry.UPLOAD_IN_PROGRESS) {
 			clearInterval(this.labelUpdateInterval);
@@ -174,29 +174,29 @@ Object.extend(FileUploadEntry.prototype, {
 			if (p) {
 				var content = this.uploadObject.labelMarkup.invoke('getContent', this.uploadObject.progressData.getContext(p)).join('');
 				this.statusLabel.innerHTML = content;
-		
+
 			}
 		}
 	},
-	
+
 	finishProgressBar: function () {
 		this.uploadObject.finishProgressBar();
 	},
-	
+
 	stop: function() {
 		this.uploadObject.stopScript(this.uid, this.uploadObject.formId);
 	},
-	
+
 	_clearInput: function() {
 		Richfaces.removeNode(this.fileInput);
 		this.fileInput = null;
 	},
-	
+
 	_clearEntry: function() {
 		Richfaces.removeNode(this.entryElement);
 		this.entryElement = null;
 	},
-	
+
 	clear: function() {
 			this._clearInput();
 		this._clearEntry();
@@ -205,7 +205,7 @@ Object.extend(FileUploadEntry.prototype, {
 	setState: function(newState) {
 		var oldState = this.state;
 		this.state = newState;
-		
+
 		Element.clearChildren(this.statusLabel);
 		Element.clearChildren(this.controlArea);
 
@@ -218,51 +218,51 @@ Object.extend(FileUploadEntry.prototype, {
 		} else {
 			Element.update(this.controlArea, FileUploadEntry.cancelControlTemplate.invoke('getContent',{'controlLink': FileUploadEntry.LABELS['entry_cancel'],'className': this.uploadObject.classes.FILE_ENTRY_CONTROL.ENABLED}).join(''));
 		}
-		
+
 		if (newState == FileUploadEntry.UPLOAD_SUCCESS) {
 			this._clearInput();
 		}
-		
+
 		this.uploadObject.notifyStateChange(this, oldState);
 	}
-	
+
 });
 
 ProgressData = Class.create();
 Object.extend(ProgressData.prototype, {
 	size: null,
-	
+
 	startTime: null,
-	
+
 	initialize: function(size) {
 		this.size = size;
 		this.startTime = parseInt((new Date().getTime())/1000);
 	},
-	
+
 	ss: function () {
 		return parseInt((this.time - this.startTime) % 60) + "";
 	},
-	
+
 	mm: function () {
 		return parseInt((this.time - this.startTime)/60)+ "";
 	},
-	
+
 	hh: function () {
 		return parseInt((this.time - this.startTime)/3600) + "";
 	},
-	
+
 	B: function () {
 		return this.size;
 	},
-	
+
 	KB: function () {
 		return parseInt(this.size/1024);
 	},
-	
+
 	MB: function () {
 		return parseInt(this.size/(1024*1024));
 	},
-	
+
 	getContext: function  (p) {
 		var context = {};
 		this.time = parseInt((new Date().getTime())/1000);
@@ -279,8 +279,8 @@ Object.extend(ProgressData.prototype, {
 		context['_MB'] = this.MB();
 		this.size = s;
 		return context;
-	}	
-	
+	}
+
 });
 
 LoadWatcher = Class.create();
@@ -289,8 +289,8 @@ Object.extend(LoadWatcher.prototype, {
 		this.iframe = iframe;
 		this.callback = callback;
 		this.viewStateUpdater = viewStateUpdater;
-	
-	
+
+
 		this.loadObserver = function() {
 			if (!this.stopped) {
 				this.stop();
@@ -298,9 +298,9 @@ Object.extend(LoadWatcher.prototype, {
 			}
 			return false;
 		}.bind(this);
-		
+
 		Event.observe(this.iframe, 'load', this.loadObserver);
-		
+
 		this.isError = function() {
 			try {
 				if (this.iframe.contentWindow && this.iframe.contentWindow.document) {
@@ -311,7 +311,7 @@ Object.extend(LoadWatcher.prototype, {
 			}
 			return false;
 		}.bind(this);
-			
+
 		this.interval = window.setInterval(function() {
 			if (!this.stopped) {
 				var loaded = false;
@@ -324,7 +324,7 @@ Object.extend(LoadWatcher.prototype, {
 				} catch (e) {
 					error = e;
 				}
-				
+
 				if (error) {
 					this.stop();
 					this.onerror();
@@ -332,20 +332,20 @@ Object.extend(LoadWatcher.prototype, {
 			}
 			return false;
 		}.bind(this),200);
-		
+
 	},
-		
+
 	oncancel: function() {
 		if (!this.stopped) {
 			this.stop();
 			this.callback(FileUploadEntry.UPLOAD_CANCELED);
 		}
 	},
-	
+
 	onerror: function() {
 		this.callback(FileUploadEntry.UPLOAD_TRANSFER_ERROR);
 	},
-	
+
 	onload: function() {
 		if (this.isError()) {
 			this.callback(FileUploadEntry.UPLOAD_TRANSFER_ERROR);
@@ -356,7 +356,7 @@ Object.extend(LoadWatcher.prototype, {
 		var restr = iframeDocument.getElementById('_richfaces_file_upload_size_restricted');
 		var forb = iframeDocument.getElementById('_richfaces_file_upload_forbidden');
 		var state = this.findViewState(iframeDocument);
-		
+
 		if (elt) {
 			this.callback(FileUploadEntry.UPLOAD_CANCELED);
 		} else if (restr) {
@@ -370,7 +370,7 @@ Object.extend(LoadWatcher.prototype, {
 			this.callback(FileUploadEntry.UPLOAD_TRANSFER_ERROR);
 		}
 	},
-	
+
 	findViewState: function(d) {
 		var s = 'javax.faces.ViewState';
 		var input = d.getElementsByTagName("input");
@@ -381,15 +381,15 @@ Object.extend(LoadWatcher.prototype, {
 		}
 		return d.getElementById(s);
 	},
-	
+
 	stop: function() {
 		this.stopped = true;
-		
+
 		if (this.interval) {
 			window.clearInterval(this.interval);
 			this.interval = null;
 		}
-		
+
 		if (this.loadObserver) {
 			Event.stopObserving(this.iframe, 'load', this.loadObserver);
 			this.loadObserver = null;
@@ -402,29 +402,29 @@ FileUpload = {};
 FileUpload = Class.create();
 
 Object.extend(FileUpload.prototype, {
-	
+
 	idCounter: 0,
-	
+
 	progressBar: null,
 
 	iframe: null,
-	
+
 	element: null,
-	
+
 	entries: new Array(),
-	
+
 	activeEntry: null,
-	
+
 	options: null,
-	
+
 	runUpload: false,
 
 	classes: null,
 
 	events: null,
-	
+
 	maxFileBatchSize: null,
-	
+
 	uploadedCount: 0,
 
 	initialize: function(id, formId, actionUrl, stopScript, getFileSizeScript, progressBarId, classes, label, maxFiles, events, disabled, acceptedTypes, options, labels, parameters, sessionId) {
@@ -440,17 +440,17 @@ Object.extend(FileUpload.prototype, {
 		}
 		this._progressBar = $(progressBarId);
 		this.progressBar = this._progressBar.component;
-		this.entries = new Array(); 
-		
+		this.entries = new Array();
+
 		this.labelMarkup = label;
 		this.disabled = disabled;
-		
+
 		this.element.component = this;
 		this.acceptedTypes = acceptedTypes;
-		
+
 		this.stopScript = stopScript;
 		this.getFileSizeScript = getFileSizeScript;
-		
+
 		this.items = $(this.id + ":fileItems");
 		this.classes = classes;
 		this.events = events;
@@ -471,7 +471,7 @@ Object.extend(FileUpload.prototype, {
 		this.processButtons();
 		this.initFileInput();
 	},
-	
+
 	cancelUpload: function(uid) {
 		if (this.activeEntry && this.activeEntry.uid == uid) {
 			if (this.watcher) {
@@ -488,7 +488,7 @@ Object.extend(FileUpload.prototype, {
 			}
 		}
 	},
-	
+
 	initLabels: function (labels) {
 		if (labels) {
 			for (var l in labels) {
@@ -496,16 +496,16 @@ Object.extend(FileUpload.prototype, {
 			}
 		}
 	},
-	
+
 	initFileInput: function () {
 		var o = this.currentInput;
 		var p = o.parentNode.parentNode;
 		p = $(p);
 		if (p.getWidth() != 0) {
-			var style = o.parentNode.style;	
+			var style = o.parentNode.style;
 			style.width = p.getWidth() + "px";
 			style.height = p.getHeight() + "px";
-			
+
 			Event.stopObserving(p,'mouseover', this.inputHandler);
 
 			if (Richfaces.browser.isIE && this.flashComponent) {
@@ -517,7 +517,7 @@ Object.extend(FileUpload.prototype, {
 			Event.observe(p,'mouseover', this.inputHandler);
 		}
 	},
-	
+
 	getFileEntryWidth: function () {
 		if (this.fileEntryWidth) {
 			return this.fileEntryWidth;
@@ -542,7 +542,7 @@ Object.extend(FileUpload.prototype, {
 		this.fileEntryWidth = this.fileEntryWidth + "px";
 		return this.fileEntryWidth;
 	},
-	
+
 	createFrame: function () {
 		if (this.iframe) return;
 		var div = document.createElement("div");
@@ -552,14 +552,14 @@ Object.extend(FileUpload.prototype, {
 		document.body.appendChild(div);
 		this.iframe = $(this.id + "_iframe");
 	},
-	
+
 	checkFrame: function () {
 		this.iframe = $(this.id + "_iframe");
 		if (this.iframe) {
 			this.deleteFrame();
 		}
 	},
-	
+
 	deleteFrame: function() {
 		this.resetFrame();
 		if (this.iframe) {
@@ -567,7 +567,7 @@ Object.extend(FileUpload.prototype, {
 		}
 		this.iframe = null;
 	},
-	
+
 	resetFrame: function () {
 		if (window.opera && this.iframe && this.iframe.contentWindow.document && this.iframe.contentWindow.document.body) {
 			this.iframe.contentWindow.document.body.innerHTML = "";
@@ -575,7 +575,7 @@ Object.extend(FileUpload.prototype, {
 			this.iframe.src = "javascript:''";
 		}
 	},
-	
+
 	initEvents : function() {
 		for (var e in this.events) {
 			if (e && this.events[e]) {
@@ -594,11 +594,11 @@ Object.extend(FileUpload.prototype, {
 
 	getFileSize: function (data) {
 		if (data) {
-			
+
 			if (!this.isFlash) {
 				this.progressBar.enable();
 			}
-			
+
 			if (this.labelMarkup) {
 				var progressData = new ProgressData(data);
 				this.progressData = progressData;
@@ -623,7 +623,7 @@ Object.extend(FileUpload.prototype, {
 				this.errorHandler(e);
 		}.bind(this);
 	},
-	
+
 	errorHandler: function (e) {
 		if (this.watcher) {
 			this.watcher.stop();
@@ -631,23 +631,23 @@ Object.extend(FileUpload.prototype, {
 			this.watcher = null;
 		}
 	},
-	
+
 	finishProgressBar: function () {
-		
+
 		if (this._fileSizeScriptTimeoutId) {
 			clearTimeout(this._fileSizeScriptTimeoutId);
 			this._fileSizeScriptTimeoutId = undefined;
 		}
-		
+
 		this.progressBar.disable();
 		this.progressBar.setValue(100);
 		Element.hide(this._progressBar);
 	},
-	
+
 	setupAutoUpload: function() {
 		this.runUpload = this.options.autoUpload;
 	},
-	
+
 	checkFileType: function (fileName) {
 	if (!this.acceptedTypes || this.acceptedTypes['*']) { return true; }
 		if (/(?:\S+)\.(\S+)$/.test(fileName)) {
@@ -659,7 +659,7 @@ Object.extend(FileUpload.prototype, {
 		}
 		return false;
 	},
-	
+
 	checkDuplicated: function (elt) {
 		if (!this.options.noDuplicate) return true;
 		var fileName = elt.value;
@@ -670,7 +670,7 @@ Object.extend(FileUpload.prototype, {
 		}
 		return true;
 	},
-	
+
 	add: function(elt) {
 		if (this.disabled) return;
 		if (!elt.value) return;
@@ -682,17 +682,17 @@ Object.extend(FileUpload.prototype, {
 			newUpload.value = '';
 			elt.parentNode.replaceChild(newUpload, elt);
 			this.currentInput = newUpload;
-			
+
 			if(this.events.ontyperejected) {
 				this.element.fire("rich:ontyperejected", { fileName : fileName });
-			} 
-			
-			return;  
+			}
+
+			return;
 		}
 
 		var newEntry = new FileUploadEntry(elt, this);
 		this.entries.push(newEntry);
-		
+
 		if (this.runUpload) {
 			newEntry.setState(FileUploadEntry.READY);
 		} else {
@@ -706,7 +706,7 @@ Object.extend(FileUpload.prototype, {
 		newUpload.value = '';
 		this.currentInput = newUpload;
 		elt.parentNode.appendChild(newUpload);
-		
+
 		if (this.events.onadd) {
 			var filesArray = [];
 			filesArray.push(newEntry);
@@ -777,10 +777,13 @@ Object.extend(FileUpload.prototype, {
 	if (this.disabled) return;
 		if (entry) {
 			if (isCancelButton || entry.state == FileUploadEntry.UPLOAD_SUCCESS || entry.state == FileUploadEntry.INITIALIZED) {
+			  if (entry.state == FileUploadEntry.UPLOAD_SUCCESS){
+          this.uploadedCount--;
+			  }
 				this.remove(entry);
-				if(this.events.onclear) {	
+				if(this.events.onclear) {
 		   			this.element.fire("rich:onclear", {entry : entry});
-				}				
+				}
 			}
 		} else {
 			//this.entries.length should be evaluated every time!
@@ -788,16 +791,17 @@ Object.extend(FileUpload.prototype, {
 			while (i < this.entries.length) {
 				var entry = this.entries[i];
 				if (entry.state == FileUploadEntry.UPLOAD_SUCCESS) {
+				  this.uploadedCount--;
 					this.remove(entry);
 				} else {
 					i++;
 				}
 			}
-			if(this.events.onclear) {	
+			if(this.events.onclear) {
 		   	   this.element.fire("rich:onclear", {});
 		    }
 		}
-		
+
 		if (this.entries.length == 0) {
 			this.setupAutoUpload();
 		}
@@ -809,7 +813,7 @@ Object.extend(FileUpload.prototype, {
 		this.disableAddButton();
 		this.disableCleanButton();
 		this.disableUploadButton();
-		
+
 	},
 
 	cleanAllDisabled: function () {
@@ -817,7 +821,7 @@ Object.extend(FileUpload.prototype, {
 		var c = this.getFileEntriesSumByState(FileUploadEntry.UPLOAD_SUCCESS);
 		return (c == 0);
 	},
-	
+
 	uploadAllDisabled: function () {
 		if (this.runUpload && this.activeEntry) {
 				return false;
@@ -826,7 +830,7 @@ Object.extend(FileUpload.prototype, {
 			return (c == 0);
 		}
 	},
-	
+
 	getFileEntriesSumByState: function () {
 		var statuses = {}
 		var s = 0;
@@ -848,17 +852,17 @@ Object.extend(FileUpload.prototype, {
 		if (disabled) {
 			Element.hide(d1.parentNode);
 			return;
-		} else { 
+		} else {
 			Element.show(d1.parentNode);
 		}
-		
+
 	  	if(this.disabled) {
     		d1.onclick = function() {return false;};
     	} else {
     		d1.onclick = function() {return this.clear();}.bind(this);
     	}
     	this._updateClassNames(d1, d2, this.classes.CLEAN, this.classes.CLEAN_CONTENT);
-    	
+
     },
 
     disableAddButton: function() {
@@ -897,7 +901,7 @@ Object.extend(FileUpload.prototype, {
     	}
     	this._updateClassNames(d1, d2, (this.runUpload) ? this.classes.STOP : this.classes.UPDATE, (this.runUpload) ? this.classes.STOP_CONTENT : this.classes.UPDATE_CONTENT);
     },
-    
+
     _updateClassNames: function (d1,d2,buttonClass,buttonContentClass) {
     	if (this.disabled) {
     		d1.className = buttonClass.DISABLED;
@@ -912,7 +916,7 @@ Object.extend(FileUpload.prototype, {
     		d1.onmouseup = function () {this.className='rich-fileupload-button rich-fileupload-font';};
     	}
     },
-    
+
     disable: function () {
     	this.disabled = true;
     	this.items.className = "rich-fileupload-list-overflow " + this.classes.UPLOAD_LIST.DISABLED;
@@ -920,10 +924,10 @@ Object.extend(FileUpload.prototype, {
     		var entry = this.entries[i];
     		entry.entryElement.rows[0].cells[0].className = "rich-fileupload-font rich-fileupload-name rich-fileupload-table-td " + this.classes.FILE_ENTRY.DISABLED;
     		entry.controlArea.firstChild.className = "rich-fileupload-anc " + this.classes.FILE_ENTRY_CONTROL.DISABLED;
-    	} 
+    	}
     	this.processButtons();
     },
-    
+
     enable: function () {
     	this.disabled = false;
     	this.items.className = "rich-fileupload-list-overflow " + this.classes.UPLOAD_LIST.ENABLED;
@@ -931,7 +935,7 @@ Object.extend(FileUpload.prototype, {
     		var entry = this.entries[i];
     		entry.entryElement.rows[0].cells[0].className = "rich-fileupload-font rich-fileupload-name rich-fileupload-table-td " + this.classes.FILE_ENTRY.ENABLED;
     		entry.controlArea.firstChild.className = "rich-fileupload-anc " + this.classes.FILE_ENTRY_CONTROL.ENABLED;
-    	} 
+    	}
     	this.processButtons();
     },
 
@@ -942,7 +946,7 @@ Object.extend(FileUpload.prototype, {
 		this.activeEntry = null;
 		//this.resetFrame();
 	},
-	
+
 	updateViewState: function (state) {
 		if (!state) return;
 		var form = this.getForm();
@@ -951,13 +955,13 @@ Object.extend(FileUpload.prototype, {
 			viewStateE.value = state;
 		}
 	},
-	
+
 	_updateEntriesState: function() {
 		var l = this.entries.length;
-		
+
 		var oldState;
 		var newState;
-		
+
 		if (this.runUpload) {
 			oldState = FileUploadEntry.INITIALIZED;
 			newState = FileUploadEntry.READY;
@@ -965,7 +969,7 @@ Object.extend(FileUpload.prototype, {
 			oldState = FileUploadEntry.READY;
 			newState = FileUploadEntry.INITIALIZED;
 		}
-		
+
 		for (var i = 0; i < l; i++) {
 			var entry = this.entries[i];
 			if (entry.state == oldState) {
@@ -973,25 +977,25 @@ Object.extend(FileUpload.prototype, {
 			}
 		}
 	},
-	
+
 	notifyStateChange: function(entry, oldState) {
 		var newState = entry.state;
-		
+
 		if (newState == FileUploadEntry.UPLOAD_SUCCESS || newState == FileUploadEntry.UPLOAD_SIZE_ERROR) {
 			//todo clear completed
-			
+
 			if (newState == FileUploadEntry.UPLOAD_SIZE_ERROR) {
 				if(this.events.onsizerejected) {
 					this.element.fire("rich:onsizerejected", { entry : entry});
-				} 
+				}
 			}
-		
+
 			if (newState == FileUploadEntry.UPLOAD_SUCCESS) {
 				this.uploadedCount++;
 			}
-			
+
 			this._endUpload();
-			
+
 			var entry = this._selectEntryForUpload();
 			if (entry) {
 				if (this.runUpload) {
@@ -1000,7 +1004,7 @@ Object.extend(FileUpload.prototype, {
 			} else {
 				//we've uploaded all files sucessfully
 				//but this.runUpload can be false if upload
-				//has been requested to stop by user 
+				//has been requested to stop by user
 				this.setupAutoUpload();
 				if(this.events.onuploadcomplete) {
 					this.element.fire("rich:onuploadcomplete", {});
@@ -1014,11 +1018,11 @@ Object.extend(FileUpload.prototype, {
 				newState == FileUploadEntry.UPLOAD_TRANSFER_ERROR ||
 				newState == FileUploadEntry.UPLOAD_SERVER_ERROR) {
 
-			
+
 			this._endUpload();
 
 			this.runUpload = false;
-			
+
 			this._updateEntriesState();
 
 			if(newState == FileUploadEntry.UPLOAD_CANCELED) {
@@ -1026,25 +1030,25 @@ Object.extend(FileUpload.prototype, {
 					this.element.fire("rich:onuploadcanceled", {entry : entry});
 				}
 			} else {
-				if(this.events.onerror) {	
+				if(this.events.onerror) {
 					this.element.fire("rich:onerror", {entry : entry});
 				}
 			}
 
 		} else if (newState == FileUploadEntry.UPLOAD_IN_PROGRESS) {
-		
+
 			this.activeEntry = entry;
-		
+
 			this._updateEntriesState();
 
 		}
 		this.processButtons();
 	},
-	
+
 	getForm: function () {
 		return this.form;
 	},
-	
+
 	_getForm: function () {
 		var parentForm = this.element;
 		while (parentForm.tagName && parentForm.tagName.toLowerCase() != 'form') {
@@ -1052,10 +1056,10 @@ Object.extend(FileUpload.prototype, {
 		}
 		return parentForm;
 	},
-	
+
 	submitForm: function(entry) {
 		var parentForm = this.getForm();
-		
+
 		if (!parentForm) {
 			throw "No parent form found!";
 		}
@@ -1069,18 +1073,18 @@ Object.extend(FileUpload.prototype, {
 		try {
 			if (!formUpload) {
 				entry.uid = Math.random().toString();
-				
-				Richfaces.writeAttribute(parentForm, "encoding", "multipart/form-data"); 
-				Richfaces.writeAttribute(parentForm, "enctype", "multipart/form-data"); 
-				
-				Richfaces.writeAttribute(parentForm, "action", 
+
+				Richfaces.writeAttribute(parentForm, "encoding", "multipart/form-data");
+				Richfaces.writeAttribute(parentForm, "enctype", "multipart/form-data");
+
+				Richfaces.writeAttribute(parentForm, "action",
 						this.actionUrl + (/\?/.test(this.actionUrl) ? '&_richfaces_upload_uid' : '?_richfaces_upload_uid') + '=' + encodeURI(entry.uid) + "&" + this.id + "=" + this.id + "&_richfaces_upload_file_indicator=true"+"&AJAXREQUEST="+this.progressBar.containerId);
-				
+
 				Richfaces.writeAttribute(parentForm, "target", this.id + "_iframe");
-				
+
 				var inputs = parentForm.elements;
 				var entryInput = entry.fileInput;
-			
+
 				entryInput.name = this.id + ":file";
 				entryInput.disabled = false;
 
@@ -1090,14 +1094,14 @@ Object.extend(FileUpload.prototype, {
 					if (input != entryInput) {
 							if ('file' == input.type) {
 								input._disabled = input.disabled;
-								input.disabled = true; 
+								input.disabled = true;
 							}
 					}
 				}
 			}else {
 				this.beforeSubmit();
 			}
-	
+
 			if (!parentForm.onsubmit || parentForm.onsubmit()) {
 				if (!formUpload) {
 					this.watcher = new LoadWatcher(this.iframe, function(newState) {
@@ -1115,13 +1119,13 @@ Object.extend(FileUpload.prototype, {
 
 				_JSFFormSubmit(null, parentForm.id, null, this.parameters);
 			}
-			
+
 			if (!formUpload) {
 				for (var i = 0; i < l; i++) {
 					var input = inputs[i];
 						if ('file' == input.type) {
 							input.disabled = input._disabled;
-							input._disabled = undefined; 
+							input._disabled = undefined;
 						}
 				}
 			}else {
@@ -1139,7 +1143,7 @@ Object.extend(FileUpload.prototype, {
 			}
 		}
 	},
-	
+
 	_enableEntries: function (b) {
 		for (var i = 0; i < this.entries.length; i++) {
 				var e = this.entries[i];
@@ -1147,22 +1151,22 @@ Object.extend(FileUpload.prototype, {
 				e.fileInput.disabled = b;
 			}
 	},
-	
+
 	beforeSubmit: function () {
 		var f = this.getForm();
 		if (!f) {
 			throw "No parent form found!";
 		}
 		Richfaces.writeAttribute(f, "encoding", "multipart/form-data");
-		Richfaces.writeAttribute(f, "enctype", "multipart/form-data"); 
-		Richfaces.writeAttribute(f, "action", 
+		Richfaces.writeAttribute(f, "enctype", "multipart/form-data");
+		Richfaces.writeAttribute(f, "action",
 				this.actionUrl + (/\?/.test(this.actionUrl) ? '&_richfaces_upload_uid' : '?_richfaces_upload_uid') + '=_richfaces_form_upload' + "&" + this.id + "=" + this.id + "&_richfaces_upload_file_indicator=true");
-		
+
 		this.currentInput.disabled = true;
 		this._enableEntries(false);
 		return true;
 	},
-	
+
 	initFlashModule: function ()
 	{
 		var allowFlash = this.options.allowFlash;
@@ -1180,10 +1184,10 @@ Object.extend(FileUpload.prototype, {
 				this.disable();
 				var flashvars = {fileUploadId:this.id};
 				var params = {allowscriptaccess:true, menu: "false", wmode: "transparent", salign: "TL", scale: "noscale"};
-				
+
 				var attributes = {style:"position:absolute; top:0px; left:0px;"};
 				swfobject.embedSWF(this.options.flashComponentUrl, oid, "100%", "100%", "9.0.28", false, flashvars, params, attributes);
-				
+
 				this.currentInput.parentNode.innerHTML = '<input type="text" style="cursor: pointer; right: 0px; top: 0px; font-size: 10em; position: absolute; padding: 0px" class="rich-fileupload-hidden" id="'+this.id+':file" name="'+this.id+':file"></input>'
 				this.currentInput = $(this.id + ":file");
 
@@ -1196,13 +1200,13 @@ Object.extend(FileUpload.prototype, {
 			}
 		}
 	},
-	
+
 	_flashClearFocus: function()
 	{
 		//this.flashComponent.style.display = "none";
 		//this.flashComponent.style.display = "";
 	},
-	
+
 	_flashSetComponent: function() {
 		var flashId = this.id+":flashContainer";
 		this.flashComponent = (document[flashId]) ? document[flashId] : (window[flashId] ? window[flashId] : $(flashId));
@@ -1210,23 +1214,23 @@ Object.extend(FileUpload.prototype, {
 											acceptedTypes: this.acceptedTypes,
 			 								noDuplicate: this.options.noDuplicate,
 			 								maxFiles: this.maxFileBatchSize });
-		if (Richfaces.browser.isIE) 
+		if (Richfaces.browser.isIE)
 		{
 			this.flashComponent.style.width = this.currentInput.parentNode.style.width;
 			this.flashComponent.style.height = this.currentInput.parentNode.style.height;
 		}
 		if (!this.oldDisabled) this.enable();
 	},
-	
+
 	_flashDisableAdd: function (isDisabled)
 	{
 		if (this.flashComponent)
 			this.flashComponent.disableAdd(isDisabled);
 	},
-	
+
 	_flashAdd: function(files) {
 		if (this.disabled) return;
-		
+
 		var filesArray = [];
 		for (var i=this.entries.length; i<files.length;i++)
 		{
@@ -1236,14 +1240,14 @@ Object.extend(FileUpload.prototype, {
 			var newEntry = new FileUploadEntry(this.currentInput, this, file.size, file.type, file.creator, file.creationDate, file.modificationDate);
 			this.entries.push(newEntry);
 			filesArray.push(newEntry);
-			
-	
+
+
 			if (this.runUpload) {
 				newEntry.setState(FileUploadEntry.READY);
 			} else {
 				newEntry.setState(FileUploadEntry.INITIALIZED);
 			}
-	
+
 			var newUpload = this.currentInput.cloneNode(true);
 			this.currentInput.style.cssText = "position: absolute; right: 0px; top: 0px; display: none; visibility: hidden;";
 			newUpload.id = this.id + ":file" + (this.idCounter++);
@@ -1251,7 +1255,7 @@ Object.extend(FileUpload.prototype, {
 			this.currentInput.parentNode.appendChild(newUpload);
 			this.currentInput = newUpload;
 		}
-		
+
 		if (this.events.onadd) {
 			this.element.fire("rich:onadd", { entries : filesArray });
 		}
@@ -1260,13 +1264,13 @@ Object.extend(FileUpload.prototype, {
 			this.upload();
 		}
 	},
-	
+
 	_flashRemoveFile: function(index)
 	{
 		//this.flashComponent.removeFile(index);
 		this.uploadIndex = this.flashComponent.removeFile(index);
 	},
-	
+
 	_flashFireEvent: function(eventName, object)
 	{
 		if (this.events[eventName])
@@ -1274,18 +1278,18 @@ Object.extend(FileUpload.prototype, {
 			this.element.fire("rich:"+eventName, object);
 		}
 	},
-	
+
 	_flashGetActionUrl: function (url, entry) {
 		var getParams = "_richfaces_upload_uid="+ encodeURI(entry.uid) + "&" + this.id + "=" + this.id + "&_richfaces_upload_file_indicator=true&_richfaces_size="+entry.size+"&_richfaces_send_http_error=true";
 		if (/\?/.test(url)) {
 			var i = url.indexOf("?");
-			url = url.substring(0, i) + ";jsessionid=" + this.sessionId + url.substring(i) + "&" + getParams;		
+			url = url.substring(0, i) + ";jsessionid=" + this.sessionId + url.substring(i) + "&" + getParams;
 		} else {
 			url = url + ";jsessionid=" + this.sessionId + "?" + getParams;
 		}
-		return url;	 
+		return url;
 	},
-	
+
 	_flashGetPostParams: function () {
 		var query = new A4J.Query(this.progressBar.containerId, this.form);
 		if (query) {
@@ -1301,7 +1305,7 @@ Object.extend(FileUpload.prototype, {
 		}
 		return '';
 	},
-	
+
 	_flashSubmitForm: function(entry) {
 
 		entry.uid = encodeURIComponent(Math.random().toString());
@@ -1310,9 +1314,9 @@ Object.extend(FileUpload.prototype, {
 		if (this.labelMarkup) {
 			this.progressData = new ProgressData(size);
 		}
-				
+
 	},
-	
+
 	_flashStop: function() {
 		if (this.uploadIndex>=0) {
 			this.flashComponent.cancelUploadFile(this.uploadIndex);
@@ -1320,7 +1324,7 @@ Object.extend(FileUpload.prototype, {
 			this._flashError(FileUploadEntry.UPLOAD_CANCELED);
 		}
 	},
-	
+
 	_flashOnProgress: function (bytesLoaded, bytesTotal)
 	{
 		var entry = this.entries[this.uploadIndex];
@@ -1333,32 +1337,32 @@ Object.extend(FileUpload.prototype, {
 			}
 		}
 	},
-	
+
 	_flashOnComplete: function () {
 		this.finishProgressBar();
 		this._flashSetEntryState(this.uploadIndex, (this.upload_stopped ? FileUploadEntry.UPLOAD_CANCELED : FileUploadEntry.UPLOAD_SUCCESS));
 		this.upload_stopped=false;
 	},
-	
+
 	_flashHTTPError: function (httpErrorNumber) {
 		if (httpErrorNumber==413) this._flashError(FileUploadEntry.UPLOAD_SIZE_ERROR);
 		else this._flashError();
 	},
-	
+
 	_flashIOError: function () {
 		this._flashError();
 	},
-	
+
 	_flashOnSecurityError: function (errorString) {
 		this._flashError();
 	},
-	
+
 	_flashError: function (error)
 	{
 		this.finishProgressBar();
 		this._flashSetEntryState(this.uploadIndex, (error==undefined ? FileUploadEntry.UPLOAD_TRANSFER_ERROR : error));
 	},
-	
+
 	_flashSetEntryState: function (entryIndex, state) {
 		var entry = this.entries[entryIndex];
 		if (entry) {
@@ -1369,7 +1373,7 @@ Object.extend(FileUpload.prototype, {
 			}
 		}
 	}
-	
+
 });
 
 FlashFileUpload = {
