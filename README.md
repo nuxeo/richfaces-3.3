@@ -11,7 +11,20 @@ See https://community.jboss.org/wiki/HowToBuildRichFacesSnapshotsManually33x.
 
 Don't forget to configure Maven to use the JBoss Repository. See https://community.jboss.org/wiki/MavenGettingStarted-Users.
 
-## Guidelines
+Don't build from the root directory, you'll also build useless stuff (demo, samples) of which dependencies are hardly found. 
+
+The jars we might want to build are:
+-  **richfaces-api-3.3.1.GA.jar**
+
+  run `mvn clean package` in $ROOT/framework/api
+-  **richfaces-impl-3.3.1.GA.jar**
+
+  run `mvn clean package` in $ROOT/framework/impl
+-  **richfaces-ui-3.3.1.GA.jar**
+
+  run `mvn clean package -Dmaven.test.skip=true` in $ROOT/ui. Some functional tests might not pass anymore depending on your environment.
+
+## Patch guidelines
 
 The *.pack.js files (such as framework.pack.js or ui.pack.js) are created at build time, they aggregate other existing js files.
 
