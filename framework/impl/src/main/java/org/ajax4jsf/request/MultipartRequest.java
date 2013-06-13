@@ -77,9 +77,9 @@ public class MultipartRequest extends HttpServletRequestWrapper {
 
     private String encoding = null;
 
-    private Integer contentLength = 0;
+    private long contentLength = 0;
 
-    private int bytesRead = 0;
+    private long bytesRead = 0;
 
     // we shouldn't allow to stop until request reaches PhaseListener because of
     // portlets
@@ -122,7 +122,7 @@ public class MultipartRequest extends HttpServletRequestWrapper {
         this.uid = uid;
 
         String contentLength = request.getHeader("Content-Length");
-        this.contentLength = Integer.parseInt(contentLength);
+        this.contentLength = Long.parseLong(contentLength);
         if (contentLength != null && maxRequestSize > 0
                 && this.contentLength > maxRequestSize) {
             // TODO : we should make decision if can generate exception in this
@@ -587,7 +587,7 @@ public class MultipartRequest extends HttpServletRequestWrapper {
     }
 
     public Integer getSize() {
-        return contentLength;
+        return contentLength > Integer.MAX_VALUE ? -1 : (int) contentLength;
     }
 
     @Override
@@ -732,8 +732,7 @@ public class MultipartRequest extends HttpServletRequestWrapper {
     }
 
     public boolean isDone() {
-        return !(this.shouldStop && (this.canceled || this.contentLength != null
-                && this.contentLength.intValue() != this.bytesRead));
+        return !(this.shouldStop && (this.canceled || this.contentLength != this.bytesRead));
     }
 
     @Override
