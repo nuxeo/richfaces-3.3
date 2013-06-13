@@ -12,32 +12,32 @@ Richfaces.Calendar.setElementPosition = function(element, baseElement, jointPoin
 	// jointPoint: {x:,y:} or ('top-left','top-right','bottom'-left,'bottom-right')
 	// direction:  ('top-left','top-right','bottom'-left,'bottom-right', 'auto')
 	// offset: {dx:,dy:}
-	
+
 	if (!offset) offset = {dx:0,dy:0};
-	
+
 	var elementDim = Richfaces.Calendar.getOffsetDimensions(element);
 	var baseElementDim;
 	var baseOffset;
-	
+
 	if (baseElement.left!=undefined)
 	{
 		baseElementDim = {width: baseElement.width, height: baseElement.height};
 		baseOffset = [baseElement.left, baseElement.top];
-		
+
 	} else
 	{
 		baseElementDim = Richfaces.Calendar.getOffsetDimensions(baseElement);
 		baseOffset = Position.cumulativeOffset(baseElement);
 	}
-	
+
 	var windowRect = Richfaces.Calendar.getWindowViewport();
-	
+
 	// jointPoint
 	var ox=baseOffset[0];
 	var oy=baseOffset[1];
 	var re = /^(top|bottom)-(left|right)$/;
 	var match;
-	
+
 	if (typeof jointPoint=='object') {ox = jointPoint.x; oy = jointPoint.y}
 	else if ( jointPoint && (match=jointPoint.toLowerCase().match(re))!=null )
 	{
@@ -45,15 +45,15 @@ Richfaces.Calendar.setElementPosition = function(element, baseElement, jointPoin
 		if (match[1]=='bottom') oy+=baseElementDim.height;
 	} else
 	{
-		// ??? auto 
+		// ??? auto
 	}
-	
+
 	// direction
 	if (direction && (match=direction.toLowerCase().match(re))!=null )
 	{
 		var d = direction.toLowerCase().split('-');
 		if (match[2]=='left') ox-=elementDim.width+offset.dx; else if (match[2]=='right') ox+=offset.dx;
-		if (match[1]=='top') oy-=elementDim.height+offset.dy; else if (match[1]=='bottom') oy+=offset.dy; 
+		if (match[1]=='top') oy-=elementDim.height+offset.dy; else if (match[1]=='bottom') oy+=offset.dy;
 	} else
 	{
 		// auto
@@ -106,10 +106,10 @@ Richfaces.Calendar.setElementPosition = function(element, baseElement, jointPoin
 					}
 				}
 			}
-			
+
 		}
 	}
-	
+
 	var els = element.style;
 	var originalVisibility = els.visibility;
 	var originalPosition = els.position;
@@ -117,7 +117,7 @@ Richfaces.Calendar.setElementPosition = function(element, baseElement, jointPoin
 	els.visibility = 'hidden';
 	els.position = 'absolute';
 	els.display = '';
-	
+
 	if (!window.opera)
 	{
    		var parentOffset = element.getOffsetParent().viewportOffset();
@@ -180,15 +180,15 @@ Richfaces.Calendar.getOffsetDimensions = function(element) {
     els.visibility = originalVisibility;
     return {width: originalWidth, height: originalHeight};
 };
- 
+
 Richfaces.Calendar.checkCollision = function(elementRect, windowRect, windowOffset)
 {
 	if (elementRect.left >= windowRect.left &&
 		elementRect.top >= windowRect.top &&
-		elementRect.right <= windowRect.right &&  
+		elementRect.right <= windowRect.right &&
 		elementRect.bottom <= windowRect.bottom)
 		return 0;
-	
+
 	var rect = {left:   (elementRect.left>windowRect.left ? elementRect.left : windowRect.left),
 				top:    (elementRect.top>windowRect.top ? elementRect.top : windowRect.top),
 				right:  (elementRect.right<windowRect.right ? elementRect.right : windowRect.right),
@@ -356,12 +356,12 @@ Richfaces.Calendar.parseDate = function(dateString, pattern, monthNames, monthNa
 	{
 		monthNamesShortStr = monthNamesShort.join('|').replace(re, '\\$1');
 	}
-	
+
 	var counter=1;
 	var y,m,d;
 	var a,h,min;
 	var shortLabel=false;
-	
+
 	pattern = pattern.replace(/([.*+?^<>=!:${}()|[\]\/\\])/g, '\\$1');
 	pattern = pattern.replace(/(y+|M+|d+|a|H{1,2}|h{1,2}|m{2})/g,
 		function($1) {
@@ -397,7 +397,7 @@ Richfaces.Calendar.parseDate = function(dateString, pattern, monthNames, monthNa
 
 		// time parsing
 		if (min!=undefined && h!=undefined)
-		{			
+		{
 			var hh,mmin,aa;
 			mmin = parseInt(match[min],10); if (isNaN(mmin) || mmin<0 || mmin>59) return null;
 			hh = parseInt(match[h],10); if (isNaN(hh)) return null;
@@ -416,7 +416,7 @@ Richfaces.Calendar.parseDate = function(dateString, pattern, monthNames, monthNa
 
 			return new Date(yy, mm, dd, hh, mmin, 0);
 		}
-		
+
 		return new Date(yy, mm, dd);
 	}
 	return null;
@@ -457,11 +457,11 @@ Richfaces.Calendar.escape = function (str)
 {
 	return str.replace(/([yMdaHhm\\])/g,"\\$1");
 };
-	
+
 Richfaces.Calendar.unescape = function (str)
 {
 	return str.replace(/\\([yMdaHhm\\])/g,"$1");
-};	
+};
 
 
 
@@ -486,9 +486,9 @@ function getDay(date, firstWeekDay ) {
 function getFirstWeek(year, mdifw, fdow) {
 	var date = new Date(year,0,1);
 	var firstday = getDay(date, fdow);
-	
+
 	var weeknumber = (7-firstday<mdifw) ? 0 : 1;
-	
+
 	return {date:date, firstDay:firstday, weekNumber:weeknumber, mdifw:mdifw, fdow:fdow};
 }
 
@@ -498,15 +498,15 @@ function getLastWeekOfPrevYear(o) {
 	var obj = getFirstWeek(year, o.mdifw, o.fdow);
 	days = (days - 7 + o.firstDay);
 	var weeks = Math.floor(days/7)+1;
-	  
+
 	return  weeks+obj.weekNumber;
 }
 
 function weekNumber(year, month, mdifw, fdow) {
-	
+
 	var o = getFirstWeek(year, mdifw, fdow);
-	
-	if (month==0) 
+
+	if (month==0)
 	{
 		if (o.weekNumber==1) return 1;
 		return getLastWeekOfPrevYear(o);
@@ -514,9 +514,9 @@ function weekNumber(year, month, mdifw, fdow) {
 	var	oneweek =  604800000;
 	var d = new Date(year, month,1);
 		d.setDate( 1+o.firstDay + (getDay(d,fdow)==0?1:0));
-		
+
 	weeknumber = o.weekNumber + Math.floor((d.getTime() - o.date.getTime()) / oneweek);
-	
+
 	return weeknumber;
 }
 
@@ -536,8 +536,8 @@ Object.extend(Calendar.prototype, {
 		// footerMarkup
 		// optionalHeaderMarkup - user defined header (optional)
 		// optionalFooterMarkup - user defined footer (optional)
-		
-		// currentDate - date to show month (day not used) (mm/yyyy) 
+
+		// currentDate - date to show month (day not used) (mm/yyyy)
 		// selectedDate - selected date (mm/dd/yyyy)
 		// weekDayLabels - collection of week day labels keyed by week day numbers
 		// weekDayLabelsShort - collection of week day short labels keyed by week day numbers
@@ -548,13 +548,13 @@ Object.extend(Calendar.prototype, {
 		// showApplyButton
 		// showHeader
 		// showFooter
-		
+
 		// POPUP description
 		// direction - [top-left, top-right, bottom-left, bottom-right, auto]
 		// jointPoint - [top-left, top-right, bottom-left, bottom-right]
 		// popup - true
-		// id+PopupButton, id+InputDate,  
-				
+		// id+PopupButton, id+InputDate,
+
 		// boundaryDatesMode - boundary dates onclick action:
 		// 						"inactive" or undefined - no action (default)
 		//						"scroll" - change current month
@@ -564,17 +564,17 @@ Object.extend(Calendar.prototype, {
 		//						"scroll"
 		//						"select"
 		//						"hidden"
-		
+
 		// isDayEnabled - end-developer JS function
 		// dayStyleClass - end-developer JS function that provide style class for day's cells.
-		
-		// dayCellClass - add div to day cell with class 'rich-calendar-cell-div' and add this class to TD if defined  
+
+		// dayCellClass - add div to day cell with class 'rich-calendar-cell-div' and add this class to TD if defined
 		// style - table style
 		// className - table class
-		
+
 		// disabled
 		// readonly
-		
+
 		//var _d = new Date();
 
 		this.id = id;
@@ -586,10 +586,10 @@ Object.extend(Calendar.prototype, {
 		if (this.params.showWeeksBar==undefined) this.params.showWeeksBar = true;
 
 		if (!this.params.datePattern) this.params.datePattern = "MMM d, y";
-		
+
 		// time
 		this.setTimeProperties();
-		
+
 		// markups initialization
 		if (!this.params.dayListMarkup)
 		{
@@ -604,27 +604,27 @@ Object.extend(Calendar.prototype, {
 		if (!this.params.weekDayMarkup) this.params.weekDayMarkup = CalendarView.weekDay;
 		if (!this.params.headerMarkup) this.params.headerMarkup = CalendarView.header;
 		if (!this.params.footerMarkup) this.params.footerMarkup = CalendarView.footer;
-		
+
 		// popup offset
 		this.popupOffset = {dx: (isNaN(this.params.horizontalOffset) ? 0 : parseInt(this.params.horizontalOffset,10)), dy: (isNaN(this.params.verticalOffset) ? 0 : parseInt(this.params.verticalOffset,10))};
-		
+
 		this.currentDate = this.params.currentDate ? this.params.currentDate : (this.params.selectedDate ? this.params.selectedDate : new Date());
 		this.currentDate.setDate(1);
 		this.selectedDate = this.params.selectedDate;
-		
+
 		if (typeof this.params.boundaryDatesMode=="string") this.params.boundaryDatesMode = this.params.boundaryDatesMode.toLowerCase();
 		if (typeof this.params.todayControlMode=="string") this.todayControlMode = this.params.todayControlMode.toLowerCase();
-		
+
 		if (typeof this.params.isDayEnabled != "function") this.params.isDayEnabled = function (context) {return true;};
 		if (typeof this.params.dayStyleClass != "function") this.params.dayStyleClass = function (context) {return "";};
-				
+
 		this.todayDate = new Date();
-		
+
 		this.firstWeekendDayNumber = 6-this.params.firstWeekDay;
 		this.secondWeekendDayNumber = (this.params.firstWeekDay>0 ? 7-this.params.firstWeekDay : 0);
-		
+
 		this.calendarContext = new CalendarContext(this);
-		
+
 		this.DATE_ELEMENT_ID = this.params.dayListTableId+'Cell';
 		this.WEEKNUMBER_ELEMENT_ID = this.params.weekNumberBarId+'Cell';
 		this.WEEKDAY_ELEMENT_ID = this.params.weekDayBarId+'Cell';
@@ -642,12 +642,12 @@ Object.extend(Calendar.prototype, {
 		this.TIME_EDITOR_BUTTON_CANCEL = this.id+'TimeEditorButtonCancel';
 		this.DATE_EDITOR_BUTTON_OK = this.id+'DateEditorButtonOk';
 		this.DATE_EDITOR_BUTTON_CANCEL = this.id+'DateEditorButtonCancel';
-		
-		
+
+
 		//this.popupIntervalId=null;
-		
+
 		this.firstDateIndex = 0;
-		
+
 		this.daysData = {startDate:null, days:[]};
 		this.days = [];
 		this.todayCellId = null;
@@ -655,7 +655,7 @@ Object.extend(Calendar.prototype, {
 
 		this.selectedDateCellId = null;
 		this.selectedDateCellColor = "";
-		
+
 		var popupStyles = "";
 		this.isVisible = true;
 		if (this.params.popup==true)
@@ -682,15 +682,15 @@ Object.extend(Calendar.prototype, {
 		var htmlTextWeekDayBar=[];
 		var context;
 
-		var eventsStr = this.params.disabled || this.params.readonly ? '' : 'onclick="'+tempStr+'eventCellOnClick(event, this);" onmouseover="'+tempStr+'eventCellOnMouseOver(event, this);" onmouseout="'+tempStr+'eventCellOnMouseOut(event, this);"';	
+		var eventsStr = this.params.disabled || this.params.readonly ? '' : 'onclick="'+tempStr+'eventCellOnClick(event, this);" onmouseover="'+tempStr+'eventCellOnMouseOver(event, this);" onmouseout="'+tempStr+'eventCellOnMouseOut(event, this);"';
 		if (this.params.showWeekDaysBar)
-		{ 
+		{
 			htmlTextWeekDayBar.push('<tr id="'+this.params.weekDayBarId+'">');
 			if (this.params.showWeeksBar) htmlTextWeekDayBar.push('<td class="rich-calendar-days"><br/></td>');
 			var weekDayCounter = this.params.firstWeekDay;
 			for (var i=0;i<7;i++)
 			{
-				context = {weekDayLabel: this.params.weekDayLabels[weekDayCounter], weekDayLabelShort: this.params.weekDayLabelsShort[weekDayCounter], weekDayNumber:weekDayCounter, isWeekend:this.isWeekend(i), elementId:this.WEEKDAY_ELEMENT_ID+i, component:this}; 
+				context = {weekDayLabel: this.params.weekDayLabels[weekDayCounter], weekDayLabelShort: this.params.weekDayLabelsShort[weekDayCounter], weekDayNumber:weekDayCounter, isWeekend:this.isWeekend(i), elementId:this.WEEKDAY_ELEMENT_ID+i, component:this};
 				var weekDayHtml = this.evaluateMarkup(this.params.weekDayMarkup, context );
 				if (weekDayCounter==6) weekDayCounter=0; else weekDayCounter++;
 
@@ -712,22 +712,22 @@ Object.extend(Calendar.prototype, {
 
 		for (k=1;k<7;k++)
 		{
-			bottomStyleClass = (k==6 ? "rich-bottom-cell " : "");			
+			bottomStyleClass = (k==6 ? "rich-bottom-cell " : "");
 			htmlTextWeek.push('<tr id="'+this.params.weekNumberBarId+k+'">');
 			if (this.params.showWeeksBar)
 			{
-				context = {weekNumber: k, elementId:this.WEEKNUMBER_ELEMENT_ID+k, component:this}; 
+				context = {weekNumber: k, elementId:this.WEEKNUMBER_ELEMENT_ID+k, component:this};
 				var weekNumberHtml = this.evaluateMarkup(this.params.weekNumberMarkup, context );
 				htmlTextWeek.push('<td class="rich-calendar-week '+bottomStyleClass+'" id="'+context.elementId+'">'+weekNumberHtml+'</td>');
 			}
-			
-			// day cells creation 
+
+			// day cells creation
 			for (var i=0;i<7;i++)
 			{
 				styleClass = bottomStyleClass+(!this.params.dayCellClass ? "rich-calendar-cell-size" : (!this.customDayListMarkup ? this.params.dayCellClass : ""))+" rich-calendar-cell";
 				if (i==this.firstWeekendDayNumber || i==this.secondWeekendDayNumber) styleClass+=" rich-calendar-holly";
 				if (i==6) styleClass+=" rich-right-cell";
-				
+
 				this.dayCellClassName.push(styleClass);
 				htmlTextWeek.push('<td class="'+styleClass+'" id="'+this.DATE_ELEMENT_ID+p+'" '+
 				eventsStr+
@@ -736,11 +736,11 @@ Object.extend(Calendar.prototype, {
 			}
 			htmlTextWeek.push('</tr>');
 		}
-		
+
 		var obj = $(this.POPUP_ID).nextSibling;
 		if (this.params.popup && Richfaces.browser.isIE6)
 		{
-			do {	
+			do {
 				if (obj.id == this.IFRAME_ID)
 				{
 					var iframe = obj;
@@ -750,46 +750,51 @@ Object.extend(Calendar.prototype, {
 				}
 			} while (obj = obj.nextSibling);
 		}
-		
+
 		do {
 			if (obj.id == id)
 			{
 				var div = obj;
 				obj = obj.previousSibling;
-				Element.replace(div, htmlTextHeader+htmlHeaderOptional+htmlControlsHeader+htmlTextWeekDayBar.join('')+htmlTextWeek.join('')+htmlControlsFooter+htmlFooterOptional+htmlTextFooter);				
+				Element.replace(div, htmlTextHeader+htmlHeaderOptional+htmlControlsHeader+htmlTextWeekDayBar.join('')+htmlTextWeek.join('')+htmlControlsFooter+htmlFooterOptional+htmlTextFooter);
 				break;
 			}
 		} while (obj = obj.nextSibling);
-		
+
 		// set content
 		obj=obj.nextSibling;
 		obj.component = this;
 		obj.richfacesComponent="richfaces:calendar";
 		this["rich:destructor"] = "destructor";
-		
+
 		// memory leaks fix
 		obj = null;
-		
+
 		if(this.params.submitFunction)	this.submitFunction = this.params.submitFunction.bind(this);
 		this.prepareEvents();
-		
+
 		// add onclick event handlers to input field and popup button
 		if (this.params.popup && !this.params.disabled)
 		{
-			var handler = new Function ('event', "$('"+this.id+"').component.doSwitch();").bindAsEventListener(); 
-			Event.observe(this.POPUP_BUTTON_ID, "click", handler, false);
-			if (!this.params.enableManualInput) 
-			{
-				Event.observe(this.INPUT_DATE_ID, "click", handler, false);				
-			}
+  		// hack, see NXP-8153
+  		var popupEl = document.getElementById(this.POPUP_BUTTON_ID);
+  		if (!(popupEl.calendarClickObserved)) {
+  		 popupEl.calendarClickObserved = true;
+			  var handler = new Function ('event', "$('"+this.id+"').component.doSwitch();").bindAsEventListener();
+			  Event.observe(this.POPUP_BUTTON_ID, "click", handler, false);
+  			if (!this.params.enableManualInput)
+  			{
+  				Event.observe(this.INPUT_DATE_ID, "click", handler, false);
+  			}
+  		}
 		}
-		
+
 		this.scrollElements = null;
-		
+
 		//alert(new Date().getTime()-_d.getTime());
-		
+
 	},
-	
+
 	destructor: function()
 	{
 		if (this.params.popup && this.isVisible)
@@ -798,7 +803,7 @@ Object.extend(Calendar.prototype, {
 			Event.stopObserving(window.document, "click", this.eventOnCollapse, false);
 		}
 	},
-	
+
 	dateEditorSelectYear: function(value)
 	{
 		if (this.dateEditorYearID)
@@ -809,7 +814,7 @@ Object.extend(Calendar.prototype, {
 		this.dateEditorYearID = this.DATE_EDITOR_LAYOUT_ID+'Y'+value;
 		Element.addClassName(this.dateEditorYearID, 'rich-calendar-editor-btn-selected');
 	},
-	
+
 	dateEditorSelectMonth: function(value)
 	{
 		this.dateEditorMonth = value;
@@ -817,7 +822,7 @@ Object.extend(Calendar.prototype, {
 		this.dateEditorMonthID = this.DATE_EDITOR_LAYOUT_ID+'M'+value;
 		Element.addClassName(this.dateEditorMonthID, 'rich-calendar-editor-btn-selected');
 	},
-	
+
 	scrollEditorYear: function(value)
 	{
 		var element = $(this.DATE_EDITOR_LAYOUT_ID+'TR');
@@ -837,9 +842,9 @@ Object.extend(Calendar.prototype, {
 				Element.removeClassName(this.dateEditorMonthID, 'rich-calendar-editor-btn-selected');
 				this.dateEditorMonthID = this.DATE_EDITOR_LAYOUT_ID+'M'+this.dateEditorMonth;
 				Element.addClassName(this.dateEditorMonthID, 'rich-calendar-editor-btn-selected');
-			}			
+			}
 		}
-		
+
 		if (element)
 		{
 			var div;
@@ -865,7 +870,7 @@ Object.extend(Calendar.prototype, {
 			}
 		}
 	},
-	
+
 	updateDateEditor: function()
 	{
 		this.dateEditorYear = this.getCurrentYear();
@@ -878,7 +883,7 @@ Object.extend(Calendar.prototype, {
 		var th=$(this.id+'TimeHours');
 		var ts=$(this.id+'TimeSign');
 		var tm=$(this.id+'TimeMinutes');
-				
+
 		var h = this.selectedDate.getHours();
 		var m = this.selectedDate.getMinutes();
 		if (this.timeType==2)
@@ -897,7 +902,7 @@ Object.extend(Calendar.prototype, {
 		var element = $(this.id);
 		var htmlBegin = '<div id="'+this.EDITOR_SHADOW_ID+'" class="rich-calendar-editor-shadow" style="position:absolute; display:none;"></div><table border="0" cellpadding="0" cellspacing="0" id="'+this.EDITOR_ID+'" style="position:absolute; display:none;" onclick="$(\''+this.id+'\').component.skipEventOnCollapse=true;"><tbody><tr><td class="rich-calendar-editor-container" align="center"><div style="position:relative; width:100%">';
 		var htmlContent = '<div id="'+this.EDITOR_LAYOUT_SHADOW_ID+'" class="rich-calendar-editor-layout-shadow"></div>';
-		
+
 		var htmlEnd = '</div></td></tr></tbody></table>';
 		new Insertion.After(element, htmlBegin+htmlContent+htmlEnd);
 		//+this.evaluateMarkup(CalendarView.timeEditor, this.calendarContext)+
@@ -926,35 +931,35 @@ Object.extend(Calendar.prototype, {
 		else
 		{
 			sbjQuery(th).SpinButton({digits:this.timeHoursDigits,min:1,max:12});
-			ts=$(this.id+'TimeSign');				
+			ts=$(this.id+'TimeSign');
 			sbjQuery(ts).SpinButton({});
 		}
 		sbjQuery(tm).SpinButton({digits:2,min:0,max:59});
-		
+
 		this.correctEditorButtons(editor, this.TIME_EDITOR_BUTTON_OK, this.TIME_EDITOR_BUTTON_CANCEL);
-		
+
 		this.isTimeEditorLayoutCreated = true;
 	},
-	
+
 	correctEditorButtons: function(editor, buttonID1, buttonID2)
 	{
 		var button1 = $(buttonID1);
 		var button2 = $(buttonID2);
 		editor.style.visibility = "hidden";
 		editor.style.display = "";
-		var width1 = Richfaces.Calendar.getOffsetDimensions(button1.firstChild).width; 
+		var width1 = Richfaces.Calendar.getOffsetDimensions(button1.firstChild).width;
 		var width2 = Richfaces.Calendar.getOffsetDimensions(button2.firstChild).width;
 		editor.style.display = "none";
 		editor.style.visibility = "";
 
 		var styleWidth = Richfaces.getComputedStyleSize(button1,'width')
-				
+
 		if (width1>styleWidth || width2>styleWidth)
 		{
 			button1.style.width = button2.style.width = (width1>width2 ? width1 : width2)+"px";
 		}
 	},
-	
+
 	createDECell: function(id, value, buttonType, param, className)
 	{
 		if (buttonType==0)
@@ -962,7 +967,7 @@ Object.extend(Calendar.prototype, {
 			return '<div id="'+id+'" class="rich-calendar-editor-btn'+(className ? ' '+className : '')+
 			                      '" onmouseover="this.className=\'rich-calendar-editor-btn rich-calendar-editor-tool-over\';" onmouseout="this.className=\'rich-calendar-editor-btn\';" onmousedown="this.className=\'rich-calendar-editor-btn rich-calendar-editor-tool-press\';" onmouseup="this.className=\'rich-calendar-editor-btn rich-calendar-editor-tool-over\';" onclick="$(\''+this.id+'\').component.scrollEditorYear('+param+');">'+value+'</div>';
 		}
-		else 
+		else
 		{
 			var onclick = (buttonType==1 ? '$(\''+this.id+'\').component.dateEditorSelectMonth('+param+');':
 					   				    '$(\''+this.id+'\').component.dateEditorSelectYear('+param+');' );
@@ -983,7 +988,7 @@ Object.extend(Calendar.prototype, {
 						 +'<td align="center">'+this.createDECell('','&lt;', 0, -1)+'</td>'
 						 +'<td align="center">'+this.createDECell('','&gt;', 0, 1)+'</td>';
 			month++;
-		
+
 		for (var i=0;i<5;i++)
 		{
 			htmlContent+='</tr><tr><td align="center">'+this.createDECell(this.DATE_EDITOR_LAYOUT_ID+'M'+month, this.params.monthLabelsShort[month], 1, month)+'</td>'
@@ -996,7 +1001,7 @@ Object.extend(Calendar.prototype, {
 		this.dateEditorYearID = this.DATE_EDITOR_LAYOUT_ID+'Y4';
 		this.dateEditorMonth = this.getCurrentMonth();
 		this.dateEditorMonthID = this.DATE_EDITOR_LAYOUT_ID+'M'+this.dateEditorMonth;
-		
+
 		htmlContent+='</tr><tr><td colspan="2" class="rich-calendar-date-layout-ok">'+
 					 '<div id="'+this.DATE_EDITOR_BUTTON_OK+'" class="rich-calendar-time-btn" style="float:right;" onmousedown="Element.addClassName(this, \'rich-calendar-time-btn-press\');" onmouseout="Element.removeClassName(this, \'rich-calendar-time-btn-press\');" onmouseup="Element.removeClassName(this, \'rich-calendar-time-btn-press\');" onclick="$(\''+this.id+'\').component.hideDateEditor(true);"><span>'+this.params.labels.ok+'</span></div>'+
 					 '</td><td colspan="2" class="rich-calendar-date-layout-cancel">'+
@@ -1005,25 +1010,25 @@ Object.extend(Calendar.prototype, {
 
 
 		Element.insert(this.EDITOR_LAYOUT_SHADOW_ID, {after:htmlBegin+htmlContent+htmlEnd});
-		
+
 		Element.addClassName(this.dateEditorMonthID, 'rich-calendar-editor-btn-selected');
-		
+
 		this.correctEditorButtons(editor, this.DATE_EDITOR_BUTTON_OK, this.DATE_EDITOR_BUTTON_CANCEL);
-		
+
 		this.isDateEditorLayoutCreated = true;
-	},	
-	
+	},
+
 	createSpinnerTable: function(id) {
 		return '<table cellspacing="0" cellpadding="0" border="0"><tbody><tr>'+
 					'<td class="rich-calendar-spinner-input-container">'+
 						'<input id="' + id + '" name="' + id + '" class="rich-calendar-spinner-input" type="text" />'+
-					'</td>'+	
+					'</td>'+
 					'<td class="rich-calendar-spinner-buttons">'+
 						'<table border="0" cellspacing="0" cellpadding="0"><tbody>'+
 							'<tr><td>'+
 								'<div id="'+id+'BtnUp" class="rich-calendar-spinner-up"'+
 									' onmousedown="this.className=\'rich-calendar-spinner-up rich-calendar-spinner-pressed\'"'+
-									' onmouseup="this.className=\'rich-calendar-spinner-up\'"'+ 
+									' onmouseup="this.className=\'rich-calendar-spinner-up\'"'+
 									' onmouseout="this.className=\'rich-calendar-spinner-up\'"><span></span></div>'+
 							'</td></tr>'+
 							'<tr><td>'+
@@ -1036,7 +1041,7 @@ Object.extend(Calendar.prototype, {
 					'</td>'+
 				'</tr></tbody></table>';
 	},
-	
+
 	setTimeProperties: function() {
 		this.timeType = 0;
 
@@ -1047,17 +1052,17 @@ Object.extend(Calendar.prototype, {
 		while (r = re.exec(dateTimePattern))
 			if (!r[1])
   				pattern.push({str:r[0],marker:r[2],idx:r.index});
-  		
+
   		var datePattern = "";
   		var timePattern = "";
-  		
+
 		var digits,h,hh,m,a;
 		var id = this.id;
-		
+
 		var getString = function (p) {
 			return (p.length==0 ? obj.marker : dateTimePattern.substring(pattern[i-1].str.length+pattern[i-1].idx, obj.idx+obj.str.length));
 		};
-		
+
   		for (var i=0;i<pattern.length;i++)
   		{
   			var obj = pattern[i];
@@ -1085,14 +1090,14 @@ Object.extend(Calendar.prototype, {
   				m=true;
   				timePattern+=getString(timePattern);
   			}
-  			
-  			
+
+
   		}
   		this.datePattern = datePattern;
   		this.timePattern = timePattern;
 
   		var calendar = this;
-  		
+
 		this.timePatternHtml = timePattern.replace(/(\\\\|\\[yMdaHhm])|(H{1,2}|h{1,2}|m{2}|a)/g,
 			function($1,$2,$3) {
 				if ($2) return $2.charAt(1);
@@ -1106,41 +1111,41 @@ Object.extend(Calendar.prototype, {
 				}
 			}
 		);
-		
+
 		this.timePatternHtml = '<table border="0" cellpadding="0"><tbody><tr><td>'+this.timePatternHtml+'</td></tr></tbody></table>';
-  		
+
 		if (m && h)
 		{
 			this.timeType = 1;
 		}
-		else if (m && hh && a) 
+		else if (m && hh && a)
 		{
 			this.timeType = 2;
 		}
 		this.timeHoursDigits = digits;
 	},
-	
+
 	eventOnScroll: function (e) {
 		this.doCollapse();
 	},
-	
+
 	doCollapse: function() {
-		
+
 		if (!this.params.popup || !this.isVisible) return;
-		
+
 		if (this.isEditorVisible) this.hideEditor();
-		
+
 		var element = $(this.id);
-		
+
 		if (this.invokeEvent("collapse", element))
 		{
 			Richfaces.removeScrollEventHandlers(this.scrollElements, this.eventOnScroll);
 			Event.stopObserving(window.document, "click", this.eventOnCollapse, false);
-			
+
 			var iframe=null;
 			if (Richfaces.browser.isIE6) iframe = $(this.IFRAME_ID);
 			if (iframe) Element.hide(iframe);
-			
+
 			Element.hide(element);
 			this.isVisible = false;
 
@@ -1150,7 +1155,7 @@ Object.extend(Calendar.prototype, {
 	collapse: function() {
 		this.doCollapse();
 	},
-	
+
 	doExpand: function(e) {
 		if (!this.isRendered) {
 			this.isRendered = true;
@@ -1159,7 +1164,7 @@ Object.extend(Calendar.prototype, {
 		this.skipEventOnCollapse = false;
 		if (e && e.type=='click') this.skipEventOnCollapse = true;
 		if (!this.params.popup || this.isVisible) return;
-		
+
 		var element = $(this.id);
 
 		if (this.invokeEvent("expand", element, e))
@@ -1170,25 +1175,25 @@ Object.extend(Calendar.prototype, {
 			var base = $(this.POPUP_ID)
 			var baseInput = base.firstChild;
 			var baseButton = baseInput.nextSibling;
-			
+
 			if (baseInput && baseInput.value!=undefined)
 			{
 				this.selectDate(baseInput.value, false, {event:e, element:element});
 			}
-			
+
 			//rect calculation
-			
+
 			var offsetBase = Position.cumulativeOffset(baseButton);
-			
+
 			if (this.params.showInput)
 			{
 				var offsetBase1 = Position.cumulativeOffset(baseInput);
-			
+
 				offsetBase = [offsetBase[0]<offsetBase1[0] ? offsetBase[0] : offsetBase1[0],
 							  offsetBase[1]<offsetBase1[1] ? offsetBase[1] : offsetBase1[1]];
 				var offsetDimInput = Richfaces.Calendar.getOffsetDimensions(baseInput);
 			}
-			
+
 			var offsetDimBase = Richfaces.Calendar.getOffsetDimensions(base);
 			var offsetDimButton = Richfaces.Calendar.getOffsetDimensions(baseButton);
 			var offsetTemp = (window.opera ? [0,0] : Position.realOffset(baseButton));
@@ -1197,9 +1202,9 @@ Object.extend(Calendar.prototype, {
 					 top: offsetBase[1]-offsetTemp[1],
 					 width: offsetDimBase.width,
 					 height: (offsetDimInput && offsetDimInput.height>offsetDimButton.height ? offsetDimInput.height : offsetDimButton.height)};
-					 
+
 			Richfaces.Calendar.setElementPosition(element, o, this.params.jointPoint, this.params.direction, this.popupOffset);
-	
+
 			if (iframe)
 			{
 				iframe.style.left = element.style.left;
@@ -1210,11 +1215,11 @@ Object.extend(Calendar.prototype, {
 				Element.show(iframe);
 			}
 			Element.show(element);
-			
+
 			this.isVisible = true;
 
 			Event.observe(window.document, "click", this.eventOnCollapse, false);
-			
+
 			Richfaces.removeScrollEventHandlers(this.scrollElements, this.eventOnScroll);
 			this.scrollElements = Richfaces.setupScrollEventHandlers(element, this.eventOnScroll);
 		}
@@ -1223,7 +1228,7 @@ Object.extend(Calendar.prototype, {
 	expand: function(e) {
 		this.doExpand(e);
 	},
-	
+
 	doSwitch: function(e) {
 		this.isVisible ? this.doCollapse() : this.doExpand(e);
 	},
@@ -1231,7 +1236,7 @@ Object.extend(Calendar.prototype, {
 	switchState: function(e) {
 		this.doSwitch(e);
 	},
-	
+
 	eventOnCollapse: function (e) {
 		if (this.skipEventOnCollapse)
 		{
@@ -1240,15 +1245,15 @@ Object.extend(Calendar.prototype, {
 		}
 
 		if (Event.element(e).id == this.POPUP_BUTTON_ID || (!this.params.enableManualInput && Event.element(e).id == this.INPUT_DATE_ID) ) return true;
-		
+
 		//Position.prepare();
-		// TODO: remove line below and check functionality 
+		// TODO: remove line below and check functionality
 		if (Position.within($(this.id), Event.pointerX(e), Event.pointerY(e))) return true;
 		this.doCollapse();
-		
+
 		return true;
 	},
-	
+
 	setInputField: function(dateStr, event)
 	{
 		var field = $(this.INPUT_DATE_ID);
@@ -1258,10 +1263,10 @@ Object.extend(Calendar.prototype, {
 			this.invokeEvent("changed",field, event, this.selectedDate);
 		}
 	},
-	
+
 	getCurrentDate: function() {
 		return this.currentDate;
-	},	
+	},
 	getSelectedDate: function() {
 		if (!this.selectedDate) return null; else return this.selectedDate;
 	},
@@ -1305,16 +1310,16 @@ Object.extend(Calendar.prototype, {
 			return this.params.monthLabels[value];
 		} else return value;
 	},
-	
+
 	isWeekend: function(weekday) {
 		return (weekday == this.firstWeekendDayNumber || weekday == this.secondWeekendDayNumber);
 	},
-	
+
 	prepareEvents: function() {
 		this.eventOnCollapse = this.eventOnCollapse.bindAsEventListener(this);
 		this.eventOnScroll = this.eventOnScroll.bindAsEventListener(this);
 	},
-	
+
 	invokeEvent: function(eventName, element, event, date) {
 		var eventFunction = this.params['on'+eventName];
 		var result;
@@ -1327,7 +1332,7 @@ Object.extend(Calendar.prototype, {
 			{
 				eventObj = event;
 			}
-			else if( document.createEventObject ) 
+			else if( document.createEventObject )
 			{
 				eventObj = document.createEventObject();
 			}
@@ -1336,7 +1341,7 @@ Object.extend(Calendar.prototype, {
 				eventObj = document.createEvent('Events');
 				eventObj.initEvent( eventName, true, false );
 			}
-			
+
 			eventObj.rich = {component:this};
 			eventObj.rich.date = date;
 
@@ -1347,15 +1352,15 @@ Object.extend(Calendar.prototype, {
 			catch (e) { LOG.warn("Exception: "+e.Message + "\n[on"+eventName + "]"); }
 
 		}
-		
+
 		if (result!=false) result = true;
-		
+
 		return result;
 	},
-	
+
 	setupTimeForDate: function (date) {
-		if (this.selectedDate && (!this.params.resetTimeOnDateSelect || 
-			(this.selectedDate.getFullYear() == date.getFullYear() && 
+		if (this.selectedDate && (!this.params.resetTimeOnDateSelect ||
+			(this.selectedDate.getFullYear() == date.getFullYear() &&
 			this.selectedDate.getMonth() == date.getMonth() &&
 			this.selectedDate.getDate() == date.getDate())))
 		{
@@ -1367,7 +1372,7 @@ Object.extend(Calendar.prototype, {
 			date.setMinutes(this.params.defaultTime.minutes);
 		}
 	},
-	
+
 	eventCellOnClick: function (e, obj) {
 		var daydata = this.days[parseInt(obj.id.substr(this.DATE_ELEMENT_ID.length),10)];
 		if (daydata.enabled && daydata._month==0)
@@ -1378,23 +1383,23 @@ Object.extend(Calendar.prototype, {
 			{
 				this.setupTimeForDate(date);
 			}
-			
+
 			if (this.selectDate(date,true, {event:e, element:obj}) && !this.showApplyButton)
 			{
 				this.doCollapse();
 			}
-				
+
 		} else if (daydata._month!=0){
-			if (this.params.boundaryDatesMode == "scroll") 
+			if (this.params.boundaryDatesMode == "scroll")
 				if (daydata._month==-1) this.prevMonth(); else this.nextMonth();
-			else if (this.params.boundaryDatesMode == "select") 
+			else if (this.params.boundaryDatesMode == "select")
 			{
 				var date = new Date(daydata.date);
 				if (this.timeType)
 				{
 					this.setupTimeForDate(date);
 				}
-				
+
 				if (this.selectDate(date, false, {event:e, element:obj}) && !this.showApplyButton)
 				{
 				 	this.doCollapse();
@@ -1410,7 +1415,7 @@ Object.extend(Calendar.prototype, {
 			if (daydata._month==0 && obj.id!=this.selectedDateCellId && obj.id!=this.todayCellId) Element.addClassName(obj,'rich-calendar-hover');
 		}
 	},
-	
+
 	eventCellOnMouseOut: function (e, obj) {
 		var daydata = this.days[parseInt(obj.id.substr(this.DATE_ELEMENT_ID.length),10)];
 		if (this.invokeEvent("datemouseout", obj, e, daydata.date) && daydata.enabled)
@@ -1427,35 +1432,35 @@ Object.extend(Calendar.prototype, {
 		//			enabled boolean
 		//			text1: 'Meeting...',
 		//			text2: 'Meeting...'
-		//			tooltip 
-		//			hasTooltip 
+		//			tooltip
+		//			hasTooltip
 		//			styleClass
 		//	}
-		
+
 		//if (!$(this.id).component) return;
-		
+
 		if (daysData) {
 			this.daysData = this.indexData(daysData, isAjaxMode);
 		} else {
 			this.daysData = null;
 		}
-		
+
 		this.isRendered = false;
 		if (this.isVisible) {
 			this.render();
-		}; 
-		
-		if (typeof this.afterLoad=='function') 
+		};
+
+		if (typeof this.afterLoad=='function')
 		{
 			this.afterLoad();
 			this.afterLoad=null;
 		}
 	},
-	
+
 	indexData:function(daysData, isAjaxMode) {
 		var dateYear = daysData.startDate.getFullYear();
 		var dateMonth = daysData.startDate.getMonth();
-		
+
 		daysData.index = [];
 		daysData.index[dateYear+'-'+dateMonth] = 0;
 		if (isAjaxMode)
@@ -1465,7 +1470,7 @@ Object.extend(Calendar.prototype, {
 			return daysData;
 		}
 		var idx = daysInMonthByDate(daysData.startDate)-daysData.startDate.getDate()+1;
-		
+
 		while (daysData.days[idx])
 		{
 			if (dateMonth==11) {dateYear++; dateMonth=0;} else dateMonth++;
@@ -1474,13 +1479,13 @@ Object.extend(Calendar.prototype, {
 		}
 		return daysData;
 	},
-	
+
 	getCellBackgroundColor: function(element)
 	{
 		var result;
 		if (Richfaces.browser.isSafari && this.params.popup && !this.isVisible)
 		{
-			// Safari 2.0 fix 
+			// Safari 2.0 fix
 			// if [display:none] Element.getStyle() function returns null;
 			var els = $(this.id).style;
 			var originalVisibility = els.visibility;
@@ -1490,17 +1495,17 @@ Object.extend(Calendar.prototype, {
 			result = Element.getStyle(element, 'background-color').parseColor();
 			els.display = originalDisplay;
 			els.visibility = originalVisibility;
-		} else 
-		{					
+		} else
+		{
 			result = Element.getStyle(element, 'background-color').parseColor();
 		}
-		
+
 		return result;
 	},
-	
+
 	clearEffect: function (element_id, effect, className, className1)
 	{
-		if (effect) 
+		if (effect)
 		{
 			effect.cancel();
 			effect=null;
@@ -1514,39 +1519,39 @@ Object.extend(Calendar.prototype, {
 		}
 		return null;
 	},
-	
+
 	render:function() {
 		//var _d=new Date();
 		this.isRendered = true;
-		this.todayDate = new Date();		
-		
+		this.todayDate = new Date();
+
 		var currentYear = this.getCurrentYear();
 		var currentMonth = this.getCurrentMonth();
-		
+
 		var todayflag = (currentYear == this.todayDate.getFullYear() && currentMonth == this.todayDate.getMonth());
 		var todaydate =  this.todayDate.getDate();
-		
+
 		var selectedflag = this.selectedDate && (currentYear == this.selectedDate.getFullYear() && currentMonth == this.selectedDate.getMonth())
 		var selecteddate = this.selectedDate && this.selectedDate.getDate();
 
 		var wd = getDay(this.currentDate, this.params.firstWeekDay);
 		var currentMonthDays = daysInMonthByDate(this.currentDate);
 		var previousMonthDays = daysInMonth(currentYear, currentMonth-1);
-		
+
 		var p=0;
 		var month=-1;
 		this.days = [];
 		var dayCounter = previousMonthDays  - wd + 1;
-		
+
 		// previuos month days
 		if (wd>0) while (dayCounter<=previousMonthDays)
 		{
 			this.days.push({day:dayCounter, isWeekend: this.isWeekend(p), _month:month}); dayCounter++; p++;
 		}
-			
+
 		dayCounter = 1;
 		month=0;
-		
+
 		this.firstDateIndex = p;
 
 		// current month days
@@ -1559,12 +1564,12 @@ Object.extend(Calendar.prototype, {
 				while (dayCounter<firstDay)
 				{
 					this.days.push({day:dayCounter, isWeekend:this.isWeekend(p%7), _month:month});
-				
+
 					dayCounter++;
 					p++;
 				}
 			}
-			
+
 			var len = this.daysData.days.length;
 			var obj;
 			var flag;
@@ -1588,10 +1593,10 @@ Object.extend(Calendar.prototype, {
 			dayCounter++;
 			p++;
 		}
-		
+
 		// render
 		this.renderHF();
-		
+
 		//days render
 		p=0;
 		var element;
@@ -1602,23 +1607,23 @@ Object.extend(Calendar.prototype, {
 		var weekflag=true;
 
 		var e;
-		
+
 		var boundaryDatesModeFlag = (this.params.boundaryDatesMode == "scroll" || this.params.boundaryDatesMode == "select");
-		
+
 		this.todayCellId = this.clearEffect(this.todayCellId, this.highlightEffect);
 		this.selectedDateCellId = this.clearEffect(this.selectedDateCellId, this.highlightEffect2);
-		
+
 		//var _d=new Date();
 		var obj = $(this.params.weekNumberBarId+"1");
 		for (var k=1;k<7;k++)
 		{
 			//
 			dataobj = this.days[p];
-			
-			element = obj.firstChild;
-			var weeknumber; 
 
-			// week number update			
+			element = obj.firstChild;
+			var weeknumber;
+
+			// week number update
 			if (this.params.showWeeksBar)
 			{
 				if (weekflag && currentMonth==11 &&
@@ -1633,7 +1638,7 @@ Object.extend(Calendar.prototype, {
 			    if (k==1&&wn>52) wn=1;
 			    element = element.nextSibling;
 			}
-			
+
 			var weekdaycounter = this.params.firstWeekDay;
 			var contentElement = null;
 
@@ -1661,11 +1666,11 @@ Object.extend(Calendar.prototype, {
 				contentElement.innerHTML = this.evaluateMarkup(this.params.dayListMarkup, dataobj );
 
 				if (weekdaycounter==6) weekdaycounter=0; else weekdaycounter++;
-				
+
 				var classNames = this.dayCellClassName[p];
-				
+
 				// class styles
-				if (dataobj._month!=0) 
+				if (dataobj._month!=0)
 				{
 					classNames+=' rich-calendar-boundary-dates';
 					if (!this.params.disabled && !this.params.readonly && boundaryDatesModeFlag)
@@ -1673,31 +1678,31 @@ Object.extend(Calendar.prototype, {
 						classNames+=' rich-calendar-btn';
 					}
 				}
-				else 
+				else
 				{
-					if (todayflag && dataobj.day==todaydate) 
+					if (todayflag && dataobj.day==todaydate)
 					{
 						this.todayCellId = element.id;
 						this.todayCellColor = this.getCellBackgroundColor(element);
 						classNames+=" rich-calendar-today";
 					}
-				
+
 					if (selectedflag && dataobj.day==selecteddate)
 					{
 						this.selectedDateCellId = element.id;
 						this.selectedDateCellColor = this.getCellBackgroundColor(element);
 						classNames+=" rich-calendar-select";
-					} 
+					}
 					else if (!this.params.disabled && !this.params.readonly && dataobj.enabled) classNames+=' rich-calendar-btn';
 
 					// add custom style class
-					if (dataobj.customStyleClass) 
+					if (dataobj.customStyleClass)
 					{
 						classNames+=' '+dataobj.customStyleClass;
 					}
 				}
 				element.className = classNames;
-				
+
 				p++;
 
 				dataobj = this.days[p];
@@ -1705,10 +1710,10 @@ Object.extend(Calendar.prototype, {
 			}
 			obj = obj.nextSibling;
 		}
-		
+
 		//alert(new Date().getTime()-_d.getTime());
-		
-		// hack for IE 6.0 //fix 1072 // TODO check this bug again 
+
+		// hack for IE 6.0 //fix 1072 // TODO check this bug again
 		/*if (Richfaces.browser.isIE6)
 		{
 			var element = $(this.id);
@@ -1724,64 +1729,64 @@ Object.extend(Calendar.prototype, {
 	{
 		if (this.params.showHeader) this.renderMarkup(this.params.headerMarkup, this.id+"Header", this.calendarContext);
 		if (this.params.showFooter) this.renderMarkup(this.params.footerMarkup, this.id+"Footer", this.calendarContext);
-		
+
 		this.renderHeaderOptional();
-		this.renderFooterOptional();			
+		this.renderFooterOptional();
 	},
 
 	renderHeaderOptional: function()
 	{
 		this.renderMarkup(this.params.optionalHeaderMarkup, this.id+"HeaderOptional", this.calendarContext);
-	},	
+	},
 
 	renderFooterOptional: function()
 	{
 		this.renderMarkup(this.params.optionalFooterMarkup, this.id+"FooterOptional", this.calendarContext);
 	},
-	
+
 	renderMarkup: function (markup, elementId, context)
 	{
 		if (!markup) return;
 
 		var e = $(elementId);
-		if (!e) return; 
-	
+		if (!e) return;
+
 		e.innerHTML = markup.invoke('getContent', context).join('');
 	},
-	
+
 	evaluateMarkup: function(markup, context)
 	{
 		if (!markup) return "";
 		return markup.invoke('getContent', context).join('');
 	},
-	
+
 	onUpdate: function()
 	{
 		var formattedDate = Richfaces.Calendar.formatDate(this.getCurrentDate(),"MM/yyyy");
 		$(this.id+'InputCurrentDate').value=formattedDate;
-		
+
 		if (this.submitFunction)
 			this.submitFunction(formattedDate);
 		else
 			this.render();
 	},
-	
+
 	nextMonth: function() {
 		this.changeCurrentDateOffset(0,1);
 	},
-	
+
 	prevMonth: function() {
 		this.changeCurrentDateOffset(0,-1);
 	},
-	
+
 	nextYear: function() {
 		this.changeCurrentDateOffset(1,0);
 	},
-	
+
 	prevYear: function() {
 		this.changeCurrentDateOffset(-1,0);
 	},
-	
+
 	changeCurrentDate: function(year, month, noUpdate) {
 		if (this.getCurrentMonth()!=month || this.getCurrentYear()!=year)
 		{
@@ -1800,10 +1805,10 @@ Object.extend(Calendar.prototype, {
 		}
 		return false;
 	},
-	
+
 	changeCurrentDateOffset: function(yearOffset, monthOffset) {
 		var date = new Date(this.currentDate.getFullYear()+yearOffset, this.currentDate.getMonth()+monthOffset,1);
-			
+
 		if (this.invokeEvent("currentdateselect", $(this.id), null, date))
 		{
 			// fix for RF-2450.
@@ -1819,25 +1824,25 @@ Object.extend(Calendar.prototype, {
 	today: function(noUpdate, noHighlight) {
 
 			var now = new Date();
-	
+
 			var nowyear = now.getFullYear();
 			var nowmonth = now.getMonth();
 			var nowdate = now.getDate();
 			var updateflag = false;
-			
+
 			if (nowdate!=this.todayDate.getDate()) {updateflag=true; this.todayDate = now;}
-			
+
 			if (nowyear != this.currentDate.getFullYear() || nowmonth != this.currentDate.getMonth() )
 			{
 				updateflag = true;
 				this.currentDate = new Date(nowyear, nowmonth, 1);
 			}
-	
+
 			if (this.todayControlMode=='select')
 			{
 				noHighlight=true;
 			}
-			
+
 			if (updateflag)
 			{
 				if (noUpdate) this.render(); else this.onUpdate();
@@ -1845,7 +1850,7 @@ Object.extend(Calendar.prototype, {
 			else
 			{
 				// highlight today
-				
+
 				if (this.isVisible && this.todayCellId && !noHighlight)
 				{
 					this.clearEffect(this.todayCellId, this.highlightEffect);
@@ -1856,7 +1861,7 @@ Object.extend(Calendar.prototype, {
 					}
 				}
 			}
-	
+
 			// todayControl select mode
 			if (this.todayControlMode=='select' && !this.params.disabled && !this.params.readonly)
 				if (updateflag && !noUpdate && this.submitFunction)
@@ -1864,7 +1869,7 @@ Object.extend(Calendar.prototype, {
 					this.afterLoad = this.selectToday;
 				}
 				else this.selectToday();
-		
+
 	},
 
 	selectToday: function()
@@ -1882,26 +1887,26 @@ Object.extend(Calendar.prototype, {
 			{
 				this.doCollapse();
 			}
-		}		
+		}
 	},
-	
+
 	onHighlightFinish: function (object)
 	{
 		object.element.style['backgroundColor'] = '';
 	},
-	
+
 	selectDate: function(date, noUpdate, eventData) {
-		
+
 		if (!eventData)
 		{
 			eventData = {event: null, element: null};
 		}
-		
+
 		var oldSelectedDate = this.selectedDate;
 		var newSelectedDate;
 		if (date)
 		{
-			if (typeof date=='string') 
+			if (typeof date=='string')
 			{
 				date = Richfaces.Calendar.parseDate(date,this.params.datePattern, this.params.monthLabels, this.params.monthLabelsShort);
 			}
@@ -1919,10 +1924,10 @@ Object.extend(Calendar.prototype, {
 		{
 			isDateChange = true;
 			flag = this.invokeEvent("dateselect", eventData.element, eventData.event, date);
-		}	
-		
+		}
+
 		if (flag)
-		{		   
+		{
 			if (newSelectedDate!=null)
 			{
 				if (newSelectedDate.getMonth()==this.currentDate.getMonth() && newSelectedDate.getFullYear()==this.currentDate.getFullYear())
@@ -1932,15 +1937,15 @@ Object.extend(Calendar.prototype, {
 					{
 						// find cell and change style class
 						var e = $(this.DATE_ELEMENT_ID+(this.firstDateIndex + this.selectedDate.getDate()-1));
-						
+
 						this.clearEffect(this.selectedDateCellId, this.highlightEffect2, "rich-calendar-select", (this.params.disabled || this.params.readonly ? null : "rich-calendar-btn"));
 						this.selectedDateCellId = e.id;
 						this.selectedDateCellColor = this.getCellBackgroundColor(e);
-	
+
 						Element.removeClassName(e, "rich-calendar-btn");
 						Element.removeClassName(e, "rich-calendar-hover");
 						Element.addClassName(e, "rich-calendar-select");
-	
+
 						this.renderHF();
 					}
 					else if (this.timeType!=0) this.renderHF();
@@ -1965,25 +1970,25 @@ Object.extend(Calendar.prototype, {
 				this.selectedDate = null;
 
 				this.clearEffect(this.selectedDateCellId, this.highlightEffect2, "rich-calendar-select", (this.params.disabled || this.params.readonly ? null : "rich-calendar-btn"));
-				
+
 				if (this.selectedDateCellId)
 				{
 					this.selectedDateCellId = null;
-					this.renderHF();					
+					this.renderHF();
 				}
-				
+
 				var date = new Date();
 				if (this.currentDate.getMonth()==date.getMonth() && this.currentDate.getFullYear()==date.getFullYear())
 				{
 					this.renderHF();
 				}
-				
+
 				var todayControlMode = this.todayControlMode;
 				this.todayControlMode = '';
 				this.today(noUpdate, true);
 				this.todayControlMode = todayControlMode;
 			}
-			
+
 			// call user event
 			if (isDateChange)
 			{
@@ -1994,10 +1999,10 @@ Object.extend(Calendar.prototype, {
 				}
 			}
 		}
-		
-		return isDateChange;			
+
+		return isDateChange;
 	},
-	
+
 	resetSelectedDate: function()
 	{
 		if (!this.selectedDate) return;
@@ -2005,9 +2010,9 @@ Object.extend(Calendar.prototype, {
 		{
 			this.selectedDate = null;
 			this.invokeEvent("dateselected", null, null, null);
-			
+
 			this.selectedDateCellId = this.clearEffect(this.selectedDateCellId, this.highlightEffect2, "rich-calendar-select", (this.params.disabled || this.params.readonly ? null : "rich-calendar-btn"));
-			 
+
 			this.renderHF();
 			if (!this.showApplyButton)
 			{
@@ -2016,9 +2021,9 @@ Object.extend(Calendar.prototype, {
 			}
 		}
 	},
-	
+
 	showSelectedDate: function()
-	{	
+	{
 		if (!this.selectedDate) return;
 		if (this.currentDate.getMonth()!=this.selectedDate.getMonth() || this.currentDate.getFullYear()!=this.selectedDate.getFullYear())
 		{
@@ -2037,30 +2042,30 @@ Object.extend(Calendar.prototype, {
 					this.highlightEffect2 = new Effect.Highlight($(this.selectedDateCellId), {startcolor: this.selectedDateCellColor, duration:0.3, transition: Effect.Transitions.sinoidal,
 					afterFinish: this.onHighlightFinish});
 				}
-			}			
+			}
 		}
 	},
-	
+
 	close: function(updateDate)
 	{
 		if (updateDate)
 		{
 			this.setInputField(this.getSelectedDateString(this.params.datePattern), null);
-		}		
+		}
 		this.doCollapse();
 	},
-	
+
 	setEditorPosition: function (element, editor, shadow)
 	{
 		element;
-		
+
 		var dim = Richfaces.Calendar.getOffsetDimensions(element);
 		editor.style.width = shadow.style.width = dim.width + 'px';
 		editor.style.height = shadow.style.height = dim.height + 'px';
-		
+
 		Richfaces.Calendar.clonePosition([editor,shadow], element);
 	},
-	
+
 	showTimeEditor: function()
 	{
 		var editor;
@@ -2068,21 +2073,21 @@ Object.extend(Calendar.prototype, {
 		if (!this.isEditorCreated) editor = this.createEditor();
 		else editor = $(this.EDITOR_ID);
 		if (!this.isTimeEditorLayoutCreated) this.createTimeEditorLayout(editor);
-		
+
 		$(this.TIME_EDITOR_LAYOUT_ID).show();
-		
+
 		var editor_shadow = $(this.EDITOR_SHADOW_ID);
-		
+
 		this.setEditorPosition($(this.id), editor, editor_shadow);
-		
+
 		this.updateTimeEditor();
-		
+
 		editor_shadow.show();
-		
+
 		editor.show();
-		
+
 		Element.clonePosition(this.EDITOR_LAYOUT_SHADOW_ID, this.TIME_EDITOR_LAYOUT_ID, {offsetLeft: 3, offsetTop: 3});
-		this.isEditorVisible = true;		
+		this.isEditorVisible = true;
 	},
 
 	hideEditor: function()
@@ -2091,9 +2096,9 @@ Object.extend(Calendar.prototype, {
 		if (this.isDateEditorLayoutCreated) $(this.DATE_EDITOR_LAYOUT_ID).hide();
 		$(this.EDITOR_ID).hide();
 		$(this.EDITOR_SHADOW_ID).hide();
-		this.isEditorVisible = false;		
+		this.isEditorVisible = false;
 	},
-	
+
 	hideTimeEditor: function(updateTime)
 	{
 		this.hideEditor();
@@ -2105,7 +2110,7 @@ Object.extend(Calendar.prototype, {
 			{
 				if ($(this.id+'TimeSign').value.toLowerCase()=="am")
 				{
-					if (h==12) h = 0;					
+					if (h==12) h = 0;
 				}
 				else
 				{
@@ -2121,9 +2126,9 @@ Object.extend(Calendar.prototype, {
 				this.invokeEvent("timeselected",null, null, this.selectedDate);
 			}
 		}
-		if (this.params.popup && !this.showApplyButton) this.close(false);		
+		if (this.params.popup && !this.showApplyButton) this.close(false);
 	},
-	
+
 	showDateEditor: function()
 	{
 		var editor;
@@ -2131,21 +2136,21 @@ Object.extend(Calendar.prototype, {
 		else editor = $(this.EDITOR_ID);
 		if (!this.isDateEditorLayoutCreated) this.createDateEditorLayout(editor);
 		else this.updateDateEditor();
-	
+
 		$(this.DATE_EDITOR_LAYOUT_ID).show();
-			
+
 		var editor_shadow = $(this.EDITOR_SHADOW_ID);
-			
+
 		this.setEditorPosition($(this.id), editor, editor_shadow);
-			
+
 		editor_shadow.show();
 		editor.show();
-			
+
 		Element.clonePosition(this.EDITOR_LAYOUT_SHADOW_ID, this.DATE_EDITOR_LAYOUT_ID, {offsetLeft: 3, offsetTop: 3});
-			
+
 		this.isEditorVisible = true;
 	},
-	
+
 	hideDateEditor: function(updateCurrentDate)
 	{
 		this.hideEditor();
@@ -2166,29 +2171,29 @@ CalendarView.getControl = function(text, attributes, functionName, paramsStr) {
 };
 
 CalendarView.getSelectedDateControl = function(calendar) {
-	
+
 	if (!calendar.selectedDate || calendar.showApplyButton) return "";
-	
+
 	var text = Richfaces.Calendar.formatDate(calendar.selectedDate,(calendar.timeType ? calendar.datePattern : calendar.params.datePattern), calendar.params.monthLabels, calendar.params.monthLabelsShort);
 	var onclick = "Richfaces.getComponent('calendar',this).showSelectedDate(); return true;"
-	var markup = ( calendar.params.disabled ? 
-					new E('div', {'class': 'rich-calendar-tool-btn-disabled'}, [new ET(text)]) : 
+	var markup = ( calendar.params.disabled ?
+					new E('div', {'class': 'rich-calendar-tool-btn-disabled'}, [new ET(text)]) :
 					new E('div', {'class': 'rich-calendar-tool-btn', 'onclick': onclick}, [new ET(text)]) );
 
 	return markup;
 };
 
 CalendarView.getTimeControl = function(calendar) {
-	
+
 	if (!calendar.selectedDate || !calendar.timeType) return "";
-	
+
 	var text = Richfaces.Calendar.formatDate(calendar.selectedDate, calendar.timePattern, calendar.params.monthLabels, calendar.params.monthLabelsShort);
 
 	var onmouseover = "Element.removeClassName(this, 'rich-calendar-tool-btn-press');";
 	var onmouseout = "Element.addClassName(this, 'rich-calendar-tool-btn-press');";
 	var onclick = "Richfaces.getComponent('calendar',this).showTimeEditor();return true;";
-	var markup = calendar.params.disabled || calendar.params.readonly ? 
-				new E('div', {'class': 'rich-calendar-tool-btn-disabled'}, [new ET(text)]) : 
+	var markup = calendar.params.disabled || calendar.params.readonly ?
+				new E('div', {'class': 'rich-calendar-tool-btn-disabled'}, [new ET(text)]) :
 				new E('div', {'class': 'rich-calendar-tool-btn rich-calendar-tool-btn-hover rich-calendar-tool-btn-press', 'onclick': onclick,
 						'onmouseover': + onmouseover ,
 						'onmouseout' : + onmouseout}, [new ET(text)]);
@@ -2251,7 +2256,7 @@ CalendarView.header = [
 					new E('td',{'class': 'rich-calendar-month'},
 					[
 						new ET(function (context) { return Richfaces.evalMacro("currentMonthControl", context)})
-					]),				
+					]),
 					new E('td',{'class': 'rich-calendar-tool'},
 					[
 						new ET(function (context) { return Richfaces.evalMacro("nextMonthControl", context)})
@@ -2268,7 +2273,7 @@ CalendarView.header = [
 			])
 		]
 	)];
-	
+
 CalendarView.footer = [
 	new E('table',{'border': '0', 'cellpadding': '0', 'cellspacing': '0', 'width': '100%'},
 		[
@@ -2301,7 +2306,7 @@ CalendarView.footer = [
 			])
 		]
 	)];
-	
+
 CalendarView.timeEditorLayout = [
 
         new E('table',{'id': function(context){return context.calendar.TIME_EDITOR_LAYOUT_ID}, 'border': '0', 'cellpadding': '0', 'cellspacing': '0', 'class': 'rich-calendar-time-layout'},
