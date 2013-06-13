@@ -878,7 +878,7 @@ Object
               if (isCancelButton
                   || entry.state == FileUploadEntry.UPLOAD_SUCCESS
                   || entry.state == FileUploadEntry.INITIALIZED) {
-                if (entry.state == FileUploadEntry.UPLOAD_SUCCESS) {
+                if (isCancelButton || entry.state == FileUploadEntry.UPLOAD_SUCCESS) {
                   this.uploadedCount--;
                 }
                 this.remove(entry);
