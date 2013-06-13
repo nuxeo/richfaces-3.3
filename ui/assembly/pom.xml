@@ -3,7 +3,7 @@
   <parent>
     <artifactId>ui</artifactId>
     <groupId>org.richfaces</groupId>
-    <version>3.3.1.GA</version>
+    <version>3.3.1.GA-NX8-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.richfaces.ui</groupId>
@@ -16,7 +16,7 @@
       <plugin>
         <groupId>org.richfaces.cdk</groupId>
         <artifactId>maven-cdk-plugin</artifactId>
-        <version>3.3.1.GA</version>
+        <version>${richfaces.version}</version>
         <configuration>
           <library>
             <prefix>org.richfaces</prefix>
@@ -110,7 +110,7 @@
       <plugin>
         <groupId>org.richfaces.cdk</groupId>
         <artifactId>maven-javascript-plugin</artifactId>
-        <version>${project.version}</version>
+        <version>3.3.1.GA</version>
         <executions>
           <execution>
             <goals>
@@ -137,7 +137,7 @@
               <output>
                 ${project.build.outputDirectory}/org/richfaces/ui.pack.js
               </output>
-              <!-- files to include, path relative to output's directory or absolute 
+              <!-- files to include, path relative to output's directory or absolute
                 path -->
               <includes>
                 <include>
