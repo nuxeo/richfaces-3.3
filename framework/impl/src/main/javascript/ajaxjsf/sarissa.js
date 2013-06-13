@@ -653,8 +653,8 @@ Sarissa.getText = function(oNode, deep) {
   }
   return s;
 };
-if (!window.XMLSerializer && Sarissa.getDomDocument
-    && Sarissa.getDomDocument("", "foo", null).xml) {
+if ((!window.XMLSerializer || Sarissa._SARISSA_IS_IE9)
+    && Sarissa.getDomDocument && Sarissa.getDomDocument("", "foo", null).xml) {
   /**
    * Utility class to serialize DOM Node objects to XML strings
    * @constructor
