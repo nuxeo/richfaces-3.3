@@ -11,6 +11,7 @@
     <snapshotRepository>
       dav:https://snapshots.jboss.org/maven2
     </snapshotRepository>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies />
   <build>
@@ -92,13 +93,20 @@
   </build>
   <modules>
     <module>cdk</module>
-    <module>framework</module>
-    <module>ui</module>
-    <module>extensions</module>
-    <module>docs</module>
-    <module>ui/assembly</module>
-    <module>samples</module>
+    <!-- do not rebuild the api module -->
     <!--
+      <module>framework</module>
+    -->
+    <module>framework/impl</module>
+    <module>ui</module>
+    <!-- disabled unneeded modules for Nuxeo patches -->
+    <!--
+      <module>extensions</module>
+      <module>docs</module>
+    -->
+    <module>ui/assembly</module>
+    <!--
+      <module>samples</module>
       <module>sandbox</module>
     -->
   </modules>
@@ -124,6 +132,23 @@
       <id>repository.jboss.org</id>
       <url>http://repository.jboss.org/maven2</url>
     </repository>
+
+    <!-- additional repository -->
+    <repository>
+      <id>jboss-public-repository-group</id>
+      <name>JBoss Public Maven Repository Group</name>
+      <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </snapshots>
+    </repository>
+
   </repositories>
   <pluginRepositories>
     <pluginRepository>
@@ -131,6 +156,23 @@
       <name>Atlassian Maven 2.x Repository</name>
       <url>http://repository.atlassian.com/maven2</url>
     </pluginRepository>
+
+    <!-- additional repository -->
+    <pluginRepository>
+      <id>jboss-public-repository-group</id>
+      <name>JBoss Public Maven Repository Group</name>
+      <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </snapshots>
+    </pluginRepository>
+
   </pluginRepositories>
   <distributionManagement>
     <downloadUrl>
