@@ -8,7 +8,7 @@
   </parent>
   <groupId>org.richfaces.ui</groupId>
   <artifactId>layout</artifactId>
-  <version>3.3.1.GA</version>
+  <version>3.3.1.GA-NX8-SNAPSHOT</version>
   <name>layout</name>
   <build>
     <plugins>

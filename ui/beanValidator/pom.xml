@@ -9,7 +9,7 @@
 	<groupId>org.richfaces.ui</groupId>
 	<artifactId>beanValidator</artifactId>
 	<name>beanValidator</name>
-	<version>3.3.1.GA</version>
+	<version>3.3.1.GA-NX8-SNAPSHOT</version>
 	<build>
 		<plugins>
 			<plugin>
@@ -50,7 +50,7 @@
 		<dependency>
 			<groupId>org.richfaces.ui</groupId>
 			<artifactId>message</artifactId>
-			<version>3.3.1.GA</version>
+			<version>3.3.1.GA-NX8-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>

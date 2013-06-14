@@ -47,7 +47,7 @@
       <dependency>
         <groupId>org.richfaces.framework</groupId>
         <artifactId>richfaces-test</artifactId>
-        <version>${richfaces.nuxeo.version}</version>
+        <version>${richfaces.version}</version>
       </dependency>
       <dependency>
         <groupId>com.sun.facelets</groupId>

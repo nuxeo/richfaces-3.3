@@ -8,7 +8,7 @@
   <groupId>org.richfaces.ui</groupId>
   <artifactId>pickList</artifactId>
   <name>pickList</name>
-  <version>3.3.1.GA</version>
+  <version>3.3.1.GA-NX8-SNAPSHOT</version>
   <build>
     <plugins>
       <plugin>
@@ -66,13 +66,13 @@
     <dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>listShuttle</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 
    <dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>orderingList</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.3.1.GA-NX8-SNAPSHOT</version>
    </dependency> 
  </dependencies>
 

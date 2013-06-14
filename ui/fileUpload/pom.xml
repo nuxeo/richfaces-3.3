@@ -8,7 +8,7 @@
   <groupId>org.richfaces.ui</groupId>
   <artifactId>fileUpload</artifactId>
   <name>fileUpload</name>
-  <version>3.3.1.GA</version>
+  <version>3.3.1.GA-NX8-SNAPSHOT</version>
   <build>
     <plugins>
       <plugin>
@@ -56,7 +56,7 @@
 	 <dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>progressBar</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
    </dependencies>
 </project>
