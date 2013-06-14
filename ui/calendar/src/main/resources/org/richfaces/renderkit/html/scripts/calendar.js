@@ -1126,7 +1126,7 @@ Object.extend(Calendar.prototype, {
 	},
 
 	eventOnScroll: function (e) {
-		this.doCollapse();
+		/*this.doCollapse();*/
 	},
 
 	doCollapse: function() {
