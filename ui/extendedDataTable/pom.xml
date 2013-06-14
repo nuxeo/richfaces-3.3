@@ -2,7 +2,7 @@
   <parent>
 	<artifactId>ui</artifactId>
 	<groupId>org.richfaces</groupId>
-	<version>3.3.1.GA</version>
+	<version>3.3.1.GA-NX8-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.richfaces.ui</groupId>
@@ -64,45 +64,45 @@
     <dependency>
       <groupId>org.richfaces.framework</groupId>
       <artifactId>richfaces-impl</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>drag-drop</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>dataTable</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>menu-components</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>contextMenu</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>jQuery</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 	
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>componentControl</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>scrollableDataTable</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>

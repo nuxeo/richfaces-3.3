@@ -4,11 +4,11 @@
   <parent>
     <artifactId>ui</artifactId>
     <groupId>org.richfaces</groupId>
-    <version>3.3.1.GA</version>
+    <version>3.3.1.GA-NX8-SNAPSHOT</version>
   </parent>
   <groupId>org.richfaces.ui</groupId>
   <artifactId>layout</artifactId>
-  <version>3.3.1.GA</version>
+  <version>3.3.1.GA-NX8-SNAPSHOT</version>
   <name>layout</name>
   <build>
     <plugins>
@@ -48,7 +48,7 @@
     <dependency>
       <groupId>org.richfaces.framework</groupId>
       <artifactId>richfaces-impl</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>

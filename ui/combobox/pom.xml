@@ -2,13 +2,13 @@
   <parent>
     <artifactId>ui</artifactId>
     <groupId>org.richfaces</groupId>
-    <version>3.3.1.GA</version>
+    <version>3.3.1.GA-NX8-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.richfaces.ui</groupId>
   <artifactId>combobox</artifactId>
   <name>combobox</name>
-  <version>3.3.1.GA</version>
+  <version>3.3.1.GA-NX8-SNAPSHOT</version>
   <build>
     <plugins>
       <plugin>
@@ -51,12 +51,12 @@
     <dependency>
       <groupId>org.richfaces.framework</groupId>
       <artifactId>richfaces-impl</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
    <dependency>
      <groupId>org.richfaces.ui</groupId>
      <artifactId>suggestionbox</artifactId>
-     <version>3.3.1.GA</version>
+     <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 
   </dependencies>

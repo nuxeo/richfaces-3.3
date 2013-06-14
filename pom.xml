@@ -47,7 +47,7 @@
       <dependency>
         <groupId>org.richfaces.framework</groupId>
         <artifactId>richfaces-test</artifactId>
-        <version>${richfaces.nuxeo.version}</version>
+        <version>${richfaces.version}</version>
       </dependency>
       <dependency>
         <groupId>com.sun.facelets</groupId>
@@ -273,10 +273,12 @@
         <version>8.2-504.jdbc3</version>
       </extension>
       <!-- scm deployment wagon <extension> <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-scm</artifactId> <version>1.0-alpha-5</version> </extension> <extension>
+        <artifactId>wagon-scm</artifactId> <version>1.0-alpha-5</version> </extension> 
+        <extension>
         <groupId>org.apache.maven.scm</groupId> <artifactId>maven-scm-manager-plexus</artifactId>
         <version>1.0</version> </extension> <extension> <groupId>org.apache.maven.scm</groupId>
-        <artifactId>maven-scm-provider-svnexe</artifactId> <version>1.0</version> </extension> -->
+        <artifactId>maven-scm-provider-svnexe</artifactId> <version>1.0</version> 
+        </extension> -->
     </extensions>
     <pluginManagement>
       <plugins>
@@ -369,16 +371,16 @@
       </releases>
       <snapshots>
         <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
+        <updatePolicy>always</updatePolicy>
       </snapshots>
     </repository>
 
   </repositories>
   <pluginRepositories>
     <pluginRepository>
-      <id>atlassian-m2-repository</id>
-      <name>Atlassian Maven 2.x Repository</name>
-      <url>http://repository.atlassian.com/maven2</url>
+      <id>atlassian-public-repository</id>
+      <name>Atlassian Public Repository</name>
+      <url>https://maven.atlassian.com/public/</url>
     </pluginRepository>
 
     <!-- additional repository -->
@@ -393,7 +395,7 @@
       </releases>
       <snapshots>
         <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
+        <updatePolicy>always</updatePolicy>
       </snapshots>
     </pluginRepository>
 
