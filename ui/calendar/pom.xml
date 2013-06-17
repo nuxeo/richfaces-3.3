@@ -45,13 +45,13 @@
     <dependency>
       <groupId>org.richfaces.framework</groupId>
       <artifactId>richfaces-impl</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
+      <version>${richfaces.nuxeo.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>inputnumber-spinner</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
+      <version>${richfaces.nuxeo.version}</version>
     </dependency>
   </dependencies>
 </project>

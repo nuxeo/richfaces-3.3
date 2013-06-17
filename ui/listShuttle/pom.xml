@@ -13,7 +13,7 @@
       <plugin>
         <groupId>org.richfaces.cdk</groupId>
         <artifactId>maven-cdk-plugin</artifactId>
-        <version>${project.version}</version>
+        <version>${richfaces.version}</version>
         <executions>
           <execution>
             <phase>generate-sources</phase>

@@ -13,7 +13,7 @@
       <plugin>
         <groupId>org.richfaces.cdk</groupId>
         <artifactId>maven-cdk-plugin</artifactId>
-        <version>${project.version}</version>
+        <version>${richfaces.version}</version>
         <executions>
           <execution>
             <phase>generate-sources</phase>
@@ -43,17 +43,14 @@
     <dependency>
       <groupId>org.richfaces.framework</groupId>
       <artifactId>richfaces-impl</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>dataTable</artifactId>
-      <version>${project.version}</version>
     </dependency>
   	<dependency>
   	  <groupId>el-impl</groupId>
   	  <artifactId>el-impl</artifactId>
-  	  <version>1.0</version>
   	  <scope>test</scope>
   	</dependency>
   </dependencies>

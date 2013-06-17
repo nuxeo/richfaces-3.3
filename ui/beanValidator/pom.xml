@@ -45,17 +45,14 @@
 		<dependency>
 			<groupId>org.richfaces.framework</groupId>
 			<artifactId>richfaces-impl</artifactId>
-			<version>3.3.1.GA-NX8-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.richfaces.ui</groupId>
 			<artifactId>message</artifactId>
-			<version>3.3.1.GA-NX8-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>3.1.0.GA</version>
 			<exclusions>
 				<!--
 					<exclusion> <artifactId>hibernate-core</artifactId>
@@ -69,12 +66,10 @@
             <dependency>
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
-                <version>1.0.CR2</version>
             </dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
-			<version>1.4.2</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

@@ -45,12 +45,10 @@
     <dependency>
       <groupId>org.richfaces.framework</groupId>
       <artifactId>richfaces-impl</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>core</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>

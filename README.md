@@ -7,10 +7,9 @@ http://anonsvn.jboss.org/repos/richfaces/tags/3.3.1.GA
 
 ## How to build
 
-Run `mvn clean install -DskipTests=true`. Some functional tests might not pass anymore depending on your environment.
+Run `mvn clean install`. The build works with Maven 2.2.1.
 
 The resulting jars:
--  **richfaces-api-3.3.1.GA.jar** (We assume the api won't change)
 
 -  **richfaces-impl-3.3.1.GA-NX8-SNAPSHOT.jar**
 

@@ -31,7 +31,7 @@
           </library>
         </configuration>
       </plugin>
-    	
+
   	  <plugin>
   		<artifactId>maven-antrun-plugin</artifactId>
   		<executions>
@@ -56,53 +56,45 @@
   				</configuration>
   			</execution>
   		</executions>
-  	  </plugin>    	
-    	
+  	  </plugin>
+
     </plugins>
   </build>
   <dependencies>
     <dependency>
       <groupId>org.richfaces.framework</groupId>
       <artifactId>richfaces-impl</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>drag-drop</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>dataTable</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>menu-components</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>contextMenu</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>jQuery</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
-	
+
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>componentControl</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 
 	<dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>scrollableDataTable</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>

@@ -57,23 +57,20 @@
 			</build>
 		</profile>
 	</profiles>
-	
+
   <dependencies>
     <dependency>
       <groupId>org.richfaces.framework</groupId>
       <artifactId>richfaces-impl</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 	<dependency>
       <groupId>antlr</groupId>
       <artifactId>antlr</artifactId>
-      <version>2.7.6</version>
-      <scope> provided </scope>	
-    </dependency> 
+      <scope> provided </scope>
+    </dependency>
 	<dependency>
       <groupId>org.jboss.seam</groupId>
 	  <artifactId>jboss-seam</artifactId>
-      <version>2.1.0.SP1</version>
 	  <scope>provided</scope>
     </dependency>
   </dependencies>

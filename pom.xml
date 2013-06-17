@@ -45,6 +45,86 @@
         <version>${richfaces.nuxeo.version}</version>
       </dependency>
       <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>message</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>dataTable</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>suggestionbox</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>menu-components</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>drag-drop</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>contextMenu</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>combobox</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>inplaceInput</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>listShuttle</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>orderingList</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>tree</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>core</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>jQuery</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>componentControl</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>progressBar</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>scrollableDataTable</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.richfaces.framework</groupId>
         <artifactId>richfaces-test</artifactId>
         <version>${richfaces.version}</version>
@@ -83,6 +163,36 @@
         <groupId>javax.faces</groupId>
         <artifactId>jsf-api</artifactId>
         <version>1.2_12</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>3.1.0.GA</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.validation</groupId>
+        <artifactId>validation-api</artifactId>
+        <version>1.0.CR2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>1.4.2</version>
+      </dependency>
+      <dependency>
+        <groupId>el-impl</groupId>
+        <artifactId>el-impl</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>antlr</groupId>
+        <artifactId>antlr</artifactId>
+        <version>2.7.6</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.seam</groupId>
+        <artifactId>jboss-seam</artifactId>
+        <version>2.1.0.SP1</version>
       </dependency>
       <!-- framework dependencies -->
       <dependency>
@@ -273,11 +383,11 @@
         <version>8.2-504.jdbc3</version>
       </extension>
       <!-- scm deployment wagon <extension> <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-scm</artifactId> <version>1.0-alpha-5</version> </extension> 
+        <artifactId>wagon-scm</artifactId> <version>1.0-alpha-5</version> </extension>
         <extension>
         <groupId>org.apache.maven.scm</groupId> <artifactId>maven-scm-manager-plexus</artifactId>
         <version>1.0</version> </extension> <extension> <groupId>org.apache.maven.scm</groupId>
-        <artifactId>maven-scm-provider-svnexe</artifactId> <version>1.0</version> 
+        <artifactId>maven-scm-provider-svnexe</artifactId> <version>1.0</version>
         </extension> -->
     </extensions>
     <pluginManagement>
@@ -326,7 +436,7 @@
     </pluginManagement>
   </build>
   <modules>
-    <module>cdk</module>
+    <!-- <module>cdk</module> -->
     <!-- do not rebuild the api module -->
     <!-- <module>framework</module> -->
     <module>framework/impl</module>

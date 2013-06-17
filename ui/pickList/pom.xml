@@ -42,38 +42,34 @@
     </plugins>
   </build>
   <dependencies>
-    
+
 	<dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
 	</dependency>
-    
+
 	<dependency>
       <groupId>org.richfaces.framework</groupId>
       <artifactId>richfaces-impl</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
-	
+
 	<dependency>
       <groupId>org.richfaces.framework</groupId>
       <artifactId>richfaces-api</artifactId>
-      <version>3.3.1.GA</version>
     </dependency>
 
 
     <dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>listShuttle</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
     </dependency>
 
    <dependency>
       <groupId>org.richfaces.ui</groupId>
       <artifactId>orderingList</artifactId>
-      <version>3.3.1.GA-NX8-SNAPSHOT</version>
-   </dependency> 
+   </dependency>
  </dependencies>
 
 </project>
