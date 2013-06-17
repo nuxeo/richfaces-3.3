@@ -510,21 +510,21 @@
     </pluginRepository>
 
   </pluginRepositories>
+  
   <distributionManagement>
-    <downloadUrl>
-      http://labs.jboss.com/portal/jbossrichfaces/downloads
-    </downloadUrl>
     <repository>
-      <id>repository.jboss.org</id>
-      <uniqueVersion>false</uniqueVersion>
-      <url>${releaseRepository}</url>
+      <id>vendor-releases</id>
+      <url>
+        https://maven.nuxeo.org/nexus/content/repositories/vendor-releases
+      </url>
     </repository>
     <snapshotRepository>
-      <id>snapshots.jboss.org</id>
+      <id>vendor-snapshots</id>
+      <url>
+        https://maven.nuxeo.org/nexus/content/repositories/vendor-snapshots
+      </url>
       <uniqueVersion>true</uniqueVersion>
-      <url>${snapshotRepository}</url>
     </snapshotRepository>
-    <!--site> <url>file:target/site2</url> </site -->
   </distributionManagement>
   <issueManagement>
     <system>JIRA</system>
