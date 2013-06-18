@@ -125,6 +125,11 @@
         <version>${richfaces.nuxeo.version}</version>
       </dependency>
       <dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>inputnumber-spinner</artifactId>
+        <version>${richfaces.nuxeo.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.richfaces.framework</groupId>
         <artifactId>richfaces-test</artifactId>
         <version>${richfaces.version}</version>
@@ -134,10 +139,15 @@
         <artifactId>jsf-facelets</artifactId>
         <version>1.1.14</version>
       </dependency>
-      <dependency>
+      <!--dependency>
         <groupId>javax.el</groupId>
         <artifactId>el-api</artifactId>
         <version>1.0</version>
+      </dependency-->
+      <dependency>
+        <groupId>org.apache.tomcat</groupId>
+	<artifactId>el-api</artifactId>
+	<version>6.0.37</version>
       </dependency>
       <dependency>
         <groupId>commons-logging</groupId>
@@ -460,13 +470,45 @@
     </repository>
 
     <repository>
-      <releases />
+      <id>public</id>
+      <url>http://maven.nuxeo.org/nexus/content/groups/public</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
       <snapshots>
         <enabled>false</enabled>
-        <updatePolicy>never</updatePolicy>
       </snapshots>
-      <id>repository.jboss.org</id>
-      <url>http://repository.jboss.org/maven2</url>
+    </repository>
+    <repository>
+      <id>public-snapshot</id>
+      <url>http://maven.nuxeo.org/nexus/content/groups/public-snapshot</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>public</id>
+      <url>http://maven-eu.nuxeo.org/nexus/content/repositories/vendor-releases/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>public</id>
+      <url>http://maven-eu.nuxeo.org/nexus/content/repositories/vendor-snapshots/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
     </repository>
 
     <!-- additional repository -->
@@ -510,7 +552,7 @@
     </pluginRepository>
 
   </pluginRepositories>
-  
+
   <distributionManagement>
     <repository>
       <id>vendor-releases</id>

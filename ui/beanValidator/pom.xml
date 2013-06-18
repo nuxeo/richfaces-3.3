@@ -9,7 +9,6 @@
 	<groupId>org.richfaces.ui</groupId>
 	<artifactId>beanValidator</artifactId>
 	<name>beanValidator</name>
-	<version>3.3.1.GA-NX8-SNAPSHOT</version>
 	<build>
 		<plugins>
 			<plugin>
