@@ -67,7 +67,7 @@
       <optional>true</optional>
     </dependency>
     <dependency>
-      <groupId>javax.el</groupId>
+      <groupId>org.nuxeo</groupId>
       <artifactId>el-api</artifactId>
       <scope>provided</scope>
     </dependency>

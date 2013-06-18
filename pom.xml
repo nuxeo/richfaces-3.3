@@ -139,15 +139,10 @@
         <artifactId>jsf-facelets</artifactId>
         <version>1.1.14</version>
       </dependency>
-      <!--dependency>
-        <groupId>javax.el</groupId>
+      <dependency>
+        <groupId>org.nuxeo</groupId>
         <artifactId>el-api</artifactId>
         <version>1.0</version>
-      </dependency-->
-      <dependency>
-        <groupId>org.apache.tomcat</groupId>
-	<artifactId>el-api</artifactId>
-	<version>6.0.37</version>
       </dependency>
       <dependency>
         <groupId>commons-logging</groupId>
@@ -214,11 +209,6 @@
         <groupId>com.sun.facelets</groupId>
         <artifactId>jsf-facelets</artifactId>
         <version>1.1.14</version>
-      </dependency>
-      <dependency>
-        <groupId>javax.el</groupId>
-        <artifactId>el-api</artifactId>
-        <version>1.0</version>
       </dependency>
       <dependency>
         <groupId>commons-logging</groupId>
@@ -338,11 +328,6 @@
         <version>1.9.11</version>
       </dependency>
       <dependency>
-        <groupId>javax.el</groupId>
-        <artifactId>el-api</artifactId>
-        <version>1.0</version>
-      </dependency>
-      <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>servlet-api</artifactId>
         <version>2.5</version>
@@ -449,6 +434,7 @@
     <!-- <module>cdk</module> -->
     <!-- do not rebuild the api module -->
     <!-- <module>framework</module> -->
+    <module>el-api</module>
     <module>framework/impl</module>
     <module>ui</module>
     <!-- disabled unneeded modules for Nuxeo patches -->
