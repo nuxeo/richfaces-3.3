@@ -59,12 +59,12 @@
         <dependency>
             <groupId>org.richfaces.framework</groupId>
             <artifactId>richfaces-impl</artifactId>
-            <version>3.3.1.GA-NX9-SNAPSHOT</version>
+            <version>3.3.1.GA-NX8</version>
         </dependency>
         <dependency>
             <groupId>org.richfaces.ui</groupId>
             <artifactId>richfaces-ui</artifactId>
-            <version>3.3.1.GA-NX9-SNAPSHOT</version>
+            <version>3.3.1.GA-NX8</version>
         </dependency>
 		<dependency>
             <groupId>org.drools</groupId>

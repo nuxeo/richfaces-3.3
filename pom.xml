@@ -5,14 +5,14 @@
   <artifactId>root</artifactId>
   <packaging>pom</packaging>
   <name>Jboss RichFaces project</name>
-  <version>3.3.1.GA-NX9-SNAPSHOT</version>
+  <version>3.3.1.GA-NX8</version>
   <url>http://labs.jboss.com/jbossrichfaces</url>
   <properties>
     <snapshotRepository>
       dav:https://snapshots.jboss.org/maven2
     </snapshotRepository>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <richfaces.nuxeo.version>3.3.1.GA-NX9-SNAPSHOT</richfaces.nuxeo.version>
+    <richfaces.nuxeo.version>3.3.1.GA-NX8</richfaces.nuxeo.version>
     <richfaces.version>3.3.1.GA</richfaces.version>
   </properties>
   <dependencyManagement>
@@ -435,7 +435,7 @@
     <!-- do not rebuild the api module -->
     <!-- <module>framework</module> -->
     <module>el-api</module>
-    <module>framework/impl</module>
+    <module>framework</module>
     <module>ui</module>
     <!-- disabled unneeded modules for Nuxeo patches -->
     <!-- <module>extensions</module> <module>docs</module> -->
