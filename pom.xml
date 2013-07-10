@@ -478,7 +478,7 @@
     </repository>
     <repository>
       <id>vendor-releases</id>
-      <url>http://maven-eu.nuxeo.org/nexus/content/repositories/vendor-releases/</url>
+      <url>http://maven.nuxeo.org/nexus/content/repositories/vendor-releases/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -488,7 +488,7 @@
     </repository>
     <repository>
       <id>vendor-snapshots</id>
-      <url>http://maven-eu.nuxeo.org/nexus/content/repositories/vendor-snapshots/</url>
+      <url>http://maven.nuxeo.org/nexus/content/repositories/vendor-snapshots/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -542,15 +542,11 @@
   <distributionManagement>
     <repository>
       <id>vendor-releases</id>
-      <url>
-        https://maven.nuxeo.org/nexus/content/repositories/vendor-releases
-      </url>
+      <url>https://maven-eu.nuxeo.org/nexus/content/repositories/vendor-releases</url>
     </repository>
     <snapshotRepository>
       <id>vendor-snapshots</id>
-      <url>
-        https://maven.nuxeo.org/nexus/content/repositories/vendor-snapshots
-      </url>
+      <url>https://maven-eu.nuxeo.org/nexus/content/repositories/vendor-snapshots</url>
       <uniqueVersion>true</uniqueVersion>
     </snapshotRepository>
   </distributionManagement>
