@@ -897,6 +897,7 @@ A4J.AJAX.SubmitQuery = function (query, options, domEvt) {
 //Submit or put in queue request. It not full queues - framework perform waiting only one request to same queue, new events simple replace last.
 //If request for same queue already performed, replace with current parameters.
 A4J.AJAX.Submit =  function( containerId, formId, event , options ) {
+	A4J.AJAX.IncrementTestRequestsCount();
 	var domEvt = A4J.AJAX.CloneEvent(event);
 	var query = A4J.AJAX.PrepareQuery(containerId, formId, domEvt, options);
     if (query) {
@@ -1297,6 +1298,7 @@ A4J.AJAX.finishRequest = function(request){
 	}
 
 	A4J.AJAX.popQueue(request);
+	A4J.AJAX.DecrementTestRequestsCount();
 };
 
 A4J.AJAX.popQueue = function(request) {
@@ -1799,4 +1801,30 @@ A4J.AJAX.TestReplacedGetElementByIdVisibility = function() {
 			}
 		}
 	}
+};
+
+//Test helpers added by Nuxeo
+//@since 3.3.1.GA-NX9 (5.7.3)
+A4J.AJAX.TestStarted = false;
+A4J.AJAX.TestRequestsCount = 0;
+
+A4J.AJAX.startTest = function() {
+	A4J.AJAX.TestStarted = false;
+	A4J.AJAX.TestRequestsCount = 0;
+};
+
+A4J.AJAX.IncrementTestRequestsCount = function() {
+	A4J.AJAX.TestStarted = true;
+	A4J.AJAX.TestRequestsCount++;
+};
+
+A4J.AJAX.DecrementTestRequestsCount = function() {
+	A4J.AJAX.TestRequestsCount--;
+};
+
+A4J.AJAX.isTestFinished = function() {
+	if (A4J.AJAX.TestStarted == true && A4J.AJAX.TestRequestsCount == 0) {
+		return true;
+	}
+	return false;
 };
