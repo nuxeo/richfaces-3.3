@@ -1,4 +1,4 @@
-<?xml version="1.0"?><project>
+<project>
   <parent>
     <artifactId>regressionArea</artifactId>
     <groupId>org.richfaces.test-applications</groupId>

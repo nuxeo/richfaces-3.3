@@ -10,7 +10,7 @@
 	<version>3.3.1.GA</version>
 	<packaging>pom</packaging>
 	<name>JSF Components Development kit</name>
-	<dependencies />
+	<dependencies></dependencies>
 	<build>
 		<pluginManagement>
 			<plugins>

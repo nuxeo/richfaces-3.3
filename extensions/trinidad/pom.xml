@@ -1,4 +1,4 @@
-<?xml version="1.0"?><project>
+<project>
   <parent>
     <artifactId>master</artifactId>
     <groupId>org.richfaces</groupId>

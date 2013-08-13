@@ -1,4 +1,4 @@
-<?xml version="1.0"?><project>
+<project>
   <parent>
     <artifactId>ui</artifactId>
     <groupId>org.richfaces.sandbox</groupId>
