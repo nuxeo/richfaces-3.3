@@ -68,7 +68,7 @@
 						</jarModule>
 					</modules>
                                         <artifactTypeMappings>
-                                                <artifactTypeMapping type="jar" mapping="ejb" />
+                                                <artifactTypeMapping mapping="ejb" type="jar"></artifactTypeMapping>
                                         </artifactTypeMappings>
                                         <archive>
                                                 <manifest>

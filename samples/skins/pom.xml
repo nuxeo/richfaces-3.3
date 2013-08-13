@@ -8,5 +8,5 @@
 	<groupId>org.richfaces.samples</groupId>
 	<artifactId>skins</artifactId>
 	<name>skins</name>
-	<dependencies />
+	<dependencies></dependencies>
 </project>

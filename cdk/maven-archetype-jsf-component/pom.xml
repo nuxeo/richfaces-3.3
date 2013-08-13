@@ -2,11 +2,11 @@
   <parent>
     <artifactId>cdk</artifactId>
     <groupId>org.richfaces</groupId>
-    <version>3.3.1.GA-NX9-SNAPSHOT</version>
+    <version>3.3.1.GA-NX10-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.richfaces.cdk</groupId>
   <artifactId>maven-archetype-jsf-component</artifactId>
-  <version>3.3.1.GA-NX9-SNAPSHOT</version>
+  <version>3.3.1.GA-NX10-SNAPSHOT</version>
   <name>Archetype - maven-archetype-jsf-component</name>
 </project>

@@ -2,7 +2,7 @@
   <parent>
     <artifactId>ui</artifactId>
     <groupId>org.richfaces</groupId>
-    <version>3.3.1.GA-NX9-SNAPSHOT</version>
+    <version>3.3.1.GA-NX10-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.richfaces.ui</groupId>
@@ -50,7 +50,7 @@
 				<configuration>
 					<tasks>
 						<ant antfile="${basedir}/generatescript.xml" inheritRefs="true">
-							<target name="merge-scripts" />
+							<target name="merge-scripts"></target>
 							<property name="target-dir" value="${project.build.directory}/generated-component/resources">
 							</property>
 							<property name="resources-dir" value="${basedir}/src/main/javascript">
