@@ -110,7 +110,7 @@
       <plugin>
         <groupId>org.richfaces.cdk</groupId>
         <artifactId>maven-javascript-plugin</artifactId>
-        <version>3.3.1.GA</version>
+        <version>${richfaces.version}</version>
         <executions>
           <execution>
             <goals>
@@ -323,7 +323,7 @@
                       </groupId>
                       <artifactId>en</artifactId>
                       <version>
-                        ${project.version}
+                        ${richfaces.version}
                       </version>
                       <type>jar</type>
                       <!--classifier>pdf</classifier -->
@@ -337,7 +337,7 @@
                       </groupId>
                       <artifactId>en</artifactId>
                       <version>
-                        ${project.version}
+                        ${richfaces.version}
                       </version>
                       <type>jar</type>
                       <!--classifier>pdf</classifier -->
@@ -351,7 +351,7 @@
                       </groupId>
                       <artifactId>en</artifactId>
                       <version>
-                        ${project.version}
+                        ${richfaces.version}
                       </version>
                       <type>jar</type>
                       <!--classifier>pdf</classifier -->
@@ -365,7 +365,7 @@
                       </groupId>
                       <artifactId>en</artifactId>
                       <version>
-                        ${project.version}
+                        ${richfaces.version}
                       </version>
                       <type>jar</type>
                       <!--classifier>pdf</classifier -->
@@ -380,7 +380,7 @@
                       </groupId>
                       <artifactId>en</artifactId>
                       <version>
-                        ${project.version}
+                        ${richfaces.version}
                       </version>
                       <type>jar</type>
                       <!--classifier>pdf</classifier -->
