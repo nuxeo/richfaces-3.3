@@ -45,7 +45,7 @@
 			<dependency>
 			<groupId>org.richfaces.ui</groupId>
 			<artifactId>richfaces-ui-core</artifactId>
-			<version>3.3.1.GA-NX9-SNAPSHOT</version>
+			<version>3.3.1.GA-NX10-SNAPSHOT</version>
 			</dependency>
 		-->
 	</dependencies>
