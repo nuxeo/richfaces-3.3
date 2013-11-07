@@ -156,7 +156,7 @@ public class UserResource extends InternetResourceBase {
 		return true;
 	}
 	
-	public static class UriData implements Serializable {
+	public static class UriData implements SerializableResource {
 
 		/**
 		 * 

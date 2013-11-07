@@ -1,9 +1,10 @@
 package org.richfaces.demo.media;
 
 import java.awt.Color;
-import java.io.Serializable;
 
-public class MediaData implements Serializable{
+import org.ajax4jsf.resource.SerializableResource;
+
+public class MediaData implements SerializableResource {
 
 	private static final long serialVersionUID = 1L;
 	Integer Width=110;

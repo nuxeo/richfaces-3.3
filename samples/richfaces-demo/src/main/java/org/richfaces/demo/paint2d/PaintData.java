@@ -1,8 +1,8 @@
 package org.richfaces.demo.paint2d;
 
-import java.io.Serializable;
+import org.ajax4jsf.resource.SerializableResource;
 
-public class PaintData implements Serializable{
+public class PaintData implements SerializableResource {
 	/**
 	 * 
 	 */

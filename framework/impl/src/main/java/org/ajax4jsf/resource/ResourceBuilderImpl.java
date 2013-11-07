@@ -374,8 +374,7 @@ public class ResourceBuilderImpl extends InternetResourceBuilder {
 				data = objectArray;
 			} else {
 				try {
-					ObjectInputStream in = new ObjectInputStream(
-							new ByteArrayInputStream(objectArray));
+					ObjectInputStream in = new LookAheadObjectInputStream(new ByteArrayInputStream(objectArray));
 					data = in.readObject();
 				} catch (StreamCorruptedException e) {
 					log.error(Messages

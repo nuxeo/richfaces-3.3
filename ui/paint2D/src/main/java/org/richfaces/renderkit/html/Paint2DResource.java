@@ -27,7 +27,6 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.io.Serializable;
 
 import javax.faces.FacesException;
 import javax.faces.component.UIComponentBase;
@@ -41,6 +40,7 @@ import org.ajax4jsf.resource.JpegRenderer;
 import org.ajax4jsf.resource.PngRenderer;
 import org.ajax4jsf.resource.ResourceContext;
 import org.ajax4jsf.resource.ResourceRenderer;
+import org.ajax4jsf.resource.SerializableResource;
 import org.ajax4jsf.util.HtmlColor;
 import org.richfaces.component.UIPaint2D;
 
@@ -126,7 +126,7 @@ public class Paint2DResource extends InternetResourceBase {
 		}
 	}
 
-	private static final class ImageData implements Serializable {
+	private static final class ImageData implements SerializableResource {
 
 		private static final long serialVersionUID = 4452040100045367728L;
 		
