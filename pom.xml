@@ -433,7 +433,7 @@
     <!-- <module>cdk</module> -->
     <!-- do not rebuild the api module -->
     <!-- <module>framework</module> -->
-    <module>el-api</module>
+    <!--module>el-api</module-->
     <module>framework</module>
     <module>ui</module>
     <!-- disabled unneeded modules for Nuxeo patches -->
