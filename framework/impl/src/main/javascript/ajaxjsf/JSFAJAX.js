@@ -1030,7 +1030,7 @@ A4J.AJAX.processResponse = function(req) {
         	  }
         	  // Replace client-side hidden inputs for JSF View state.
         	  var idsSpan = req.getElementById("ajax-view-state");
-	          LOG.debug("Hidden JSF state fields: "+idsSpan);
+	          LOG.debug("Hidden JSF state fields: ");//+idsSpan);
         	  if(idsSpan != null){
         	  	// For a portal case, replace content in the current window only.
 			        var namespace = options.parameters['org.ajax4jsf.portlet.NAMESPACE'];
@@ -1118,7 +1118,7 @@ A4J.AJAX.replacePage = function(req){
 							var isDocOpen=false;
 							try {  	
 								var contentType = req.getContentType();
-		          				var responseText = isIE ? 
+		          				var responseText = 	(isIE && !Sarissa._SARISSA_IS_IE9)  ? 
 		          					req.getResponseText().replace(/(<script(?!\s+src=))/igm, "$1 defer ") : 
 		          					req.getResponseText();
 
