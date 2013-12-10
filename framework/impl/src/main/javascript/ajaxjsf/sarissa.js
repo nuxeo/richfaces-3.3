@@ -63,13 +63,11 @@ Sarissa._SARISSA_IS_SAFARI = navigator.userAgent.toLowerCase()
 Sarissa._SARISSA_IS_SAFARI_OLD = Sarissa._SARISSA_IS_SAFARI
     && (parseInt((navigator.userAgent.match(/AppleWebKit\/(\d+)/) || {})[1], 10) < 420);
 /** @private */
-Sarissa._SARISSA_IS_IE = document.all && window.ActiveXObject
-    && navigator.userAgent.toLowerCase().indexOf("msie") > -1
-    && navigator.userAgent.toLowerCase().indexOf("opera") == -1;
+Sarissa._SARISSA_IS_IE10_or_IE11 = !!window.MSStream && navigator.userAgent.toLowerCase().indexOf("trident/7") > -1;
 /** @private */
-Sarissa._SARISSA_IS_IE9 = Sarissa._SARISSA_IS_IE
-    && (parseFloat(navigator.appVersion.substring(navigator.appVersion
-        .indexOf("MSIE") + 5))) >= 9;
+Sarissa._SARISSA_IS_IE = (document.all && window.ActiveXObject && navigator.userAgent.toLowerCase().indexOf("msie") > -1  && navigator.userAgent.toLowerCase().indexOf("opera") == -1) || Sarissa._SARISSA_IS_IE10_or_IE11;
+/** @private */
+Sarissa._SARISSA_IS_IE9 = Sarissa._SARISSA_IS_IE && navigator.userAgent.toLowerCase().indexOf("trident/5") > -1;
 /** @private */
 Sarissa._SARISSA_IS_OPERA = navigator.userAgent.toLowerCase().indexOf("opera") != -1;
 if (!window.Node || !Node.ELEMENT_NODE) {
@@ -653,21 +651,30 @@ Sarissa.getText = function(oNode, deep) {
   }
   return s;
 };
-if ((!window.XMLSerializer || Sarissa._SARISSA_IS_IE9)
-    && Sarissa.getDomDocument && Sarissa.getDomDocument("", "foo", null).xml) {
-  /**
-   * Utility class to serialize DOM Node objects to XML strings
-   * @constructor
-   */
-  XMLSerializer = function() {
-  };
-  /**
-   * Serialize the given DOM Node to an XML string
-   * @param oNode the DOM Node to serialize
-   */
-  XMLSerializer.prototype.serializeToString = function(oNode) {
-    return oNode.xml;
-  };
+if((!window.XMLSerializer  || Sarissa._SARISSA_IS_IE10_or_IE11) && Sarissa.getDomDocument && Sarissa.getDomDocument("","foo", null).xml){
+    /**
+     * Utility class to serialize DOM Node objects to XML strings
+     * @constructor
+     */
+    XMLSerializer = function(){};
+    /**
+     * Serialize the given DOM Node to an XML string
+     * @param {DOMNode} oNode the DOM Node to serialize
+     */
+    XMLSerializer.prototype.serializeToString = function(oNode) {
+        return oNode.xml;
+    };
+} else if (Sarissa._SARISSA_IS_IE9 && window.XMLSerializer) {
+    // We save old object for any futur use with IE Document (not xml)
+    IE9XMLSerializer= XMLSerializer;
+    XMLSerializer = function(){ this._oldSerializer=new IE9XMLSerializer() };
+    XMLSerializer.prototype.serializeToString = function(oNode) {
+        if (typeof(oNode)=='object' && 'xml' in oNode) {
+            return oNode.xml;
+        } else {
+            return this._oldSerializer.serializeToString(oNode);
+        }
+    };
 }
 
 /**
