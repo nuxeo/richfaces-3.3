@@ -67,7 +67,7 @@ Sarissa._SARISSA_IS_IE10_or_IE11 = !!window.MSStream && navigator.userAgent.toLo
 /** @private */
 Sarissa._SARISSA_IS_IE = (document.all && window.ActiveXObject && navigator.userAgent.toLowerCase().indexOf("msie") > -1  && navigator.userAgent.toLowerCase().indexOf("opera") == -1) || Sarissa._SARISSA_IS_IE10_or_IE11;
 /** @private */
-Sarissa._SARISSA_IS_IE9 = Sarissa._SARISSA_IS_IE && navigator.userAgent.toLowerCase().indexOf("trident/5") > -1;
+Sarissa._SARISSA_IS_IE9 = Sarissa._SARISSA_IS_IE && (navigator.userAgent.toLowerCase().indexOf("trident/5") > -1 || navigator.userAgent.toLowerCase().indexOf("msie 9") > -1);
 /** @private */
 Sarissa._SARISSA_IS_OPERA = navigator.userAgent.toLowerCase().indexOf("opera") != -1;
 if (!window.Node || !Node.ELEMENT_NODE) {
