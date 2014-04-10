@@ -212,12 +212,12 @@
                   ${project.build.directory}/compressed/org/richfaces/renderkit/html/scripts/common-scrollable-data-table-min.js
                 </include>
 
-                <include>
+                <!--include>
                   ${project.build.directory}/compressed/org/richfaces/renderkit/html/scripts/tiny_mce/tiny_mce_src-min.js
                 </include>
                 <include>
                   ${project.build.directory}/compressed/org/richfaces/renderkit/html/scripts/editor-min.js
-                </include>
+                </include-->
 
                 <include>
                   ${project.build.directory}/compressed/org/richfaces/renderkit/html/scripts/pngFix-min.js

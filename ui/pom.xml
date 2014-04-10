@@ -138,7 +138,7 @@
     <module>beanValidator</module>
     <module>state</module>
     <module>extendedDataTable</module>
-    <module>editor</module>
+    <!--module>editor</module-->
     <module>layout</module>
   </modules>
   <dependencies>
