@@ -22,10 +22,11 @@
 package org.ajax4jsf.context;
 
 import javax.faces.FacesException;
-import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.ajax4jsf.renderkit.RendererUtils.HTML;
+import org.ajax4jsf.util.DocumentBuilderPool;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -37,95 +38,103 @@ import org.xml.sax.SAXException;
 
 class ResponseWriterContentHandler implements ContentHandler {
 
-	private String linkClass;
+        private String linkClass;
 
-	private Node node;
+        private Node node;
 
-	public ResponseWriterContentHandler(String linkClass) {
-		super();
-		
-		try {
-			Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
-			node = document.createElement("head");
-			document.appendChild(node);
-		} catch (ParserConfigurationException e) {
-			throw new FacesException(e.getLocalizedMessage(), e);
-		}
-		
-		this.linkClass = linkClass;
-	}
+        public ResponseWriterContentHandler(String linkClass) {
+                super();
 
-	public void characters(char[] ch, int start, int length)
-			throws SAXException {
+                DocumentBuilder builder = null;
 
-		node.appendChild(node.getOwnerDocument().createTextNode(new String(ch, start, length)));
-	}
+                try {
+                        //Pull the document builder from pool
+                        builder = DocumentBuilderPool.getDocumentBuilder();
 
-	public void endDocument() throws SAXException {
-	}
+                        //create a new document & initialize
+                        Document document = builder.newDocument();
+                        node = document.createElement("head");
+                        document.appendChild(node);
+                } catch (ParserConfigurationException e) {
+                        throw new FacesException(e.getLocalizedMessage(), e);
+                }finally{
+                        //Must always return the document builder to pool
+                        DocumentBuilderPool.returnDocumentBuilder(builder);
+                }
 
-	public void endElement(String uri, String localName, String name)
-			throws SAXException {
-		
-		node = node.getParentNode();
-	}
+                this.linkClass = linkClass;
+        }
 
-	public void endPrefixMapping(String prefix) throws SAXException {
-		throw new UnsupportedOperationException();
-	}
+        public void characters(char[] ch, int start, int length)
+                        throws SAXException {
 
-	public void ignorableWhitespace(char[] ch, int start, int length)
-			throws SAXException {
-	}
+                node.appendChild(node.getOwnerDocument().createTextNode(new String(ch, start, length)));
+        }
 
-	public void processingInstruction(String target, String data)
-			throws SAXException {
-		throw new UnsupportedOperationException();
-	}
+        public void endDocument() throws SAXException {
+        }
 
-	public void setDocumentLocator(Locator locator) {
-		throw new UnsupportedOperationException();
-	}
+        public void endElement(String uri, String localName, String name)
+                        throws SAXException {
 
-	public void skippedEntity(String name) throws SAXException {
-		throw new UnsupportedOperationException();
-	}
+                node = node.getParentNode();
+        }
 
-	public void startDocument() throws SAXException {
-	}
+        public void endPrefixMapping(String prefix) throws SAXException {
+                throw new UnsupportedOperationException();
+        }
 
-	public void startElement(String uri, String localName,
-			String name, Attributes atts) throws SAXException {
+        public void ignorableWhitespace(char[] ch, int start, int length)
+                        throws SAXException {
+        }
 
-		Document document = node.getOwnerDocument();
-		Element element = document.createElement(localName);
+        public void processingInstruction(String target, String data)
+                        throws SAXException {
+                throw new UnsupportedOperationException();
+        }
 
-		int length = atts.getLength();
+        public void setDocumentLocator(Locator locator) {
+                throw new UnsupportedOperationException();
+        }
 
-		for (int i = 0; i < length; i++) {
-			element.setAttribute(atts.getLocalName(i), atts.getValue(i));
-		}
-		
-		if (HTML.LINK_ELEMENT.equals(localName)) {
-			element.setAttribute(HTML.class_ATTRIBUTE, linkClass);
-		}
+        public void skippedEntity(String name) throws SAXException {
+                throw new UnsupportedOperationException();
+        }
 
-		node = node.appendChild(element);
-	}
+        public void startDocument() throws SAXException {
+        }
 
-	public void startPrefixMapping(String prefix, String uri)
-			throws SAXException {
-		throw new UnsupportedOperationException();
-	}
+        public void startElement(String uri, String localName,
+                        String name, Attributes atts) throws SAXException {
 
-	public Node[] getNodes() {
-		NodeList childNodes = node.getChildNodes();
-		Node[] list = new Node[childNodes.getLength()];
-		for (int i = 0; i < list.length; i++) {
-			list[i] = childNodes.item(i);
-		}
-		
-		return list;
-	}
-	
+                Document document = node.getOwnerDocument();
+                Element element = document.createElement(localName);
+
+                int length = atts.getLength();
+
+                for (int i = 0; i < length; i++) {
+                        element.setAttribute(atts.getLocalName(i), atts.getValue(i));
+                }
+
+                if (HTML.LINK_ELEMENT.equals(localName)) {
+                        element.setAttribute(HTML.class_ATTRIBUTE, linkClass);
+                }
+
+                node = node.appendChild(element);
+        }
+
+        public void startPrefixMapping(String prefix, String uri)
+                        throws SAXException {
+                throw new UnsupportedOperationException();
+        }
+
+        public Node[] getNodes() {
+                NodeList childNodes = node.getChildNodes();
+                Node[] list = new Node[childNodes.getLength()];
+                for (int i = 0; i < list.length; i++) {
+                        list[i] = childNodes.item(i);
+                }
+
+                return list;
+        }
 }
