@@ -4,14 +4,14 @@
   <artifactId>root</artifactId>
   <packaging>pom</packaging>
   <name>Jboss RichFaces project</name>
-  <version>3.3.1.GA-NX9.04</version>
+  <version>3.3.1.GA-NX9.05-SNAPSHOT</version>
   <url>http://labs.jboss.com/jbossrichfaces</url>
   <properties>
     <snapshotRepository>
       dav:https://snapshots.jboss.org/maven2
     </snapshotRepository>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <richfaces.nuxeo.version>3.3.1.GA-NX9.04</richfaces.nuxeo.version>
+    <richfaces.nuxeo.version>3.3.1.GA-NX9.05-SNAPSHOT</richfaces.nuxeo.version>
     <richfaces.version>3.3.1.GA</richfaces.version>
   </properties>
   <dependencyManagement>

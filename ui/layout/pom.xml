@@ -3,7 +3,7 @@
   <parent>
     <artifactId>ui</artifactId>
     <groupId>org.richfaces</groupId>
-    <version>3.3.1.GA-NX9.04</version>
+    <version>3.3.1.GA-NX9.05-SNAPSHOT</version>
   </parent>
   <groupId>org.richfaces.ui</groupId>
   <artifactId>layout</artifactId>
