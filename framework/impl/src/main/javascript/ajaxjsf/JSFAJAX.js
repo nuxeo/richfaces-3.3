@@ -1757,14 +1757,23 @@ if ((!document.all || window.opera) && !A4J.AJAX._scriptTested){
  		try{	
 			// Simulate same calls as on XmlHttp
 			var oDomDoc = Sarissa.getDomDocument();
-			var _span = document.createElement("span");
+			var _span;
+			if (Sarissa._SARISSA_IS_IE10_or_IE11) {
+				span = document.createElement("script");
+			} else {
+				span = document.createElement("span");
+			}
 			document.body.appendChild(_span);
 			// If script evaluated with used replace method, variable will be set to true
 			var xmlString = "<html xmlns='http://www.w3.org/1999/xhtml'><sc"+"ript>A4J.AJAX._scriptEvaluated=true;</scr"+"ipt></html>";
 			oDomDoc = (new DOMParser()).parseFromString(xmlString, "text/xml");
 			var _script=oDomDoc.getElementsByTagName("script")[0];
 			if (!window.opera && !A4J.AJAX.isWebkitBreakingAmps() && _span.outerHTML) {
-				_span.outerHTML = new XMLSerializer().serializeToString(_script); 
+				if (Sarissa._SARISSA_IS_IE10_or_IE11) {
+					_span.innerHTML = "A4J.AJAX._scriptEvaluated=true;";
+				} else {
+					span.outerHTML = new XMLSerializer().serializeToString(_script);
+				}
 			} else {
 		    	var importednode ;
 		   		importednode = window.document.importNode(_script, true);
